@@ -95,9 +95,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         // historyDetailEl.appendChild(ul); // 기존 ul 제거
 
-        // 모든 카드가 추가된 후 MathJax를 한 번 호출
+        // 모든 카드가 추가된 후 MathJax를 한 번 호출 (setTimeout으로 DOM 업데이트 보장)
         if (typeof MathJax !== "undefined" && MathJax.typesetPromise) {
-            MathJax.typesetPromise(historyDetailEl.querySelectorAll('.result-card')).catch((err) => console.error('MathJax typesetPromise failed for history details:', err));
+            setTimeout(() => {
+                MathJax.typesetPromise(historyDetailEl).catch((err) => console.error('MathJax typesetPromise failed for history details:', err));
+            }, 0);
         }
     }
 });

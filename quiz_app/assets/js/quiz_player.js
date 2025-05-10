@@ -239,9 +239,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 quizResultEl.appendChild(resultCardsContainer);
 
-                // 모든 카드가 추가된 후 MathJax를 한 번 호출
+                // 모든 카드가 추가된 후 MathJax를 한 번 호출 (setTimeout으로 DOM 업데이트 보장)
                 if (typeof MathJax !== "undefined" && MathJax.typesetPromise) {
-                    MathJax.typesetPromise(resultCardsContainer.childNodes).catch((err) => console.error('MathJax typesetPromise failed for results:', err));
+                    setTimeout(() => {
+                        MathJax.typesetPromise(resultCardsContainer).catch((err) => console.error('MathJax typesetPromise failed for results:', err));
+                    }, 0);
                 }
             }
             
