@@ -83,15 +83,11 @@ document.addEventListener('DOMContentLoaded', function() {
             card.classList.add('result-card');
             card.classList.add(ans.isCorrect ? 'correct' : 'incorrect');
             
-            const normalizeDisplayAnswer = (str) => { // history.js에도 동일 함수 추가
-                if (typeof str !== 'string') return "";
-                return str.replace(/\$/g, '').trim(); 
-            };
-
+            // normalizeDisplayAnswer 함수 제거 또는 사용 안 함
             card.innerHTML = `
                 <div class="result-card-question"><strong>문제 ${index + 1}:</strong> ${ans.question}</div>
-                <div class="result-card-user-answer"><strong>제출 답:</strong> ${normalizeDisplayAnswer(ans.userAnswer) || "(답변 없음)"}</div>
-                <div class="result-card-correct-answer"><strong>정답:</strong> ${normalizeDisplayAnswer(ans.correctAnswer)}</div>
+                <div class="result-card-user-answer"><strong>제출 답:</strong> ${ans.userAnswer || "(답변 없음)"}</div>
+                <div class="result-card-correct-answer"><strong>정답:</strong> ${ans.correctAnswer}</div>
                 <div class="result-card-status">${ans.isCorrect ? '정답 👍' : '오답 👎'}</div>
             `;
             // ul 대신 historyDetailEl에 직접 카드 추가

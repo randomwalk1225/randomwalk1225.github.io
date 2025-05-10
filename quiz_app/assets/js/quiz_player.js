@@ -228,14 +228,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     card.classList.add('result-card');
                     card.classList.add(r.isCorrect ? 'correct' : 'incorrect');
 
-                    const normalizeDisplayAnswer = (str) => {
-                        if (typeof str !== 'string') return "";
-                        return str.replace(/\$/g, '').trim(); // $만 제거하고 공백은 유지하거나, normalizeAnswer와 동일하게 처리
-                    };
+                    // normalizeDisplayAnswer 함수 제거 또는 사용 안 함
                     card.innerHTML = `
                         <div class="result-card-question"><strong>문제 ${index + 1}:</strong> ${r.question}</div>
-                        <div class="result-card-user-answer"><strong>제출 답:</strong> ${normalizeDisplayAnswer(r.userAnswer) || "(답변 없음)"}</div>
-                        <div class="result-card-correct-answer"><strong>정답:</strong> ${normalizeDisplayAnswer(r.correctAnswer)}</div>
+                        <div class="result-card-user-answer"><strong>제출 답:</strong> ${r.userAnswer || "(답변 없음)"}</div>
+                        <div class="result-card-correct-answer"><strong>정답:</strong> ${r.correctAnswer}</div>
                         <div class="result-card-status">${r.isCorrect ? '정답 👍' : '오답 👎'}</div>
                     `;
                     resultCardsContainer.appendChild(card);
