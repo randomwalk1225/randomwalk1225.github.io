@@ -228,19 +228,24 @@ document.addEventListener('DOMContentLoaded', function() {
                     card.classList.add('result-card');
                     card.classList.add(r.isCorrect ? 'correct' : 'incorrect');
 
+                    const normalizeDisplayAnswer = (str) => {
+                        if (typeof str !== 'string') return "";
+                        return str.replace(/\$/g, '').trim(); // $만 제거하고 공백은 유지하거나, normalizeAnswer와 동일하게 처리
+                    };
                     card.innerHTML = `
                         <div class="result-card-question"><strong>문제 ${index + 1}:</strong> ${r.question}</div>
-                        <div class="result-card-user-answer"><strong>제출 답:</strong> ${r.userAnswer || "(답변 없음)"}</div>
-                        <div class="result-card-correct-answer"><strong>정답:</strong> ${r.correctAnswer}</div>
+                        <div class="result-card-user-answer"><strong>제출 답:</strong> ${normalizeDisplayAnswer(r.userAnswer) || "(답변 없음)"}</div>
+                        <div class="result-card-correct-answer"><strong>정답:</strong> ${normalizeDisplayAnswer(r.correctAnswer)}</div>
                         <div class="result-card-status">${r.isCorrect ? '정답 👍' : '오답 👎'}</div>
                     `;
-                    // MathJax가 카드 내의 수식을 다시 렌더링하도록 처리
-                    if (typeof MathJax !== "undefined" && MathJax.typesetPromise) {
-                        setTimeout(() => MathJax.typesetPromise([card]), 0);
-                    }
                     resultCardsContainer.appendChild(card);
                 });
                 quizResultEl.appendChild(resultCardsContainer);
+
+                // 모든 카드가 추가된 후 MathJax를 한 번 호출
+                if (typeof MathJax !== "undefined" && MathJax.typesetPromise) {
+                    MathJax.typesetPromise(resultCardsContainer.childNodes).catch((err) => console.error('MathJax typesetPromise failed for results:', err));
+                }
             }
             
             if (submitButton) submitButton.style.display = 'none'; // 제출 후 버튼 숨김
