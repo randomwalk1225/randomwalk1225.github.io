@@ -20,29 +20,40 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    function loadUserHistory(userId) {
+    async function loadUserHistory(userId) {
         if (!historyListEl || !historyDetailEl) {
             console.error("히스토리 표시를 위한 DOM 요소를 찾을 수 없습니다.");
             return;
         }
-        historyListEl.innerHTML = ''; // 이전 목록 초기화
+        historyListEl.innerHTML = '<li>기록을 불러오는 중...</li>'; // 로딩 메시지
         historyDetailEl.innerHTML = ''; // 이전 상세 정보 초기화
 
-        try {
-            const userHistory = JSON.parse(localStorage.getItem(`quizHistory_${userId}`)) || [];
+        const siteBaseUrl = document.body.getAttribute('data-baseurl') || '';
+        const functionPath = `${siteBaseUrl}/.netlify/functions/getUserHistory?userId=${encodeURIComponent(userId)}`;
 
-            if (userHistory.length === 0) {
+        try {
+            const response = await fetch(functionPath);
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(`서버에서 기록을 불러오는 데 실패했습니다: ${errorData.error || response.statusText}`);
+            }
+            
+            const userHistory = await response.json();
+
+            if (!Array.isArray(userHistory) || userHistory.length === 0) {
                 historyListEl.innerHTML = '<p>아직 응시한 퀴즈 기록이 없습니다.</p>';
                 return;
             }
 
             // 시간 역순으로 정렬 (최신 기록이 위로)
             userHistory.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-
+            
+            historyListEl.innerHTML = ''; // 로딩 메시지 제거
             const ul = document.createElement('ul');
             userHistory.forEach(record => {
                 const li = document.createElement('li');
                 const button = document.createElement('button');
+                // record 객체는 FaunaDB에서 온 data 객체 그 자체입니다.
                 button.textContent = `${record.quizTitle || record.quizId} - ${new Date(record.timestamp).toLocaleString('ko-KR')} (점수: ${record.score.toFixed(1)})`;
                 button.addEventListener('click', () => displayHistoryDetail(record));
                 li.appendChild(button);
@@ -50,9 +61,9 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             historyListEl.appendChild(ul);
 
-        } catch (e) {
-            console.error("localStorage에서 히스토리 로드 중 오류 발생:", e);
-            historyListEl.innerHTML = '<p style="color:red;">기록을 불러오는 중 오류가 발생했습니다.</p>';
+        } catch (error) {
+            console.error("서버에서 히스토리 로드 중 오류 발생:", error);
+            historyListEl.innerHTML = `<p style="color:red;">기록을 불러오는 중 오류가 발생했습니다: ${error.message}</p>`;
         }
     }
 

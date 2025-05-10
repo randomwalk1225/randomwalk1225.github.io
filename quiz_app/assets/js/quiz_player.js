@@ -34,18 +34,24 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!response.ok) {
                 throw new Error(`퀴즈 데이터(${id})를 불러오는 데 실패했습니다: ${response.statusText} (경로: ${quizDataPath})`);
             }
-            currentQuizData = await response.json();
+            const rawQuizData = await response.json();
             
-            // 퀴즈 제목 설정 (quiz.json에 title 필드가 있다고 가정하거나, 폴더명 기반으로)
-            // 예시: currentQuizData.title || id;
-            if (quizTitleEl) {
-                // quiz.json 파일 내에 title 속성이 있다면 그것을 사용, 없다면 quizId를 활용
-                // 예를 들어, quiz.json 최상위에 "title": "수학 101 퀴즈" 와 같이 추가할 수 있습니다.
-                // 지금은 임시로 quizId를 사용합니다.
-                let title = id;
-                if (id === 'math101') title = "수학 101 퀴즈";
-                else if (id === 'history_basics') title = "역사 기초 퀴즈";
-                quizTitleEl.textContent = title;
+            if (Array.isArray(rawQuizData) && rawQuizData.length > 0 && rawQuizData[0].title) {
+                if (quizTitleEl) {
+                    quizTitleEl.textContent = rawQuizData[0].title;
+                }
+                currentQuizData = rawQuizData.slice(1); // 첫 번째 객체(타이틀)를 제외한 나머지가 실제 퀴즈 문제
+            } else {
+                // title 정보가 없거나 형식이 맞지 않는 경우, 기존 방식대로 quizId 사용 또는 에러 처리
+                if (quizTitleEl) {
+                    let title = id;
+                    if (id === 'math101') title = "수학 101 퀴즈";
+                    else if (id === 'history_basics') title = "역사 기초 퀴즈";
+                    else title = "퀴즈"; // 기본값
+                    quizTitleEl.textContent = title;
+                }
+                currentQuizData = rawQuizData; // 원본 데이터를 그대로 사용하거나, 적절히 필터링
+                console.warn("퀴즈 데이터에 title 정보가 없거나 형식이 올바르지 않습니다. quiz.json의 첫 번째 객체에 { \"title\": \"퀴즈 제목\" } 형식으로 추가해주세요.");
             }
             
             renderQuiz();
@@ -59,10 +65,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 퀴즈 렌더링
     function renderQuiz() {
-        if (!currentQuizData || !quizContentEl) return;
+        if (!currentQuizData || currentQuizData.length === 0 || !quizContentEl) {
+            if (quizContentEl) quizContentEl.innerHTML = '<p>퀴즈 문제를 불러올 수 없습니다.</p>';
+            if (submitButton) submitButton.style.display = 'none';
+            return;
+        }
         quizContentEl.innerHTML = ''; // 기존 내용 초기화
 
+        // currentQuizData는 이제 순수 문제 객체들의 배열입니다.
         currentQuizData.forEach((q, index) => {
+            if (!q || typeof q.id === 'undefined') { // title 객체가 아닌 실제 문제 객체인지 한번 더 확인
+                console.warn('잘못된 형식의 문제 데이터가 포함되어 있습니다:', q);
+                return; // 다음 문제로 넘어감
+            }
             const questionItem = document.createElement('div');
             questionItem.classList.add('question-item');
             questionItem.innerHTML = `
@@ -126,6 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
+            // currentQuizData는 실제 문제들만 담고 있으므로, 길이를 그대로 사용합니다.
             if (Object.keys(userAnswers).length !== currentQuizData.length) {
                 alert('모든 문제에 답해주세요.');
                 return;
@@ -133,6 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             let score = 0;
             const detailedResults = currentQuizData.map(q => {
+                if (!q || typeof q.id === 'undefined') return null; // 안전장치
                 const userAnswer = userAnswers[q.id] || "";
                 const isCorrect = userAnswer.toLowerCase() === q.answer.toLowerCase();
                 if (isCorrect) {
@@ -145,10 +162,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     correctAnswer: q.answer,
                     isCorrect: isCorrect
                 };
-            });
+            }).filter(r => r !== null); // null인 경우(잘못된 문제 데이터) 제외
 
-            const totalQuestions = currentQuizData.length;
-            const percentageScore = (score / totalQuestions) * 100;
+            const totalQuestions = currentQuizData.filter(q => q && typeof q.id !== 'undefined').length;
+            const percentageScore = totalQuestions > 0 ? (score / totalQuestions) * 100 : 0;
 
             if (quizResultEl) {
                 quizResultEl.innerHTML = `
@@ -195,7 +212,10 @@ document.addEventListener('DOMContentLoaded', function() {
             userHistory.push(resultData);
             localStorage.setItem(`quizHistory_${userId}`, JSON.stringify(userHistory));
             console.log("결과가 localStorage에 저장되었습니다.");
-            // TODO: 서버리스 함수를 통한 영구 저장 로직 추가
+
+            // Netlify Function 호출하여 FaunaDB에 저장
+            saveResultToServer(resultData);
+
         } catch (e) {
             console.error("localStorage 저장 중 오류 발생:", e);
             if (quizResultEl) quizResultEl.innerHTML += "<p style='color:red;'>결과를 로컬에 저장하는 중 오류가 발생했습니다.</p>";
@@ -205,3 +225,36 @@ document.addEventListener('DOMContentLoaded', function() {
     // 초기 퀴즈 데이터 로드 실행
     loadQuizData(quizId);
 });
+
+async function saveResultToServer(resultData) {
+    const siteBaseUrl = document.body.getAttribute('data-baseurl') || '';
+    const functionPath = `${siteBaseUrl}/.netlify/functions/saveQuizResult`;
+
+    try {
+        const response = await fetch(functionPath, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(resultData),
+        });
+
+        if (response.ok) {
+            const responseData = await response.json();
+            console.log('서버에 결과 저장 성공:', responseData);
+            // 필요하다면 사용자에게 성공 메시지 표시
+        } else {
+            const errorData = await response.json();
+            console.error('서버에 결과 저장 실패:', response.status, errorData);
+            // 사용자에게 오류 메시지 표시
+            if (document.getElementById('quiz-result')) {
+                 document.getElementById('quiz-result').innerHTML += `<p style='color:orange;'>서버에 결과를 저장하는 중 문제가 발생했습니다: ${errorData.error || response.statusText}</p>`;
+            }
+        }
+    } catch (error) {
+        console.error('서버 통신 중 네트워크 오류:', error);
+        if (document.getElementById('quiz-result')) {
+            document.getElementById('quiz-result').innerHTML += "<p style='color:orange;'>서버와 통신 중 네트워크 오류가 발생했습니다.</p>";
+        }
+    }
+}
