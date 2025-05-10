@@ -57,9 +57,16 @@ title: 홈
   }
   .homepage-shortcuts {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* 아이템들을 중앙 정렬 */
     gap: 20px; /* 아이콘 간 간격 */
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* 공간 부족 시 다음 줄로 */
+    max-width: calc(4 * (100px + 2 * 15px + 20px) - 20px); /* (아이템 너비 + 패딩*2 + gap)*4 - 마지막 gap */
+    /* 대략 (100px 아이템 너비 + 30px 패딩 + 20px 갭) * 4 = 600px. 실제로는 패딩과 갭을 고려해야 함. */
+    /* 각 아이템 너비 100px, 좌우패딩 15px*2=30px. 아이템 전체 차지 너비 약 130px. 갭 20px. */
+    /* (130px + 20px) * 4 - 20px (마지막 갭 제거) = 150px * 4 - 20px = 600px - 20px = 580px */
+    /* 좀 더 여유있게, 또는 각 아이템의 flex-basis로 제어 */
+    margin-left: auto;
+    margin-right: auto;
   }
   .homepage-shortcut-link {
     display: flex;
@@ -71,7 +78,10 @@ title: 홈
     border-radius: 8px;
     background-color: rgba(255, 255, 255, 0.15);
     transition: background-color 0.3s ease;
-    width: 100px; /* 아이콘 영역 크기 */
+    width: 100px; /* 고정 너비 */
+    box-sizing: border-box; /* 패딩과 테두리를 너비에 포함 */
+    /* flex-basis: calc(25% - 20px); */ /* 4개씩 배치, gap 고려 */
+    /* 위 flex-basis는 gap이 %로 주어지지 않으면 정확히 맞추기 어려움. width로 제어하고 부모의 max-width로 줄바꿈 유도 */
   }
   .homepage-shortcut-link:hover {
     background-color: rgba(255, 255, 255, 0.3);
@@ -128,7 +138,7 @@ title: 홈
     </a>
     <a href="{{ '/archive.html' | relative_url }}" class="homepage-shortcut-link">
       <div class="icon-placeholder">📚</div>
-      <span>글 목록</span>
+      <span>아이워크 블로그</span>
     </a>
     <a href="https://www.desmos.com" target="_blank" rel="noopener noreferrer" class="homepage-shortcut-link">
       <div class="icon-placeholder">📈</div>
