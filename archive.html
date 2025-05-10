@@ -4,19 +4,31 @@ title: 글 목록
 ---
 
 <div class="posts-archive-container" style="padding: 20px; max-width: 800px; margin: 20px auto;">
-  <h1>{{ page.title }}</h1>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <h1>{{ page.title }}</h1>
+    {% if site.giscus.repo and site.github_branch %}
+      <a href="https://github.com/{{ site.giscus.repo }}/new/{{ site.github_branch }}/_posts/" target="_blank" rel="noopener noreferrer" class="btn" style="text-decoration: none; padding: 8px 15px; background-color: #28a745; color: white; border-radius: 5px; font-size: 0.9em;">새 글 작성</a>
+    {% endif %}
+  </div>
   <ul class="post-list" style="list-style: none; padding: 0;">
     {% for post in site.posts %}
       <li style="margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid #eee;">
-        <h2 style="margin-top: 0; margin-bottom: 5px;">
-          <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: #333;">{{ post.title }}</a>
-        </h2>
-        <p class="post-meta" style="font-size: 0.9em; color: #777;">
-          {{ post.date | date: "%Y년 %m월 %d일" }}
-          {% if post.categories.size > 0 %}
-            | 카테고리: {{ post.categories | join: ", " }}
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div>
+            <h2 style="margin-top: 0; margin-bottom: 5px;">
+              <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: #333;">{{ post.title }}</a>
+            </h2>
+            <p class="post-meta" style="font-size: 0.9em; color: #777; margin-top:0;">
+              {{ post.date | date: "%Y년 %m월 %d일" }}
+              {% if post.categories.size > 0 %}
+                | 카테고리: {{ post.categories | join: ", " }}
+              {% endif %}
+            </p>
+          </div>
+          {% if site.giscus.repo and site.github_branch %}
+            <a href="https://github.com/{{ site.giscus.repo }}/blob/{{ site.github_branch }}/{{ post.path }}" target="_blank" rel="noopener noreferrer" class="btn-delete" style="text-decoration: none; padding: 5px 10px; background-color: #dc3545; color: white; border-radius: 5px; font-size: 0.8em; margin-left: 10px;">삭제</a>
           {% endif %}
-        </p>
+        </div>
         {% if post.excerpt %}
           <p class="post-excerpt" style="margin-top: 5px;">
             {{ post.excerpt | strip_html | truncatewords: 50 }}
