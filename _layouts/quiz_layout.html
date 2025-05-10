@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: "퀴즈 앱" }} - {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/quiz_app/assets/css/quiz_styles.css' | relative_url }}">
+    <!-- 추가적인 공통 CSS나 JS는 여기에 포함할 수 있습니다. -->
+</head>
+<body data-baseurl="{{ site.baseurl }}">
+    <header>
+        <h1><a href="{{ '/quiz_app/' | relative_url }}">퀴즈 앱</a></h1>
+        <nav>
+            <a href="{{ '/quiz_app/' | relative_url }}">퀴즈 목록</a>
+            <a href="{{ '/quiz_app/history.html' | relative_url }}">나의 기록</a>
+            <a href="{{ '/quiz_app/dashboard.html' | relative_url }}">대시보드</a>
+            <a href="{{ '/' | relative_url }}">블로그 홈</a>
+        </nav>
+    </header>
+    <main>
+        {{ content }}
+    </main>
+    <footer>
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. 퀴즈 앱.</p>
+    </footer>
+    <!-- 공통 JS 파일은 여기에 포함할 수 있습니다. -->
+</body>
+</html>
