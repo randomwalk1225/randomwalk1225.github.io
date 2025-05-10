@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "MathJax와 함께하는 인터랙티브 수학 학습"
-date: 2025-05-10 {{ "now" | date: "%H:%M:%S %z" }}
+date: 2025-05-10 10:01:00 +0900 # 고정된 시간으로 변경 (또는 날짜만 사용: 2025-05-10)
 categories: [WebDevelopment, MathJax, Education]
 tags: [수학, 웹렌더링, LaTeX, 인터랙티브콘텐츠]
 ---

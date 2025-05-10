@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Jekyll 블로그에 퀴즈 앱을 추가하면 좋은 점"
-date: 2025-05-10 {{ "now" | date: "%H:%M:%S %z" }}
+date: 2025-05-10 10:00:00 +0900 # 고정된 시간으로 변경 (또는 날짜만 사용: 2025-05-10)
 categories: [Jekyll, QuizApp, WebDevelopment]
 tags: [퀴즈, Jekyll, 블로그기능, 참여도향상]
 ---
