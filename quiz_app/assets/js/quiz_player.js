@@ -207,7 +207,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     question: q.question,
                     userAnswer: userAnswerRaw, // userAnswerRaw 변수 사용
                     correctAnswer: q.answer,
-                    isCorrect: isCorrect
+                    isCorrect: isCorrect,
+                    type: q.type, // 문제 유형 추가
+                    isMathInput: q.isMathInput || false // isMathInput 플래그 추가 (없으면 false)
                 };
             }).filter(r => r !== null); // null인 경우(잘못된 문제 데이터) 제외
 
@@ -228,11 +230,26 @@ document.addEventListener('DOMContentLoaded', function() {
                     card.classList.add('result-card');
                     card.classList.add(r.isCorrect ? 'correct' : 'incorrect');
 
-                    // normalizeDisplayAnswer 함수 제거 또는 사용 안 함
+                    let displayUserAnswer = r.userAnswer || "(답변 없음)";
+                    let displayCorrectAnswer = r.correctAnswer;
+
+                    // isMathInput 플래그가 있고, short-answer 타입이며, $가 없는 경우 추가
+                    const originalQuestion = currentQuizData.find(q => q.id === r.questionId);
+                    if (originalQuestion && originalQuestion.type === 'short-answer' && originalQuestion.isMathInput) {
+                        if (displayUserAnswer !== "(답변 없음)" && !displayUserAnswer.includes('$')) {
+                            displayUserAnswer = `$${displayUserAnswer}$`;
+                        }
+                        // 정답은 quiz.json에 이미 $가 있을 것이므로, 사용자 답안 위주로 처리
+                        // 만약 정답에도 $가 없을 수 있다면 아래 코드 추가
+                        // if (!displayCorrectAnswer.includes('$')) {
+                        //     displayCorrectAnswer = `$${displayCorrectAnswer}$`;
+                        // }
+                    }
+
                     card.innerHTML = `
                         <div class="result-card-question"><strong>문제 ${index + 1}:</strong> ${r.question}</div>
-                        <div class="result-card-user-answer"><strong>제출 답:</strong> ${r.userAnswer || "(답변 없음)"}</div>
-                        <div class="result-card-correct-answer"><strong>정답:</strong> ${r.correctAnswer}</div>
+                        <div class="result-card-user-answer"><strong>제출 답:</strong> ${displayUserAnswer}</div>
+                        <div class="result-card-correct-answer"><strong>정답:</strong> ${displayCorrectAnswer}</div>
                         <div class="result-card-status">${r.isCorrect ? '정답 👍' : '오답 👎'}</div>
                     `;
                     resultCardsContainer.appendChild(card);

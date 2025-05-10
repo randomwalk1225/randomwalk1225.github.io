@@ -83,11 +83,25 @@ document.addEventListener('DOMContentLoaded', function() {
             card.classList.add('result-card');
             card.classList.add(ans.isCorrect ? 'correct' : 'incorrect');
             
-            // normalizeDisplayAnswer 함수 제거 또는 사용 안 함
+            let displayUserAnswer = ans.userAnswer || "(답변 없음)";
+            let displayCorrectAnswer = ans.correctAnswer;
+
+            // isMathInput 플래그가 있고, short-answer 타입이며, $가 없는 경우 추가
+            // ans 객체에 type과 isMathInput이 저장되어 있다고 가정
+            if (ans.type === 'short-answer' && ans.isMathInput) {
+                if (displayUserAnswer !== "(답변 없음)" && !displayUserAnswer.includes('$')) {
+                    displayUserAnswer = `$${displayUserAnswer}$`;
+                }
+                // 정답은 quiz.json에 이미 $가 있을 것이므로, 사용자 답안 위주로 처리
+                // if (displayCorrectAnswer && !displayCorrectAnswer.includes('$')) { // 정답도 $가 없을 수 있다면
+                //    displayCorrectAnswer = `$${displayCorrectAnswer}$`;
+                // }
+            }
+
             card.innerHTML = `
                 <div class="result-card-question"><strong>문제 ${index + 1}:</strong> ${ans.question}</div>
-                <div class="result-card-user-answer"><strong>제출 답:</strong> ${ans.userAnswer || "(답변 없음)"}</div>
-                <div class="result-card-correct-answer"><strong>정답:</strong> ${ans.correctAnswer}</div>
+                <div class="result-card-user-answer"><strong>제출 답:</strong> ${displayUserAnswer}</div>
+                <div class="result-card-correct-answer"><strong>정답:</strong> ${displayCorrectAnswer}</div>
                 <div class="result-card-status">${ans.isCorrect ? '정답 👍' : '오답 👎'}</div>
             `;
             // ul 대신 historyDetailEl에 직접 카드 추가
