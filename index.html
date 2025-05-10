@@ -1,24 +1,135 @@
 ---
-layout: default
+layout: default # 또는 null로 하여 완전히 새로운 디자인 적용
 title: 홈
 ---
-<div class="container mt-5">
-    <div class="jumbotron">
-        <h1 class="display-4">Hello, World!</h1>
-        <p class="lead">This is an example HTML page decorated with Bootstrap styles.</p>
-        <!-- 변경: 링크를 2025-05-09-1마크다운테스트.md 로 수정 -->
-        <a href="{% post_url 2025-05-09-1마크다운테스트 %}" class="btn btn-primary">
-            2025년 5월 9일 마크다운 테스트 포스트
-        </a>
-    </div>
+<style>
+  body.homepage {
+    margin: 0;
+    padding: 0;
+    background-color: #3B82F6; /* Tailwind Blue 500 */
+    background-image: url('https://source.unsplash.com/random/1920x1080/?ocean,underwater'); /* 예시 바다 이미지 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: white;
+    text-align: center;
+  }
+  .homepage-container {
+    background-color: rgba(0, 0, 0, 0.3); /* 약간 어두운 배경으로 가독성 확보 */
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  }
+  .homepage-logo {
+    font-size: 4rem; /* Google 로고 크기와 유사하게 */
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #FFFFFF; /* 흰색 로고 */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+  .homepage-search-bar {
+    background-color: white;
+    border-radius: 24px; /* 둥근 검색창 */
+    padding: 10px 20px;
+    width: 100%;
+    max-width: 580px; /* Google 검색창 최대 너비와 유사하게 */
+    margin: 0 auto 40px auto;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+  }
+  .homepage-search-bar input[type="text"] {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    font-size: 1rem;
+    color: #333;
+  }
+  .homepage-search-bar .search-icon {
+    margin-right: 10px;
+    color: #777;
+  }
+  .homepage-shortcuts {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* 아이콘 간 간격 */
+    flex-wrap: wrap;
+  }
+  .homepage-shortcut-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.15);
+    transition: background-color 0.3s ease;
+    width: 100px; /* 아이콘 영역 크기 */
+  }
+  .homepage-shortcut-link:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  .homepage-shortcut-link .icon-placeholder {
+    width: 48px; /* 아이콘 크기 */
+    height: 48px;
+    background-color: rgba(255, 255, 255, 0.3); /* 아이콘 배경색 */
+    border-radius: 50%; /* 원형 아이콘 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    font-size: 1.5rem; /* 아이콘 내 텍스트/이모지 크기 */
+  }
+  .homepage-shortcut-link span {
+    font-size: 0.875rem;
+  }
+</style>
 
-    <ul>
-      {% for post in site.posts %}
-        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-      {% endfor %}
-    </ul>
+<script>
+  // body에 homepage 클래스 추가 (기존 default.html 레이아웃과의 충돌 방지)
+  document.addEventListener('DOMContentLoaded', function() {
+    document.body.classList.add('homepage');
+    // 기존 default.html의 header/footer 등을 숨기거나 다른 처리가 필요할 수 있음
+    // 여기서는 layout: null을 가정하고 스타일링합니다.
+    // 만약 default 레이아웃을 사용한다면, 해당 레이아웃의 요소를 고려해야 합니다.
+    // 예를 들어, default 레이아웃의 <header>와 <footer>를 숨기는 코드:
+    // const header = document.querySelector('body > header');
+    // if (header) header.style.display = 'none';
+    // const footer = document.querySelector('body > footer');
+    // if (footer) footer.style.display = 'none';
+  });
+</script>
+
+<div class="homepage-container">
+  <div class="homepage-logo">
+    {{ site.title | default: "My Blog" }}
+  </div>
+
+  <div class="homepage-search-bar">
+    <span class="search-icon">🔍</span>
+    <input type="text" placeholder="블로그 내 검색 (구현 예정)" disabled />
+  </div>
+
+  <div class="homepage-shortcuts">
+    <a href="{{ '/quiz_app/' | relative_url }}" class="homepage-shortcut-link">
+      <div class="icon-placeholder">🎮</div>
+      <span>퀴즈 앱</span>
+    </a>
+    <a href="{{ '/about.html' | relative_url }}" class="homepage-shortcut-link"> <!-- 예시 링크 -->
+      <div class="icon-placeholder">ℹ️</div>
+      <span>소개</span>
+    </a>
+    <a href="{{ '/archive.html' | relative_url }}" class="homepage-shortcut-link"> <!-- 예시 링크 -->
+      <div class="icon-placeholder">📚</div>
+      <span>글 목록</span>
+    </a>
+    <!-- 추가 바로가기 링크들 -->
+  </div>
 </div>
-
-<footer>
-  <a href="{{ site.baseurl }}/">내 블로그 홈</a>
-</footer>
