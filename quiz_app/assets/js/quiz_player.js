@@ -149,6 +149,11 @@ document.addEventListener('DOMContentLoaded', function() {
             questionItem.appendChild(optionsDiv);
             quizContentEl.appendChild(questionItem);
         });
+
+        // MathJax에게 새로 추가된 콘텐츠를 다시 렌더링하도록 알림
+        if (typeof MathJax !== "undefined" && MathJax.typesetPromise) {
+            MathJax.typesetPromise().catch((err) => console.error('MathJax typesetPromise failed:', err));
+        }
     }
 
     // 퀴즈 제출 처리
