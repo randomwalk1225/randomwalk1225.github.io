@@ -108,15 +108,35 @@ document.addEventListener('DOMContentLoaded', function() {
             optionsDiv.classList.add('options');
 
             if (q.type === 'multiple-choice') {
-                q.options.forEach(option => {
+                q.options.forEach((option, optIndex) => {
+                    const optionId = `q${q.id}-option${optIndex}`;
                     const label = document.createElement('label');
+                    label.htmlFor = optionId; // 라벨과 라디오 버튼 연결
+                    label.classList.add('quiz-option-label');
+
                     const radio = document.createElement('input');
                     radio.type = 'radio';
+                    radio.id = optionId;
                     radio.name = `question-${q.id}`;
                     radio.value = option;
-                    radio.addEventListener('change', (e) => userAnswers[q.id] = e.target.value);
+                    radio.classList.add('quiz-option-radio'); // CSS에서 숨기기 위함
+                    radio.addEventListener('change', (e) => {
+                        userAnswers[q.id] = e.target.value;
+                        // 선택 시 시각적 피드백 업데이트
+                        document.querySelectorAll(`input[name="question-${q.id}"]`).forEach(rb => {
+                            rb.parentElement.classList.remove('selected');
+                        });
+                        if (e.target.checked) {
+                            e.target.parentElement.classList.add('selected');
+                        }
+                    });
+                    
                     label.appendChild(radio);
-                    label.appendChild(document.createTextNode(option));
+                    // 번호와 옵션 텍스트 추가
+                    const optionText = document.createElement('span');
+                    optionText.textContent = `${optIndex + 1}. ${option}`;
+                    label.appendChild(optionText);
+                    
                     optionsDiv.appendChild(label);
                 });
             } else if (q.type === 'short-answer') {

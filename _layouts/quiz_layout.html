@@ -6,6 +6,20 @@
     <title>{{ page.title | default: "퀴즈 앱" }} - {{ site.title }}</title>
     <link rel="stylesheet" href="{{ '/quiz_app/assets/css/quiz_styles.css' | relative_url }}">
     <!-- 추가적인 공통 CSS나 JS는 여기에 포함할 수 있습니다. -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
 </head>
 <body data-baseurl="{{ site.baseurl }}">
     <header>

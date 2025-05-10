@@ -112,10 +112,34 @@ label {
     display: block;
 }
 
-#quiz-content .options label {
+#quiz-content .options label { /* 이제 이 스타일은 .quiz-option-label 로 대체될 수 있음 */
     display: block;
     margin-bottom: 5px;
 }
+
+.quiz-option-label {
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.quiz-option-label:hover {
+    background-color: #f5f5f5;
+}
+
+.quiz-option-label.selected {
+    background-color: #e0eafc; /* 선택된 항목 배경색 */
+    border-color: #337ab7;   /* 선택된 항목 테두리색 */
+}
+
+.quiz-option-radio { /* 실제 라디오 버튼은 숨김 */
+    display: none;
+}
+
 
 /* Dashboard Specific */
 .badge {
