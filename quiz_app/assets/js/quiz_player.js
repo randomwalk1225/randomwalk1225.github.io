@@ -181,15 +181,31 @@ document.addEventListener('DOMContentLoaded', function() {
             let score = 0;
             const detailedResults = currentQuizData.map(q => {
                 if (!q || typeof q.id === 'undefined') return null; // 안전장치
-                const userAnswer = userAnswers[q.id] || "";
-                const isCorrect = userAnswer.toLowerCase() === q.answer.toLowerCase();
+                
+                const userAnswerRaw = userAnswers[q.id] || "";
+                let isCorrect = false;
+
+                if (q.type === 'short-answer' && (q.answer.includes('$') || userAnswerRaw.includes('$'))) {
+                    // 수학식 주관식의 경우 $ 제거 및 공백 정규화 후 비교
+                    const normalizeAnswer = (str) => {
+                        if (typeof str !== 'string') return "";
+                        return str.replace(/\$/g, '').replace(/\s+/g, ' ').trim();
+                    };
+                    const normalizedUserAnswer = normalizeAnswer(userAnswerRaw);
+                    const normalizedCorrectAnswer = normalizeAnswer(q.answer);
+                    isCorrect = normalizedUserAnswer.toLowerCase() === normalizedCorrectAnswer.toLowerCase();
+                } else {
+                    // 일반 주관식 또는 객관식
+                    isCorrect = userAnswerRaw.toLowerCase() === q.answer.toLowerCase();
+                }
+
                 if (isCorrect) {
                     score++;
                 }
                 return {
                     questionId: q.id,
                     question: q.question,
-                    userAnswer: userAnswer,
+                    userAnswer: userAnswerRaw, // userAnswerRaw 변수 사용
                     correctAnswer: q.answer,
                     isCorrect: isCorrect
                 };
@@ -204,17 +220,27 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p><strong>${userId}</strong>님의 점수: ${percentageScore.toFixed(1)}점 (${score}/${totalQuestions})</p>
                     <h4>상세 결과:</h4>
                 `;
-                const resultList = document.createElement('ul');
-                detailedResults.forEach(r => {
-                    const item = document.createElement('li');
-                    item.innerHTML = `<strong>문제:</strong> ${r.question}<br>
-                                      <strong>제출 답:</strong> ${r.userAnswer} <br>
-                                      <strong>정답:</strong> ${r.correctAnswer} <br>
-                                      <strong>결과:</strong> ${r.isCorrect ? '정답' : '오답'}`;
-                    item.style.color = r.isCorrect ? 'green' : 'red';
-                    resultList.appendChild(item);
+                const resultCardsContainer = document.createElement('div');
+                resultCardsContainer.classList.add('result-cards-container');
+
+                detailedResults.forEach((r, index) => {
+                    const card = document.createElement('div');
+                    card.classList.add('result-card');
+                    card.classList.add(r.isCorrect ? 'correct' : 'incorrect');
+
+                    card.innerHTML = `
+                        <div class="result-card-question"><strong>문제 ${index + 1}:</strong> ${r.question}</div>
+                        <div class="result-card-user-answer"><strong>제출 답:</strong> ${r.userAnswer || "(답변 없음)"}</div>
+                        <div class="result-card-correct-answer"><strong>정답:</strong> ${r.correctAnswer}</div>
+                        <div class="result-card-status">${r.isCorrect ? '정답 👍' : '오답 👎'}</div>
+                    `;
+                    // MathJax가 카드 내의 수식을 다시 렌더링하도록 처리
+                    if (typeof MathJax !== "undefined" && MathJax.typesetPromise) {
+                        setTimeout(() => MathJax.typesetPromise([card]), 0);
+                    }
+                    resultCardsContainer.appendChild(card);
                 });
-                quizResultEl.appendChild(resultList);
+                quizResultEl.appendChild(resultCardsContainer);
             }
             
             if (submitButton) submitButton.style.display = 'none'; // 제출 후 버튼 숨김

@@ -78,16 +78,24 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
 
         const ul = document.createElement('ul');
-        record.answers.forEach(ans => {
-            const li = document.createElement('li');
-            li.innerHTML = `
-                <strong>문제:</strong> ${ans.question}<br>
-                <strong>제출 답:</strong> ${ans.userAnswer}<br>
-                <strong>정답:</strong> ${ans.correctAnswer}<br>
-                <strong>결과:</strong> <span style="color:${ans.isCorrect ? 'green' : 'red'};">${ans.isCorrect ? '정답' : '오답'}</span>
+        record.answers.forEach((ans, index) => { // index 추가
+            const card = document.createElement('div');
+            card.classList.add('result-card');
+            card.classList.add(ans.isCorrect ? 'correct' : 'incorrect');
+
+            card.innerHTML = `
+                <div class="result-card-question"><strong>문제 ${index + 1}:</strong> ${ans.question}</div>
+                <div class="result-card-user-answer"><strong>제출 답:</strong> ${ans.userAnswer || "(답변 없음)"}</div>
+                <div class="result-card-correct-answer"><strong>정답:</strong> ${ans.correctAnswer}</div>
+                <div class="result-card-status">${ans.isCorrect ? '정답 👍' : '오답 👎'}</div>
             `;
-            ul.appendChild(li);
+             // MathJax가 카드 내의 수식을 다시 렌더링하도록 처리
+            if (typeof MathJax !== "undefined" && MathJax.typesetPromise) {
+                setTimeout(() => MathJax.typesetPromise([card]), 0);
+            }
+            // ul 대신 historyDetailEl에 직접 카드 추가
+            historyDetailEl.appendChild(card); 
         });
-        historyDetailEl.appendChild(ul);
+        // historyDetailEl.appendChild(ul); // 기존 ul 제거
     }
 });
