@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         // 임시로, 각 quiz.json을 직접 fetch하여 title을 가져오는 방식으로 구현합니다.
         // 이는 비효율적이지만, 별도의 manifest 파일 생성 없이 테스트 가능합니다.
 
-        const quizIds = ['math101', 'history_basics']; // 하드코딩된 퀴즈 ID 목록
+        const quizIds = ['math101', 'history_basics', 'algebra_quiz']; // 하드코딩된 퀴즈 ID 목록
         let quizzes = [];
 
         for (const id of quizIds) {

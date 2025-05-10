@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     label.appendChild(radio);
                     // 번호와 옵션 텍스트 추가
                     const optionText = document.createElement('span');
-                    optionText.textContent = `${optIndex + 1}. ${option}`;
+                    optionText.textContent = `${optIndex + 1}) ${option}`; // 번호 형식 변경
                     label.appendChild(optionText);
                     
                     optionsDiv.appendChild(label);
@@ -167,9 +167,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // currentQuizData는 실제 문제들만 담고 있으므로, 길이를 그대로 사용합니다.
-            if (Object.keys(userAnswers).length !== currentQuizData.length) {
-                alert('모든 문제에 답해주세요.');
-                return;
+            const answeredQuestions = Object.keys(userAnswers).length;
+            const totalQuestionsCount = currentQuizData.filter(q => q && typeof q.id !== 'undefined').length;
+
+            if (answeredQuestions !== totalQuestionsCount) {
+                const unAnsweredCount = totalQuestionsCount - answeredQuestions;
+                const confirmation = confirm(`정답이 체크되지 않은 문제가 ${unAnsweredCount}개 있습니다. 이대로 제출하시겠습니까?\n(답하지 않은 문제는 오답으로 처리됩니다.)`);
+                if (!confirmation) {
+                    return; // 제출 취소
+                }
             }
 
             let score = 0;
