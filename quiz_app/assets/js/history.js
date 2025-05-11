@@ -62,8 +62,8 @@ document.addEventListener('DOMContentLoaded', function() {
             userHistory.forEach(record => {
                 const li = document.createElement('li');
                 const button = document.createElement('button');
-                // record 객체는 FaunaDB에서 온 data 객체 그 자체입니다.
-                button.textContent = `${record.quizTitle || record.quizId} - ${new Date(record.timestamp).toLocaleString('ko-KR')} (점수: ${record.score.toFixed(1)})`;
+                // Supabase에서 온 record 객체입니다. 필드명은 DB 컬럼명과 일치합니다.
+                button.textContent = `${record.quiz_title || record.quiz_id} - ${new Date(record.timestamp).toLocaleString('ko-KR')} (점수: ${record.score.toFixed(1)})`;
                 button.addEventListener('click', () => displayHistoryDetail(record));
                 li.appendChild(button);
                 ul.appendChild(li);
@@ -80,16 +80,18 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!historyDetailEl) return;
 
         historyDetailEl.innerHTML = `
-            <h3>"${record.quizTitle || record.quizId}" 상세 기록</h3>
+            <h3>"${record.quiz_title || record.quiz_id}" 상세 기록</h3>
             <p><strong>응시 일시:</strong> ${new Date(record.timestamp).toLocaleString('ko-KR')}</p>
             <p><strong>점수:</strong> ${record.score.toFixed(1)}점</p>
             <h4>답변 상세:</h4>
         `;
 
         const ul = document.createElement('ul');
-        record.answers.forEach((ans, index) => { // index 추가
-            const card = document.createElement('div');
-            card.classList.add('result-card');
+        // record.answers 대신 record.answers_details를 사용해야 합니다.
+        if (record.answers_details && Array.isArray(record.answers_details)) {
+            record.answers_details.forEach((ans, index) => { // index 추가
+                const card = document.createElement('div');
+                card.classList.add('result-card');
             card.classList.add(ans.isCorrect ? 'correct' : 'incorrect');
             
             let displayUserAnswer = ans.userAnswer || "(답변 없음)";
@@ -115,8 +117,13 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             // ul 대신 historyDetailEl에 직접 카드 추가
             historyDetailEl.appendChild(card); 
-        });
-        // historyDetailEl.appendChild(ul); // 기존 ul 제거
+            });
+        } else {
+            const p = document.createElement('p');
+            p.textContent = '상세 답변 기록이 없습니다.';
+            historyDetailEl.appendChild(p);
+        }
+        // historyDetailEl.appendChild(ul); // 기존 ul 제거 (ul은 더 이상 사용되지 않음)
 
         // 모든 카드가 추가된 후 MathJax를 한 번 호출 (setTimeout으로 DOM 업데이트 보장)
         if (typeof MathJax !== "undefined" && MathJax.typesetPromise) {
