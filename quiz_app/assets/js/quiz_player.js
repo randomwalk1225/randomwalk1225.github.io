@@ -218,7 +218,43 @@ document.addEventListener('DOMContentLoaded', function() {
                     <h4>상세 결과:</h4>`;
                 const resultCardsContainer = document.createElement('div');
                 resultCardsContainer.classList.add('result-cards-container');
-                detailedResults.forEach((r, index) => { /* ... card creation ... */ });
+                detailedResults.forEach((r, index) => {
+                    const card = document.createElement('div');
+                    card.classList.add('result-card');
+                    card.classList.add(r.isCorrect ? 'correct' : 'incorrect');
+                    // 참고: incorrectQuestionIds는 이 함수의 지역 변수이므로, 
+                    // highlight-incorrect 클래스 추가 로직은 여기서도 가능합니다.
+                    // if (!r.isCorrect && incorrectQuestionIds.includes(r.questionId)) {
+                    //     card.classList.add('highlight-incorrect');
+                    // }
+                
+                    let displayUserAnswer = r.userAnswer || "(답변 없음)";
+                    let displayCorrectAnswer = r.correctAnswer;
+
+                    // 해설 추가 (quiz.json의 각 문제 객체에 "explanation": "해설 내용" 추가 필요)
+                    let explanationHtml = '';
+                    if (r.explanation) { 
+                        explanationHtml = `<div class="result-card-explanation"><strong>해설:</strong> ${r.explanation}</div>`;
+                    }
+
+                    if (r.type === 'short-answer' && r.isMathInput) {
+                        if (displayUserAnswer !== "(답변 없음)" && !displayUserAnswer.includes('$')) {
+                            displayUserAnswer = `$${displayUserAnswer}$`;
+                        }
+                        if (displayCorrectAnswer && !displayCorrectAnswer.includes('$')) { 
+                           displayCorrectAnswer = `$${displayCorrectAnswer}$`;
+                        }
+                    }
+
+                    card.innerHTML = `
+                        <div class="result-card-question"><strong>문제 ${index + 1}:</strong> ${r.question}</div>
+                        <div class="result-card-user-answer"><strong>제출 답:</strong> ${displayUserAnswer}</div>
+                        <div class="result-card-correct-answer"><strong>정답:</strong> ${displayCorrectAnswer}</div>
+                        ${explanationHtml}
+                        <div class="result-card-status">${r.isCorrect ? '정답 👍' : '오답 👎'}</div>
+                    `;
+                    resultCardsContainer.appendChild(card);
+                });
                 quizResultEl.appendChild(resultCardsContainer);
                 if (typeof MathJax !== "undefined" && MathJax.typesetPromise) {
                     setTimeout(() => { MathJax.typesetPromise().catch(err => console.error('MathJax typesetPromise failed for results:', err)); }, 0);
