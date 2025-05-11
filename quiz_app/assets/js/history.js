@@ -33,12 +33,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
         try {
             const response = await fetch(functionPath);
+            const responseText = await response.text(); // 먼저 텍스트로 응답을 받음
+
             if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(`서버에서 기록을 불러오는 데 실패했습니다: ${errorData.error || response.statusText}`);
+                let errorDetail = response.statusText;
+                try {
+                    const errorJson = JSON.parse(responseText); // 텍스트를 JSON으로 파싱 시도
+                    errorDetail = errorJson.error || errorJson.message || response.statusText;
+                } catch (e) {
+                    // JSON 파싱 실패 시, responseText 자체가 오류 메시지일 수 있음 (HTML 등)
+                    console.error("Failed to parse error response as JSON:", responseText);
+                }
+                throw new Error(`서버에서 기록을 불러오는 데 실패했습니다 (${response.status}): ${errorDetail}`);
             }
             
-            const userHistory = await response.json();
+            const userHistory = JSON.parse(responseText); // 성공 응답은 JSON으로 파싱
 
             if (!Array.isArray(userHistory) || userHistory.length === 0) {
                 historyListEl.innerHTML = '<p>아직 응시한 퀴즈 기록이 없습니다.</p>';
