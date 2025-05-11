@@ -233,7 +233,12 @@ document.addEventListener('DOMContentLoaded', function() {
             if (quizResultEl) {
                 quizResultEl.innerHTML = `
                     <h3>퀴즈 결과</h3>
-                    <p><strong>${userId}</strong>님의 점수: ${percentageScore.toFixed(1)}점 (${score}/${totalQuestionsCount})</p>
+                    <div class="score-summary">
+                        <p><strong>${userId}</strong>님의 점수: 
+                            <span class="score-value">${percentageScore.toFixed(1)}</span>점 
+                            (<span class="score-detail">${score}/${totalQuestionsCount}</span>)
+                        </p>
+                    </div>
                     <h4>상세 결과:</h4>
                 `;
                 const resultCardsContainer = document.createElement('div');
