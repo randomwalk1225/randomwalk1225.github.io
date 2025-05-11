@@ -174,10 +174,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 let isCorrect = false;
 
                 if (q.type === 'short-answer' && q.isMathInput) {
-                    // 수학식 주관식: $ 제거, 모든 공백 제거 후 소문자 비교
+                    // 수학식 주관식: $ 제거, 유니코드 마이너스 기호 표준화, 모든 공백 제거 후 소문자 비교
                     const normalizeMathAnswer = (str) => {
                         if (typeof str !== 'string') return "";
-                        return str.replace(/\$/g, '').replace(/\s/g, '').toLowerCase();
+                        return str.replace(/\$/g, '')              // $ 기호 제거
+                                  .replace(/\u2212/g, '-')         // 수학 마이너스 기호(U+2212)를 일반 하이픈(-)으로 변경
+                                  .replace(/\s/g, '')              // 모든 공백 문자 제거
+                                  .toLowerCase();                 // 소문자로 변경
                     };
                     const normalizedUserAnswer = normalizeMathAnswer(userAnswerRaw);
                     const normalizedCorrectAnswer = normalizeMathAnswer(q.answer);
