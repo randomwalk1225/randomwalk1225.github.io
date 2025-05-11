@@ -112,33 +112,31 @@ label {
     display: block;
 }
 
-#quiz-content .options label { /* 이제 이 스타일은 .quiz-option-label 로 대체될 수 있음 */
+#quiz-content .options label { 
     display: block;
     margin-bottom: 5px;
-    border: none !important; /* 기존 label 태그에 혹시 모를 테두리 강제 제거 */
+    border: none !important; 
 }
 
 .quiz-option-label {
     display: block;
     padding: 10px 15px;
     margin-bottom: 8px;
-    /* border: 1px solid #ddd; */ /* 테두리 제거 */
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.2s ease-in-out; /* border-color transition 제거 */
+    transition: background-color 0.2s ease-in-out; 
 }
 
 .quiz-option-label:hover {
-    background-color: #f0f0f0; /* 호버 시 약간 더 어두운 배경색으로 변경 */
+    background-color: #f0f0f0; 
 }
 
 .quiz-option-label.selected {
-    background-color: #e0eafc; /* 선택된 항목 배경색 */
-    /* border-color: #337ab7; */   /* 선택된 항목 테두리색 제거 */
-    font-weight: bold; /* 선택된 항목 텍스트 굵게 (선택적) */
+    background-color: #e0eafc; 
+    font-weight: bold; 
 }
 
-.quiz-option-radio { /* 실제 라디오 버튼은 숨김 */
+.quiz-option-radio { 
     display: none;
 }
 
@@ -160,21 +158,21 @@ label {
 
 /* Quiz Result Title Style */
 .quiz-result-title {
-    font-size: 1.8em; /* 폰트 크기 키움 */
-    text-align: center; /* 가운데 정렬 */
-    background-color: #f0f0f0; /* 연한 회색 배경 */
+    font-size: 1.8em; 
+    text-align: center; 
+    background-color: #f0f0f0; 
     padding: 10px 0;
-    margin-bottom: 20px; /* 점수 요약과의 간격 */
+    margin-bottom: 20px; 
     border-radius: 4px;
 }
 
 /* Score Summary Styles */
 .score-summary {
-    background-color: #f0f8ff; /* AliceBlue */
+    background-color: #f0f8ff; 
     border: 1px solid #d6eaf8;
-    border-left: 7px solid #5dade2; /* Blue accent */
+    border-left: 7px solid #5dade2; 
     padding: 20px;
-    margin-top: 10px; /* 제목과의 간격 조정 */
+    margin-top: 10px; 
     margin-bottom: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
@@ -184,7 +182,7 @@ label {
     margin: 0;
     font-size: 1.1em;
     color: #2c3e50; 
-    text-align: right; /* 점수 텍스트 오른쪽 정렬 */
+    text-align: right; 
 }
 
 .score-summary .score-value {
@@ -200,17 +198,17 @@ label {
 
 /* MathLive field specific styles */
 math-field {
-    display: block; /* Block display to take full width */
+    display: block; 
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 1.2em; /* Adjust font size as needed */
+    font-size: 1.2em; 
     box-sizing: border-box;
 }
 
-.short-answer-input { /* 일반 텍스트 주관식 입력 필드 */
+.short-answer-input { 
     /* 스타일은 input[type="text"] 기본 스타일을 따르거나, 필요시 여기에 추가 */
 }
 
@@ -229,11 +227,16 @@ math-field {
 }
 
 .result-card.correct {
-    border-left: 5px solid #5cb85c; /* 정답일 때 왼쪽 테두리 녹색 */
+    border-left: 5px solid #5cb85c; 
 }
 
 .result-card.incorrect {
-    border-left: 5px solid #d9534f; /* 오답일 때 왼쪽 테두리 빨간색 */
+    border-left: 5px solid #d9534f; 
+}
+
+.result-card.highlight-incorrect { /* 틀린 문제 강조 스타일 */
+    background-color: #fff3f3; /* 연한 붉은색 배경 */
+    border-color: #f5c6cb; /* 붉은색 계열 테두리 */
 }
 
 .result-card div {
@@ -259,4 +262,42 @@ math-field {
 
 .result-card.incorrect .result-card-status {
     color: #d9534f;
+}
+
+/* History Page Specific Styles */
+.history-quiz-group {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #ccc;
+}
+.history-quiz-group:last-child {
+    border-bottom: none;
+}
+.history-group-title {
+    font-size: 1.5em;
+    color: #337ab7;
+    margin-bottom: 10px;
+}
+.history-attempt-list {
+    padding-left: 0; /* ul 기본 패딩 제거 */
+}
+.history-attempt-item {
+    background-color: #f9f9f9;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.history-attempt-item:hover {
+    background-color: #f0f0f0;
+}
+.history-attempt-item .attempt-date {
+    font-weight: bold;
+    color: #555;
+}
+.history-attempt-item .attempt-score {
+    color: #28a745; /* 점수 텍스트 색상 (예: 녹색) */
+    margin-left: 10px;
 }

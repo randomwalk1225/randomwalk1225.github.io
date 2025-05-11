@@ -48,14 +48,10 @@ exports.handler = async (event, context) => {
           quiz_id: quizResult.quizId,
           quiz_title: quizResult.quizTitle,
           score: quizResult.score,
-          // total_questions, correct_answers_count는 클라이언트에서 계산해서 보내거나,
-          // answers_details를 기반으로 여기서 계산할 수 있습니다.
-          // 여기서는 클라이언트에서 보낸다고 가정하고, 없다면 null 또는 기본값 처리.
           total_questions: quizResult.answers ? quizResult.answers.length : 0, 
           correct_answers_count: quizResult.answers ? quizResult.answers.filter(a => a.isCorrect).length : 0,
-          answers_details: quizResult.answers, // JSONB 타입으로 저장
-          // created_at은 Supabase 테이블에서 default now()로 자동 생성되도록 설정하는 것이 일반적입니다.
-          // 명시적으로 보내려면: created_at: new Date().toISOString() 
+          answers_details: quizResult.answers, 
+          incorrect_question_ids: quizResult.incorrect_question_ids // 새로운 필드 추가
         }
       ])
       .select(); // 삽입된 데이터를 반환받기 위해 .select() 추가 (선택 사항)
