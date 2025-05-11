@@ -121,16 +121,22 @@ document.addEventListener('DOMContentLoaded', function() {
                     optionsDiv.appendChild(label);
                 });
             } else if (q.type === 'short-answer') {
-                const input = document.createElement('input');
-                input.type = 'text';
-                input.name = `question-${q.id}`;
-                input.classList.add('short-answer-input');
-                input.addEventListener('input', (e) => userAnswers[q.id] = e.target.value.trim());
-                optionsDiv.appendChild(input);
-
                 if (q.isMathInput) {
-                    const symbolPalette = createSymbolPalette(input);
-                    optionsDiv.appendChild(symbolPalette);
+                    const mathField = document.createElement('math-field');
+                    mathField.id = `math-input-${q.id}`; // 고유 ID 부여
+                    // mathField.style.width = '100%'; // 필요시 스타일 추가
+                    // MathLive 필드의 값이 변경될 때 userAnswers 업데이트
+                    mathField.addEventListener('input', (e) => {
+                        userAnswers[q.id] = e.target.value; // MathLive는 value 속성으로 LaTeX 반환
+                    });
+                    optionsDiv.appendChild(mathField);
+                } else {
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.name = `question-${q.id}`;
+                    input.classList.add('short-answer-input');
+                    input.addEventListener('input', (e) => userAnswers[q.id] = e.target.value.trim());
+                    optionsDiv.appendChild(input);
                 }
             }
             questionItem.appendChild(optionsDiv);
@@ -274,47 +280,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadQuizData(quizId);
 });
 
-function createSymbolPalette(targetInput) {
-    const palette = document.createElement('div');
-    palette.classList.add('symbol-palette');
-
-    const symbols = [
-        { display: '√', insert: '\\sqrt{}', moveCursor: -1 },
-        { display: '□/□', insert: '\\frac{}{}', moveCursor: -3 },
-        { display: 'x²', insert: '^{}', moveCursor: -1 },
-        { display: 'xᵢ', insert: '_{}', moveCursor: -1 },
-        { display: '±', insert: '\\pm ' },
-        { display: '≠', insert: '\\neq ' },
-        { display: '≤', insert: '\\leq ' },
-        { display: '≥', insert: '\\geq ' },
-        { display: '×', insert: '\\times ' },
-        { display: '÷', insert: '\\div ' }
-    ];
-
-    symbols.forEach(symbol => {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.classList.add('symbol-button');
-        btn.textContent = symbol.display;
-        btn.addEventListener('click', () => {
-            const cursorPos = targetInput.selectionStart;
-            const textBefore = targetInput.value.substring(0, cursorPos);
-            const textAfter = targetInput.value.substring(targetInput.selectionEnd, targetInput.value.length);
-            
-            targetInput.value = textBefore + symbol.insert + textAfter;
-            
-            const newCursorPos = cursorPos + symbol.insert.length + (symbol.moveCursor || 0);
-            targetInput.focus();
-            targetInput.setSelectionRange(newCursorPos, newCursorPos);
-
-            // 수동으로 input 이벤트 발생시켜 userAnswers 업데이트
-            const event = new Event('input', { bubbles: true });
-            targetInput.dispatchEvent(event);
-        });
-        palette.appendChild(btn);
-    });
-    return palette;
-}
+// createSymbolPalette 함수 전체 삭제
 
 async function saveResultToServer(resultData) {
     const siteBaseUrl = document.body.getAttribute('data-baseurl') || '';
