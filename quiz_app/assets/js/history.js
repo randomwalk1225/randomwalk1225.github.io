@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const loadHistoryButton = document.getElementById('loadHistory');
     const sortToggleButton = document.getElementById('sort-toggle-button');
     const historyListEl = document.getElementById('quiz-history-list');
+    const sortStatusEl = document.getElementById('history-sort-status'); // 정렬 상태 표시 요소
 
     let allUserHistoryData = [];
     let currentSortMode = 'byQuizTitle';
@@ -84,6 +85,15 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         if(sortToggleButton) sortToggleButton.style.display = 'inline-block';
+
+        // 현재 정렬 상태 표시 업데이트
+        if (sortStatusEl) {
+            if (sortBy === 'byQuizTitle') {
+                sortStatusEl.textContent = '퀴즈 제목별로 정렬된 기록입니다.';
+            } else { // sortBy === 'byDate'
+                sortStatusEl.textContent = '최근 응시 순으로 정렬된 기록입니다.';
+            }
+        }
 
         historyData.sort((a,b) => new Date(b.created_at) - new Date(a.created_at));
 
