@@ -315,8 +315,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 async function saveResultToServer(resultData) {
-    const siteBaseUrl = document.body.getAttribute('data-baseurl') || '';
-    const functionPath = `${siteBaseUrl}/.netlify/functions/saveQuizResult`;
+    const netlifySiteUrl = "https://chipper-cupcake-752544.netlify.app"; // 실제 Netlify 사이트 URL로 변경 필요
+    const functionPath = `${netlifySiteUrl}/.netlify/functions/saveQuizResult`;
 
     try {
         const response = await fetch(functionPath, {

@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
         historyListEl.innerHTML = '<li>기록을 불러오는 중...</li>'; // 로딩 메시지
         historyDetailEl.innerHTML = ''; // 이전 상세 정보 초기화
 
-        const siteBaseUrl = document.body.getAttribute('data-baseurl') || '';
-        const functionPath = `${siteBaseUrl}/.netlify/functions/getUserHistory?userId=${encodeURIComponent(userId)}`;
+        const netlifySiteUrl = "https://chipper-cupcake-752544.netlify.app"; // 실제 Netlify 사이트 URL로 변경 필요
+        const functionPath = `${netlifySiteUrl}/.netlify/functions/getUserHistory?userId=${encodeURIComponent(userId)}`;
 
         try {
             const response = await fetch(functionPath);
