@@ -200,6 +200,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     const normalizeMathAnswer = (str) => {
                         if (typeof str !== 'string') return "";
                         return str.replace(/\$/g, '')              // $ 기호 제거
+                                  .replace(/\\left\(/g, '(')       // \left(  -> (
+                                  .replace(/\\right\)/g, ')')      // \right) -> )
                                   .replace(/\u2212/g, '-')         // 수학 마이너스 기호(U+2212)를 일반 하이픈(-)으로 변경
                                   .replace(/\s/g, '')              // 모든 공백 문자 제거
                                   .toLowerCase();                 // 소문자로 변경
