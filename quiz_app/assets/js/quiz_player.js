@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (quizResultEl) {
                 quizResultEl.innerHTML = `
-                    <h3>퀴즈 결과</h3>
+                    <h3 class="quiz-result-title">퀴즈 결과</h3>
                     <div class="score-summary">
                         <p><strong>${userId}</strong>님의 점수: 
                             <span class="score-value">${percentageScore.toFixed(1)}</span>점 
