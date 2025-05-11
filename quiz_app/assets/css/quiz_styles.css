@@ -152,9 +152,27 @@ label {
     font-size: 0.9em;
 }
 
-#score-ranking-list li {
-    padding: 5px 0;
+#score-ranking-list {
+    list-style-type: decimal; /* 기본 숫자 목록 스타일 사용 */
+    padding-left: 30px; /* 번호와 내용 사이 간격 */
+    margin-top: 10px;
 }
+
+#score-ranking-list li {
+    padding: 8px 5px; /* 각 항목 패딩 조정 */
+    border-bottom: 1px solid #f0f0f0; /* 항목 간 구분선 */
+    font-size: 1em;
+    color: #333;
+}
+#score-ranking-list li:last-child {
+    border-bottom: none;
+}
+
+#score-ranking-list li::marker { /* 순위 번호 스타일 (일부 최신 브라우저 지원) */
+    font-weight: bold;
+    color: #337ab7; /* 번호 색상 */
+}
+
 
 /* Quiz Result Title Style */
 .quiz-result-title {

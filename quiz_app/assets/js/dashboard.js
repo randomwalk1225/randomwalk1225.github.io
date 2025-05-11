@@ -44,7 +44,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         // if (user.badges && user.badges.length > 0) {
                         //     badgeHtml = user.badges.map(b => `<span class="badge">${b}</span>`).join(' ');
                         // }
-                        li.innerHTML = `${index + 1}. ${user.userId} - ${user.score.toFixed(1)}점`;
+                        // <ol>이 자동으로 번호를 매기므로, JS에서 `${index + 1}. ` 부분 제거
+                        li.innerHTML = `${user.userId} - ${user.score.toFixed(1)}점`; 
                         rankingListEl.appendChild(li);
                     });
                 } else {

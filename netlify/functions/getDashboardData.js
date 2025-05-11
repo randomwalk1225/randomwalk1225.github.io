@@ -53,7 +53,7 @@ exports.handler = async (event, context) => {
     // 사용자별 총점 또는 평균 점수를 기준으로 랭킹 계산 (여기서는 개별 최고 점수 기준)
     // 좀 더 복잡한 랭킹 (예: 사용자별 평균 최고점)은 SQL 쿼리나 추가 로직 필요
     const sortedResults = allResults ? [...allResults].sort((a, b) => (b.score || 0) - (a.score || 0)) : [];
-    const topRankings = sortedResults.slice(0, 5).map(r => ({ userId: r.user_id, score: r.score })); // 상위 5명
+    const topRankings = sortedResults.slice(0, 10).map(r => ({ userId: r.user_id, score: r.score })); // 상위 10명으로 변경
 
     return {
       statusCode: 200,
