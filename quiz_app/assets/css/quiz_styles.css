@@ -279,6 +279,9 @@ math-field {
 }
 
 .history-quiz-group {
+    display: flex; /* 제목과 응시 기록 컨테이너를 가로로 배치 */
+    align-items: flex-start; /* 상단 정렬 */
+    gap: 15px; /* 제목과 응시 기록 컨테이너 사이 간격 */
     margin-bottom: 25px;
     padding-bottom: 15px;
     border-bottom: 1px dashed #ccc;
@@ -289,7 +292,16 @@ math-field {
 .history-group-title {
     font-size: 1.5em;
     color: #337ab7;
-    margin-bottom: 10px;
+    margin-bottom: 0; /* flex 아이템이므로 하단 마진 제거 또는 조정 */
+    flex-shrink: 0; /* 제목이 너무 줄어들지 않도록 */
+}
+.inline-attempts-container { /* 기존 스타일에서 padding-left 와 margin-top 조정 */
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px; 
+    padding-left: 0; /* 제목과 같은 줄에 있으므로 들여쓰기 제거 */
+    margin-top: 0; /* 제목과 같은 줄에 있으므로 상단 마진 제거 */
+    flex-grow: 1; /* 남은 공간을 차지하도록 */
 }
 .history-attempt-list {
     padding-left: 0; 
