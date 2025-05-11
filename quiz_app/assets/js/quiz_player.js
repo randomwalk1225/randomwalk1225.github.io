@@ -325,20 +325,33 @@ async function saveResultToServer(resultData) {
             body: JSON.stringify(resultData),
         });
 
+        const responseText = await response.text(); // 먼저 텍스트로 응답을 받음
+
         if (response.ok) {
-            const responseData = await response.json();
-            console.log('서버에 결과 저장 성공:', responseData);
+            try {
+                const responseData = JSON.parse(responseText); // 성공 응답은 JSON으로 파싱
+                console.log('서버에 결과 저장 성공:', responseData);
+            } catch (e) {
+                console.error('서버 성공 응답 JSON 파싱 실패:', responseText, e);
+                // 성공했지만 JSON이 아닌 경우 (드묾), 일단 콘솔에 로그만 남김
+            }
         } else {
-            const errorData = await response.json();
-            console.error('서버에 결과 저장 실패:', response.status, errorData);
+            let errorDetail = response.statusText;
+            try {
+                const errorJson = JSON.parse(responseText); // 오류 응답도 JSON으로 파싱 시도
+                errorDetail = errorJson.error || errorJson.message || response.statusText;
+            } catch (e) {
+                console.error('서버 오류 응답 JSON 파싱 실패:', responseText, e);
+            }
+            console.error('서버에 결과 저장 실패:', response.status, errorDetail);
             if (document.getElementById('quiz-result')) {
-                 document.getElementById('quiz-result').innerHTML += `<p style='color:orange;'>서버에 결과를 저장하는 중 문제가 발생했습니다: ${errorData.error || response.statusText}</p>`;
+                 document.getElementById('quiz-result').innerHTML += `<p style='color:orange;'>서버에 결과를 저장하는 중 문제가 발생했습니다 (${response.status}): ${errorDetail}</p>`;
             }
         }
-    } catch (error) {
+    } catch (error) { // 네트워크 수준의 오류 (fetch 자체가 실패)
         console.error('서버 통신 중 네트워크 오류:', error);
         if (document.getElementById('quiz-result')) {
-            document.getElementById('quiz-result').innerHTML += "<p style='color:orange;'>서버와 통신 중 네트워크 오류가 발생했습니다.</p>";
+            document.getElementById('quiz-result').innerHTML += `<p style='color:orange;'>서버와 통신 중 네트워크 오류가 발생했습니다: ${error.message}</p>`;
         }
     }
 }
