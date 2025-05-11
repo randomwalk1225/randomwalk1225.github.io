@@ -291,8 +291,8 @@ math-field {
 
 .history-quiz-group {
     display: flex; 
-    align-items: flex-start; 
-    gap: 15px; 
+    align-items: baseline; /* 텍스트 기준선 정렬 */
+    gap: 10px; /* 제목과 응시 기록 컨테이너 사이 간격 조정 */
     margin-bottom: 20px; 
     padding: 15px;
     border-bottom: none; 
@@ -309,6 +309,11 @@ math-field {
     flex-shrink: 0; 
     border-bottom: none; 
     padding-bottom: 0;
+    /* 제목이 너무 길 경우를 대비한 스타일 추가 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 40%; /* 제목이 차지할 최대 너비 (조정 가능) */
 }
 
 .history-attempt-list { 
@@ -330,15 +335,15 @@ math-field {
 
 .attempt-summary { 
     display: flex;
-    /* justify-content: space-between; /* 날짜순 정렬 시에는 space-between 유지, 제목별 정렬 시에는 기본(flex-start) */
     align-items: baseline;
     padding: 10px 12px; 
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
-.history-attempt-list.date-sorted .attempt-summary { /* 날짜순 정렬 시에만 space-between 적용 */
-    justify-content: space-between;
+.history-attempt-list.date-sorted .attempt-summary { 
+    justify-content: flex-start; /* 날짜순 정렬 시 왼쪽부터 나열 */
 }
+/* 제목별 정렬 시 .history-quiz-group 내부의 .inline-attempts-container 가 flex-wrap을 담당 */
 
 .attempt-summary:hover {
     background-color: #f0f0f0;
@@ -353,32 +358,35 @@ math-field {
 .attempt-date { 
     font-weight: normal; 
     color: #555;
-    margin-right: 8px; /* 날짜와 다음 요소 사이 간격 */
+    margin-right: 8px; 
 }
 
-.attempt-title-score-group { /* 날짜순 정렬에서 " - 제목 (점수)" 그룹 */
-    display: flex;
+.attempt-title-score-group { 
+    display: inline-flex; /* 내부 요소들을 한 줄로 */
     align-items: baseline;
     flex-grow: 1;
+    /* white-space: nowrap; /* 그룹 전체가 줄바꿈 안되도록 */
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
 }
 .attempt-title-score-group .attempt-quiz-title {
     font-weight: bold;
     color: #337ab7;
     margin-right: 5px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /* white-space: nowrap; */ /* 이미 부모에서 처리 */
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
 }
 .attempt-title-score-group .attempt-score-value {
      color: #28a745;
 }
 
 
-.history-attempt-item .attempt-score { /* 제목별 보기에서 "점수: XX점" */
+.history-attempt-item .attempt-score { 
     color: #28a745; 
     margin-left: 10px; 
 }
-.inline-attempt-summary .attempt-score-value { /* 제목별 보기의 태그 내 점수 숫자 */
+.inline-attempt-summary .attempt-score-value { 
     color: #28a745; 
 }
 
@@ -393,7 +401,7 @@ math-field {
 }
 
 .inline-attempt-summary { 
-    display: inline-flex; /* 내부 span 정렬을 위해 flex 사용 */
+    display: inline-flex; 
     align-items: baseline;
     padding: 5px 8px; 
     background-color: #e9ecef; 
