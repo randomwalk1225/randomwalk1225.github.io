@@ -318,4 +318,34 @@ math-field {
 .history-attempt-list.date-sorted .attempt-quiz-title { /* 날짜순 정렬 시 퀴즈 제목 스타일 */
     font-weight: bold;
     color: #337ab7; /* 그룹 제목과 유사한 색상 */
+    margin-right: 10px;
+}
+
+.history-attempt-item .attempt-summary { /* 상세 보기 토글을 위한 요약 정보 영역 */
+    /* 기존 .history-attempt-item 스타일이 여기에 적용될 수 있도록 구조 변경 고려 */
+    /* 현재는 .history-attempt-item에 클릭 이벤트가 아닌, summaryDiv에 연결됨 */
+    /* .history-attempt-item에 직접 스타일을 주고, summaryDiv는 내용만 담도록 할 수도 있음 */
+}
+
+.history-attempt-item.active .attempt-summary { /* 상세 내용이 펼쳐진 항목의 요약 부분 */
+    background-color: #e9ecef; /* 약간 다른 배경색으로 활성화 표시 */
+}
+
+.attempt-details-content {
+    display: none; /* 기본적으로 상세 내용 숨김 */
+    padding: 15px;
+    margin-top: 10px;
+    border-top: 1px solid #ddd;
+    background-color: #fdfdfd;
+}
+
+.history-attempt-item.active .attempt-details-content {
+    display: block; /* active 클래스가 있는 항목의 상세 내용만 표시 */
+}
+
+.history-detail-card { /* 히스토리 상세 보기 내의 결과 카드 */
+    margin-bottom: 10px !important; /* 기존 .result-card 마진보다 작게 */
+}
+.history-detail-card:last-child {
+    margin-bottom: 0 !important;
 }

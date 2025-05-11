@@ -5,10 +5,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const loadHistoryButton = document.getElementById('loadHistory');
     const sortToggleButton = document.getElementById('sort-toggle-button');
     const historyListEl = document.getElementById('quiz-history-list');
-    const historyDetailEl = document.getElementById('quiz-history-detail');
+    // const historyDetailEl = document.getElementById('quiz-history-detail'); // 전역 상세 영역은 더 이상 직접 사용 안 함
 
-    let allUserHistoryData = []; // 전체 사용자 기록 저장
-    let currentSortMode = 'byQuizTitle'; // 'byQuizTitle' 또는 'byDate'
+    let allUserHistoryData = [];
+    let currentSortMode = 'byQuizTitle';
+    let currentlyOpenDetail = { listItem: null, detailDiv: null };
 
     if (loadHistoryButton) {
         loadHistoryButton.addEventListener('click', function() {
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert("사용자 ID를 입력해주세요.");
                 if (userIdInput) userIdInput.focus();
                 historyListEl.innerHTML = '';
-                historyDetailEl.innerHTML = '';
+                if (currentlyOpenDetail.detailDiv) currentlyOpenDetail.detailDiv.innerHTML = '';
                 return;
             }
             loadUserHistory(userId);
@@ -38,13 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     async function loadUserHistory(userId) {
-        if (!historyListEl || !historyDetailEl) {
-            console.error("히스토리 표시를 위한 DOM 요소를 찾을 수 없습니다.");
-            return;
-        }
         historyListEl.innerHTML = '<li>기록을 불러오는 중...</li>';
-        historyDetailEl.innerHTML = '';
-        if(sortToggleButton) sortToggleButton.style.display = 'none'; 
+        if (currentlyOpenDetail.detailDiv) currentlyOpenDetail.detailDiv.innerHTML = ''; // 이전 상세 내용 초기화
+        if(sortToggleButton) sortToggleButton.style.display = 'none';
 
         const netlifySiteUrl = "https://chipper-cupcake-752544.netlify.app";
         const functionPath = `${netlifySiteUrl}/.netlify/functions/getUserHistory?userId=${encodeURIComponent(userId)}`;
@@ -55,12 +52,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (!response.ok) {
                 let errorDetail = response.statusText;
-                try {
-                    const errorJson = JSON.parse(responseText);
-                    errorDetail = errorJson.error || errorJson.message || response.statusText;
-                } catch (e) {
-                    console.error("Failed to parse error response as JSON:", responseText);
-                }
+                try { const errorJson = JSON.parse(responseText); errorDetail = errorJson.error || errorJson.message || response.statusText; }
+                catch (e) { console.error("Failed to parse error response as JSON:", responseText); }
                 throw new Error(`서버에서 기록을 불러오는 데 실패했습니다 (${response.status}): ${errorDetail}`);
             }
             
@@ -88,7 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function renderHistoryList(historyData, sortBy) {
         historyListEl.innerHTML = '';
-        historyDetailEl.innerHTML = ''; 
+        if (currentlyOpenDetail.detailDiv) currentlyOpenDetail.detailDiv.innerHTML = ''; // 이전 상세 내용 초기화
+        currentlyOpenDetail = { listItem: null, detailDiv: null }; // 열린 상세 초기화
 
         if (!historyData || historyData.length === 0) {
             historyListEl.innerHTML = '<p>표시할 기록이 없습니다.</p>';
@@ -97,9 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         if(sortToggleButton) sortToggleButton.style.display = 'inline-block';
 
-        // 모든 기록은 created_at 기준으로 최신순 정렬 (서버에서 이미 정렬, 클라이언트에서도 확인차 정렬)
         historyData.sort((a,b) => new Date(b.created_at) - new Date(a.created_at));
-
 
         if (sortBy === 'byQuizTitle') {
             const groupedByQuiz = historyData.reduce((acc, record) => {
@@ -107,36 +99,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (!acc[title]) {
                     acc[title] = { quiz_id: record.quiz_id, attempts: [] };
                 }
-                acc[title].attempts.push(record); // 이미 created_at으로 정렬된 상태로 push됨
+                acc[title].attempts.push(record);
                 return acc;
             }, {});
-
             const sortedQuizTitles = Object.keys(groupedByQuiz).sort();
 
             for (const quizTitle of sortedQuizTitles) {
                 const groupContainer = document.createElement('div');
                 groupContainer.classList.add('history-quiz-group');
-                
                 const groupTitleEl = document.createElement('h3');
                 groupTitleEl.classList.add('history-group-title');
                 groupTitleEl.textContent = quizTitle;
                 groupContainer.appendChild(groupTitleEl);
-
                 const attemptListUl = document.createElement('ul');
                 attemptListUl.classList.add('history-attempt-list');
-
-                // 각 그룹 내 시도들은 이미 created_at 역순으로 정렬되어 있음
-                groupedByQuiz[quizTitle].attempts.forEach(record => {
-                    const attemptItemLi = document.createElement('li');
-                    attemptItemLi.classList.add('history-attempt-item');
-                    const attemptDate = new Date(record.created_at).toLocaleString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
-                    const attemptScore = record.score.toFixed(1);
-                    attemptItemLi.innerHTML = `
-                        <span class="attempt-date">${attemptDate}</span>
-                        <span class="attempt-score">점수: ${attemptScore}점</span>
-                    `;
-                    attemptItemLi.addEventListener('click', () => displayHistoryDetail(record));
-                    attemptListUl.appendChild(attemptItemLi);
+                groupedByQuiz[quizTitle].attempts.forEach(record => { // 이미 날짜 역순 정렬됨
+                    attemptListUl.appendChild(createAttemptListItem(record));
                 });
                 groupContainer.appendChild(attemptListUl);
                 historyListEl.appendChild(groupContainer);
@@ -144,40 +122,82 @@ document.addEventListener('DOMContentLoaded', function() {
         } else { // sortBy === 'byDate'
             const attemptListUl = document.createElement('ul');
             attemptListUl.classList.add('history-attempt-list', 'date-sorted');
-
-            historyData.forEach(record => { // historyData는 이미 created_at 역순 정렬 상태
-                const attemptItemLi = document.createElement('li');
-                attemptItemLi.classList.add('history-attempt-item');
-                const quizTitle = record.quiz_title || record.quiz_id || '알 수 없는 퀴즈';
-                const attemptDate = new Date(record.created_at).toLocaleString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
-                const attemptScore = record.score.toFixed(1);
-                attemptItemLi.innerHTML = `
-                    <span class="attempt-quiz-title">${quizTitle}</span> - 
-                    <span class="attempt-date">${attemptDate}</span> - 
-                    <span class="attempt-score">점수: ${attemptScore}점</span>
-                `;
-                attemptItemLi.addEventListener('click', () => displayHistoryDetail(record));
-                attemptListUl.appendChild(attemptItemLi);
+            historyData.forEach(record => {
+                attemptListUl.appendChild(createAttemptListItem(record, true)); // showQuizTitle = true
             });
             historyListEl.appendChild(attemptListUl);
         }
     }
 
-    function displayHistoryDetail(record) {
-        if (!historyDetailEl) return;
+    function createAttemptListItem(record, showQuizTitle = false) {
+        const attemptItemLi = document.createElement('li');
+        attemptItemLi.classList.add('history-attempt-item');
+        
+        const summaryDiv = document.createElement('div');
+        summaryDiv.classList.add('attempt-summary');
+
+        let summaryHTML = '';
+        if (showQuizTitle) {
+            const quizTitle = record.quiz_title || record.quiz_id || '알 수 없는 퀴즈';
+            summaryHTML += `<span class="attempt-quiz-title">${quizTitle}</span> - `;
+        }
+        const attemptDate = new Date(record.created_at).toLocaleString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+        const attemptScore = record.score.toFixed(1);
+        summaryHTML += `
+            <span class="attempt-date">${attemptDate}</span>
+            <span class="attempt-score">점수: ${attemptScore}점</span>
+        `;
+        summaryDiv.innerHTML = summaryHTML;
+
+        const detailContentDiv = document.createElement('div');
+        detailContentDiv.classList.add('attempt-details-content');
+        // detailContentDiv.style.display = 'none'; // CSS에서 기본 숨김 처리
+
+        summaryDiv.addEventListener('click', () => toggleDetailView(record, detailContentDiv, attemptItemLi));
+        
+        attemptItemLi.appendChild(summaryDiv);
+        attemptItemLi.appendChild(detailContentDiv);
+        return attemptItemLi;
+    }
+
+    function toggleDetailView(record, detailDiv, listItem) {
+        const isActive = listItem.classList.contains('active');
+
+        // Close any currently open detail
+        if (currentlyOpenDetail.listItem && currentlyOpenDetail.listItem !== listItem) {
+            // currentlyOpenDetail.detailDiv.style.display = 'none'; // CSS로 처리
+            currentlyOpenDetail.detailDiv.innerHTML = ''; // 내용만 비움
+            currentlyOpenDetail.listItem.classList.remove('active');
+        }
+
+        if (isActive && isCurrentlyOpenItem) { // 현재 열려있는 바로 그 항목을 다시 클릭한 경우 (닫기)
+            // detailDiv.style.display = 'none'; // CSS로 처리
+            detailDiv.innerHTML = ''; // 내용만 비움
+            listItem.classList.remove('active');
+            currentlyOpenDetail = { listItem: null, detailDiv: null };
+        } else { // 새 항목을 클릭했거나, 닫혀있던 항목을 클릭한 경우 (열기)
+            displayHistoryDetailContent(record, detailDiv); // 상세 내용 채우기
+            // detailDiv.style.display = 'block'; // CSS로 처리
+            listItem.classList.add('active');
+            currentlyOpenDetail = { listItem: listItem, detailDiv: detailDiv };
+        }
+    }
+
+    function displayHistoryDetailContent(record, targetDiv) { // Renamed from displayHistoryDetail
+        targetDiv.innerHTML = ''; // Clear previous content
+
         const quizTitleForDisplay = record.quiz_title || record.quiz_id || "해당 퀴즈";
-        historyDetailEl.innerHTML = `
-            <h3>"${quizTitleForDisplay}" 상세 기록</h3>
-            <p><strong>응시 일시:</strong> ${new Date(record.created_at).toLocaleString('ko-KR')}</p>
-            <p><strong>점수:</strong> ${record.score.toFixed(1)}점</p>
-            <h4>답변 상세:</h4>`;
+        // 상세 기록 제목 및 기본 정보는 목록 아이템 클릭 시 이미 알 수 있으므로, 여기서는 답변 카드만 집중
+        // targetDiv.innerHTML = ` 
+        //     <h4>"${quizTitleForDisplay}" 상세 답변</h4> 
+        // `; // 필요하다면 이 부분 주석 해제
         
         const incorrectIds = record.incorrect_question_ids || [];
 
         if (record.answers_details && Array.isArray(record.answers_details) && record.answers_details.length > 0) {
             record.answers_details.forEach((ans, index) => {
                 const card = document.createElement('div');
-                card.classList.add('result-card');
+                card.classList.add('result-card', 'history-detail-card'); // 추가 클래스로 상세 스타일링 가능
                 card.classList.add(ans.isCorrect ? 'correct' : 'incorrect');
                 if (!ans.isCorrect && incorrectIds.includes(ans.questionId)) {
                     card.classList.add('highlight-incorrect');
@@ -197,17 +217,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="result-card-user-answer"><strong>제출 답:</strong> ${displayUserAnswer}</div>
                     <div class="result-card-correct-answer"><strong>정답:</strong> ${displayCorrectAnswer}</div>
                     <div class="result-card-status">${ans.isCorrect ? '정답 👍' : '오답 👎'}</div>`;
-                historyDetailEl.appendChild(card); 
+                targetDiv.appendChild(card); 
             });
         } else {
             const p = document.createElement('p');
             p.textContent = '상세 답변 기록이 없습니다.';
-            historyDetailEl.appendChild(p);
+            targetDiv.appendChild(p);
         }
 
         if (typeof MathJax !== "undefined" && MathJax.typesetPromise) {
             setTimeout(() => {
-                MathJax.typesetPromise(historyDetailEl.querySelectorAll('.result-card .result-card-question, .result-card .result-card-user-answer, .result-card .result-card-correct-answer')).catch((err) => console.error('MathJax typesetPromise failed for history details:', err));
+                MathJax.typesetPromise(targetDiv.querySelectorAll('.result-card .result-card-question, .result-card .result-card-user-answer, .result-card .result-card-correct-answer')).catch((err) => console.error('MathJax typesetPromise failed for history details:', err));
             }, 0);
         }
     }
