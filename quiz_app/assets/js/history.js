@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         historyListEl.innerHTML = '<li>기록을 불러오는 중...</li>';
         historyDetailEl.innerHTML = '';
-        sortToggleButton.style.display = 'none'; // 로딩 중에는 정렬 버튼 숨김
+        if(sortToggleButton) sortToggleButton.style.display = 'none'; 
 
         const netlifySiteUrl = "https://chipper-cupcake-752544.netlify.app";
         const functionPath = `${netlifySiteUrl}/.netlify/functions/getUserHistory?userId=${encodeURIComponent(userId)}`;
@@ -68,33 +68,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (!Array.isArray(allUserHistoryData) || allUserHistoryData.length === 0) {
                 historyListEl.innerHTML = '<p>아직 응시한 퀴즈 기록이 없습니다. <a href="../">퀴즈 목록</a>에서 퀴즈를 선택해 진행해 봅시다.</p>';
-                sortToggleButton.style.display = 'none';
+                if(sortToggleButton) sortToggleButton.style.display = 'none';
                 return;
             }
             
-            // 기본 정렬은 서버에서 이미 timestamp 내림차순으로 제공
-            currentSortMode = 'byQuizTitle'; // 초기 정렬 모드
-            sortToggleButton.textContent = '날짜순으로 정렬';
-            sortToggleButton.style.display = 'inline-block'; // 기록 있으면 버튼 표시
+            currentSortMode = 'byQuizTitle'; 
+            if(sortToggleButton) {
+                sortToggleButton.textContent = '날짜순으로 정렬';
+                sortToggleButton.style.display = 'inline-block'; 
+            }
             renderHistoryList(allUserHistoryData, currentSortMode);
 
         } catch (error) {
             console.error("서버에서 히스토리 로드 중 오류 발생:", error);
             historyListEl.innerHTML = `<p style="color:red;">기록을 불러오는 중 오류가 발생했습니다: ${error.message}</p>`;
-            sortToggleButton.style.display = 'none';
+            if(sortToggleButton) sortToggleButton.style.display = 'none';
         }
     }
 
     function renderHistoryList(historyData, sortBy) {
         historyListEl.innerHTML = '';
-        historyDetailEl.innerHTML = ''; // 상세 보기 초기화
+        historyDetailEl.innerHTML = ''; 
 
         if (!historyData || historyData.length === 0) {
             historyListEl.innerHTML = '<p>표시할 기록이 없습니다.</p>';
-            sortToggleButton.style.display = 'none';
+            if(sortToggleButton) sortToggleButton.style.display = 'none';
             return;
         }
-        sortToggleButton.style.display = 'inline-block';
+        if(sortToggleButton) sortToggleButton.style.display = 'inline-block';
+
+        // 모든 기록은 created_at 기준으로 최신순 정렬 (서버에서 이미 정렬, 클라이언트에서도 확인차 정렬)
+        historyData.sort((a,b) => new Date(b.created_at) - new Date(a.created_at));
 
 
         if (sortBy === 'byQuizTitle') {
@@ -103,11 +107,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (!acc[title]) {
                     acc[title] = { quiz_id: record.quiz_id, attempts: [] };
                 }
-                acc[title].attempts.push(record);
+                acc[title].attempts.push(record); // 이미 created_at으로 정렬된 상태로 push됨
                 return acc;
             }, {});
 
-            // 퀴즈 제목별로 정렬 (가나다 순)
             const sortedQuizTitles = Object.keys(groupedByQuiz).sort();
 
             for (const quizTitle of sortedQuizTitles) {
@@ -122,13 +125,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 const attemptListUl = document.createElement('ul');
                 attemptListUl.classList.add('history-attempt-list');
 
-                // 각 퀴즈 그룹 내 시도들을 시간 역순으로 정렬
-                groupedByQuiz[quizTitle].attempts.sort((a,b) => new Date(b.timestamp) - new Date(a.timestamp));
-
+                // 각 그룹 내 시도들은 이미 created_at 역순으로 정렬되어 있음
                 groupedByQuiz[quizTitle].attempts.forEach(record => {
                     const attemptItemLi = document.createElement('li');
                     attemptItemLi.classList.add('history-attempt-item');
-                    const attemptDate = new Date(record.timestamp).toLocaleString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+                    const attemptDate = new Date(record.created_at).toLocaleString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
                     const attemptScore = record.score.toFixed(1);
                     attemptItemLi.innerHTML = `
                         <span class="attempt-date">${attemptDate}</span>
@@ -141,15 +142,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 historyListEl.appendChild(groupContainer);
             }
         } else { // sortBy === 'byDate'
-            // 이미 서버에서 시간 역순으로 정렬된 데이터를 사용
             const attemptListUl = document.createElement('ul');
             attemptListUl.classList.add('history-attempt-list', 'date-sorted');
 
-            historyData.forEach(record => {
+            historyData.forEach(record => { // historyData는 이미 created_at 역순 정렬 상태
                 const attemptItemLi = document.createElement('li');
                 attemptItemLi.classList.add('history-attempt-item');
                 const quizTitle = record.quiz_title || record.quiz_id || '알 수 없는 퀴즈';
-                const attemptDate = new Date(record.timestamp).toLocaleString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+                const attemptDate = new Date(record.created_at).toLocaleString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
                 const attemptScore = record.score.toFixed(1);
                 attemptItemLi.innerHTML = `
                     <span class="attempt-quiz-title">${quizTitle}</span> - 
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const quizTitleForDisplay = record.quiz_title || record.quiz_id || "해당 퀴즈";
         historyDetailEl.innerHTML = `
             <h3>"${quizTitleForDisplay}" 상세 기록</h3>
-            <p><strong>응시 일시:</strong> ${new Date(record.timestamp).toLocaleString('ko-KR')}</p>
+            <p><strong>응시 일시:</strong> ${new Date(record.created_at).toLocaleString('ko-KR')}</p>
             <p><strong>점수:</strong> ${record.score.toFixed(1)}점</p>
             <h4>답변 상세:</h4>`;
         
