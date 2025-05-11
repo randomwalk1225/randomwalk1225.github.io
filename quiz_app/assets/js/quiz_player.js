@@ -32,11 +32,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             const rawQuizData = await response.json();
             
+            let tempCurrentQuizData; 
+
             if (Array.isArray(rawQuizData) && rawQuizData.length > 0 && rawQuizData[0].title) {
                 if (quizTitleEl) {
                     quizTitleEl.textContent = rawQuizData[0].title;
                 }
-                currentQuizData = rawQuizData.slice(1);
+                tempCurrentQuizData = rawQuizData.slice(1);
             } else {
                 if (quizTitleEl) {
                     let title = id;
@@ -46,9 +48,29 @@ document.addEventListener('DOMContentLoaded', function() {
                     else title = "퀴즈";
                     quizTitleEl.textContent = title;
                 }
-                currentQuizData = rawQuizData;
+                tempCurrentQuizData = rawQuizData;
                 console.warn("퀴즈 데이터에 title 정보가 없거나 형식이 올바르지 않습니다.");
             }
+
+            // MathLive를 이용한 정답 정규화 (isMathInput 문제에 대해)
+            if (typeof MathfieldElement !== 'undefined' && tempCurrentQuizData) {
+                const tempMathField = new MathfieldElement();
+                
+                currentQuizData = tempCurrentQuizData.map(q => {
+                    if (q.type === 'short-answer' && q.isMathInput && typeof q.answer === 'string') {
+                        let initialLatex = q.answer.replace(/\$/g, ''); 
+                        tempMathField.value = initialLatex; 
+                        return { ...q, answer: tempMathField.value }; 
+                    }
+                    return q;
+                });
+            } else if (tempCurrentQuizData) {
+                console.warn("MathLive (MathfieldElement)가 로드되지 않아 정답 정규화를 건너<0xC2><0xAD>뜁니다.");
+                currentQuizData = tempCurrentQuizData; // 정규화 없이 그대로 사용
+            } else {
+                currentQuizData = []; // 데이터가 아예 없는 경우
+            }
+            
             renderQuiz();
         } catch (error) {
             console.error(error);
@@ -183,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                   .toLowerCase();                 // 소문자로 변경
                     };
                     const normalizedUserAnswer = normalizeMathAnswer(userAnswerRaw);
-                    const normalizedCorrectAnswer = normalizeMathAnswer(q.answer);
+                    const normalizedCorrectAnswer = normalizeMathAnswer(q.answer); // q.answer는 loadQuizData에서 MathLive로 정규화된 값
                     isCorrect = normalizedUserAnswer === normalizedCorrectAnswer;
                 } else {
                     // 일반 주관식 또는 객관식: 앞뒤 공백 제거 후 소문자 비교
@@ -197,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     questionId: q.id,
                     question: q.question,
                     userAnswer: userAnswerRaw, 
-                    correctAnswer: q.answer,
+                    correctAnswer: q.answer, // MathLive로 정규화된 정답
                     isCorrect: isCorrect,
                     type: q.type, 
                     isMathInput: q.isMathInput || false 
@@ -221,13 +243,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     card.classList.add(r.isCorrect ? 'correct' : 'incorrect');
 
                     let displayUserAnswer = r.userAnswer || "(답변 없음)";
-                    let displayCorrectAnswer = r.correctAnswer;
+                    let displayCorrectAnswer = r.correctAnswer; // 이미 MathLive 정규화된 값
 
+                    // 결과 표시 시 $ 추가 (MathJax 렌더링용)
                     if (r.type === 'short-answer' && r.isMathInput) {
                         if (displayUserAnswer !== "(답변 없음)" && !displayUserAnswer.includes('$')) {
                             displayUserAnswer = `$${displayUserAnswer}$`;
                         }
-                        if (displayCorrectAnswer && !displayCorrectAnswer.includes('$')) {
+                        // displayCorrectAnswer는 이미 MathLive 표준 LaTeX이므로, $만 추가 (필요하다면)
+                        if (displayCorrectAnswer && !displayCorrectAnswer.includes('$')) { 
                            displayCorrectAnswer = `$${displayCorrectAnswer}$`;
                         }
                     }
