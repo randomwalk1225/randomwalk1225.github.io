@@ -1,8 +1,27 @@
 const { createClient } = require('@supabase/supabase-js');
 
+const CORS_HEADERS = {
+  'Access-Control-Allow-Origin': 'https://randomwalk1225.github.io', // 실제 GitHub Pages URL로 변경 필요 시
+  'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+};
+
 exports.handler = async (event, context) => {
+  // Preflight OPTIONS 요청 처리
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers: CORS_HEADERS,
+      body: JSON.stringify({ message: 'CORS preflight successful' }),
+    };
+  }
+
   if (event.httpMethod !== 'GET') {
-    return { statusCode: 405, body: 'Method Not Allowed' };
+    return { 
+      statusCode: 405, 
+      headers: CORS_HEADERS,
+      body: 'Method Not Allowed' 
+    };
   }
 
   try {
@@ -38,6 +57,7 @@ exports.handler = async (event, context) => {
 
     return {
       statusCode: 200,
+      headers: CORS_HEADERS,
       body: JSON.stringify({
         averageScore: parseFloat(averageScore.toFixed(1)),
         topRankings: topRankings,
@@ -47,6 +67,10 @@ exports.handler = async (event, context) => {
 
   } catch (e) {
     console.error('Error processing dashboard request:', e);
-    return { statusCode: 500, body: JSON.stringify({ error: 'Error processing dashboard request.', details: e.message }) };
+    return { 
+      statusCode: 500, 
+      headers: CORS_HEADERS,
+      body: JSON.stringify({ error: 'Error processing dashboard request.', details: e.message }) 
+    };
   }
 };

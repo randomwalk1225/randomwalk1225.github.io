@@ -1,8 +1,27 @@
 const { createClient } = require('@supabase/supabase-js');
 
+const CORS_HEADERS = {
+  'Access-Control-Allow-Origin': 'https://randomwalk1225.github.io', // 실제 GitHub Pages URL로 변경 필요 시
+  'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Allow-Methods': 'POST, GET, OPTIONS', // 허용할 HTTP 메소드
+};
+
 exports.handler = async (event, context) => {
+  // Preflight OPTIONS 요청 처리
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers: CORS_HEADERS,
+      body: JSON.stringify({ message: 'CORS preflight successful' }),
+    };
+  }
+
   if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: 'Method Not Allowed' };
+    return { 
+      statusCode: 405, 
+      headers: CORS_HEADERS, // 모든 응답에 CORS 헤더 포함
+      body: 'Method Not Allowed' 
+    };
   }
 
   try {
@@ -49,11 +68,16 @@ exports.handler = async (event, context) => {
     console.log('Quiz result saved to Supabase:', data);
     return {
       statusCode: 200,
+      headers: CORS_HEADERS,
       body: JSON.stringify({ message: 'Quiz result saved successfully.', savedData: data }),
     };
 
   } catch (e) {
     console.error('Error processing request:', e);
-    return { statusCode: 500, body: JSON.stringify({ error: 'Error processing request.', details: e.message }) };
+    return { 
+      statusCode: 500, 
+      headers: CORS_HEADERS,
+      body: JSON.stringify({ error: 'Error processing request.', details: e.message }) 
+    };
   }
 };
