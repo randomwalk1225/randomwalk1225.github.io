@@ -29,10 +29,10 @@ document.addEventListener('DOMContentLoaded', function() {
         sortToggleButton.addEventListener('click', function() {
             if (currentSortMode === 'byQuizTitle') {
                 currentSortMode = 'byDate';
-                sortToggleButton.textContent = '퀴즈 제목 (최신순) 정렬'; // 변경
+                sortToggleButton.textContent = '제목순서로 정렬'; // 변경
             } else {
                 currentSortMode = 'byQuizTitle';
-                sortToggleButton.textContent = '전체 응시일 순으로 정렬'; // 변경
+                sortToggleButton.textContent = '날짜별로 정렬'; // 변경
             }
             renderHistoryList(allUserHistoryData, currentSortMode);
         });
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             currentSortMode = 'byQuizTitle'; 
             if(sortToggleButton) {
-                sortToggleButton.textContent = '전체 응시일 순으로 정렬'; // 변경
+                sortToggleButton.textContent = '날짜별로 정렬'; // 변경
                 sortToggleButton.style.display = 'inline-block'; 
             }
             renderHistoryList(allUserHistoryData, currentSortMode);
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (sortBy === 'byQuizTitle') {
                 sortStatusEl.textContent = '퀴즈 제목별로 정렬된 기록입니다.';
             } else { // sortBy === 'byDate'
-                sortStatusEl.textContent = '최근 응시 순으로 정렬된 기록입니다.';
+                sortStatusEl.textContent = '날짜 순으로 정렬하였습니다.'; // 변경
             }
         }
 

@@ -37,31 +37,29 @@ exports.handler = async (event, context) => {
     // 모든 퀴즈 결과 데이터 가져오기
     const { data: allResults, error: fetchError } = await supabase
       .from('quiz_results')
-      .select('user_id, score'); // 평균 및 랭킹 계산에 필요한 컬럼만 선택
+      .select('user_id, score, created_at'); // created_at 추가
 
     if (fetchError) {
       console.error('Supabase select error for dashboard:', fetchError);
-      return { statusCode: 500, body: JSON.stringify({ error: 'Failed to fetch data for dashboard.', details: fetchError.message }) };
+      return { statusCode: 500, headers: CORS_HEADERS, body: JSON.stringify({ error: 'Failed to fetch data for dashboard.', details: fetchError.message }) };
     }
 
-    let averageScore = 0;
-    if (allResults && allResults.length > 0) {
-      const totalScore = allResults.reduce((sum, result) => sum + (result.score || 0), 0);
-      averageScore = totalScore / allResults.length;
-    }
+    // 평균 점수 계산 로직 삭제
 
-    // 사용자별 총점 또는 평균 점수를 기준으로 랭킹 계산 (여기서는 개별 최고 점수 기준)
-    // 좀 더 복잡한 랭킹 (예: 사용자별 평균 최고점)은 SQL 쿼리나 추가 로직 필요
     const sortedResults = allResults ? [...allResults].sort((a, b) => (b.score || 0) - (a.score || 0)) : [];
-    const topRankings = sortedResults.slice(0, 10).map(r => ({ userId: r.user_id, score: r.score })); // 상위 10명으로 변경
+    const topRankings = sortedResults.slice(0, 10).map(r => ({ 
+        userId: r.user_id, 
+        score: r.score,
+        timestamp: r.created_at // 타임스탬프 추가
+    }));
 
     return {
       statusCode: 200,
       headers: CORS_HEADERS,
       body: JSON.stringify({
-        averageScore: parseFloat(averageScore.toFixed(1)),
+        // averageScore 필드 삭제
         topRankings: topRankings,
-        totalParticipants: allResults ? allResults.length : 0 // 총 참여 횟수 (또는 고유 사용자 수로 변경 가능)
+        totalParticipants: allResults ? allResults.length : 0 
       }),
     };
 

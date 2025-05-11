@@ -1,15 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log("대시보드 스크립트 로드됨");
 
-    const avgScoreEl = document.getElementById('avg-score');
+    // const avgScoreEl = document.getElementById('avg-score'); // 평균 점수 요소 제거
     const rankingListEl = document.getElementById('score-ranking-list');
-    // const badgeDisplayEl = document.getElementById('badge-display'); // 뱃지 기능은 추후 확장
+    const totalParticipantsEl = document.getElementById('total-participants'); // 전체 통계의 참여자 수 요소
 
     async function loadDashboardData() {
-        if (avgScoreEl) avgScoreEl.textContent = '로딩 중...';
+        // if (avgScoreEl) avgScoreEl.textContent = '로딩 중...'; // 평균 점수 로딩 메시지 제거
         if (rankingListEl) rankingListEl.innerHTML = '<li>랭킹 정보를 불러오는 중...</li>';
+        if (totalParticipantsEl) totalParticipantsEl.textContent = '로딩 중...';
 
-        const netlifySiteUrl = "https://chipper-cupcake-752544.netlify.app"; // 실제 Netlify 사이트 URL로 변경 필요
+
+        const netlifySiteUrl = "https://chipper-cupcake-752544.netlify.app"; 
         const functionPath = `${netlifySiteUrl}/.netlify/functions/getDashboardData`;
 
         try {
@@ -28,24 +30,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 throw new Error(`서버에서 대시보드 데이터를 불러오는 데 실패했습니다 (${response.status}): ${errorDetail}`);
             }
             
-            const data = JSON.parse(responseText); // 성공 응답은 JSON으로 파싱
+            const data = JSON.parse(responseText); 
 
-            if (avgScoreEl) {
-                avgScoreEl.textContent = data.averageScore !== undefined ? data.averageScore.toFixed(1) : 'N/A';
-            }
+            // if (avgScoreEl) { // 평균 점수 표시 로직 제거
+            //     avgScoreEl.textContent = data.averageScore !== undefined ? data.averageScore.toFixed(1) : 'N/A';
+            // }
 
             if (rankingListEl) {
-                rankingListEl.innerHTML = ''; // 기존 목록 초기화
-                if (data.topRankings && data.topRankings.length > 0) { // 변경: data.ranking -> data.topRankings
-                    data.topRankings.forEach((user, index) => {
+                rankingListEl.innerHTML = ''; 
+                if (data.topRankings && data.topRankings.length > 0) { 
+                    data.topRankings.forEach((user) => { // index는 <ol>이 처리하므로 제거
                         const li = document.createElement('li');
-                        // 뱃지 기능은 현재 getDashboardData에서 반환하지 않으므로 일단 제거
-                        // let badgeHtml = '';
-                        // if (user.badges && user.badges.length > 0) {
-                        //     badgeHtml = user.badges.map(b => `<span class="badge">${b}</span>`).join(' ');
-                        // }
-                        // <ol>이 자동으로 번호를 매기므로, JS에서 `${index + 1}. ` 부분 제거
-                        li.innerHTML = `${user.userId} - ${user.score.toFixed(1)}점`; 
+                        const dateString = user.timestamp ? new Date(user.timestamp).toLocaleString('ko-KR', { 
+                            year: 'numeric', month: '2-digit', day: '2-digit', 
+                            hour: '2-digit', minute: '2-digit' 
+                        }) : '날짜 정보 없음';
+                        
+                        li.innerHTML = `${user.userId} - ${user.score.toFixed(1)}점 <span class="ranking-timestamp">(${dateString})</span>`; 
                         rankingListEl.appendChild(li);
                     });
                 } else {
@@ -53,15 +54,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             
-            const totalParticipantsEl = document.getElementById('total-participants'); // ID 일치 확인
-            if (totalParticipantsEl) { // totalParticipantsEl이 실제로 존재하는지 확인
+            if (totalParticipantsEl) { 
                 totalParticipantsEl.textContent = data.totalParticipants !== undefined ? data.totalParticipants : 'N/A';
             }
 
         } catch (error) {
             console.error("대시보드 데이터 로드 실패:", error);
-            if (avgScoreEl) avgScoreEl.textContent = '오류';
+            // if (avgScoreEl) avgScoreEl.textContent = '오류'; // 평균 점수 오류 메시지 제거
             if (rankingListEl) rankingListEl.innerHTML = `<li>데이터 로드 오류: ${error.message}</li>`;
+            if (totalParticipantsEl) totalParticipantsEl.textContent = '오류';
         }
     }
 
