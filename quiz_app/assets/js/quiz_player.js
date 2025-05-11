@@ -123,11 +123,9 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (q.type === 'short-answer') {
                 if (q.isMathInput) {
                     const mathField = document.createElement('math-field');
-                    mathField.id = `math-input-${q.id}`; // 고유 ID 부여
-                    // mathField.style.width = '100%'; // 필요시 스타일 추가
-                    // MathLive 필드의 값이 변경될 때 userAnswers 업데이트
+                    mathField.id = `math-input-${q.id}`; 
                     mathField.addEventListener('input', (e) => {
-                        userAnswers[q.id] = e.target.value; // MathLive는 value 속성으로 LaTeX 반환
+                        userAnswers[q.id] = e.target.value; 
                     });
                     optionsDiv.appendChild(mathField);
                 } else {
@@ -175,16 +173,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 const userAnswerRaw = userAnswers[q.id] || "";
                 let isCorrect = false;
 
-                if (q.type === 'short-answer' && (q.answer.includes('$') || userAnswerRaw.includes('$') || q.isMathInput)) {
-                    const normalizeAnswer = (str) => {
+                if (q.type === 'short-answer' && q.isMathInput) {
+                    // 수학식 주관식: $ 제거, 모든 공백 제거 후 소문자 비교
+                    const normalizeMathAnswer = (str) => {
                         if (typeof str !== 'string') return "";
-                        return str.replace(/\$/g, '').replace(/\s+/g, ' ').trim();
+                        return str.replace(/\$/g, '').replace(/\s/g, '').toLowerCase();
                     };
-                    const normalizedUserAnswer = normalizeAnswer(userAnswerRaw);
-                    const normalizedCorrectAnswer = normalizeAnswer(q.answer);
-                    isCorrect = normalizedUserAnswer.toLowerCase() === normalizedCorrectAnswer.toLowerCase();
+                    const normalizedUserAnswer = normalizeMathAnswer(userAnswerRaw);
+                    const normalizedCorrectAnswer = normalizeMathAnswer(q.answer);
+                    isCorrect = normalizedUserAnswer === normalizedCorrectAnswer;
                 } else {
-                    isCorrect = userAnswerRaw.toLowerCase() === q.answer.toLowerCase();
+                    // 일반 주관식 또는 객관식: 앞뒤 공백 제거 후 소문자 비교
+                    isCorrect = userAnswerRaw.trim().toLowerCase() === q.answer.trim().toLowerCase();
                 }
 
                 if (isCorrect) {
@@ -279,8 +279,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     loadQuizData(quizId);
 });
-
-// createSymbolPalette 함수 전체 삭제
 
 async function saveResultToServer(resultData) {
     const siteBaseUrl = document.body.getAttribute('data-baseurl') || '';
