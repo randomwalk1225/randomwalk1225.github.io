@@ -1,61 +1,46 @@
-const faunadb = require('faunadb');
-const q = faunadb.query;
-
-const FAUNA_SERVER_SECRET = process.env.FAUNA_SERVER_SECRET;
+const { createClient } = require('@supabase/supabase-js');
 
 exports.handler = async (event, context) => {
   if (event.httpMethod !== 'GET') {
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
 
-  if (!FAUNA_SERVER_SECRET) {
-    console.error("FaunaDB 서버 시크릿이 설정되지 않았습니다.");
-    return { statusCode: 500, body: 'Server configuration error.' };
-  }
-
-  const userId = event.queryStringParameters.userId;
-
-  if (!userId) {
-    return { statusCode: 400, body: 'Missing userId query parameter' };
-  }
-
   try {
-    const client = new faunadb.Client({ secret: FAUNA_SERVER_SECRET });
+    const userId = event.queryStringParameters.userId;
 
-    // 'quiz_results_by_userId' 인덱스를 사용하여 특정 사용자의 결과 조회
-    // 이 인덱스는 FaunaDB에서 미리 생성해야 합니다.
-    // terms: 인덱싱할 필드 (여기서는 data.userId)
-    // values: 인덱스에 포함될 추가 데이터 (여기서는 전체 문서의 ref와 data)
-    /* 예시 인덱스 생성 FQL (FaunaDB Shell에서 실행):
-       CreateIndex({
-         name: "quiz_results_by_userId",
-         source: Collection("quiz_results"),
-         terms: [{ field: ["data", "userId"] }],
-         values: [{ field: ["ref"] }, { field: ["data"] }]
-       })
-    */
-    const result = await client.query(
-      q.Map(
-        q.Paginate(q.Match(q.Index('quiz_results_by_userId'), userId)),
-        q.Lambda(x => q.Select(["data"], q.Get(q.Select(["ref"], x)))) // ref 대신 value의 data 필드를 직접 가져오도록 수정
-                                                                    // 또는 q.Lambda(x => q.Select(["data"], q.Get(x))) 만약 인덱스가 ref만 반환한다면
-                                                                    // 만약 인덱스 values에 { field: ["data"] } 만 있다면 q.Lambda(x => x)
-      )
-    );
-    
-    // result.data는 배열이며, 각 요소가 { data: quizResult } 형태일 수 있으므로, 실제 quizResult만 추출
-    // 위 FQL 수정으로 인해 result.data는 이미 quizResult 객체들의 배열이 됩니다.
+    if (!userId) {
+      return { statusCode: 400, body: JSON.stringify({ error: 'userId query parameter is required.' }) };
+    }
+
+    const supabaseUrl = process.env.SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_SERVICE_KEY;
+
+    if (!supabaseUrl || !supabaseKey) {
+      console.error('Supabase URL or Service Key is missing in environment variables.');
+      return { statusCode: 500, body: JSON.stringify({ error: 'Server configuration error.' }) };
+    }
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    // Supabase 'quiz_results' 테이블에서 특정 user_id의 데이터 조회
+    // timestamp 기준으로 내림차순 정렬 (최신 기록이 위로)
+    const { data, error } = await supabase
+      .from('quiz_results')
+      .select('*') // 모든 컬럼 선택
+      .eq('user_id', userId) // user_id가 일치하는 데이터
+      .order('created_at', { ascending: false }); // 생성 시간 기준 내림차순
+
+    if (error) {
+      console.error('Supabase select error:', error);
+      return { statusCode: 500, body: JSON.stringify({ error: 'Failed to fetch quiz history from database.', details: error.message }) };
+    }
 
     return {
       statusCode: 200,
-      body: JSON.stringify(result.data), // result.data가 이미 원하는 데이터 배열
+      body: JSON.stringify(data || []), // 데이터가 없을 경우 빈 배열 반환
     };
-  } catch (error) {
-    console.error('FaunaDB 조회 오류:', error);
-    // FaunaDB의 인덱스 관련 오류는 error.description에 상세 내용이 있을 수 있습니다.
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: 'Failed to get user history.', details: error.message, faunaError: error.description }),
-    };
+
+  } catch (e) {
+    console.error('Error processing request:', e);
+    return { statusCode: 500, body: JSON.stringify({ error: 'Error processing request.', details: e.message }) };
   }
 };

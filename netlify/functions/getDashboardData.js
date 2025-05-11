@@ -1,107 +1,52 @@
-const faunadb = require('faunadb');
-const q = faunadb.query;
-
-const FAUNA_SERVER_SECRET = process.env.FAUNA_SERVER_SECRET;
+const { createClient } = require('@supabase/supabase-js');
 
 exports.handler = async (event, context) => {
   if (event.httpMethod !== 'GET') {
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
 
-  if (!FAUNA_SERVER_SECRET) {
-    console.error("FaunaDB 서버 시크릿이 설정되지 않았습니다.");
-    return { statusCode: 500, body: 'Server configuration error.' };
-  }
-
   try {
-    const client = new faunadb.Client({ secret: FAUNA_SERVER_SECRET });
+    const supabaseUrl = process.env.SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_SERVICE_KEY;
 
-    // 모든 퀴즈 결과를 가져오기 위한 인덱스 사용
-    // 예: 'all_quiz_results' (values에 점수, 사용자 ID, 퀴즈 ID, 뱃지 관련 정보 포함)
-    /* 예시 인덱스 생성 FQL:
-       CreateIndex({
-         name: "all_quiz_results_with_details",
-         source: Collection("quiz_results"),
-         // terms 없이 모든 문서를 대상으로 하거나, 특정 필드를 기준으로 할 수 있음
-         values: [
-           { field: ["data", "userId"] },
-           { field: ["data", "score"] },
-           { field: ["data", "quizId"] },
-           // 필요하다면 다른 필드도 추가 (예: timestamp)
-         ]
-       })
-    */
-    const result = await client.query(
-      q.Map(
-        // q.Paginate(q.Documents(q.Collection('quiz_results'))), // 가장 간단하게 모든 문서 가져오기
-        q.Paginate(q.Match(q.Index('all_quiz_results_with_details'))), // 인덱스 사용 권장
-        q.Lambda(
-          ["userId", "score", "quizId"], // 인덱스 values 순서에 맞게 변수명 지정
-          { 
-            userId: q.Var("userId"), 
-            score: q.Var("score"),
-            quizId: q.Var("quizId")
-            // 다른 필요한 필드도 q.Var로 가져올 수 있음
-          }
-        )
-      )
-    );
+    if (!supabaseUrl || !supabaseKey) {
+      console.error('Supabase URL or Service Key is missing in environment variables.');
+      return { statusCode: 500, body: JSON.stringify({ error: 'Server configuration error.' }) };
+    }
+    const supabase = createClient(supabaseUrl, supabaseKey);
 
-    const allRecords = result.data; // [{ userId: '...', score: ..., quizId: '...' }, ...]
+    // 모든 퀴즈 결과 데이터 가져오기
+    const { data: allResults, error: fetchError } = await supabase
+      .from('quiz_results')
+      .select('user_id, score'); // 평균 및 랭킹 계산에 필요한 컬럼만 선택
 
-    if (!allRecords || allRecords.length === 0) {
-      return {
-        statusCode: 200,
-        body: JSON.stringify({ averageScore: 0, ranking: [], totalParticipants: 0 }),
-      };
+    if (fetchError) {
+      console.error('Supabase select error for dashboard:', fetchError);
+      return { statusCode: 500, body: JSON.stringify({ error: 'Failed to fetch data for dashboard.', details: fetchError.message }) };
     }
 
-    // 평균 점수 계산
-    const totalScoreSum = allRecords.reduce((sum, record) => sum + record.score, 0);
-    const averageScore = totalScoreSum / allRecords.length;
+    let averageScore = 0;
+    if (allResults && allResults.length > 0) {
+      const totalScore = allResults.reduce((sum, result) => sum + (result.score || 0), 0);
+      averageScore = totalScore / allResults.length;
+    }
 
-    // 사용자별 최고 점수 및 뱃지 계산 (dashboard.js 로직과 유사하게)
-    const userStats = {};
-    allRecords.forEach(record => {
-      if (!userStats[record.userId]) {
-        userStats[record.userId] = { highestScore: 0, badges: [] };
-      }
-      if (record.score > userStats[record.userId].highestScore) {
-        userStats[record.userId].highestScore = record.score;
-      }
-      // 뱃지 로직 (예시)
-      if (record.quizId === 'math101' && record.score === 100) {
-        if (!userStats[record.userId].badges.includes("수학 마스터")) {
-            userStats[record.userId].badges.push("수학 마스터");
-        }
-      }
-      if (record.quizId === 'history_basics' && record.score === 100) {
-        if (!userStats[record.userId].badges.includes("역사학자")) {
-            userStats[record.userId].badges.push("역사학자");
-        }
-      }
-    });
-    
-    const ranking = Object.entries(userStats)
-      .map(([userId, data]) => ({ userId, score: data.highestScore, badges: data.badges }))
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 10); // 상위 10명
+    // 사용자별 총점 또는 평균 점수를 기준으로 랭킹 계산 (여기서는 개별 최고 점수 기준)
+    // 좀 더 복잡한 랭킹 (예: 사용자별 평균 최고점)은 SQL 쿼리나 추가 로직 필요
+    const sortedResults = allResults ? [...allResults].sort((a, b) => (b.score || 0) - (a.score || 0)) : [];
+    const topRankings = sortedResults.slice(0, 5).map(r => ({ userId: r.user_id, score: r.score })); // 상위 5명
 
     return {
       statusCode: 200,
       body: JSON.stringify({
         averageScore: parseFloat(averageScore.toFixed(1)),
-        ranking: ranking,
-        totalParticipants: Object.keys(userStats).length,
-        totalSubmissions: allRecords.length
+        topRankings: topRankings,
+        totalParticipants: allResults ? allResults.length : 0 // 총 참여 횟수 (또는 고유 사용자 수로 변경 가능)
       }),
     };
 
-  } catch (error) {
-    console.error('FaunaDB 대시보드 데이터 조회 오류:', error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: 'Failed to get dashboard data.', details: error.message, faunaError: error.description }),
-    };
+  } catch (e) {
+    console.error('Error processing dashboard request:', e);
+    return { statusCode: 500, body: JSON.stringify({ error: 'Error processing dashboard request.', details: e.message }) };
   }
 };
