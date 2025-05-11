@@ -29,10 +29,10 @@ document.addEventListener('DOMContentLoaded', function() {
         sortToggleButton.addEventListener('click', function() {
             if (currentSortMode === 'byQuizTitle') {
                 currentSortMode = 'byDate';
-                sortToggleButton.textContent = '퀴즈 제목별로 정렬';
+                sortToggleButton.textContent = '퀴즈 제목 (최신순) 정렬'; // 변경
             } else {
                 currentSortMode = 'byQuizTitle';
-                sortToggleButton.textContent = '날짜순으로 정렬';
+                sortToggleButton.textContent = '전체 응시일 순으로 정렬'; // 변경
             }
             renderHistoryList(allUserHistoryData, currentSortMode);
         });
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             currentSortMode = 'byQuizTitle'; 
             if(sortToggleButton) {
-                sortToggleButton.textContent = '날짜순으로 정렬';
+                sortToggleButton.textContent = '전체 응시일 순으로 정렬'; // 변경
                 sortToggleButton.style.display = 'inline-block'; 
             }
             renderHistoryList(allUserHistoryData, currentSortMode);
@@ -157,10 +157,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const quizTitle = record.quiz_title || record.quiz_id || '알 수 없는 퀴즈';
         const attemptDate = new Date(record.created_at).toLocaleString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
         const attemptScore = record.score.toFixed(1);
+        // 날짜 - 제목 (점수) 순서로 변경
         summaryDiv.innerHTML = `
-            <span class="attempt-quiz-title">${quizTitle}</span>
-            <span class="attempt-meta">
-                <span class="attempt-date">${attemptDate}</span>
+            <span class="attempt-date">${attemptDate}</span>
+            <span class="attempt-title-score-group"> 
+                - <span class="attempt-quiz-title">${quizTitle}</span>
                 (<span class="attempt-score-value">${attemptScore}</span>점)
             </span>
         `;
