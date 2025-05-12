@@ -21,6 +21,7 @@
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
     </script>
     <script type="module" src="https://unpkg.com/mathlive?module"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> <!-- Supabase JS CDN 추가 -->
 </head>
 <body data-baseurl="{{ site.baseurl }}">
     <header>
@@ -30,6 +31,9 @@
             <a href="{{ '/quiz_app/history.html' | relative_url }}">나의 기록</a>
             <a href="{{ '/quiz_app/dashboard.html' | relative_url }}">대시보드</a>
             <a href="{{ '/' | relative_url }}">블로그 홈</a>
+            <div id="auth-status-container" style="display: inline-block; margin-left: 20px;">
+                <!-- 로그인 상태 및 버튼이 여기에 동적으로 추가됩니다. -->
+            </div>
         </nav>
     </header>
     <main>
@@ -39,5 +43,6 @@
         <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. 퀴즈 앱.</p>
     </footer>
     <!-- 공통 JS 파일은 여기에 포함할 수 있습니다. -->
+    <script src="{{ '/quiz_app/assets/js/auth.js' | relative_url }}"></script> <!-- auth.js 로드 추가 -->
 </body>
 </html>
