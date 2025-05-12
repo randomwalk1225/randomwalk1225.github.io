@@ -367,13 +367,10 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         try {
             // localStorage 저장은 선택 사항. 서버 저장이 주 목적.
-            // let userHistory = JSON.parse(localStorage.getItem(`quizHistory_${userId}`)) || [];
-            // userHistory.push(resultData);
-            // localStorage.setItem(`quizHistory_${userId}`, JSON.stringify(userHistory));
-            // console.log("결과가 localStorage에 임시 저장되었습니다. (서버 전송 시도)");
+            console.log("[quiz_player.js] Data to be saved:", JSON.stringify(resultData, null, 2)); // 저장될 데이터 확인 로그
             saveResultToServer(resultData);
         } catch (e) {
-            console.error("로컬 처리 중 오류 발생 (서버 전송 전):", e);
+            console.error("[quiz_player.js] Error during local processing before sending to server:", e);
             if (quizResultEl) quizResultEl.innerHTML += "<p style='color:red;'>결과를 처리하는 중 오류가 발생했습니다.</p>";
         }
     }
