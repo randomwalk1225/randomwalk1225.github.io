@@ -5,10 +5,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const quizContentEl = document.getElementById('quiz-content');
     const submitButton = document.getElementById('submit-quiz');
     const quizResultEl = document.getElementById('quiz-result');
-    // const userIdInput = document.getElementById('userId'); // 삭제
+    
+    // 시간/타이머 위젯 요소
+    const timerWidgetEl = document.getElementById('quiz-timer-widget');
+    const currentTimeDisplayEl = document.getElementById('current-time-display');
+    const elapsedTimeDisplayEl = document.getElementById('quiz-elapsed-time-display');
+    const toggleTimerVisibilityButton = document.getElementById('toggle-timer-visibility');
 
     let currentQuizData = null;
     let userAnswers = {};
+    let quizStartTime = null;
+    let elapsedTimeInterval = null;
+    let currentTimeInterval = null;
+    let timerVisible = localStorage.getItem('quizTimerVisible') === 'false' ? false : true; // 기본값 true
 
     // URL에서 퀴즈 ID 가져오기
     const params = new URLSearchParams(window.location.search);
@@ -71,10 +80,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             renderQuiz();
+            startTimers(); // 퀴즈 데이터 로드 후 타이머 시작
+            updateTimerVisibility(); 
         } catch (error) {
             console.error(error);
             if (quizContentEl) quizContentEl.innerHTML = `<p>${error.message}</p>`;
             if (submitButton) submitButton.style.display = 'none';
+            if (timerWidgetEl) timerWidgetEl.style.display = 'none'; // 오류 시 타이머 숨김
         }
     }
 
@@ -82,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!currentQuizData || currentQuizData.length === 0 || !quizContentEl) {
             if (quizContentEl) quizContentEl.innerHTML = '<p>퀴즈 문제를 불러올 수 없습니다.</p>';
             if (submitButton) submitButton.style.display = 'none';
+            if (timerWidgetEl) timerWidgetEl.style.display = 'none';
             return;
         }
         quizContentEl.innerHTML = ''; 
@@ -272,11 +285,68 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             if (submitButton) submitButton.style.display = 'none'; 
-            // if (userIdInput) userIdInput.disabled = true; // userIdInput 삭제됨
+            stopTimers(); // 퀴즈 제출 시 타이머 중지
 
             saveResultToLocalStorage(userId, quizId, percentageScore, detailedResults, incorrectQuestionIds); 
         });
     }
+
+    // --- Timer Functions ---
+    function updateCurrentTime() {
+        if (!currentTimeDisplayEl || !timerVisible) return;
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        currentTimeDisplayEl.textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    function updateElapsedTime() {
+        if (!elapsedTimeDisplayEl || !quizStartTime || !timerVisible) return;
+        const now = new Date();
+        const diff = Math.floor((now - quizStartTime) / 1000);
+        const minutes = String(Math.floor(diff / 60)).padStart(2, '0');
+        const seconds = String(diff % 60).padStart(2, '0');
+        elapsedTimeDisplayEl.textContent = `경과 시간: ${minutes}:${seconds}`;
+    }
+
+    function startTimers() {
+        quizStartTime = new Date();
+        if (currentTimeInterval) clearInterval(currentTimeInterval);
+        if (elapsedTimeInterval) clearInterval(elapsedTimeInterval);
+        
+        currentTimeInterval = setInterval(updateCurrentTime, 1000);
+        elapsedTimeInterval = setInterval(updateElapsedTime, 1000);
+        updateCurrentTime(); // 즉시 한번 실행
+        updateElapsedTime(); // 즉시 한번 실행
+    }
+
+    function stopTimers() {
+        if (currentTimeInterval) clearInterval(currentTimeInterval);
+        if (elapsedTimeInterval) clearInterval(elapsedTimeInterval);
+    }
+
+    function updateTimerVisibility() {
+        if (!timerWidgetEl || !toggleTimerVisibilityButton) return;
+        if (timerVisible) {
+            timerWidgetEl.style.display = 'block'; // 또는 'flex' 등 CSS에 맞게
+            toggleTimerVisibilityButton.textContent = '시계 숨기기';
+            updateCurrentTime(); // 보이게 할 때 시간 즉시 업데이트
+            updateElapsedTime(); // 보이게 할 때 시간 즉시 업데이트
+        } else {
+            timerWidgetEl.style.display = 'none';
+            toggleTimerVisibilityButton.textContent = '시계 보기'; // 버튼 텍스트는 항상 보이도록 위젯 밖에 둘 수도 있음
+        }
+    }
+
+    if (toggleTimerVisibilityButton) {
+        toggleTimerVisibilityButton.addEventListener('click', () => {
+            timerVisible = !timerVisible;
+            localStorage.setItem('quizTimerVisible', timerVisible);
+            updateTimerVisibility();
+        });
+    }
+    // --- End Timer Functions ---
 
     function saveResultToLocalStorage(userId, quizId, score, detailedAnswers, incorrectIds) { 
         const now = new Date();
