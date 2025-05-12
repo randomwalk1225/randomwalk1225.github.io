@@ -184,7 +184,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 // signInWithGitHub(); // auth.js에 정의된 함수가 있다면 호출 가능
                 return;
             }
-            const userId = user.id; // Supabase 사용자 ID 사용
+            const userId = user.id; // Supabase 사용자 ID (결과 저장용)
+            const userEmailForDisplay = user.email || '사용자';
+            const userDisplayNameForResults = user.user_metadata?.user_name || user.user_metadata?.full_name || userEmailForDisplay; // 표시용 이름
 
             const answeredQuestions = Object.keys(userAnswers).length;
             const totalQuestionsCount = currentQuizData.filter(q => q && typeof q.id !== 'undefined').length;
@@ -233,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 quizResultEl.innerHTML = `
                     <h3 class="quiz-result-title">퀴즈 결과</h3>
                     <div class="score-summary">
-                        <p><strong>${userId}</strong>님의 점수: 
+                        <p><strong>${userDisplayNameForResults}</strong>님의 점수: 
                             <span class="score-value">${percentageScore.toFixed(1)}</span>점 
                             (<span class="score-detail">${score}/${totalQuestionsCount}</span>)
                         </p>
