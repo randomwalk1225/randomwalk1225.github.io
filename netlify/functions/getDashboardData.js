@@ -37,29 +37,38 @@ exports.handler = async (event, context) => {
     // 모든 퀴즈 결과 데이터 가져오기
     const { data: allResults, error: fetchError } = await supabase
       .from('quiz_results')
-      .select('user_id, score, created_at'); // created_at 추가
+      .select('user_id, score, created_at, total_questions, correct_answers_count'); // total_questions, correct_answers_count 추가
 
     if (fetchError) {
       console.error('Supabase select error for dashboard:', fetchError);
       return { statusCode: 500, headers: CORS_HEADERS, body: JSON.stringify({ error: 'Failed to fetch data for dashboard.', details: fetchError.message }) };
     }
 
-    // 평균 점수 계산 로직 삭제
+    let totalQuestionsAnswered = 0;
+    let totalCorrectAnswers = 0;
+
+    if (allResults && allResults.length > 0) {
+      allResults.forEach(r => {
+        totalQuestionsAnswered += r.total_questions || 0;
+        totalCorrectAnswers += r.correct_answers_count || 0;
+      });
+    }
 
     const sortedResults = allResults ? [...allResults].sort((a, b) => (b.score || 0) - (a.score || 0)) : [];
     const topRankings = sortedResults.slice(0, 10).map(r => ({ 
         userId: r.user_id, 
         score: r.score,
-        timestamp: r.created_at // 타임스탬프 추가
+        timestamp: r.created_at 
     }));
 
     return {
       statusCode: 200,
       headers: CORS_HEADERS,
       body: JSON.stringify({
-        // averageScore 필드 삭제
         topRankings: topRankings,
-        totalParticipants: allResults ? allResults.length : 0 
+        totalAttempts: allResults ? allResults.length : 0, // 기존 totalParticipants를 totalAttempts로 명칭 변경 고려 또는 유지
+        totalQuestionsAnswered: totalQuestionsAnswered,
+        totalCorrectAnswers: totalCorrectAnswers
       }),
     };
 

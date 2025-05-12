@@ -1,14 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log("대시보드 스크립트 로드됨");
 
-    // const avgScoreEl = document.getElementById('avg-score'); // 평균 점수 요소 제거
     const rankingListEl = document.getElementById('score-ranking-list');
-    const totalParticipantsEl = document.getElementById('total-participants'); // 전체 통계의 참여자 수 요소
+    const totalAttemptsEl = document.getElementById('total-attempts'); // ID 변경 및 새 요소
+    const totalQuestionsAnsweredEl = document.getElementById('total-questions-answered'); // 새 요소
+    const totalCorrectAnswersEl = document.getElementById('total-correct-answers'); // 새 요소
 
     async function loadDashboardData() {
-        // if (avgScoreEl) avgScoreEl.textContent = '로딩 중...'; // 평균 점수 로딩 메시지 제거
         if (rankingListEl) rankingListEl.innerHTML = '<li>랭킹 정보를 불러오는 중...</li>';
-        if (totalParticipantsEl) totalParticipantsEl.textContent = '로딩 중...';
+        if (totalAttemptsEl) totalAttemptsEl.textContent = '로딩 중...';
+        if (totalQuestionsAnsweredEl) totalQuestionsAnsweredEl.textContent = '로딩 중...';
+        if (totalCorrectAnswersEl) totalCorrectAnswersEl.textContent = '로딩 중...';
 
 
         const netlifySiteUrl = "https://chipper-cupcake-752544.netlify.app"; 
@@ -54,15 +56,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             
-            if (totalParticipantsEl) { 
-                totalParticipantsEl.textContent = data.totalParticipants !== undefined ? data.totalParticipants : 'N/A';
+            if (totalAttemptsEl) { 
+                totalAttemptsEl.textContent = data.totalAttempts !== undefined ? data.totalAttempts : 'N/A';
+            }
+            if (totalQuestionsAnsweredEl) {
+                totalQuestionsAnsweredEl.textContent = data.totalQuestionsAnswered !== undefined ? data.totalQuestionsAnswered : 'N/A';
+            }
+            if (totalCorrectAnswersEl) {
+                totalCorrectAnswersEl.textContent = data.totalCorrectAnswers !== undefined ? data.totalCorrectAnswers : 'N/A';
             }
 
         } catch (error) {
             console.error("대시보드 데이터 로드 실패:", error);
-            // if (avgScoreEl) avgScoreEl.textContent = '오류'; // 평균 점수 오류 메시지 제거
             if (rankingListEl) rankingListEl.innerHTML = `<li>데이터 로드 오류: ${error.message}</li>`;
-            if (totalParticipantsEl) totalParticipantsEl.textContent = '오류';
+            if (totalAttemptsEl) totalAttemptsEl.textContent = '오류';
+            if (totalQuestionsAnsweredEl) totalQuestionsAnsweredEl.textContent = '오류';
+            if (totalCorrectAnswersEl) totalCorrectAnswersEl.textContent = '오류';
         }
     }
 
