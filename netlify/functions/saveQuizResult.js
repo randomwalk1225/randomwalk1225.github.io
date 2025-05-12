@@ -44,7 +44,7 @@ exports.handler = async (event, context) => {
       .from('quiz_results') // 테이블명
       .insert([
         { 
-          user_id: quizResult.userId,
+          user_id: quizResult.user_id, // 클라이언트에서 보낸 키 'user_id'와 일치시킴
           quiz_id: quizResult.quizId,
           quiz_title: quizResult.quizTitle,
           score: quizResult.score,
