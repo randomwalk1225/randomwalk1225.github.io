@@ -121,6 +121,17 @@ async function checkInitialAuth() {
         console.error("Error getting initial user state:", error);
     }
     updateAuthUI(user);
+
+    // 추가: checkInitialAuth에서도 history 페이지의 초기 로드를 시도
+    if (window.location.pathname.includes('/quiz_app/history.html')) {
+        if (typeof loadUserHistory === 'function') {
+            const userIdForHistory = user ? user.id : null;
+            console.log('[Auth.js] checkInitialAuth on history page. User ID for history:', userIdForHistory);
+            loadUserHistory(userIdForHistory);
+        } else {
+            console.warn('[Auth.js] loadUserHistory function not found during checkInitialAuth on history page.');
+        }
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
