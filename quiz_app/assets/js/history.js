@@ -1,29 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log("히스토리 스크립트 로드됨");
 
-    const userIdInput = document.getElementById('userIdHistory');
-    const loadHistoryButton = document.getElementById('loadHistory');
+    // const userIdInput = document.getElementById('userIdHistory'); // 삭제
+    // const loadHistoryButton = document.getElementById('loadHistory'); // 삭제
     const sortToggleButton = document.getElementById('sort-toggle-button');
     const historyListEl = document.getElementById('quiz-history-list');
     const sortStatusEl = document.getElementById('history-sort-status'); // 정렬 상태 표시 요소
 
     let allUserHistoryData = [];
     let currentSortMode = 'byQuizTitle';
-    let currentlyOpenDetail = { triggerElement: null, detailDiv: null }; // 클릭된 요소를 추적
+    let currentlyOpenDetail = { triggerElement: null, detailDiv: null }; 
 
-    if (loadHistoryButton) {
-        loadHistoryButton.addEventListener('click', function() {
-            const userId = userIdInput ? userIdInput.value.trim() : null;
-            if (!userId) {
-                alert("사용자 ID를 입력해주세요.");
-                if (userIdInput) userIdInput.focus();
-                historyListEl.innerHTML = '';
-                if (currentlyOpenDetail.detailDiv) currentlyOpenDetail.detailDiv.innerHTML = '';
-                return;
-            }
-            loadUserHistory(userId);
-        });
-    }
+    // loadHistoryButton 관련 로직 삭제
 
     if (sortToggleButton) {
         sortToggleButton.addEventListener('click', function() {
@@ -39,6 +27,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     async function loadUserHistory(userId) {
+        if (!userId) { // userId가 없으면 (비로그인 상태 등) 실행 중단
+            historyListEl.innerHTML = '<p>나의 기록을 보려면 먼저 <a href="#" onclick="signInWithGitHub(); return false;">로그인</a>해주세요.</p>';
+            if (sortStatusEl) sortStatusEl.textContent = '';
+            if (sortToggleButton) sortToggleButton.style.display = 'none';
+            return;
+        }
         historyListEl.innerHTML = '<li>기록을 불러오는 중...</li>';
         if (currentlyOpenDetail.detailDiv) currentlyOpenDetail.detailDiv.innerHTML = '';
         if(sortToggleButton) sortToggleButton.style.display = 'none';

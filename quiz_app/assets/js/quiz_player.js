@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const quizContentEl = document.getElementById('quiz-content');
     const submitButton = document.getElementById('submit-quiz');
     const quizResultEl = document.getElementById('quiz-result');
-    const userIdInput = document.getElementById('userId');
+    // const userIdInput = document.getElementById('userId'); // 삭제
 
     let currentQuizData = null;
     let userAnswers = {};
@@ -155,13 +155,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (submitButton) {
-        submitButton.addEventListener('click', function() {
-            const userId = userIdInput ? userIdInput.value.trim() : null;
-            if (!userId) {
-                alert("사용자 ID를 입력해주세요.");
-                if (userIdInput) userIdInput.focus();
+        submitButton.addEventListener('click', async function() { // async 추가
+            if (!supabase) {
+                alert("인증 모듈이 로드되지 않았습니다. 페이지를 새로고침 해주세요.");
                 return;
             }
+
+            const { data: { user } } = await supabase.auth.getUser();
+
+            if (!user) {
+                alert("퀴즈를 제출하려면 먼저 로그인해야 합니다.");
+                // 로그인 페이지로 리다이렉트하거나 로그인 UI를 표시할 수 있습니다.
+                // 예: auth.js의 signInWithGitHub() 호출 또는 로그인 모달 표시
+                // 지금은 간단히 alert만 표시합니다.
+                // signInWithGitHub(); // auth.js에 정의된 함수가 있다면 호출 가능
+                return;
+            }
+            const userId = user.id; // Supabase 사용자 ID 사용
 
             const answeredQuestions = Object.keys(userAnswers).length;
             const totalQuestionsCount = currentQuizData.filter(q => q && typeof q.id !== 'undefined').length;
@@ -262,36 +272,50 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             if (submitButton) submitButton.style.display = 'none'; 
-            if (userIdInput) userIdInput.disabled = true; 
+            // if (userIdInput) userIdInput.disabled = true; // userIdInput 삭제됨
 
-            saveResultToLocalStorage(userId, quizId, percentageScore, detailedResults, incorrectQuestionIds); // incorrectQuestionIds 전달
+            saveResultToLocalStorage(userId, quizId, percentageScore, detailedResults, incorrectQuestionIds); 
         });
     }
 
-    function saveResultToLocalStorage(userId, quizId, score, answers, incorrectIds) { // incorrectIds 파라미터 추가
+    function saveResultToLocalStorage(userId, quizId, score, detailedAnswers, incorrectIds) { 
         const now = new Date();
-        const timestamp = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}T${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+        // timestamp는 서버에서 created_at으로 자동 생성되므로 클라이언트에서 보낼 필요 없음 (선택 사항)
+        // const clientTimestamp = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}T${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
         const resultData = {
-            userId: userId, quizId: quizId, 
-            quizTitle: quizTitleEl ? quizTitleEl.textContent : quizId,
-            timestamp: timestamp, score: score, answers: answers,
-            incorrect_question_ids: incorrectIds // 필드 추가
+            user_id: userId, // Supabase 테이블 컬럼명에 맞춤 (user_id)
+            quiz_id: quizId, 
+            quiz_title: quizTitleEl ? quizTitleEl.textContent : quizId,
+            // timestamp: clientTimestamp, // 서버에서 자동 생성되므로 주석 처리 또는 제거
+            score: score, 
+            answers_details: detailedAnswers, // 컬럼명 answers_details로 가정
+            incorrect_question_ids: incorrectIds,
+            total_questions: currentQuizData.filter(q => q && typeof q.id !== 'undefined').length,
+            correct_answers_count: detailedAnswers.filter(r => r.isCorrect).length
         };
         try {
-            let userHistory = JSON.parse(localStorage.getItem(`quizHistory_${userId}`)) || [];
-            userHistory.push(resultData);
-            localStorage.setItem(`quizHistory_${userId}`, JSON.stringify(userHistory));
-            console.log("결과가 localStorage에 저장되었습니다.");
+            // localStorage 저장은 선택 사항. 서버 저장이 주 목적.
+            // let userHistory = JSON.parse(localStorage.getItem(`quizHistory_${userId}`)) || [];
+            // userHistory.push(resultData);
+            // localStorage.setItem(`quizHistory_${userId}`, JSON.stringify(userHistory));
+            // console.log("결과가 localStorage에 임시 저장되었습니다. (서버 전송 시도)");
             saveResultToServer(resultData);
         } catch (e) {
-            console.error("localStorage 저장 중 오류 발생:", e);
-            if (quizResultEl) quizResultEl.innerHTML += "<p style='color:red;'>결과를 로컬에 저장하는 중 오류가 발생했습니다.</p>";
+            console.error("로컬 처리 중 오류 발생 (서버 전송 전):", e);
+            if (quizResultEl) quizResultEl.innerHTML += "<p style='color:red;'>결과를 처리하는 중 오류가 발생했습니다.</p>";
         }
     }
     loadQuizData(quizId);
 });
 
 async function saveResultToServer(resultData) {
+    if (!supabase) { // auth.js에서 초기화된 supabase 인스턴스 사용
+        console.error("Supabase client not available in saveResultToServer.");
+        if (document.getElementById('quiz-result')) {
+            document.getElementById('quiz-result').innerHTML += `<p style='color:orange;'>결과를 서버에 저장하는 중 시스템 오류가 발생했습니다.</p>`;
+        }
+        return;
+    }
     const netlifySiteUrl = "https://chipper-cupcake-752544.netlify.app";
     const functionPath = `${netlifySiteUrl}/.netlify/functions/saveQuizResult`;
     try {
