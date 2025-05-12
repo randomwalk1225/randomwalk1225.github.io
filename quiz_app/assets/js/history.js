@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     async function loadUserHistory(userId) {
+        console.log('[History.js] loadUserHistory called with userId:', userId); // userId 확인 로그 추가
         if (!userId) { // userId가 없으면 (비로그인 상태 등) 실행 중단
             historyListEl.innerHTML = '<p>나의 기록을 보려면 먼저 <a href="#" onclick="signInWithGitHub(); return false;">로그인</a>해주세요.</p>';
             if (sortStatusEl) sortStatusEl.textContent = '';

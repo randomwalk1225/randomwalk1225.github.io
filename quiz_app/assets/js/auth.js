@@ -88,8 +88,11 @@ if (supabase) {
             // "나의 기록" 페이지에 있다면, 사용자 상태 변경에 따라 기록 다시 로드
             if (window.location.pathname.includes('/quiz_app/history.html')) {
                 if (typeof loadUserHistory === 'function') {
-                    console.log('Auth state changed on history page, reloading history for user:', user ? user.id : null);
-                    loadUserHistory(user ? user.id : null);
+                    const userIdForHistory = user ? user.id : null;
+                    console.log('[Auth.js] Auth state changed on history page. User ID for history:', userIdForHistory, 'Event:', event);
+                    loadUserHistory(userIdForHistory);
+                } else {
+                    console.warn('[Auth.js] loadUserHistory function not found on history page.');
                 }
             }
             // 퀴즈 풀기 페이지에 있다면, 로그인 상태에 따라 UI 업데이트 (예: 비로그인 시 문제 숨기기 등)
