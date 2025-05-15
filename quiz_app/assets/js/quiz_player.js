@@ -176,14 +176,18 @@ document.addEventListener('DOMContentLoaded', function() {
             
             let questionHtml = '';
             if (currentLangMode === 'both') {
-                questionHtml = `<h4>문제 ${index + 1}. ${q.question}</h4><h4 class="lang-en-question">Problem ${index + 1}. ${q.question_en || q.question}</h4>`;
+                const koQuestionText = q.question || '';
+                const enQuestionText = q.question_en || q.question; // Fallback for en text
+                questionHtml = `<h4><span class="question-number-prefix">문제 ${index + 1}.</span> ${koQuestionText}</h4>` +
+                               `<h4 class="lang-en-question"><span class="question-number-prefix">Problem ${index + 1}.</span> ${enQuestionText}</h4>`;
             } else {
-                let questionPrefix = "문제";
+                let questionPrefixText = "문제";
                 if (currentLangMode === 'en') {
-                    questionPrefix = "Problem";
+                    questionPrefixText = "Problem";
                 }
                 // q.question is already set to the correct language string by processQuizDataForLanguage
-                questionHtml = `<h4>${questionPrefix} ${index + 1}. ${q.question}</h4>`;
+                const currentQuestionText = q.question || '';
+                questionHtml = `<h4><span class="question-number-prefix">${questionPrefixText} ${index + 1}.</span> ${currentQuestionText}</h4>`;
             }
             questionItem.innerHTML = questionHtml;
 
