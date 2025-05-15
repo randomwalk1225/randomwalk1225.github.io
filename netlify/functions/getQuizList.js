@@ -62,10 +62,13 @@ exports.handler = async (event, context) => {
             let quizJsonContent = fs.readFileSync(quizJsonPath, 'utf-8');
             
             // Strip Jekyll front matter if present
-            const frontMatterPattern = /^---\s*[\r\n]+([\s\S]*?)[\r\n]+---\s*[\r\n]+/;
-            quizJsonContent = quizJsonContent.replace(frontMatterPattern, '');
+            // This regex handles variations in line endings and content within front matter.
+            const frontMatterPattern = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?/;
+            const cleanedJsonContent = quizJsonContent.replace(frontMatterPattern, '');
 
-            const quizData = JSON.parse(quizJsonContent);
+            // console.log(`[getQuizList] Cleaned content for ${quizId}: ${cleanedJsonContent.substring(0,100)}...`); // Log snippet
+
+            const quizData = JSON.parse(cleanedJsonContent); // Attempt to parse the cleaned content
             let extractedTitle = null;
 
             // Check for title in new format: { "title": "...", "quizzes": [...] }
@@ -81,11 +84,11 @@ exports.handler = async (event, context) => {
                 quizTitle = extractedTitle;
                 // console.log(`[getQuizList] Used title from quiz.json for ${quizId}: "${quizTitle}"`);
             } else {
-                // console.log(`[getQuizList] No valid title found in quiz.json for ${quizId}, using ID as title.`);
+                // console.log(`[getQuizList] No valid title found in quiz.json for ${quizId} after cleaning, using ID as title. Original quizData type: ${typeof quizData}`);
                 // quizTitle remains quizId (default)
             }
           } catch (parseError) {
-            console.error(`[getQuizList] Error parsing quiz.json for ${quizId}, using ID as title:`, parseError);
+            // console.error(`[getQuizList] Error parsing quiz.json for ${quizId} (content snippet: ${quizJsonContent.substring(0,100)}...), using ID as title:`, parseError);
             // quizTitle remains quizId (default)
           }
         } else {
