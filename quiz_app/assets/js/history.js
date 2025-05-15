@@ -124,7 +124,13 @@ function renderHistoryList(historyData, sortBy) {
                 attemptSpan.classList.add('inline-attempt-summary');
                 const attemptDate = new Date(record.created_at).toLocaleString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
                 const attemptScore = record.score.toFixed(1);
-                attemptSpan.innerHTML = `<span class="attempt-date">${attemptDate}</span> (<span class="attempt-score-value">${attemptScore}</span>점)`;
+                let elapsedTimeFormatted = '';
+                if (typeof record.elapsed_time_seconds === 'number') {
+                    const minutes = String(Math.floor(record.elapsed_time_seconds / 60)).padStart(2, '0');
+                    const seconds = String(record.elapsed_time_seconds % 60).padStart(2, '0');
+                    elapsedTimeFormatted = ` <span class="attempt-elapsed-time">(${minutes}:${seconds})</span>`;
+                }
+                attemptSpan.innerHTML = `<span class="attempt-date">${attemptDate}</span> (<span class="attempt-score-value">${attemptScore}</span>점)${elapsedTimeFormatted}`;
                 
                 const detailContentDiv = document.createElement('div');
                 detailContentDiv.classList.add('attempt-details-content');
@@ -156,11 +162,17 @@ function createFullAttemptListItem(record) {
     const quizTitle = record.quiz_title || record.quiz_id || '알 수 없는 퀴즈';
     const attemptDate = new Date(record.created_at).toLocaleString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
     const attemptScore = record.score.toFixed(1);
+    let elapsedTimeFormatted = '';
+    if (typeof record.elapsed_time_seconds === 'number') {
+        const minutes = String(Math.floor(record.elapsed_time_seconds / 60)).padStart(2, '0');
+        const seconds = String(record.elapsed_time_seconds % 60).padStart(2, '0');
+        elapsedTimeFormatted = ` <span class="attempt-elapsed-time">(${minutes}:${seconds})</span>`;
+    }
     summaryDiv.innerHTML = `
         <span class="attempt-date">${attemptDate}</span>
         <span class="attempt-title-score-group"> 
             - <span class="attempt-quiz-title">${quizTitle}</span>
-            (<span class="attempt-score-value">${attemptScore}</span>점)
+            (<span class="attempt-score-value">${attemptScore}</span>점)${elapsedTimeFormatted}
         </span>
     `;
     

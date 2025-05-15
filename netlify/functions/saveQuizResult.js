@@ -51,7 +51,8 @@ exports.handler = async (event, context) => {
           total_questions: quizResult.total_questions, // Use total_questions from client
           correct_answers_count: quizResult.correct_answers_count, // Use correct_answers_count from client
           answers_details: quizResult.answers_details, // Use answers_details from client
-          incorrect_question_ids: quizResult.incorrect_question_ids
+          incorrect_question_ids: quizResult.incorrect_question_ids,
+          elapsed_time_seconds: quizResult.elapsed_time_seconds // Add elapsed_time_seconds
         }
       ])
       .select(); // 삽입된 데이터를 반환받기 위해 .select() 추가 (선택 사항)

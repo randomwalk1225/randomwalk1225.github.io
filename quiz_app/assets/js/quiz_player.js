@@ -148,12 +148,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     radio.value = option;
                     radio.classList.add('quiz-option-radio'); 
                     radio.addEventListener('change', (e) => {
-                        userAnswers[q.id] = e.target.value;
-                        document.querySelectorAll(`input[name="question-${q.id}"]`).forEach(rb => {
-                            rb.parentElement.classList.remove('selected');
-                        });
-                        if (e.target.checked) {
-                            e.target.parentElement.classList.add('selected');
+                        // If the clicked radio button was already checked, uncheck it
+                        if (radio.checked && userAnswers[q.id] === e.target.value) {
+                            radio.checked = false;
+                            delete userAnswers[q.id];
+                            e.target.parentElement.classList.remove('selected');
+                        } else {
+                            userAnswers[q.id] = e.target.value;
+                            document.querySelectorAll(`input[name="question-${q.id}"]`).forEach(rb => {
+                                rb.parentElement.classList.remove('selected');
+                            });
+                            if (radio.checked) {
+                                e.target.parentElement.classList.add('selected');
+                            }
                         }
                     });
                     label.appendChild(radio);
@@ -389,20 +396,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     // --- End Timer Functions ---
 
-    function saveResultToLocalStorage(userId, quizId, score, detailedAnswers, incorrectIds) { 
+    function saveResultToLocalStorage(userId, quizId, score, detailedAnswers, incorrectIds) {
         const now = new Date();
-        // timestamp는 서버에서 created_at으로 자동 생성되므로 클라이언트에서 보낼 필요 없음 (선택 사항)
-        // const clientTimestamp = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}T${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+        let elapsedTimeInSeconds = 0;
+        if (quizStartTime) {
+            elapsedTimeInSeconds = Math.floor((now - quizStartTime) / 1000);
+        }
+
         const resultData = {
-            user_id: userId, // Supabase 테이블 컬럼명에 맞춤 (user_id)
-            quiz_id: quizId, 
+            user_id: userId,
+            quiz_id: quizId,
             quiz_title: quizTitleEl ? quizTitleEl.textContent : quizId,
-            // timestamp: clientTimestamp, // 서버에서 자동 생성되므로 주석 처리 또는 제거
-            score: score, 
-            answers_details: detailedAnswers, // 컬럼명 answers_details로 가정
+            score: score,
+            answers_details: detailedAnswers,
             incorrect_question_ids: incorrectIds,
             total_questions: currentQuizData.filter(q => q && typeof q.id !== 'undefined').length,
-            correct_answers_count: detailedAnswers.filter(r => r.isCorrect).length
+            correct_answers_count: detailedAnswers.filter(r => r.isCorrect).length,
+            elapsed_time_seconds: elapsedTimeInSeconds // Add elapsed time
         };
         try {
             // localStorage 저장은 선택 사항. 서버 저장이 주 목적.
