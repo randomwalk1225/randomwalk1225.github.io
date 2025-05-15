@@ -34,7 +34,11 @@ exports.handler = async (event, context) => {
 
     if (!supabaseUrl || !supabaseKey) {
       console.error('Supabase URL or Service Key is missing in environment variables.');
-      return { statusCode: 500, body: JSON.stringify({ error: 'Server configuration error.' }) };
+      return { 
+        statusCode: 500, 
+        headers: CORS_HEADERS, // Add CORS headers
+        body: JSON.stringify({ error: 'Server configuration error.' }) 
+      };
     }
     const supabase = createClient(supabaseUrl, supabaseKey);
 
@@ -59,10 +63,14 @@ exports.handler = async (event, context) => {
 
     if (error) {
       console.error('Supabase insert error:', error);
-      return { statusCode: 500, body: JSON.stringify({ error: 'Failed to save quiz result to database.', details: error.message }) };
+      return { 
+        statusCode: 500, 
+        headers: CORS_HEADERS, // Add CORS headers
+        body: JSON.stringify({ error: 'Failed to save quiz result to database.', details: error.message }) 
+      };
     }
 
-    console.log('Quiz result saved to Supabase:', data);
+    // console.log('Quiz result saved to Supabase:', data); // Keep for debugging if needed
     return {
       statusCode: 200,
       headers: CORS_HEADERS,

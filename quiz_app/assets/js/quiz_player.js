@@ -301,6 +301,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <span class="score-value">${percentageScore.toFixed(1)}</span>점 
                             (<span class="score-detail">${score}/${totalQuestionsCount}</span>)
                         </p>
+                        ${ quizStartTime ? `<p>풀이 시간: <span class="elapsed-time-detail">${Math.floor((new Date() - quizStartTime) / 60000)}분 ${String(Math.floor(((new Date() - quizStartTime) / 1000) % 60)).padStart(2, '0')}초</span></p>` : '' }
                     </div>
                     <h4>상세 결과:</h4>`;
                 const resultCardsContainer = document.createElement('div');
