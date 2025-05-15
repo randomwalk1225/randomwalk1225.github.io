@@ -520,7 +520,7 @@ math-field {
 /* Print Styles */
 @media print {
     body {
-        font-size: 12pt;
+        font-size: 12pt; /* Target print font size */
         color: #000;
         background-color: #fff;
     }
@@ -544,40 +544,51 @@ math-field {
 
     #quiz-title {
         text-align: center;
-        font-size: 18pt;
-        margin-bottom: 20px;
+        font-size: 16pt; /* Reduced title font size */
+        margin-bottom: 15px; /* Reduced margin */
         padding-bottom: 10px;
         border-bottom: 2px solid #000;
     }
 
     #quiz-content .question-item {
         page-break-inside: avoid;
-        margin-bottom: 15px; /* Adjust for print */
-        padding: 10px; /* Adjust for print */
-        border: 1px solid #ccc; /* Make border more visible for print */
+        margin-bottom: 10px; /* Reduced margin for questions */
+        padding: 8px;    /* Reduced padding for questions */
+        border: 1px solid #ccc; 
+        font-size: 10pt; /* Explicit font size for question text */
     }
     
+    #quiz-content .question-item p,
+    #quiz-content .question-item div,
+    #quiz-content .question-item li, /* Added li for lists within questions */
+    #quiz-content .options label { /* Target various text elements within a question */
+        font-size: 10pt; /* Explicit font size */
+        line-height: 1.3;  /* Adjust line height for readability */
+    }
+     /* Ensure options label itself also gets the font size if not covered by the above */
+    #quiz-content .options .quiz-option-label {
+        font-size: 10pt;
+        line-height: 1.3;
+    }
+
+
     /* Attempt to keep first few questions together if possible, by minimizing top space */
-    /* This is a general approach; specific targeting of Q1-4 is hard without JS intervention for print classes */
     #quiz-content .question-item:first-child {
         margin-top: 0;
     }
 
     /* Ensure options are visible and printable */
-    #quiz-content .options label {
-        border: none !important; /* Override any screen borders */
-        padding: 5px 0;
-    }
-    .quiz-option-label {
-        padding: 5px;
-        margin-bottom: 5px;
-        border: 1px solid #ddd; /* Add a light border for print clarity */
+    .quiz-option-label { /* General options styling for print */
+        padding: 4px; /* Reduced padding */
+        margin-bottom: 4px; /* Reduced margin */
+        border: 1px solid #ddd; 
+        /* font-size is handled by the more specific selectors above */
     }
     .quiz-option-label.selected {
-        background-color: #e0e0e0; /* Light gray for selected, as color might not print */
+        background-color: #e0e0e0; 
         font-weight: bold;
     }
-    .quiz-option-radio { /* Ensure radio buttons themselves aren't shown if they were hidden for screen */
+    .quiz-option-radio { 
         display: none;
     }
 
