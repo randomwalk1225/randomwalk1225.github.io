@@ -12,12 +12,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const elapsedTimeDisplayEl = document.getElementById('quiz-elapsed-time-display');
     const toggleTimerVisibilityButton = document.getElementById('toggle-timer-visibility');
 
-    let currentQuizData = null;
+    let currentQuizData = null; // This will store the raw bilingual data
+    let processedQuizData = []; // This will store the questions in the currently selected language for rendering
     let userAnswers = {};
     let quizStartTime = null;
     let elapsedTimeInterval = null;
     let currentTimeInterval = null;
     let timerVisible = localStorage.getItem('quizTimerVisible') === 'false' ? false : true; // 기본값 true
+    let currentLangMode = localStorage.getItem('quizLangMode') || 'ko'; // 'ko', 'en', 'both'
 
     // URL에서 퀴즈 ID 가져오기
     const params = new URLSearchParams(window.location.search);
@@ -74,33 +76,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 quizTitleEl.textContent = actualQuizTitle;
             }
 
-            // Process questions
-            if (!Array.isArray(tempCurrentQuizData)) {
-                // This case should ideally be caught by the logic above, but as a safeguard:
-                console.error("Critical error: tempCurrentQuizData is not an array before mapping. Data:", tempCurrentQuizData);
-                currentQuizData = []; // Prevent .map error by ensuring currentQuizData is an array
-                // Optionally, re-throw an error or display a more user-friendly message
-                // throw new Error(`퀴즈 문제 데이터를 처리할 수 없습니다.`);
-            } else if (typeof MathfieldElement !== 'undefined' && tempCurrentQuizData.length > 0) {
-                const tempMathField = new MathfieldElement();
-                currentQuizData = tempCurrentQuizData.map(q => {
-                    if (q && q.type === 'short-answer' && q.isMathInput && typeof q.answer === 'string') {
-                        let initialLatex = q.answer.replace(/\$/g, ''); 
-                        tempMathField.value = initialLatex; 
-                        return { ...q, answer: tempMathField.value }; 
-                    }
-                    return q;
-                });
-            } else if (tempCurrentQuizData.length > 0) {
-                console.warn("MathLive (MathfieldElement)가 로드되지 않아 수학 문제 정답 정규화를 건너<0xC2><0xAD>뜁니다.");
-                currentQuizData = tempCurrentQuizData; // Assign directly if MathLive is not available but data exists
-            } else {
-                // tempCurrentQuizData is an empty array (or became one due to an error)
-                currentQuizData = []; // Ensure currentQuizData is an empty array
-                console.log("No quiz questions found or processed.");
-            }
+            // Store raw bilingual data
+            currentQuizData = tempCurrentQuizData; 
             
-            renderQuiz();
+            // Set initial language mode from localStorage
+            const langRadios = document.querySelectorAll('input[name="lang-mode"]');
+            langRadios.forEach(radio => {
+                if (radio.value === currentLangMode) {
+                    radio.checked = true;
+                }
+                radio.addEventListener('change', handleLanguageChange);
+            });
+
+            processAndRenderQuiz(); // Process for current language and render
             startTimers(); // 퀴즈 데이터 로드 후 타이머 시작
             updateTimerVisibility(); 
         } catch (error) {
@@ -110,9 +98,50 @@ document.addEventListener('DOMContentLoaded', function() {
             if (timerWidgetEl) timerWidgetEl.style.display = 'none'; // 오류 시 타이머 숨김
         }
     }
+    
+    function processQuizDataForLanguage(rawData, lang) {
+        if (!Array.isArray(rawData)) return [];
+        return rawData.map(q => {
+            const processedQ = { ...q }; // Clone original question data
+
+            if (lang === 'en') {
+                processedQ.question = q.question_en || q.question; // Fallback to Korean if English not present
+                if (q.options_en) {
+                    processedQ.options = q.options_en;
+                }
+                // Answer logic might need adjustment if answers are language-dependent
+                // For now, 'answer' field is assumed to be based on Korean options.
+            } else if (lang === 'both') {
+                processedQ.question = `${q.question}<br><span class="lang-en">(${q.question_en || 'No English translation'})</span>`;
+                if (q.options && q.options_en) {
+                    processedQ.options = q.options.map((opt_ko, i) => {
+                        const opt_en = q.options_en[i] || 'No English translation';
+                        return `${opt_ko}<br><span class="lang-en">(${opt_en})</span>`;
+                    });
+                } else if (q.options_en) { // Only English options available for some reason
+                     processedQ.options = q.options_en.map(opt_en => `<span class="lang-en">(${opt_en})</span>`);
+                }
+                // else, Korean options are used by default
+            }
+            // For 'ko', no change needed as original data is Korean primary
+            return processedQ;
+        });
+    }
+
+    function processAndRenderQuiz() {
+        processedQuizData = processQuizDataForLanguage(currentQuizData, currentLangMode);
+        renderQuiz();
+    }
+    
+    function handleLanguageChange(event) {
+        currentLangMode = event.target.value;
+        localStorage.setItem('quizLangMode', currentLangMode);
+        processAndRenderQuiz();
+    }
 
     function renderQuiz() {
-        if (!currentQuizData || currentQuizData.length === 0 || !quizContentEl) {
+        // Now uses processedQuizData instead of currentQuizData directly
+        if (!processedQuizData || processedQuizData.length === 0 || !quizContentEl) {
             if (quizContentEl) quizContentEl.innerHTML = '<p>퀴즈 문제를 불러올 수 없습니다.</p>';
             if (submitButton) submitButton.style.display = 'none';
             if (timerWidgetEl) timerWidgetEl.style.display = 'none';
@@ -120,14 +149,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         quizContentEl.innerHTML = ''; 
 
-        currentQuizData.forEach((q, index) => {
+        processedQuizData.forEach((q, index) => { // Use processedQuizData
             if (!q || typeof q.id === 'undefined') {
                 console.warn('잘못된 형식의 문제 데이터가 포함되어 있습니다:', q);
                 return; 
             }
             const questionItem = document.createElement('div');
             questionItem.classList.add('question-item');
+            // Question text is already processed for language, so just set innerHTML
             questionItem.innerHTML = `<h4>문제 ${index + 1}. ${q.question}</h4>`;
+
 
             if (q.image) { /* ... image/video rendering ... */ }
             if (q.video) { /* ... image/video rendering ... */ }
@@ -135,9 +166,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const optionsDiv = document.createElement('div');
             optionsDiv.classList.add('options');
 
-            if (q.type === 'multiple-choice') {
+            if (q.type === 'multiple-choice' && q.options) { // Ensure q.options exists
                 q.options.forEach((option, optIndex) => {
                     const optionId = `q${q.id}-option${optIndex}`;
+                    // The 'value' of the radio button should be the original Korean option if langMode is 'both' or 'en'
+                    // to ensure answer checking works against the primary language 'answer' field.
+                    // Or, we need a more complex answer mapping. For now, assume 'answer' matches Korean options.
+                    const originalKoreanOption = (currentQuizData[index] && currentQuizData[index].options) ? currentQuizData[index].options[optIndex] : option;
+
                     const label = document.createElement('label');
                     label.htmlFor = optionId; 
                     label.classList.add('quiz-option-label');
@@ -145,12 +181,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     radio.type = 'radio';
                     radio.id = optionId;
                     radio.name = `question-${q.id}`;
-                    radio.value = option;
+                    // Value should be consistent for answer checking, use original Korean option value
+                    radio.value = originalKoreanOption; 
                     radio.classList.add('quiz-option-radio'); 
                     
                     radio.addEventListener('change', (e) => {
-                        // This event listener now primarily handles selection and styling
-                        userAnswers[q.id] = e.target.value;
+                        userAnswers[q.id] = e.target.value; // Store the original Korean option value
                         document.querySelectorAll(`input[name="question-${q.id}"]`).forEach(rb => {
                             rb.parentElement.classList.remove('selected');
                         });
@@ -160,12 +196,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                     label.appendChild(radio);
                     const optionText = document.createElement('span');
-                    // Check if option already starts with numbering like "1) " or " 1) "
+                    // Option text is already processed for language, set innerHTML to render <br> and <span>
                     const numberingPattern = /^\s*\d+\)\s+/;
-                    if (numberingPattern.test(option)) {
-                        optionText.textContent = option; // Use option as-is if already numbered
+                    if (numberingPattern.test(option.split('<br>')[0])) { // Check original Korean part for numbering
+                        optionText.innerHTML = option; 
                     } else {
-                        optionText.textContent = `${optIndex + 1}) ${option}`; // Add numbering
+                        optionText.innerHTML = `${optIndex + 1}) ${option}`; 
                     }
                     label.appendChild(optionText);
                     optionsDiv.appendChild(label);
