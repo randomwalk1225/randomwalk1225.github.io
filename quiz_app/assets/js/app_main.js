@@ -17,55 +17,32 @@ document.addEventListener('DOMContentLoaded', async function() {
                 const errorText = await response.text();
                 throw new Error(`Netlify 함수(getQuizList) 호출 실패: ${response.status} ${response.statusText}. 응답: ${errorText}`);
             }
-            quizIds = await response.json();
+            // The function now returns an array of objects: [{id: "...", title: "..."}, ...]
+            let quizzes = await response.json();
 
-            if (!Array.isArray(quizIds)) {
-                console.error("getQuizList 함수에서 배열을 반환하지 않았습니다:", quizIds);
+            if (!Array.isArray(quizzes)) {
+                console.error("getQuizList 함수에서 배열을 반환하지 않았습니다:", quizzes);
                 throw new Error("퀴즈 목록 형식이 잘못되었습니다.");
             }
+            
+            if (quizzes.length === 0) {
+                console.log("사용 가능한 퀴즈가 없습니다.");
+            } else {
+                // Ensure each item has an id and title, default title to id if missing
+                quizzes = quizzes.map(quiz => ({
+                    id: quiz.id,
+                    title: quiz.title || quiz.id 
+                }));
+                // Sort quizzes by title alphabetically for consistent ordering
+                quizzes.sort((a, b) => a.title.localeCompare(b.title));
+            }
+            return quizzes;
 
         } catch (error) {
-            console.error("퀴즈 ID 목록을 가져오는 중 오류 발생:", error);
-            // Fallback or error display
+            console.error("퀴즈 목록을 가져오는 중 오류 발생:", error);
             if (quizListEl) quizListEl.innerHTML = `<li>퀴즈 목록을 불러오는 데 실패했습니다: ${error.message}</li>`;
             return []; // Return empty array on error
         }
-
-        let quizzes = [];
-        if (quizIds.length === 0) {
-            console.log("사용 가능한 퀴즈 ID가 없습니다.");
-            // No need to fetch titles if no IDs
-        } else {
-            for (const id of quizIds) {
-                try {
-                    const quizJsonResponse = await fetch(`${siteBaseUrl}/quizzes/${id}/quiz.json`);
-                    if (quizJsonResponse.ok) {
-                        const data = await quizJsonResponse.json();
-                        // Assuming quiz.json structure: [{ "title": "Quiz Title" }, {question_data...}]
-                        // Or if quiz.json is an object with a "title" property at the root, adjust accordingly.
-                        // The current quiz_player.js logic suggests the title is in data[0].title for array-based quiz.json
-                        let title = id; // Default title to ID
-                        if (Array.isArray(data) && data.length > 0 && data[0].title) {
-                            title = data[0].title;
-                        } else if (data && data.title) { // Alternative: if quiz.json is an object with a title
-                             title = data.title;
-                        }
-                        quizzes.push({ id: id, title: title });
-                    } else {
-                        console.warn(`퀴즈 "${id}"의 quiz.json 파일을 가져오는데 실패했습니다. 상태: ${quizJsonResponse.status}`);
-                        quizzes.push({ id: id, title: id }); // Fallback title
-                    }
-                } catch (error) {
-                    console.error(`퀴즈 "${id}"의 quiz.json 처리 중 오류:`, error);
-                    quizzes.push({ id: id, title: id }); // Fallback title
-                }
-            }
-        }
-        
-        // Sort quizzes by title alphabetically for consistent ordering
-        quizzes.sort((a, b) => a.title.localeCompare(b.title));
-        
-        return quizzes;
     }
 
     if (quizListEl) {

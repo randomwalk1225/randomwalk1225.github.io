@@ -46,22 +46,42 @@ exports.handler = async (event, context) => {
       throw readDirError; // Re-throw to be caught by the main try-catch
     }
     
-    const quizDirectories = entries
+    const quizList = entries
       .filter(dirent => {
         const isDir = dirent.isDirectory();
-        console.log(`[getQuizList] Checking entry: ${dirent.name}, isDirectory: ${isDir}`);
+        // console.log(`[getQuizList] Checking entry: ${dirent.name}, isDirectory: ${isDir}`);
         return isDir;
       })
-      .map(dirent => dirent.name)
-      .filter(name => {
-        // Optionally, check if a quiz.json exists in each directory
-        const quizJsonPath = path.join(quizzesDirPath, name, 'quiz.json');
-        const exists = fs.existsSync(quizJsonPath);
-        console.log(`[getQuizList] Checking for quiz.json in ${name}: ${quizJsonPath}, exists: ${exists}`);
-        return exists;
+      .map(dirent => {
+        const quizId = dirent.name;
+        const quizJsonPath = path.join(quizzesDirPath, quizId, 'quiz.json');
+        let quizTitle = quizId; // Default title to ID
+
+        if (fs.existsSync(quizJsonPath)) {
+          try {
+            const quizJsonContent = fs.readFileSync(quizJsonPath, 'utf-8');
+            const quizData = JSON.parse(quizJsonContent);
+            
+            // Try to get title from new format: { "title": "...", "quizzes": [...] }
+            if (typeof quizData.title === 'string') {
+              quizTitle = quizData.title;
+            } 
+            // Else, try to get title from old format: [ {"title": "..."}, ... ]
+            else if (Array.isArray(quizData) && quizData.length > 0 && quizData[0] && typeof quizData[0].title === 'string') {
+              quizTitle = quizData[0].title;
+            }
+            // console.log(`[getQuizList] Found quiz.json for ${quizId}, title: ${quizTitle}`);
+          } catch (parseError) {
+            console.error(`[getQuizList] Error parsing quiz.json for ${quizId}:`, parseError);
+            // quizTitle remains quizId (default)
+          }
+        } else {
+          // console.log(`[getQuizList] No quiz.json found for ${quizId}`);
+        }
+        return { id: quizId, title: quizTitle };
       });
     
-    console.log('[getQuizList] Filtered quizDirectories:', quizDirectories);
+    console.log('[getQuizList] Constructed quizList:', quizList);
 
     return {
       statusCode: 200,
@@ -69,10 +89,10 @@ exports.handler = async (event, context) => {
         ...CORS_HEADERS,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(quizDirectories),
+      body: JSON.stringify(quizList),
     };
   } catch (error) {
-    console.error('Error reading quizzes directory:', error);
+    console.error('[getQuizList] Error reading quizzes directory or processing quiz files:', error);
     return {
       statusCode: 500,
       headers: CORS_HEADERS,

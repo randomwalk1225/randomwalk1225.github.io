@@ -621,6 +621,87 @@ math-field {
         border-left: 3px solid #666; /* Use gray for incorrect indication */
     }
     .result-card-status {
-        font-weight: bold;
+    font-weight: bold;
+}
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    main {
+        padding: 15px; /* Reduce padding on smaller screens */
+        margin: 10px auto;
+    }
+
+    #quiz-title {
+        font-size: 1.5em; /* Smaller title font size */
+        margin-bottom: 20px;
+    }
+
+    button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    input[type="text"], math-field {
+        font-size: 1em; /* Adjust input font size */
+    }
+
+    .quiz-option-label {
+        padding: 8px 10px;
+        font-size: 0.95em;
+    }
+
+    .quiz-timer-widget {
+        top: 60px; /* Adjust position if header size changes */
+        right: 10px;
+        padding: 6px 10px;
+        font-size: 0.8em;
+        min-width: 150px;
+    }
+
+    .history-quiz-group {
+        flex-direction: column; /* Stack title and attempts vertically */
+        align-items: flex-start;
+    }
+    .history-group-title {
+        max-width: 100%; /* Allow title to take full width */
+        margin-bottom: 10px;
+    }
+    .inline-attempts-container {
+        justify-content: flex-start;
+    }
+    .inline-attempt-summary {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 a {
+        font-size: 1.5rem; /* Smaller site title */
+    }
+    header nav a {
+        margin: 0 5px; /* Smaller margins for nav links */
+        font-size: 0.9rem;
+    }
+
+    #quiz-title {
+        font-size: 1.3em;
+    }
+    
+    .quiz-result-title {
+        font-size: 1.5em;
+    }
+    .score-summary p {
+        font-size: 1em;
+    }
+    .score-summary .score-value {
+        font-size: 1.8em;
+    }
+
+    .quiz-timer-widget {
+        /* Could be made less intrusive or toggleable by default on very small screens */
+        font-size: 0.75em;
+        padding: 5px 8px;
+        min-width: auto; /* Allow it to shrink more */
     }
 }
