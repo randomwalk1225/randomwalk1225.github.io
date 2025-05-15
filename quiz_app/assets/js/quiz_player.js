@@ -41,42 +41,63 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             const rawQuizData = await response.json();
             
-            let tempCurrentQuizData; 
+            let tempCurrentQuizData = []; // Initialize as empty array
+            let actualQuizTitle = id; // Default title to quizId
 
-            if (Array.isArray(rawQuizData) && rawQuizData.length > 0 && rawQuizData[0].title) {
-                if (quizTitleEl) {
-                    quizTitleEl.textContent = rawQuizData[0].title;
+            if (typeof rawQuizData === 'object' && rawQuizData !== null) {
+                if (typeof rawQuizData.title === 'string' && Array.isArray(rawQuizData.quizzes)) {
+                    // New format: { title: "...", quizzes: [...] }
+                    actualQuizTitle = rawQuizData.title;
+                    tempCurrentQuizData = rawQuizData.quizzes;
+                    console.log("New quiz format detected (object with title and quizzes array).");
+                } else if (Array.isArray(rawQuizData) && rawQuizData.length > 0 && rawQuizData[0] && typeof rawQuizData[0].title === 'string') {
+                    // Old format: [ {title: "..."}, {question...}, ... ]
+                    actualQuizTitle = rawQuizData[0].title;
+                    tempCurrentQuizData = rawQuizData.slice(1);
+                    console.log("Old quiz format detected (array with title object as first element).");
+                } else if (Array.isArray(rawQuizData)) {
+                    // Fallback: Assume rawQuizData is directly an array of questions (no title in data)
+                    tempCurrentQuizData = rawQuizData;
+                    console.warn("Quiz data is an array, but no title found in the expected format. Using quiz ID as title.");
+                    // actualQuizTitle remains quizId
+                } else {
+                    // Unrecognized format
+                    console.error("Quiz data format is not recognized:", rawQuizData);
+                    throw new Error(`퀴즈 데이터(${id}) 형식이 올바르지 않습니다.`);
                 }
-                tempCurrentQuizData = rawQuizData.slice(1);
             } else {
-                if (quizTitleEl) {
-                    let title = id;
-                    if (id === 'math101') title = "수학 101 퀴즈";
-                    else if (id === 'history_basics') title = "역사 기초 퀴즈";
-                    else if (id === 'algebra_quiz') title = "이차방정식과 인수분해";
-                    else if (id === 'algorithms_data_structures') title = "알고리즘과 자료구조";
-                    else title = "퀴즈";
-                    quizTitleEl.textContent = title;
-                }
-                tempCurrentQuizData = rawQuizData;
-                console.warn("퀴즈 데이터에 title 정보가 없거나 형식이 올바르지 않습니다.");
+                 console.error("Quiz data is not an object or array:", rawQuizData);
+                 throw new Error(`퀴즈 데이터(${id})를 파싱할 수 없습니다.`);
             }
 
-            if (typeof MathfieldElement !== 'undefined' && tempCurrentQuizData) {
+            if (quizTitleEl) {
+                quizTitleEl.textContent = actualQuizTitle;
+            }
+
+            // Process questions
+            if (!Array.isArray(tempCurrentQuizData)) {
+                // This case should ideally be caught by the logic above, but as a safeguard:
+                console.error("Critical error: tempCurrentQuizData is not an array before mapping. Data:", tempCurrentQuizData);
+                currentQuizData = []; // Prevent .map error by ensuring currentQuizData is an array
+                // Optionally, re-throw an error or display a more user-friendly message
+                // throw new Error(`퀴즈 문제 데이터를 처리할 수 없습니다.`);
+            } else if (typeof MathfieldElement !== 'undefined' && tempCurrentQuizData.length > 0) {
                 const tempMathField = new MathfieldElement();
                 currentQuizData = tempCurrentQuizData.map(q => {
-                    if (q.type === 'short-answer' && q.isMathInput && typeof q.answer === 'string') {
+                    if (q && q.type === 'short-answer' && q.isMathInput && typeof q.answer === 'string') {
                         let initialLatex = q.answer.replace(/\$/g, ''); 
                         tempMathField.value = initialLatex; 
                         return { ...q, answer: tempMathField.value }; 
                     }
                     return q;
                 });
-            } else if (tempCurrentQuizData) {
-                console.warn("MathLive (MathfieldElement)가 로드되지 않아 정답 정규화를 건너<0xC2><0xAD>뜁니다.");
-                currentQuizData = tempCurrentQuizData;
+            } else if (tempCurrentQuizData.length > 0) {
+                console.warn("MathLive (MathfieldElement)가 로드되지 않아 수학 문제 정답 정규화를 건너<0xC2><0xAD>뜁니다.");
+                currentQuizData = tempCurrentQuizData; // Assign directly if MathLive is not available but data exists
             } else {
-                currentQuizData = [];
+                // tempCurrentQuizData is an empty array (or became one due to an error)
+                currentQuizData = []; // Ensure currentQuizData is an empty array
+                console.log("No quiz questions found or processed.");
             }
             
             renderQuiz();
