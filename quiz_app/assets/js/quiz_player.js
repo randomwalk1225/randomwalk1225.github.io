@@ -81,12 +81,25 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Set initial language mode from localStorage
             const langRadios = document.querySelectorAll('input[name="lang-mode"]');
-            langRadios.forEach(radio => {
-                if (radio.value === currentLangMode) {
-                    radio.checked = true;
-                }
-                radio.addEventListener('change', handleLanguageChange);
-            });
+            const languageSelectorEl = document.getElementById('language-selector');
+
+            // Check if any question has English content
+            const hasEnglishContent = tempCurrentQuizData.some(q => q && (q.question_en || q.options_en));
+
+            if (hasEnglishContent && languageSelectorEl) {
+                languageSelectorEl.style.display = 'flex'; // Or 'block' or remove inline style to use CSS
+                langRadios.forEach(radio => {
+                    if (radio.value === currentLangMode) {
+                        radio.checked = true;
+                    }
+                    radio.addEventListener('change', handleLanguageChange);
+                });
+            } else if (languageSelectorEl) {
+                languageSelectorEl.style.display = 'none';
+                currentLangMode = 'ko'; // Default to Korean if no English content or selector
+                localStorage.setItem('quizLangMode', currentLangMode); // Persist this default
+            }
+
 
             processAndRenderQuiz(); // Process for current language and render
             startTimers(); // 퀴즈 데이터 로드 후 타이머 시작
