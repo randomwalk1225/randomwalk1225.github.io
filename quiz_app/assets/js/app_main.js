@@ -5,38 +5,66 @@ document.addEventListener('DOMContentLoaded', async function() {
     const siteBaseUrl = document.body.getAttribute('data-baseurl') || '';
 
     async function loadQuizManifest() {
-        // Jekyll 빌드 시 생성된 _data/quiz_manifest.json을 로드한다고 가정합니다.
-        // 실제로는 이 파일이 /assets/quiz_manifest.json 등으로 복사되어 접근 가능해야 합니다.
-        // 여기서는 Jekyll의 데이터 파일이 사이트 루트의 data/quiz_manifest.json으로 접근 가능하다고 가정합니다.
-        // 또는, Jekyll Collection을 사용하여 각 퀴즈를 페이지로 만들고, 그 목록을 가져올 수도 있습니다.
-        // 가장 간단한 방법은 빌드 시점에 quiz_manifest.json을 assets 폴더 같은 곳에 생성하는 것입니다.
-        // 지금은 /data/quiz_manifest.json 경로를 사용하겠습니다. (실제로는 _data 폴더는 직접 접근 불가)
-        // 이 부분은 Jekyll 빌드 설정에 따라 경로가 달라져야 합니다.
-        // 임시로, 각 quiz.json을 직접 fetch하여 title을 가져오는 방식으로 구현합니다.
-        // 이는 비효율적이지만, 별도의 manifest 파일 생성 없이 테스트 가능합니다.
+        let quizIds = [];
+        try {
+            // Fetch the list of quiz IDs (directory names) from the Netlify function
+            // Ensure the Netlify site URL is correctly configured or use a relative path if deployed on the same site
+            const netlifySiteUrl = "https://chipper-cupcake-752544.netlify.app"; // Or use siteBaseUrl if Netlify functions are on the same domain
+            const functionPath = `${netlifySiteUrl}/.netlify/functions/getQuizList`;
+            
+            const response = await fetch(functionPath);
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`Netlify 함수(getQuizList) 호출 실패: ${response.status} ${response.statusText}. 응답: ${errorText}`);
+            }
+            quizIds = await response.json();
 
-        const quizIds = ['math101', 'history_basics', 'algebra_quiz', 'algorithms_data_structures']; // 새로운 퀴즈 ID 추가
+            if (!Array.isArray(quizIds)) {
+                console.error("getQuizList 함수에서 배열을 반환하지 않았습니다:", quizIds);
+                throw new Error("퀴즈 목록 형식이 잘못되었습니다.");
+            }
+
+        } catch (error) {
+            console.error("퀴즈 ID 목록을 가져오는 중 오류 발생:", error);
+            // Fallback or error display
+            if (quizListEl) quizListEl.innerHTML = `<li>퀴즈 목록을 불러오는 데 실패했습니다: ${error.message}</li>`;
+            return []; // Return empty array on error
+        }
+
         let quizzes = [];
-
-        for (const id of quizIds) {
-            try {
-                const response = await fetch(`${siteBaseUrl}/quizzes/${id}/quiz.json`);
-                if (response.ok) {
-                    const data = await response.json();
-                    if (Array.isArray(data) && data.length > 0 && data[0].title) {
-                        quizzes.push({ id: id, title: data[0].title });
+        if (quizIds.length === 0) {
+            console.log("사용 가능한 퀴즈 ID가 없습니다.");
+            // No need to fetch titles if no IDs
+        } else {
+            for (const id of quizIds) {
+                try {
+                    const quizJsonResponse = await fetch(`${siteBaseUrl}/quizzes/${id}/quiz.json`);
+                    if (quizJsonResponse.ok) {
+                        const data = await quizJsonResponse.json();
+                        // Assuming quiz.json structure: [{ "title": "Quiz Title" }, {question_data...}]
+                        // Or if quiz.json is an object with a "title" property at the root, adjust accordingly.
+                        // The current quiz_player.js logic suggests the title is in data[0].title for array-based quiz.json
+                        let title = id; // Default title to ID
+                        if (Array.isArray(data) && data.length > 0 && data[0].title) {
+                            title = data[0].title;
+                        } else if (data && data.title) { // Alternative: if quiz.json is an object with a title
+                             title = data.title;
+                        }
+                        quizzes.push({ id: id, title: title });
                     } else {
+                        console.warn(`퀴즈 "${id}"의 quiz.json 파일을 가져오는데 실패했습니다. 상태: ${quizJsonResponse.status}`);
                         quizzes.push({ id: id, title: id }); // Fallback title
                     }
-                } else {
-                    console.warn(`퀴즈 ${id}의 manifest 정보를 가져오는데 실패했습니다.`);
+                } catch (error) {
+                    console.error(`퀴즈 "${id}"의 quiz.json 처리 중 오류:`, error);
                     quizzes.push({ id: id, title: id }); // Fallback title
                 }
-            } catch (error) {
-                console.error(`퀴즈 ${id} 로드 중 오류:`, error);
-                quizzes.push({ id: id, title: id }); // Fallback title
             }
         }
+        
+        // Sort quizzes by title alphabetically for consistent ordering
+        quizzes.sort((a, b) => a.title.localeCompare(b.title));
+        
         return quizzes;
     }
 
