@@ -44,14 +44,14 @@ exports.handler = async (event, context) => {
       .from('quiz_results') // 테이블명
       .insert([
         { 
-          user_id: quizResult.user_id, // 클라이언트에서 보낸 키 'user_id'와 일치시킴
-          quiz_id: quizResult.quizId,
-          quiz_title: quizResult.quizTitle,
+          user_id: quizResult.user_id, 
+          quiz_id: quizResult.quiz_id, // Use quiz_id from client
+          quiz_title: quizResult.quiz_title, // Use quiz_title from client
           score: quizResult.score,
-          total_questions: quizResult.answers ? quizResult.answers.length : 0, 
-          correct_answers_count: quizResult.answers ? quizResult.answers.filter(a => a.isCorrect).length : 0,
-          answers_details: quizResult.answers, 
-          incorrect_question_ids: quizResult.incorrect_question_ids // 새로운 필드 추가
+          total_questions: quizResult.total_questions, // Use total_questions from client
+          correct_answers_count: quizResult.correct_answers_count, // Use correct_answers_count from client
+          answers_details: quizResult.answers_details, // Use answers_details from client
+          incorrect_question_ids: quizResult.incorrect_question_ids
         }
       ])
       .select(); // 삽입된 데이터를 반환받기 위해 .select() 추가 (선택 사항)

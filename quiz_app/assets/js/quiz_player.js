@@ -169,24 +169,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (submitButton) {
         submitButton.addEventListener('click', async function() { // async 추가
-            if (!supabase) {
-                alert("인증 모듈이 로드되지 않았습니다. 페이지를 새로고침 해주세요.");
+            const userIdInput = document.getElementById('userIdQuiz');
+            if (!userIdInput || !userIdInput.value.trim()) {
+                alert("퀴즈를 제출하려면 사용자 ID를 입력해야 합니다.");
+                if (userIdInput) userIdInput.focus();
                 return;
             }
+            const userId = userIdInput.value.trim(); // Get User ID from input field
+            const userDisplayNameForResults = userId; // Use the entered ID for display
 
-            const { data: { user } } = await supabase.auth.getUser();
-
-            if (!user) {
-                alert("퀴즈를 제출하려면 먼저 로그인해야 합니다.");
-                // 로그인 페이지로 리다이렉트하거나 로그인 UI를 표시할 수 있습니다.
-                // 예: auth.js의 signInWithGitHub() 호출 또는 로그인 모달 표시
-                // 지금은 간단히 alert만 표시합니다.
-                // signInWithGitHub(); // auth.js에 정의된 함수가 있다면 호출 가능
-                return;
-            }
-            const userId = user.id; // Supabase 사용자 ID (결과 저장용)
-            const userEmailForDisplay = user.email || '사용자';
-            const userDisplayNameForResults = user.user_metadata?.user_name || user.user_metadata?.full_name || userEmailForDisplay; // 표시용 이름
+            // The supabase check and getUser call are removed as we are not using Supabase auth for this.
+            // if (!supabase) {
+            //     alert("인증 모듈이 로드되지 않았습니다. 페이지를 새로고침 해주세요.");
+            //     return;
+            // }
+            // const { data: { user } } = await supabase.auth.getUser();
+            // if (!user) {
+            //     alert("퀴즈를 제출하려면 먼저 로그인해야 합니다.");
+            //     return;
+            // }
 
             const answeredQuestions = Object.keys(userAnswers).length;
             const totalQuestionsCount = currentQuizData.filter(q => q && typeof q.id !== 'undefined').length;
@@ -377,14 +378,22 @@ document.addEventListener('DOMContentLoaded', function() {
     loadQuizData(quizId);
 });
 
+// It seems supabase client is loaded via CDN in quiz_layout.html.
+// If saveResultToServer or other parts of this script don't actually use a 'supabase' global variable
+// initialized by auth.js (which was removed), then the check for 'supabase' might be irrelevant or
+// should refer to how the CDN-loaded Supabase client is accessed (e.g., window.supabase).
+// For now, assuming saveResultToServer is self-contained with its fetch call.
 async function saveResultToServer(resultData) {
-    if (!supabase) { // auth.js에서 초기화된 supabase 인스턴스 사용
-        console.error("Supabase client not available in saveResultToServer.");
-        if (document.getElementById('quiz-result')) {
-            document.getElementById('quiz-result').innerHTML += `<p style='color:orange;'>결과를 서버에 저장하는 중 시스템 오류가 발생했습니다.</p>`;
-        }
-        return;
-    }
+    // The check for `supabase` client instance here might be a leftover if it was previously
+    // expected to be initialized by a local auth script.
+    // The function proceeds to use fetch, so direct supabase client might not be needed for this specific function.
+    // if (!supabase) { 
+    //     console.error("Supabase client not available in saveResultToServer.");
+    //     if (document.getElementById('quiz-result')) {
+    //         document.getElementById('quiz-result').innerHTML += `<p style='color:orange;'>결과를 서버에 저장하는 중 시스템 오류가 발생했습니다.</p>`;
+    //     }
+    //     return;
+    // }
     const netlifySiteUrl = "https://chipper-cupcake-752544.netlify.app";
     const functionPath = `${netlifySiteUrl}/.netlify/functions/saveQuizResult`;
     try {
