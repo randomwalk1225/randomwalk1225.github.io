@@ -78,10 +78,11 @@ exports.handler = async (event, context) => {
         } else {
           // console.log(`[getQuizList] No quiz.json found for ${quizId}`);
         }
-        return { id: quizId, title: quizTitle };
+        // Ensure id and title are strings
+        return { id: String(quizId), title: String(quizTitle) };
       });
     
-    console.log('[getQuizList] Constructed quizList:', quizList);
+    // console.log('[getQuizList] Constructed quizList:', quizList); // Keep this for debugging if needed
 
     return {
       statusCode: 200,
