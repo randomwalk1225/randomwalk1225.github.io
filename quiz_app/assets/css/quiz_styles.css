@@ -500,8 +500,11 @@ math-field {
     z-index: 1000;
     font-size: 0.85em;
     color: #212529;
-    min-width: 180px; /* 최소 너비 확보 */
-    text-align: left;
+    width: 100px; /* Reduced width */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text within time displays */
 }
 
 #current-time-display {
@@ -521,6 +524,8 @@ math-field {
     color: white;
     border-radius: 3px;
     cursor: pointer;
+    margin-top: auto; /* Push button to the bottom */
+    width: 100%; /* Make button take full width of the widget */
 }
 #toggle-timer-visibility:hover {
     background-color: #5a6268;
