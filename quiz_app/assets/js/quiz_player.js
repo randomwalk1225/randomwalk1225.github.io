@@ -391,16 +391,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function updateTimerVisibility() {
-        if (!timerWidgetEl || !toggleTimerVisibilityButton) return;
-        if (timerVisible) {
-            timerWidgetEl.style.display = 'block'; // 또는 'flex' 등 CSS에 맞게
+        if (!timerWidgetEl || !toggleTimerVisibilityButton || !currentTimeDisplayEl || !elapsedTimeDisplayEl) return;
+
+        if (timerVisible) { // Show time text
+            currentTimeDisplayEl.classList.remove('timer-text-hidden');
+            elapsedTimeDisplayEl.classList.remove('timer-text-hidden');
             toggleTimerVisibilityButton.textContent = '시계 숨기기';
-            updateCurrentTime(); // 보이게 할 때 시간 즉시 업데이트
-            updateElapsedTime(); // 보이게 할 때 시간 즉시 업데이트
-        } else {
-            timerWidgetEl.style.display = 'none';
-            toggleTimerVisibilityButton.textContent = '시계 보기'; // 버튼 텍스트는 항상 보이도록 위젯 밖에 둘 수도 있음
+            updateCurrentTime(); 
+            updateElapsedTime(); 
+        } else { // Hide time text (make it blend with background or invisible)
+            currentTimeDisplayEl.classList.add('timer-text-hidden');
+            elapsedTimeDisplayEl.classList.add('timer-text-hidden');
+            toggleTimerVisibilityButton.textContent = '시계 보기';
         }
+        // The widget itself (timerWidgetEl) always remains visible.
+        timerWidgetEl.style.display = 'flex'; // Ensure it's always flex (or block)
     }
 
     if (toggleTimerVisibilityButton) {
