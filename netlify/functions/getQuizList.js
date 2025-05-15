@@ -61,22 +61,30 @@ exports.handler = async (event, context) => {
           try {
             const quizJsonContent = fs.readFileSync(quizJsonPath, 'utf-8');
             const quizData = JSON.parse(quizJsonContent);
-            
-            // Try to get title from new format: { "title": "...", "quizzes": [...] }
-            if (typeof quizData.title === 'string') {
-              quizTitle = quizData.title;
+            let extractedTitle = null;
+
+            // Check for title in new format: { "title": "...", "quizzes": [...] }
+            if (quizData && typeof quizData.title === 'string' && quizData.title.trim() !== '') {
+              extractedTitle = quizData.title.trim();
             } 
-            // Else, try to get title from old format: [ {"title": "..."}, ... ]
-            else if (Array.isArray(quizData) && quizData.length > 0 && quizData[0] && typeof quizData[0].title === 'string') {
-              quizTitle = quizData[0].title;
+            // Else, check for title in old format: [ {"title": "..."}, ... ]
+            else if (Array.isArray(quizData) && quizData.length > 0 && quizData[0] && typeof quizData[0].title === 'string' && quizData[0].title.trim() !== '') {
+              extractedTitle = quizData[0].title.trim();
             }
-            // console.log(`[getQuizList] Found quiz.json for ${quizId}, title: ${quizTitle}`);
+
+            if (extractedTitle) {
+                quizTitle = extractedTitle;
+                // console.log(`[getQuizList] Used title from quiz.json for ${quizId}: "${quizTitle}"`);
+            } else {
+                // console.log(`[getQuizList] No valid title found in quiz.json for ${quizId}, using ID as title.`);
+                // quizTitle remains quizId (default)
+            }
           } catch (parseError) {
-            console.error(`[getQuizList] Error parsing quiz.json for ${quizId}:`, parseError);
+            console.error(`[getQuizList] Error parsing quiz.json for ${quizId}, using ID as title:`, parseError);
             // quizTitle remains quizId (default)
           }
         } else {
-          // console.log(`[getQuizList] No quiz.json found for ${quizId}`);
+        //   console.log(`[getQuizList] No quiz.json found for ${quizId}, using ID as title.`);
         }
         // Ensure id and title are strings
         return { id: String(quizId), title: String(quizTitle) };
