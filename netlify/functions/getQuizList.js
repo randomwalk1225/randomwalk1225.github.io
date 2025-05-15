@@ -34,7 +34,7 @@ exports.handler = async (event, context) => {
     // or assume PWD is the site root.
     // For Netlify, functions are often placed in a 'functions' or 'netlify/functions' dir.
     // If the function is at `netlify/functions/getQuizList.js`, then `../../quizzes` would be correct.
-    const quizzesDirPath = path.resolve(process.cwd(), 'quizzes');
+    const quizzesDirPath = path.resolve(__dirname, '../../quizzes');
     // console.log('Resolved quizzesDirPath:', quizzesDirPath); // For debugging on Netlify logs
 
     const entries = fs.readdirSync(quizzesDirPath, { withFileTypes: true });
