@@ -147,22 +147,60 @@ document.addEventListener('DOMContentLoaded', function() {
                     radio.name = `question-${q.id}`;
                     radio.value = option;
                     radio.classList.add('quiz-option-radio'); 
+
+                    // Store the current state before the change event
+                    let wasChecked = false;
+                    label.addEventListener('mousedown', () => {
+                        // For radio buttons, 'checked' state updates *before* 'click' or 'change'
+                        // if it's not already the one selected in its group.
+                        // If it *is* the one selected, its 'checked' state doesn't change on mousedown.
+                        // We want to capture if it *was* checked right before a potential uncheck.
+                        wasChecked = radio.checked;
+                    });
+
                     radio.addEventListener('change', (e) => {
-                        // If the clicked radio button was already checked, uncheck it
-                        if (radio.checked && userAnswers[q.id] === e.target.value) {
+                        // If it was checked and is still the same value, this means it was clicked again to uncheck.
+                        // However, standard radio button behavior doesn't uncheck on its own.
+                        // The 'change' event for a radio button in a group fires when a *new* radio in that group is selected.
+                        // To allow unchecking, we need a click listener on the label.
+                        // The existing logic will handle selecting a *new* option.
+                        // This 'change' listener will now primarily handle styling.
+
+                        document.querySelectorAll(`input[name="question-${q.id}"]`).forEach(rb => {
+                            rb.parentElement.classList.remove('selected');
+                        });
+                        if (radio.checked) {
+                            userAnswers[q.id] = e.target.value;
+                            e.target.parentElement.classList.add('selected');
+                        } else {
+                            // This 'else' block in 'change' might not be hit if unchecking is handled by 'click'
+                            delete userAnswers[q.id]; 
+                        }
+                    });
+
+                    // Add a click listener to the LABEL for unchecking behavior
+                    label.addEventListener('click', (event) => {
+                        // event.preventDefault(); // Optional: if we want to fully control radio state
+                        if (wasChecked && radio.checked) { 
+                            // If it was checked before mousedown, and is still checked after click,
+                            // it means the user clicked the already selected option.
                             radio.checked = false;
                             delete userAnswers[q.id];
-                            e.target.parentElement.classList.remove('selected');
-                        } else {
-                            userAnswers[q.id] = e.target.value;
+                            label.classList.remove('selected');
+                            // Manually trigger change for any other logic if needed, though not standard
+                            // radio.dispatchEvent(new Event('change', { bubbles: true })); 
+                        } else if (radio.checked) {
+                            // This handles selecting a new option or re-selecting after an uncheck
+                            userAnswers[q.id] = radio.value;
                             document.querySelectorAll(`input[name="question-${q.id}"]`).forEach(rb => {
                                 rb.parentElement.classList.remove('selected');
                             });
-                            if (radio.checked) {
-                                e.target.parentElement.classList.add('selected');
-                            }
+                            label.classList.add('selected');
                         }
+                        // Update wasChecked for the next click
+                        wasChecked = radio.checked;
                     });
+
                     label.appendChild(radio);
                     const optionText = document.createElement('span');
                     // Check if option already starts with numbering like "1) " or " 1) "
