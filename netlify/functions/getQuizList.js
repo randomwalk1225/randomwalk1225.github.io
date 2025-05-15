@@ -35,18 +35,33 @@ exports.handler = async (event, context) => {
     // For Netlify, functions are often placed in a 'functions' or 'netlify/functions' dir.
     // If the function is at `netlify/functions/getQuizList.js`, then `../../quizzes` would be correct.
     const quizzesDirPath = path.resolve(__dirname, '../../quizzes');
-    // console.log('Resolved quizzesDirPath:', quizzesDirPath); // For debugging on Netlify logs
+    console.log('[getQuizList] Resolved quizzesDirPath:', quizzesDirPath); // For debugging on Netlify logs
 
-    const entries = fs.readdirSync(quizzesDirPath, { withFileTypes: true });
+    let entries = [];
+    try {
+      entries = fs.readdirSync(quizzesDirPath, { withFileTypes: true });
+      console.log('[getQuizList] Entries in quizzesDirPath:', entries.map(e => e.name));
+    } catch (readDirError) {
+      console.error('[getQuizList] Error reading quizzesDirPath:', quizzesDirPath, readDirError);
+      throw readDirError; // Re-throw to be caught by the main try-catch
+    }
     
     const quizDirectories = entries
-      .filter(dirent => dirent.isDirectory())
+      .filter(dirent => {
+        const isDir = dirent.isDirectory();
+        console.log(`[getQuizList] Checking entry: ${dirent.name}, isDirectory: ${isDir}`);
+        return isDir;
+      })
       .map(dirent => dirent.name)
       .filter(name => {
         // Optionally, check if a quiz.json exists in each directory
         const quizJsonPath = path.join(quizzesDirPath, name, 'quiz.json');
-        return fs.existsSync(quizJsonPath);
+        const exists = fs.existsSync(quizJsonPath);
+        console.log(`[getQuizList] Checking for quiz.json in ${name}: ${quizJsonPath}, exists: ${exists}`);
+        return exists;
       });
+    
+    console.log('[getQuizList] Filtered quizDirectories:', quizDirectories);
 
     return {
       statusCode: 200,
