@@ -239,10 +239,20 @@ document.addEventListener('DOMContentLoaded', function() {
                         return str.replace(/\$/g, '').replace(/\\left\(/g, '(').replace(/\\right\)/g, ')').replace(/\u2212/g, '-').replace(/\s/g, '').toLowerCase();
                     };
                     const normalizedUserAnswer = normalizeMathAnswer(userAnswerRaw);
-                    const normalizedCorrectAnswer = normalizeMathAnswer(q.answer);
-                    isCorrect = normalizedUserAnswer === normalizedCorrectAnswer;
+                    // q.answer might be undefined for math inputs that are open-ended
+                    const normalizedCorrectAnswer = normalizeMathAnswer(typeof q.answer === 'string' ? q.answer : "");
+                    // A question can only be correct if an answer is defined for it.
+                    isCorrect = (typeof q.answer !== 'undefined') && (normalizedUserAnswer === normalizedCorrectAnswer);
                 } else {
-                    isCorrect = userAnswerRaw.trim().toLowerCase() === q.answer.trim().toLowerCase();
+                    // For multiple-choice and non-math short-answer
+                    if (typeof q.answer === 'string') { // Check if q.answer is a string
+                        isCorrect = userAnswerRaw.trim().toLowerCase() === q.answer.trim().toLowerCase();
+                    } else if (typeof q.answer !== 'undefined' && q.answer !== null) { // Handle if q.answer is number or other primitive
+                        isCorrect = userAnswerRaw.trim().toLowerCase() === String(q.answer).toLowerCase();
+                    } else {
+                        // If q.answer is undefined or null (e.g., for open-ended short answers not meant for auto-grading)
+                        isCorrect = false; 
+                    }
                 }
 
                 if (isCorrect) {
@@ -253,9 +263,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 return {
                     questionId: q.id, question: q.question, userAnswer: userAnswerRaw, 
                     correctAnswer: q.answer, isCorrect: isCorrect, type: q.type, 
-                    isMathInput: q.isMathInput || false 
+                    isMathInput: q.isMathInput || false,
+                    explanation: q.explanation // Ensure explanation is carried over
                 };
-            }).filter(r => r !== null); 
+            }).filter(r => r !== null);
 
             const percentageScore = totalQuestionsCount > 0 ? (score / totalQuestionsCount) * 100 : 0;
 
