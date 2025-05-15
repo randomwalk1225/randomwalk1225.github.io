@@ -156,9 +156,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             const questionItem = document.createElement('div');
             questionItem.classList.add('question-item');
-            // Question text is already processed for language, so just set innerHTML
-            questionItem.innerHTML = `<h4>문제 ${index + 1}. ${q.question}</h4>`;
-
+            
+            let questionPrefix = "문제"; // Default to Korean
+            if (currentLangMode === 'en') {
+                questionPrefix = "Problem";
+            } else if (currentLangMode === 'both') {
+                questionPrefix = "문제 (Problem)";
+            }
+            // Question text (q.question) is already processed for language
+            questionItem.innerHTML = `<h4>${questionPrefix} ${index + 1}. ${q.question}</h4>`;
 
             if (q.image) { /* ... image/video rendering ... */ }
             if (q.video) { /* ... image/video rendering ... */ }
