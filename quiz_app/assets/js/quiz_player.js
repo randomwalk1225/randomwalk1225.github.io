@@ -112,18 +112,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Answer logic might need adjustment if answers are language-dependent
                 // For now, 'answer' field is assumed to be based on Korean options.
             } else if (lang === 'both') {
-                processedQ.question = `${q.question}<br><span class="lang-en">(${q.question_en || 'No English translation'})</span>`;
-                if (q.options && q.options_en) {
+                const questionEnText = q.question_en || q.question; // Fallback to Korean if English Q not present
+                // Question will be handled in renderQuiz for prefixing
+                processedQ.question = q.question; // Store Korean
+                processedQ.question_en = questionEnText; // Store English
+
+                if (q.options && q.options_en && q.options.length === q.options_en.length) {
                     processedQ.options = q.options.map((opt_ko, i) => {
-                        const opt_en = q.options_en[i] || 'No English translation';
-                        return `${opt_ko}<br><span class="lang-en">(${opt_en})</span>`;
+                        return `${opt_ko}<br><span class="lang-en">${q.options_en[i]}</span>`;
                     });
-                } else if (q.options_en) { // Only English options available for some reason
-                     processedQ.options = q.options_en.map(opt_en => `<span class="lang-en">(${opt_en})</span>`);
+                } else if (q.options) { // Only Korean options
+                    processedQ.options = q.options;
+                } else if (q.options_en) { // Only English options (fallback)
+                    processedQ.options = q.options_en.map(opt_en => `<span class="lang-en">${opt_en}</span>`);
                 }
-                // else, Korean options are used by default
             }
-            // For 'ko', no change needed as original data is Korean primary
+            // For 'ko', no change needed as original data is Korean primary (q.question and q.options are used)
             return processedQ;
         });
     }
@@ -157,14 +161,18 @@ document.addEventListener('DOMContentLoaded', function() {
             const questionItem = document.createElement('div');
             questionItem.classList.add('question-item');
             
-            let questionPrefix = "문제"; // Default to Korean
-            if (currentLangMode === 'en') {
-                questionPrefix = "Problem";
-            } else if (currentLangMode === 'both') {
-                questionPrefix = "문제 (Problem)";
+            let questionHtml = '';
+            if (currentLangMode === 'both') {
+                questionHtml = `<h4>문제 ${index + 1}. ${q.question}</h4><h4 class="lang-en-question">Problem ${index + 1}. ${q.question_en || q.question}</h4>`;
+            } else {
+                let questionPrefix = "문제";
+                if (currentLangMode === 'en') {
+                    questionPrefix = "Problem";
+                }
+                // q.question is already set to the correct language string by processQuizDataForLanguage
+                questionHtml = `<h4>${questionPrefix} ${index + 1}. ${q.question}</h4>`;
             }
-            // Question text (q.question) is already processed for language
-            questionItem.innerHTML = `<h4>${questionPrefix} ${index + 1}. ${q.question}</h4>`;
+            questionItem.innerHTML = questionHtml;
 
             if (q.image) { /* ... image/video rendering ... */ }
             if (q.video) { /* ... image/video rendering ... */ }
