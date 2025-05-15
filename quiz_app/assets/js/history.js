@@ -15,8 +15,13 @@ async function loadUserHistory(userId) {
         return;
     }
 
+    const userIdInput = document.getElementById('userIdHistory');
+    if (!userId && userIdInput) {
+        userId = userIdInput.value.trim();
+    }
+
     if (!userId) {
-        historyListEl.innerHTML = '<p>나의 기록을 보려면 먼저 <a href="#" onclick="signInWithGitHub(); return false;">로그인</a>해주세요.</p>';
+        historyListEl.innerHTML = '<p>사용자 ID를 입력하고 "기록 불러오기" 버튼을 클릭하세요.</p>';
         sortStatusEl.textContent = '';
         sortToggleButton.style.display = 'none';
         return;
@@ -172,22 +177,23 @@ function createFullAttemptListItem(record) {
 function toggleDetailView(record, detailDiv, triggerElement) {
     const isActive = triggerElement.classList.contains('active');
 
-    if (globalCurrentlyOpenDetail_history.triggerElement && globalCurrentlyOpenDetail_history.triggerElement !== triggerElement) {
-        globalCurrentlyOpenDetail_history.detailDiv.innerHTML = '';
-        globalCurrentlyOpenDetail_history.triggerElement.classList.remove('active');
-        globalCurrentlyOpenDetail_history.detailDiv.classList.remove('visible'); // CSS로 제어 시
+    // 전역 변수 currentlyOpenDetail_global 사용 (오타 수정)
+    if (currentlyOpenDetail_global.triggerElement && currentlyOpenDetail_global.triggerElement !== triggerElement) {
+        currentlyOpenDetail_global.detailDiv.innerHTML = '';
+        currentlyOpenDetail_global.triggerElement.classList.remove('active');
+        currentlyOpenDetail_global.detailDiv.classList.remove('visible'); // CSS로 제어 시
     }
 
     if (isActive) {
         detailDiv.innerHTML = '';
         triggerElement.classList.remove('active');
         detailDiv.classList.remove('visible');
-        globalCurrentlyOpenDetail_history = { triggerElement: null, detailDiv: null };
+        currentlyOpenDetail_global = { triggerElement: null, detailDiv: null };
     } else {
         displayHistoryDetailContent(record, detailDiv);
         triggerElement.classList.add('active');
         detailDiv.classList.add('visible');
-        globalCurrentlyOpenDetail_history = { triggerElement: triggerElement, detailDiv: detailDiv };
+        currentlyOpenDetail_global = { triggerElement: triggerElement, detailDiv: detailDiv };
     }
 }
 
@@ -231,6 +237,8 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log("히스토리 스크립트 로드됨 (DOMContentLoaded)");
     
     const sortToggleButton_local = document.getElementById('sort-toggle-button');
+    const loadHistoryButton = document.getElementById('loadHistory');
+    const userIdInput = document.getElementById('userIdHistory');
 
     if (sortToggleButton_local) {
         sortToggleButton_local.addEventListener('click', function() {
@@ -244,10 +252,37 @@ document.addEventListener('DOMContentLoaded', function() {
             renderHistoryList(allUserHistoryData_global, currentSortMode_global); 
         });
     }
-    
-    // 초기 기록 로드는 auth.js의 onAuthStateChange 또는 checkInitialAuth에서 
-    // 전역 loadUserHistory를 호출하는 것에 의존합니다.
-    // 만약 auth.js가 history.js보다 늦게 로드되거나, 
-    // loadUserHistory 함수를 찾지 못하는 경우를 대비해 여기서도 호출을 고려할 수 있으나,
-    // 현재는 auth.js에서 호출하는 것으로 통일합니다.
+
+    if (loadHistoryButton && userIdInput) {
+        loadHistoryButton.addEventListener('click', function() {
+            const userId = userIdInput.value.trim();
+            if (userId) {
+                loadUserHistory(userId);
+            } else {
+                const historyListEl = document.getElementById('quiz-history-list');
+                if (historyListEl) {
+                    historyListEl.innerHTML = '<p>사용자 ID를 입력해주세요.</p>';
+                }
+            }
+        });
+        
+        // Enter 키로도 기록 불러오기
+        userIdInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // 폼 제출 방지 (만약 폼 안에 있다면)
+                loadHistoryButton.click();
+            }
+        });
+    } else {
+        console.error('[History.js] Load history button or userId input not found.');
+    }
+
+    // 초기에는 아무 기록도 로드하지 않고, 사용자 입력을 기다립니다.
+    const historyListEl = document.getElementById('quiz-history-list');
+    const sortStatusEl = document.getElementById('history-sort-status');
+    const sortToggleButton = document.getElementById('sort-toggle-button');
+
+    if(historyListEl) historyListEl.innerHTML = '<p>사용자 ID를 입력하고 "기록 불러오기" 버튼을 클릭하세요.</p>';
+    if(sortStatusEl) sortStatusEl.textContent = '';
+    if(sortToggleButton) sortToggleButton.style.display = 'none';
 });
