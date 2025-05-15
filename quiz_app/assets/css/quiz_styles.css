@@ -516,3 +516,91 @@ math-field {
 #toggle-timer-visibility:hover {
     background-color: #5a6268;
 }
+
+/* Print Styles */
+@media print {
+    body {
+        font-size: 12pt;
+        color: #000;
+        background-color: #fff;
+    }
+
+    header, footer, nav, #quiz-timer-widget, #submit-quiz, #user-info, #quiz-result, #toggle-timer-visibility, #history-controls, #sort-toggle-button, .sort-status-display, #user-id-prompt-history /* Hide history page elements too */ {
+        display: none !important;
+    }
+
+    main {
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    
+    #quiz-player-container {
+        margin: 0;
+        padding: 0;
+    }
+
+    #quiz-title {
+        text-align: center;
+        font-size: 18pt;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #000;
+    }
+
+    #quiz-content .question-item {
+        page-break-inside: avoid;
+        margin-bottom: 15px; /* Adjust for print */
+        padding: 10px; /* Adjust for print */
+        border: 1px solid #ccc; /* Make border more visible for print */
+    }
+    
+    /* Attempt to keep first few questions together if possible, by minimizing top space */
+    /* This is a general approach; specific targeting of Q1-4 is hard without JS intervention for print classes */
+    #quiz-content .question-item:first-child {
+        margin-top: 0;
+    }
+
+    /* Ensure options are visible and printable */
+    #quiz-content .options label {
+        border: none !important; /* Override any screen borders */
+        padding: 5px 0;
+    }
+    .quiz-option-label {
+        padding: 5px;
+        margin-bottom: 5px;
+        border: 1px solid #ddd; /* Add a light border for print clarity */
+    }
+    .quiz-option-label.selected {
+        background-color: #e0e0e0; /* Light gray for selected, as color might not print */
+        font-weight: bold;
+    }
+    .quiz-option-radio { /* Ensure radio buttons themselves aren't shown if they were hidden for screen */
+        display: none;
+    }
+
+    /* Hide MathLive specific UI elements that might not be print-friendly */
+    math-field::part(virtual-keyboard-toggle), math-field::part(menu-toggle) {
+        display: none !important;
+    }
+    math-field {
+        border: 1px solid #ccc; /* Ensure math fields have a border for print */
+    }
+
+    /* Styles for result cards if they were to be printed (though quiz-result is hidden) */
+    .result-card {
+        border: 1px solid #ccc;
+        page-break-inside: avoid;
+    }
+    .result-card.correct {
+        border-left: 3px solid #000; /* Use black for correct indication */
+    }
+    .result-card.incorrect {
+        border-left: 3px solid #666; /* Use gray for incorrect indication */
+    }
+    .result-card-status {
+        font-weight: bold;
+    }
+}
