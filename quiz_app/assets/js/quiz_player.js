@@ -158,7 +158,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                     label.appendChild(radio);
                     const optionText = document.createElement('span');
-                    optionText.textContent = `${optIndex + 1}) ${option}`; 
+                    // Check if option already starts with numbering like "1) " or " 1) "
+                    const numberingPattern = /^\s*\d+\)\s+/;
+                    if (numberingPattern.test(option)) {
+                        optionText.textContent = option; // Use option as-is if already numbered
+                    } else {
+                        optionText.textContent = `${optIndex + 1}) ${option}`; // Add numbering
+                    }
                     label.appendChild(optionText);
                     optionsDiv.appendChild(label);
                 });
