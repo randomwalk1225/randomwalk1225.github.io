@@ -59,7 +59,12 @@ exports.handler = async (event, context) => {
 
         if (fs.existsSync(quizJsonPath)) {
           try {
-            const quizJsonContent = fs.readFileSync(quizJsonPath, 'utf-8');
+            let quizJsonContent = fs.readFileSync(quizJsonPath, 'utf-8');
+            
+            // Strip Jekyll front matter if present
+            const frontMatterPattern = /^---\s*[\r\n]+([\s\S]*?)[\r\n]+---\s*[\r\n]+/;
+            quizJsonContent = quizJsonContent.replace(frontMatterPattern, '');
+
             const quizData = JSON.parse(quizJsonContent);
             let extractedTitle = null;
 
