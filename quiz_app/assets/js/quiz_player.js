@@ -197,9 +197,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 const imgEl = document.createElement('img');
                 if (q.image.startsWith('http://') || q.image.startsWith('https://')) {
                     imgEl.src = q.image;
+                } else if (q.image.startsWith('/')) {
+                  imgEl.src = q.image; // 이미 절대 경로이면 그대로 사용
                 } else {
-                    // Construct path relative to the specific quiz folder
-                    imgEl.src = `${siteBaseUrl}/quizzes/${quizId}/${q.image}`;
+                  imgEl.src = `${siteBaseUrl}/quizzes/${quizId}/${q.image}`;
                 }
                 imgEl.alt = `Question ${index + 1} image`;
                 imgEl.style.maxWidth = '100%';
