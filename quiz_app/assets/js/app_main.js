@@ -167,11 +167,37 @@ document.addEventListener('DOMContentLoaded', async function() {
                     } else {
                         quiz.likesCount++;
                     }
-                    quiz.isLiked = !quiz.isLiked;
+                    quiz.isLiked = !quiz.isLiked; // This should be after count adjustment
                     
+                    // Adjust count first based on the NEW state
+                    if (quiz.isLiked) { // If it's now liked
+                        // quiz.likesCount was already incremented before this click if it was previously unliked
+                        // No, this is wrong. The quiz.likesCount should be updated based on the new quiz.isLiked state
+                    } else { // If it's now unliked
+                        // quiz.likesCount was already decremented
+                    }
+                    // The previous logic was correct:
+                    // if (quiz.isLiked) { // This is the OLD state before toggle
+                    //    quiz.likesCount--; 
+                    // } else {
+                    //    quiz.likesCount++;
+                    // }
+                    // quiz.isLiked = !quiz.isLiked; // THEN toggle
+
+                    // Let's revert to a clearer state update order
+                    // 1. Determine the new state
+                    const newLikedState = !quiz.isLiked;
+                    if (newLikedState) {
+                        quiz.likesCount++;
+                    } else {
+                        quiz.likesCount--;
+                    }
+                    quiz.isLiked = newLikedState;
+                    
+                    // 2. Update DOM
                     likesIcon.innerHTML = quiz.isLiked ? '♥ ' : '♡ '; 
                     likesCountEl.textContent = quiz.likesCount;      
-                    likesIcon.appendChild(likesCountEl);              
+                    likesIcon.appendChild(likesCountEl); // Re-append count span
                     likesIcon.classList.toggle('active', quiz.isLiked);
                     likesIcon.setAttribute('aria-label', quiz.isLiked ? `좋아요 취소 (${quiz.likesCount}개)` : `좋아요 (${quiz.likesCount}개)`);
                 });
