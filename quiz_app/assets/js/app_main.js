@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                                         
                     updateLikesDisplay(); // Update the DOM
                     console.log(`Likes count span textContent after update: ${likesCountEl.textContent}`);
-                    sortAndRenderQuizzes();
+                    // sortAndRenderQuizzes(); // REMOVED: Likes should not re-sort the list
                 });
                 likesIcon.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); likesIcon.click(); }});
                 actionsDiv.appendChild(likesIcon);
