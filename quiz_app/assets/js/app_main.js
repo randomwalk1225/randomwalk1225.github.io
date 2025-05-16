@@ -102,26 +102,31 @@ document.addEventListener('DOMContentLoaded', async function() {
                 const cardBody = document.createElement('div');
                 cardBody.className = 'card-body d-flex flex-column p-2';
 
-                const titleLink = document.createElement('a');
+                const titleLink = document.createElement('a'); // This will now be primarily for storing the href
                 titleLink.href = `${siteBaseUrl}/quiz_app/take.html?quiz=${quiz.id}`;
-                titleLink.className = 'text-decoration-none stretched-link'; 
+                // titleLink.className = 'text-decoration-none stretched-link'; // REMOVED stretched-link
+                titleLink.className = 'text-decoration-none'; // Keep other styles if any, or make it plain
 
-                // Add a click listener to the titleLink itself to check the actual target
-                titleLink.addEventListener('click', function(event) {
-                    // Check if the click originated from an action icon or its child
-                    if (event.target.closest('.action-icon')) {
-                        console.log('Click on titleLink originated from an action icon, preventing navigation.');
-                        event.preventDefault();
-                    }
-                });
-                
                 const title = document.createElement('h6'); 
                 title.id = `quiz-title-${quiz.id}`;
                 card.setAttribute('aria-labelledby', title.id);
                 title.className = 'card-title text-dark mb-1'; 
                 title.textContent = quiz.title;
-                titleLink.appendChild(title);
-                cardBody.appendChild(titleLink);
+                // titleLink.appendChild(title); // Title is no longer inside the link for display
+                // cardBody.appendChild(titleLink); // Link is not added to body directly for display
+                cardBody.appendChild(title); // Add title directly to card body
+
+                // Make the card itself clickable, except for action icons
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', function(event) {
+                    if (event.target.closest('.action-icon')) {
+                        console.log('Card click detected, but target is an action icon. No navigation.');
+                        // The action icon's own click handler will manage its behavior (preventDefault, stopPropagation)
+                        return; 
+                    }
+                    console.log('Card area clicked, navigating to:', titleLink.href);
+                    window.location.href = titleLink.href;
+                });
 
                 if (quiz.description) {
                     const descriptionEl = document.createElement('p');
