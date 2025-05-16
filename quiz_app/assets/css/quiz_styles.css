@@ -130,20 +130,24 @@ label {
     padding: 15px;
     border: 1px solid #eee;
     border-radius: 4px;
-    /* font-size: 0.75rem; */ /* Remove base font-size here, set on specific elements */
 }
 
-/* If question text is specifically in a p tag inside question-item, target that for more control */
-#quiz-content .question-item p { /* Assuming main question text is in a p tag */
-    font-size: 0.7rem !important; /* "3 steps smaller" - significantly reduced */
-    line-height: 1.5;
+/* Question text (assuming p or h4) */
+#quiz-content .question-item p,
+#quiz-content .question-item h4 { /* Target both p and h4 for question text */
+    font-size: 1rem !important; /* Unified font size */
+    font-weight: bold !important; /* Bold question text */
+    line-height: 1.6; /* Improved line height for readability */
+    margin-bottom: 0.75rem; /* Consistent margin */
 }
 
-/* Or if it's an h4, as sometimes used for dual language questions */
-#quiz-content .question-item h4 { /* This will also affect h4.lang-en-question */
-    font-size: 0.8rem !important; /* "3 steps smaller" - significantly reduced for headings */
-    line-height: 1.4;
-    margin-bottom: 0.5rem; /* Ensure spacing for h4 */
+/* Ensure h4.lang-en-question also gets these styles if it's separate */
+h4.lang-en-question {
+    font-size: 1rem !important; /* Unified font size */
+    font-weight: bold !important; /* Bold question text */
+    color: #444; 
+    margin-top: 0.25rem; /* Adjusted spacing */
+    margin-bottom: 0.75rem;
 }
 
 #quiz-content .question-item img,
@@ -167,7 +171,7 @@ label {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out; 
-    font-size: 0.8rem; /* "2 steps larger" - increased option text size */
+    font-size: 1rem; /* Unified font size with question text */
 }
 
 .quiz-option-label:hover {
