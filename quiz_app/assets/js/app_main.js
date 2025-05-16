@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 const title = document.createElement('h6'); 
                 title.id = `quiz-title-${quiz.id}`;
                 card.setAttribute('aria-labelledby', title.id);
-                title.className = 'card-title text-dark mb-1'; 
+                title.className = 'card-title mb-1'; // Removed text-dark
                 title.textContent = quiz.title;
                 // titleLink.appendChild(title); // Title is no longer inside the link for display
                 // cardBody.appendChild(titleLink); // Link is not added to body directly for display
