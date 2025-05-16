@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     const quizCardContainerEl = document.getElementById('quiz-card-container');
     const searchInputEl = document.getElementById('quiz-search-input');
     const siteBaseUrl = document.body.getAttribute('data-baseurl') || '';
-    let allQuizzes = []; 
+    let masterQuizList = []; // Store the initially fetched and sorted list
     const numberOfGradientThemes = 5; 
 
     async function loadQuizManifest() {
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 
     function renderQuizCards(quizzesToDisplay) {
-        console.log("renderQuizCards called with (Bootstrap V2):", quizzesToDisplay); 
+        console.log("renderQuizCards called with (Bootstrap V3 - Fixes):", quizzesToDisplay); 
         if (!quizCardContainerEl) {
             console.error("ID가 'quiz-card-container'인 요소를 찾을 수 없습니다.");
             return;
@@ -61,16 +61,14 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (quizzesToDisplay && quizzesToDisplay.length > 0) {
             quizzesToDisplay.forEach((quiz, index) => {
                 const colDiv = document.createElement('div');
-                // Parent 'quizCardContainerEl' has 'row row-cols-...' classes, so colDiv becomes a column.
-                // For explicit column sizing, you could add 'col' or 'col-md-4' etc. here.
-                // We rely on row-cols-* for now.
+                // Bootstrap's row-cols-* classes on the parent will handle column sizing.
+                // Add 'col' class to ensure it behaves as a column in the row.
+                colDiv.className = 'col'; 
 
                 const card = document.createElement('div');
                 card.className = 'card h-100 shadow-sm';
                 card.setAttribute('role', 'article');
-                // aria-labelledby will be set on the title link
-
-                // Image or Placeholder
+                
                 if (quiz.coverImageUrl) {
                     const image = document.createElement('img');
                     image.src = quiz.coverImageUrl.startsWith('http') ? quiz.coverImageUrl : `${siteBaseUrl}${quiz.coverImageUrl}`;
@@ -98,19 +96,19 @@ document.addEventListener('DOMContentLoaded', async function() {
 
                 const titleLink = document.createElement('a');
                 titleLink.href = `${siteBaseUrl}/quiz_app/take.html?quiz=${quiz.id}`;
-                titleLink.className = 'text-decoration-none stretched-link'; // Stretched link makes whole card clickable
+                titleLink.className = 'text-decoration-none stretched-link'; 
                 
                 const title = document.createElement('h5');
                 title.id = `quiz-title-${quiz.id}`;
-                card.setAttribute('aria-labelledby', title.id); // Set aria-labelledby here
-                title.className = 'card-title text-dark mb-1'; // Added mb-1
+                card.setAttribute('aria-labelledby', title.id);
+                title.className = 'card-title text-dark mb-1'; 
                 title.textContent = quiz.title;
                 titleLink.appendChild(title);
                 cardBody.appendChild(titleLink);
 
                 if (quiz.description) {
                     const descriptionEl = document.createElement('p');
-                    descriptionEl.className = 'card-text small text-muted mb-2'; // Added mb-2
+                    descriptionEl.className = 'card-text small text-muted mb-2'; 
                     descriptionEl.textContent = quiz.description;
                     cardBody.appendChild(descriptionEl);
                 }
@@ -123,7 +121,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 card.appendChild(cardBody);
 
                 const cardFooter = document.createElement('div');
-                cardFooter.className = 'card-footer bg-white border-top-0 pt-0'; // Removed top padding from footer
+                cardFooter.className = 'card-footer bg-white border-top-0 pt-0'; 
 
                 const actionsDiv = document.createElement('div');
                 actionsDiv.className = 'd-flex justify-content-start align-items-center';
@@ -132,18 +130,19 @@ document.addEventListener('DOMContentLoaded', async function() {
                 const favoriteIcon = document.createElement('span');
                 favoriteIcon.className = 'action-icon favorite-icon text-muted';
                 favoriteIcon.innerHTML = quiz.isFavorite ? '★' : '☆'; 
+                favoriteIcon.classList.toggle('active', quiz.isFavorite); // Ensure active class is set initially
                 favoriteIcon.style.cursor = 'pointer';
                 favoriteIcon.setAttribute('role', 'button');
                 favoriteIcon.setAttribute('aria-label', quiz.isFavorite ? '즐겨찾기 해제' : '즐겨찾기');
                 favoriteIcon.setAttribute('tabindex', '0');
                 favoriteIcon.addEventListener('click', (e) => {
-                    e.preventDefault(); e.stopPropagation(); // Stop propagation to prevent link navigation
-                    quiz.isFavorite = !quiz.isFavorite;
+                    e.preventDefault(); e.stopPropagation(); 
+                    quiz.isFavorite = !quiz.isFavorite; // Update the local quiz object state
                     favoriteIcon.innerHTML = quiz.isFavorite ? '★' : '☆';
                     favoriteIcon.classList.toggle('active', quiz.isFavorite);
                     favoriteIcon.setAttribute('aria-label', quiz.isFavorite ? '즐겨찾기 해제' : '즐겨찾기');
                 });
-                // ... (keydown listener)
+                favoriteIcon.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); favoriteIcon.click(); }});
                 actionsDiv.appendChild(favoriteIcon);
 
                 const commentsIcon = document.createElement('span');
@@ -153,26 +152,33 @@ document.addEventListener('DOMContentLoaded', async function() {
 
                 const likesIcon = document.createElement('span');
                 likesIcon.className = 'action-icon likes-icon text-muted';
+                likesIcon.classList.toggle('active', quiz.isLiked); // Ensure active class is set initially
                 const likesCountEl = document.createElement('span');
                 likesCountEl.className = 'count';
                 likesCountEl.textContent = quiz.likesCount;
                 likesIcon.innerHTML = quiz.isLiked ? '♥ ' : '♡ '; 
-                likesIcon.appendChild(likesCountEl);
+                likesIcon.appendChild(likesCountEl); // Append count span
                 likesIcon.style.cursor = 'pointer';
                 likesIcon.setAttribute('role', 'button');
-                // ... (aria-label and tabindex)
+                likesIcon.setAttribute('aria-label', quiz.isLiked ? `좋아요 취소 (${quiz.likesCount}개)` : `좋아요 (${quiz.likesCount}개)`);
+                likesIcon.setAttribute('tabindex', '0');
                 likesIcon.addEventListener('click', (e) => {
-                    e.preventDefault(); e.stopPropagation(); // Stop propagation
+                    e.preventDefault(); e.stopPropagation(); 
+                    // Update local quiz object state
+                    if (quiz.isLiked) {
+                        quiz.likesCount--;
+                    } else {
+                        quiz.likesCount++;
+                    }
                     quiz.isLiked = !quiz.isLiked;
-                    quiz.likesCount = quiz.isLiked ? quiz.likesCount + 1 : quiz.likesCount - 1;
-                    if (quiz.likesCount < 0) quiz.likesCount = 0;
-                    likesIcon.innerHTML = quiz.isLiked ? '♥ ' : '♡ ';
-                    likesCountEl.textContent = quiz.likesCount;
-                    likesIcon.appendChild(likesCountEl);
+                    
+                    likesIcon.innerHTML = quiz.isLiked ? '♥ ' : '♡ '; // Update icon
+                    likesCountEl.textContent = quiz.likesCount;      // Update count text
+                    likesIcon.appendChild(likesCountEl);              // Re-append count span
                     likesIcon.classList.toggle('active', quiz.isLiked);
-                    // ... (aria-label update)
+                    likesIcon.setAttribute('aria-label', quiz.isLiked ? `좋아요 취소 (${quiz.likesCount}개)` : `좋아요 (${quiz.likesCount}개)`);
                 });
-                // ... (keydown listener)
+                likesIcon.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); likesIcon.click(); }});
                 actionsDiv.appendChild(likesIcon);
                 
                 cardFooter.appendChild(actionsDiv);
@@ -191,13 +197,13 @@ document.addEventListener('DOMContentLoaded', async function() {
             quizCardContainerEl.innerHTML = '<div class="col-12"><p class="text-center">퀴즈 목록을 불러오는 중...</p></div>';
         }
         
-        allQuizzes = await loadQuizManifest();
-        renderQuizCards(allQuizzes);
+        masterQuizList = await loadQuizManifest(); // Store in master list
+        renderQuizCards(masterQuizList); // Initial render with all quizzes
 
         if (searchInputEl) {
             searchInputEl.addEventListener('input', function(e) {
                 const searchTerm = e.target.value.toLowerCase().trim();
-                const filteredQuizzes = allQuizzes.filter(quiz => 
+                const filteredQuizzes = masterQuizList.filter(quiz => // Filter from master list
                     quiz.title.toLowerCase().includes(searchTerm) ||
                     (quiz.description && quiz.description.toLowerCase().includes(searchTerm))
                 );
