@@ -191,8 +191,35 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             questionItem.innerHTML = questionHtml;
 
-            if (q.image) { /* ... image/video rendering ... */ }
-            if (q.video) { /* ... image/video rendering ... */ }
+            // Render image if present
+            if (q.image && typeof q.image === 'string' && q.image.trim() !== "") {
+                const siteBaseUrl = document.body.getAttribute('data-baseurl') || '';
+                const imgEl = document.createElement('img');
+                if (q.image.startsWith('http://') || q.image.startsWith('https://')) {
+                    imgEl.src = q.image;
+                } else {
+                    // Construct path relative to the specific quiz folder
+                    imgEl.src = `${siteBaseUrl}/quizzes/${quizId}/${q.image}`;
+                }
+                imgEl.alt = `Question ${index + 1} image`;
+                imgEl.style.maxWidth = '100%';
+                imgEl.style.height = 'auto';
+                imgEl.style.marginTop = '10px';
+                imgEl.style.display = 'block';
+                questionItem.appendChild(imgEl);
+            }
+
+            // Placeholder for video rendering if needed in the future
+            if (q.video) { 
+                // Similar logic for video if q.video contains a URL
+                // const videoEl = document.createElement('video');
+                // videoEl.src = q.video;
+                // videoEl.controls = true;
+                // videoEl.style.maxWidth = '100%';
+                // videoEl.style.marginTop = '10px';
+                // questionItem.appendChild(videoEl);
+                console.warn(`Video rendering for question ${q.id} not yet fully implemented.`);
+            }
 
             const optionsDiv = document.createElement('div');
             optionsDiv.classList.add('options');
