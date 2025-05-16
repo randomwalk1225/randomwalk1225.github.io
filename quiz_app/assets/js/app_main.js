@@ -70,8 +70,9 @@ document.addEventListener('DOMContentLoaded', async function() {
                 link.className = 'quiz-card-link';
                 link.setAttribute('aria-label', `${quiz.title} 퀴즈 풀기`);
 
+                // 1. Create image container and its content (image or placeholder)
                 const imageContainer = document.createElement('div');
-                imageContainer.className = 'quiz-card-image-container'; // For consistent height
+                imageContainer.className = 'quiz-card-image-container';
 
                 if (quiz.coverImageUrl) {
                     const image = document.createElement('img');
@@ -79,13 +80,11 @@ document.addEventListener('DOMContentLoaded', async function() {
                     image.alt = `${quiz.title} 커버 이미지`;
                     image.className = 'quiz-card-image';
                     image.onerror = function() {
-                        // Replace img with gradient placeholder on error
-                        if (image.parentNode === imageContainer) { // Ensure image is still a child before removing
+                        if (image.parentNode === imageContainer) {
                             imageContainer.removeChild(image);
                         }
                         const placeholder = document.createElement('div');
                         placeholder.className = `quiz-card-image-placeholder gradient-theme-${(index % numberOfGradientThemes) + 1}`;
-                        // Ensure imageContainer is empty before appending placeholder, just in case
                         while (imageContainer.firstChild) {
                             imageContainer.removeChild(imageContainer.firstChild);
                         }
@@ -97,8 +96,10 @@ document.addEventListener('DOMContentLoaded', async function() {
                     placeholder.className = `quiz-card-image-placeholder gradient-theme-${(index % numberOfGradientThemes) + 1}`;
                     imageContainer.appendChild(placeholder);
                 }
+                // Append image container to link
                 link.appendChild(imageContainer);
 
+                // 2. Create content div and its children
                 const contentDiv = document.createElement('div');
                 contentDiv.className = 'quiz-card-content';
 
@@ -119,15 +120,16 @@ document.addEventListener('DOMContentLoaded', async function() {
                 date.className = 'quiz-card-date';
                 date.textContent = `생성일: ${quiz.creationDate}`;
                 contentDiv.appendChild(date);
+                // Append content div to link
                 link.appendChild(contentDiv);
 
+                // 3. Create actions div and its children
                 const actionsDiv = document.createElement('div');
                 actionsDiv.className = 'quiz-card-actions';
 
-                // Favorite Icon (Star)
                 const favoriteIcon = document.createElement('span');
                 favoriteIcon.className = 'action-icon favorite-icon';
-                favoriteIcon.innerHTML = quiz.isFavorite ? '★' : '☆'; // Filled/Empty Star
+                favoriteIcon.innerHTML = quiz.isFavorite ? '★' : '☆';
                 favoriteIcon.setAttribute('role', 'button');
                 favoriteIcon.setAttribute('aria-label', quiz.isFavorite ? '즐겨찾기 해제' : '즐겨찾기');
                 favoriteIcon.setAttribute('tabindex', '0');
@@ -136,25 +138,22 @@ document.addEventListener('DOMContentLoaded', async function() {
                     quiz.isFavorite = !quiz.isFavorite;
                     favoriteIcon.innerHTML = quiz.isFavorite ? '★' : '☆';
                     favoriteIcon.setAttribute('aria-label', quiz.isFavorite ? '즐겨찾기 해제' : '즐겨찾기');
-                    // console.log(`Quiz ${quiz.id} favorite: ${quiz.isFavorite}`);
                 });
                 favoriteIcon.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); favoriteIcon.click(); }});
                 actionsDiv.appendChild(favoriteIcon);
 
-                // Comments Icon
                 const commentsIcon = document.createElement('span');
                 commentsIcon.className = 'action-icon comments-icon';
                 commentsIcon.innerHTML = `💬 <span class="count">${quiz.commentsCount}</span>`;
                 commentsIcon.setAttribute('aria-label', `댓글 ${quiz.commentsCount}개`);
                 actionsDiv.appendChild(commentsIcon);
 
-                // Likes Icon (Heart)
                 const likesIcon = document.createElement('span');
                 likesIcon.className = 'action-icon likes-icon';
                 const likesCountEl = document.createElement('span');
                 likesCountEl.className = 'count';
                 likesCountEl.textContent = quiz.likesCount;
-                likesIcon.innerHTML = quiz.isLiked ? '♥ ' : '♡ '; // Filled/Empty Heart
+                likesIcon.innerHTML = quiz.isLiked ? '♥ ' : '♡ ';
                 likesIcon.appendChild(likesCountEl);
                 likesIcon.setAttribute('role', 'button');
                 likesIcon.setAttribute('aria-label', quiz.isLiked ? `좋아요 취소 (${quiz.likesCount}개)` : `좋아요 (${quiz.likesCount}개)`);
@@ -163,18 +162,22 @@ document.addEventListener('DOMContentLoaded', async function() {
                     e.preventDefault(); e.stopPropagation();
                     quiz.isLiked = !quiz.isLiked;
                     quiz.likesCount = quiz.isLiked ? quiz.likesCount + 1 : quiz.likesCount - 1;
-                    if (quiz.likesCount < 0) quiz.likesCount = 0; // Prevent negative likes
+                    if (quiz.likesCount < 0) quiz.likesCount = 0;
                     likesIcon.innerHTML = quiz.isLiked ? '♥ ' : '♡ ';
                     likesCountEl.textContent = quiz.likesCount;
                     likesIcon.appendChild(likesCountEl);
                     likesIcon.setAttribute('aria-label', quiz.isLiked ? `좋아요 취소 (${quiz.likesCount}개)` : `좋아요 (${quiz.likesCount}개)`);
-                    // console.log(`Quiz ${quiz.id} liked: ${quiz.isLiked}, count: ${quiz.likesCount}`);
                 });
                 likesIcon.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); likesIcon.click(); }});
                 actionsDiv.appendChild(likesIcon);
                 
+                // Append actions div to link
                 link.appendChild(actionsDiv);
+
+                // 4. Append the fully constructed link to the card
                 card.appendChild(link);
+                
+                // 5. Append the card to the main container
                 quizCardContainerEl.appendChild(card);
             });
         } else {
