@@ -763,293 +763,63 @@ math-field {
     font-size: 1rem;
 }
 
-/* Quiz Card Layout */
-.quiz-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive grid */
-    gap: 20px;
-    padding: 10px; /* Remove default ul padding if any was inherited */
-    background-color: lightcoral; /* Temporary background for debugging container */
-}
+/* Quiz List Search Input - Bootstrap will style .form-control */
+/* #quiz-search-input is already styled by Bootstrap via .form-control */
 
-.quiz-card {
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-    overflow: hidden; /* Ensures image corners are rounded if image is direct child */
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    display: flex; /* Use flex to make the link fill the card */
-    flex-direction: column;
-}
+/* Quiz Card Layout - Bootstrap's grid and card classes will handle most of this. */
+/* We remove our custom .quiz-cards and .quiz-card definitions */
+/* We keep specific styles for elements within Bootstrap cards if needed, and gradient placeholders */
 
-.quiz-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-}
+/* Gradient Placeholder Themes for card-img-top */
+.quiz-card-image-placeholder.gradient-theme-1 { background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+.quiz-card-image-placeholder.gradient-theme-2 { background-image: linear-gradient(135deg, #f7971e 0%, #ffd200 100%); }
+.quiz-card-image-placeholder.gradient-theme-3 { background-image: linear-gradient(135deg, #2af598 0%, #009efd 100%); }
+.quiz-card-image-placeholder.gradient-theme-4 { background-image: linear-gradient(135deg, #ff0844 0%, #ffb199 100%); }
+.quiz-card-image-placeholder.gradient-theme-5 { background-image: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
 
-.quiz-card-link {
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    height: 100%; /* Make link fill the card */
-}
-
-.quiz-card-image {
+/* Ensure placeholder div has a minimum height if it's used as card-img-top */
+.quiz-card-image-placeholder {
     width: 100%;
-    height: 180px; /* Fixed height for images */
-    object-fit: cover; /* Cover ensures image fills space, might crop */
-    border-bottom: 1px solid #eee;
-}
-
-.quiz-card-title {
-    font-size: 1.25em;
-    color: #337ab7;
-    margin: 15px 15px 10px 15px;
-    font-weight: bold;
-}
-
-.quiz-card-date {
-    font-size: 0.85em;
-    color: #777;
-    margin: 0 15px 15px 15px;
-}
-
-.quiz-card-footer {
+    height: 180px; /* Match JS style.height */
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px 15px;
-    border-top: 1px solid #f0f0f0;
-    margin-top: auto; /* Pushes footer to the bottom of the card */
+    justify-content: center;
+    color: white; 
+    font-size: 1.2em;
 }
-
-.quiz-card-icon {
-    font-size: 1.1em;
+/* Custom styles for action icons if Bootstrap icons are not used or need tweaking */
+.action-icon {
+    font-size: 1.2em; 
+    color: #777; /* Default color for icons */
     cursor: pointer;
-    color: #555;
     display: inline-flex;
     align-items: center;
+    transition: color 0.2s ease;
 }
-
-.quiz-card-icon:hover {
-    color: #007bff;
+.action-icon:hover,
+.action-icon:focus {
+    color: #0d6efd; /* Bootstrap primary blue for hover/focus */
 }
-
-.favorite-icon.favorited { /* Example if we add a class for favorited items */
-    color: #e91e63; /* Pinkish red for favorited */
+.action-icon .count {
+    font-size: 0.8em;
+    margin-left: 4px;
+    color: #555;
 }
-.favorite-icon:focus {
-    outline: 2px solid #007bff;
-    outline-offset: 2px;
-    border-radius: 3px;
+.favorite-icon.active { 
+    color: #ffc107; /* Bootstrap warning yellow for favorited star */
 }
-
-
-.comments-icon {
-    /* Specific styles for comments icon if needed */
+.likes-icon.active { 
+    color: #dc3545; /* Bootstrap danger red for liked heart */
 }
 
 /* Loading and Error Messages for Quiz List */
-.loading-message, .error-message {
+.loading-message, .error-message { /* These can remain if styled generally */
     text-align: center;
     font-size: 1.1em;
     color: #555;
     padding: 20px;
 }
 .error-message {
-    color: #d9534f; /* Red for errors */
-}
-
-/* Adjustments for smaller screens for cards */
-@media (max-width: 600px) {
-    .quiz-cards {
-        grid-template-columns: 1fr; /* Single column on very small screens */
-    }
-    .quiz-card-image {
-        height: 160px;
-    }
-    .quiz-card-title {
-        font-size: 1.1em;
-    }
-}
-
-/* === New Card Styles (Redesign) === */
-
-/* Overriding previous .quiz-card styles if any were too specific */
-.quiz-card {
-    background-color: #fff;
-    border: 1px solid #e0e0e0; /* Softer border */
-    border-radius: 12px; /* More rounded corners */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Softer, more diffused shadow */
-    overflow: hidden;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    display: flex;
-    flex-direction: column;
-}
-
-.quiz-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-}
-
-.quiz-card-link {
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    height: 100%; 
-}
-
-.quiz-card-image-container {
-    width: 100%;
-    height: 180px; /* Standard height for image or placeholder */
-    background-color: #cccccc; /* Changed to a more visible fallback for debugging */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border: 1px dashed red; /* Added for debugging visibility */
-}
-
-.quiz-card-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures image covers the area, might crop */
-}
-
-.quiz-card-image-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white; /* For any text inside placeholder, if needed */
-    font-size: 1.2em;
-    border: 1px solid blue; /* Added for debugging visibility */
-    /* Gradient themes will be applied here */
-}
-
-/* Gradient Placeholder Themes */
-.gradient-theme-1 { background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-.gradient-theme-2 { background-image: linear-gradient(135deg, #f7971e 0%, #ffd200 100%); }
-.gradient-theme-3 { background-image: linear-gradient(135deg, #2af598 0%, #009efd 100%); }
-.gradient-theme-4 { background-image: linear-gradient(135deg, #ff0844 0%, #ffb199 100%); }
-.gradient-theme-5 { background-image: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
-
-
-.quiz-card-content {
-    padding: 15px;
-    flex-grow: 1; /* Allows content to take available space */
-    display: flex;
-    flex-direction: column;
-}
-
-.quiz-card-title {
-    font-size: 1.3em; /* Slightly larger title */
-    font-weight: 600; /* Bolder title */
-    color: #2c3e50; /* Darker, more professional title color */
-    margin: 0 0 8px 0; /* Adjusted margin */
-    line-height: 1.3;
-}
-
-.quiz-card-description {
-    font-size: 0.9em;
-    color: #555;
-    margin: 0 0 10px 0;
-    line-height: 1.5;
-    flex-grow: 1; /* Allow description to push date and actions down */
-    /* For multi-line truncation:
-    display: -webkit-box;
-    -webkit-line-clamp: 2; 
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    */
-}
-
-.quiz-card-date {
-    font-size: 0.8em;
-    color: #777;
-    margin: auto 0 0 0; /* Pushes to bottom if description is short */
-    padding-top: 10px; /* Space above date if description is short */
-}
-
-.quiz-card-actions {
-    display: flex;
-    align-items: center;
-    padding: 12px 15px;
-    border-top: 1px solid #f0f0f0;
-    gap: 15px; /* Space between icons */
-}
-
-.action-icon {
-    font-size: 1.2em; /* Slightly larger icons */
-    color: #777;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    transition: color 0.2s ease;
-}
-
-.action-icon:hover,
-.action-icon:focus {
-    color: #337ab7; /* Consistent hover color */
-}
-.action-icon:focus {
-    outline: 1px dotted #337ab7;
-    outline-offset: 2px;
-}
-
-
-.action-icon .count {
-    font-size: 0.8em;
-    margin-left: 4px;
-    color: #555;
-}
-
-.favorite-icon.active { /* For filled star/heart */
-    color: #ffc107; /* Gold for favorited star */
-}
-.likes-icon.active { /* For filled heart */
-    color: #e91e63; /* Pink/Red for liked heart */
-}
-
-/* Ensure search input styling is consistent or improved */
-#quiz-search-input {
-    width: 100%;
-    padding: 12px 15px;
-    margin-bottom: 25px;
-    border: 1px solid #d0d0d0; /* Slightly softer border */
-    border-radius: 8px; /* More rounded */
-    box-sizing: border-box;
-    font-size: 1rem;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
-}
-#quiz-search-input:focus {
-    border-color: #337ab7;
-    box-shadow: 0 0 0 2px rgba(51, 122, 183, 0.2);
-    outline: none;
-}
-
-/* Responsive adjustments for new card styles */
-@media (max-width: 600px) {
-    .quiz-cards {
-        grid-template-columns: 1fr; /* Single column */
-    }
-    .quiz-card-image-container {
-        height: 160px; /* Adjust height for smaller screens */
-    }
-    .quiz-card-title {
-        font-size: 1.15em;
-    }
-    .quiz-card-description {
-        font-size: 0.85em;
-        /* -webkit-line-clamp: 2; */ /* Adjust truncation if needed */
-    }
-    .action-icon {
-        font-size: 1.1em;
-    }
+    color: #d9534f; 
 }
 }
