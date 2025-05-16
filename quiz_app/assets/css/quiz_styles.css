@@ -771,30 +771,86 @@ math-field {
 /* We keep specific styles for elements within Bootstrap cards if needed, and gradient placeholders */
 
 /* Gradient Placeholder Themes for card-img-top */
-.quiz-card-image-placeholder.gradient-theme-1 { background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-.quiz-card-image-placeholder.gradient-theme-2 { background-image: linear-gradient(135deg, #f7971e 0%, #ffd200 100%); }
-.quiz-card-image-placeholder.gradient-theme-3 { background-image: linear-gradient(135deg, #2af598 0%, #009efd 100%); }
-.quiz-card-image-placeholder.gradient-theme-4 { background-image: linear-gradient(135deg, #ff0844 0%, #ffb199 100%); }
-.quiz-card-image-placeholder.gradient-theme-5 { background-image: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+.quiz-card-image-placeholder.gradient-theme-1 { background-image: linear-gradient(135deg, #007bff 0%, #0056b3 100%); } /* 파랑 */
+.quiz-card-image-placeholder.gradient-theme-2 { background-image: linear-gradient(135deg, #dc3545 0%, #a71d2a 100%); } /* 빨강 */
+.quiz-card-image-placeholder.gradient-theme-3 { background-image: linear-gradient(135deg, #198754 0%, #0f5132 100%); } /* 녹색 */
+.quiz-card-image-placeholder.gradient-theme-4 { background-image: linear-gradient(135deg, #0dcaf0 0%, #087990 100%); } /* 하늘색 */
+.quiz-card-image-placeholder.gradient-theme-5 { background-image: linear-gradient(135deg, #6f42c1 0%, #492081 100%); } /* 보라 */
 
-/* Ensure placeholder div has a minimum height if it's used as card-img-top */
+/* Ensure placeholder div has a height, card image height is set in JS */
 .quiz-card-image-placeholder {
     width: 100%;
-    height: 180px; /* Match JS style.height */
+    /* height: 180px; */ /* Height will be set by JS or .card-img-top if that class is also on placeholder */
     display: flex;
     align-items: center;
     justify-content: center;
     color: white; 
-    font-size: 1.2em;
+    font-size: 1rem; /* Reduced font size for placeholder text if any */
 }
-/* Custom styles for action icons if Bootstrap icons are not used or need tweaking */
+
+/* Adjusting card elements for a target height around 100px */
+.card.h-100 { /* Overriding h-100 if we want a fixed smaller height */
+    /* min-height: 100px; */ /* Let content dictate height, but try to keep it small */
+    /* max-height: 120px; */ /* Example max height, adjust as needed */
+}
+
+.card-img-top, .quiz-card-image-placeholder {
+    height: 40px !important; /* Significantly reduced height for image/placeholder */
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 0.5rem; /* Reduced padding */
+    flex-grow: 1;
+    display: flex !important; /* Ensure flex properties apply */
+    flex-direction: column !important;
+}
+
+.card-title {
+    font-size: 0.9rem; /* Reduced font size */
+    margin-bottom: 0.25rem !important; /* Reduced margin */
+}
+
+.card-text.small { /* For description */
+    font-size: 0.75rem; /* Reduced font size */
+    line-height: 1.2;
+    margin-bottom: 0.25rem !important; /* Reduced margin */
+    /* For multi-line truncation: */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Show 1 or 2 lines */
+    -webkit-box-orient: vertical;
+}
+
+.card-text.mt-auto { /* For date */
+    font-size: 0.7rem; /* Reduced font size */
+    padding-top: 0.25rem !important; /* Reduced padding */
+    margin-top: auto !important;
+}
+
+.card-footer {
+    padding: 0.25rem 0.5rem !important; /* Reduced padding */
+    background-color: #fff !important; /* Ensure it's white like card body if bg-transparent was an issue */
+    border-top: none !important; /* Remove top border if not desired for compact look */
+}
+
 .action-icon {
-    font-size: 1.2em; 
-    color: #777; /* Default color for icons */
+    font-size: 1rem; /* Reduced icon size */
+    color: #6c757d; /* Bootstrap secondary color */
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     transition: color 0.2s ease;
+}
+.action-icon:hover,
+.action-icon:focus {
+    color: #0d6efd; 
+}
+.action-icon .count {
+    font-size: 0.7rem; /* Reduced count font size */
+    margin-left: 3px;
+    color: #6c757d;
 }
 .action-icon:hover,
 .action-icon:focus {
