@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     const quizCardContainerEl = document.getElementById('quiz-card-container');
     const searchInputEl = document.getElementById('quiz-search-input');
     const siteBaseUrl = document.body.getAttribute('data-baseurl') || '';
-    let masterQuizList = []; // Store the initially fetched and sorted list
+    let masterQuizList = []; 
     const numberOfGradientThemes = 5; 
 
     async function loadQuizManifest() {
@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                     likesCount: quiz.likesCount !== undefined ? Number(quiz.likesCount) : 0,
                     isLiked: quiz.isLiked !== undefined ? quiz.isLiked : false
                 }));
+                // Initial sort by title
                 quizzes.sort((a, b) => a.title.localeCompare(b.title));
             }
             return quizzes;
@@ -49,9 +50,23 @@ document.addEventListener('DOMContentLoaded', async function() {
             return [];
         }
     }
+    
+    function sortAndRenderQuizzes() {
+        // Sort by favorite, then by liked, then by title
+        masterQuizList.sort((a, b) => {
+            if (a.isFavorite !== b.isFavorite) {
+                return a.isFavorite ? -1 : 1;
+            }
+            if (a.isLiked !== b.isLiked) {
+                return a.isLiked ? -1 : 1;
+            }
+            return a.title.localeCompare(b.title);
+        });
+        renderQuizCards(masterQuizList);
+    }
 
     function renderQuizCards(quizzesToDisplay) {
-        console.log("renderQuizCards called with (Bootstrap V4 - Final JS Fixes):", quizzesToDisplay); 
+        console.log("renderQuizCards called with (Bootstrap V5 - Interaction Fixes):", quizzesToDisplay); 
         if (!quizCardContainerEl) {
             console.error("ID가 'quiz-card-container'인 요소를 찾을 수 없습니다.");
             return;
@@ -64,28 +79,24 @@ document.addEventListener('DOMContentLoaded', async function() {
                 colDiv.className = 'col'; 
 
                 const card = document.createElement('div');
-                card.className = 'card shadow-sm'; // Removed h-100
+                card.className = 'card shadow-sm';
                 card.setAttribute('role', 'article');
                 
                 if (quiz.coverImageUrl) {
                     const image = document.createElement('img');
                     image.src = quiz.coverImageUrl.startsWith('http') ? quiz.coverImageUrl : `${siteBaseUrl}${quiz.coverImageUrl}`;
                     image.alt = `${quiz.title} 커버 이미지`;
-                    image.className = 'card-img-top'; // CSS will control height
-                    // image.style.height = '40px'; // Controlled by CSS now
-                    // image.style.objectFit = 'cover'; // Controlled by CSS now
+                    image.className = 'card-img-top';
                     image.onerror = function() {
                         image.remove();
                         const placeholder = document.createElement('div');
                         placeholder.className = `card-img-top quiz-card-image-placeholder gradient-theme-${(index % numberOfGradientThemes) + 1}`;
-                        // placeholder.style.height = '40px'; // Controlled by CSS now
                         card.insertBefore(placeholder, card.firstChild); 
                     };
                     card.appendChild(image);
                 } else {
                     const placeholder = document.createElement('div');
                     placeholder.className = `card-img-top quiz-card-image-placeholder gradient-theme-${(index % numberOfGradientThemes) + 1}`;
-                    // placeholder.style.height = '40px'; // Controlled by CSS now
                     card.appendChild(placeholder);
                 }
 
@@ -96,34 +107,34 @@ document.addEventListener('DOMContentLoaded', async function() {
                 titleLink.href = `${siteBaseUrl}/quiz_app/take.html?quiz=${quiz.id}`;
                 titleLink.className = 'text-decoration-none stretched-link'; 
                 
-                const title = document.createElement('h6'); // Using h6 for smaller title
+                const title = document.createElement('h6'); 
                 title.id = `quiz-title-${quiz.id}`;
                 card.setAttribute('aria-labelledby', title.id);
-                title.className = 'card-title text-dark mb-1'; // Bootstrap fs-6 can be added in CSS if needed
+                title.className = 'card-title text-dark mb-1'; 
                 title.textContent = quiz.title;
                 titleLink.appendChild(title);
                 cardBody.appendChild(titleLink);
 
                 if (quiz.description) {
                     const descriptionEl = document.createElement('p');
-                    descriptionEl.className = 'card-text small text-muted mb-1'; // Reduced margin
+                    descriptionEl.className = 'card-text small text-muted mb-1'; 
                     descriptionEl.textContent = quiz.description;
                     cardBody.appendChild(descriptionEl);
                 }
 
                 const date = document.createElement('p');
-                date.className = 'card-text mt-auto pt-1'; // Reduced padding
+                date.className = 'card-text mt-auto pt-1'; 
                 date.innerHTML = `<small class="text-muted">생성일: ${quiz.creationDate}</small>`;
                 cardBody.appendChild(date);
                 
                 card.appendChild(cardBody);
 
                 const cardFooter = document.createElement('div');
-                cardFooter.className = 'card-footer bg-white border-top-0 pt-1 pb-2 px-2'; // Adjusted padding
+                cardFooter.className = 'card-footer bg-white border-top-0 pt-1 pb-2 px-2'; 
 
                 const actionsDiv = document.createElement('div');
                 actionsDiv.className = 'd-flex justify-content-start align-items-center';
-                actionsDiv.style.gap = '0.5rem'; // Reduced gap
+                actionsDiv.style.gap = '0.5rem'; 
 
                 const favoriteIcon = document.createElement('span');
                 favoriteIcon.className = 'action-icon favorite-icon text-muted';
@@ -139,6 +150,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                     favoriteIcon.innerHTML = quiz.isFavorite ? '★' : '☆';
                     favoriteIcon.classList.toggle('active', quiz.isFavorite);
                     favoriteIcon.setAttribute('aria-label', quiz.isFavorite ? '즐겨찾기 해제' : '즐겨찾기');
+                    sortAndRenderQuizzes(); // Re-sort and re-render
                 });
                 favoriteIcon.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); favoriteIcon.click(); }});
                 actionsDiv.appendChild(favoriteIcon);
@@ -162,44 +174,20 @@ document.addEventListener('DOMContentLoaded', async function() {
                 likesIcon.setAttribute('tabindex', '0');
                 likesIcon.addEventListener('click', (e) => {
                     e.preventDefault(); e.stopPropagation(); 
-                    if (quiz.isLiked) {
+                    
+                    if (quiz.isLiked) { // If it was liked, now it's unliked
                         quiz.likesCount--;
-                    } else {
+                    } else { // If it was unliked, now it's liked
                         quiz.likesCount++;
                     }
-                    quiz.isLiked = !quiz.isLiked; // This should be after count adjustment
-                    
-                    // Adjust count first based on the NEW state
-                    if (quiz.isLiked) { // If it's now liked
-                        // quiz.likesCount was already incremented before this click if it was previously unliked
-                        // No, this is wrong. The quiz.likesCount should be updated based on the new quiz.isLiked state
-                    } else { // If it's now unliked
-                        // quiz.likesCount was already decremented
-                    }
-                    // The previous logic was correct:
-                    // if (quiz.isLiked) { // This is the OLD state before toggle
-                    //    quiz.likesCount--; 
-                    // } else {
-                    //    quiz.likesCount++;
-                    // }
-                    // quiz.isLiked = !quiz.isLiked; // THEN toggle
-
-                    // Let's revert to a clearer state update order
-                    // 1. Determine the new state
-                    const newLikedState = !quiz.isLiked;
-                    if (newLikedState) {
-                        quiz.likesCount++;
-                    } else {
-                        quiz.likesCount--;
-                    }
-                    quiz.isLiked = newLikedState;
-                    
-                    // 2. Update DOM
+                    quiz.isLiked = !quiz.isLiked; // Toggle the state
+                                        
                     likesIcon.innerHTML = quiz.isLiked ? '♥ ' : '♡ '; 
                     likesCountEl.textContent = quiz.likesCount;      
-                    likesIcon.appendChild(likesCountEl); // Re-append count span
+                    likesIcon.appendChild(likesCountEl);              
                     likesIcon.classList.toggle('active', quiz.isLiked);
                     likesIcon.setAttribute('aria-label', quiz.isLiked ? `좋아요 취소 (${quiz.likesCount}개)` : `좋아요 (${quiz.likesCount}개)`);
+                    sortAndRenderQuizzes(); // Re-sort and re-render
                 });
                 likesIcon.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); likesIcon.click(); }});
                 actionsDiv.appendChild(likesIcon);
@@ -221,16 +209,19 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
         
         masterQuizList = await loadQuizManifest(); 
-        renderQuizCards(masterQuizList); 
+        renderQuizCards(masterQuizList); // Initial render uses the default sort (by title)
 
         if (searchInputEl) {
             searchInputEl.addEventListener('input', function(e) {
                 const searchTerm = e.target.value.toLowerCase().trim();
+                // When searching, filter from the master list which is already sorted by title
+                // If we want search results to also respect favorite/like, we'd need to re-sort the filtered list.
+                // For now, search overrides the favorite/like sort for simplicity of search results.
                 const filteredQuizzes = masterQuizList.filter(quiz => 
                     quiz.title.toLowerCase().includes(searchTerm) ||
                     (quiz.description && quiz.description.toLowerCase().includes(searchTerm))
                 );
-                renderQuizCards(filteredQuizzes);
+                renderQuizCards(filteredQuizzes); // Render filtered list (does not re-sort by fav/like)
             });
         } else {
             console.error("ID가 'quiz-search-input'인 요소를 찾을 수 없습니다.");
