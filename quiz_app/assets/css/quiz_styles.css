@@ -807,9 +807,13 @@ math-field {
 }
 
 /* Card height adjustments */
-.card { /* Applied to .card.shadow-sm by JS */
-    /* We aim for a visual height around 2/3 of previous, so content dictates height now */
-    /* No fixed height on .card itself to allow content to flow, but internal elements are shrunk */
+.card.shadow-sm { /* Targeting the cards used in the quiz list */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card.shadow-sm:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important; /* Ensure this overrides Bootstrap's .shadow-sm if needed */
 }
 
 .card-img-top { /* Applies to both actual img and placeholder div */

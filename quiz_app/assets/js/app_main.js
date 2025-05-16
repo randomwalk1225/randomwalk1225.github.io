@@ -119,12 +119,21 @@ document.addEventListener('DOMContentLoaded', async function() {
                 // Make the card itself clickable, except for action icons
                 card.style.cursor = 'pointer';
                 card.addEventListener('click', function(event) {
-                    if (event.target.closest('.action-icon')) {
-                        console.log('Card click detected, but target is an action icon. No navigation.');
-                        // The action icon's own click handler will manage its behavior (preventDefault, stopPropagation)
+                    const closestActionIcon = event.target.closest('.action-icon');
+                    if (closestActionIcon) {
+                        console.log('Card click detected, target is an action icon or its child. Stopping all actions here.');
+                        event.preventDefault(); // Prevent default action of any parent links
+                        event.stopPropagation(); // Stop event from bubbling further
+                        
+                        // Manually dispatch the click to the icon itself if it wasn't the direct target
+                        // This is an attempt to ensure the icon's own handler fires.
+                        if (event.target !== closestActionIcon) {
+                            console.log('Dispatching click to the action icon itself.');
+                            closestActionIcon.click(); 
+                        }
                         return; 
                     }
-                    console.log('Card area clicked, navigating to:', titleLink.href);
+                    console.log('Card area clicked (not on an action icon), navigating to:', titleLink.href);
                     window.location.href = titleLink.href;
                 });
 
