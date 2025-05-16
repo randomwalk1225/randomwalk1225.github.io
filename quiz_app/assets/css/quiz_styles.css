@@ -871,7 +871,7 @@ math-field {
     align-items: center;
     transition: color 0.2s ease;
     position: relative; /* Added for z-index context */
-    z-index: 2; /* Added to ensure it's above stretched-link pseudo-elements */
+    z-index: 2; /* Ensures it's above pseudo-elements */
 }
 .action-icon:hover,
 .action-icon:focus {
@@ -879,31 +879,24 @@ math-field {
 }
 .action-icon .count {
     font-size: 0.7rem !important; /* Reduced count font size */
-    margin-left: 2px; /* Reduced margin */
+    margin-left: 2px;
     color: #6c757d;
 }
-.action-icon.favorite-icon.active { /* Increased specificity */
-    color: #ffc107 !important; /* Bootstrap warning yellow for favorited star */
+
+/* Favorited Star Icon Colors */
+.action-icon.favorite-icon.active { 
+    color: #ffc107 !important; /* Intended yellow color for favorited star */
 }
-.action-icon.likes-icon.active { /* Increased specificity */
-    color: #dc3545 !important; /* Bootstrap danger red for liked heart */
+/* 오버라이드: 만약 요소에 .text-dark 클래스가 함께 있다면 */
+.action-icon.favorite-icon.active.text-dark {  
+    color: #ffc107 !important;
 }
 
-.quiz-card-creation-date em.text-muted { /* Targeting the em tag inside */
-    font-family: "Consolas", "Menlo", "Courier New", monospace !important;
-    font-size: 0.4em !important; /* Changed from 0.85em to 0.4em */
-    font-style: normal !important; /* Override em's italic if not desired, or keep italic */
-    /* text-align: right; is handled by text-end on the parent p tag */
+/* Liked Heart Icon Colors */
+.action-icon.likes-icon.active { 
+    color: #dc3545 !important; /* Intended red color for liked heart */
 }
-
-/* Loading and Error Messages for Quiz List */
-.loading-message, .error-message { /* These can remain if styled generally */
-    text-align: center;
-    font-size: 1.1em;
-    color: #555;
-    padding: 20px;
-}
-.error-message {
-    color: #d9534f; 
-}
+/* 오버라이드: 만약 요소에 .text-dark 클래스가 함께 있다면 */
+.action-icon.likes-icon.active.text-dark {  
+    color: #dc3545 !important;
 }
