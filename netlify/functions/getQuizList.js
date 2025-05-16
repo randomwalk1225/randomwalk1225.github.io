@@ -39,12 +39,12 @@ exports.handler = async (event, context) => {
 
   try {
     const quizzesDirPath = path.resolve(__dirname, '../../quizzes');
-    console.log('[getQuizList] Resolved quizzesDirPath:', quizzesDirPath);
+    // console.log('[getQuizList] Resolved quizzesDirPath:', quizzesDirPath);
 
     let entries = [];
     try {
       entries = fs.readdirSync(quizzesDirPath, { withFileTypes: true });
-      console.log('[getQuizList] Entries in quizzesDirPath:', entries.map(e => e.name));
+      // console.log('[getQuizList] Entries in quizzesDirPath:', entries.map(e => e.name));
     } catch (readDirError) {
       console.error('[getQuizList] Error reading quizzesDirPath:', quizzesDirPath, readDirError);
       throw readDirError;
@@ -55,11 +55,16 @@ exports.handler = async (event, context) => {
       .map(dirent => {
         const quizId = dirent.name;
         const quizJsonPath = path.join(quizzesDirPath, quizId, 'quiz.json');
-        let quizTitle = quizId; // Default title to ID
-        let imageUrl = '/quiz_app/assets/images/default_quiz_thumbnail.png'; // Default image
+        
+        // Defaults
+        let quizTitle = quizId;
+        let coverImageUrl = null; // Default to null, frontend will handle placeholder
+        let description = null;   // Default to null, frontend will not display if null
         let creationDate = null;
-        const commentsCount = 0; // Placeholder
-        const isFavorite = false; // Placeholder
+        let isFavorite = false;
+        let commentsCount = 0;
+        let likesCount = 0;
+        let isLiked = false;
 
         // Attempt to parse date from quizId (e.g., quizName-YYYYMMDD or YYYYMMDD)
         const dateMatch = quizId.match(/(\d{4})(\d{2})(\d{2})$/);
@@ -75,38 +80,31 @@ exports.handler = async (event, context) => {
             const quizData = JSON.parse(cleanedJsonContent);
 
             // Extract Title
-            let extractedTitle = null;
             if (quizData && typeof quizData.title === 'string' && quizData.title.trim() !== '') {
-              extractedTitle = quizData.title.trim();
+              quizTitle = quizData.title.trim();
             } else if (Array.isArray(quizData) && quizData.length > 0 && quizData[0] && typeof quizData[0].title === 'string' && quizData[0].title.trim() !== '') {
-              extractedTitle = quizData[0].title.trim(); // Fallback for old format
-            }
-            if (extractedTitle) {
-              quizTitle = extractedTitle;
+              quizTitle = quizData[0].title.trim(); // Fallback for old format
             }
 
-            // Extract Image URL
-            if (quizData && Array.isArray(quizData.quizzes)) {
-              for (const q of quizData.quizzes) {
-                if (q.image && typeof q.image === 'string') {
-                  const imagePathMatch = q.image.match(/{{\s*'(.*?)'\s*\|\s*relative_url\s*}}/);
-                  if (imagePathMatch && imagePathMatch[1]) {
-                    imageUrl = imagePathMatch[1]; // Use the extracted path directly
-                    // Ensure it starts with a slash if it's meant to be from root
-                    if (!imageUrl.startsWith('/')) {
-                        imageUrl = '/' + imageUrl;
-                    }
-                    break; 
-                  } else if (!q.image.includes('{{')) { // If it's a direct path already
-                    imageUrl = q.image;
-                     if (!imageUrl.startsWith('/')) {
-                        imageUrl = '/' + imageUrl;
-                    }
-                    break;
-                  }
-                }
+            // Extract Cover Image URL
+            if (quizData && typeof quizData.coverImageUrl === 'string' && quizData.coverImageUrl.trim() !== '') {
+              coverImageUrl = quizData.coverImageUrl.trim();
+              // Ensure it starts with a slash if it's meant to be from root and not an absolute URL
+              if (!coverImageUrl.startsWith('/') && !coverImageUrl.startsWith('http')) {
+                  coverImageUrl = '/' + coverImageUrl;
               }
             }
+            
+            // Extract Description
+            if (quizData && typeof quizData.description === 'string' && quizData.description.trim() !== '') {
+              description = quizData.description.trim();
+            }
+
+            // Extract Interaction Fields
+            if (quizData && quizData.isFavorite !== undefined) isFavorite = quizData.isFavorite;
+            if (quizData && quizData.commentsCount !== undefined) commentsCount = Number(quizData.commentsCount);
+            if (quizData && quizData.likesCount !== undefined) likesCount = Number(quizData.likesCount);
+            if (quizData && quizData.isLiked !== undefined) isLiked = quizData.isLiked;
             
             // Fallback for creationDate if not parsed from quizId
             if (!creationDate) {
@@ -114,28 +112,30 @@ exports.handler = async (event, context) => {
                 const stats = fs.statSync(quizJsonPath);
                 creationDate = formatDate(stats.mtime); // Use last modified time
               } catch (statError) {
-                console.error(`[getQuizList] Error getting file stats for ${quizJsonPath}:`, statError);
+                // console.error(`[getQuizList] Error getting file stats for ${quizJsonPath}:`, statError);
                 creationDate = 'N/A'; // Fallback if stat fails
               }
             }
 
           } catch (parseError) {
             console.error(`[getQuizList] Error parsing quiz.json for ${quizId}:`, parseError);
-            // Use defaults if parsing fails
-            if (!creationDate) creationDate = 'N/A';
+            if (!creationDate) creationDate = 'N/A'; // Ensure creationDate has a fallback
           }
         } else {
-          console.log(`[getQuizList] No quiz.json found for ${quizId}, using defaults.`);
-          if (!creationDate) creationDate = 'N/A';
+          // console.log(`[getQuizList] No quiz.json found for ${quizId}, using defaults.`);
+          if (!creationDate) creationDate = 'N/A'; // Ensure creationDate has a fallback
         }
         
         return { 
           id: String(quizId), 
           title: String(quizTitle),
-          imageUrl: String(imageUrl),
+          coverImageUrl: coverImageUrl, // Can be null
+          description: description,     // Can be null
           creationDate: String(creationDate),
+          isFavorite: isFavorite,
           commentsCount: commentsCount,
-          isFavorite: isFavorite
+          likesCount: likesCount,
+          isLiked: isLiked
         };
       });
     
