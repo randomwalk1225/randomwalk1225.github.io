@@ -851,11 +851,10 @@ math-field {
 }
 
 .card-text.mt-auto { /* For date */
-    font-size: 0.25rem !important; /* 이전보다 더 작은 크기로 조정 */
-    font-family: monospace !important;
-    padding-top: 0.1rem !important;
+    font-size: 0.55rem !important; /* Further reduced parent font size */
+    padding-top: 0.1rem !important; /* Adjusted padding */
     margin-top: auto !important;
-    line-height: 1 !important;
+    line-height: 1; /* Added to reduce space taken by the paragraph */
 }
 
 .card-footer {
@@ -872,7 +871,7 @@ math-field {
     align-items: center;
     transition: color 0.2s ease;
     position: relative; /* Added for z-index context */
-    z-index: 2; /* Ensures it's above pseudo-elements */
+    z-index: 2; /* Added to ensure it's above stretched-link pseudo-elements */
 }
 .action-icon:hover,
 .action-icon:focus {
@@ -880,24 +879,91 @@ math-field {
 }
 .action-icon .count {
     font-size: 0.7rem !important; /* Reduced count font size */
-    margin-left: 2px;
+    margin-left: 2px; /* Reduced margin */
     color: #6c757d;
 }
-
-/* Favorited Star Icon Colors */
-.action-icon.favorite-icon.active { 
-    color: #ffc107 !important; /* Intended yellow color for favorited star */
+.action-icon.favorite-icon.active { /* Increased specificity */
+    color: #ffc107 !important; /* Bootstrap warning yellow for favorited star */
 }
-/* 오버라이드: 만약 요소에 .text-dark 클래스가 함께 있다면 */
-.action-icon.favorite-icon.active.text-dark {  
-    color: #ffc107 !important;
+.action-icon.likes-icon.active { /* Increased specificity */
+    color: #dc3545 !important; /* Bootstrap danger red for liked heart */
 }
 
-/* Liked Heart Icon Colors */
-.action-icon.likes-icon.active { 
-    color: #dc3545 !important; /* Intended red color for liked heart */
+.quiz-card-creation-date em.text-muted { /* Targeting the em tag inside */
+    font-family: "Consolas", "Menlo", "Courier New", monospace !important;
+    font-size: 0.4em !important; /* Changed from 0.85em to 0.4em */
+    font-style: normal !important; /* Override em's italic if not desired, or keep italic */
+    /* text-align: right; is handled by text-end on the parent p tag */
 }
-/* 오버라이드: 만약 요소에 .text-dark 클래스가 함께 있다면 */
-.action-icon.likes-icon.active.text-dark {  
-    color: #dc3545 !important;
+
+/* Loading and Error Messages for Quiz List */
+.loading-message, .error-message { /* These can remain if styled generally */
+    text-align: center;
+    font-size: 1.1em;
+    color: #555;
+    padding: 20px;
 }
+.error-message {
+    color: #d9534f; 
+}
+} /* This closes the @media (max-width: 480px) block */
+
+/* User-provided CSS to ensure active icon colors - CORRECTED PLACEMENT */
+.action-icon.likes-icon.active,
+.action-icon.likes-icon.active:hover {
+  color: #dc3545 !important; /* Red for active like */
+}
+.action-icon.favorite-icon.active,
+.action-icon.favorite-icon.active:hover {
+  color: #ffc107 !important; /* Yellow for active favorite */
+}
+</final_file_content>
+
+IMPORTANT: For any future changes to this file, use the final_file_content shown above as your reference. This content reflects the current state of the file, including any auto-formatting (e.g., if you used single quotes but the formatter converted them to double quotes). Always base your SEARCH/REPLACE operations on this final version to ensure accuracy.<environment_details>
+# VSCode Visible Files
+../../../../../../../response_04688cbb-ca01-4dc5-824c-0aeed74e5d0c/0
+../../../../../../../response_a83572a9-b92f-4dc8-8f21-0e13849e585b/0
+../../../../../../../response_4cf1b705-2ee1-48b9-8395-6ce27dc49289/0
+../../../../../../../response_a543d2f6-045e-40c1-a5b7-956814ab9462/0
+../../../../../../../response_a543d2f6-045e-40c1-a5b7-956814ab9462/1
+../../../../../../../response_a543d2f6-045e-40c1-a5b7-956814ab9462/2
+../../../../../../../response_a543d2f6-045e-40c1-a5b7-956814ab9462/2
+quiz_app/assets/css/quiz_styles.css
+../../../../../../../response_c1a9cef1-b381-4867-b9c4-03f9f73326c7/0
+../../../../../../../response_c1a9cef1-b381-4867-b9c4-03f9f73326c7/0
+
+# VSCode Open Tabs
+quiz_app/history.html
+../../html/cchem-quiz-CH2-num1.html
+quizzes/ChemCH2num1-20250515/quiz.json
+netlify.toml
+quizzes/ChemCH2num4-20250515/quiz.json
+quiz_app/assets/js/quiz_player.js
+quizzes/ChemCH1num4-20250515/quiz.json
+quizzes/ChemCH1num3-20250515/quiz.json
+quizzes/history_basics/quiz.json
+quizzes/algorithms_data_structures/quiz.json
+quiz_app/take.html
+netlify/functions/getQuizList.js
+_layouts/quiz_layout.html
+quiz_app/index.html
+quiz_app/assets/css/quiz_styles.css
+quiz_app/assets/js/app_main.js
+_layouts/default.html
+index.html
+quizzes/ChemCH1num2-20250515/quiz.json
+.vscode/task.json
+quizzes/math101/quiz.json
+quiz_app/assets/js/history.js
+netlify/functions/saveQuizResult.js
+.git/COMMIT_EDITMSG
+
+# Current Time
+5/16/2025, 10:48:01 PM (Asia/Seoul, UTC+9:00)
+
+# Context Window Usage
+680,110 / 1,048.576K tokens used (65%)
+
+# Current Mode
+ACT MODE
+</environment_details>
