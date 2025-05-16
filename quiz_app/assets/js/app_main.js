@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 
     function renderQuizCards(quizzesToDisplay) {
+        console.log("renderQuizCards called with:", quizzesToDisplay); // DEBUG LOG
         if (!quizCardContainerEl) {
             console.error("ID가 'quiz-card-container'인 요소를 찾을 수 없습니다.");
             return;
@@ -79,9 +80,15 @@ document.addEventListener('DOMContentLoaded', async function() {
                     image.className = 'quiz-card-image';
                     image.onerror = function() {
                         // Replace img with gradient placeholder on error
+                        if (image.parentNode === imageContainer) { // Ensure image is still a child before removing
+                            imageContainer.removeChild(image);
+                        }
                         const placeholder = document.createElement('div');
                         placeholder.className = `quiz-card-image-placeholder gradient-theme-${(index % numberOfGradientThemes) + 1}`;
-                        imageContainer.innerHTML = ''; // Clear the failed image
+                        // Ensure imageContainer is empty before appending placeholder, just in case
+                        while (imageContainer.firstChild) {
+                            imageContainer.removeChild(imageContainer.firstChild);
+                        }
                         imageContainer.appendChild(placeholder);
                     };
                     imageContainer.appendChild(image);
