@@ -63,7 +63,9 @@ exports.handler = async () => {
         const creationDate = quizData.creationDate || ""; 
 
         return {
-          ...quizData,
+          id: folderName, // Use the folder name as the quiz ID
+          title: quizData.title || folderName, // Fallback title to folderName
+          ...quizData, // Spread other properties from quiz.json
           creationDate // Ensure this field is part of the returned object
         };
       } catch (e) {
