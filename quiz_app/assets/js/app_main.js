@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 const date = document.createElement('p');
                 // Add 'text-end' for right alignment, and a custom class for specific styling
                 date.className = 'card-text mt-auto pt-1 text-end quiz-card-creation-date'; 
-                date.innerHTML = `<small class="text-muted">${quiz.creationDate}</small>`; // Removed "생성일: "
+                date.innerHTML = `<em class="text-muted">${quiz.creationDate}</em>`; // Changed small to em
                 cardBody.appendChild(date);
                 
                 card.appendChild(cardBody);
