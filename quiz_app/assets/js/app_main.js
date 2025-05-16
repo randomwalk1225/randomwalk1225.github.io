@@ -159,9 +159,13 @@ document.addEventListener('DOMContentLoaded', async function() {
                 actionsDiv.style.gap = '0.5rem'; 
 
                 const favoriteIcon = document.createElement('span');
-                favoriteIcon.className = 'action-icon favorite-icon text-muted';
+                favoriteIcon.className = 'action-icon favorite-icon'; // text-muted will be managed dynamically
                 favoriteIcon.innerHTML = quiz.isFavorite ? '★' : '☆'; 
-                favoriteIcon.classList.toggle('active', quiz.isFavorite);
+                if (quiz.isFavorite) {
+                    favoriteIcon.classList.add('active');
+                } else {
+                    favoriteIcon.classList.add('text-muted');
+                }
                 favoriteIcon.style.cursor = 'pointer';
                 favoriteIcon.setAttribute('role', 'button');
                 favoriteIcon.setAttribute('aria-label', quiz.isFavorite ? '즐겨찾기 해제' : '즐겨찾기');
@@ -173,7 +177,13 @@ document.addEventListener('DOMContentLoaded', async function() {
                     quiz.isFavorite = !quiz.isFavorite; 
                     console.log(`New isFavorite: ${quiz.isFavorite}`);
                     favoriteIcon.innerHTML = quiz.isFavorite ? '★' : '☆';
-                    favoriteIcon.classList.toggle('active', quiz.isFavorite);
+                    if (quiz.isFavorite) {
+                        favoriteIcon.classList.add('active');
+                        favoriteIcon.classList.remove('text-muted');
+                    } else {
+                        favoriteIcon.classList.remove('active');
+                        favoriteIcon.classList.add('text-muted');
+                    }
                     favoriteIcon.setAttribute('aria-label', quiz.isFavorite ? '즐겨찾기 해제' : '즐겨찾기');
                     sortAndRenderQuizzes();
                 });
@@ -186,16 +196,23 @@ document.addEventListener('DOMContentLoaded', async function() {
                 actionsDiv.appendChild(commentsIcon);
 
                 const likesIcon = document.createElement('span');
-                likesIcon.className = 'action-icon likes-icon text-muted';
+                likesIcon.className = 'action-icon likes-icon'; // text-muted will be managed dynamically
                 
-                const likesCountEl = document.createElement('span'); // Create count span once
+                const likesCountEl = document.createElement('span'); 
                 likesCountEl.className = 'count';
                 
                 function updateLikesDisplay() {
                     likesIcon.innerHTML = quiz.isLiked ? '♥ ' : '♡ '; 
                     likesCountEl.textContent = quiz.likesCount;      
-                    likesIcon.appendChild(likesCountEl); // Append count span after setting icon
-                    likesIcon.classList.toggle('active', quiz.isLiked);
+                    likesIcon.appendChild(likesCountEl); 
+                    
+                    if (quiz.isLiked) {
+                        likesIcon.classList.add('active');
+                        likesIcon.classList.remove('text-muted');
+                    } else {
+                        likesIcon.classList.remove('active');
+                        likesIcon.classList.add('text-muted');
+                    }
                     likesIcon.setAttribute('aria-label', quiz.isLiked ? `좋아요 취소 (${quiz.likesCount}개)` : `좋아요 (${quiz.likesCount}개)`);
                 }
                 updateLikesDisplay(); // Initial display setup
