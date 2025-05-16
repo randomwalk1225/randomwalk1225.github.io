@@ -23,6 +23,11 @@ exports.handler = async () => {
       console.error(`[getQuizList] Fallback path ${fallbackPath} also not found.`);
       return {
         statusCode: 500,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers': 'Content-Type',
+          'Access-Control-Allow-Methods': 'GET, OPTIONS'
+        },
         body: JSON.stringify({
           error: "Quizzes directory not found.",
           details: `Tried primary: ${primaryPath}, fallback: ${fallbackPath}`,
@@ -65,6 +70,11 @@ exports.handler = async () => {
 
     return {
       statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'GET, OPTIONS'
+      },
       body: JSON.stringify(quizzes)
     };
 
@@ -72,6 +82,11 @@ exports.handler = async () => {
     console.error("[getQuizList] General error:", err);
     return {
       statusCode: 500,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'GET, OPTIONS'
+      },
       body: JSON.stringify({
         error: "Failed to get quiz list.",
         details: err.message,
