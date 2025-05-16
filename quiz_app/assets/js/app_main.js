@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', async function() {
                     likesCount: quiz.likesCount !== undefined ? Number(quiz.likesCount) : 0,
                     isLiked: quiz.isLiked !== undefined ? quiz.isLiked : false
                 }));
-                // Initial sort by title
                 quizzes.sort((a, b) => a.title.localeCompare(b.title));
             }
             return quizzes;
@@ -52,7 +51,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
     
     function sortAndRenderQuizzes() {
-        // Sort by favorite, then by liked, then by title
+        console.log("sortAndRenderQuizzes 호출됨");
         masterQuizList.sort((a, b) => {
             if (a.isFavorite !== b.isFavorite) {
                 return a.isFavorite ? -1 : 1;
@@ -66,7 +65,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 
     function renderQuizCards(quizzesToDisplay) {
-        console.log("renderQuizCards called with (Bootstrap V5 - Interaction Fixes):", quizzesToDisplay); 
+        console.log("renderQuizCards 호출됨. 표시할 퀴즈 개수:", quizzesToDisplay ? quizzesToDisplay.length : 0); 
         if (!quizCardContainerEl) {
             console.error("ID가 'quiz-card-container'인 요소를 찾을 수 없습니다.");
             return;
@@ -123,9 +122,8 @@ document.addEventListener('DOMContentLoaded', async function() {
                 }
 
                 const date = document.createElement('p');
-                // Add 'text-end' for right alignment, and a custom class for specific styling
                 date.className = 'card-text mt-auto pt-1 text-end quiz-card-creation-date'; 
-                date.innerHTML = `<em class="text-muted">${quiz.creationDate}</em>`; // Changed small to em
+                date.innerHTML = `<em class="text-muted">${quiz.creationDate}</em>`;
                 cardBody.appendChild(date);
                 
                 card.appendChild(cardBody);
@@ -145,13 +143,16 @@ document.addEventListener('DOMContentLoaded', async function() {
                 favoriteIcon.setAttribute('role', 'button');
                 favoriteIcon.setAttribute('aria-label', quiz.isFavorite ? '즐겨찾기 해제' : '즐겨찾기');
                 favoriteIcon.setAttribute('tabindex', '0');
+                
                 favoriteIcon.addEventListener('click', (e) => {
                     e.preventDefault(); e.stopPropagation(); 
+                    console.log(`Favorite clicked for quiz ID: ${quiz.id}. Current isFavorite: ${quiz.isFavorite}`);
                     quiz.isFavorite = !quiz.isFavorite; 
+                    console.log(`New isFavorite: ${quiz.isFavorite}`);
                     favoriteIcon.innerHTML = quiz.isFavorite ? '★' : '☆';
                     favoriteIcon.classList.toggle('active', quiz.isFavorite);
                     favoriteIcon.setAttribute('aria-label', quiz.isFavorite ? '즐겨찾기 해제' : '즐겨찾기');
-                    sortAndRenderQuizzes(); // Re-sort and re-render
+                    sortAndRenderQuizzes();
                 });
                 favoriteIcon.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); favoriteIcon.click(); }});
                 actionsDiv.appendChild(favoriteIcon);
@@ -163,32 +164,38 @@ document.addEventListener('DOMContentLoaded', async function() {
 
                 const likesIcon = document.createElement('span');
                 likesIcon.className = 'action-icon likes-icon text-muted';
-                likesIcon.classList.toggle('active', quiz.isLiked); 
-                const likesCountEl = document.createElement('span');
+                
+                const likesCountEl = document.createElement('span'); // Create count span once
                 likesCountEl.className = 'count';
-                likesCountEl.textContent = quiz.likesCount;
-                likesIcon.innerHTML = quiz.isLiked ? '♥ ' : '♡ '; 
-                likesIcon.appendChild(likesCountEl); 
-                likesIcon.style.cursor = 'pointer';
-                likesIcon.setAttribute('role', 'button');
-                likesIcon.setAttribute('aria-label', quiz.isLiked ? `좋아요 취소 (${quiz.likesCount}개)` : `좋아요 (${quiz.likesCount}개)`);
-                likesIcon.setAttribute('tabindex', '0');
-                likesIcon.addEventListener('click', (e) => {
-                    e.preventDefault(); e.stopPropagation(); 
-                    
-                    if (quiz.isLiked) { // If it was liked, now it's unliked
-                        quiz.likesCount--;
-                    } else { // If it was unliked, now it's liked
-                        quiz.likesCount++;
-                    }
-                    quiz.isLiked = !quiz.isLiked; // Toggle the state
-                                        
+                
+                function updateLikesDisplay() {
                     likesIcon.innerHTML = quiz.isLiked ? '♥ ' : '♡ '; 
                     likesCountEl.textContent = quiz.likesCount;      
-                    likesIcon.appendChild(likesCountEl);              
+                    likesIcon.appendChild(likesCountEl); // Append count span after setting icon
                     likesIcon.classList.toggle('active', quiz.isLiked);
                     likesIcon.setAttribute('aria-label', quiz.isLiked ? `좋아요 취소 (${quiz.likesCount}개)` : `좋아요 (${quiz.likesCount}개)`);
-                    sortAndRenderQuizzes(); // Re-sort and re-render
+                }
+                updateLikesDisplay(); // Initial display setup
+
+                likesIcon.style.cursor = 'pointer';
+                likesIcon.setAttribute('role', 'button');
+                likesIcon.setAttribute('tabindex', '0');
+                
+                likesIcon.addEventListener('click', (e) => {
+                    e.preventDefault(); e.stopPropagation(); 
+                    console.log(`Like clicked for quiz ID: ${quiz.id}. Current isLiked: ${quiz.isLiked}, likesCount: ${quiz.likesCount}`);
+                    
+                    if (quiz.isLiked) { 
+                        quiz.likesCount--;
+                    } else { 
+                        quiz.likesCount++;
+                    }
+                    quiz.isLiked = !quiz.isLiked; 
+                    console.log(`New isLiked: ${quiz.isLiked}, new likesCount: ${quiz.likesCount}`);
+                                        
+                    updateLikesDisplay(); // Update the DOM
+                    console.log(`Likes count span textContent after update: ${likesCountEl.textContent}`);
+                    sortAndRenderQuizzes();
                 });
                 likesIcon.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); likesIcon.click(); }});
                 actionsDiv.appendChild(likesIcon);
@@ -210,19 +217,19 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
         
         masterQuizList = await loadQuizManifest(); 
-        renderQuizCards(masterQuizList); // Initial render uses the default sort (by title)
+        renderQuizCards(masterQuizList);
 
         if (searchInputEl) {
             searchInputEl.addEventListener('input', function(e) {
                 const searchTerm = e.target.value.toLowerCase().trim();
-                // When searching, filter from the master list which is already sorted by title
-                // If we want search results to also respect favorite/like, we'd need to re-sort the filtered list.
-                // For now, search overrides the favorite/like sort for simplicity of search results.
-                const filteredQuizzes = masterQuizList.filter(quiz => 
+                const currentSearchFilteredList = masterQuizList.filter(quiz => 
                     quiz.title.toLowerCase().includes(searchTerm) ||
                     (quiz.description && quiz.description.toLowerCase().includes(searchTerm))
                 );
-                renderQuizCards(filteredQuizzes); // Render filtered list (does not re-sort by fav/like)
+                // When searching, we don't re-apply the favorite/like sort on top of search results for now.
+                // If that's desired, the filtered list would need to be passed to sortAndRenderQuizzes,
+                // or sortAndRenderQuizzes would need to accept a list to sort and render.
+                renderQuizCards(currentSearchFilteredList); 
             });
         } else {
             console.error("ID가 'quiz-search-input'인 요소를 찾을 수 없습니다.");
