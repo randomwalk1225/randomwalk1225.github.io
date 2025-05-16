@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 colDiv.className = 'col'; 
 
                 const card = document.createElement('div');
-                card.className = 'card h-100 shadow-sm'; // h-100 might be overridden by CSS for fixed height
+                card.className = 'card shadow-sm'; // Removed h-100
                 card.setAttribute('role', 'article');
                 
                 if (quiz.coverImageUrl) {
