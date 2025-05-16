@@ -198,9 +198,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (q.image.startsWith('http://') || q.image.startsWith('https://')) {
                     imgEl.src = q.image;
                 } else if (q.image.startsWith('/')) {
-                  imgEl.src = q.image; // 이미 절대 경로이면 그대로 사용
+                    // 만약 siteBaseUrl이 있고 q.image가 siteBaseUrl으로 시작한다면 제거
+                    if (siteBaseUrl && q.image.indexOf(siteBaseUrl) === 0) {
+                        imgEl.src = q.image.substring(siteBaseUrl.length);
+                    } else {
+                        imgEl.src = q.image;
+                    }
                 } else {
-                  imgEl.src = `${siteBaseUrl}/quizzes/${quizId}/${q.image}`;
+                    imgEl.src = `${siteBaseUrl}/quizzes/${quizId}/${q.image}`;
                 }
                 imgEl.alt = `Question ${index + 1} image`;
                 imgEl.style.maxWidth = '100%';
