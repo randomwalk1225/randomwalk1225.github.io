@@ -7,6 +7,19 @@ const CORS_HEADERS = {
   'Access-Control-Allow-Methods': 'GET, OPTIONS',
 };
 
+// Helper function to format date as YYYY-MM-DD
+function formatDate(date) {
+  const d = new Date(date);
+  let month = '' + (d.getMonth() + 1);
+  let day = '' + d.getDate();
+  const year = d.getFullYear();
+
+  if (month.length < 2) month = '0' + month;
+  if (day.length < 2) day = '0' + day;
+
+  return [year, month, day].join('-');
+}
+
 exports.handler = async (event, context) => {
   if (event.httpMethod === 'OPTIONS') {
     return {
@@ -25,17 +38,8 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    // Path to the quizzes directory from the function's location
-    // Netlify functions are typically built into a .netlify/functions/ folder at the site root.
-    // The original source is netlify/functions/getQuizList.js.
-    // During build, it might be copied to .netlify/functions/netlify/functions/getQuizList.js or similar.
-    // Let's assume the execution context allows access relative to the site root.
-    // A common pattern is to use process.env.LAMBDA_TASK_ROOT and navigate from there,
-    // or assume PWD is the site root.
-    // For Netlify, functions are often placed in a 'functions' or 'netlify/functions' dir.
-    // If the function is at `netlify/functions/getQuizList.js`, then `../../quizzes` would be correct.
     const quizzesDirPath = path.resolve(__dirname, '../../quizzes');
-    console.log('[getQuizList] Resolved quizzesDirPath:', quizzesDirPath); // For debugging on Netlify logs
+    console.log('[getQuizList] Resolved quizzesDirPath:', quizzesDirPath);
 
     let entries = [];
     try {
@@ -43,63 +47,98 @@ exports.handler = async (event, context) => {
       console.log('[getQuizList] Entries in quizzesDirPath:', entries.map(e => e.name));
     } catch (readDirError) {
       console.error('[getQuizList] Error reading quizzesDirPath:', quizzesDirPath, readDirError);
-      throw readDirError; // Re-throw to be caught by the main try-catch
+      throw readDirError;
     }
     
     const quizList = entries
-      .filter(dirent => {
-        const isDir = dirent.isDirectory();
-        // console.log(`[getQuizList] Checking entry: ${dirent.name}, isDirectory: ${isDir}`);
-        return isDir;
-      })
+      .filter(dirent => dirent.isDirectory())
       .map(dirent => {
         const quizId = dirent.name;
         const quizJsonPath = path.join(quizzesDirPath, quizId, 'quiz.json');
         let quizTitle = quizId; // Default title to ID
+        let imageUrl = '/quiz_app/assets/images/default_quiz_thumbnail.png'; // Default image
+        let creationDate = null;
+        const commentsCount = 0; // Placeholder
+        const isFavorite = false; // Placeholder
+
+        // Attempt to parse date from quizId (e.g., quizName-YYYYMMDD or YYYYMMDD)
+        const dateMatch = quizId.match(/(\d{4})(\d{2})(\d{2})$/);
+        if (dateMatch) {
+          creationDate = `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}`;
+        }
 
         if (fs.existsSync(quizJsonPath)) {
           try {
             let quizJsonContent = fs.readFileSync(quizJsonPath, 'utf-8');
-            
-            // Strip Jekyll front matter if present
-            // This regex handles variations in line endings and content within front matter.
             const frontMatterPattern = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?/;
             const cleanedJsonContent = quizJsonContent.replace(frontMatterPattern, '');
+            const quizData = JSON.parse(cleanedJsonContent);
 
-            // console.log(`[getQuizList] Cleaned content for ${quizId}: ${cleanedJsonContent.substring(0,100)}...`); // Log snippet
-
-            const quizData = JSON.parse(cleanedJsonContent); // Attempt to parse the cleaned content
+            // Extract Title
             let extractedTitle = null;
-
-            // Check for title in new format: { "title": "...", "quizzes": [...] }
             if (quizData && typeof quizData.title === 'string' && quizData.title.trim() !== '') {
               extractedTitle = quizData.title.trim();
-            } 
-            // Else, check for title in old format: [ {"title": "..."}, ... ]
-            else if (Array.isArray(quizData) && quizData.length > 0 && quizData[0] && typeof quizData[0].title === 'string' && quizData[0].title.trim() !== '') {
-              extractedTitle = quizData[0].title.trim();
+            } else if (Array.isArray(quizData) && quizData.length > 0 && quizData[0] && typeof quizData[0].title === 'string' && quizData[0].title.trim() !== '') {
+              extractedTitle = quizData[0].title.trim(); // Fallback for old format
+            }
+            if (extractedTitle) {
+              quizTitle = extractedTitle;
             }
 
-            if (extractedTitle) {
-                quizTitle = extractedTitle;
-                // console.log(`[getQuizList] Used title from quiz.json for ${quizId}: "${quizTitle}"`);
-            } else {
-                // console.log(`[getQuizList] No valid title found in quiz.json for ${quizId} after cleaning, using ID as title. Original quizData type: ${typeof quizData}`);
-                // quizTitle remains quizId (default)
+            // Extract Image URL
+            if (quizData && Array.isArray(quizData.quizzes)) {
+              for (const q of quizData.quizzes) {
+                if (q.image && typeof q.image === 'string') {
+                  const imagePathMatch = q.image.match(/{{\s*'(.*?)'\s*\|\s*relative_url\s*}}/);
+                  if (imagePathMatch && imagePathMatch[1]) {
+                    imageUrl = imagePathMatch[1]; // Use the extracted path directly
+                    // Ensure it starts with a slash if it's meant to be from root
+                    if (!imageUrl.startsWith('/')) {
+                        imageUrl = '/' + imageUrl;
+                    }
+                    break; 
+                  } else if (!q.image.includes('{{')) { // If it's a direct path already
+                    imageUrl = q.image;
+                     if (!imageUrl.startsWith('/')) {
+                        imageUrl = '/' + imageUrl;
+                    }
+                    break;
+                  }
+                }
+              }
             }
+            
+            // Fallback for creationDate if not parsed from quizId
+            if (!creationDate) {
+              try {
+                const stats = fs.statSync(quizJsonPath);
+                creationDate = formatDate(stats.mtime); // Use last modified time
+              } catch (statError) {
+                console.error(`[getQuizList] Error getting file stats for ${quizJsonPath}:`, statError);
+                creationDate = 'N/A'; // Fallback if stat fails
+              }
+            }
+
           } catch (parseError) {
-            // console.error(`[getQuizList] Error parsing quiz.json for ${quizId} (content snippet: ${quizJsonContent.substring(0,100)}...), using ID as title:`, parseError);
-            // quizTitle remains quizId (default)
+            console.error(`[getQuizList] Error parsing quiz.json for ${quizId}:`, parseError);
+            // Use defaults if parsing fails
+            if (!creationDate) creationDate = 'N/A';
           }
         } else {
-        //   console.log(`[getQuizList] No quiz.json found for ${quizId}, using ID as title.`);
+          console.log(`[getQuizList] No quiz.json found for ${quizId}, using defaults.`);
+          if (!creationDate) creationDate = 'N/A';
         }
-        // Ensure id and title are strings
-        return { id: String(quizId), title: String(quizTitle) };
+        
+        return { 
+          id: String(quizId), 
+          title: String(quizTitle),
+          imageUrl: String(imageUrl),
+          creationDate: String(creationDate),
+          commentsCount: commentsCount,
+          isFavorite: isFavorite
+        };
       });
     
-    // console.log('[getQuizList] Constructed quizList:', quizList); // Keep this for debugging if needed
-
     return {
       statusCode: 200,
       headers: {
@@ -109,7 +148,7 @@ exports.handler = async (event, context) => {
       body: JSON.stringify(quizList),
     };
   } catch (error) {
-    console.error('[getQuizList] Error reading quizzes directory or processing quiz files:', error);
+    console.error('[getQuizList] Error processing quizzes:', error);
     return {
       statusCode: 500,
       headers: CORS_HEADERS,

@@ -747,8 +747,130 @@ math-field {
 
     .quiz-timer-widget {
         /* Could be made less intrusive or toggleable by default on very small screens */
-        font-size: 0.75em;
-        padding: 5px 8px;
-        min-width: auto; /* Allow it to shrink more */
+    font-size: 0.75em;
+    padding: 5px 8px;
+    min-width: auto; /* Allow it to shrink more */
+}
+
+/* Quiz List Search Input */
+#quiz-search-input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 25px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box; /* Ensures padding doesn't add to width */
+    font-size: 1rem;
+}
+
+/* Quiz Card Layout */
+.quiz-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    padding: 0; /* Remove default ul padding if any was inherited */
+}
+
+.quiz-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    overflow: hidden; /* Ensures image corners are rounded if image is direct child */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: flex; /* Use flex to make the link fill the card */
+    flex-direction: column;
+}
+
+.quiz-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.quiz-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Make link fill the card */
+}
+
+.quiz-card-image {
+    width: 100%;
+    height: 180px; /* Fixed height for images */
+    object-fit: cover; /* Cover ensures image fills space, might crop */
+    border-bottom: 1px solid #eee;
+}
+
+.quiz-card-title {
+    font-size: 1.25em;
+    color: #337ab7;
+    margin: 15px 15px 10px 15px;
+    font-weight: bold;
+}
+
+.quiz-card-date {
+    font-size: 0.85em;
+    color: #777;
+    margin: 0 15px 15px 15px;
+}
+
+.quiz-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-top: 1px solid #f0f0f0;
+    margin-top: auto; /* Pushes footer to the bottom of the card */
+}
+
+.quiz-card-icon {
+    font-size: 1.1em;
+    cursor: pointer;
+    color: #555;
+    display: inline-flex;
+    align-items: center;
+}
+
+.quiz-card-icon:hover {
+    color: #007bff;
+}
+
+.favorite-icon.favorited { /* Example if we add a class for favorited items */
+    color: #e91e63; /* Pinkish red for favorited */
+}
+.favorite-icon:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+    border-radius: 3px;
+}
+
+
+.comments-icon {
+    /* Specific styles for comments icon if needed */
+}
+
+/* Loading and Error Messages for Quiz List */
+.loading-message, .error-message {
+    text-align: center;
+    font-size: 1.1em;
+    color: #555;
+    padding: 20px;
+}
+.error-message {
+    color: #d9534f; /* Red for errors */
+}
+
+/* Adjustments for smaller screens for cards */
+@media (max-width: 600px) {
+    .quiz-cards {
+        grid-template-columns: 1fr; /* Single column on very small screens */
     }
+    .quiz-card-image {
+        height: 160px;
+    }
+    .quiz-card-title {
+        font-size: 1.1em;
+    }
+}
 }
