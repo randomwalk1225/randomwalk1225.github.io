@@ -56,15 +56,15 @@ exports.handler = async () => {
     const quizzes = quizFolders.map(folderName => {
       const quizJsonPath = path.join(quizzesDir, folderName, 'quiz.json');
       try {
-        const { mtime } = fs.statSync(quizJsonPath);
-        const creationDate = mtime.toISOString().split('T')[0];
-
         const raw = fs.readFileSync(quizJsonPath, 'utf-8');
-        const quiz = JSON.parse(raw);
+        const quizData = JSON.parse(raw);
         
+        // Use creationDate from quiz.json if it exists, otherwise default to empty string
+        const creationDate = quizData.creationDate || ""; 
+
         return {
-          ...quiz,
-          creationDate // Add/overwrite creationDate
+          ...quizData,
+          creationDate // Ensure this field is part of the returned object
         };
       } catch (e) {
         console.error(`[getQuizList] Error processing ${quizJsonPath}: ${e.message}`);
