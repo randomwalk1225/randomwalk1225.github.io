@@ -105,6 +105,15 @@ document.addEventListener('DOMContentLoaded', async function() {
                 const titleLink = document.createElement('a');
                 titleLink.href = `${siteBaseUrl}/quiz_app/take.html?quiz=${quiz.id}`;
                 titleLink.className = 'text-decoration-none stretched-link'; 
+
+                // Add a click listener to the titleLink itself to check the actual target
+                titleLink.addEventListener('click', function(event) {
+                    // Check if the click originated from an action icon or its child
+                    if (event.target.closest('.action-icon')) {
+                        console.log('Click on titleLink originated from an action icon, preventing navigation.');
+                        event.preventDefault();
+                    }
+                });
                 
                 const title = document.createElement('h6'); 
                 title.id = `quiz-title-${quiz.id}`;
