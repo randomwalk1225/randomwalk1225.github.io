@@ -482,6 +482,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+        // linefeed
+        const raw = jsonQuestionString.replace(/\n/g, '<br>');
+        questionContainer.innerHTML = raw;
+        MathJax.typesetPromise([questionContainer]);
+
+
+
     // --- Timer Functions ---
     function updateCurrentTime() {
         if (!currentTimeDisplayEl || !timerVisible) return;
