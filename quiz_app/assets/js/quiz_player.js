@@ -483,6 +483,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
+// innerHTML 대신 textContent/innerText 에 바로 \n 섞인 문자열을 넣어도
+// 브라우저가 줄바꿈을 알아서 처리해 줍니다.
+questionItem.querySelector('h4').textContent = q.question;
+
+
     // --- Timer Functions ---
     function updateCurrentTime() {
         if (!currentTimeDisplayEl || !timerVisible) return;
