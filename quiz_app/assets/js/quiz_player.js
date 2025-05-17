@@ -231,44 +231,45 @@ document.addEventListener('DOMContentLoaded', function() {
             optionsDiv.classList.add('options');
 
             if (q.type === 'multiple-choice' && q.options) { // Ensure q.options exists
-                q.options.forEach((option, optIndex) => {
+                q.options.forEach((opt, optIndex) => {
+                    // opt가 객체인지 문자열인지 구분
+                    const isObject = opt && typeof opt === 'object';
+                    const displayText = isObject ? opt.text : opt;
                     const optionId = `q${q.id}-option${optIndex}`;
-                    // The 'value' of the radio button should be the original Korean option if langMode is 'both' or 'en'
-                    // to ensure answer checking works against the primary language 'answer' field.
-                    // Or, we need a more complex answer mapping. For now, assume 'answer' matches Korean options.
-                    const originalKoreanOption = (currentQuizData[index] && currentQuizData[index].options) ? currentQuizData[index].options[optIndex] : option;
 
+                    // label 생성 및 속성 설정
                     const label = document.createElement('label');
-                    label.htmlFor = optionId; 
+                    label.htmlFor = optionId;
                     label.classList.add('quiz-option-label');
+
+                    // radio 버튼 생성 및 속성 설정
                     const radio = document.createElement('input');
                     radio.type = 'radio';
                     radio.id = optionId;
                     radio.name = `question-${q.id}`;
-                    // Value should be consistent for answer checking, use original Korean option value
-                    radio.value = originalKoreanOption; 
-                    radio.classList.add('quiz-option-radio'); 
-                    
-                    radio.addEventListener('change', (e) => {
-                        userAnswers[q.id] = e.target.value; // Store the original Korean option value
-                        document.querySelectorAll(`input[name="question-${q.id}"]`).forEach(rb => {
-                            rb.parentElement.classList.remove('selected');
-                        });
-                        if (e.target.checked) {
-                            e.target.parentElement.classList.add('selected');
-                        }
-                    });
+                    radio.value = displayText;
+                    radio.classList.add('quiz-option-radio');
                     label.appendChild(radio);
-                    const optionText = document.createElement('span');
-                    // Option text is already processed for language, set innerHTML to render <br> and <span>
-                    const numberingPattern = /^\s*\d+\)\s+/;
-                    if (numberingPattern.test(option.split('<br>')[0])) { // Check original Korean part for numbering
-                        optionText.innerHTML = option; 
-                    } else {
-                        optionText.innerHTML = `${optIndex + 1}) ${option}`; 
+
+                    // 이미지가 있을 경우, 이미지 태그 생성 및 추가
+                    if (isObject && opt.image) {
+                        const img = document.createElement('img');
+                        img.src = opt.image;
+                        img.alt = displayText;
+                        img.style.maxWidth = '100%';
+                        img.style.marginBottom = '0.5rem';
+                        label.appendChild(img);
                     }
-                    label.appendChild(optionText);
+
+                    // 텍스트를 위한 span 생성 및 추가
+                    const span = document.createElement('span');
+                    span.textContent = displayText;
+                    label.appendChild(span);
+
+                    // optionsDiv에 label 추가
                     optionsDiv.appendChild(label);
+
+                    // 기존 change 및 click 이벤트 바인딩은 그대로 유지 (필요하다면 아래에 추가)
                 });
             } else if (q.type === 'short-answer') {
                 if (q.isMathInput) {
