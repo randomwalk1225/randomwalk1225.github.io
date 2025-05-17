@@ -271,6 +271,14 @@ document.addEventListener('DOMContentLoaded', function() {
                       }
                     });
 
+
+                    // 텍스트 추가 (번호가 추가된 텍스트)
+                    const span = document.createElement('span');
+                    span.textContent = numberedDisplayText;
+                    label.appendChild(span);
+                    
+                    
+
                     // 이미지가 있을 경우, 이미지 태그 생성 및 추가
                     if (isObject && opt.image) {
                         const img = document.createElement('img');
@@ -281,10 +289,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         label.appendChild(img);
                     }
 
-                    // 텍스트 추가 (번호가 추가된 텍스트)
-                    const span = document.createElement('span');
-                    span.textContent = numberedDisplayText;
-                    label.appendChild(span);
+                   
 
                     // 옵션 컨테이너에 label 추가
                     optionsDiv.appendChild(label);
