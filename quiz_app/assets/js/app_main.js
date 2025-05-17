@@ -276,5 +276,41 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     }
 
+
+        document.getElementById('quiz-sort-combo').addEventListener('change', async function() {
+        const sortValue = this.value; // 예: "date_desc", "date_asc", "name_asc", "name_desc"
+        let sortBy = 'date', sortOrder = 'desc'; // 기본 최신순 (내림차순)
+        if (sortValue.startsWith('date')) {
+            sortBy = 'date';
+            sortOrder = sortValue.endsWith('asc') ? 'asc' : 'desc';
+        } else if (sortValue.startsWith('name')) {
+            sortBy = 'name';
+            sortOrder = sortValue.endsWith('asc') ? 'asc' : 'desc';
+        }
+      
+        // 정렬 옵션에 맞게 Netlify 함수 호출 URL 구성
+        const netlifySiteUrl = "https://chipper-cupcake-752544.netlify.app";
+        const functionUrl = `${netlifySiteUrl}/.netlify/functions/getQuizList?sortBy=${sortBy}&sortOrder=${sortOrder}`;
+        
+        try {
+            const response = await fetch(functionUrl);
+            if (!response.ok) {
+                console.error("Error fetching sorted quiz list:", response.statusText);
+                return;
+            }
+            const sortedQuizzes = await response.json();
+            masterQuizList = sortedQuizzes;
+            renderQuizCards(masterQuizList);
+        } catch (err) {
+            console.error("Error in sorting request:", err);
+        }
+    });
+
+
+    
+
+
+
+
     initializeQuizApp();
 });
