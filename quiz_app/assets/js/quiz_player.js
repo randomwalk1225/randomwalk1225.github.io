@@ -236,6 +236,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     const isObject = opt && typeof opt === 'object';
                     const displayText = isObject ? opt.text : opt;
                     const optionId = `q${q.id}-option${optIndex}`;
+                    const optionNumber = optIndex + 1; // 번호 계산
+                    const numberedDisplayText = `${optionNumber}) ${displayText}`;
 
                     // label 생성 및 속성 설정
                     const label = document.createElement('label');
@@ -261,15 +263,15 @@ document.addEventListener('DOMContentLoaded', function() {
                         label.appendChild(img);
                     }
 
-                    // 텍스트를 위한 span 생성 및 추가
+                    // 텍스트 추가 (번호가 추가된 텍스트)
                     const span = document.createElement('span');
-                    span.textContent = displayText;
+                    span.textContent = numberedDisplayText;
                     label.appendChild(span);
 
-                    // optionsDiv에 label 추가
+                    // 옵션 컨테이너에 label 추가
                     optionsDiv.appendChild(label);
 
-                    // 기존 change 및 click 이벤트 바인딩은 그대로 유지 (필요하다면 아래에 추가)
+                    // (필요시 기존 change 및 click 이벤트 바인딩 유지)
                 });
             } else if (q.type === 'short-answer') {
                 if (q.isMathInput) {
