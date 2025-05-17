@@ -1,37 +1,29 @@
----
+--- 
 layout: quiz_layout
 title: 퀴즈 목록
 ---
 
-<div id="quiz-list-container">
-  <!-- 검색창과 정렬 컨트롤을 한 줄에 배치 -->
-  <div class="search-sort-row">
-    <input
-      type="text"
-      id="quiz-search-input"
-      class="form-control"
-      placeholder="퀴즈 검색…"
-      aria-label="퀴즈 검색"
-    />
-
-    <select
-      id="quiz-sort-combo"
-      class="form-control"
-      aria-label="정렬 옵션"
-    >
-      <option value="date_desc" selected>날짜 거꾸로</option>
-      <option value="date_asc">날짜 똑바로</option>
-      <option value="name_asc">이름 똑바로(A ~ Z)</option>
-      <option value="name_desc">이름 거꾸로(Z ~ A)</option>
-    </select>
-  </div>
-
-  <div
-    id="quiz-card-container"
-    class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4"
-  >
-    <!-- 퀴즈 카드가 여기에 JavaScript에 의해 동적으로 추가됩니다. -->
-  </div>
+<div id="quiz-list-container">    
+    <!-- 검색창과 정렬 컨트롤을 한 줄에 배치 -->
+    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+         <input type="text" id="quiz-search-input" class="form-control" placeholder="퀴즈 검색..." aria-label="퀴즈 검색" style="width:70%; margin-right:1rem;">
+        
+    <div id="quiz-sort-container" style="width:30%; text-align:right;">
+           <select id="quiz-sort-combo" class="form-control" style="display:inline-block; width:auto; vertical-align:middle;">
+             <option value="date_desc" selected>날짜 거꾸로</option>
+             <option value="date_asc">날짜 똑바로</option>
+             <option value="name_asc">이름 똑바로(A ~ Z)</option>
+             <option value="name_desc">이름 거꾸로(Z ~ A)</option>
+           </select>
+         </div>
+    </div>
+    
+    <div id="quiz-card-container" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        <!-- 퀴즈 카드가 여기에 JavaScript에 의해 동적으로 추가됩니다. -->
+    </div>
 </div>
+
+
+
 
 <script src="{{ '/quiz_app/assets/js/app_main.js' | relative_url }}"></script>
