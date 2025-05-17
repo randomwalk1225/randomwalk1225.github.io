@@ -5,7 +5,7 @@ title: 퀴즈 목록
 
 <div id="quiz-list-container">
   <!-- 1줄짜리 flex 컨테이너: 검색창 + 정렬박스 -->
-  <div class="d-flex align-items-center mb-3">
+  <div class="d-flex align-items-stretch mb-3">
     <!-- 1) flex-grow-1: 남는 공간 쭉 채우기, me-3: 오른쪽 1rem 여백 -->
     <input
       type="text"
@@ -18,13 +18,13 @@ title: 퀴즈 목록
     <!-- 2) w-auto: 내용물 폭만 차지 -->
     <select
       id="quiz-sort-combo"
-      class="form-select w-auto"
+      class="form-select w-auto" flex-shrink-0
       aria-label="정렬 옵션"
     >
-      <option value="date_desc" selected>날짜 거꾸로</option>
-      <option value="date_asc">날짜 똑바로</option>
-      <option value="name_asc">이름 똑바로(A → Z)</option>
-      <option value="name_desc">이름 거꾸로(Z → A)</option>
+      <option value="date_desc" selected>날짜(9->1))</option>
+      <option value="date_asc">날짜(1->9)</option>
+      <option value="name_asc">이름(가→하)</option>
+      <option value="name_desc">이름(하->가)</option>
     </select>
   </div>
 
