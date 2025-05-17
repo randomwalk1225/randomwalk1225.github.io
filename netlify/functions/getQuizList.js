@@ -1,5 +1,4 @@
-// netlify/functions/getQuizList.js - Basic Reconstructed Version
-const fs = require('fs');
+const fs = require('fs').promises;
 const path = require('path');
 
 exports.handler = async () => {
@@ -7,20 +6,19 @@ exports.handler = async () => {
   const primaryPath = path.join(process.env.LAMBDA_TASK_ROOT || '.', 'quizzes');
   const fallbackPath = path.join(__dirname, '../../quizzes');
 
-  console.log(`[getQuizList] LAMBDA_TASK_ROOT: ${process.env.LAMBDA_TASK_ROOT}`);
-  console.log(`[getQuizList] __dirname: ${__dirname}`);
-  console.log(`[getQuizList] Attempting primary path: ${primaryPath}`);
-
-  if (process.env.LAMBDA_TASK_ROOT && fs.existsSync(primaryPath)) {
+  // 경로 접근 여부 확인 후 사용
+  try {
+    await fs.access(primaryPath);
     quizzesDir = primaryPath;
-    console.log(`[getQuizList] Using primary path: ${quizzesDir}`);
-  } else {
-    console.warn(`[getQuizList] Primary path ${primaryPath} not found or LAMBDA_TASK_ROOT not set. Attempting fallback path: ${fallbackPath}`);
-    if (fs.existsSync(fallbackPath)) {
+    console.log(`[getQuizList] Using primary path: ${primaryPath}`);
+  } catch {
+    console.warn(`[getQuizList] Primary path not accessible. Attempting fallback path: ${fallbackPath}`);
+    try {
+      await fs.access(fallbackPath);
       quizzesDir = fallbackPath;
-      console.log(`[getQuizList] Using fallback path: ${quizzesDir}`);
-    } else {
-      console.error(`[getQuizList] Fallback path ${fallbackPath} also not found.`);
+      console.log(`[getQuizList] Using fallback path: ${fallbackPath}`);
+    } catch (e) {
+      console.error(`[getQuizList] Neither primary nor fallback path accessible: ${e.message}`);
       return {
         statusCode: 500,
         headers: {
@@ -30,52 +28,40 @@ exports.handler = async () => {
         },
         body: JSON.stringify({
           error: "Quizzes directory not found.",
-          details: `Tried primary: ${primaryPath}, fallback: ${fallbackPath}`,
-          debug_LAMBDA_TASK_ROOT: process.env.LAMBDA_TASK_ROOT,
-          debug_dirname: __dirname
+          details: `Tried primary: ${primaryPath}, fallback: ${fallbackPath}`
         })
       };
     }
   }
 
   try {
-    const quizFolders = fs.readdirSync(quizzesDir)
-      .filter(name => {
+    // 1) 디렉토리 비동기 읽기
+    const names = await fs.readdir(quizzesDir);
+    // 2) 폴더 필터링 및 quiz.json 읽기를 병렬 처리
+    const quizzes = await Promise.all(
+      names.map(async name => {
+        const folderPath = path.join(quizzesDir, name);
         try {
-          return fs.statSync(path.join(quizzesDir, name)).isDirectory();
+          const stat = await fs.stat(folderPath);
+          if (!stat.isDirectory()) return null;
         } catch (e) {
-          console.warn(`[getQuizList] Error stating file/folder ${name}: ${e.message}`);
-          return false;
+          console.error(`[getQuizList] Cannot stat folder: ${folderPath} - ${e.message}`);
+          return null;
         }
-      });
-
-    if (quizFolders.length === 0) {
-      console.warn(`[getQuizList] No quiz sub-folders found in ${quizzesDir}.`);
-    }
-
-    const quizzes = quizFolders.map(folderName => {
-      const quizJsonPath = path.join(quizzesDir, folderName, 'quiz.json');
-      try {
-        const raw = fs.readFileSync(quizJsonPath, 'utf-8');
-        const quizData = JSON.parse(raw);
-        
-        // Use creationDate from quiz.json if it exists, otherwise default to empty string
-        const creationDate = quizData.creationDate || ""; 
-
-        return {
-          id: folderName, // Use the folder name as the quiz ID
-          title: quizData.title || folderName, // Fallback title to folderName
-          ...quizData, // Spread other properties from quiz.json
-          creationDate // Ensure this field is part of the returned object
-        };
-      } catch (e) {
-        console.error(`[getQuizList] Error processing ${quizJsonPath}: ${e.message}`);
-        return null;
-      }
-    }).filter(quiz => quiz !== null);
-
-    quizzes.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
-
+        try {
+          const quizJsonPath = path.join(folderPath, 'quiz.json');
+          const raw = await fs.readFile(quizJsonPath, 'utf-8');
+          const data = JSON.parse(raw);
+          return { id: name, ...data, creationDate: data.creationDate || '' };
+        } catch (e) {
+          console.error(`[getQuizList] Error processing ${name}: ${e.message}`);
+          return null;
+        }
+      })
+    );
+    // 3) null 제거 및 퀴즈 정렬
+    const result = quizzes.filter(q => q !== null)
+                          .sort((a, b) => (a.title || "").localeCompare(b.title || ""));
     return {
       statusCode: 200,
       headers: {
@@ -83,7 +69,7 @@ exports.handler = async () => {
         'Access-Control-Allow-Headers': 'Content-Type',
         'Access-Control-Allow-Methods': 'GET, OPTIONS'
       },
-      body: JSON.stringify(quizzes)
+      body: JSON.stringify(result)
     };
 
   } catch (err) {
@@ -98,10 +84,7 @@ exports.handler = async () => {
       body: JSON.stringify({
         error: "Failed to get quiz list.",
         details: err.message,
-        debug_quizzesDir: quizzesDir, // Log the quizzesDir that was attempted
-        debug_LAMBDA_TASK_ROOT: process.env.LAMBDA_TASK_ROOT,
-        debug_dirname: __dirname,
-        debug_stack: err.stack // Include stack trace for more detailed error
+        debug_stack: err.stack
       })
     };
   }
