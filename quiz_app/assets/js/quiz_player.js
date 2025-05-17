@@ -253,6 +253,24 @@ document.addEventListener('DOMContentLoaded', function() {
                     radio.classList.add('quiz-option-radio');
                     label.appendChild(radio);
 
+                    // radio 버튼 change 이벤트 리스너 추가
+                    radio.addEventListener('change', (e) => {
+                      // 해당 문제의 모든 radio 선택 상태 해제
+                      document.querySelectorAll(`input[name="question-${q.id}"]`)
+                              .forEach(rb => {
+                                  if (rb.parentElement) {
+                                    rb.parentElement.classList.remove('selected');
+                                  }
+                              });
+
+                      if (e.target.checked) {
+                          e.target.parentElement.classList.add('selected');
+                          userAnswers[q.id] = e.target.value;
+                      } else {
+                          delete userAnswers[q.id];
+                      }
+                    });
+
                     // 이미지가 있을 경우, 이미지 태그 생성 및 추가
                     if (isObject && opt.image) {
                         const img = document.createElement('img');

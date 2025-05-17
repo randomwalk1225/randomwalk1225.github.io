@@ -687,12 +687,19 @@ math-field {
         font-weight: bold;
     }
     
+    
    .quiz-option-radio {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-    }
+  position: absolute;
+  opacity: 0;
+  width: 1em;    /* give it some size so clicks register */
+  height: 1em;
+  margin: 0;
+  cursor: pointer;
+}
+
+.quiz-option-label {
+  position: relative;  /* so the absolutely‐positioned input sits on top */
+}
 
     /* Hide MathLive specific UI elements that might not be print-friendly */
     math-field::part(virtual-keyboard-toggle), math-field::part(menu-toggle) {
