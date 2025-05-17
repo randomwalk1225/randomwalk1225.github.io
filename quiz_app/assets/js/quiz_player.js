@@ -596,3 +596,23 @@ async function saveResultToServer(resultData) {
         }
     }
 }
+
+// 예시: 커버 이미지 렌더링 (quiz_player.js 또는 별도 스크립트)
+function renderCoverImage(quizData) {
+  if (quizData.cover_image && quizData.cover_image.trim() !== "") {
+    const coverContainer = document.getElementById('quiz-cover');
+    if (coverContainer) {
+      const imgEl = document.createElement('img');
+      // image URL 처리 로직은 기존과 유사하게 적용
+      const siteBaseUrl = document.body.getAttribute('data-baseurl') || '';
+      if (quizData.cover_image.startsWith('http://') || quizData.cover_image.startsWith('https://')) {
+          imgEl.src = quizData.cover_image;
+      } else {
+          imgEl.src = quizData.cover_image;
+      }
+      imgEl.alt = 'Quiz Cover Image';
+      imgEl.style.maxWidth = '100%';
+      coverContainer.appendChild(imgEl);
+    }
+  }
+}
