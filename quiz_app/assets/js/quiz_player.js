@@ -482,13 +482,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-         // ── 줄바꿈 적용 ──
-        const raw = quiz.question.replace(/\n/g, '<br>');
-        questionContainer.innerHTML = raw;
-
-        // ── MathJax 재렌더링 ──
-        MathJax.typesetPromise([questionContainer]);
-
+        // 변경
+const raw = (q.question || '').replace(/\n/g, '<br>');
+questionHtml = `<h4>…${raw}</h4>`;
 
 
     // --- Timer Functions ---
