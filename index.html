@@ -1,136 +1,84 @@
----
-layout: default
-title: 홈
----
+<!-- Shortcuts -->
 <style>
-  /* Keep minimal custom styles, primarily for the full-page background and specific overrides if BS can't achieve it */
-  body.homepage {
-    margin: 0;
-    padding: 0;
-    background-image: url('https://source.unsplash.com/random/1920x1080/?ocean,underwater');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    /* display: flex; flex-direction: column; justify-content: center; align-items: center; */ /* Bootstrap will handle centering of content block */
+  /* ① Span 글자 크기 3단계(≈1.75rem)로 키우기 */
+  .homepage-shortcut-link span {
+    font-size: 1.75rem;
   }
-
-  /* Custom style for the shortcut icons if Bootstrap's card/button styles aren't a perfect fit */
-  .homepage-shortcut-icon-img {
-    width: 68px; /* Increased by 20px */
-    height: 68px; /* Increased by 20px */
-    background-color: rgba(255, 255, 255, 0.3); /* Light background for the icon itself */
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem; /* Increased emoji/icon font size */
-    color: white; /* Icon color if it's a font/emoji */
-  }
-  .homepage-shortcut-link {
-    background-color: rgba(255, 255, 255, 0.15);
-    transition: background-color 0.3s ease;
-  }
-  .homepage-shortcut-link:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-  }
-
 </style>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    document.body.classList.add('homepage');
-    // If default layout has a visible header/footer we want to hide on homepage:
-    const siteHeader = document.querySelector('body > header.container'); // More specific selector
-    if (siteHeader) siteHeader.style.display = 'none';
-    // const siteFooter = document.querySelector('body > footer.container'); // If there's a footer in default.html
-    // if (siteFooter) siteFooter.style.display = 'none';
-  });
-</script>
-
-<!-- Fixed Top-Left Blog Title -->
-<div class="position-absolute top-0 start-0 p-3">
-  <h1 class="h4 text-white" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">내 블로그 홈</h1>
-</div>
-
-<!-- Centered Content Area -->
 <div class="container d-flex flex-column justify-content-center align-items-center min-vh-100">
-  
-  <!-- Search Bar (Optional, using Bootstrap classes) -->
-  <!-- 
-  <div class="col-md-6 mb-5">
-    <div class="input-group">
-      <span class="input-group-text">🔍</span>
-      <input type="text" class="form-control" placeholder="블로그 내 검색 (구현 예정)" disabled>
-    </div>
-  </div> 
-  -->
 
-  <!-- Shortcuts -->
-  <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3 justify-content-center" style="max-width: 700px;">
-    
+  <!-- 1행: 퀴즈 앱, 아이워크 블로그 -->
+  <div class="row g-3 justify-content-center" style="max-width: 700px;">
     <div class="col text-center">
-      <a href="{{ '/quiz_app/' | relative_url }}" class="homepage-shortcut-link d-block p-3 rounded text-decoration-none">
+      <a href="{{ '/quiz_app/' | relative_url }}"
+         class="homepage-shortcut-link d-block p-3 rounded text-decoration-none">
         <div class="homepage-shortcut-icon-img mx-auto mb-2">🎮</div>
         <span class="text-dark fw-bold">퀴즈 앱</span>
       </a>
     </div>
 
     <div class="col text-center">
-      <a href="{{ '/about.html' | relative_url }}" class="homepage-shortcut-link d-block p-3 rounded text-decoration-none">
-        <div class="homepage-shortcut-icon-img mx-auto mb-2">ℹ️</div>
-        <span class="text-dark fw-bold">소개</span>
-      </a>
-    </div>
-
-    <div class="col text-center">
-      <a href="{{ '/archive.html' | relative_url }}" class="homepage-shortcut-link d-block p-3 rounded text-decoration-none">
+      <a href="{{ '/archive.html' | relative_url }}"
+         class="homepage-shortcut-link d-block p-3 rounded text-decoration-none">
         <div class="homepage-shortcut-icon-img mx-auto mb-2">📚</div>
-        <span class="text-dark fw-bold">아이워크 블로그</span>
+        <span class="text-dark fw-bold">블로그</span>
       </a>
     </div>
+  </div>
 
+  <!-- 2행: Desmos, WolframAlpha, PhET Sims -->
+  <div class="row g-3 justify-content-center" style="max-width: 700px;">
     <div class="col text-center">
-      <a href="https://www.desmos.com" target="_blank" rel="noopener noreferrer" class="homepage-shortcut-link d-block p-3 rounded text-decoration-none">
+      <a href="https://www.desmos.com" target="_blank" rel="noopener noreferrer"
+         class="homepage-shortcut-link d-block p-3 rounded text-decoration-none">
         <div class="homepage-shortcut-icon-img mx-auto mb-2">📈</div>
         <span class="text-dark fw-bold">Desmos</span>
       </a>
     </div>
 
     <div class="col text-center">
-      <a href="https://www.wolframalpha.com" target="_blank" rel="noopener noreferrer" class="homepage-shortcut-link d-block p-3 rounded text-decoration-none">
+      <a href="https://www.wolframalpha.com" target="_blank" rel="noopener noreferrer"
+         class="homepage-shortcut-link d-block p-3 rounded text-decoration-none">
         <div class="homepage-shortcut-icon-img mx-auto mb-2">🐺</div>
         <span class="text-dark fw-bold">WolframAlpha</span>
       </a>
     </div>
 
     <div class="col text-center">
-      <a href="https://phet.colorado.edu/" target="_blank" rel="noopener noreferrer" class="homepage-shortcut-link d-block p-3 rounded text-decoration-none">
+      <a href="https://phet.colorado.edu/" target="_blank" rel="noopener noreferrer"
+         class="homepage-shortcut-link d-block p-3 rounded text-decoration-none">
         <div class="homepage-shortcut-icon-img mx-auto mb-2">🔬</div>
         <span class="text-dark fw-bold">PhET Sims</span>
       </a>
     </div>
+  </div>
 
+  <!-- 3행: ChatGPT, Claude 3, Grok AI -->
+  <div class="row g-3 justify-content-center" style="max-width: 700px;">
     <div class="col text-center">
-      <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" class="homepage-shortcut-link d-block p-3 rounded text-decoration-none">
+      <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer"
+         class="homepage-shortcut-link d-block p-3 rounded text-decoration-none">
         <div class="homepage-shortcut-icon-img mx-auto mb-2">💬</div>
         <span class="text-dark fw-bold">ChatGPT</span>
       </a>
     </div>
 
     <div class="col text-center">
-      <a href="https://claude.ai/" target="_blank" rel="noopener noreferrer" class="homepage-shortcut-link d-block p-3 rounded text-decoration-none">
+      <a href="https://claude.ai/" target="_blank" rel="noopener noreferrer"
+         class="homepage-shortcut-link d-block p-3 rounded text-decoration-none">
         <div class="homepage-shortcut-icon-img mx-auto mb-2">💡</div>
         <span class="text-dark fw-bold">Claude 3</span>
       </a>
     </div>
-    
+
     <div class="col text-center">
-      <a href="https://grok.com/" target="_blank" rel="noopener noreferrer" class="homepage-shortcut-link d-block p-3 rounded text-decoration-none">
+      <a href="https://grok.com/" target="_blank" rel="noopener noreferrer"
+         class="homepage-shortcut-link d-block p-3 rounded text-decoration-none">
         <div class="homepage-shortcut-icon-img mx-auto mb-2">🤖</div>
         <span class="text-dark fw-bold">Grok AI</span>
       </a>
     </div>
-
   </div>
+
 </div>
