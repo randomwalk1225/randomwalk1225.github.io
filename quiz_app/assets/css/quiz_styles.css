@@ -998,3 +998,35 @@ math-field {
     font-family: "Consolas", "Menlo", "Courier New", monospace !important; /* Keep monospace */
     font-style: normal !important; /* Keep normal style */
 }
+
+
+/* 1) 검색 input 과 정렬 select 높이 맞추기 */
+#quiz-search-input,
+#quiz-sort-combo {
+  height: 35px;
+  /* form-control 에 이미 padding이 잡혀 있으면, 
+     줄 높이가 밀릴 수 있습니다. 
+     필요하면 padding 도 조정하세요. */
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+}
+
+/* 2) input 과 combo 사이 간격 조절 */
+/* inline style 로 margin-right:1rem; 이 잡혀 있는데, 
+   혹시 더 좁히고 싶으면 아래처럼 override 가능합니다. */
+#quiz-search-input {
+  margin-right: 0.5rem; /* 원하는 px/ rem 값으로 바꿔주세요 */
+}
+
+/* 3) (옵션) flex gap 을 활용하고 싶다면, 
+   인라인 스타일 대신 컨테이너에 gap만 주면 깔끔해집니다. */
+/*
+#quiz-list-container > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;   // input/ select 사이 간격
+  margin-bottom: 1rem;
+}
+*/
+
+
