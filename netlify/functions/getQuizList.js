@@ -1,7 +1,7 @@
 const fs = require('fs').promises;
 const path = require('path');
 
-exports.handler = async () => {
+exports.handler = async (event) => {
   let quizzesDir;
   const primaryPath = path.join(process.env.LAMBDA_TASK_ROOT || '.', 'quizzes');
   const fallbackPath = path.join(__dirname, '../../quizzes');
@@ -59,9 +59,25 @@ exports.handler = async () => {
         }
       })
     );
-    // 3) null 제거 및 퀴즈 정렬
-    const result = quizzes.filter(q => q !== null)
-                          .sort((a, b) => (a.title || "").localeCompare(b.title || ""));
+    // 3) null 제거 및 정렬
+    const params = event.queryStringParameters || {};
+    const sortBy = params.sortBy || 'date';     // 'date' 또는 'name'
+    const sortOrder = params.sortOrder || 'desc'; // 'desc' (최신순/역순) 또는 'asc' (오름차순)
+
+    let result = quizzes.filter(q => q !== null);
+    if (sortBy === 'date') {
+      result = result.sort((a, b) => {
+        const dateA = new Date(a.creationDate);
+        const dateB = new Date(b.creationDate);
+        return sortOrder === 'desc' ? dateB - dateA : dateA - dateB;
+      });
+    } else if (sortBy === 'name') {
+      result = result.sort((a, b) => {
+        const comp = (a.title || "").localeCompare(b.title || "");
+        return sortOrder === 'desc' ? -comp : comp;
+      });
+    }
+
     return {
       statusCode: 200,
       headers: {
