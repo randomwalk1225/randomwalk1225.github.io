@@ -482,9 +482,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-        // linefeed
-        const raw = jsonQuestionString.replace(/\n/g, '<br>');
+         // ── 줄바꿈 적용 ──
+        const raw = quiz.question.replace(/\n/g, '<br>');
         questionContainer.innerHTML = raw;
+
+        // ── MathJax 재렌더링 ──
         MathJax.typesetPromise([questionContainer]);
 
 
