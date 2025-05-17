@@ -482,10 +482,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-        // 변경
-const raw = (q.question || '').replace(/\n/g, '<br>');
-questionHtml = `<h4>…${raw}</h4>`;
-
 
     // --- Timer Functions ---
     function updateCurrentTime() {
