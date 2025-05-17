@@ -743,6 +743,18 @@ math-field {
     }
 }
 
+
+/* 1) media 쿼리 바깥(전역)에 데스크톱·모바일 공통 규칙 추가 */
+.quiz-card-image-placeholder,
+.quiz-card-image-placeholder.card-img-top,
+.card-img-top {
+  width: 100%;
+  height: 60px !important;   /* 데스크톱·모바일 공통 높이 */
+  object-fit: cover;
+}
+
+
+
 @media (max-width: 480px) {
     header h1 a {
         font-size: 1.5rem; /* Smaller site title */
@@ -823,6 +835,7 @@ math-field {
     height: 60px !important; /* Target height for image/placeholder area, approx 2/3 of 180px is 120px, let's try smaller */
     object-fit: cover;
 }
+
 .quiz-card-image-placeholder.card-img-top { /* Ensure placeholder also gets this height */
     height: 60px !important;
 }
