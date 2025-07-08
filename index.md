@@ -1,10 +1,27 @@
 ---
 layout: default
-title: 홈 페이지
+title: 홈
 ---
 
-# 환영합니다!
+# 안녕하세요! 👋
 
-이것은 내 첫 번째 GitHub Pages 사이트입니다.
+**My Jekyll Blog**에 오신 것을 환영합니다.
 
-여기에 내용을 추가해 사이트를 꾸며보세요.
+여기는 제가 일상, 개발, 취미 등 다양한 이야기를 나누는 공간입니다.
+
+---
+
+## 최신 글
+
+- [첫 번째 게시글](posts/first-post) - 2025-07-08  
+  블로그 시작을 알리는 첫 글입니다.
+
+- [두 번째 게시글](posts/second-post) - 2025-07-09  
+  Jekyll과 GitHub Pages에 대해 소개합니다.
+
+---
+
+## 연락처
+
+- 이메일: example@example.com  
+- 깃허브: [github.com/username](https://github.com/username)
