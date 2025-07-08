@@ -19,6 +19,15 @@ title: 홈
 {% endfor %}
 </ul>
 
+
+
+{% if site.posts.size > 0 %}
+## 글이 있습니다!
+{% else %}
+## 글이 없습니다!
+{% endif %}
+
+
 - [첫 번째 게시글](posts/first-post) - 2025-07-08  
   블로그 시작을 알리는 첫 글입니다.
 
