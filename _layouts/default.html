@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <title>{{ page.title }}</title>
 
-  <!-- MathJax configuration (inline, display 수식 구분) -->
+  <!-- 스타일시트 -->
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+  <!-- MathJax 설정 -->
   <script type="text/x-mathjax-config">
     MathJax = {
       tex: {
@@ -13,7 +16,6 @@
       }
     };
   </script>
-  <!-- MathJax 불러오기 -->
   <script
     id="MathJax-script"
     async
@@ -22,6 +24,20 @@
 
 </head>
 <body>
-  {{ content }}
+  <header>
+    <a href="{{ '/' | relative_url }}" class="logo">My Jekyll Blog</a>
+    <nav>
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/about' | relative_url }}">About</a>
+    </nav>
+  </header>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer>
+    &copy; 2025 SANGYEOL LEE · <a href="https://github.com/randomwalk1225" target="_blank">GitHub</a>
+  </footer>
 </body>
 </html>
