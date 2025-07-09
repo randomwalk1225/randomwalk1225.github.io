@@ -4,14 +4,24 @@
   <meta charset="UTF-8" />
   <title>{{ page.title }}</title>
 
+  <!-- MathJax configuration (inline, display 수식 구분) -->
+  <script type="text/x-mathjax-config">
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['$$', '$$']]
+      }
+    };
+  </script>
   <!-- MathJax 불러오기 -->
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+  <script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
 
 </head>
 <body>
   {{ content }}
-
-  <!-- 필요하면 추가 스크립트 -->
-
 </body>
 </html>
