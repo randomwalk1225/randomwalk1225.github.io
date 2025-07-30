@@ -1,0 +1,136 @@
+/* assets/css/style.css */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+
+:root {
+  --font-primary: 'Merriweather', serif;
+  --font-secondary: 'Source Sans Pro', sans-serif;
+  --color-bg: #f8f9fa;
+  --color-text: #212529;
+  --color-primary: #007bff;
+  --color-header-bg: #ffffff;
+  --color-footer-bg: #343a40;
+  --color-footer-text: #f8f9fa;
+  --max-width: 960px;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-secondary);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.8;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+header {
+  background-color: var(--color-header-bg);
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #dee2e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--box-shadow);
+}
+
+header .logo {
+  font-family: var(--font-primary);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+header nav a {
+  margin-left: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  margin-bottom: 1.5rem;
+  color: #343a40;
+}
+
+article p {
+  margin-bottom: 1.2rem;
+}
+
+footer {
+  background-color: var(--color-footer-bg);
+  color: var(--color-footer-text);
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 4rem;
+}
+
+footer a {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Post List */
+.post-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.post-card {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.post-card h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.post-card h3 a {
+  color: var(--color-text);
+}
+
+.post-excerpt {
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
