@@ -114,6 +114,18 @@
         .btn-secondary:hover {
             background: #e0e0e0;
         }
+        .btn-success {
+            background: #4caf50;
+            color: white;
+            border: none;
+        }
+        .btn-success:hover {
+            background: #45a049;
+        }
+        .btn-copied {
+            background: #4caf50 !important;
+            color: white !important;
+        }
         .stats {
             background: #f8f9fa;
             padding: 15px;
@@ -159,9 +171,10 @@
             <h3>📋 사용 방법</h3>
             <ol>
                 <li>아래 목록에서 색인을 생성할 페이지를 찾으세요</li>
-                <li><strong>"색인 요청"</strong> 버튼을 클릭하세요</li>
-                <li>Google Search Console 페이지가 열립니다</li>
-                <li>열린 페이지에서 <strong>"색인 생성 요청"</strong> 버튼을 클릭하세요</li>
+                <li><strong>"📋 URL 복사"</strong> 버튼을 클릭하세요 (자동으로 클립보드에 복사됨)</li>
+                <li><strong>"🔍 Search Console 열기"</strong> 버튼을 클릭하세요</li>
+                <li>열린 페이지 상단 검색창에 <strong>붙여넣기</strong> (Ctrl+V 또는 Cmd+V)</li>
+                <li>Enter를 누른 후 <strong>"색인 생성 요청"</strong> 버튼을 클릭하세요</li>
                 <li>모든 페이지에 대해 반복하세요</li>
             </ol>
         </div>
@@ -188,7 +201,8 @@
         const PAGE_TITLES = {
             [SITE_URL + '/']: '메인 페이지 (홈)',
             [SITE_URL + '/posts/derivative-of-rational-functions.html']: '분수함수의 미분',
-            [SITE_URL + '/posts/permutation-combination.html']: '경우의 수: 순열과 조합의 비교'
+            [SITE_URL + '/posts/permutation-combination.html']: '경우의 수: 순열과 조합의 비교',
+            [SITE_URL + '/posts/duplicate-combination.html']: '중복조합의 개념과 활용'
         };
 
         async function fetchSitemap() {
@@ -217,26 +231,46 @@
             return urlList;
         }
 
-        function getSearchConsoleUrl(url) {
-            const encodedUrl = encodeURIComponent(url);
-            return `https://search.google.com/search-console/inspect?resource_id=${encodeURIComponent(SITE_URL + '/')}&id=${encodedUrl}`;
+        function getSearchConsoleUrl() {
+            return `https://search.google.com/search-console?resource_id=${encodeURIComponent(SITE_URL + '/')}`;
         }
 
         function getPageTitle(url) {
             return PAGE_TITLES[url] || url.split('/').pop() || '페이지';
         }
 
+        async function copyToClipboard(url, buttonId) {
+            try {
+                await navigator.clipboard.writeText(url);
+                const button = document.getElementById(buttonId);
+                const originalText = button.innerHTML;
+                button.innerHTML = '✅ 복사 완료!';
+                button.classList.add('btn-copied');
+
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.classList.remove('btn-copied');
+                }, 2000);
+            } catch (err) {
+                alert('복사 실패: ' + err.message);
+            }
+        }
+
         function createUrlItem(url, index) {
             const title = getPageTitle(url);
-            const searchConsoleUrl = getSearchConsoleUrl(url);
+            const searchConsoleUrl = getSearchConsoleUrl();
+            const buttonId = `copy-btn-${index}`;
 
             return `
                 <div class="url-item">
                     <div class="url-title">${index + 1}. ${title}</div>
                     <div class="url-path">${url}</div>
                     <div class="url-actions">
-                        <a href="${searchConsoleUrl}" target="_blank" class="btn btn-primary">
-                            🔍 색인 요청
+                        <button id="${buttonId}" onclick="copyToClipboard('${url}', '${buttonId}')" class="btn btn-primary">
+                            📋 URL 복사
+                        </button>
+                        <a href="${searchConsoleUrl}" target="_blank" class="btn btn-success">
+                            🔍 Search Console 열기
                         </a>
                         <a href="${url}" target="_blank" class="btn btn-secondary">
                             👀 페이지 보기
