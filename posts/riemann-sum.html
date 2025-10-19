@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>리만 합과 구분구적법 - 수학 블로그</title>
+    <meta name="description" content="리만 합(Riemann Sum)과 구분구적법을 통해 정적분의 개념을 이해합니다. 좌측 리만 합(Left Riemann Sum)과 우측 리만 합(Right Riemann Sum)의 차이와 활용을 예제와 함께 학습하세요.">
+    <meta name="keywords" content="리만 합, 구분구적법, 정적분, 미적분, Riemann Sum, 수학">
+    <meta name="author" content="수학 블로그">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://randomwalk1225.github.io/posts/riemann-sum.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://randomwalk1225.github.io/posts/riemann-sum.html">
+    <meta property="og:title" content="리만 합과 구분구적법">
+    <meta property="og:description" content="리만 합을 이용하여 정적분의 개념을 이해하고 좌측/우측 리만 합을 계산하는 방법을 학습합니다.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://randomwalk1225.github.io/posts/riemann-sum.html">
+    <meta property="twitter:title" content="리만 합과 구분구적법">
+    <meta property="twitter:description" content="리만 합을 이용하여 정적분의 개념을 이해하고 좌측/우측 리만 합을 계산하는 방법을 학습합니다.">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax Configuration -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        .category-badge {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .date {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .definition-box {
+            background-color: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .theorem-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .example-box {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .problem-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #64748b;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .solution-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .formula {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            margin-top: 50px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #667eea;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="category-badge">미적분</div>
+        <h1>리만 합과 구분구적법</h1>
+        <div class="date">2025년 10월 19일</div>
+    </div>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← 목록으로 돌아가기</a>
+
+        <h2>1. 정적분의 정의와 리만 합</h2>
+
+        <p>
+            곡선 아래의 넓이를 어떻게 구할 수 있을까요?
+            단순한 직사각형이나 삼각형이 아닌 곡선으로 이루어진 도형의 넓이는
+            고대부터 수학자들을 괴롭혀온 문제였습니다.
+        </p>
+
+        <p>
+            19세기 독일의 수학자 베른하르트 리만(Bernhard Riemann)은
+            이 문제를 해결하기 위해 영리한 방법을 고안했습니다.
+            바로 곡선 아래의 영역을 작은 직사각형들로 나누어 근사하는 것입니다.
+        </p>
+
+        <div class="definition-box">
+            <h3>정의: 리만 합 (Riemann Sum)</h3>
+            <p>함수 $f(x)$가 구간 $[a, b]$에서 정의될 때, 이 구간을 $n$개의 부분구간으로 나눕니다:</p>
+            <div class="formula">
+                $$a = x_0 < x_1 < x_2 < \cdots < x_n = b$$
+            </div>
+            <p>각 부분구간의 폭을 $\Delta x = \frac{b-a}{n}$이라 하면,</p>
+            <p><strong>리만 합</strong>은 각 부분구간에서의 함수값과 폭의 곱의 합입니다:</p>
+            <div class="formula">
+                $$R_n = \sum_{i=1}^{n} f(x_i^*) \Delta x$$
+            </div>
+            <p>여기서 $x_i^*$는 $[x_{i-1}, x_i]$ 구간의 대표점입니다.</p>
+        </div>
+
+        <h2>2. 좌측 리만 합 (Left Riemann Sum)</h2>
+
+        <p>
+            좌측 리만 합은 각 부분구간의 <strong>왼쪽 끝점</strong>에서의 함수값을 사용하여 직사각형의 높이를 결정합니다.
+        </p>
+
+        <div class="theorem-box">
+            <h3>좌측 리만 합 공식</h3>
+            <p>대표점으로 $x_i^* = x_{i-1}$을 선택하면:</p>
+            <div class="formula">
+                $$L_n = \sum_{i=1}^{n} f(x_{i-1}) \Delta x = \Delta x [f(x_0) + f(x_1) + \cdots + f(x_{n-1})]$$
+            </div>
+            <p>즉, $L_n = \Delta x \sum_{i=0}^{n-1} f(x_i)$</p>
+        </div>
+
+        <h3>2.1 좌측 리만 합의 특징</h3>
+
+        <ul>
+            <li><strong>증가함수의 경우:</strong> 좌측 리만 합은 실제 넓이보다 <strong>작습니다</strong> (과소평가)</li>
+            <li><strong>감소함수의 경우:</strong> 좌측 리만 합은 실제 넓이보다 <strong>큽니다</strong> (과대평가)</li>
+            <li>계산이 비교적 간단하여 초기 근사값으로 자주 사용됩니다</li>
+        </ul>
+
+        <div class="example-box">
+            <h3>예제 1: 좌측 리만 합</h3>
+            <p>$f(x) = x^2$에 대하여 구간 $[0, 2]$를 4개의 부분구간으로 나누어 좌측 리만 합을 구하시오.</p>
+
+            <p><strong>풀이:</strong></p>
+            <p>1단계: 구간 설정</p>
+            <ul>
+                <li>$a = 0, b = 2, n = 4$</li>
+                <li>$\Delta x = \frac{2-0}{4} = 0.5$</li>
+                <li>분할점: $x_0 = 0, x_1 = 0.5, x_2 = 1.0, x_3 = 1.5, x_4 = 2.0$</li>
+            </ul>
+
+            <p>2단계: 좌측 끝점에서의 함수값 계산</p>
+            <ul>
+                <li>$f(x_0) = f(0) = 0^2 = 0$</li>
+                <li>$f(x_1) = f(0.5) = (0.5)^2 = 0.25$</li>
+                <li>$f(x_2) = f(1.0) = 1^2 = 1$</li>
+                <li>$f(x_3) = f(1.5) = (1.5)^2 = 2.25$</li>
+            </ul>
+
+            <p>3단계: 좌측 리만 합 계산</p>
+            <div class="formula">
+                $$\begin{align}
+                L_4 &= \Delta x [f(x_0) + f(x_1) + f(x_2) + f(x_3)] \\
+                &= 0.5 [0 + 0.25 + 1 + 2.25] \\
+                &= 0.5 \times 3.5 \\
+                &= 1.75
+                \end{align}$$
+            </div>
+
+            <p><strong>참고:</strong> 실제 정적분 값은 $\int_0^2 x^2 dx = \frac{8}{3} \approx 2.667$이므로, 좌측 리만 합이 과소평가했습니다.</p>
+        </div>
+
+        <h2>3. 우측 리만 합 (Right Riemann Sum)</h2>
+
+        <p>
+            우측 리만 합은 각 부분구간의 <strong>오른쪽 끝점</strong>에서의 함수값을 사용하여 직사각형의 높이를 결정합니다.
+        </p>
+
+        <div class="theorem-box">
+            <h3>우측 리만 합 공식</h3>
+            <p>대표점으로 $x_i^* = x_i$를 선택하면:</p>
+            <div class="formula">
+                $$R_n = \sum_{i=1}^{n} f(x_i) \Delta x = \Delta x [f(x_1) + f(x_2) + \cdots + f(x_n)]$$
+            </div>
+            <p>즉, $R_n = \Delta x \sum_{i=1}^{n} f(x_i)$</p>
+        </div>
+
+        <h3>3.1 우측 리만 합의 특징</h3>
+
+        <ul>
+            <li><strong>증가함수의 경우:</strong> 우측 리만 합은 실제 넓이보다 <strong>큽니다</strong> (과대평가)</li>
+            <li><strong>감소함수의 경우:</strong> 우측 리만 합은 실제 넓이보다 <strong>작습니다</strong> (과소평가)</li>
+            <li>좌측 리만 합과 함께 사용하여 실제 넓이의 상한과 하한을 추정할 수 있습니다</li>
+        </ul>
+
+        <div class="example-box">
+            <h3>예제 2: 우측 리만 합</h3>
+            <p>$f(x) = x^2$에 대하여 구간 $[0, 2]$를 4개의 부분구간으로 나누어 우측 리만 합을 구하시오.</p>
+
+            <p><strong>풀이:</strong></p>
+            <p>1단계: 구간 설정 (예제 1과 동일)</p>
+            <ul>
+                <li>$\Delta x = 0.5$</li>
+                <li>분할점: $x_0 = 0, x_1 = 0.5, x_2 = 1.0, x_3 = 1.5, x_4 = 2.0$</li>
+            </ul>
+
+            <p>2단계: 우측 끝점에서의 함수값 계산</p>
+            <ul>
+                <li>$f(x_1) = f(0.5) = 0.25$</li>
+                <li>$f(x_2) = f(1.0) = 1$</li>
+                <li>$f(x_3) = f(1.5) = 2.25$</li>
+                <li>$f(x_4) = f(2.0) = 4$</li>
+            </ul>
+
+            <p>3단계: 우측 리만 합 계산</p>
+            <div class="formula">
+                $$\begin{align}
+                R_4 &= \Delta x [f(x_1) + f(x_2) + f(x_3) + f(x_4)] \\
+                &= 0.5 [0.25 + 1 + 2.25 + 4] \\
+                &= 0.5 \times 7.5 \\
+                &= 3.75
+                \end{align}$$
+            </div>
+
+            <p><strong>비교:</strong></p>
+            <ul>
+                <li>좌측 리만 합: $L_4 = 1.75$</li>
+                <li>우측 리만 합: $R_4 = 3.75$</li>
+                <li>실제 정적분: $\int_0^2 x^2 dx = \frac{8}{3} \approx 2.667$</li>
+                <li>평균: $\frac{L_4 + R_4}{2} = \frac{1.75 + 3.75}{2} = 2.75$ (실제 값에 더 가까움)</li>
+            </ul>
+        </div>
+
+        <h2>4. 좌측 리만 합 vs 우측 리만 합</h2>
+
+        <table>
+            <tr>
+                <th>비교 항목</th>
+                <th>좌측 리만 합</th>
+                <th>우측 리만 합</th>
+            </tr>
+            <tr>
+                <td>대표점</td>
+                <td>$x_{i-1}$ (왼쪽 끝)</td>
+                <td>$x_i$ (오른쪽 끝)</td>
+            </tr>
+            <tr>
+                <td>증가함수</td>
+                <td>과소평가 (하한)</td>
+                <td>과대평가 (상한)</td>
+            </tr>
+            <tr>
+                <td>감소함수</td>
+                <td>과대평가 (상한)</td>
+                <td>과소평가 (하한)</td>
+            </tr>
+            <tr>
+                <td>사용 인덱스</td>
+                <td>$\sum_{i=0}^{n-1} f(x_i)$</td>
+                <td>$\sum_{i=1}^{n} f(x_i)$</td>
+            </tr>
+        </table>
+
+        <h2>5. 정적분으로의 수렴</h2>
+
+        <p>
+            구간을 나누는 개수 $n$을 무한대로 보내면, 좌측 리만 합과 우측 리만 합 모두 정적분으로 수렴합니다:
+        </p>
+
+        <div class="formula">
+            $$\lim_{n \to \infty} L_n = \lim_{n \to \infty} R_n = \int_a^b f(x) dx$$
+        </div>
+
+        <p>
+            이것이 바로 정적분의 정의입니다!
+        </p>
+
+        <h2>6. 연습문제</h2>
+
+        <div class="problem-box">
+            <h3>문제 1</h3>
+            <p>$f(x) = 2x + 1$에 대하여 구간 $[0, 3]$을 6개의 부분구간으로 나누어:</p>
+            <ol>
+                <li>좌측 리만 합을 구하시오.</li>
+                <li>우측 리만 합을 구하시오.</li>
+                <li>실제 정적분 $\int_0^3 (2x+1) dx$를 계산하고 비교하시오.</li>
+            </ol>
+        </div>
+
+        <div class="solution-box">
+            <h3>풀이 1</h3>
+
+            <p><strong>구간 설정:</strong></p>
+            <ul>
+                <li>$a = 0, b = 3, n = 6$</li>
+                <li>$\Delta x = \frac{3-0}{6} = 0.5$</li>
+                <li>분할점: $0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0$</li>
+            </ul>
+
+            <p><strong>1) 좌측 리만 합</strong></p>
+            <p>함수값 계산:</p>
+            <table>
+                <tr>
+                    <th>$x_i$</th>
+                    <th>0</th>
+                    <th>0.5</th>
+                    <th>1.0</th>
+                    <th>1.5</th>
+                    <th>2.0</th>
+                    <th>2.5</th>
+                </tr>
+                <tr>
+                    <td>$f(x_i)$</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+            </table>
+
+            <div class="formula">
+                $$\begin{align}
+                L_6 &= 0.5 [f(0) + f(0.5) + f(1.0) + f(1.5) + f(2.0) + f(2.5)] \\
+                &= 0.5 [1 + 2 + 3 + 4 + 5 + 6] \\
+                &= 0.5 \times 21 \\
+                &= 10.5
+                \end{align}$$
+            </div>
+
+            <p><strong>2) 우측 리만 합</strong></p>
+            <p>함수값 계산:</p>
+            <table>
+                <tr>
+                    <th>$x_i$</th>
+                    <th>0.5</th>
+                    <th>1.0</th>
+                    <th>1.5</th>
+                    <th>2.0</th>
+                    <th>2.5</th>
+                    <th>3.0</th>
+                </tr>
+                <tr>
+                    <td>$f(x_i)$</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                </tr>
+            </table>
+
+            <div class="formula">
+                $$\begin{align}
+                R_6 &= 0.5 [f(0.5) + f(1.0) + f(1.5) + f(2.0) + f(2.5) + f(3.0)] \\
+                &= 0.5 [2 + 3 + 4 + 5 + 6 + 7] \\
+                &= 0.5 \times 27 \\
+                &= 13.5
+                \end{align}$$
+            </div>
+
+            <p><strong>3) 실제 정적분</strong></p>
+            <div class="formula">
+                $$\begin{align}
+                \int_0^3 (2x+1) dx &= \left[x^2 + x\right]_0^3 \\
+                &= (9 + 3) - (0 + 0) \\
+                &= 12
+                \end{align}$$
+            </div>
+
+            <p><strong>비교:</strong></p>
+            <ul>
+                <li>좌측 리만 합: $L_6 = 10.5$ (과소평가)</li>
+                <li>우측 리만 합: $R_6 = 13.5$ (과대평가)</li>
+                <li>실제 정적분: $12$ (두 값의 중간)</li>
+                <li>평균: $\frac{10.5 + 13.5}{2} = 12$ (정확함!)</li>
+            </ul>
+
+            <p><strong>관찰:</strong> 일차함수의 경우 좌측 리만 합과 우측 리만 합의 평균이 정확한 정적분 값입니다.</p>
+        </div>
+
+        <div class="problem-box">
+            <h3>문제 2</h3>
+            <p>$f(x) = 4 - x^2$에 대하여 구간 $[0, 2]$를 4개의 부분구간으로 나누어:</p>
+            <ol>
+                <li>좌측 리만 합을 구하시오.</li>
+                <li>우측 리만 합을 구하시오.</li>
+                <li>$n$이 증가하면 어떻게 될지 설명하시오.</li>
+            </ol>
+        </div>
+
+        <div class="solution-box">
+            <h3>풀이 2</h3>
+
+            <p><strong>구간 설정:</strong></p>
+            <ul>
+                <li>$a = 0, b = 2, n = 4$</li>
+                <li>$\Delta x = \frac{2-0}{4} = 0.5$</li>
+                <li>분할점: $0, 0.5, 1.0, 1.5, 2.0$</li>
+            </ul>
+
+            <p><strong>1) 좌측 리만 합</strong></p>
+            <p>함수값 계산:</p>
+            <ul>
+                <li>$f(0) = 4 - 0^2 = 4$</li>
+                <li>$f(0.5) = 4 - (0.5)^2 = 3.75$</li>
+                <li>$f(1.0) = 4 - 1^2 = 3$</li>
+                <li>$f(1.5) = 4 - (1.5)^2 = 1.75$</li>
+            </ul>
+
+            <div class="formula">
+                $$\begin{align}
+                L_4 &= 0.5 [4 + 3.75 + 3 + 1.75] \\
+                &= 0.5 \times 12.5 \\
+                &= 6.25
+                \end{align}$$
+            </div>
+
+            <p><strong>2) 우측 리만 합</strong></p>
+            <p>함수값 계산:</p>
+            <ul>
+                <li>$f(0.5) = 3.75$</li>
+                <li>$f(1.0) = 3$</li>
+                <li>$f(1.5) = 1.75$</li>
+                <li>$f(2.0) = 4 - 4 = 0$</li>
+            </ul>
+
+            <div class="formula">
+                $$\begin{align}
+                R_4 &= 0.5 [3.75 + 3 + 1.75 + 0] \\
+                &= 0.5 \times 8.5 \\
+                &= 4.25
+                \end{align}$$
+            </div>
+
+            <p><strong>3) $n$이 증가하면?</strong></p>
+
+            <p>실제 정적분 값:</p>
+            <div class="formula">
+                $$\begin{align}
+                \int_0^2 (4-x^2) dx &= \left[4x - \frac{x^3}{3}\right]_0^2 \\
+                &= \left(8 - \frac{8}{3}\right) - 0 \\
+                &= \frac{16}{3} \approx 5.333
+                \end{align}$$
+            </div>
+
+            <p><strong>관찰:</strong></p>
+            <ul>
+                <li>$f(x) = 4 - x^2$는 $[0, 2]$에서 감소함수입니다</li>
+                <li>좌측 리만 합: $L_4 = 6.25 > 5.333$ (과대평가)</li>
+                <li>우측 리만 합: $R_4 = 4.25 < 5.333$ (과소평가)</li>
+                <li>실제 값은 두 값 사이: $4.25 < 5.333 < 6.25$</li>
+            </ul>
+
+            <p><strong>$n$이 증가하면:</strong></p>
+            <ul>
+                <li>$\Delta x$가 작아져서 직사각형이 더 많아지고 가늘어집니다</li>
+                <li>$L_n$은 감소하면서 실제 값에 접근합니다</li>
+                <li>$R_n$은 증가하면서 실제 값에 접근합니다</li>
+                <li>$\lim_{n \to \infty} L_n = \lim_{n \to \infty} R_n = \frac{16}{3}$</li>
+            </ul>
+        </div>
+
+        <h2>7. 리만 합의 응용</h2>
+
+        <h3>7.1 물리학에서의 응용</h3>
+        <ul>
+            <li><strong>거리 계산:</strong> 속도 함수를 시간에 대해 적분하면 이동 거리</li>
+            <li><strong>일(Work):</strong> 힘 함수를 거리에 대해 적분하면 한 일</li>
+            <li><strong>전하량:</strong> 전류를 시간에 대해 적분하면 총 전하량</li>
+        </ul>
+
+        <h3>7.2 경제학에서의 응용</h3>
+        <ul>
+            <li><strong>총비용:</strong> 한계비용 함수를 생산량에 대해 적분</li>
+            <li><strong>소비자 잉여:</strong> 수요곡선 아래의 넓이</li>
+        </ul>
+
+        <h2>8. 요약</h2>
+
+        <ul>
+            <li>리만 합은 곡선 아래의 넓이를 직사각형들로 근사합니다</li>
+            <li>좌측 리만 합: $L_n = \Delta x \sum_{i=0}^{n-1} f(x_i)$ (왼쪽 끝점 사용)</li>
+            <li>우측 리만 합: $R_n = \Delta x \sum_{i=1}^{n} f(x_i)$ (오른쪽 끝점 사용)</li>
+            <li>증가함수: $L_n <$ 실제 넓이 $< R_n$</li>
+            <li>감소함수: $R_n <$ 실제 넓이 $< L_n$</li>
+            <li>$n \to \infty$일 때 두 리만 합 모두 정적분으로 수렴합니다</li>
+        </ul>
+
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 수학 블로그. All rights reserved.</p>
+    </div>
+
+    <!-- Structured Data (Schema.org JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "리만 합과 구분구적법",
+        "description": "리만 합을 이용하여 정적분의 개념을 이해하고 좌측/우측 리만 합을 계산하는 방법을 학습합니다.",
+        "author": {
+            "@type": "Person",
+            "name": "수학 블로그"
+        },
+        "datePublished": "2025-10-19",
+        "publisher": {
+            "@type": "Organization",
+            "name": "수학 블로그"
+        }
+    }
+    </script>
+</body>
+</html>
