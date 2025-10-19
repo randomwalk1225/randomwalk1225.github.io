@@ -30,16 +30,70 @@
             font-size: 1.1em;
             opacity: 0.9;
         }
-        .container {
-            max-width: 900px;
+        .main-layout {
+            display: flex;
+            max-width: 1400px;
             margin: 40px auto;
             padding: 0 20px;
+            gap: 30px;
+        }
+        .sidebar {
+            width: 250px;
+            flex-shrink: 0;
+        }
+        .sidebar-sticky {
+            position: sticky;
+            top: 20px;
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .sidebar h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        .category-list {
+            list-style: none;
+        }
+        .category-item {
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .category-item:hover {
+            background-color: #f0f0f0;
+        }
+        .category-item.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 600;
+        }
+        .category-count {
+            background-color: rgba(0,0,0,0.1);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.85em;
+        }
+        .active .category-count {
+            background-color: rgba(255,255,255,0.2);
+        }
+        .content {
+            flex: 1;
+            min-width: 0;
         }
         .post-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 30px;
         }
         .post-card {
             background: white;
@@ -50,6 +104,9 @@
             text-decoration: none;
             color: inherit;
             display: block;
+        }
+        .post-card.hidden {
+            display: none;
         }
         .post-card:hover {
             transform: translateY(-5px);
@@ -88,11 +145,39 @@
             border-radius: 20px;
             font-size: 0.85em;
         }
+        .category-badge {
+            display: inline-block;
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+        }
         .footer {
             text-align: center;
             padding: 40px 20px;
             color: #666;
             margin-top: 60px;
+        }
+        @media (max-width: 1024px) {
+            .main-layout {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+            }
+            .sidebar-sticky {
+                position: static;
+            }
+            .category-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .category-item {
+                margin-bottom: 0;
+            }
         }
         @media (max-width: 768px) {
             .header h1 {
@@ -110,34 +195,137 @@
         <p>수학의 아름다움을 탐구합니다</p>
     </div>
 
-    <div class="container">
-        <div class="post-grid">
-            <!-- Post 1 -->
-            <a href="posts/derivative-of-rational-functions.html" class="post-card">
-                <div class="post-header">
-                    <h2>분수함수의 미분</h2>
-                    <div class="post-date">2025년 10월 19일</div>
-                </div>
-                <div class="post-body">
-                    <p class="post-description">
-                        몫의 미분법(Quotient Rule)을 이용한 분수함수 미분 방법을 알아봅니다.
-                        유도 과정, 예제, 그리고 연습문제를 통해 자세히 학습할 수 있습니다.
-                    </p>
-                    <div class="post-tags">
-                        <span class="tag">미적분</span>
-                        <span class="tag">미분</span>
-                        <span class="tag">분수함수</span>
+    <div class="main-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-sticky">
+                <h3>카테고리</h3>
+                <ul class="category-list">
+                    <li class="category-item active" data-category="all">
+                        <span>전체</span>
+                        <span class="category-count">1</span>
+                    </li>
+                    <li class="category-item" data-category="미적분">
+                        <span>미적분</span>
+                        <span class="category-count">1</span>
+                    </li>
+                    <li class="category-item" data-category="대수학">
+                        <span>대수학</span>
+                        <span class="category-count">0</span>
+                    </li>
+                    <li class="category-item" data-category="기하학">
+                        <span>기하학</span>
+                        <span class="category-count">0</span>
+                    </li>
+                    <li class="category-item" data-category="확률과 통계">
+                        <span>확률과 통계</span>
+                        <span class="category-count">0</span>
+                    </li>
+                    <li class="category-item" data-category="이산수학">
+                        <span>이산수학</span>
+                        <span class="category-count">0</span>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="content">
+            <div class="post-grid">
+                <!-- Post 1 -->
+                <a href="posts/derivative-of-rational-functions.html" class="post-card" data-category="미적분">
+                    <div class="post-header">
+                        <div class="category-badge">미적분</div>
+                        <h2>분수함수의 미분</h2>
+                        <div class="post-date">2025년 10월 19일</div>
                     </div>
-                </div>
-            </a>
+                    <div class="post-body">
+                        <p class="post-description">
+                            몫의 미분법(Quotient Rule)을 이용한 분수함수 미분 방법을 알아봅니다.
+                            유도 과정, 예제, 그리고 연습문제를 통해 자세히 학습할 수 있습니다.
+                        </p>
+                        <div class="post-tags">
+                            <span class="tag">미적분</span>
+                            <span class="tag">미분</span>
+                            <span class="tag">분수함수</span>
+                        </div>
+                    </div>
+                </a>
 
-            <!-- 새 글 추가 시 여기에 추가 -->
+                <!-- 새 글 추가 시 여기에 추가 -->
+                <!-- 예시:
+                <a href="posts/example.html" class="post-card" data-category="대수학">
+                    <div class="post-header">
+                        <div class="category-badge">대수학</div>
+                        <h2>글 제목</h2>
+                        <div class="post-date">날짜</div>
+                    </div>
+                    <div class="post-body">
+                        <p class="post-description">설명...</p>
+                        <div class="post-tags">
+                            <span class="tag">태그1</span>
+                        </div>
+                    </div>
+                </a>
+                -->
 
+            </div>
         </div>
     </div>
 
     <div class="footer">
         <p>&copy; 2025 수학 블로그. All rights reserved.</p>
     </div>
+
+    <script>
+        // 카테고리 필터링 기능
+        const categoryItems = document.querySelectorAll('.category-item');
+        const postCards = document.querySelectorAll('.post-card');
+
+        categoryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const selectedCategory = this.getAttribute('data-category');
+
+                // 활성 카테고리 스타일 변경
+                categoryItems.forEach(cat => cat.classList.remove('active'));
+                this.classList.add('active');
+
+                // 포스트 필터링
+                postCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+
+                    if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // 페이지 로드 시 카테고리 개수 자동 업데이트
+        function updateCategoryCounts() {
+            const categories = {};
+
+            postCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                categories[category] = (categories[category] || 0) + 1;
+            });
+
+            categoryItems.forEach(item => {
+                const category = item.getAttribute('data-category');
+                const countElement = item.querySelector('.category-count');
+
+                if (category === 'all') {
+                    countElement.textContent = postCards.length;
+                } else {
+                    countElement.textContent = categories[category] || 0;
+                }
+            });
+        }
+
+        // 초기 로드 시 실행
+        updateCategoryCounts();
+    </script>
 </body>
 </html>
