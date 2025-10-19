@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>분수함수의 미분 - 수학 블로그</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.8;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+        }
+        .formula {
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+        }
+        .problem {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            border-left: 4px solid #ffc107;
+        }
+        .solution {
+            background-color: #d4edda;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            border-left: 4px solid #28a745;
+        }
+        .highlight {
+            background-color: #e7f3ff;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>분수함수의 미분</h1>
+
+        <h2>1. 몫의 미분법 (Quotient Rule)</h2>
+        <p>
+            분수함수는 두 함수의 나눗셈으로 표현되는 함수입니다. 분수함수 \(\frac{f(x)}{g(x)}\)를 미분할 때는
+            <span class="highlight">몫의 미분법</span>을 사용합니다.
+        </p>
+
+        <div class="formula">
+            <strong>몫의 미분법 공식:</strong>
+            $$\left(\frac{f(x)}{g(x)}\right)' = \frac{f'(x)g(x) - f(x)g'(x)}{[g(x)]^2}$$
+        </div>
+
+        <p>
+            이 공식을 기억하기 쉽게 "아래×위 미분 - 위×아래 미분, 모두 아래제곱으로 나누기"라고 외울 수 있습니다.
+            단, 분모 \(g(x) \neq 0\)이어야 합니다.
+        </p>
+
+        <h2>2. 유도 과정</h2>
+        <p>
+            몫의 미분법은 곱의 미분법과 연쇄법칙으로부터 유도할 수 있습니다.
+            \(h(x) = \frac{f(x)}{g(x)} = f(x) \cdot [g(x)]^{-1}\)로 쓸 수 있으므로:
+        </p>
+
+        <div class="formula">
+            $$h'(x) = f'(x) \cdot [g(x)]^{-1} + f(x) \cdot (-1)[g(x)]^{-2} \cdot g'(x)$$
+            $$= \frac{f'(x)}{g(x)} - \frac{f(x)g'(x)}{[g(x)]^2} = \frac{f'(x)g(x) - f(x)g'(x)}{[g(x)]^2}$$
+        </div>
+
+        <h2>3. 기본 예제</h2>
+        <p>
+            간단한 예로 \(y = \frac{x^2 + 1}{x - 1}\)을 미분해 봅시다.
+            \(f(x) = x^2 + 1\), \(g(x) = x - 1\)이므로 \(f'(x) = 2x\), \(g'(x) = 1\)입니다.
+        </p>
+
+        <div class="formula">
+            $$y' = \frac{2x(x-1) - (x^2+1) \cdot 1}{(x-1)^2} = \frac{2x^2 - 2x - x^2 - 1}{(x-1)^2} = \frac{x^2 - 2x - 1}{(x-1)^2}$$
+        </div>
+
+        <h2>4. 연습문제</h2>
+
+        <div class="problem">
+            <strong>문제 1.</strong> 다음 함수를 미분하시오.
+            $$f(x) = \frac{3x + 2}{x^2 + 1}$$
+        </div>
+
+        <div class="solution">
+            <strong>풀이 1.</strong><br>
+            분자: \(f(x) = 3x + 2\) → \(f'(x) = 3\)<br>
+            분모: \(g(x) = x^2 + 1\) → \(g'(x) = 2x\)<br><br>
+
+            몫의 미분법을 적용하면:
+            $$f'(x) = \frac{3(x^2 + 1) - (3x + 2)(2x)}{(x^2 + 1)^2}$$
+            $$= \frac{3x^2 + 3 - 6x^2 - 4x}{(x^2 + 1)^2}$$
+            $$= \frac{-3x^2 - 4x + 3}{(x^2 + 1)^2}$$
+        </div>
+
+        <div class="problem">
+            <strong>문제 2.</strong> 다음 함수를 미분하시오.
+            $$g(x) = \frac{x^3}{2x - 1}$$
+        </div>
+
+        <div class="solution">
+            <strong>풀이 2.</strong><br>
+            분자: \(f(x) = x^3\) → \(f'(x) = 3x^2\)<br>
+            분모: \(h(x) = 2x - 1\) → \(h'(x) = 2\)<br><br>
+
+            몫의 미분법을 적용하면:
+            $$g'(x) = \frac{3x^2(2x - 1) - x^3 \cdot 2}{(2x - 1)^2}$$
+            $$= \frac{6x^3 - 3x^2 - 2x^3}{(2x - 1)^2}$$
+            $$= \frac{4x^3 - 3x^2}{(2x - 1)^2}$$
+            $$= \frac{x^2(4x - 3)}{(2x - 1)^2}$$
+        </div>
+
+        <h2>5. 마무리</h2>
+        <p>
+            분수함수의 미분은 처음에는 복잡해 보일 수 있지만, 공식을 정확히 이해하고 반복해서 연습하면
+            자연스럽게 익힐 수 있습니다. 계산 과정에서 부호와 전개 과정을 주의 깊게 확인하는 것이 중요합니다.
+        </p>
+    </div>
+</body>
+</html>
