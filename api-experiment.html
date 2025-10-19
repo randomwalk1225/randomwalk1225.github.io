@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Desmos & GeoGebra API 실험 페이지</title>
+
+    <!-- Desmos API -->
+    <script src="https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <!-- GeoGebra API -->
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #34495e;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #555;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        .graph-container {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        .description {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+        }
+        .controls {
+            background-color: #e7f3ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 5px;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+        }
+        .info {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧮 Desmos & GeoGebra API 실험실</h1>
+        <p class="subtitle">수학 시각화 도구 API 테스트 및 실험 페이지</p>
+
+        <!-- Desmos Section -->
+        <div class="section">
+            <h2>📊 Desmos Graphing Calculator API</h2>
+
+            <div class="info">
+                <strong>Desmos란?</strong> 무료 온라인 그래프 계산기로, 함수, 방정식, 통계 등을 시각화할 수 있습니다.
+                JavaScript API를 통해 웹 페이지에 쉽게 임베드할 수 있습니다.
+            </div>
+
+            <h3>실험 1: 삼차방정식 시각화</h3>
+            <div class="description">
+                종이접기 블로그 포스트의 삼차방정식 x³ - 2x - 5 = 0을 시각화합니다.
+            </div>
+            <div id="calculator1" class="graph-container" style="width: 100%; height: 400px;"></div>
+            <div class="controls">
+                <button onclick="resetGraph1()">초기화</button>
+                <button onclick="showRoot()">근 표시</button>
+                <button onclick="addTangent()">접선 추가</button>
+            </div>
+
+            <h3>실험 2: 황금비 시각화</h3>
+            <div class="description">
+                황금비 φ = (1 + √5) / 2 ≈ 1.618과 관련된 직사각형을 시각화합니다.
+            </div>
+            <div id="calculator2" class="graph-container" style="width: 100%; height: 400px;"></div>
+            <div class="controls">
+                <button onclick="drawGoldenRectangle()">황금 직사각형 그리기</button>
+                <button onclick="drawGoldenSpiral()">황금 나선 추가</button>
+            </div>
+
+            <h3>실험 3: 각의 삼등분 문제</h3>
+            <div class="description">
+                60도 각을 20도씩 삼등분하는 것을 시각화합니다. (자와 컴퍼스로는 불가능!)
+            </div>
+            <div id="calculator3" class="graph-container" style="width: 100%; height: 400px;"></div>
+            <div class="controls">
+                <button onclick="show60Degrees()">60도 각 표시</button>
+                <button onclick="trisect60()">삼등분 표시</button>
+            </div>
+        </div>
+
+        <!-- GeoGebra Section -->
+        <div class="section">
+            <h2>📐 GeoGebra Apps API</h2>
+
+            <div class="info">
+                <strong>GeoGebra란?</strong> 기하, 대수, 미적분을 통합한 수학 교육 소프트웨어입니다.
+                동적 기하학 작도와 대수적 계산을 동시에 지원합니다.
+            </div>
+
+            <h3>실험 4: 정삼각형 작도</h3>
+            <div class="description">
+                컴퍼스와 자를 이용한 정삼각형 작도를 단계별로 시연합니다.
+            </div>
+            <div id="ggb-element1" class="graph-container" style="width: 100%; height: 500px;"></div>
+            <div class="controls">
+                <button onclick="ggbStep1()">1단계: 선분 AB</button>
+                <button onclick="ggbStep2()">2단계: 원 그리기</button>
+                <button onclick="ggbStep3()">3단계: 점 C 찾기</button>
+                <button onclick="ggbComplete()">완성</button>
+            </div>
+
+            <h3>실험 5: 종이접기 시뮬레이션</h3>
+            <div class="description">
+                종이를 반으로 접는 과정을 GeoGebra로 시뮬레이션합니다.
+            </div>
+            <div id="ggb-element2" class="graph-container" style="width: 100%; height: 500px;"></div>
+            <div class="controls">
+                <button onclick="foldHorizontal()">가로로 접기</button>
+                <button onclick="foldVertical()">세로로 접기</button>
+                <button onclick="foldDiagonal()">대각선으로 접기</button>
+                <button onclick="resetOrigami()">초기화</button>
+            </div>
+        </div>
+
+        <!-- 비교 섹션 -->
+        <div class="section">
+            <h2>⚖️ Desmos vs GeoGebra 비교</h2>
+
+            <div class="grid">
+                <div>
+                    <h3>Desmos의 장점</h3>
+                    <ul style="margin-left: 20px; line-height: 1.8;">
+                        <li>매우 빠르고 가벼움</li>
+                        <li>함수 그래프에 특화</li>
+                        <li>아름다운 UI/UX</li>
+                        <li>슬라이더와 애니메이션이 직관적</li>
+                        <li>API가 간단하고 사용하기 쉬움</li>
+                        <li>LaTeX 수식 지원이 우수</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>GeoGebra의 장점</h3>
+                    <ul style="margin-left: 20px; line-height: 1.8;">
+                        <li>기하학 작도 도구가 강력</li>
+                        <li>CAS (컴퓨터 대수 시스템) 내장</li>
+                        <li>3D 그래프 지원</li>
+                        <li>통계 및 확률 도구</li>
+                        <li>교육용 자료가 풍부</li>
+                        <li>복잡한 수학적 구조 표현 가능</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 사용 예시 코드 -->
+        <div class="section">
+            <h2>💻 코드 예시</h2>
+
+            <h3>Desmos API 기본 사용법</h3>
+            <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;"><code>// Desmos 계산기 생성
+var elt = document.getElementById('calculator');
+var calculator = Desmos.GraphingCalculator(elt);
+
+// 함수 그리기
+calculator.setExpression({
+    id: 'graph1',
+    latex: 'y=x^3-2x-5',
+    color: '#667eea'
+});
+
+// 점 추가
+calculator.setExpression({
+    id: 'point1',
+    latex: '(2.0946, 0)',
+    showLabel: true,
+    label: '근'
+});</code></pre>
+
+            <h3>GeoGebra API 기본 사용법</h3>
+            <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;"><code>// GeoGebra 앱 생성
+var params = {
+    "appName": "geometry",
+    "width": 800,
+    "height": 600,
+    "showToolBar": true
+};
+var applet = new GGBApplet(params, true);
+applet.inject('ggb-element');
+
+// 명령 실행
+var ggbApp = applet.getAppletObject();
+ggbApp.evalCommand("A = (0, 0)");
+ggbApp.evalCommand("B = (4, 0)");
+ggbApp.evalCommand("Triangle(A, B)");</code></pre>
+        </div>
+    </div>
+
+    <script>
+        // Desmos 계산기 인스턴스
+        let calc1, calc2, calc3;
+
+        // 페이지 로드 시 Desmos 계산기 초기화
+        window.addEventListener('load', function() {
+            // 계산기 1: 삼차방정식
+            calc1 = Desmos.GraphingCalculator(document.getElementById('calculator1'), {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: true
+            });
+            resetGraph1();
+
+            // 계산기 2: 황금비
+            calc2 = Desmos.GraphingCalculator(document.getElementById('calculator2'), {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: true
+            });
+            calc2.setMathBounds({
+                left: -1,
+                right: 5,
+                bottom: -1,
+                top: 4
+            });
+
+            // 계산기 3: 각의 삼등분
+            calc3 = Desmos.GraphingCalculator(document.getElementById('calculator3'), {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: true
+            });
+            calc3.setMathBounds({
+                left: -1,
+                right: 2,
+                bottom: -0.5,
+                top: 2
+            });
+        });
+
+        // 실험 1: 삼차방정식 함수들
+        function resetGraph1() {
+            calc1.setBlank();
+            calc1.setExpression({
+                id: 'cubic',
+                latex: 'y=x^3-2x-5',
+                color: '#667eea',
+                lineWidth: 3
+            });
+            calc1.setExpression({
+                id: 'xaxis',
+                latex: 'y=0',
+                color: '#999',
+                lineStyle: Desmos.Styles.DASHED
+            });
+            calc1.setMathBounds({
+                left: -3,
+                right: 4,
+                bottom: -10,
+                top: 10
+            });
+        }
+
+        function showRoot() {
+            calc1.setExpression({
+                id: 'root',
+                latex: '(2.0946, 0)',
+                color: '#e74c3c',
+                pointSize: 12,
+                showLabel: true,
+                label: '근 ≈ 2.0946'
+            });
+        }
+
+        function addTangent() {
+            calc1.setExpression({
+                id: 'tangent',
+                latex: 'y=10.16(x-2.0946)',
+                color: '#2ecc71',
+                lineStyle: Desmos.Styles.DASHED
+            });
+        }
+
+        // 실험 2: 황금비 함수들
+        function drawGoldenRectangle() {
+            const phi = (1 + Math.sqrt(5)) / 2;
+            calc2.setBlank();
+
+            // 황금 직사각형 (1 x φ)
+            calc2.setExpression({
+                id: 'rect1',
+                latex: '0\\le x\\le1\\left\\{0\\le y\\le' + phi + '\\right\\}',
+                color: '#667eea',
+                fillOpacity: 0.3,
+                lineWidth: 2
+            });
+
+            // 정사각형 (1 x 1)
+            calc2.setExpression({
+                id: 'rect2',
+                latex: '0\\le x\\le1\\left\\{0\\le y\\le1\\right\\}',
+                color: '#e74c3c',
+                fillOpacity: 0.2,
+                lineWidth: 2
+            });
+
+            // φ 표시
+            calc2.setExpression({
+                id: 'phi',
+                latex: '(0.5, ' + phi + ')',
+                showLabel: true,
+                label: 'φ ≈ ' + phi.toFixed(3),
+                pointSize: 0
+            });
+        }
+
+        function drawGoldenSpiral() {
+            // 황금 나선 (극좌표)
+            calc2.setExpression({
+                id: 'spiral',
+                latex: 'r=e^{0.30635t}',
+                color: '#f39c12',
+                lineWidth: 2,
+                domain: { min: 0, max: 6 }
+            });
+        }
+
+        // 실험 3: 각의 삼등분 함수들
+        function show60Degrees() {
+            calc3.setBlank();
+
+            // 원점
+            calc3.setExpression({
+                id: 'origin',
+                latex: '(0, 0)',
+                color: '#000',
+                pointSize: 8,
+                showLabel: true,
+                label: 'O'
+            });
+
+            // 0도 선 (x축)
+            calc3.setExpression({
+                id: 'line0',
+                latex: 'y=0\\left\\{0\\le x\\le1.5\\right\\}',
+                color: '#333',
+                lineWidth: 2
+            });
+
+            // 60도 선
+            calc3.setExpression({
+                id: 'line60',
+                latex: 'y=\\sqrt{3}x\\left\\{0\\le x\\le1.5\\right\\}',
+                color: '#667eea',
+                lineWidth: 2
+            });
+
+            // 호 표시
+            calc3.setExpression({
+                id: 'arc',
+                latex: 'y=\\sqrt{0.5^2-x^2}\\left\\{0\\le x\\le0.25\\right\\}',
+                color: '#e74c3c',
+                lineWidth: 2
+            });
+
+            calc3.setExpression({
+                id: 'label60',
+                latex: '(0.3, 0.15)',
+                showLabel: true,
+                label: '60°',
+                pointSize: 0
+            });
+        }
+
+        function trisect60() {
+            // 20도 선
+            calc3.setExpression({
+                id: 'line20',
+                latex: 'y=\\tan(\\pi/9)x\\left\\{0\\le x\\le1.5\\right\\}',
+                color: '#2ecc71',
+                lineWidth: 2,
+                lineStyle: Desmos.Styles.DASHED
+            });
+
+            // 40도 선
+            calc3.setExpression({
+                id: 'line40',
+                latex: 'y=\\tan(2\\pi/9)x\\left\\{0\\le x\\le1.5\\right\\}',
+                color: '#f39c12',
+                lineWidth: 2,
+                lineStyle: Desmos.Styles.DASHED
+            });
+
+            calc3.setExpression({
+                id: 'label20',
+                latex: '(0.8, 0.3)',
+                showLabel: true,
+                label: '20°',
+                pointSize: 0
+            });
+
+            calc3.setExpression({
+                id: 'label40',
+                latex: '(0.6, 0.6)',
+                showLabel: true,
+                label: '40°',
+                pointSize: 0
+            });
+        }
+
+        // GeoGebra 앱 인스턴스
+        let ggbApp1, ggbApp2;
+
+        // GeoGebra 앱 초기화
+        window.addEventListener('load', function() {
+            // GeoGebra 1: 정삼각형
+            var params1 = {
+                "appName": "geometry",
+                "width": document.getElementById('ggb-element1').offsetWidth,
+                "height": 500,
+                "showToolBar": true,
+                "showAlgebraInput": false,
+                "showMenuBar": false,
+                "enableRightClick": false
+            };
+            var applet1 = new GGBApplet(params1, true);
+            applet1.inject('ggb-element1');
+
+            // GeoGebra 2: 종이접기
+            var params2 = {
+                "appName": "geometry",
+                "width": document.getElementById('ggb-element2').offsetWidth,
+                "height": 500,
+                "showToolBar": true,
+                "showAlgebraInput": false,
+                "showMenuBar": false,
+                "enableRightClick": false
+            };
+            var applet2 = new GGBApplet(params2, true);
+            applet2.inject('ggb-element2');
+
+            // 앱이 로드될 때까지 대기
+            setTimeout(function() {
+                ggbApp1 = document.ggbApplet;
+                ggbApp2 = document.ggbApplet2;
+            }, 2000);
+        });
+
+        // GeoGebra 정삼각형 작도 단계
+        function ggbStep1() {
+            if (!ggbApp1) {
+                alert('GeoGebra가 아직 로딩 중입니다. 잠시 후 다시 시도해주세요.');
+                return;
+            }
+            ggbApp1.reset();
+            ggbApp1.evalCommand("A = (0, 0)");
+            ggbApp1.evalCommand("B = (4, 0)");
+            ggbApp1.evalCommand("Segment(A, B)");
+        }
+
+        function ggbStep2() {
+            ggbApp1.evalCommand("Circle(A, B)");
+            ggbApp1.evalCommand("Circle(B, A)");
+        }
+
+        function ggbStep3() {
+            ggbApp1.evalCommand("C = Intersect(Circle(A, B), Circle(B, A), 1)");
+            ggbApp1.evalCommand("Point(C)");
+        }
+
+        function ggbComplete() {
+            ggbApp1.evalCommand("Polygon(A, B, C)");
+        }
+
+        // GeoGebra 종이접기 함수들
+        function foldHorizontal() {
+            if (!ggbApp2) {
+                alert('GeoGebra가 아직 로딩 중입니다. 잠시 후 다시 시도해주세요.');
+                return;
+            }
+            ggbApp2.evalCommand("Line((0, 2), (4, 2))");
+        }
+
+        function foldVertical() {
+            if (!ggbApp2) return;
+            ggbApp2.evalCommand("Line((2, 0), (2, 4))");
+        }
+
+        function foldDiagonal() {
+            if (!ggbApp2) return;
+            ggbApp2.evalCommand("Line((0, 0), (4, 4))");
+        }
+
+        function resetOrigami() {
+            if (!ggbApp2) return;
+            ggbApp2.reset();
+            // 종이 경계 그리기
+            ggbApp2.evalCommand("Polygon((0,0), (4,0), (4,4), (0,4))");
+        }
+    </script>
+</body>
+</html>
