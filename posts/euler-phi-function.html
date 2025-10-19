@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>오일러 파이 함수와 관련 공식 - 수학 블로그</title>
+    <meta name="description" content="오일러 파이 함수(Euler's Phi Function)의 정의와 성질, 계산 공식을 학습합니다. 곱셈적 성질과 다양한 응용을 예제와 함께 익혀보세요.">
+    <meta name="keywords" content="오일러 파이 함수, 오일러 토션트 함수, 정수론, 수학, φ(n)">
+    <meta name="author" content="수학 블로그">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://randomwalk1225.github.io/posts/euler-phi-function.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://randomwalk1225.github.io/posts/euler-phi-function.html">
+    <meta property="og:title" content="오일러 파이 함수와 관련 공식">
+    <meta property="og:description" content="오일러 파이 함수의 정의와 성질, 계산 공식을 학습합니다.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://randomwalk1225.github.io/posts/euler-phi-function.html">
+    <meta property="twitter:title" content="오일러 파이 함수와 관련 공식">
+    <meta property="twitter:description" content="오일러 파이 함수의 정의와 성질, 계산 공식을 학습합니다.">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax Configuration -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        .category-badge {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .date {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .definition-box {
+            background-color: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .theorem-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .example-box {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .problem-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #64748b;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .solution-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .formula {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            margin-top: 50px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #667eea;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="category-badge">정수론</div>
+        <h1>오일러 파이 함수와 관련 공식</h1>
+        <div class="date">2025년 10월 19일</div>
+    </div>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← 목록으로 돌아가기</a>
+
+        <h2>1. 오일러 파이 함수의 정의</h2>
+
+        <div class="definition-box">
+            <h3>정의: 오일러 파이 함수 (Euler's Phi Function 또는 Totient Function)</h3>
+            <p>양의 정수 $n$에 대하여, $\phi(n)$은 1부터 $n$까지의 정수 중에서 $n$과 서로소인 수의 개수입니다.</p>
+            <div class="formula">
+                $$\phi(n) = |\{k : 1 \leq k \leq n, \gcd(k, n) = 1\}|$$
+            </div>
+        </div>
+
+        <p>
+            오일러 파이 함수는 레온하르트 오일러(Leonhard Euler)가 도입한 함수로,
+            정수론에서 가장 중요한 함수 중 하나입니다.
+            이 함수는 $\phi(n)$ 또는 $\varphi(n)$으로 표기하며,
+            토션트 함수(totient function)라고도 불립니다.
+        </p>
+
+        <h3>1.1 작은 값들의 예시</h3>
+
+        <table>
+            <tr>
+                <th>$n$</th>
+                <th>$n$과 서로소인 수</th>
+                <th>$\phi(n)$</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>1, 2</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>1, 3</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>1, 2, 3, 4</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>1, 5</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>1, 2, 3, 4, 5, 6</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>1, 3, 5, 7</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>1, 2, 4, 5, 7, 8</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>1, 3, 7, 9</td>
+                <td>4</td>
+            </tr>
+        </table>
+
+        <h2>2. 오일러 파이 함수의 기본 성질</h2>
+
+        <div class="theorem-box">
+            <h3>성질 1: 소수에 대한 값</h3>
+            <p>$p$가 소수이면</p>
+            <div class="formula">
+                $$\phi(p) = p - 1$$
+            </div>
+            <p><strong>이유:</strong> 1부터 $p-1$까지 모든 수가 $p$와 서로소</p>
+        </div>
+
+        <div class="theorem-box">
+            <h3>성질 2: 소수의 거듭제곱</h3>
+            <p>$p$가 소수이고 $k \geq 1$이면</p>
+            <div class="formula">
+                $$\phi(p^k) = p^k - p^{k-1} = p^{k-1}(p-1) = p^k\left(1 - \frac{1}{p}\right)$$
+            </div>
+            <p><strong>이유:</strong> $p^k$ 이하에서 $p$의 배수는 $p, 2p, 3p, \ldots, p^{k-1}p$로 $p^{k-1}$개</p>
+        </div>
+
+        <div class="example-box">
+            <h3>예제 1</h3>
+            <p>$\phi(8) = \phi(2^3)$를 계산하시오.</p>
+            <p><strong>풀이:</strong></p>
+            <div class="formula">
+                $$\phi(2^3) = 2^3 - 2^2 = 8 - 4 = 4$$
+            </div>
+            <p>또는</p>
+            <div class="formula">
+                $$\phi(2^3) = 2^2(2-1) = 4 \times 1 = 4$$
+            </div>
+            <p><strong>검증:</strong> 1, 3, 5, 7이 8과 서로소 → 4개</p>
+        </div>
+
+        <h2>3. 곱셈적 성질</h2>
+
+        <div class="theorem-box">
+            <h3>정리: 오일러 파이 함수는 곱셈적 함수</h3>
+            <p>$\gcd(m, n) = 1$이면</p>
+            <div class="formula">
+                $$\phi(mn) = \phi(m) \cdot \phi(n)$$
+            </div>
+        </div>
+
+        <h3>3.1 증명 개요</h3>
+
+        <p>
+            중국인의 나머지 정리를 사용합니다.
+            $\gcd(m, n) = 1$일 때, $\gcd(k, mn) = 1$인 $k$ (단, $1 \leq k \leq mn$)는
+            다음과 같은 연립 합동식의 해와 일대일 대응됩니다:
+        </p>
+        <div class="formula">
+            $$\begin{cases}
+            k \equiv a \pmod{m}, & \gcd(a, m) = 1 \\
+            k \equiv b \pmod{n}, & \gcd(b, n) = 1
+            \end{cases}$$
+        </div>
+        <p>
+            이러한 $(a, b)$ 쌍은 $\phi(m) \times \phi(n)$개이므로,
+            $\phi(mn) = \phi(m) \cdot \phi(n)$입니다.
+        </p>
+
+        <h2>4. 일반 공식</h2>
+
+        <div class="theorem-box">
+            <h3>정리: 오일러 파이 함수의 일반 공식</h3>
+            <p>$n$의 소인수분해가 $n = p_1^{a_1} p_2^{a_2} \cdots p_k^{a_k}$이면</p>
+            <div class="formula">
+                $$\phi(n) = n \prod_{p|n} \left(1 - \frac{1}{p}\right) = n \left(1 - \frac{1}{p_1}\right)\left(1 - \frac{1}{p_2}\right) \cdots \left(1 - \frac{1}{p_k}\right)$$
+            </div>
+            <p>또는</p>
+            <div class="formula">
+                $$\phi(n) = p_1^{a_1-1}(p_1-1) \cdot p_2^{a_2-1}(p_2-1) \cdots p_k^{a_k-1}(p_k-1)$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h3>예제 2</h3>
+            <p>$\phi(36)$을 계산하시오.</p>
+            <p><strong>풀이:</strong></p>
+            <p>$36 = 2^2 \times 3^2$</p>
+
+            <p><strong>방법 1:</strong> 곱셈적 성질 이용</p>
+            <div class="formula">
+                $$\phi(36) = \phi(4) \times \phi(9)$$
+            </div>
+            <ul>
+                <li>$\phi(4) = \phi(2^2) = 2^1(2-1) = 2$</li>
+                <li>$\phi(9) = \phi(3^2) = 3^1(3-1) = 6$</li>
+                <li>$\phi(36) = 2 \times 6 = 12$</li>
+            </ul>
+
+            <p><strong>방법 2:</strong> 일반 공식 이용</p>
+            <div class="formula">
+                $$\phi(36) = 36 \left(1 - \frac{1}{2}\right)\left(1 - \frac{1}{3}\right) = 36 \times \frac{1}{2} \times \frac{2}{3} = 12$$
+            </div>
+
+            <p><strong>검증:</strong> 36과 서로소인 수는 1, 5, 7, 11, 13, 17, 19, 23, 25, 29, 31, 35 → 12개</p>
+        </div>
+
+        <h2>5. 중요한 항등식</h2>
+
+        <div class="theorem-box">
+            <h3>항등식 1: 약수 합 공식</h3>
+            <p>모든 양의 정수 $n$에 대하여</p>
+            <div class="formula">
+                $$\sum_{d|n} \phi(d) = n$$
+            </div>
+            <p>여기서 합은 $n$의 모든 양의 약수 $d$에 대한 것입니다.</p>
+        </div>
+
+        <div class="example-box">
+            <h3>예제 3: 항등식 검증</h3>
+            <p>$n = 12$일 때 항등식을 검증하시오.</p>
+            <p><strong>풀이:</strong></p>
+            <p>12의 약수: 1, 2, 3, 4, 6, 12</p>
+            <ul>
+                <li>$\phi(1) = 1$</li>
+                <li>$\phi(2) = 1$</li>
+                <li>$\phi(3) = 2$</li>
+                <li>$\phi(4) = 2$</li>
+                <li>$\phi(6) = 2$</li>
+                <li>$\phi(12) = 4$</li>
+            </ul>
+            <div class="formula">
+                $$\sum_{d|12} \phi(d) = 1 + 1 + 2 + 2 + 2 + 4 = 12$$ ✓
+            </div>
+        </div>
+
+        <h2>6. 연습문제</h2>
+
+        <div class="problem-box">
+            <h3>문제 1</h3>
+            <p>다음 값들을 계산하시오:</p>
+            <ol>
+                <li>$\phi(100)$</li>
+                <li>$\phi(72)$</li>
+                <li>$\phi(1000)$</li>
+            </ol>
+        </div>
+
+        <div class="solution-box">
+            <h3>풀이 1</h3>
+
+            <p><strong>1) $\phi(100)$</strong></p>
+            <p>$100 = 2^2 \times 5^2$</p>
+            <div class="formula">
+                $$\phi(100) = 100 \left(1 - \frac{1}{2}\right)\left(1 - \frac{1}{5}\right) = 100 \times \frac{1}{2} \times \frac{4}{5} = 40$$
+            </div>
+
+            <p><strong>2) $\phi(72)$</strong></p>
+            <p>$72 = 2^3 \times 3^2$</p>
+            <div class="formula">
+                $$\phi(72) = 72 \left(1 - \frac{1}{2}\right)\left(1 - \frac{1}{3}\right) = 72 \times \frac{1}{2} \times \frac{2}{3} = 24$$
+            </div>
+
+            <p><strong>3) $\phi(1000)$</strong></p>
+            <p>$1000 = 2^3 \times 5^3$</p>
+            <div class="formula">
+                $$\phi(1000) = 1000 \left(1 - \frac{1}{2}\right)\left(1 - \frac{1}{5}\right) = 1000 \times \frac{1}{2} \times \frac{4}{5} = 400$$
+            </div>
+        </div>
+
+        <div class="problem-box">
+            <h3>문제 2</h3>
+            <p>$\phi(n) = 12$를 만족하는 모든 양의 정수 $n$을 구하시오.</p>
+        </div>
+
+        <div class="solution-box">
+            <h3>풀이 2</h3>
+            <p>$\phi(n) = 12$가 되려면 다음 경우들을 고려해야 합니다:</p>
+
+            <p><strong>경우 1:</strong> $n = 1, 2$인 경우</p>
+            <ul>
+                <li>$\phi(1) = 1 \neq 12$</li>
+                <li>$\phi(2) = 1 \neq 12$</li>
+            </ul>
+
+            <p><strong>경우 2:</strong> $n = p$ (소수)인 경우</p>
+            <ul>
+                <li>$\phi(p) = p - 1 = 12$ → $p = 13$ ✓</li>
+            </ul>
+
+            <p><strong>경우 3:</strong> $n = 2p$ (p는 홀수 소수)인 경우</p>
+            <ul>
+                <li>$\phi(2p) = \phi(2) \times \phi(p) = 1 \times (p-1) = 12$ → $p = 13$</li>
+                <li>$n = 2 \times 13 = 26$ ✓</li>
+            </ul>
+
+            <p><strong>경우 4:</strong> $n = p^2$ (소수의 제곱)인 경우</p>
+            <ul>
+                <li>$\phi(p^2) = p(p-1) = 12$</li>
+                <li>$p = 3$일 때: $3 \times 2 = 6 \neq 12$</li>
+                <li>$p = 4$는 소수가 아님</li>
+            </ul>
+
+            <p><strong>경우 5:</strong> $n = 2p^2$인 경우</p>
+            <ul>
+                <li>$\phi(2p^2) = \phi(2) \times \phi(p^2) = 1 \times p(p-1) = 12$</li>
+                <li>해 없음 (위에서 확인)</li>
+            </ul>
+
+            <p><strong>경우 6:</strong> $n = 3^a \times 2^b$ 형태</p>
+            <ul>
+                <li>$n = 3 \times 2^2 = 12$: $\phi(12) = \phi(3)\phi(4) = 2 \times 2 = 4 \neq 12$</li>
+                <li>$n = 3^2 \times 2 = 18$: $\phi(18) = \phi(9)\phi(2) = 6 \times 1 = 6 \neq 12$</li>
+                <li>$n = 3^2 \times 2^2 = 36$: $\phi(36) = \phi(9)\phi(4) = 6 \times 2 = 12$ ✓</li>
+            </ul>
+
+            <p><strong>경우 7:</strong> $n = 7 \times 2^b$ 형태</p>
+            <ul>
+                <li>$\phi(7 \times 2) = 6 \times 1 = 6 \neq 12$</li>
+                <li>$\phi(7 \times 4) = 6 \times 2 = 12$ → $n = 28$ ✓</li>
+            </ul>
+
+            <p><strong>경우 8:</strong> $n = 13 \times 2^b$ 형태 (이미 확인함)</p>
+
+            <p>체계적으로 확인한 결과:</p>
+            <p><strong>답:</strong> $n = 13, 21, 26, 28, 36, 42$</p>
+
+            <p><strong>검증:</strong></p>
+            <ul>
+                <li>$\phi(13) = 12$ ✓</li>
+                <li>$\phi(21) = \phi(3 \times 7) = 2 \times 6 = 12$ ✓</li>
+                <li>$\phi(26) = \phi(2 \times 13) = 1 \times 12 = 12$ ✓</li>
+                <li>$\phi(28) = \phi(4 \times 7) = 2 \times 6 = 12$ ✓</li>
+                <li>$\phi(36) = 12$ ✓ (위에서 계산)</li>
+                <li>$\phi(42) = \phi(2 \times 3 \times 7) = 1 \times 2 \times 6 = 12$ ✓</li>
+            </ul>
+        </div>
+
+        <h2>7. 응용</h2>
+
+        <h3>7.1 오일러 정리</h3>
+        <p>오일러 파이 함수는 오일러 정리의 핵심입니다:</p>
+        <div class="formula">
+            $$\gcd(a, n) = 1 \Rightarrow a^{\phi(n)} \equiv 1 \pmod{n}$$
+        </div>
+
+        <h3>7.2 RSA 암호화</h3>
+        <p>
+            오일러 파이 함수는 RSA 암호 시스템의 핵심입니다.
+            두 큰 소수 $p, q$에 대해 $n = pq$일 때,
+            $\phi(n) = (p-1)(q-1)$을 사용하여 암호화와 복호화 키를 생성합니다.
+        </p>
+
+        <h2>8. 요약</h2>
+
+        <ul>
+            <li>$\phi(n)$: $n$과 서로소인 $1 \leq k \leq n$의 개수</li>
+            <li>$\phi(p) = p - 1$ (소수)</li>
+            <li>$\phi(p^k) = p^{k-1}(p-1)$ (소수의 거듭제곱)</li>
+            <li>$\phi(mn) = \phi(m)\phi(n)$ (곱셈적 함수, $\gcd(m,n)=1$일 때)</li>
+            <li>일반 공식: $\phi(n) = n \prod_{p|n} \left(1 - \frac{1}{p}\right)$</li>
+            <li>약수 합: $\sum_{d|n} \phi(d) = n$</li>
+        </ul>
+
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 수학 블로그. All rights reserved.</p>
+    </div>
+
+    <!-- Structured Data (Schema.org JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "오일러 파이 함수와 관련 공식",
+        "description": "오일러 파이 함수의 정의와 성질, 계산 공식을 학습합니다.",
+        "author": {
+            "@type": "Person",
+            "name": "수학 블로그"
+        },
+        "datePublished": "2025-10-19",
+        "publisher": {
+            "@type": "Organization",
+            "name": "수학 블로그"
+        }
+    }
+    </script>
+</body>
+</html>

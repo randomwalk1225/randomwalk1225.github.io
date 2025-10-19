@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>복소수의 극형식과 드무아브르 정리 - 수학 블로그</title>
+    <meta name="description" content="복소수를 극형식으로 표현하는 방법과 드무아브르 정리를 학습합니다. 복소수의 거듭제곱과 n제곱근을 쉽게 계산하는 방법을 예제와 연습문제로 익혀보세요.">
+    <meta name="keywords" content="복소수, 극형식, 드무아브르 정리, 복소함수론, 수학">
+    <meta name="author" content="수학 블로그">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://randomwalk1225.github.io/posts/complex-polar-form.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://randomwalk1225.github.io/posts/complex-polar-form.html">
+    <meta property="og:title" content="복소수의 극형식과 드무아브르 정리">
+    <meta property="og:description" content="복소수를 극형식으로 표현하고 드무아브르 정리를 활용하여 복소수의 거듭제곱을 계산하는 방법을 학습합니다.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://randomwalk1225.github.io/posts/complex-polar-form.html">
+    <meta property="twitter:title" content="복소수의 극형식과 드무아브르 정리">
+    <meta property="twitter:description" content="복소수를 극형식으로 표현하고 드무아브르 정리를 활용하여 복소수의 거듭제곱을 계산하는 방법을 학습합니다.">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax Configuration -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        .category-badge {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .date {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .definition-box {
+            background-color: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .theorem-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .example-box {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .problem-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #64748b;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .solution-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .formula {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            margin-top: 50px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="category-badge">복소함수론</div>
+        <h1>복소수의 극형식과 드무아브르 정리</h1>
+        <div class="date">2025년 10월 19일</div>
+    </div>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← 목록으로 돌아가기</a>
+
+        <h2>1. 복소수의 극형식</h2>
+
+        <p>
+            복소수는 직교좌표계에서 $z = a + bi$ 형태로 표현할 수 있지만, 극좌표계를 이용하면 더욱 간결하고 강력한 표현이 가능합니다.
+            복소평면에서 복소수 $z$를 원점으로부터의 거리 $r$과 양의 실수축과 이루는 각 $\theta$로 나타낼 수 있습니다.
+        </p>
+
+        <div class="definition-box">
+            <h3>정의: 복소수의 극형식</h3>
+            <p>복소수 $z = a + bi$에 대하여</p>
+            <div class="formula">
+                $$z = r(\cos\theta + i\sin\theta)$$
+            </div>
+            <p>여기서:</p>
+            <ul>
+                <li>$r = |z| = \sqrt{a^2 + b^2}$ (크기 또는 절댓값)</li>
+                <li>$\theta = \arg(z)$ (편각, argument)</li>
+                <li>$\tan\theta = \frac{b}{a}$ (단, $a \neq 0$)</li>
+            </ul>
+        </div>
+
+        <h3>1.1 직교형식에서 극형식으로 변환</h3>
+
+        <div class="example-box">
+            <h3>예제 1</h3>
+            <p>복소수 $z = 1 + i$를 극형식으로 나타내시오.</p>
+            <p><strong>풀이:</strong></p>
+            <p>1단계: 크기 계산</p>
+            <div class="formula">
+                $$r = \sqrt{1^2 + 1^2} = \sqrt{2}$$
+            </div>
+            <p>2단계: 편각 계산</p>
+            <div class="formula">
+                $$\tan\theta = \frac{1}{1} = 1 \Rightarrow \theta = \frac{\pi}{4}$$
+            </div>
+            <p>3단계: 극형식 표현</p>
+            <div class="formula">
+                $$z = \sqrt{2}\left(\cos\frac{\pi}{4} + i\sin\frac{\pi}{4}\right)$$
+            </div>
+        </div>
+
+        <h2>2. 드무아브르 정리</h2>
+
+        <p>
+            드무아브르(De Moivre) 정리는 복소수의 거듭제곱을 계산할 때 극형식이 얼마나 강력한지 보여줍니다.
+            이 정리는 18세기 프랑스 수학자 아브라함 드무아브르의 이름을 따서 명명되었습니다.
+        </p>
+
+        <div class="theorem-box">
+            <h3>정리: 드무아브르 정리</h3>
+            <p>복소수 $z = r(\cos\theta + i\sin\theta)$와 정수 $n$에 대하여</p>
+            <div class="formula">
+                $$z^n = r^n(\cos n\theta + i\sin n\theta)$$
+            </div>
+            <p>특히 $r = 1$일 때,</p>
+            <div class="formula">
+                $$(\cos\theta + i\sin\theta)^n = \cos n\theta + i\sin n\theta$$
+            </div>
+        </div>
+
+        <h3>2.1 드무아브르 정리의 증명 (귀납법)</h3>
+
+        <p><strong>기저 단계:</strong> $n = 1$일 때 자명하게 성립합니다.</p>
+
+        <p><strong>귀납 단계:</strong> $n = k$일 때 성립한다고 가정하면,</p>
+        <div class="formula">
+            $$z^k = r^k(\cos k\theta + i\sin k\theta)$$
+        </div>
+
+        <p>$n = k+1$일 때,</p>
+        <div class="formula">
+            $$\begin{align}
+            z^{k+1} &= z^k \cdot z \\
+            &= r^k(\cos k\theta + i\sin k\theta) \cdot r(\cos\theta + i\sin\theta) \\
+            &= r^{k+1}[(\cos k\theta\cos\theta - \sin k\theta\sin\theta) + i(\sin k\theta\cos\theta + \cos k\theta\sin\theta)] \\
+            &= r^{k+1}[\cos(k+1)\theta + i\sin(k+1)\theta]
+            \end{align}$$
+        </div>
+        <p>따라서 수학적 귀납법에 의해 모든 자연수 $n$에 대해 성립합니다.</p>
+
+        <h3>2.2 응용 예제</h3>
+
+        <div class="example-box">
+            <h3>예제 2</h3>
+            <p>$(1 + i)^{10}$을 계산하시오.</p>
+            <p><strong>풀이:</strong></p>
+            <p>1단계: 극형식으로 변환</p>
+            <div class="formula">
+                $$1 + i = \sqrt{2}\left(\cos\frac{\pi}{4} + i\sin\frac{\pi}{4}\right)$$
+            </div>
+            <p>2단계: 드무아브르 정리 적용</p>
+            <div class="formula">
+                $$\begin{align}
+                (1+i)^{10} &= (\sqrt{2})^{10}\left(\cos\frac{10\pi}{4} + i\sin\frac{10\pi}{4}\right) \\
+                &= 2^5\left(\cos\frac{5\pi}{2} + i\sin\frac{5\pi}{2}\right) \\
+                &= 32(\cos\frac{\pi}{2} + i\sin\frac{\pi}{2}) \\
+                &= 32(0 + i) = 32i
+                \end{align}$$
+            </div>
+        </div>
+
+        <h2>3. 복소수의 n제곱근</h2>
+
+        <p>
+            드무아브르 정리를 역으로 활용하면 복소수의 n제곱근을 구할 수 있습니다.
+            실수와 달리 복소수의 n제곱근은 정확히 n개 존재합니다.
+        </p>
+
+        <div class="definition-box">
+            <h3>복소수의 n제곱근</h3>
+            <p>복소수 $z = r(\cos\theta + i\sin\theta)$의 n제곱근은</p>
+            <div class="formula">
+                $$w_k = \sqrt[n]{r}\left(\cos\frac{\theta + 2\pi k}{n} + i\sin\frac{\theta + 2\pi k}{n}\right)$$
+            </div>
+            <p>여기서 $k = 0, 1, 2, \ldots, n-1$</p>
+        </div>
+
+        <h2>4. 연습문제</h2>
+
+        <div class="problem-box">
+            <h3>문제 1</h3>
+            <p>다음 복소수를 극형식으로 나타내고, 10제곱을 계산하시오.</p>
+            <div class="formula">
+                $$z = -1 + \sqrt{3}i$$
+            </div>
+        </div>
+
+        <div class="solution-box">
+            <h3>풀이 1</h3>
+            <p><strong>1단계: 크기 계산</strong></p>
+            <div class="formula">
+                $$r = \sqrt{(-1)^2 + (\sqrt{3})^2} = \sqrt{1 + 3} = 2$$
+            </div>
+
+            <p><strong>2단계: 편각 계산</strong></p>
+            <p>복소수가 제2사분면에 위치하므로,</p>
+            <div class="formula">
+                $$\tan\theta = \frac{\sqrt{3}}{-1} = -\sqrt{3}$$
+            </div>
+            <p>제2사분면에서 $\tan\theta = -\sqrt{3}$이므로 $\theta = \frac{2\pi}{3}$</p>
+
+            <p><strong>3단계: 극형식</strong></p>
+            <div class="formula">
+                $$z = 2\left(\cos\frac{2\pi}{3} + i\sin\frac{2\pi}{3}\right)$$
+            </div>
+
+            <p><strong>4단계: 10제곱 계산 (드무아브르 정리)</strong></p>
+            <div class="formula">
+                $$\begin{align}
+                z^{10} &= 2^{10}\left(\cos\frac{20\pi}{3} + i\sin\frac{20\pi}{3}\right) \\
+                &= 1024\left(\cos\frac{2\pi}{3} + i\sin\frac{2\pi}{3}\right) \\
+                &= 1024\left(-\frac{1}{2} + i\frac{\sqrt{3}}{2}\right) \\
+                &= -512 + 512\sqrt{3}i
+                \end{align}$$
+            </div>
+        </div>
+
+        <div class="problem-box">
+            <h3>문제 2</h3>
+            <p>방정식 $z^4 = -16$을 만족하는 모든 복소수 $z$를 구하시오.</p>
+        </div>
+
+        <div class="solution-box">
+            <h3>풀이 2</h3>
+            <p><strong>1단계: -16을 극형식으로 표현</strong></p>
+            <div class="formula">
+                $$-16 = 16(\cos\pi + i\sin\pi)$$
+            </div>
+
+            <p><strong>2단계: 4제곱근 공식 적용</strong></p>
+            <div class="formula">
+                $$w_k = \sqrt[4]{16}\left(\cos\frac{\pi + 2\pi k}{4} + i\sin\frac{\pi + 2\pi k}{4}\right), \quad k = 0, 1, 2, 3$$
+            </div>
+
+            <p><strong>3단계: 각 근 계산</strong></p>
+            <p>$k = 0$:</p>
+            <div class="formula">
+                $$w_0 = 2\left(\cos\frac{\pi}{4} + i\sin\frac{\pi}{4}\right) = 2\left(\frac{\sqrt{2}}{2} + i\frac{\sqrt{2}}{2}\right) = \sqrt{2} + \sqrt{2}i$$
+            </div>
+
+            <p>$k = 1$:</p>
+            <div class="formula">
+                $$w_1 = 2\left(\cos\frac{3\pi}{4} + i\sin\frac{3\pi}{4}\right) = 2\left(-\frac{\sqrt{2}}{2} + i\frac{\sqrt{2}}{2}\right) = -\sqrt{2} + \sqrt{2}i$$
+            </div>
+
+            <p>$k = 2$:</p>
+            <div class="formula">
+                $$w_2 = 2\left(\cos\frac{5\pi}{4} + i\sin\frac{5\pi}{4}\right) = 2\left(-\frac{\sqrt{2}}{2} - i\frac{\sqrt{2}}{2}\right) = -\sqrt{2} - \sqrt{2}i$$
+            </div>
+
+            <p>$k = 3$:</p>
+            <div class="formula">
+                $$w_3 = 2\left(\cos\frac{7\pi}{4} + i\sin\frac{7\pi}{4}\right) = 2\left(\frac{\sqrt{2}}{2} - i\frac{\sqrt{2}}{2}\right) = \sqrt{2} - \sqrt{2}i$$
+            </div>
+
+            <p><strong>답:</strong> $z = \pm\sqrt{2} \pm \sqrt{2}i$ (4개의 근)</p>
+        </div>
+
+        <h2>5. 요약</h2>
+
+        <ul>
+            <li>복소수의 극형식: $z = r(\cos\theta + i\sin\theta)$</li>
+            <li>드무아브르 정리: $z^n = r^n(\cos n\theta + i\sin n\theta)$</li>
+            <li>복소수의 거듭제곱 계산이 극형식에서 훨씬 간단함</li>
+            <li>복소수의 n제곱근은 정확히 n개 존재함</li>
+        </ul>
+
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 수학 블로그. All rights reserved.</p>
+    </div>
+
+    <!-- Structured Data (Schema.org JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "복소수의 극형식과 드무아브르 정리",
+        "description": "복소수를 극형식으로 표현하는 방법과 드무아브르 정리를 학습합니다.",
+        "author": {
+            "@type": "Person",
+            "name": "수학 블로그"
+        },
+        "datePublished": "2025-10-19",
+        "publisher": {
+            "@type": "Organization",
+            "name": "수학 블로그"
+        }
+    }
+    </script>
+</body>
+</html>
