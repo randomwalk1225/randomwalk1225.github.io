@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>색인 생성 도우미 - 수학 블로그</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .instructions {
+            background-color: #e7f3ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #2196F3;
+        }
+        .instructions h3 {
+            color: #1976D2;
+            margin-bottom: 10px;
+        }
+        .instructions ol {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 1.1em;
+        }
+        .url-list {
+            display: none;
+        }
+        .url-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        .url-item:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+        .url-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        .url-path {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+            word-break: break-all;
+            font-family: 'Courier New', monospace;
+        }
+        .url-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #666;
+            border: 1px solid #ddd;
+        }
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+        .stats {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .stats-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .stats-label {
+            color: #666;
+            margin-top: 5px;
+        }
+        .error {
+            background-color: #ffebee;
+            color: #c62828;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #c62828;
+        }
+        .batch-actions {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ffc107;
+        }
+        .batch-actions h3 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 색인 생성 도우미</h1>
+        <p class="subtitle">Google Search Console 색인 요청을 빠르게 처리하세요</p>
+
+        <div class="instructions">
+            <h3>📋 사용 방법</h3>
+            <ol>
+                <li>아래 목록에서 색인을 생성할 페이지를 찾으세요</li>
+                <li><strong>"색인 요청"</strong> 버튼을 클릭하세요</li>
+                <li>Google Search Console 페이지가 열립니다</li>
+                <li>열린 페이지에서 <strong>"색인 생성 요청"</strong> 버튼을 클릭하세요</li>
+                <li>모든 페이지에 대해 반복하세요</li>
+            </ol>
+        </div>
+
+        <div id="loading" class="loading">
+            ⏳ sitemap.xml에서 URL 목록을 불러오는 중...
+        </div>
+
+        <div id="error" style="display: none;" class="error"></div>
+
+        <div id="stats" style="display: none;" class="stats">
+            <div class="stats-number" id="urlCount">0</div>
+            <div class="stats-label">개의 페이지 발견</div>
+        </div>
+
+        <div id="urlList" class="url-list"></div>
+    </div>
+
+    <script>
+        const SITE_URL = 'https://randomwalk1225.github.io';
+        const SITEMAP_URL = `${SITE_URL}/sitemap.xml`;
+
+        // 페이지 제목 매핑
+        const PAGE_TITLES = {
+            [SITE_URL + '/']: '메인 페이지 (홈)',
+            [SITE_URL + '/posts/derivative-of-rational-functions.html']: '분수함수의 미분',
+            [SITE_URL + '/posts/permutation-combination.html']: '경우의 수: 순열과 조합의 비교'
+        };
+
+        async function fetchSitemap() {
+            try {
+                const response = await fetch(SITEMAP_URL);
+                if (!response.ok) {
+                    throw new Error('sitemap.xml을 불러올 수 없습니다');
+                }
+                const text = await response.text();
+                return text;
+            } catch (error) {
+                showError(`오류: ${error.message}<br><br>sitemap.xml 파일이 존재하는지 확인하세요.`);
+                return null;
+            }
+        }
+
+        function parseSitemap(xmlText) {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+            const urls = xmlDoc.getElementsByTagName('loc');
+
+            const urlList = [];
+            for (let i = 0; i < urls.length; i++) {
+                urlList.push(urls[i].textContent);
+            }
+            return urlList;
+        }
+
+        function getSearchConsoleUrl(url) {
+            const encodedUrl = encodeURIComponent(url);
+            return `https://search.google.com/search-console/inspect?resource_id=${encodeURIComponent(SITE_URL + '/')}&id=${encodedUrl}`;
+        }
+
+        function getPageTitle(url) {
+            return PAGE_TITLES[url] || url.split('/').pop() || '페이지';
+        }
+
+        function createUrlItem(url, index) {
+            const title = getPageTitle(url);
+            const searchConsoleUrl = getSearchConsoleUrl(url);
+
+            return `
+                <div class="url-item">
+                    <div class="url-title">${index + 1}. ${title}</div>
+                    <div class="url-path">${url}</div>
+                    <div class="url-actions">
+                        <a href="${searchConsoleUrl}" target="_blank" class="btn btn-primary">
+                            🔍 색인 요청
+                        </a>
+                        <a href="${url}" target="_blank" class="btn btn-secondary">
+                            👀 페이지 보기
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+
+        function showError(message) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('error').innerHTML = message;
+            document.getElementById('error').style.display = 'block';
+        }
+
+        function displayUrls(urls) {
+            document.getElementById('loading').style.display = 'none';
+
+            if (urls.length === 0) {
+                showError('sitemap.xml에서 URL을 찾을 수 없습니다.');
+                return;
+            }
+
+            // 통계 표시
+            document.getElementById('urlCount').textContent = urls.length;
+            document.getElementById('stats').style.display = 'block';
+
+            // URL 목록 생성
+            const urlListHtml = urls.map((url, index) => createUrlItem(url, index)).join('');
+            document.getElementById('urlList').innerHTML = urlListHtml;
+            document.getElementById('urlList').style.display = 'block';
+        }
+
+        // 페이지 로드 시 실행
+        async function init() {
+            const sitemapText = await fetchSitemap();
+            if (!sitemapText) return;
+
+            const urls = parseSitemap(sitemapText);
+            displayUrls(urls);
+        }
+
+        init();
+    </script>
+</body>
+</html>
