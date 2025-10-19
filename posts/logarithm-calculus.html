@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>로그함수의 미분과 적분 - 자연로그와 일반로그 | 수학 블로그</title>
+    <meta name="description" content="자연로그 ln x와 일반로그 log_a x의 미분과 적분 공식을 유도하고 활용하는 방법을 학습합니다. 지수함수와의 관계를 이해하세요.">
+    <meta name="keywords" content="로그함수, 자연로그, 일반로그, 미분, 적분, ln, log, 수학">
+    <meta name="author" content="수학 블로그">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://randomwalk1225.github.io/posts/logarithm-calculus.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://randomwalk1225.github.io/posts/logarithm-calculus.html">
+    <meta property="og:title" content="로그함수의 미분과 적분 - 자연로그와 일반로그">
+    <meta property="og:description" content="자연로그와 일반로그의 미분과 적분 공식을 유도하고 활용하는 방법을 학습합니다.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://randomwalk1225.github.io/posts/logarithm-calculus.html">
+    <meta property="twitter:title" content="로그함수의 미분과 적분 - 자연로그와 일반로그">
+    <meta property="twitter:description" content="자연로그와 일반로그의 미분과 적분 공식을 유도하는 방법을 학습합니다.">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax Configuration -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        .category-badge {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .date {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            color: #764ba2;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #555;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .formula-box {
+            background-color: #e7f3ff;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            border-left: 4px solid #2196F3;
+        }
+        .formula-box h3 {
+            color: #1976D2;
+            margin-top: 0;
+        }
+        .derivation-box {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            border-left: 4px solid #6c757d;
+        }
+        .problem {
+            background-color: #fff3cd;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+        .problem h3 {
+            color: #856404;
+            margin-top: 0;
+        }
+        .solution {
+            background-color: #d4edda;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+        .solution h3 {
+            color: #155724;
+            margin-top: 0;
+        }
+        .highlight {
+            background-color: #fff3e0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        .important-note {
+            background-color: #ffe0e0;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #667eea;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            margin-top: 50px;
+        }
+        ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="category-badge">미적분</div>
+        <h1>로그함수의 미분과 적분</h1>
+        <div class="date">2025년 10월 19일 16:00</div>
+    </div>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← 목록으로 돌아가기</a>
+
+        <h2>1. 로그함수의 기초</h2>
+
+        <p>
+            로그함수는 지수함수의 역함수입니다.
+            <span class="highlight">자연로그</span>는 밑이 $e$ (오일러 수, $e \approx 2.71828...$)인 로그를 의미하며 $\ln x$로 표기합니다.
+            <span class="highlight">일반로그</span>는 밑이 $a$ (단, $a > 0$, $a \neq 1$)인 로그를 의미하며 $\log_a x$로 표기합니다.
+        </p>
+
+        <div class="important-note">
+            <strong>중요:</strong>
+            <ul>
+                <li>자연로그: $\ln x = \log_e x$ (밑이 $e$)</li>
+                <li>상용로그: $\log x = \log_{10} x$ (밑이 10, 공학용 계산기에서 많이 사용)</li>
+                <li>밑 변환 공식: $\log_a x = \frac{\ln x}{\ln a}$</li>
+            </ul>
+        </div>
+
+        <h2>2. 자연로그의 미분</h2>
+
+        <div class="formula-box">
+            <h3>자연로그의 미분 공식</h3>
+
+            <p><strong>기본 공식:</strong></p>
+            $$\frac{d}{dx}\ln x = \frac{1}{x} \quad (x > 0)$$
+
+            <p style="margin-top: 15px;"><strong>합성함수의 경우 (연쇄법칙):</strong></p>
+            $$\frac{d}{dx}\ln[f(x)] = \frac{f'(x)}{f(x)} = \frac{1}{f(x)} \cdot f'(x)$$
+
+            <p style="margin-top: 15px;"><strong>절댓값을 포함한 경우:</strong></p>
+            $$\frac{d}{dx}\ln|x| = \frac{1}{x} \quad (x \neq 0)$$
+        </div>
+
+        <h3>자연로그 미분 유도</h3>
+
+        <div class="derivation-box">
+            <p>$y = \ln x$라 하면 $x = e^y$입니다.</p>
+
+            <p style="margin-top: 15px;">양변을 $x$에 대해 미분하면:</p>
+            $$1 = e^y \cdot \frac{dy}{dx}$$
+
+            <p style="margin-top: 15px;">정리하면:</p>
+            $$\frac{dy}{dx} = \frac{1}{e^y} = \frac{1}{x}$$
+
+            <p style="margin-top: 15px;">따라서:</p>
+            $$\frac{d}{dx}\ln x = \frac{1}{x}$$
+        </div>
+
+        <h2>3. 일반로그의 미분</h2>
+
+        <div class="formula-box">
+            <h3>일반로그의 미분 공식</h3>
+
+            <p><strong>밑이 $a$인 로그:</strong></p>
+            $$\frac{d}{dx}\log_a x = \frac{1}{x \ln a} \quad (x > 0, a > 0, a \neq 1)$$
+
+            <p style="margin-top: 15px;"><strong>합성함수의 경우:</strong></p>
+            $$\frac{d}{dx}\log_a[f(x)] = \frac{f'(x)}{f(x) \ln a}$$
+        </div>
+
+        <h3>일반로그 미분 유도</h3>
+
+        <div class="derivation-box">
+            <p>밑 변환 공식을 사용합니다:</p>
+            $$\log_a x = \frac{\ln x}{\ln a}$$
+
+            <p style="margin-top: 15px;">양변을 $x$에 대해 미분하면:</p>
+            $$\frac{d}{dx}\log_a x = \frac{d}{dx}\left(\frac{\ln x}{\ln a}\right)$$
+
+            <p style="margin-top: 15px;">$\ln a$는 상수이므로:</p>
+            $$= \frac{1}{\ln a} \cdot \frac{d}{dx}\ln x = \frac{1}{\ln a} \cdot \frac{1}{x}$$
+
+            <p style="margin-top: 15px;">따라서:</p>
+            $$\frac{d}{dx}\log_a x = \frac{1}{x \ln a}$$
+        </div>
+
+        <h2>4. 로그함수의 적분</h2>
+
+        <div class="formula-box">
+            <h3>로그함수의 적분 공식</h3>
+
+            <p><strong>자연로그의 적분:</strong></p>
+            $$\int \ln x \, dx = x\ln x - x + C = x(\ln x - 1) + C$$
+
+            <p style="margin-top: 15px;"><strong>일반로그의 적분:</strong></p>
+            $$\int \log_a x \, dx = \frac{x}{\ln a}(\ln x - 1) + C$$
+
+            <p style="margin-top: 15px;"><strong>$\frac{1}{x}$의 적분:</strong></p>
+            $$\int \frac{1}{x} \, dx = \ln|x| + C$$
+
+            <p style="margin-top: 15px;"><strong>$\frac{f'(x)}{f(x)}$의 적분:</strong></p>
+            $$\int \frac{f'(x)}{f(x)} \, dx = \ln|f(x)| + C$$
+        </div>
+
+        <h3>$\ln x$의 적분 유도 (부분적분)</h3>
+
+        <div class="derivation-box">
+            <p>부분적분 공식 $\int u \, dv = uv - \int v \, du$를 사용합니다.</p>
+
+            <p style="margin-top: 15px;">$u = \ln x$, $dv = dx$로 놓으면:</p>
+            <ul>
+                <li>$du = \frac{1}{x} dx$</li>
+                <li>$v = x$</li>
+            </ul>
+
+            <p style="margin-top: 15px;">부분적분 공식에 대입하면:</p>
+            $$\int \ln x \, dx = x \ln x - \int x \cdot \frac{1}{x} \, dx$$
+            $$= x \ln x - \int 1 \, dx$$
+            $$= x \ln x - x + C$$
+        </div>
+
+        <h2>5. 공식 요약표</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>함수</th>
+                    <th>미분</th>
+                    <th>적분</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>$\ln x$</td>
+                    <td>$\frac{1}{x}$</td>
+                    <td>$x\ln x - x + C$</td>
+                </tr>
+                <tr>
+                    <td>$\log_a x$</td>
+                    <td>$\frac{1}{x \ln a}$</td>
+                    <td>$\frac{x}{\ln a}(\ln x - 1) + C$</td>
+                </tr>
+                <tr>
+                    <td>$\frac{1}{x}$</td>
+                    <td>$-\frac{1}{x^2}$</td>
+                    <td>$\ln|x| + C$</td>
+                </tr>
+                <tr>
+                    <td>$e^x$</td>
+                    <td>$e^x$</td>
+                    <td>$e^x + C$</td>
+                </tr>
+                <tr>
+                    <td>$a^x$</td>
+                    <td>$a^x \ln a$</td>
+                    <td>$\frac{a^x}{\ln a} + C$</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>6. 연습문제</h2>
+
+        <div class="problem">
+            <h3>연습문제 1</h3>
+            <p>다음 함수를 미분하시오:</p>
+            <p>(1) $f(x) = \ln(3x^2 + 1)$</p>
+            <p>(2) $g(x) = x^2 \ln x$</p>
+        </div>
+
+        <div class="solution">
+            <h3>풀이</h3>
+
+            <p><strong>(1) $f(x) = \ln(3x^2 + 1)$의 미분</strong></p>
+            <p>연쇄법칙을 사용합니다:</p>
+            $$f'(x) = \frac{1}{3x^2 + 1} \cdot (3x^2 + 1)'$$
+            $$= \frac{1}{3x^2 + 1} \cdot 6x$$
+            $$= \frac{6x}{3x^2 + 1}$$
+
+            <p style="margin-top: 20px;"><strong>(2) $g(x) = x^2 \ln x$의 미분</strong></p>
+            <p>곱의 미분법을 사용합니다:</p>
+            $$g'(x) = (x^2)' \ln x + x^2 (\ln x)'$$
+            $$= 2x \ln x + x^2 \cdot \frac{1}{x}$$
+            $$= 2x \ln x + x$$
+            $$= x(2\ln x + 1)$$
+
+            <p style="margin-top: 15px; padding: 15px; background-color: #fff; border-radius: 4px;">
+                <strong>답:</strong><br>
+                (1) $f'(x) = \frac{6x}{3x^2 + 1}$<br>
+                (2) $g'(x) = x(2\ln x + 1)$
+            </p>
+        </div>
+
+        <div class="problem">
+            <h3>연습문제 2</h3>
+            <p>다음 적분을 계산하시오:</p>
+            <p>(1) $\displaystyle\int_1^e \frac{1}{x} \, dx$</p>
+            <p>(2) $\displaystyle\int \frac{2x}{x^2 + 1} \, dx$</p>
+        </div>
+
+        <div class="solution">
+            <h3>풀이</h3>
+
+            <p><strong>(1) $\displaystyle\int_1^e \frac{1}{x} \, dx$</strong></p>
+            <p>부정적분: $\int \frac{1}{x} \, dx = \ln|x| + C$</p>
+            <p>$x > 0$이므로 절댓값 기호를 제거할 수 있습니다:</p>
+            $$\int_1^e \frac{1}{x} \, dx = \left[\ln x\right]_1^e$$
+            $$= \ln e - \ln 1$$
+            $$= 1 - 0 = 1$$
+
+            <p style="margin-top: 20px;"><strong>(2) $\displaystyle\int \frac{2x}{x^2 + 1} \, dx$</strong></p>
+            <p>$u = x^2 + 1$로 치환하면 $du = 2x \, dx$이므로:</p>
+            $$\int \frac{2x}{x^2 + 1} \, dx = \int \frac{1}{u} \, du$$
+            $$= \ln|u| + C$$
+            $$= \ln|x^2 + 1| + C$$
+
+            <p>$x^2 + 1 > 0$이므로 절댓값 기호를 제거할 수 있습니다:</p>
+            $$= \ln(x^2 + 1) + C$$
+
+            <p style="margin-top: 15px; padding: 15px; background-color: #fff; border-radius: 4px;">
+                <strong>답:</strong><br>
+                (1) $1$<br>
+                (2) $\ln(x^2 + 1) + C$
+            </p>
+        </div>
+
+        <h2>7. 활용 및 응용</h2>
+
+        <p>
+            로그함수의 미분과 적분은 다음과 같은 분야에서 널리 사용됩니다:
+        </p>
+
+        <ul style="margin-left: 30px; margin-bottom: 20px;">
+            <li><strong>경제학:</strong> 탄력성 계산, 성장률 분석, 복리 계산</li>
+            <li><strong>물리학:</strong> 감쇠 현상, 방사성 붕괴, 음향학 (데시벨)</li>
+            <li><strong>정보이론:</strong> 엔트로피, 정보량 측정</li>
+            <li><strong>통계학:</strong> 로그 정규분포, 최대우도추정법</li>
+            <li><strong>화학:</strong> pH 계산, 반응속도론</li>
+            <li><strong>생물학:</strong> 인구 성장 모델, 세포 분열</li>
+        </ul>
+
+        <p>
+            특히 자연로그는 자연 현상에서 나타나는 성장과 감쇠를 설명하는 데 필수적이며,
+            미적분학에서 가장 중요한 함수 중 하나입니다.
+        </p>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 수학 블로그. All rights reserved.</p>
+    </div>
+</body>
+</html>
