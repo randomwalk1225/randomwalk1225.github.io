@@ -66,15 +66,18 @@
             opacity: 0.9;
         }
         .search-container {
-            max-width: 600px;
-            margin: 30px auto 0;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 350px;
+            z-index: 1000;
         }
         .search-box {
             position: relative;
         }
         .search-input {
             width: 100%;
-            padding: 15px 50px 15px 20px;
+            padding: 12px 45px 12px 15px;
             border: none;
             border-radius: 30px;
             font-size: 1em;
@@ -86,17 +89,23 @@
         }
         .search-icon {
             position: absolute;
-            right: 20px;
+            right: 12px;
             top: 50%;
             transform: translateY(-50%);
-            color: #667eea;
-            font-size: 1.2em;
+            font-size: 1.1em;
+            pointer-events: none;
+            color: #666;
         }
         .search-results-count {
-            text-align: center;
-            margin-top: 15px;
-            font-size: 0.9em;
-            opacity: 0.8;
+            text-align: right;
+            margin-top: 8px;
+            font-size: 0.85em;
+            color: #667eea;
+            font-weight: 600;
+            background-color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         .main-layout {
             display: flex;
@@ -248,6 +257,16 @@
             }
         }
         @media (max-width: 768px) {
+            .search-container {
+                position: static;
+                width: 100%;
+                max-width: 500px;
+                margin: 20px auto;
+                padding: 0 20px;
+            }
+            .search-results-count {
+                text-align: center;
+            }
             .header h1 {
                 font-size: 2em;
             }
@@ -258,17 +277,18 @@
     </style>
 </head>
 <body>
+    <!-- 검색창 (우측 상단 고정) -->
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="searchInput" class="search-input" placeholder="검색어를 입력하세요 (제목, 설명, 태그)">
+            <span class="search-icon">🔍</span>
+        </div>
+        <div id="searchResultsCount" class="search-results-count"></div>
+    </div>
+
     <div class="header">
         <h1>📚 수학 블로그</h1>
         <p>수학의 아름다움을 탐구합니다</p>
-
-        <div class="search-container">
-            <div class="search-box">
-                <input type="text" id="searchInput" class="search-input" placeholder="검색어를 입력하세요 (제목, 설명, 태그)">
-                <span class="search-icon">🔍</span>
-            </div>
-            <div id="searchResultsCount" class="search-results-count"></div>
-        </div>
     </div>
 
     <div class="main-layout">
