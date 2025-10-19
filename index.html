@@ -65,6 +65,39 @@
             font-size: 1.1em;
             opacity: 0.9;
         }
+        .search-container {
+            max-width: 600px;
+            margin: 30px auto 0;
+        }
+        .search-box {
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1em;
+            outline: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .search-input::placeholder {
+            color: #999;
+        }
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #667eea;
+            font-size: 1.2em;
+        }
+        .search-results-count {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
         .main-layout {
             display: flex;
             max-width: 1400px;
@@ -228,6 +261,14 @@
     <div class="header">
         <h1>📚 수학 블로그</h1>
         <p>수학의 아름다움을 탐구합니다</p>
+
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="searchInput" class="search-input" placeholder="검색어를 입력하세요 (제목, 설명, 태그)">
+                <span class="search-icon">🔍</span>
+            </div>
+            <div id="searchResultsCount" class="search-results-count"></div>
+        </div>
     </div>
 
     <div class="main-layout">
@@ -505,28 +546,82 @@
     </div>
 
     <script>
-        // 카테고리 필터링 기능
+        // 전역 변수
         const categoryItems = document.querySelectorAll('.category-item');
         const postCards = document.querySelectorAll('.post-card');
+        const searchInput = document.getElementById('searchInput');
+        const searchResultsCount = document.getElementById('searchResultsCount');
 
+        let currentCategory = 'all';
+        let currentSearchTerm = '';
+
+        // 검색 기능
+        function performSearch() {
+            currentSearchTerm = searchInput.value.toLowerCase().trim();
+            filterPosts();
+        }
+
+        // 통합 필터링 함수 (카테고리 + 검색)
+        function filterPosts() {
+            let visibleCount = 0;
+            let totalMatchingCategory = 0;
+
+            postCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+
+                // 카테고리 필터 확인
+                const categoryMatch = currentCategory === 'all' || cardCategory === currentCategory;
+
+                if (categoryMatch) {
+                    totalMatchingCategory++;
+                }
+
+                // 검색어 필터 확인
+                let searchMatch = true;
+                if (currentSearchTerm) {
+                    const title = card.querySelector('h2').textContent.toLowerCase();
+                    const description = card.querySelector('.post-description').textContent.toLowerCase();
+                    const tags = Array.from(card.querySelectorAll('.tag'))
+                        .map(tag => tag.textContent.toLowerCase())
+                        .join(' ');
+
+                    const combinedText = `${title} ${description} ${tags}`;
+                    searchMatch = combinedText.includes(currentSearchTerm);
+                }
+
+                // 두 조건 모두 만족하면 표시
+                if (categoryMatch && searchMatch) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // 검색 결과 표시
+            if (currentSearchTerm) {
+                searchResultsCount.textContent = `${visibleCount}개의 게시글이 검색되었습니다`;
+            } else if (currentCategory !== 'all') {
+                searchResultsCount.textContent = `${totalMatchingCategory}개의 게시글`;
+            } else {
+                searchResultsCount.textContent = '';
+            }
+        }
+
+        // 검색 이벤트 리스너
+        searchInput.addEventListener('input', performSearch);
+
+        // 카테고리 필터링 기능
         categoryItems.forEach(item => {
             item.addEventListener('click', function() {
-                const selectedCategory = this.getAttribute('data-category');
+                currentCategory = this.getAttribute('data-category');
 
                 // 활성 카테고리 스타일 변경
                 categoryItems.forEach(cat => cat.classList.remove('active'));
                 this.classList.add('active');
 
-                // 포스트 필터링
-                postCards.forEach(card => {
-                    const cardCategory = card.getAttribute('data-category');
-
-                    if (selectedCategory === 'all' || cardCategory === selectedCategory) {
-                        card.classList.remove('hidden');
-                    } else {
-                        card.classList.add('hidden');
-                    }
-                });
+                // 필터링 실행
+                filterPosts();
             });
         });
 
