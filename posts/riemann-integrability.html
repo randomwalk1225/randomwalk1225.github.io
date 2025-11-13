@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>리만 적분가능성 판정 정리 - 수학 블로그</title>
+    <meta name="description" content="리만 적분가능성의 필요충분조건과 리베스그 정리를 학습합니다. 상합과 하합, 불연속점의 측도를 이용한 적분가능성 판정 방법을 예제와 함께 익혀봅니다.">
+    <meta name="keywords" content="리만 적분, 적분가능성, Riemann integrability, 상합, 하합, 리베스그 정리, 수학">
+    <meta name="author" content="수학 블로그">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://randomwalk1225.github.io/posts/riemann-integrability.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://randomwalk1225.github.io/posts/riemann-integrability.html">
+    <meta property="og:title" content="리만 적분가능성 판정 정리">
+    <meta property="og:description" content="리만 적분가능성의 필요충분조건과 불연속점의 측도를 이용한 판정 방법을 학습합니다.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://randomwalk1225.github.io/posts/riemann-integrability.html">
+    <meta property="twitter:title" content="리만 적분가능성 판정 정리">
+    <meta property="twitter:description" content="리만 적분가능성의 필요충분조건과 불연속점의 측도를 이용한 판정 방법을 학습합니다.">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax Configuration -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        .category-badge {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .date {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .definition-box {
+            background-color: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .theorem-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .example-box {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .problem-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #64748b;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .solution-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.3em;
+        }
+        .proof-box {
+            background-color: #fef3e2;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .note-box {
+            background-color: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .formula {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            margin-top: 50px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #667eea;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="category-badge">Real Analysis</div>
+        <h1>리만 적분가능성 판정 정리</h1>
+        <div class="date">2025년 11월 13일</div>
+    </div>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← 목록으로 돌아가기</a>
+
+        <h2>1. 서론</h2>
+
+        <p>
+            어떤 함수가 리만 적분 가능(Riemann Integrable)한지를 판정하는 것은 해석학(Analysis)의 핵심 주제입니다.
+            모든 함수가 적분 가능한 것은 아니며, 적분가능성을 판정하는 명확한 기준이 필요합니다.
+        </p>
+
+        <p>
+            이 글에서는 리만의 적분가능 조건(Riemann's Criterion)과 리베스그의 정리(Lebesgue's Theorem)를 통해
+            함수의 적분가능성을 판정하는 방법을 학습합니다.
+        </p>
+
+        <h2>2. 기본 개념</h2>
+
+        <h3>2.1 분할 (Partition)</h3>
+
+        <div class="definition-box">
+            <h3>정의: 분할</h3>
+            <p>
+                닫힌 구간 $[a,b]$의 <strong>분할(partition)</strong> $P$는 다음을 만족하는 유한 개의 점들의 집합입니다:
+            </p>
+            <div class="formula">
+                $$P = \{x_0, x_1, x_2, \ldots, x_n\}$$
+            </div>
+            <p>여기서 $a = x_0 < x_1 < x_2 < \cdots < x_n = b$</p>
+
+            <p><strong>세분 분할(Refinement):</strong>
+            분할 $P'$이 $P$를 포함하면 ($P \subseteq P'$), $P'$을 $P$의 세분(refinement)이라고 합니다.</p>
+        </div>
+
+        <h3>2.2 상합과 하합 (Upper and Lower Sums)</h3>
+
+        <div class="definition-box">
+            <h3>정의: 상합과 하합</h3>
+            <p>
+                함수 $f$가 구간 $[a,b]$에서 유계(bounded)라고 하자. 분할 $P = \{x_0, x_1, \ldots, x_n\}$에 대해:
+            </p>
+
+            <p><strong>각 소구간에서의 상한과 하한:</strong></p>
+            <div class="formula">
+                $$M_i = \sup_{x \in [x_{i-1}, x_i]} f(x), \quad m_i = \inf_{x \in [x_{i-1}, x_i]} f(x)$$
+            </div>
+
+            <p><strong>상합(Upper Sum):</strong></p>
+            <div class="formula">
+                $$U(P, f) = \sum_{i=1}^{n} M_i (x_i - x_{i-1})$$
+            </div>
+
+            <p><strong>하합(Lower Sum):</strong></p>
+            <div class="formula">
+                $$L(P, f) = \sum_{i=1}^{n} m_i (x_i - x_{i-1})$$
+            </div>
+        </div>
+
+        <p>
+            항상 $L(P, f) \leq U(P, f)$이며, 세분할수록 하합은 증가하고 상합은 감소합니다.
+        </p>
+
+        <h3>2.3 상적분과 하적분 (Upper and Lower Integrals)</h3>
+
+        <div class="definition-box">
+            <h3>정의: 상적분과 하적분</h3>
+
+            <p><strong>상적분(Upper Integral):</strong></p>
+            <div class="formula">
+                $$\overline{\int_a^b} f(x) dx = \inf_P U(P, f)$$
+            </div>
+            <p>모든 가능한 분할에 대한 상합의 하한(infimum)</p>
+
+            <p><strong>하적분(Lower Integral):</strong></p>
+            <div class="formula">
+                $$\underline{\int_a^b} f(x) dx = \sup_P L(P, f)$$
+            </div>
+            <p>모든 가능한 분할에 대한 하합의 상한(supremum)</p>
+        </div>
+
+        <p>
+            항상 $\underline{\int_a^b} f(x) dx \leq \overline{\int_a^b} f(x) dx$가 성립합니다.
+        </p>
+
+        <h2>3. 리만 적분가능성</h2>
+
+        <div class="definition-box">
+            <h3>정의: 리만 적분가능</h3>
+            <p>
+                유계함수 $f : [a,b] \to \mathbb{R}$가 <strong>리만 적분가능(Riemann integrable)</strong>하다는 것은
+                상적분과 하적분이 같다는 의미입니다:
+            </p>
+            <div class="formula">
+                $$\underline{\int_a^b} f(x) dx = \overline{\int_a^b} f(x) dx$$
+            </div>
+            <p>
+                이 경우, 이 공통된 값을 <strong>리만 적분(Riemann integral)</strong>이라 하고
+                $\int_a^b f(x) dx$로 표기합니다.
+            </p>
+        </div>
+
+        <h2>4. 리만의 적분가능 조건</h2>
+
+        <div class="theorem-box">
+            <h3>정리 (리만의 적분가능 조건, Riemann's Criterion)</h3>
+            <p>
+                유계함수 $f : [a,b] \to \mathbb{R}$가 리만 적분가능하기 위한 필요충분조건은:
+            </p>
+            <div class="formula">
+                $$\text{임의의 } \varepsilon > 0 \text{에 대해 분할 } P \text{가 존재하여 } U(P, f) - L(P, f) < \varepsilon$$
+            </div>
+            <p>
+                즉, 상합과 하합의 차이를 임의로 작게 만들 수 있어야 합니다.
+            </p>
+        </div>
+
+        <div class="proof-box">
+            <h3>증명 개요</h3>
+
+            <p><strong>필요조건 (→):</strong></p>
+            <p>
+                $f$가 적분가능하면 $\overline{\int} f = \underline{\int} f$입니다.
+                상적분과 하적분의 정의에 의해, 임의의 $\varepsilon > 0$에 대해
+                $U(P, f) - L(P, f) < \varepsilon$인 분할 $P$가 존재합니다.
+            </p>
+
+            <p><strong>충분조건 (←):</strong></p>
+            <p>
+                임의의 $\varepsilon > 0$에 대해 $U(P, f) - L(P, f) < \varepsilon$이면,
+                $L(P, f) \leq \underline{\int} f \leq \overline{\int} f \leq U(P, f)$이므로
+                $\overline{\int} f - \underline{\int} f < \varepsilon$입니다.
+                $\varepsilon$이 임의이므로 $\overline{\int} f = \underline{\int} f$입니다. <strong>∎</strong>
+            </p>
+        </div>
+
+        <h2>5. 적분가능 함수의 종류</h2>
+
+        <h3>5.1 연속함수</h3>
+
+        <div class="theorem-box">
+            <h3>정리</h3>
+            <p>
+                $f$가 닫힌 구간 $[a,b]$에서 연속(continuous)이면, $f$는 리만 적분가능합니다.
+            </p>
+        </div>
+
+        <p>
+            <strong>이유:</strong> 연속함수는 닫힌 구간에서 균일연속(uniformly continuous)이므로,
+            충분히 세밀한 분할을 취하면 각 소구간에서 $M_i - m_i$를 임의로 작게 만들 수 있습니다.
+        </p>
+
+        <h3>5.2 단조함수</h3>
+
+        <div class="theorem-box">
+            <h3>정리</h3>
+            <p>
+                $f$가 닫힌 구간 $[a,b]$에서 단조(monotone)이면, $f$는 리만 적분가능합니다.
+            </p>
+        </div>
+
+        <div class="example-box">
+            <h3>예제 1: 단조증가 함수</h3>
+            <p>
+                $f(x) = \lfloor x \rfloor$ (바닥함수, floor function)를 $[0, 3]$에서 생각합니다.
+                이 함수는 단조증가이므로 적분가능합니다.
+            </p>
+            <p>
+                등분할 $P_n$을 취하면:
+            </p>
+            <div class="formula">
+                $$U(P_n, f) - L(P_n, f) = \frac{f(3) - f(0)}{n} \cdot (3-0) = \frac{3 \cdot 3}{n} = \frac{9}{n} \to 0 \text{ as } n \to \infty$$
+            </div>
+        </div>
+
+        <h2>6. 리베스그의 정리</h2>
+
+        <p>
+            적분가능성을 불연속점(discontinuities)의 관점에서 특징짓는 강력한 정리가 있습니다.
+        </p>
+
+        <div class="definition-box">
+            <h3>정의: 측도 0 (Measure Zero)</h3>
+            <p>
+                집합 $E \subset \mathbb{R}$이 <strong>측도 0 (measure zero)</strong>을 갖는다는 것은:
+            </p>
+            <p>
+                임의의 $\varepsilon > 0$에 대해, $E$를 덮는 가산개의 열린구간들
+                $(a_1, b_1), (a_2, b_2), \ldots$가 존재하여
+            </p>
+            <div class="formula">
+                $$\sum_{i=1}^{\infty} (b_i - a_i) < \varepsilon$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h3>측도 0인 집합의 예</h3>
+            <ul>
+                <li>유한 집합: $\{x_1, x_2, \ldots, x_n\}$</li>
+                <li>가산 집합: 유리수 집합 $\mathbb{Q}$</li>
+                <li>칸토르 집합 (Cantor set)</li>
+            </ul>
+            <p><strong>측도 0이 아닌 예:</strong> 임의의 구간 $(a, b)$는 측도가 $b-a > 0$</p>
+        </div>
+
+        <div class="theorem-box">
+            <h3>정리 (리베스그의 정리, Lebesgue's Theorem)</h3>
+            <p>
+                유계함수 $f : [a,b] \to \mathbb{R}$가 리만 적분가능하기 위한 필요충분조건은:
+            </p>
+            <div class="highlight-box" style="font-size: 1.1em;">
+                $f$의 불연속점의 집합이 측도 0이다
+            </div>
+            <p>
+                즉, $f$가 "거의 모든 곳(almost everywhere)"에서 연속이어야 합니다.
+            </p>
+        </div>
+
+        <p>
+            이 정리는 적분가능성을 판정하는 매우 실용적인 기준을 제공합니다.
+        </p>
+
+        <h2>7. 예제와 응용</h2>
+
+        <div class="example-box">
+            <h3>예제 2: 적분가능한 함수</h3>
+            <p>
+                다음 함수를 $[0, 1]$에서 정의합니다:
+            </p>
+            <div class="formula">
+                $$f(x) = \begin{cases}
+                0 & \text{if } x \in \mathbb{Q} \\
+                1 & \text{if } x \notin \mathbb{Q}
+                \end{cases}$$
+            </div>
+            <p>
+                이 함수는 <strong>적분 불가능</strong>합니다.
+            </p>
+            <p><strong>이유:</strong></p>
+            <p>
+                임의의 분할 $P$에 대해, 각 소구간은 유리수와 무리수를 모두 포함하므로:
+            </p>
+            <div class="formula">
+                $$M_i = 1, \quad m_i = 0 \text{ for all } i$$
+            </div>
+            <div class="formula">
+                $$U(P, f) = 1, \quad L(P, f) = 0$$
+            </div>
+            <p>
+                따라서 $U(P, f) - L(P, f) = 1 > 0$이므로 리만의 조건을 만족하지 않습니다.
+            </p>
+            <p>
+                또한, $f$는 모든 점에서 불연속이므로 불연속점의 집합이 $[0,1]$이며 측도가 1 > 0입니다.
+            </p>
+        </div>
+
+        <div class="example-box">
+            <h3>예제 3: 적분가능한 함수</h3>
+            <p>
+                다음 함수를 $[0, 2]$에서 정의합니다:
+            </p>
+            <div class="formula">
+                $$g(x) = \begin{cases}
+                x & \text{if } x \neq 1 \\
+                5 & \text{if } x = 1
+                \end{cases}$$
+            </div>
+            <p>
+                이 함수는 <strong>적분가능</strong>합니다.
+            </p>
+            <p><strong>이유:</strong></p>
+            <p>
+                $g$는 $x = 1$에서만 불연속이고, 한 점의 집합 $\{1\}$은 측도 0입니다.
+                리베스그의 정리에 의해 $g$는 적분가능하며:
+            </p>
+            <div class="formula">
+                $$\int_0^2 g(x) dx = \int_0^2 x dx = \left[\frac{x^2}{2}\right]_0^2 = 2$$
+            </div>
+            <p>
+                (한 점에서의 함숫값 변경은 적분값에 영향을 주지 않습니다)
+            </p>
+        </div>
+
+        <div class="example-box">
+            <h3>예제 4: 가산개의 점에서 불연속</h3>
+            <p>
+                다음 함수를 $[0, 1]$에서 정의합니다:
+            </p>
+            <div class="formula">
+                $$h(x) = \begin{cases}
+                \frac{1}{n} & \text{if } x = \frac{1}{n}, \; n \in \mathbb{N} \\
+                0 & \text{otherwise}
+                \end{cases}$$
+            </div>
+            <p>
+                이 함수는 <strong>적분가능</strong>합니다.
+            </p>
+            <p><strong>이유:</strong></p>
+            <p>
+                불연속점은 $\left\{\frac{1}{n} : n \in \mathbb{N}\right\} \cup \{0\}$로 가산집합이므로 측도 0입니다.
+                따라서 적분가능하며:
+            </p>
+            <div class="formula">
+                $$\int_0^1 h(x) dx = 0$$
+            </div>
+        </div>
+
+        <h2>8. 연습문제</h2>
+
+        <div class="problem-box">
+            <h3>문제 1</h3>
+            <p>
+                다음 함수가 $[0, 1]$에서 리만 적분가능한지 판정하시오:
+            </p>
+            <div class="formula">
+                $$f(x) = \begin{cases}
+                x^2 & \text{if } 0 \leq x < 0.5 \\
+                1 & \text{if } x = 0.5 \\
+                x & \text{if } 0.5 < x \leq 1
+                \end{cases}$$
+            </div>
+        </div>
+
+        <div class="solution-box">
+            <h3>풀이 1</h3>
+
+            <p><strong>Step 1: 불연속점 찾기</strong></p>
+            <p>
+                $x < 0.5$일 때 $\lim_{x \to 0.5^-} f(x) = (0.5)^2 = 0.25$
+            </p>
+            <p>
+                $x > 0.5$일 때 $\lim_{x \to 0.5^+} f(x) = 0.5$
+            </p>
+            <p>
+                $f(0.5) = 1$
+            </p>
+            <p>
+                따라서 $x = 0.5$에서만 불연속입니다.
+            </p>
+
+            <p><strong>Step 2: 적분가능성 판정</strong></p>
+            <p>
+                불연속점은 $\{0.5\}$로 한 점이므로 측도 0입니다.
+                리베스그의 정리에 의해 $f$는 <strong>적분가능</strong>합니다.
+            </p>
+
+            <p><strong>Step 3: 적분값 계산</strong></p>
+            <div class="formula">
+                $$\begin{align}
+                \int_0^1 f(x) dx &= \int_0^{0.5} x^2 dx + \int_{0.5}^1 x dx \\
+                &= \left[\frac{x^3}{3}\right]_0^{0.5} + \left[\frac{x^2}{2}\right]_{0.5}^1 \\
+                &= \frac{(0.5)^3}{3} + \frac{1}{2} - \frac{(0.5)^2}{2} \\
+                &= \frac{1}{24} + \frac{1}{2} - \frac{1}{8} = \frac{10}{24} = \frac{5}{12}
+                \end{align}$$
+            </div>
+        </div>
+
+        <div class="problem-box">
+            <h3>문제 2</h3>
+            <p>
+                다음 함수가 $[0, 1]$에서 리만 적분가능한지 판정하시오:
+            </p>
+            <div class="formula">
+                $$g(x) = \begin{cases}
+                1 & \text{if } x = \frac{1}{2^n}, \; n \in \mathbb{N} \\
+                0 & \text{otherwise}
+                \end{cases}$$
+            </div>
+        </div>
+
+        <div class="solution-box">
+            <h3>풀이 2</h3>
+
+            <p><strong>Step 1: 불연속점 찾기</strong></p>
+            <p>
+                $g$는 다음 점들에서만 불연속입니다:
+            </p>
+            <div class="formula">
+                $$D = \left\{\frac{1}{2}, \frac{1}{4}, \frac{1}{8}, \frac{1}{16}, \ldots\right\} \cup \{0\}$$
+            </div>
+            <p>
+                (수열 $\frac{1}{2^n}$은 0으로 수렴하므로 $x=0$에서도 불연속)
+            </p>
+
+            <p><strong>Step 2: 측도 판정</strong></p>
+            <p>
+                $D$는 가산집합이므로 측도 0입니다.
+            </p>
+
+            <p><strong>Step 3: 결론</strong></p>
+            <p>
+                리베스그의 정리에 의해 $g$는 <strong>적분가능</strong>하며:
+            </p>
+            <div class="formula">
+                $$\int_0^1 g(x) dx = 0$$
+            </div>
+            <p>
+                (가산개의 점에서의 함숫값은 적분값에 영향을 주지 않음)
+            </p>
+        </div>
+
+        <div class="problem-box">
+            <h3>문제 3</h3>
+            <p>
+                분할 $P = \{0, 0.5, 1\}$에 대해 함수 $f(x) = x^2$의 상합과 하합을 계산하시오.
+            </p>
+        </div>
+
+        <div class="solution-box">
+            <h3>풀이 3</h3>
+
+            <p><strong>소구간: $[0, 0.5]$와 $[0.5, 1]$</strong></p>
+
+            <p><strong>구간 $[0, 0.5]$:</strong></p>
+            <p>
+                $f(x) = x^2$는 증가함수이므로:
+            </p>
+            <div class="formula">
+                $$m_1 = f(0) = 0, \quad M_1 = f(0.5) = 0.25$$
+            </div>
+
+            <p><strong>구간 $[0.5, 1]$:</strong></p>
+            <div class="formula">
+                $$m_2 = f(0.5) = 0.25, \quad M_2 = f(1) = 1$$
+            </div>
+
+            <p><strong>하합:</strong></p>
+            <div class="formula">
+                $$L(P, f) = m_1 \cdot 0.5 + m_2 \cdot 0.5 = 0 \cdot 0.5 + 0.25 \cdot 0.5 = 0.125$$
+            </div>
+
+            <p><strong>상합:</strong></p>
+            <div class="formula">
+                $$U(P, f) = M_1 \cdot 0.5 + M_2 \cdot 0.5 = 0.25 \cdot 0.5 + 1 \cdot 0.5 = 0.625$$
+            </div>
+
+            <p><strong>차이:</strong></p>
+            <div class="formula">
+                $$U(P, f) - L(P, f) = 0.625 - 0.125 = 0.5$$
+            </div>
+
+            <p><strong>참고:</strong> 실제 적분값은 $\int_0^1 x^2 dx = \frac{1}{3} \approx 0.333$이며,
+            $L(P, f) < \frac{1}{3} < U(P, f)$입니다.</p>
+        </div>
+
+        <div class="problem-box">
+            <h3>문제 4 (도전)</h3>
+            <p>
+                디리클레 함수(Dirichlet function)를 $[0, 1]$에서 정의합니다:
+            </p>
+            <div class="formula">
+                $$D(x) = \begin{cases}
+                1 & \text{if } x \in \mathbb{Q} \\
+                0 & \text{if } x \notin \mathbb{Q}
+                \end{cases}$$
+            </div>
+            <p>
+                이 함수가 적분 불가능함을 두 가지 방법으로 증명하시오:
+                (a) 리만의 조건 사용, (b) 리베스그의 정리 사용
+            </p>
+        </div>
+
+        <div class="solution-box">
+            <h3>풀이 4</h3>
+
+            <p><strong>(a) 리만의 조건 사용:</strong></p>
+
+            <p>임의의 분할 $P = \{x_0, x_1, \ldots, x_n\}$를 생각합니다.</p>
+
+            <p>각 소구간 $[x_{i-1}, x_i]$는:</p>
+            <ul>
+                <li>유리수를 포함 (유리수는 조밀)</li>
+                <li>무리수를 포함 (무리수는 조밀)</li>
+            </ul>
+
+            <p>따라서:</p>
+            <div class="formula">
+                $$M_i = \sup_{[x_{i-1}, x_i]} D(x) = 1, \quad m_i = \inf_{[x_{i-1}, x_i]} D(x) = 0$$
+            </div>
+
+            <p>상합과 하합:</p>
+            <div class="formula">
+                $$U(P, D) = \sum_{i=1}^n 1 \cdot (x_i - x_{i-1}) = 1$$
+                $$L(P, D) = \sum_{i=1}^n 0 \cdot (x_i - x_{i-1}) = 0$$
+            </div>
+
+            <p>따라서:</p>
+            <div class="formula">
+                $$U(P, D) - L(P, D) = 1$$
+            </div>
+
+            <p>분할을 아무리 세밀하게 해도 차이가 1이므로, 리만의 조건을 만족하지 않습니다. <strong>적분 불가능.</strong></p>
+
+            <p><strong>(b) 리베스그의 정리 사용:</strong></p>
+
+            <p>$D$는 모든 점에서 불연속입니다:</p>
+            <ul>
+                <li>유리수 $q$에서: $D(q) = 1$이지만 임의로 가까운 무리수에서 $D = 0$</li>
+                <li>무리수 $r$에서: $D(r) = 0$이지만 임의로 가까운 유리수에서 $D = 1$</li>
+            </ul>
+
+            <p>따라서 불연속점의 집합은 $[0, 1]$ 전체이며, 측도는 1 > 0입니다.</p>
+
+            <p>리베스그의 정리에 의해 <strong>적분 불가능</strong>입니다. <strong>∎</strong></p>
+        </div>
+
+        <h2>9. 중요 성질 정리</h2>
+
+        <div class="theorem-box">
+            <h3>리만 적분가능 함수의 성질</h3>
+            <p>$f, g$가 $[a,b]$에서 리만 적분가능하면:</p>
+            <ol>
+                <li><strong>선형성:</strong> $cf + dg$도 적분가능 ($c, d$는 상수)</li>
+                <li><strong>곱:</strong> $fg$도 적분가능</li>
+                <li><strong>절댓값:</strong> $|f|$도 적분가능</li>
+                <li><strong>최대/최소:</strong> $\max(f,g)$, $\min(f,g)$도 적분가능</li>
+                <li><strong>합성 (조건부):</strong> $h \circ f$가 적분가능 (단, $h$가 연속)</li>
+            </ol>
+        </div>
+
+        <h2>10. 요약</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>판정 방법</th>
+                    <th>내용</th>
+                    <th>장점</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>리만의 조건</td>
+                    <td>$U(P, f) - L(P, f) < \varepsilon$</td>
+                    <td>정의에 가까움, 직접 계산 가능</td>
+                </tr>
+                <tr>
+                    <td>리베스그의 정리</td>
+                    <td>불연속점의 측도 = 0</td>
+                    <td>실용적, 기하학적 직관</td>
+                </tr>
+                <tr>
+                    <td>연속성</td>
+                    <td>연속함수는 적분가능</td>
+                    <td>가장 쉬운 판정</td>
+                </tr>
+                <tr>
+                    <td>단조성</td>
+                    <td>단조함수는 적분가능</td>
+                    <td>불연속점 확인 불필요</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box" style="font-size: 1em; text-align: left;">
+            <strong>핵심 정리:</strong>
+            <ul style="margin-top: 15px;">
+                <li>유계함수가 적분가능 ⟺ 상적분 = 하적분</li>
+                <li>리만의 조건: 상합과 하합의 차이를 임의로 작게 만들 수 있음</li>
+                <li>리베스그의 정리: 불연속점의 집합이 측도 0</li>
+                <li>연속함수, 단조함수는 항상 적분가능</li>
+                <li>유한개 또는 가산개의 불연속점만 있으면 적분가능</li>
+                <li>모든 점에서 불연속이면 적분 불가능 (예: 디리클레 함수)</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 수학 블로그. All rights reserved.</p>
+    </div>
+
+    <!-- Structured Data (Schema.org JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "리만 적분가능성 판정 정리",
+        "description": "리만 적분가능성의 필요충분조건과 불연속점의 측도를 이용한 판정 방법을 학습합니다.",
+        "author": {
+            "@type": "Person",
+            "name": "수학 블로그"
+        },
+        "datePublished": "2025-11-13",
+        "publisher": {
+            "@type": "Organization",
+            "name": "수학 블로그"
+        }
+    }
+    </script>
+</body>
+</html>
