@@ -318,6 +318,225 @@
             </p>
         </div>
 
+        <h2>3.1 왜 이런 형태가 필연적인가?</h2>
+
+        <p>
+            왜 부정적분이 초등함수라면 반드시 $g + \sum c_i \ln h_i$ 형태가 되어야 할까요?
+            이것은 단순히 경험적 관찰이 아니라 수학적으로 <strong>필연적</strong>인 결과입니다.
+        </p>
+
+        <div class="highlight-box" style="font-size:1em; text-align: left;">
+            <strong>핵심 원리:</strong>
+            <p style="margin-top: 10px;">
+                초등적 원시함수에 나타나는 "비-정확 미분(exact derivative가 아닌 부분)"은
+                <strong>오직 로그미분(logarithmic derivative)</strong> $\frac{h'}{h}$들의 상수계수 합뿐입니다.
+            </p>
+            <div class="formula">
+                $$\int f = g + \sum_{i=1}^n c_i \ln h_i \quad \Longleftrightarrow \quad f = g' + \sum_{i=1}^n c_i \frac{h_i'}{h_i}$$
+            </div>
+        </div>
+
+        <p>
+            이제 세 가지 관점에서 왜 이런 형태가 필연적인지 살펴보겠습니다.
+        </p>
+
+        <h3>관점 1: 부분분수에서 이미 드러나는 패턴</h3>
+
+        <p>
+            가장 간단한 경우인 <strong>유리함수(rational function)</strong>부터 시작합니다.
+        </p>
+
+        <div class="example-box">
+            <h3>유리함수의 적분 패턴</h3>
+            <p>
+                유리함수 $R(x)$는 Hermite 감약(Hermite reduction)과 부분분수 분해를 통해 다음 형태로 쪼개집니다:
+            </p>
+            <div class="formula">
+                $$R(x) = G'(x) + \sum_{j=1}^m \frac{\alpha_j}{x - a_j}$$
+            </div>
+            <p>
+                여기서 $\alpha_j$는 상수이고, $G(x)$는 유리함수입니다.
+            </p>
+
+            <p>적분하면:</p>
+            <div class="formula">
+                $$\int R(x) dx = G(x) + \sum_{j=1}^m \alpha_j \ln|x - a_j| + C$$
+            </div>
+
+            <p><strong>관찰:</strong></p>
+            <ul>
+                <li>$G'(x)$ 부분은 <strong>정확 미분(exact derivative)</strong></li>
+                <li>$\frac{\alpha_j}{x-a_j}$ 부분은 <strong>로그미분</strong> $\frac{d}{dx}\ln|x-a_j|$</li>
+            </ul>
+
+            <p>
+                <strong>리우빌 정리는 이 패턴이 유리함수를 넘어 모든 초등함수로 확장될 때도
+                형식이 그대로 유지된다는 사실을 증명합니다.</strong>
+            </p>
+        </div>
+
+        <div class="example-box">
+            <h3>구체적 예: $\int \frac{x^2 + 1}{x^2 - 1} dx$</h3>
+            <p>부분분수 분해:</p>
+            <div class="formula">
+                $$\frac{x^2 + 1}{x^2 - 1} = 1 + \frac{2}{x^2 - 1} = 1 + \frac{1}{x-1} - \frac{1}{x+1}$$
+            </div>
+            <p>적분:</p>
+            <div class="formula">
+                $$\int \frac{x^2 + 1}{x^2 - 1} dx = x + \ln|x-1| - \ln|x+1| + C$$
+            </div>
+            <p>
+                $= x$ (대수함수) $+ 1 \cdot \ln|x-1| - 1 \cdot \ln|x+1|$ (로그들의 상수결합)
+            </p>
+        </div>
+
+        <h3>관점 2: 미분체 확장 이론</h3>
+
+        <p>
+            더 수학적으로, <strong>미분체(differential field)</strong> 이론으로 설명할 수 있습니다.
+        </p>
+
+        <div class="definition-box">
+            <h3>미분체 확장의 구조</h3>
+            <p>
+                초등함수는 "유리함수 → 대수 확장 → $\exp$/$\log$를 순차로 붙인 탑(tower)"으로 볼 수 있습니다.
+            </p>
+
+            <p><strong>각 확장 단계에서 허용되는 새로운 미분형식:</strong></p>
+
+            <p><strong>1) 대수 확장 $K \subset K(\alpha)$:</strong></p>
+            <p>
+                $y' \in K$인 $y \in K(\alpha)$는 추적(trace) 조작을 통해
+                $K$의 원소(정확미분)와 로그미분들의 합으로 표현됩니다.
+            </p>
+
+            <p><strong>2) 로그 확장 ($t = \ln u$):</strong></p>
+            <div class="formula">
+                $$t' = \frac{u'}{u}$$
+            </div>
+            <p>
+                새로 생기는 미분형식은 오직 $\frac{u'}{u}$ 꼴, 즉 <strong>로그미분</strong>입니다.
+            </p>
+
+            <p><strong>3) 지수 확장 ($t = \exp(u)$):</strong></p>
+            <div class="formula">
+                $$t' = u' \cdot t$$
+            </div>
+            <p>
+                어떤 $y$의 미분이 기저장(base field)에 떨어지면,
+                $y/t$를 미분해 정리하면 결국 $y$의 "비-정확" 부분이 $\frac{w'}{w}$들의 상수결합으로만 남습니다.
+            </p>
+        </div>
+
+        <div class="note-box">
+            <h3>결론</h3>
+            <p>
+                확장을 한 단계씩 추가해도,
+                <strong>"정확미분 + 로그미분들의 상수결합"</strong> 말고는
+                새로 허용되는 형태가 생기지 않습니다.
+            </p>
+            <p>
+                이것이 리우빌-Rosenlicht-Risch 이론의 핵심 뼈대입니다.
+            </p>
+        </div>
+
+        <h3>관점 3: 해석적 직관 (단일값성과 회로적분)</h3>
+
+        <p>
+            복소해석학(complex analysis)의 관점에서도 이 현상을 이해할 수 있습니다.
+        </p>
+
+        <div class="example-box">
+            <h3>다가성(Multi-valuedness)과 로그</h3>
+
+            <p><strong>단일값 함수 vs 다가 함수:</strong></p>
+            <p>
+                초등적 원시함수는 (분지 절단을 제외하면) 비교적 단순한
+                <strong>단일값성(single-valuedness)</strong>과 모노드로미(monodromy)를 가져야 합니다.
+            </p>
+
+            <p><strong>로그의 다가성:</strong></p>
+            <p>
+                $\ln h$는 복소평면에서 폐곡선을 한 바퀴 돌면 $2\pi i \times (\text{winding number})$만큼 바뀝니다.
+            </p>
+            <div class="formula">
+                $$\oint \frac{dz}{z} = 2\pi i$$
+            </div>
+
+            <p><strong>핵심 통찰:</strong></p>
+            <p>
+                <strong>원시함수의 다가성을 만들어내는 "허용된 방식"이 바로 로그뿐</strong>입니다.
+            </p>
+
+            <p>
+                반면, 타원 적분(elliptic integral) 같은 것:
+            </p>
+            <div class="formula">
+                $$\int \frac{dx}{\sqrt{x^3 - x}}$$
+            </div>
+            <p>
+                이들은 주기(period)가 복잡해서 로그처럼 상수배 한 번으로 설명되지 않습니다.
+                따라서 초등적이 될 수 없습니다.
+            </p>
+        </div>
+
+        <div class="note-box">
+            <h3>잔차 정리와의 연결</h3>
+            <p>
+                복소해석에서 <strong>잔차 정리(Residue Theorem)</strong>는:
+            </p>
+            <div class="formula">
+                $$\oint_C f(z) dz = 2\pi i \sum \text{Res}(f, a_k)$$
+            </div>
+            <p>
+                로그미분 $\frac{h'}{h}$의 잔차는 $h$의 영점과 극점의 차수로 결정되며,
+                이것이 원시함수의 다가성을 정확히 설명합니다.
+            </p>
+            <p>
+                즉, 다가성의 원천이 로그 하나로 정규화되어 $\sum c_i \ln h_i$가 나타나는 것입니다.
+            </p>
+        </div>
+
+        <h3>종합 정리</h3>
+
+        <div class="theorem-box">
+            <h3>왜 $g + \sum c_i \ln h_i$ 형태인가?</h3>
+
+            <p><strong>세 가지 관점의 합의:</strong></p>
+
+            <ol>
+                <li><strong>대수적 관점 (부분분수):</strong>
+                    가장 기본적인 유리함수에서 이미 이 패턴이 나타남</li>
+
+                <li><strong>미분대수 관점 (체 확장):</strong>
+                    초등함수 확장의 각 단계에서 정확미분과 로그미분만 허용됨</li>
+
+                <li><strong>해석적 관점 (복소해석):</strong>
+                    단일값성과 다가성을 정규화하는 유일한 방법이 로그</li>
+            </ol>
+
+            <p style="margin-top: 20px;"><strong>결론:</strong></p>
+            <ul>
+                <li>정확미분은 $g'$로 흡수</li>
+                <li>정확이 아닌 부분은 <strong>오직 로그미분 $\frac{h'}{h}$들의 상수계수 합으로만</strong> 가능</li>
+                <li>따라서 부정적분이 초등함수라면 <strong>"대수함수 $g$ + 로그들의 상수결합"</strong>이 유일한 형태</li>
+            </ul>
+        </div>
+
+        <div class="history-box">
+            <h3>이론적 근거 문헌</h3>
+            <ul>
+                <li><strong>Risch, R. H.</strong> "The Problem of Integration in Finite Terms," <em>Trans. AMS</em> (1969)</li>
+                <li><strong>Risch, R. H.</strong> "The Solution of the Problem of Integration in Finite Terms," <em>J. ACM</em> (1970)</li>
+                <li><strong>Rosenlicht, M.</strong> "Liouville's Theorem on Functions of a Complex Variable," <em>Pacific J. Math.</em> (1968)</li>
+                <li><strong>Bronstein, M.</strong> <em>Symbolic Integration I: Transcendental Functions</em>, Springer</li>
+            </ul>
+            <p>
+                이들 논문은 리우빌의 직관을 엄밀한 알고리즘(Risch algorithm)으로 발전시켰으며,
+                현대 컴퓨터 대수 시스템의 기반이 되었습니다.
+            </p>
+        </div>
+
         <h2>4. 초등함수로 표현 불가능한 적분들</h2>
 
         <h3>4.1 가우스 적분</h3>
