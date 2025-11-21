@@ -1,0 +1,304 @@
+<!-- 티스토리 HTML 블록용: 테일러 급수 에러 바운드 -->
+
+<!-- MathJax 로드 (이미 티스토리에 설정되어 있다면 생략 가능) -->
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+    };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+    .taylor-content {
+        font-family: 'Noto Sans KR', Arial, sans-serif;
+        line-height: 1.8;
+        color: #333;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    .taylor-content h2 {
+        color: #2c3e50;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #667eea;
+        font-size: 1.8em;
+    }
+    .taylor-content h3 {
+        color: #34495e;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        font-size: 1.4em;
+    }
+    .taylor-content p {
+        margin-bottom: 15px;
+        text-align: justify;
+    }
+    .definition-box {
+        background-color: #e7f3ff;
+        border-left: 5px solid #2196F3;
+        padding: 20px;
+        margin: 25px 0;
+        border-radius: 5px;
+    }
+    .definition-box h4 {
+        color: #1976D2;
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 1.2em;
+    }
+    .theorem-box {
+        background-color: #fff3cd;
+        border-left: 5px solid #ffc107;
+        padding: 20px;
+        margin: 25px 0;
+        border-radius: 5px;
+    }
+    .theorem-box h4 {
+        color: #f57c00;
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 1.2em;
+    }
+    .example-box {
+        background-color: #f0f9ff;
+        border-left: 5px solid #0ea5e9;
+        padding: 20px;
+        margin: 25px 0;
+        border-radius: 5px;
+    }
+    .example-box h4 {
+        color: #0284c7;
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 1.2em;
+    }
+    .step-box {
+        background-color: #f0fdf4;
+        border-left: 5px solid #22c55e;
+        padding: 20px;
+        margin: 25px 0;
+        border-radius: 5px;
+    }
+    .step-box h4 {
+        color: #16a34a;
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 1.2em;
+    }
+    .formula {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 5px;
+        margin: 15px 0;
+        overflow-x: auto;
+        text-align: center;
+    }
+    .taylor-content ul, .taylor-content ol {
+        margin-left: 30px;
+        margin-bottom: 15px;
+    }
+    .taylor-content li {
+        margin-bottom: 10px;
+    }
+    .highlight {
+        background-color: #fff9c4;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-weight: 600;
+    }
+    .summary-box {
+        background-color: #f3e5f5;
+        border: 2px solid #9c27b0;
+        padding: 20px;
+        margin: 30px 0;
+        border-radius: 5px;
+    }
+    .summary-box h4 {
+        color: #7b1fa2;
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 1.3em;
+    }
+</style>
+
+<div class="taylor-content">
+    <h2>테일러 급수 에러 바운드(Error Bound) 구하기</h2>
+
+    <p>
+        테일러 급수에서 에러 바운드(error bound)를 찾는 과정은 주로 <strong>테일러 정리</strong>를 활용하여
+        근사값과 실제값 사이의 오차를 추정하는 데 초점을 맞춥니다.
+        이는 수학적 계산에서 테일러 다항식을 사용해 함수를 근사할 때 얼마나 정확한지 알아내는 데 유용합니다.
+    </p>
+
+    <h3>1. 문제 이해 및 설정</h3>
+
+    <p>
+        테일러 급수는 특정 점 $a$를 중심으로 함수 $f(x)$를 무한 차수의 다항식으로 표현한 것입니다:
+    </p>
+
+    <div class="formula">
+        $$f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \frac{f'''(a)}{3!}(x-a)^3 + \cdots$$
+    </div>
+
+    <p>
+        그러나 실제로는 무한항을 모두 계산할 수 없으므로, $n$차 테일러 다항식 $P_n(x)$로 근사합니다:
+    </p>
+
+    <div class="formula">
+        $$P_n(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots + \frac{f^{(n)}(a)}{n!}(x-a)^n$$
+    </div>
+
+    <div class="definition-box">
+        <h4>오차(Remainder) 정의</h4>
+        <p>이 때의 오차 $R_n(x)$는 다음과 같이 정의됩니다:</p>
+        <div class="formula">
+            $$R_n(x) = f(x) - P_n(x)$$
+        </div>
+        <p><span class="highlight">목표</span>: 이 오차 $R_n(x)$의 상한, 즉 <strong>에러 바운드</strong>를 구하는 것입니다.</p>
+    </div>
+
+    <h3>2. 테일러 정리와 나머지 항(Remainder) 공식 사용</h3>
+
+    <div class="theorem-box">
+        <h4>테일러 정리 (Taylor's Theorem)</h4>
+        <p>$n$차 테일러 다항식으로 근사했을 때 오차 $R_n(x)$는 다음과 같이 표현됩니다:</p>
+        <div class="formula">
+            $$R_n(x) = \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}$$
+        </div>
+        <p><strong>여기서:</strong></p>
+        <ul>
+            <li>$c$는 $a$와 $x$ 사이의 어떤 값 (정확한 값은 알 수 없음)</li>
+            <li>$f^{(n+1)}(c)$는 함수 $f$의 $n+1$차 도함수로, $c$에서 평가된 값</li>
+        </ul>
+    </div>
+
+    <p>
+        이 공식을 이용해 오차를 추정하려면 <span class="highlight">$f^{(n+1)}(x)$의 최대값</span>을 구해야 합니다.
+    </p>
+
+    <h3>3. 도함수의 최대값 찾기</h3>
+
+    <div class="step-box">
+        <h4>최대값 추정 과정</h4>
+        <p>$R_n(x)$의 크기를 추정하려면 $f^{(n+1)}(c)$의 절대값에 대한 상한을 알아야 합니다.</p>
+        <p>구체적으로, 관심 구간(예: $[a, x]$ 또는 $[a, b]$)에서 $|f^{(n+1)}(x)|$의 최대값 $M$을 구합니다:</p>
+        <div class="formula">
+            $$|f^{(n+1)}(c)| \leq M$$
+        </div>
+        <p><strong>이를 위해:</strong></p>
+        <ol>
+            <li>$f(x)$의 $n+1$차 도함수를 계산합니다.</li>
+            <li>구간 내에서 $|f^{(n+1)}(x)|$의 최대값을 찾습니다 (극값, 경계값 등을 확인).</li>
+        </ol>
+    </div>
+
+    <h3>4. 에러 바운드 공식 적용</h3>
+
+    <p>
+        $|f^{(n+1)}(c)| \leq M$을 사용해 오차의 상한을 구합니다:
+    </p>
+
+    <div class="formula">
+        $$|R_n(x)| = \left| \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1} \right| \leq \frac{M}{(n+1)!}|x-a|^{n+1}$$
+    </div>
+
+    <p><strong>공식의 구성 요소:</strong></p>
+    <ul>
+        <li><strong>$M$</strong>: 구간 내 $|f^{(n+1)}(x)|$의 최대값</li>
+        <li><strong>$(n+1)!$</strong>: 팩토리얼로, 분모를 크게 만들어 오차를 줄이는 역할</li>
+        <li><strong>$|x-a|^{n+1}$</strong>: 중심점 $a$에서 $x$까지의 거리의 $n+1$제곱</li>
+    </ul>
+
+    <h3>5. 예시를 통한 적용</h3>
+
+    <div class="example-box">
+        <h4>예제: $f(x) = e^x$의 2차 테일러 근사</h4>
+        <p>함수 $f(x) = e^x$를 $a = 0$에서 2차 테일러 다항식으로 근사하고, $x = 1$에서의 에러 바운드를 구해봅시다.</p>
+
+        <p><strong>단계 1: 테일러 다항식 계산</strong></p>
+        <ul>
+            <li>$f(x) = e^x$, $f'(x) = e^x$, $f''(x) = e^x$, $f'''(x) = e^x$</li>
+            <li>$a = 0$에서: $f(0) = 1$, $f'(0) = 1$, $f''(0) = 1$</li>
+        </ul>
+        <div class="formula">
+            $$P_2(x) = 1 + x + \frac{x^2}{2}$$
+        </div>
+
+        <p><strong>단계 2: 나머지 항</strong></p>
+        <div class="formula">
+            $$R_2(x) = \frac{f'''(c)}{3!}(x-0)^3 = \frac{e^c}{6}x^3$$
+        </div>
+        <p>$x = 1$일 때: $R_2(1) = \frac{e^c}{6}$, 여기서 $c$는 $[0, 1]$ 사이의 값</p>
+
+        <p><strong>단계 3: 최대값 찾기</strong></p>
+        <ul>
+            <li>$f'''(x) = e^x$는 $[0, 1]$에서 증가함수</li>
+            <li>$|f'''(c)| = e^c \leq e^1 = e$ (최대값은 $x = 1$에서)</li>
+        </ul>
+
+        <p><strong>단계 4: 에러 바운드</strong></p>
+        <div class="formula">
+            $$|R_2(1)| \leq \frac{e}{6} \cdot 1^3 = \frac{e}{6} \approx 0.452$$
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>검증</h4>
+        <p>실제로 계산해보면:</p>
+        <ul>
+            <li>근사값: $P_2(1) = 1 + 1 + \frac{1}{2} = 2.5$</li>
+            <li>실제값: $e^1 \approx 2.718$</li>
+            <li>실제 오차: $|2.718 - 2.5| = 0.218$</li>
+            <li>에러 바운드: $\frac{e}{6} \approx 0.452$</li>
+        </ul>
+        <p>실제 오차 $(0.218)$가 에러 바운드 $(0.452)$보다 작으므로, 우리의 추정이 올바릅니다! ✓</p>
+    </div>
+
+    <h3>6. 단계별 요약</h3>
+
+    <div class="summary-box">
+        <h4>📌 에러 바운드를 구하는 6단계</h4>
+        <ol>
+            <li><strong>테일러 다항식 계산</strong>: $n$차까지 전개</li>
+            <li><strong>$n+1$차 도함수 구하기</strong>: $f^{(n+1)}(x)$ 계산</li>
+            <li><strong>구간 설정</strong>: $a$와 $x$ 사이의 구간 결정</li>
+            <li><strong>최대값 찾기</strong>: 구간에서 $|f^{(n+1)}(x)|$의 최대값 $M$ 구하기</li>
+            <li><strong>공식 적용</strong>: $|R_n(x)| \leq \frac{M}{(n+1)!}|x-a|^{n+1}$</li>
+            <li><strong>해석</strong>: 이 값이 근사의 정확도를 나타냄</li>
+        </ol>
+    </div>
+
+    <h3>7. 실용적 응용</h3>
+
+    <p>에러 바운드는 다음과 같은 경우에 유용합니다:</p>
+
+    <ul>
+        <li><strong>정확도 보장</strong>: 계산 결과가 특정 오차 범위 내에 있음을 보장</li>
+        <li><strong>항의 개수 결정</strong>: 원하는 정확도를 얻기 위해 몇 차까지 전개해야 하는지 결정</li>
+        <li><strong>컴퓨터 계산</strong>: 근사 알고리즘의 신뢰성 검증</li>
+        <li><strong>과학 계산</strong>: 실험 오차와 이론값의 차이 분석</li>
+    </ul>
+
+    <div class="step-box">
+        <h4>💡 핵심 포인트</h4>
+        <ul>
+            <li>에러 바운드는 <strong>최대 오차</strong>를 나타내며, 실제 오차는 보통 이보다 작습니다.</li>
+            <li>$n$이 커질수록 $(n+1)!$이 빠르게 증가하여 에러 바운드가 감소합니다.</li>
+            <li>$|x-a|$가 작을수록 (중심점에 가까울수록) 오차가 작아집니다.</li>
+            <li>도함수가 빠르게 증가하는 함수는 더 많은 항이 필요할 수 있습니다.</li>
+        </ul>
+    </div>
+
+    <h3>결론</h3>
+
+    <p>
+        테일러 급수의 에러 바운드는 근사의 품질을 수치적으로 평가할 수 있게 해주는 강력한 도구입니다.
+        테일러 정리를 통해 우리는 근사가 얼마나 정확한지, 그리고 추가 항을 포함해야 할지를
+        과학적으로 판단할 수 있습니다.
+    </p>
+
+</div>
