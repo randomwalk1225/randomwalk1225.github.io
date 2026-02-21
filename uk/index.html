@@ -5,15 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>MathHub UK - A-Level, IGCSE, TMUA, MAT Past Papers</title>
-    <meta name="description" content="Free A-Level Maths, IGCSE Mathematics, TMUA and MAT past papers organized by year and exam board.">
-    <meta name="keywords" content="A-Level maths, IGCSE mathematics, TMUA, MAT, past papers, Edexcel, OCR, AQA, Cambridge">
+    <meta name="description" content="Free A-Level Maths (CIE, Edexcel, OCR, AQA), IGCSE Mathematics, TMUA and MAT past papers. Download PDFs organised by year and exam board.">
+    <meta name="keywords" content="A-Level maths, IGCSE mathematics, TMUA, MAT, past papers, Edexcel, OCR, AQA, Cambridge, CIE, Oxford">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://randomwalk1225.github.io/uk/">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://randomwalk1225.github.io/uk/">
-    <meta property="og:title" content="MathHub UK - A-Level & IGCSE Past Papers">
-    <meta property="og:description" content="Free A-Level and IGCSE maths past papers organized by year.">
+    <meta property="og:title" content="MathHub UK - A-Level, IGCSE & Admissions Test Past Papers">
+    <meta property="og:description" content="Free UK maths exam resources. A-Level, IGCSE, TMUA, MAT past papers organised by year.">
+
+    <link rel="alternate" hreflang="ko" href="https://randomwalk1225.github.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://randomwalk1225.github.io/us/">
+    <link rel="alternate" hreflang="en-GB" href="https://randomwalk1225.github.io/uk/">
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
@@ -30,36 +34,85 @@
 
     <link rel="stylesheet" href="../assets/css/common.css">
     <style>
-        .coming-hero {
-            min-height: 70vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+        .uk-hero {
+            background: linear-gradient(135deg, #1a2744 0%, #3b82f6 100%);
+            color: white;
             padding: 60px 20px;
+            text-align: center;
         }
-        .coming-hero .flag { font-size: 5em; margin-bottom: 20px; }
-        .coming-hero h1 { font-size: 2.5em; color: #2c3e50; margin-bottom: 10px; }
-        .coming-hero .subtitle { color: #64748b; font-size: 1.2em; margin-bottom: 40px; }
-        .preview-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px; max-width: 800px; width: 100%; margin-bottom: 40px;
+        .uk-hero .flag { font-size: 4em; margin-bottom: 15px; }
+        .uk-hero h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .uk-hero .subtitle { opacity: 0.9; font-size: 1.15em; }
+
+        .exam-grid {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
         }
-        .preview-card {
-            background: white; border-radius: 12px; padding: 24px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-align: center;
+        .exam-card {
+            background: white;
+            border-radius: 12px;
+            padding: 32px 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
-        .preview-card .icon { font-size: 2em; margin-bottom: 10px; }
-        .preview-card h3 { color: #2c3e50; margin-bottom: 6px; font-size: 1.1em; }
-        .preview-card p { color: #64748b; font-size: 0.9em; }
-        .notify-text { color: #64748b; margin-bottom: 20px; }
-        .back-home {
-            display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white; padding: 12px 28px; border-radius: 25px;
-            text-decoration: none; font-weight: 600; transition: opacity 0.2s;
+        .exam-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
         }
-        .back-home:hover { opacity: 0.9; }
+        .exam-card .icon { font-size: 3em; margin-bottom: 16px; }
+        .exam-card h2 {
+            font-size: 1.4em;
+            color: #1e3a5f;
+            margin: 0 0 8px 0;
+            padding: 0;
+            border: none;
+        }
+        .exam-card .desc {
+            color: #64748b;
+            font-size: 0.95em;
+            margin-bottom: 16px;
+        }
+        .exam-card .badge {
+            display: inline-block;
+            background: #dcfce7;
+            color: #16a34a;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        .info-section {
+            max-width: 900px;
+            margin: 20px auto 40px;
+            padding: 0 20px;
+        }
+        .info-box {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .info-box h3 {
+            color: #1e3a5f;
+            margin: 0 0 15px 0;
+            font-size: 1.2em;
+        }
+        .info-box ul { margin: 0; padding-left: 20px; }
+        .info-box li { margin-bottom: 6px; color: #475569; }
+
+        @media (max-width: 768px) {
+            .uk-hero h1 { font-size: 1.8em; }
+            .exam-grid { margin: 20px auto; }
+        }
     </style>
 </head>
 <body>
@@ -73,36 +126,59 @@
         </div>
     </nav>
 
-    <div class="coming-hero">
+    <div class="uk-hero">
         <div class="flag">&#x1F1EC;&#x1F1E7;</div>
         <h1>MathHub UK</h1>
-        <p class="subtitle">Coming Soon &mdash; A-Level & IGCSE Maths Resources</p>
+        <p class="subtitle">A-Level, IGCSE &amp; University Admissions Test Past Papers &mdash; Free PDFs</p>
+    </div>
 
-        <div class="preview-grid">
-            <div class="preview-card">
-                <div class="icon">&#x1F393;</div>
-                <h3>A-Level Maths</h3>
-                <p>Edexcel, OCR, AQA</p>
-            </div>
-            <div class="preview-card">
-                <div class="icon">&#x1F4D0;</div>
-                <h3>IGCSE Maths</h3>
-                <p>CIE & Edexcel</p>
-            </div>
-            <div class="preview-card">
-                <div class="icon">&#x1F3DB;&#xFE0F;</div>
-                <h3>TMUA</h3>
-                <p>Cambridge admissions</p>
-            </div>
-            <div class="preview-card">
-                <div class="icon">&#x1F3AF;</div>
-                <h3>MAT</h3>
-                <p>Oxford admissions</p>
-            </div>
+    <div class="exam-grid">
+        <a href="a-level/" class="exam-card">
+            <div class="icon">&#x1F393;</div>
+            <h2>A-Level Maths</h2>
+            <p class="desc">CIE (9709), Edexcel, OCR &amp; AQA &mdash; papers, mark schemes &amp; solutions</p>
+            <span class="badge">Available</span>
+        </a>
+
+        <a href="igcse/" class="exam-card">
+            <div class="icon">&#x1F4D0;</div>
+            <h2>IGCSE Maths</h2>
+            <p class="desc">Cambridge (0580) &amp; Edexcel (4MA1) &mdash; Core, Extended, Foundation &amp; Higher</p>
+            <span class="badge">Available</span>
+        </a>
+
+        <a href="tmua/" class="exam-card">
+            <div class="icon">&#x1F3DB;&#xFE0F;</div>
+            <h2>TMUA</h2>
+            <p class="desc">Test of Mathematics for University Admission &mdash; Paper 1 &amp; 2 (2016&ndash;2023)</p>
+            <span class="badge">Available</span>
+        </a>
+
+        <a href="mat/" class="exam-card">
+            <div class="icon">&#x1F3AF;</div>
+            <h2>MAT</h2>
+            <p class="desc">Oxford Mathematics Admissions Test &mdash; papers &amp; solutions (2007&ndash;2024)</p>
+            <span class="badge">Available</span>
+        </a>
+    </div>
+
+    <div class="info-section">
+        <div class="info-box">
+            <h3>How to Use</h3>
+            <ul>
+                <li>Select an exam above to browse all available papers</li>
+                <li>A-Level &amp; IGCSE: papers organised by exam board and year with links to trusted sources</li>
+                <li>TMUA &amp; MAT: direct PDF links to official university admissions papers</li>
+                <li>All materials are freely available for personal study</li>
+            </ul>
         </div>
+    </div>
 
-        <p class="notify-text">Resources are being organized. Check back soon!</p>
-        <a href="../" class="back-home">&larr; Back to MathHub Global</a>
+    <div class="info-section" style="margin-top: 0;">
+        <div class="cta-banner">
+            <p><strong>Online Question Bank</strong> &mdash; Practice thousands of maths problems with instant feedback!</p>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="cta-btn">Try Now &rarr;</a>
+        </div>
     </div>
 
     <div class="footer">
@@ -110,5 +186,21 @@
     </div>
 
     <script src="../assets/js/common.js"></script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "MathHub UK - A-Level, IGCSE & Admissions Test Past Papers",
+        "description": "Free A-Level, IGCSE, TMUA and MAT mathematics past papers",
+        "url": "https://randomwalk1225.github.io/uk/",
+        "inLanguage": "en-GB",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "MathHub Global",
+            "url": "https://randomwalk1225.github.io/"
+        }
+    }
+    </script>
 </body>
 </html>

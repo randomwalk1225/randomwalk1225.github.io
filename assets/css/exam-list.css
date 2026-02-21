@@ -164,6 +164,93 @@
     background: #1d4ed8;
 }
 
+/* Button group (View + Download side by side) */
+.btn-group {
+    display: flex;
+    gap: 6px;
+}
+.view-btn {
+    display: inline-block;
+    background: #f1f5f9;
+    color: #2563eb;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.85em;
+    font-weight: 600;
+    transition: background 0.2s;
+    border: 1px solid #e2e8f0;
+}
+.view-btn:hover {
+    background: #e2e8f0;
+}
+
+/* UK-specific hero gradient */
+.exam-hero.uk-theme {
+    background: linear-gradient(135deg, #1a2744 0%, #3b82f6 100%);
+}
+
+/* Paper card layout (alternative to table for mobile-friendly view) */
+.paper-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 30px;
+}
+.paper-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    border-left: 4px solid #2563eb;
+}
+.paper-card .card-year {
+    font-size: 0.85em;
+    color: #64748b;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+.paper-card .card-title {
+    font-size: 1.05em;
+    font-weight: 700;
+    color: #1e3a5f;
+    margin-bottom: 10px;
+}
+.paper-card .card-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.paper-card .card-links a {
+    font-size: 0.8em;
+    padding: 5px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+}
+.paper-card .card-links .link-paper {
+    background: #2563eb;
+    color: white;
+}
+.paper-card .card-links .link-solution {
+    background: #dcfce7;
+    color: #16a34a;
+}
+.paper-card .card-links .link-report {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+/* Tab bar scrollable on mobile */
+@media (max-width: 768px) {
+    .tab-bar {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .tab-btn { white-space: nowrap; }
+    .paper-cards { grid-template-columns: 1fr; }
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
     .exam-hero h1 { font-size: 1.6em; }
