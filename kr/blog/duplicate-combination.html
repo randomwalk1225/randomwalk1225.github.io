@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="r9UcF77YDnBPQmN1ffcpHb8lculr-u-0YjNaqsD8QkM" />
+
+    <!-- SEO Meta Tags -->
+    <title>중복조합의 개념과 활용 - 완벽 가이드 | 수학 블로그</title>
+    <meta name="description" content="중복조합의 개념을 명확히 이해하고, 같은 것이 있는 순열과의 관계를 학습합니다. x+y+z=7 예제를 통해 음이 아닌 정수와 양의 정수 해의 개수를 구하는 방법을 마스터하세요.">
+    <meta name="keywords" content="중복조합, 조합론, 같은 것이 있는 순열, 이산수학, 정수해, 수학">
+    <meta name="author" content="수학 블로그">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://randomwalk1225.github.io/posts/duplicate-combination.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://randomwalk1225.github.io/posts/duplicate-combination.html">
+    <meta property="og:title" content="중복조합의 개념과 활용 - 완벽 가이드">
+    <meta property="og:description" content="중복조합의 개념을 명확히 이해하고, 같은 것이 있는 순열과의 관계를 학습합니다. 다양한 예제로 완벽하게 마스터하세요.">
+    <meta property="og:article:published_time" content="2025-10-19T00:00:00+09:00">
+    <meta property="og:article:section" content="이산수학">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://randomwalk1225.github.io/posts/duplicate-combination.html">
+    <meta property="twitter:title" content="중복조합의 개념과 활용 - 완벽 가이드">
+    <meta property="twitter:description" content="중복조합의 개념을 명확히 이해하고, 같은 것이 있는 순열과의 관계를 학습합니다. 다양한 예제로 완벽하게 마스터하세요.">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        .category-badge {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .date {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            color: #764ba2;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            font-size: 1.8em;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #555;
+            margin-top: 20px;
+        }
+        .formula {
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+        }
+        .example-box {
+            background-color: #e8f5e9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            border-left: 4px solid #4caf50;
+        }
+        .problem {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            border-left: 4px solid #ffc107;
+        }
+        .solution {
+            background-color: #d4edda;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            border-left: 4px solid #28a745;
+        }
+        .highlight {
+            background-color: #e7f3ff;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        .key-point {
+            background-color: #fff3e0;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 4px solid #ff9800;
+        }
+        .visual-diagram {
+            background-color: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+<nav class="global-nav" style="background:#1a1a2e;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:50px;position:sticky;top:0;z-index:1000"><a href="../../" style="color:#fff;font-weight:700;font-size:1.1em;text-decoration:none">MathHub</a><div style="display:flex;gap:0;height:100%"><a href="../../kr/" style="color:#fff;text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em;border-bottom:2px solid #667eea">KR</a><a href="../../us/" style="color:rgba(255,255,255,0.7);text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em">US</a><a href="../../uk/" style="color:rgba(255,255,255,0.7);text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em">UK</a></div></nav>
+    <div class="header">
+        <div class="category-badge">이산수학</div>
+        <h1>중복조합의 개념과 활용</h1>
+        <div class="date">2025년 10월 19일 08:30</div>
+    </div>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← 목록으로 돌아가기</a>
+
+        <h2>1. 중복조합이란?</h2>
+        <p>
+            <span class="highlight">중복조합(Combination with Repetition)</span>은 서로 다른 \(n\)개에서
+            <strong>중복을 허용하여</strong> \(r\)개를 선택하는 경우의 수입니다.
+            일반 조합과 달리 같은 것을 여러 번 선택할 수 있습니다.
+        </p>
+
+        <div class="example-box">
+            <strong>실생활 예시:</strong><br>
+            아이스크림 가게에 3가지 맛(바닐라, 초콜릿, 딸기)이 있습니다.<br>
+            5개의 아이스크림을 주문할 때, 같은 맛을 여러 개 선택할 수 있다면?<br>
+            → 바닐라 3개 + 초콜릿 2개, 딸기 5개 등 모두 가능합니다.
+        </div>
+
+        <div class="formula">
+            <strong>중복조합 공식:</strong>
+            $$H(n, r) = {}_nH_r = C(n+r-1, r) = \binom{n+r-1}{r}$$
+
+            <p style="margin-top: 10px;">또는 동일하게:</p>
+            $$H(n, r) = C(n+r-1, n-1) = \binom{n+r-1}{n-1}$$
+        </div>
+
+        <h2>2. 중복조합과 같은 것이 있는 순열의 관계</h2>
+
+        <p>
+            중복조합은 <strong>"같은 것이 있는 순열"</strong>로 이해할 수 있습니다.
+            이것이 중복조합의 핵심 원리입니다!
+        </p>
+
+        <h3>2.1 시각적 이해: ○과 | 방법</h3>
+
+        <p>
+            \(n\)개 중에서 중복을 허용하여 \(r\)개를 선택하는 것은<br>
+            <strong>\(r\)개의 ○(공)과 \((n-1)\)개의 |(칸막이)를 배열하는 것</strong>과 같습니다.
+        </p>
+
+        <div class="example-box">
+            <strong>예제:</strong> 3가지 종류(A, B, C)에서 중복을 허용하여 5개 선택<br><br>
+
+            A 2개, B 2개, C 1개를 선택한다면:<br>
+            <div class="visual-diagram">
+                ○ ○ | ○ ○ | ○<br>
+                ─A─   ─B─   ─C─
+            </div>
+
+            A 5개를 선택한다면:<br>
+            <div class="visual-diagram">
+                ○ ○ ○ ○ ○ | |<br>
+                ────A────   B  C
+            </div>
+
+            C 5개를 선택한다면:<br>
+            <div class="visual-diagram">
+                | | ○ ○ ○ ○ ○<br>
+                A  B  ────C────
+            </div>
+        </div>
+
+        <div class="key-point">
+            <strong>핵심 원리:</strong><br>
+            • ○ 5개 (선택할 개수)<br>
+            • | 2개 (3가지를 구분하는 칸막이 = 3-1개)<br>
+            • 총 7개를 배열하는 방법의 수<br>
+            • 같은 것이 있는 순열: \(\frac{7!}{5! \times 2!} = C(7, 5) = C(7, 2) = 21\)
+        </div>
+
+        <h2>3. 정수해 문제로 배우는 중복조합</h2>
+
+        <h3>3.1 예제 1: \(x + y + z = 7\) (음이 아닌 정수)</h3>
+
+        <div class="problem">
+            <strong>문제:</strong> \(x + y + z = 7\)을 만족하는 음이 아닌 정수해 \((x, y, z)\)의 개수를 구하시오.<br>
+            (단, \(x, y, z \geq 0\))
+        </div>
+
+        <div class="solution">
+            <strong>풀이:</strong><br><br>
+
+            <strong>방법 1: 중복조합 공식 사용</strong><br>
+            3개의 변수(\(x, y, z\))에 7을 배분하는 문제<br>
+            = 3가지 종류에서 중복을 허용하여 7개를 선택<br>
+            $$H(3, 7) = C(3+7-1, 7) = C(9, 7) = C(9, 2)$$
+            $$= \frac{9 \times 8}{2 \times 1} = 36$$
+
+            <strong>방법 2: ○과 | 방법</strong><br>
+            7개의 ○(공)과 2개의 |(칸막이)를 배열<br><br>
+
+            예: \(x=2, y=3, z=2\)인 경우<br>
+            <div class="visual-diagram">
+                ○ ○ | ○ ○ ○ | ○ ○<br>
+                ─x─   ──y──   ─z─
+            </div>
+
+            총 9개 위치에서 ○ 7개를 배치하거나 | 2개를 배치:<br>
+            $$\frac{9!}{7! \times 2!} = C(9, 2) = 36$$
+
+            <strong>답: 36가지</strong>
+        </div>
+
+        <div class="example-box">
+            <strong>일부 해의 예시:</strong><br>
+            (0,0,7), (0,1,6), (0,2,5), ..., (1,1,5), (1,2,4), ..., (2,2,3), ..., (7,0,0)
+        </div>
+
+        <h3>3.2 예제 2: \(x + y + z = 7\) (양의 정수)</h3>
+
+        <div class="problem">
+            <strong>문제:</strong> \(x + y + z = 7\)을 만족하는 양의 정수해 \((x, y, z)\)의 개수를 구하시오.<br>
+            (단, \(x, y, z \geq 1\))
+        </div>
+
+        <div class="solution">
+            <strong>풀이:</strong><br><br>
+
+            각 변수가 최소 1 이상이어야 하므로, 먼저 각각 1씩 배분합니다.<br>
+            \(x = x' + 1\), \(y = y' + 1\), \(z = z' + 1\)로 치환하면:<br><br>
+
+            $$(x'+1) + (y'+1) + (z'+1) = 7$$
+            $$x' + y' + z' = 4$$
+
+            여기서 \(x', y', z' \geq 0\) (음이 아닌 정수)<br><br>
+
+            이제 예제 1과 동일한 문제가 됩니다:<br>
+            $$H(3, 4) = C(3+4-1, 4) = C(6, 4) = C(6, 2)$$
+            $$= \frac{6 \times 5}{2 \times 1} = 15$$
+
+            <strong>방법 2: ○과 | 방법</strong><br>
+            4개의 ○과 2개의 |를 배열:<br>
+            $$C(6, 2) = 15$$
+
+            <strong>답: 15가지</strong>
+        </div>
+
+        <div class="example-box">
+            <strong>모든 해의 목록:</strong><br>
+            (1,1,5), (1,2,4), (1,3,3), (1,4,2), (1,5,1),<br>
+            (2,1,4), (2,2,3), (2,3,2), (2,4,1),<br>
+            (3,1,3), (3,2,2), (3,3,1),<br>
+            (4,1,2), (4,2,1),<br>
+            (5,1,1)<br>
+            <strong>총 15가지</strong>
+        </div>
+
+        <h2>4. 두 경우의 비교</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>구분</th>
+                    <th>음이 아닌 정수 (≥0)</th>
+                    <th>양의 정수 (≥1)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>조건</strong></td>
+                    <td>\(x, y, z \geq 0\)</td>
+                    <td>\(x, y, z \geq 1\)</td>
+                </tr>
+                <tr>
+                    <td><strong>변환</strong></td>
+                    <td>변환 불필요</td>
+                    <td>\(x=x'+1, y=y'+1, z=z'+1\)</td>
+                </tr>
+                <tr>
+                    <td><strong>방정식</strong></td>
+                    <td>\(x + y + z = 7\)</td>
+                    <td>\(x' + y' + z' = 4\)</td>
+                </tr>
+                <tr>
+                    <td><strong>중복조합</strong></td>
+                    <td>\(H(3, 7)\)</td>
+                    <td>\(H(3, 4)\)</td>
+                </tr>
+                <tr>
+                    <td><strong>계산</strong></td>
+                    <td>\(C(9, 7) = C(9, 2)\)</td>
+                    <td>\(C(6, 4) = C(6, 2)\)</td>
+                </tr>
+                <tr>
+                    <td><strong>답</strong></td>
+                    <td>36가지</td>
+                    <td>15가지</td>
+                </tr>
+                <tr>
+                    <td><strong>0 포함 여부</strong></td>
+                    <td>(0,0,7), (0,7,0) 등 포함</td>
+                    <td>모든 변수 ≥ 1</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>5. 일반 공식 정리</h2>
+
+        <div class="formula">
+            <strong>\(x_1 + x_2 + \cdots + x_n = r\)의 정수해 개수:</strong><br><br>
+
+            <strong>경우 1:</strong> \(x_i \geq 0\) (음이 아닌 정수)<br>
+            $$H(n, r) = C(n+r-1, r) = C(n+r-1, n-1)$$
+
+            <strong>경우 2:</strong> \(x_i \geq 1\) (양의 정수)<br>
+            먼저 각 변수에 1씩 배분 → \(x_i' = x_i - 1\)로 치환<br>
+            $$H(n, r-n) = C(n+(r-n)-1, r-n) = C(r-1, r-n) = C(r-1, n-1)$$
+        </div>
+
+        <h2>6. 연습문제</h2>
+
+        <div class="problem">
+            <strong>문제 1.</strong> \(a + b + c + d = 10\)을 만족하는 음이 아닌 정수해의 개수를 구하시오.
+        </div>
+
+        <div class="solution">
+            <strong>풀이 1.</strong><br>
+            4개의 변수에 10을 배분:<br>
+            $$H(4, 10) = C(4+10-1, 10) = C(13, 10) = C(13, 3)$$
+            $$= \frac{13 \times 12 \times 11}{3 \times 2 \times 1} = \frac{1716}{6} = 286$$
+
+            <strong>답: 286가지</strong>
+        </div>
+
+        <div class="problem">
+            <strong>문제 2.</strong> \(a + b + c + d = 10\)을 만족하는 양의 정수해의 개수를 구하시오.
+        </div>
+
+        <div class="solution">
+            <strong>풀이 2.</strong><br>
+            각 변수에 먼저 1씩 배분 (총 4 사용):<br>
+            남은 6을 4개 변수에 배분 (\(a', b', c', d' \geq 0\)):<br>
+            $$H(4, 6) = C(4+6-1, 6) = C(9, 6) = C(9, 3)$$
+            $$= \frac{9 \times 8 \times 7}{3 \times 2 \times 1} = \frac{504}{6} = 84$$
+
+            또는 직접 공식 사용:<br>
+            $$C(r-1, n-1) = C(10-1, 4-1) = C(9, 3) = 84$$
+
+            <strong>답: 84가지</strong>
+        </div>
+
+        <div class="problem">
+            <strong>문제 3.</strong> 5가지 종류의 과일(사과, 배, 포도, 바나나, 오렌지)에서 중복을 허용하여 8개를 선택하는 경우의 수를 구하시오.
+        </div>
+
+        <div class="solution">
+            <strong>풀이 3.</strong><br>
+            5가지 종류에서 중복을 허용하여 8개 선택:<br>
+            $$H(5, 8) = C(5+8-1, 8) = C(12, 8) = C(12, 4)$$
+            $$= \frac{12 \times 11 \times 10 \times 9}{4 \times 3 \times 2 \times 1} = \frac{11880}{24} = 495$$
+
+            <strong>답: 495가지</strong>
+        </div>
+
+        <h2>7. 마무리</h2>
+
+        <div class="key-point">
+            <strong>중복조합 마스터 체크리스트:</strong><br>
+            ✅ 중복조합 = 같은 것을 여러 번 선택 가능<br>
+            ✅ 공식: \(H(n,r) = C(n+r-1, r)\)<br>
+            ✅ ○과 | 방법으로 시각화 가능<br>
+            ✅ 같은 것이 있는 순열로 이해<br>
+            ✅ 정수해 문제: 음이 아닌 정수 vs 양의 정수 구분<br>
+            ✅ 양의 정수 조건: 먼저 1씩 배분 후 나머지 분배
+        </div>
+
+        <p>
+            중복조합은 처음에는 어렵게 느껴질 수 있지만, ○과 | 방법으로 시각화하면
+            직관적으로 이해할 수 있습니다. 정수해 문제는 다양한 응용이 가능하므로
+            충분히 연습하여 익숙해지는 것이 중요합니다.
+        </p>
+    </div>
+
+    <!-- Structured Data (Schema.org JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "중복조합의 개념과 활용 - 완벽 가이드",
+        "description": "중복조합의 개념을 명확히 이해하고, 같은 것이 있는 순열과의 관계를 학습합니다. x+y+z=7 예제를 통해 음이 아닌 정수와 양의 정수 해의 개수를 구하는 방법을 마스터하세요.",
+        "author": {
+            "@type": "Organization",
+            "name": "수학 블로그"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "수학 블로그"
+        },
+        "datePublished": "2025-10-19",
+        "dateModified": "2025-10-19",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://randomwalk1225.github.io/posts/duplicate-combination.html"
+        },
+        "articleSection": "이산수학",
+        "keywords": ["중복조합", "조합론", "같은 것이 있는 순열", "정수해", "이산수학"]
+    }
+    </script>
+</body>
+</html>

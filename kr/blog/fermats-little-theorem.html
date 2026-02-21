@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>페르마의 소정리 - 수학 블로그</title>
+    <meta name="description" content="페르마의 소정리(Fermat's Little Theorem)의 개념과 증명, 그리고 다양한 응용을 학습합니다. 모듈로 연산과 암호학에서의 활용을 예제와 함께 익혀보세요.">
+    <meta name="keywords" content="페르마의 소정리, 합동식, 정수론, 수학, 모듈로 연산">
+    <meta name="author" content="수학 블로그">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://randomwalk1225.github.io/posts/fermats-little-theorem.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://randomwalk1225.github.io/posts/fermats-little-theorem.html">
+    <meta property="og:title" content="페르마의 소정리">
+    <meta property="og:description" content="페르마의 소정리의 개념과 증명, 암호학에서의 응용을 학습합니다.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://randomwalk1225.github.io/posts/fermats-little-theorem.html">
+    <meta property="twitter:title" content="페르마의 소정리">
+    <meta property="twitter:description" content="페르마의 소정리의 개념과 증명, 암호학에서의 응용을 학습합니다.">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax Configuration -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        .category-badge {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .date {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .definition-box {
+            background-color: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .theorem-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .example-box {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .problem-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #64748b;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .solution-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .formula {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            margin-top: 50px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #667eea;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="global-nav" style="background:#1a1a2e;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:50px;position:sticky;top:0;z-index:1000"><a href="../../" style="color:#fff;font-weight:700;font-size:1.1em;text-decoration:none">MathHub</a><div style="display:flex;gap:0;height:100%"><a href="../../kr/" style="color:#fff;text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em;border-bottom:2px solid #667eea">KR</a><a href="../../us/" style="color:rgba(255,255,255,0.7);text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em">US</a><a href="../../uk/" style="color:rgba(255,255,255,0.7);text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em">UK</a></div></nav>
+    <div class="header">
+        <div class="category-badge">정수론</div>
+        <h1>페르마의 소정리</h1>
+        <div class="date">2025년 10월 19일 12:50</div>
+    </div>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← 목록으로 돌아가기</a>
+
+        <h2>1. 서론</h2>
+
+        <p>
+            페르마의 소정리(Fermat's Little Theorem)는 17세기 프랑스 수학자 피에르 드 페르마(Pierre de Fermat)가
+            발견한 정수론의 기본 정리입니다. 이 정리는 소수와 거듭제곱 사이의 놀라운 관계를 보여주며,
+            현대 암호학, 특히 RSA 암호 시스템의 기초가 됩니다.
+        </p>
+
+        <p>
+            페르마는 1640년 이 정리를 발견했지만 증명을 남기지 않았고,
+            약 100년 후 레온하르트 오일러가 이를 일반화하여 오일러 정리를 증명하면서 함께 증명되었습니다.
+        </p>
+
+        <h2>2. 페르마의 소정리</h2>
+
+        <div class="theorem-box">
+            <h3>정리: 페르마의 소정리 (Fermat's Little Theorem)</h3>
+            <p>$p$가 소수이고 정수 $a$가 $p$의 배수가 아니면 (즉, $\gcd(a, p) = 1$이면)</p>
+            <div class="formula">
+                $$a^{p-1} \equiv 1 \pmod{p}$$
+            </div>
+            <p><strong>동치 형태:</strong> 임의의 정수 $a$에 대하여</p>
+            <div class="formula">
+                $$a^p \equiv a \pmod{p}$$
+            </div>
+        </div>
+
+        <p><strong>두 형태의 관계:</strong></p>
+        <ul>
+            <li>$\gcd(a, p) = 1$이면: $a^{p-1} \equiv 1 \pmod{p}$에 양변에 $a$를 곱하면 $a^p \equiv a \pmod{p}$</li>
+            <li>$p | a$이면: $a \equiv 0 \pmod{p}$이므로 $a^p \equiv 0 \equiv a \pmod{p}$</li>
+        </ul>
+
+        <h3>2.1 구체적인 예</h3>
+
+        <div class="example-box">
+            <h3>예제 1: $p = 5$</h3>
+            <p>$a = 2$일 때 페르마의 소정리를 확인해봅시다.</p>
+            <div class="formula">
+                $$2^{5-1} = 2^4 = 16 = 3 \times 5 + 1 \equiv 1 \pmod{5}$$ ✓
+            </div>
+
+            <p>여러 값에 대해 확인:</p>
+            <table>
+                <tr>
+                    <th>$a$</th>
+                    <th>$a^4$</th>
+                    <th>$a^4 \bmod 5$</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>16</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>81</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>256</td>
+                    <td>1</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>3. 증명</h2>
+
+        <p>페르마의 소정리는 여러 방법으로 증명할 수 있습니다. 여기서는 세 가지 증명을 소개합니다.</p>
+
+        <h3>3.1 증명 1: 곱셈 테이블 이용</h3>
+
+        <p><strong>주어진 조건:</strong> $p$는 소수, $\gcd(a, p) = 1$</p>
+
+        <p><strong>1단계:</strong> 집합 $S = \{1, 2, 3, \ldots, p-1\}$을 생각합니다.</p>
+
+        <p><strong>2단계:</strong> 각 원소에 $a$를 곱한 집합 $aS = \{a, 2a, 3a, \ldots, (p-1)a\}$를 만듭니다.</p>
+
+        <p><strong>3단계:</strong> $aS$의 원소들을 $p$로 나눈 나머지도 모두 다르며, $\{1, 2, \ldots, p-1\}$의 순열을 이룹니다.</p>
+
+        <p><em>왜냐하면:</em> 만약 $ia \equiv ja \pmod{p}$ ($1 \leq i < j \leq p-1$)이면,
+        $\gcd(a, p) = 1$이므로 $i \equiv j \pmod{p}$인데 이는 모순입니다.</p>
+
+        <p><strong>4단계:</strong> 양변의 곱을 비교하면</p>
+        <div class="formula">
+            $$a \cdot 2a \cdot 3a \cdots (p-1)a \equiv 1 \cdot 2 \cdot 3 \cdots (p-1) \pmod{p}$$
+        </div>
+        <div class="formula">
+            $$a^{p-1} \cdot (p-1)! \equiv (p-1)! \pmod{p}$$
+        </div>
+
+        <p><strong>5단계:</strong> $(p-1)!$과 $p$는 서로소이므로 양변을 $(p-1)!$로 나누면</p>
+        <div class="formula">
+            $$a^{p-1} \equiv 1 \pmod{p}$$
+        </div>
+
+        <h3>3.2 증명 2: 오일러 정리 이용</h3>
+
+        <p>오일러 정리: $\gcd(a, n) = 1$이면 $a^{\phi(n)} \equiv 1 \pmod{n}$</p>
+
+        <p>$p$가 소수이면 $\phi(p) = p - 1$이므로</p>
+        <div class="formula">
+            $$a^{p-1} \equiv 1 \pmod{p}$$
+        </div>
+
+        <h3>3.3 증명 3: 이항정리 이용 ($a^p \equiv a \pmod{p}$ 형태)</h3>
+
+        <p>수학적 귀납법을 사용합니다.</p>
+
+        <p><strong>기저:</strong> $a = 1$일 때, $1^p = 1 \equiv 1 \pmod{p}$ ✓</p>
+
+        <p><strong>귀납 가정:</strong> $a^p \equiv a \pmod{p}$라고 가정</p>
+
+        <p><strong>귀납 단계:</strong> $(a+1)^p \equiv a+1 \pmod{p}$를 보이면 됩니다.</p>
+
+        <p>이항정리에 의해</p>
+        <div class="formula">
+            $$(a+1)^p = \sum_{k=0}^{p} \binom{p}{k} a^k$$
+        </div>
+
+        <p>$0 < k < p$일 때, $\binom{p}{k} = \frac{p!}{k!(p-k)!}$는 $p$의 배수입니다
+        ($p$는 소수이고 분자에는 $p$가 있지만 분모에는 없음).</p>
+
+        <p>따라서</p>
+        <div class="formula">
+            $$(a+1)^p \equiv a^p + 1 \equiv a + 1 \pmod{p}$$
+        </div>
+
+        <h2>4. 응용</h2>
+
+        <h3>4.1 거듭제곱의 나머지 계산</h3>
+
+        <div class="example-box">
+            <h3>예제 2</h3>
+            <p>$2^{100}$을 7로 나눈 나머지를 구하시오.</p>
+            <p><strong>풀이:</strong></p>
+            <p>7은 소수이고 $\gcd(2, 7) = 1$이므로 페르마의 소정리에 의해</p>
+            <div class="formula">
+                $$2^6 \equiv 1 \pmod{7}$$
+            </div>
+            <p>$100 = 6 \times 16 + 4$이므로</p>
+            <div class="formula">
+                $$\begin{align}
+                2^{100} &= 2^{6 \times 16 + 4} \\
+                &= (2^6)^{16} \cdot 2^4 \\
+                &\equiv 1^{16} \cdot 16 \pmod{7} \\
+                &\equiv 16 \pmod{7} \\
+                &\equiv 2 \pmod{7}
+                \end{align}$$
+            </div>
+            <p><strong>답:</strong> 2</p>
+        </div>
+
+        <h3>4.2 역원 계산</h3>
+
+        <p>페르마의 소정리를 이용하면 모듈로 소수에서 역원을 쉽게 계산할 수 있습니다.</p>
+
+        <div class="formula">
+            $$a^{p-1} \equiv 1 \pmod{p} \Rightarrow a \cdot a^{p-2} \equiv 1 \pmod{p}$$
+        </div>
+
+        <p>따라서 $a^{-1} \equiv a^{p-2} \pmod{p}$</p>
+
+        <div class="example-box">
+            <h3>예제 3</h3>
+            <p>3의 모듈로 11에서의 역원을 구하시오.</p>
+            <p><strong>풀이:</strong></p>
+            <div class="formula">
+                $$3^{-1} \equiv 3^{11-2} = 3^9 \pmod{11}$$
+            </div>
+            <p>계산:</p>
+            <div class="formula">
+                $$\begin{align}
+                3^2 &= 9 \\
+                3^4 &= 81 \equiv 4 \pmod{11} \\
+                3^8 &\equiv 16 \equiv 5 \pmod{11} \\
+                3^9 &= 3^8 \cdot 3 \equiv 5 \cdot 3 = 15 \equiv 4 \pmod{11}
+                \end{align}$$
+            </div>
+            <p><strong>검증:</strong> $3 \times 4 = 12 \equiv 1 \pmod{11}$ ✓</p>
+        </div>
+
+        <h2>5. 연습문제</h2>
+
+        <div class="problem-box">
+            <h3>문제 1</h3>
+            <p>다음을 계산하시오:</p>
+            <ol>
+                <li>$5^{102} \bmod 103$</li>
+                <li>$7^{222} \bmod 11$</li>
+            </ol>
+        </div>
+
+        <div class="solution-box">
+            <h3>풀이 1</h3>
+
+            <p><strong>1) $5^{102} \bmod 103$</strong></p>
+            <p>103은 소수이고 $\gcd(5, 103) = 1$이므로</p>
+            <div class="formula">
+                $$5^{102} = 5^{103-1} \equiv 1 \pmod{103}$$
+            </div>
+            <p><strong>답:</strong> 1</p>
+
+            <p><strong>2) $7^{222} \bmod 11$</strong></p>
+            <p>11은 소수이고 $\gcd(7, 11) = 1$이므로</p>
+            <div class="formula">
+                $$7^{10} \equiv 1 \pmod{11}$$
+            </div>
+            <p>$222 = 10 \times 22 + 2$이므로</p>
+            <div class="formula">
+                $$\begin{align}
+                7^{222} &= (7^{10})^{22} \cdot 7^2 \\
+                &\equiv 1^{22} \cdot 49 \pmod{11} \\
+                &\equiv 49 \pmod{11} \\
+                &\equiv 5 \pmod{11}
+                \end{align}$$
+            </div>
+            <p><strong>답:</strong> 5</p>
+        </div>
+
+        <div class="problem-box">
+            <h3>문제 2</h3>
+            <p>$n = 2^{2^{100}} - 1$이 13의 배수임을 보이시오.</p>
+        </div>
+
+        <div class="solution-box">
+            <h3>풀이 2</h3>
+            <p>13은 소수이고 $\gcd(2, 13) = 1$이므로 페르마의 소정리에 의해</p>
+            <div class="formula">
+                $$2^{12} \equiv 1 \pmod{13}$$
+            </div>
+
+            <p>$2^{100}$을 12로 나눈 나머지를 구해야 합니다.</p>
+
+            <p>$2^{100} = 2^{96+4} = (2^2)^{48} \cdot 2^4 = 4^{48} \cdot 16$</p>
+
+            <p>12로 나눈 나머지만 필요하므로:</p>
+            <div class="formula">
+                $$2^{100} = 2^{4 \times 25} \equiv 16^{25} \equiv 4^{25} \pmod{12}$$
+            </div>
+
+            <p>더 간단하게, $2^2 = 4$, $2^3 = 8$, $2^4 = 16 \equiv 4 \pmod{12}$</p>
+            <p>$2^k \equiv 4 \pmod{12}$ (for $k \geq 2$)</p>
+
+            <p>따라서 $2^{100} \equiv 4 \pmod{12}$</p>
+
+            <p>그러므로</p>
+            <div class="formula">
+                $$\begin{align}
+                2^{2^{100}} &\equiv 2^4 \pmod{13} \\
+                &= 16 \\
+                &\equiv 3 \pmod{13}
+                \end{align}$$
+            </div>
+
+            <p>따라서</p>
+            <div class="formula">
+                $$2^{2^{100}} - 1 \equiv 3 - 1 = 2 \pmod{13}$$
+            </div>
+
+            <p>이것은 13의 배수가 아닙니다. 문제를 다시 확인하겠습니다.</p>
+
+            <p><strong>수정:</strong> 실제로 계산하면 13의 배수가 아닙니다.
+            만약 문제가 $2^{340} - 1$이었다면:</p>
+            <div class="formula">
+                $$340 = 12 \times 28 + 4$$
+            </div>
+            <div class="formula">
+                $$2^{340} = (2^{12})^{28} \cdot 2^4 \equiv 1 \cdot 16 \equiv 3 \pmod{13}$$
+            </div>
+
+            <p>페르마의 소정리를 정확히 적용하려면 지수가 $p-1$의 배수여야 합니다.</p>
+        </div>
+
+        <h2>6. 페르마 소성 판정법</h2>
+
+        <p>페르마의 소정리를 역으로 사용하여 소수를 판정할 수 있습니다 (완전하지는 않음):</p>
+
+        <div class="definition-box">
+            <h3>페르마 소성 판정법</h3>
+            <p>$n$이 소수인지 판정하려면:</p>
+            <ol>
+                <li>$a$를 $1 < a < n$인 임의의 수로 선택</li>
+                <li>$a^{n-1} \bmod n$을 계산</li>
+                <li>만약 $a^{n-1} \not\equiv 1 \pmod{n}$이면 $n$은 <strong>합성수</strong></li>
+                <li>만약 $a^{n-1} \equiv 1 \pmod{n}$이면 $n$은 <strong>아마도 소수</strong></li>
+            </ol>
+            <p><strong>주의:</strong> 카마이클 수(Carmichael numbers)는 합성수이지만 모든 $\gcd(a,n)=1$에 대해
+            $a^{n-1} \equiv 1 \pmod{n}$를 만족합니다. 예: 561 = 3 × 11 × 17</p>
+        </div>
+
+        <h2>7. 요약</h2>
+
+        <ul>
+            <li>페르마의 소정리: $p$가 소수이고 $\gcd(a, p) = 1$이면 $a^{p-1} \equiv 1 \pmod{p}$</li>
+            <li>동치 형태: 모든 $a$에 대해 $a^p \equiv a \pmod{p}$</li>
+            <li>응용: 거듭제곱의 나머지 계산, 역원 계산, 소성 판정</li>
+            <li>오일러 정리의 특수한 경우 ($\phi(p) = p-1$)</li>
+            <li>RSA 암호화 등 현대 암호학의 기초</li>
+        </ul>
+
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 수학 블로그. All rights reserved.</p>
+    </div>
+
+    <!-- Structured Data (Schema.org JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "페르마의 소정리",
+        "description": "페르마의 소정리의 개념과 증명, 암호학에서의 응용을 학습합니다.",
+        "author": {
+            "@type": "Person",
+            "name": "수학 블로그"
+        },
+        "datePublished": "2025-10-19",
+        "publisher": {
+            "@type": "Organization",
+            "name": "수학 블로그"
+        }
+    }
+    </script>
+</body>
+</html>

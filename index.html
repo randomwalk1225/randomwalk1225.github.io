@@ -6,25 +6,30 @@
     <meta name="google-site-verification" content="r9UcF77YDnBPQmN1ffcpHb8lculr-u-0YjNaqsD8QkM" />
 
     <!-- SEO Meta Tags -->
-    <title>수학 블로그 - 미적분, 대수학, 기하학, 이산수학 학습</title>
-    <meta name="description" content="수학의 아름다움을 탐구하는 블로그입니다. 미적분, 대수학, 기하학, 확률과 통계, 이산수학 등 다양한 수학 주제를 쉽고 재미있게 학습할 수 있습니다.">
-    <meta name="keywords" content="수학, 미적분, 대수학, 기하학, 이산수학, 확률과 통계, 수학 블로그, 수학 학습">
-    <meta name="author" content="수학 블로그">
+    <title>MathHub Global - Math Exam Resources for Korea, USA & UK</title>
+    <meta name="description" content="Free math exam resources: Korean CSAT, US SAT/AP, UK A-Level/IGCSE past papers. Online workbooks with instant grading. Your gateway to math excellence.">
+    <meta name="keywords" content="math, CSAT, SAT, AP Calculus, A-Level, IGCSE, past papers, math workbook, 수능, 수학, 기출문제">
+    <meta name="author" content="MathHub Global">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://randomwalk1225.github.io/">
 
-    <!-- Open Graph / Facebook -->
+    <!-- hreflang -->
+    <link rel="alternate" hreflang="ko" href="https://randomwalk1225.github.io/kr/" />
+    <link rel="alternate" hreflang="en-US" href="https://randomwalk1225.github.io/us/" />
+    <link rel="alternate" hreflang="en-GB" href="https://randomwalk1225.github.io/uk/" />
+    <link rel="alternate" hreflang="x-default" href="https://randomwalk1225.github.io/" />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://randomwalk1225.github.io/">
-    <meta property="og:title" content="수학 블로그 - 수학의 아름다움을 탐구합니다">
-    <meta property="og:description" content="미적분, 대수학, 기하학, 확률과 통계, 이산수학 등 다양한 수학 주제를 쉽고 재미있게 학습하세요.">
-    <meta property="og:site_name" content="수학 블로그">
+    <meta property="og:title" content="MathHub Global - Math Resources for KR, US & UK">
+    <meta property="og:description" content="Free math exam past papers and online workbooks for Korean CSAT, US SAT/AP, and UK A-Level/IGCSE.">
+    <meta property="og:site_name" content="MathHub Global">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://randomwalk1225.github.io/">
-    <meta property="twitter:title" content="수학 블로그 - 수학의 아름다움을 탐구합니다">
-    <meta property="twitter:description" content="미적분, 대수학, 기하학, 확률과 통계, 이산수학 등 다양한 수학 주제를 쉽고 재미있게 학습하세요.">
+    <meta property="twitter:title" content="MathHub Global - Math Resources for KR, US & UK">
+    <meta property="twitter:description" content="Free math exam past papers and online workbooks.">
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
@@ -40,874 +45,259 @@
     </script>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Noto Sans KR', Arial, sans-serif;
-            background-color: #f5f5f5;
-            line-height: 1.6;
+            background: #0f0f1a;
+            color: #fff;
+            min-height: 100vh;
         }
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 20px;
+
+        /* Hero */
+        .hero {
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 80px 20px 40px;
+            background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
         }
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        .header p {
-            font-size: 1.1em;
-            opacity: 0.9;
+        .hero p {
+            font-size: 1.2em;
+            color: rgba(255,255,255,0.6);
+            max-width: 600px;
+            margin: 0 auto;
         }
-        .search-container {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-        .search-box {
-            position: relative;
-        }
-        .search-input {
-            width: 100%;
-            padding: 12px 45px 12px 15px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1em;
-            outline: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        .search-input::placeholder {
-            color: #999;
-        }
-        .search-icon {
-            position: absolute;
-            right: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.1em;
-            pointer-events: none;
-            color: #666;
-        }
-        .search-results-count {
-            text-align: center;
-            margin-top: 10px;
-            font-size: 0.9em;
-            color: #667eea;
-            font-weight: 600;
-        }
-        .main-layout {
-            max-width: 1400px;
-            margin: 40px auto;
+
+        /* Country Cards */
+        .countries {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            margin: 50px auto;
             padding: 0 20px;
         }
-        .content-wrapper {
-            display: flex;
-            gap: 30px;
-        }
-        .sidebar {
-            width: 250px;
-            flex-shrink: 0;
-        }
-        .sidebar-sticky {
-            position: sticky;
-            top: 20px;
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .sidebar h3 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            font-size: 1.3em;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #667eea;
-        }
-        .category-list {
-            list-style: none;
-        }
-        .category-item {
-            padding: 12px 15px;
-            margin-bottom: 8px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .category-item:hover {
-            background-color: #f0f0f0;
-        }
-        .category-item.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            font-weight: 600;
-        }
-        .category-count {
-            background-color: rgba(0,0,0,0.1);
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.85em;
-        }
-        .active .category-count {
-            background-color: rgba(255,255,255,0.2);
-        }
-        .content {
-            flex: 1;
-            min-width: 0;
-        }
-        .post-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .post-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .country-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 36px 28px;
             text-decoration: none;
-            color: inherit;
-            display: block;
+            color: #fff;
+            transition: all 0.3s;
+            text-align: center;
         }
-        .post-card.hidden {
-            display: none;
+        .country-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
         }
-        .post-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        .country-flag {
+            font-size: 3.5em;
+            margin-bottom: 16px;
         }
-        .post-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
-            color: white;
-        }
-        .post-header h2 {
+        .country-card h2 {
             font-size: 1.5em;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
-        .post-date {
+        .country-card .country-sub {
+            color: rgba(255,255,255,0.5);
             font-size: 0.9em;
-            opacity: 0.9;
+            margin-bottom: 20px;
         }
-        .post-body {
-            padding: 20px;
+        .country-card ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 24px;
         }
-        .post-description {
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 15px;
+        .country-card ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95em;
         }
-        .post-tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
+        .country-card ul li::before {
+            content: '\2192 ';
+            color: #667eea;
         }
-        .tag {
-            background-color: #e7f3ff;
-            color: #0066cc;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-        }
-        .category-badge {
+        .enter-btn {
             display: inline-block;
-            background-color: #fff3cd;
-            color: #856404;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 28px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: opacity 0.2s;
         }
+        .country-card:hover .enter-btn { opacity: 0.9; }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 50px 20px;
+            margin: 20px auto;
+            max-width: 700px;
+        }
+        .cta-section h3 {
+            font-size: 1.3em;
+            margin-bottom: 12px;
+            color: rgba(255,255,255,0.9);
+        }
+        .cta-section p {
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 20px;
+        }
+        .cta-main-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 14px 36px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1em;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .cta-main-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.3);
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .stat-item { text-align: center; }
+        .stat-num {
+            font-size: 2em;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-label { color: rgba(255,255,255,0.5); font-size: 0.9em; margin-top: 4px; }
+
+        /* Footer */
         .footer {
             text-align: center;
             padding: 40px 20px;
-            color: #666;
-            margin-top: 60px;
+            color: rgba(255,255,255,0.3);
+            font-size: 0.85em;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 40px;
         }
-        @media (max-width: 1024px) {
-            .main-layout {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-            }
-            .sidebar-sticky {
-                position: static;
-            }
-            .category-list {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-            .category-item {
-                margin-bottom: 0;
-            }
-        }
+
         @media (max-width: 768px) {
-            .content-wrapper {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-            }
-            .header h1 {
-                font-size: 2em;
-            }
-            .post-grid {
-                grid-template-columns: 1fr;
-            }
+            .hero h1 { font-size: 2em; }
+            .countries { grid-template-columns: 1fr; max-width: 400px; }
+            .stats { gap: 30px; }
+            .stat-num { font-size: 1.5em; }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>📚 수학 블로그</h1>
-        <p>수학의 아름다움을 탐구합니다</p>
+    <div class="hero">
+        <h1>MathHub Global</h1>
+        <p>Exam past papers, answer keys & online workbooks for students worldwide</p>
     </div>
 
-    <div class="main-layout">
-        <!-- 검색창 -->
-        <div class="search-container">
-            <div class="search-box">
-                <input type="text" id="searchInput" class="search-input" placeholder="검색어를 입력하세요 (제목, 설명, 태그)">
-                <span class="search-icon">🔍</span>
-            </div>
-            <div id="searchResultsCount" class="search-results-count"></div>
+    <div class="stats">
+        <div class="stat-item">
+            <div class="stat-num">3</div>
+            <div class="stat-label">Countries</div>
         </div>
-
-        <!-- 콘텐츠 영역 -->
-        <div class="content-wrapper">
-            <!-- Sidebar -->
-            <aside class="sidebar">
-            <div class="sidebar-sticky">
-                <h3>카테고리</h3>
-                <ul class="category-list">
-                    <li class="category-item active" data-category="all">
-                        <span>전체</span>
-                        <span class="category-count">20</span>
-                    </li>
-                    <li class="category-item" data-category="미적분">
-                        <span>미적분</span>
-                        <span class="category-count">6</span>
-                    </li>
-                    <li class="category-item" data-category="대수학">
-                        <span>대수학</span>
-                        <span class="category-count">0</span>
-                    </li>
-                    <li class="category-item" data-category="기하학">
-                        <span>기하학</span>
-                        <span class="category-count">1</span>
-                    </li>
-                    <li class="category-item" data-category="확률과 통계">
-                        <span>확률과 통계</span>
-                        <span class="category-count">0</span>
-                    </li>
-                    <li class="category-item" data-category="이산수학">
-                        <span>이산수학</span>
-                        <span class="category-count">2</span>
-                    </li>
-                    <li class="category-item" data-category="복소함수론">
-                        <span>복소함수론</span>
-                        <span class="category-count">1</span>
-                    </li>
-                    <li class="category-item" data-category="정수론">
-                        <span>정수론</span>
-                        <span class="category-count">5</span>
-                    </li>
-                    <li class="category-item" data-category="Precalculus">
-                        <span>Precalculus</span>
-                        <span class="category-count">3</span>
-                    </li>
-                    <li class="category-item" data-category="수학 이야기">
-                        <span>수학 이야기</span>
-                        <span class="category-count">1</span>
-                    </li>
-                    <li class="category-item" data-category="실험실">
-                        <span>실험실</span>
-                        <span class="category-count">1</span>
-                    </li>
-                </ul>
-            </div>
-        </aside>
-
-        <!-- Main Content -->
-        <div class="content">
-            <div class="post-grid">
-                <!-- Post 1: Riemann Sum -->
-                <a href="posts/riemann-sum.html" class="post-card" data-category="미적분">
-                    <div class="post-header">
-                        <div class="category-badge">미적분</div>
-                        <h2>리만 합과 구분구적법</h2>
-                        <div class="post-date">2025년 10월 19일 14:30</div>
-                    </div>
-                    <div class="post-body">
-                        <p class="post-description">
-                            리만 합을 이용하여 정적분의 개념을 이해합니다.
-                            좌측 리만 합과 우측 리만 합의 차이를 배우고, 곡선 아래의 넓이를 계산하는 방법을 익힙니다.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">리만 합</span>
-                            <span class="tag">구분구적법</span>
-                            <span class="tag">정적분</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Post 2 -->
-                <a href="posts/derivative-of-rational-functions.html" class="post-card" data-category="미적분">
-                    <div class="post-header">
-                        <div class="category-badge">미적분</div>
-                        <h2>분수함수의 미분</h2>
-                        <div class="post-date">2025년 10월 19일 09:30</div>
-                    </div>
-                    <div class="post-body">
-                        <p class="post-description">
-                            몫의 미분법(Quotient Rule)을 이용한 분수함수 미분 방법을 알아봅니다.
-                            유도 과정, 예제, 그리고 연습문제를 통해 자세히 학습할 수 있습니다.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">미적분</span>
-                            <span class="tag">미분</span>
-                            <span class="tag">분수함수</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Post 2 -->
-                <a href="posts/permutation-combination.html" class="post-card" data-category="이산수학">
-                    <div class="post-header">
-                        <div class="category-badge">이산수학</div>
-                        <h2>경우의 수: 순열과 조합의 비교</h2>
-                        <div class="post-date">2025년 10월 19일 09:00</div>
-                    </div>
-                    <div class="post-body">
-                        <p class="post-description">
-                            순열과 조합의 개념을 명확히 이해하고, 두 개념의 차이점을 비교합니다.
-                            실생활 예시와 함께 4개의 다양한 연습문제를 풀어봅니다.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">경우의 수</span>
-                            <span class="tag">순열</span>
-                            <span class="tag">조합</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Post 3 -->
-                <a href="posts/duplicate-combination.html" class="post-card" data-category="이산수학">
-                    <div class="post-header">
-                        <div class="category-badge">이산수학</div>
-                        <h2>중복조합의 개념과 활용</h2>
-                        <div class="post-date">2025년 10월 19일 08:30</div>
-                    </div>
-                    <div class="post-body">
-                        <p class="post-description">
-                            중복조합의 개념을 명확히 이해하고, 같은 것이 있는 순열과의 관계를 학습합니다.
-                            x+y+z=7 예제를 통해 음이 아닌 정수와 양의 정수 해를 구하는 방법을 마스터하세요.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">중복조합</span>
-                            <span class="tag">조합론</span>
-                            <span class="tag">정수해</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Post 4: Complex Polar Form -->
-                <a href="posts/complex-polar-form.html" class="post-card" data-category="복소함수론">
-                    <div class="post-header">
-                        <div class="category-badge">복소함수론</div>
-                        <h2>복소수의 극형식과 드무아브르 정리</h2>
-                        <div class="post-date">2025년 10월 19일 10:30</div>
-                    </div>
-                    <div class="post-body">
-                        <p class="post-description">
-                            복소수를 극형식으로 표현하고 드무아브르 정리를 활용하여 복소수의 거듭제곱을 계산하는 방법을 학습합니다.
-                            복소수의 n제곱근 공식도 함께 알아봅니다.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">복소수</span>
-                            <span class="tag">극형식</span>
-                            <span class="tag">드무아브르 정리</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Post 5: Chinese Remainder Theorem -->
-                <a href="posts/chinese-remainder-theorem.html" class="post-card" data-category="정수론">
-                    <div class="post-header">
-                        <div class="category-badge">정수론</div>
-                        <h2>중국인의 나머지 정리</h2>
-                        <div class="post-date">2025년 10월 19일 11:05</div>
-                    </div>
-                    <div class="post-body">
-                        <p class="post-description">
-                            연립 합동식을 효율적으로 푸는 중국인의 나머지 정리를 학습합니다.
-                            정리의 증명과 함께 암호학 등 다양한 응용 분야를 알아봅니다.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">합동식</span>
-                            <span class="tag">중국인의 나머지 정리</span>
-                            <span class="tag">정수론</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Post 6: Dirichlet's Theorem -->
-                <a href="posts/dirichlet-theorem.html" class="post-card" data-category="정수론">
-                    <div class="post-header">
-                        <div class="category-badge">정수론</div>
-                        <h2>디리클레 소수 정리</h2>
-                        <div class="post-date">2025년 10월 19일 11:40</div>
-                    </div>
-                    <div class="post-body">
-                        <p class="post-description">
-                            등차수열 속에 무한히 많은 소수가 존재함을 증명하는 디리클레 정리를 학습합니다.
-                            소수의 분포에 대한 깊이 있는 이해를 제공합니다.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">소수</span>
-                            <span class="tag">디리클레 정리</span>
-                            <span class="tag">등차수열</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Post 7: Euler Phi Function -->
-                <a href="posts/euler-phi-function.html" class="post-card" data-category="정수론">
-                    <div class="post-header">
-                        <div class="category-badge">정수론</div>
-                        <h2>오일러 파이 함수와 관련 공식</h2>
-                        <div class="post-date">2025년 10월 19일 12:15</div>
-                    </div>
-                    <div class="post-body">
-                        <p class="post-description">
-                            오일러 파이 함수의 정의와 곱셈적 성질, 계산 공식을 학습합니다.
-                            정수론의 핵심 함수인 φ(n)의 다양한 성질을 이해합니다.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">오일러 파이 함수</span>
-                            <span class="tag">토션트 함수</span>
-                            <span class="tag">정수론</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Post 8: Fermat's Little Theorem -->
-                <a href="posts/fermats-little-theorem.html" class="post-card" data-category="정수론">
-                    <div class="post-header">
-                        <div class="category-badge">정수론</div>
-                        <h2>페르마의 소정리</h2>
-                        <div class="post-date">2025년 10월 19일 12:50</div>
-                    </div>
-                    <div class="post-body">
-                        <p class="post-description">
-                            소수와 거듭제곱의 관계를 다루는 페르마의 소정리를 학습합니다.
-                            모듈로 연산과 암호학에서의 활용을 예제와 함께 익힙니다.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">페르마의 소정리</span>
-                            <span class="tag">합동식</span>
-                            <span class="tag">모듈로 연산</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Post 9: Polar Coordinates -->
-                <a href="posts/polar-coordinates.html" class="post-card" data-category="Precalculus">
-                    <div class="post-header">
-                        <div class="category-badge">Precalculus</div>
-                        <h2>극좌표와 극형식</h2>
-                        <div class="post-date">2025년 10월 19일 13:20</div>
-                    </div>
-                    <div class="post-body">
-                        <p class="post-description">
-                            극좌표계의 개념과 직교좌표와의 변환 방법을 학습합니다.
-                            극형식을 이용한 복소수 표현과 곱셈, 나눗셈을 알아봅니다.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">극좌표</span>
-                            <span class="tag">극형식</span>
-                            <span class="tag">복소수</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Post 10: Euler's Formula -->
-                <a href="posts/euler-formula.html" class="post-card" data-category="Precalculus">
-                    <div class="post-header">
-                        <div class="category-badge">Precalculus</div>
-                        <h2>오일러 공식과 복소지수함수</h2>
-                        <div class="post-date">2025년 10월 19일 13:45</div>
-                    </div>
-                    <div class="post-body">
-                        <p class="post-description">
-                            수학에서 가장 아름다운 공식으로 꼽히는 오일러 공식 e^(iθ) = cos(θ) + i sin(θ)를 학습합니다.
-                            오일러 항등식과 복소지수함수의 응용을 알아봅니다.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">오일러 공식</span>
-                            <span class="tag">오일러 항등식</span>
-                            <span class="tag">복소지수함수</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Post 11: Trigonometric Formulas -->
-                <a href="posts/trigonometric-formulas.html" class="post-card" data-category="Precalculus">
-                    <div class="post-header">
-                        <div class="category-badge">Precalculus</div>
-                        <h2>삼각함수 배각공식과 반각공식</h2>
-                        <div class="post-date">2025년 10월 19일 15:00</div>
-                    </div>
-                    <div class="post-body">
-                        <p class="post-description">
-                            삼각함수의 배각공식과 반각공식을 유도하고 활용하는 방법을 학습합니다.
-                            덧셈정리로부터의 유도 과정과 연습문제를 통해 공식의 활용법을 익힙니다.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">배각공식</span>
-                            <span class="tag">반각공식</span>
-                            <span class="tag">삼각함수</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Post 12: Trigonometric Calculus -->
-                <a href="posts/trigonometric-calculus.html" class="post-card" data-category="미적분">
-                    <div class="post-header">
-                        <div class="category-badge">미적분</div>
-                        <h2>삼각함수의 미분과 적분</h2>
-                        <div class="post-date">2025년 10월 19일 15:30</div>
-                    </div>
-                    <div class="post-body">
-                        <p class="post-description">
-                            삼각함수 sin, cos, tan의 미분과 적분 공식을 유도하고 활용하는 방법을 학습합니다.
-                            극한의 정의로부터 유도 과정을 이해하고 연습문제를 통해 활용법을 익힙니다.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">삼각함수</span>
-                            <span class="tag">미분</span>
-                            <span class="tag">적분</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Post 13: Logarithm Calculus -->
-                <a href="posts/logarithm-calculus.html" class="post-card" data-category="미적분">
-                    <div class="post-header">
-                        <div class="category-badge">미적분</div>
-                        <h2>로그함수의 미분과 적분</h2>
-                        <div class="post-date">2025년 10월 19일 16:00</div>
-                    </div>
-                    <div class="post-body">
-                        <p class="post-description">
-                            자연로그 ln x와 일반로그 log_a x의 미분과 적분 공식을 유도하고 활용합니다.
-                            지수함수와의 관계를 이해하고 부분적분을 이용한 로그함수의 적분을 학습합니다.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">로그함수</span>
-                            <span class="tag">자연로그</span>
-                            <span class="tag">미분</span>
-                            <span class="tag">적분</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Post 14: Godel's Incompleteness Theorems -->
-                <a href="posts/godel-incompleteness.html" class="post-card" data-category="수학 이야기">
-                    <div class="post-header">
-                        <div class="category-badge">수학 이야기</div>
-                        <h2>괴델의 불완전성 정리</h2>
-                        <div class="post-date">2025년 10월 19일 16:30</div>
-                    </div>
-                    <div class="post-body">
-                        <p class="post-description">
-                            수학 기초론을 뒤흔든 괴델의 불완전성 정리를 탐구합니다.
-                            어떤 수학 체계도 완전할 수 없다는 놀라운 발견과 그 의미를 이해해봅니다.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">괴델</span>
-                            <span class="tag">불완전성 정리</span>
-                            <span class="tag">수학기초론</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Post 15: Origami and Cubic Equations -->
-                <a href="posts/origami-cubic-equation.html" class="post-card" data-category="기하학">
-                    <div class="post-header">
-                        <div class="category-badge">기하학</div>
-                        <h2>종이접기 기하학과 삼차방정식</h2>
-                        <div class="post-date">2025년 10월 19일 17:00</div>
-                    </div>
-                    <div class="post-body">
-                        <p class="post-description">
-                            종이접기로 삼차방정식을 풀 수 있다는 놀라운 사실을 탐구합니다.
-                            자와 컴퍼스로는 불가능한 각의 삼등분과 입방체 배가 문제가 종이 한 장으로 해결됩니다.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">종이접기</span>
-                            <span class="tag">삼차방정식</span>
-                            <span class="tag">작도 문제</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Post 16: API Experiment Lab -->
-                <a href="api-experiment.html" class="post-card" data-category="실험실">
-                    <div class="post-header">
-                        <div class="category-badge">실험실</div>
-                        <h2>Desmos & GeoGebra API 실험실</h2>
-                        <div class="post-date">2025년 10월 19일 17:30</div>
-                    </div>
-                    <div class="post-body">
-                        <p class="post-description">
-                            Desmos와 GeoGebra의 JavaScript API를 활용한 인터랙티브 수학 시각화 실험 페이지입니다.
-                            삼차방정식, 황금비, 각의 삼등분, 정삼각형 작도 등을 직접 조작하며 배울 수 있습니다.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">API</span>
-                            <span class="tag">시각화</span>
-                            <span class="tag">인터랙티브</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Post 17: Oxford Interview - Comparing 2^x and x^2 -->
-                <a href="posts/2x-vs-x2.html" class="post-card" data-category="미적분">
-                    <div class="post-header">
-                        <div class="category-badge">미적분</div>
-                        <h2>Oxford Interview: Comparing 2ˣ and x²</h2>
-                        <div class="post-date">2025년 11월 10일</div>
-                    </div>
-                    <div class="post-body">
-                        <p class="post-description">
-                            옥스퍼드 인터뷰 문제: 2ˣ와 x²를 비교하는 분석적 방법을 학습합니다.
-                            로그 함수를 활용한 부호 검정과 함수의 형태 분석을 통해 두 함수의 교점과 대소관계를 명확하게 파악합니다.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">옥스퍼드 인터뷰</span>
-                            <span class="tag">지수함수</span>
-                            <span class="tag">다항함수</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Post 18: Liouville's Integration Theorem -->
-                <a href="posts/liouville-integration-theorem.html" class="post-card" data-category="미적분">
-                    <div class="post-header">
-                        <div class="category-badge">미적분</div>
-                        <h2>리우빌의 적분 정리</h2>
-                        <div class="post-date">2025년 11월 13일</div>
-                    </div>
-                    <div class="post-body">
-                        <p class="post-description">
-                            어떤 함수의 부정적분이 초등함수로 표현 가능한지 판단하는 리우빌의 정리를 학습합니다.
-                            e^(x²), sin(x)/x 등 적분 불가능한 함수들과 오차 함수, 적분 사인 등
-                            특수 함수를 통한 해결 방법을 예제와 함께 살펴봅니다.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">리우빌 정리</span>
-                            <span class="tag">초등함수</span>
-                            <span class="tag">적분 가능성</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Post 19: Chinese Remainder Theorem and Additional Analysis Methods -->
-                <a href="posts/advanced-number-theory.html" class="post-card" data-category="정수론">
-                    <div class="post-header">
-                        <div class="category-badge">정수론</div>
-                        <h2>중국인의 나머지 정리와 추가 분석법</h2>
-                        <div class="post-date">2025년 11월 17일</div>
-                    </div>
-                    <div class="post-body">
-                        <p class="post-description">
-                            중국인의 나머지 정리, 카마이클 함수, p-adic 분석 등 정수론의 고급 분석법을 학습합니다.
-                            르장드르 공식을 이용한 팩토리얼 분석과 연립 합동식 풀이 방법을 예제와 함께 익힙니다.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">중국인의 나머지 정리</span>
-                            <span class="tag">카마이클 함수</span>
-                            <span class="tag">p-adic 분석</span>
-                            <span class="tag">르장드르 공식</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Post 20: Taylor Series Error Bound -->
-                <a href="posts/taylor-series-error-bound.html" class="post-card" data-category="미적분">
-                    <div class="post-header">
-                        <div class="category-badge">미적분</div>
-                        <h2>테일러 급수 에러 바운드 구하기</h2>
-                        <div class="post-date">2025년 11월 21일</div>
-                    </div>
-                    <div class="post-body">
-                        <p class="post-description">
-                            테일러 급수의 에러 바운드를 구하는 방법을 단계별로 학습합니다.
-                            테일러 정리를 활용한 오차 추정과 실전 예제를 통해 근사의 정확도를 평가하는 방법을 익힙니다.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">테일러 급수</span>
-                            <span class="tag">에러 바운드</span>
-                            <span class="tag">테일러 정리</span>
-                            <span class="tag">근사 오차</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- 새 글 추가 시 여기에 추가 -->
-                <!-- 예시:
-                <a href="posts/example.html" class="post-card" data-category="대수학">
-                    <div class="post-header">
-                        <div class="category-badge">대수학</div>
-                        <h2>글 제목</h2>
-                        <div class="post-date">날짜</div>
-                    </div>
-                    <div class="post-body">
-                        <p class="post-description">설명...</p>
-                        <div class="post-tags">
-                            <span class="tag">태그1</span>
-                        </div>
-                    </div>
-                </a>
-                -->
-
-            </div>
+        <div class="stat-item">
+            <div class="stat-num">20+</div>
+            <div class="stat-label">Articles</div>
         </div>
+        <div class="stat-item">
+            <div class="stat-num">Free</div>
+            <div class="stat-label">Always</div>
         </div>
+    </div>
+
+    <div class="countries">
+        <!-- Korea -->
+        <a href="kr/" class="country-card">
+            <div class="country-flag">&#x1F1F0;&#x1F1F7;</div>
+            <h2>Korea</h2>
+            <div class="country-sub">&#xD55C;&#xAD6D; &#xC218;&#xD559;</div>
+            <ul>
+                <li>&#xC218;&#xB2A5; &#xAE30;&#xCD9C;&#xBB38;&#xC81C;</li>
+                <li>&#xD3C9;&#xAC00;&#xC6D0; &#xBAA8;&#xC758;&#xACE0;&#xC0AC;</li>
+                <li>&#xAD50;&#xC7AC; &#xB2F5;&#xC9C0; (EBS, &#xC308;, &#xBE44;&#xC0C1;)</li>
+                <li>&#xC218;&#xD559; &#xBE14;&#xB85C;&#xADF8;</li>
+            </ul>
+            <span class="enter-btn">&#xC785;&#xC7A5;&#xD558;&#xAE30;</span>
+        </a>
+
+        <!-- USA -->
+        <a href="us/" class="country-card">
+            <div class="country-flag">&#x1F1FA;&#x1F1F8;</div>
+            <h2>USA</h2>
+            <div class="country-sub">US Mathematics</div>
+            <ul>
+                <li>SAT Math Practice</li>
+                <li>AP Calculus AB/BC</li>
+                <li>AP Statistics</li>
+                <li>AP Computer Science</li>
+            </ul>
+            <span class="enter-btn">Enter</span>
+        </a>
+
+        <!-- UK -->
+        <a href="uk/" class="country-card">
+            <div class="country-flag">&#x1F1EC;&#x1F1E7;</div>
+            <h2>UK</h2>
+            <div class="country-sub">UK Maths</div>
+            <ul>
+                <li>A-Level Maths</li>
+                <li>IGCSE Mathematics</li>
+                <li>TMUA (Cambridge)</li>
+                <li>MAT (Oxford)</li>
+            </ul>
+            <span class="enter-btn">Enter</span>
+        </a>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+        <h3>Want more practice?</h3>
+        <p>Try our online question bank with thousands of math problems</p>
+        <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="cta-main-btn">
+            Online Question Bank &rarr;
+        </a>
     </div>
 
     <div class="footer">
-        <p>&copy; 2025 수학 블로그. All rights reserved.</p>
+        <p>&copy; 2025 MathHub Global. All rights reserved.</p>
     </div>
 
-    <script>
-        // 전역 변수
-        const categoryItems = document.querySelectorAll('.category-item');
-        const postCards = document.querySelectorAll('.post-card');
-        const searchInput = document.getElementById('searchInput');
-        const searchResultsCount = document.getElementById('searchResultsCount');
-
-        let currentCategory = 'all';
-        let currentSearchTerm = '';
-
-        // 검색 기능
-        function performSearch() {
-            currentSearchTerm = searchInput.value.toLowerCase().trim();
-            filterPosts();
-        }
-
-        // 통합 필터링 함수 (카테고리 + 검색)
-        function filterPosts() {
-            let visibleCount = 0;
-            let totalMatchingCategory = 0;
-
-            postCards.forEach(card => {
-                const cardCategory = card.getAttribute('data-category');
-
-                // 카테고리 필터 확인
-                const categoryMatch = currentCategory === 'all' || cardCategory === currentCategory;
-
-                if (categoryMatch) {
-                    totalMatchingCategory++;
-                }
-
-                // 검색어 필터 확인
-                let searchMatch = true;
-                if (currentSearchTerm) {
-                    const title = card.querySelector('h2').textContent.toLowerCase();
-                    const description = card.querySelector('.post-description').textContent.toLowerCase();
-                    const tags = Array.from(card.querySelectorAll('.tag'))
-                        .map(tag => tag.textContent.toLowerCase())
-                        .join(' ');
-
-                    const combinedText = `${title} ${description} ${tags}`;
-                    searchMatch = combinedText.includes(currentSearchTerm);
-                }
-
-                // 두 조건 모두 만족하면 표시
-                if (categoryMatch && searchMatch) {
-                    card.classList.remove('hidden');
-                    visibleCount++;
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-
-            // 검색 결과 표시
-            if (currentSearchTerm) {
-                searchResultsCount.textContent = `${visibleCount}개의 게시글이 검색되었습니다`;
-            } else if (currentCategory !== 'all') {
-                searchResultsCount.textContent = `${totalMatchingCategory}개의 게시글`;
-            } else {
-                searchResultsCount.textContent = '';
-            }
-        }
-
-        // 검색 이벤트 리스너
-        searchInput.addEventListener('input', performSearch);
-
-        // 카테고리 필터링 기능
-        categoryItems.forEach(item => {
-            item.addEventListener('click', function() {
-                currentCategory = this.getAttribute('data-category');
-
-                // 활성 카테고리 스타일 변경
-                categoryItems.forEach(cat => cat.classList.remove('active'));
-                this.classList.add('active');
-
-                // 필터링 실행
-                filterPosts();
-            });
-        });
-
-        // 페이지 로드 시 카테고리 개수 자동 업데이트
-        function updateCategoryCounts() {
-            const categories = {};
-
-            postCards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                categories[category] = (categories[category] || 0) + 1;
-            });
-
-            categoryItems.forEach(item => {
-                const category = item.getAttribute('data-category');
-                const countElement = item.querySelector('.category-count');
-
-                if (category === 'all') {
-                    countElement.textContent = postCards.length;
-                } else {
-                    countElement.textContent = categories[category] || 0;
-                }
-            });
-        }
-
-        // 초기 로드 시 실행
-        updateCategoryCounts();
-    </script>
-
-    <!-- Structured Data (Schema.org JSON-LD) -->
+    <!-- Schema.org -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "수학 블로그",
+        "name": "MathHub Global",
         "url": "https://randomwalk1225.github.io/",
-        "description": "수학의 아름다움을 탐구하는 블로그입니다. 미적분, 대수학, 기하학, 확률과 통계, 이산수학 등 다양한 수학 주제를 학습할 수 있습니다.",
+        "description": "Free math exam past papers and online workbooks for Korean CSAT, US SAT/AP, and UK A-Level/IGCSE.",
         "publisher": {
             "@type": "Organization",
-            "name": "수학 블로그"
+            "name": "MathHub Global"
         },
         "potentialAction": {
             "@type": "SearchAction",

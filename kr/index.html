@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MathHub Korea - 수능 기출, 교재 답지, 수학 블로그</title>
+    <meta name="description" content="수능, 평가원 모의고사 기출문제와 EBS, 쎈, 비상 교재 답지를 무료로 제공합니다. 미적분, 정수론, 기하학 등 수학 블로그와 온라인 문제집도 함께 이용하세요.">
+    <meta name="keywords" content="수능 기출, 평가원 모의고사, 교재 답지, 쎈 답지, EBS 답지, 수학 블로그, 미적분, 정수론">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://randomwalk1225.github.io/kr/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://randomwalk1225.github.io/kr/">
+    <meta property="og:title" content="MathHub Korea - 수능 기출, 교재 답지, 수학 블로그">
+    <meta property="og:description" content="수능, 평가원 모의고사 기출문제와 교재 답지를 무료로 제공합니다.">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="MathHub Korea - 수능 기출, 교재 답지, 수학 블로그">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <style>
+        /* KR Index specific styles */
+        .header { padding: 60px 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .header h1 { font-size: 2.5em; }
+
+        .search-container { width: 100%; max-width: 800px; margin: 0 auto 30px; }
+        .search-box { position: relative; }
+        .search-input {
+            width: 100%; padding: 12px 45px 12px 15px; border: none; border-radius: 30px;
+            font-size: 1em; outline: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .search-input::placeholder { color: #999; }
+        .search-icon { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); font-size: 1.1em; pointer-events: none; color: #666; }
+        .search-results-count { text-align: center; margin-top: 10px; font-size: 0.9em; color: #667eea; font-weight: 600; }
+
+        .main-layout { max-width: 1400px; margin: 40px auto; padding: 0 20px; }
+        .content-wrapper { display: flex; gap: 30px; }
+
+        .sidebar { width: 250px; flex-shrink: 0; }
+        .sidebar-sticky { position: sticky; top: 70px; background: white; border-radius: 12px; padding: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .sidebar h3 { color: #2c3e50; margin-bottom: 20px; font-size: 1.3em; padding-bottom: 10px; border-bottom: 2px solid #667eea; }
+        .category-list { list-style: none; }
+        .category-item { padding: 12px 15px; margin-bottom: 8px; border-radius: 8px; cursor: pointer; transition: all 0.3s; display: flex; justify-content: space-between; align-items: center; }
+        .category-item:hover { background-color: #f0f0f0; }
+        .category-item.active { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-weight: 600; }
+        .category-count { background-color: rgba(0,0,0,0.1); padding: 2px 8px; border-radius: 12px; font-size: 0.85em; }
+        .active .category-count { background-color: rgba(255,255,255,0.2); }
+
+        .content { flex: 1; min-width: 0; }
+        .post-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+        .post-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; text-decoration: none; color: inherit; display: block; }
+        .post-card.hidden { display: none; }
+        .post-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.2); }
+        .post-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; color: white; }
+        .post-header h2 { font-size: 1.5em; margin-bottom: 8px; border: none; padding: 0; color: white; }
+        .post-date { font-size: 0.9em; opacity: 0.9; }
+        .post-body { padding: 20px; }
+        .post-description { color: #555; line-height: 1.6; margin-bottom: 15px; }
+        .post-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+        .tag { background-color: #e7f3ff; color: #0066cc; padding: 4px 12px; border-radius: 20px; font-size: 0.85em; }
+
+        /* Section tabs */
+        .section-tabs {
+            display: flex; gap: 0; background: white; border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 30px; overflow: hidden;
+        }
+        .section-tab {
+            flex: 1; padding: 16px; text-align: center; text-decoration: none;
+            color: #666; font-weight: 600; font-size: 0.95em; transition: all 0.2s;
+            border-bottom: 3px solid transparent;
+        }
+        .section-tab:hover { background: #f5f3ff; color: #667eea; }
+        .section-tab.active { color: #667eea; border-bottom-color: #667eea; background: #f5f3ff; }
+        .section-tab.coming-soon { opacity: 0.5; cursor: default; }
+        .section-tab .tab-icon { display: block; font-size: 1.5em; margin-bottom: 4px; }
+
+        .kr-category-badge {
+            display: inline-block; background-color: #fff3cd; color: #856404;
+            padding: 4px 12px; border-radius: 20px; font-size: 0.85em; margin-bottom: 10px;
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar { width: 100%; }
+            .sidebar-sticky { position: static; }
+            .category-list { display: flex; flex-wrap: wrap; gap: 10px; }
+            .category-item { margin-bottom: 0; }
+        }
+        @media (max-width: 768px) {
+            .content-wrapper { flex-direction: column; }
+            .sidebar { width: 100%; }
+            .header h1 { font-size: 2em; }
+            .post-grid { grid-template-columns: 1fr; }
+            .section-tab { padding: 12px 8px; font-size: 0.85em; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Global Nav -->
+    <nav class="global-nav">
+        <a href="../" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="../kr/" class="active">KR</a>
+            <a href="../us/">US</a>
+            <a href="../uk/">UK</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <div class="header">
+        <h1>MathHub Korea</h1>
+        <p>수능 기출, 교재 답지, 수학 블로그</p>
+    </div>
+
+    <!-- Section Tabs -->
+    <div class="main-layout">
+        <div class="section-tabs">
+            <a href="#" class="section-tab active">
+                <span class="tab-icon">&#x1F4DD;</span>
+                Blog
+            </a>
+            <a href="#" class="section-tab coming-soon" title="Coming Soon">
+                <span class="tab-icon">&#x1F4DA;</span>
+                &#xC2DC;&#xD5D8; &#xAE30;&#xCD9C;
+            </a>
+            <a href="#" class="section-tab coming-soon" title="Coming Soon">
+                <span class="tab-icon">&#x1F4D6;</span>
+                &#xAD50;&#xC7AC; &#xB2F5;&#xC9C0;
+            </a>
+            <a href="#" class="section-tab coming-soon" title="Coming Soon">
+                <span class="tab-icon">&#x270F;&#xFE0F;</span>
+                &#xBB38;&#xC81C;&#xC9D1;
+            </a>
+        </div>
+
+        <!-- Search -->
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="searchInput" class="search-input" placeholder="&#xAC80;&#xC0C9;&#xC5B4;&#xB97C; &#xC785;&#xB825;&#xD558;&#xC138;&#xC694; (&#xC81C;&#xBAA9;, &#xC124;&#xBA85;, &#xD0DC;&#xADF8;)">
+                <span class="search-icon">&#x1F50D;</span>
+            </div>
+            <div id="searchResultsCount" class="search-results-count"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="content-wrapper">
+            <aside class="sidebar">
+                <div class="sidebar-sticky">
+                    <h3>&#xCE74;&#xD14C;&#xACE0;&#xB9AC;</h3>
+                    <ul class="category-list">
+                        <li class="category-item active" data-category="all"><span>&#xC804;&#xCCB4;</span><span class="category-count">20</span></li>
+                        <li class="category-item" data-category="&#xBBF8;&#xC801;&#xBD84;"><span>&#xBBF8;&#xC801;&#xBD84;</span><span class="category-count">6</span></li>
+                        <li class="category-item" data-category="&#xB300;&#xC218;&#xD559;"><span>&#xB300;&#xC218;&#xD559;</span><span class="category-count">0</span></li>
+                        <li class="category-item" data-category="&#xAE30;&#xD558;&#xD559;"><span>&#xAE30;&#xD558;&#xD559;</span><span class="category-count">1</span></li>
+                        <li class="category-item" data-category="&#xD655;&#xB960;&#xACFC; &#xD1B5;&#xACC4;"><span>&#xD655;&#xB960;&#xACFC; &#xD1B5;&#xACC4;</span><span class="category-count">0</span></li>
+                        <li class="category-item" data-category="&#xC774;&#xC0B0;&#xC218;&#xD559;"><span>&#xC774;&#xC0B0;&#xC218;&#xD559;</span><span class="category-count">2</span></li>
+                        <li class="category-item" data-category="&#xBCF5;&#xC18C;&#xD568;&#xC218;&#xB860;"><span>&#xBCF5;&#xC18C;&#xD568;&#xC218;&#xB860;</span><span class="category-count">1</span></li>
+                        <li class="category-item" data-category="&#xC815;&#xC218;&#xB860;"><span>&#xC815;&#xC218;&#xB860;</span><span class="category-count">5</span></li>
+                        <li class="category-item" data-category="Precalculus"><span>Precalculus</span><span class="category-count">3</span></li>
+                        <li class="category-item" data-category="&#xC218;&#xD559; &#xC774;&#xC57C;&#xAE30;"><span>&#xC218;&#xD559; &#xC774;&#xC57C;&#xAE30;</span><span class="category-count">1</span></li>
+                        <li class="category-item" data-category="&#xC2E4;&#xD5D8;&#xC2E4;"><span>&#xC2E4;&#xD5D8;&#xC2E4;</span><span class="category-count">1</span></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="content">
+                <div class="post-grid">
+                    <a href="blog/riemann-sum.html" class="post-card" data-category="&#xBBF8;&#xC801;&#xBD84;">
+                        <div class="post-header">
+                            <div class="kr-category-badge">&#xBBF8;&#xC801;&#xBD84;</div>
+                            <h2>&#xB9AC;&#xB9CC; &#xD569;&#xACFC; &#xAD6C;&#xBD84;&#xAD6C;&#xC801;&#xBC95;</h2>
+                            <div class="post-date">2025&#xB144; 10&#xC6D4; 19&#xC77C;</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">&#xB9AC;&#xB9CC; &#xD569;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xC5EC; &#xC815;&#xC801;&#xBD84;&#xC758; &#xAC1C;&#xB150;&#xC744; &#xC774;&#xD574;&#xD569;&#xB2C8;&#xB2E4;. &#xC88C;&#xCE21; &#xB9AC;&#xB9CC; &#xD569;&#xACFC; &#xC6B0;&#xCE21; &#xB9AC;&#xB9CC; &#xD569;&#xC758; &#xCC28;&#xC774;&#xB97C; &#xBC30;&#xC6B0;&#xACE0;, &#xACE1;&#xC120; &#xC544;&#xB798;&#xC758; &#xB113;&#xC774;&#xB97C; &#xACC4;&#xC0B0;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC744; &#xC775;&#xD799;&#xB2C8;&#xB2E4;.</p>
+                            <div class="post-tags"><span class="tag">&#xB9AC;&#xB9CC; &#xD569;</span><span class="tag">&#xAD6C;&#xBD84;&#xAD6C;&#xC801;&#xBC95;</span><span class="tag">&#xC815;&#xC801;&#xBD84;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/derivative-of-rational-functions.html" class="post-card" data-category="&#xBBF8;&#xC801;&#xBD84;">
+                        <div class="post-header">
+                            <div class="kr-category-badge">&#xBBF8;&#xC801;&#xBD84;</div>
+                            <h2>&#xBD84;&#xC218;&#xD568;&#xC218;&#xC758; &#xBBF8;&#xBD84;</h2>
+                            <div class="post-date">2025&#xB144; 10&#xC6D4; 19&#xC77C;</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">&#xBAB8;&#xC758; &#xBBF8;&#xBD84;&#xBC95;(Quotient Rule)&#xC744; &#xC774;&#xC6A9;&#xD55C; &#xBD84;&#xC218;&#xD568;&#xC218; &#xBBF8;&#xBD84; &#xBC29;&#xBC95;&#xC744; &#xC54C;&#xC544;&#xBD05;&#xB2C8;&#xB2E4;.</p>
+                            <div class="post-tags"><span class="tag">&#xBBF8;&#xC801;&#xBD84;</span><span class="tag">&#xBBF8;&#xBD84;</span><span class="tag">&#xBD84;&#xC218;&#xD568;&#xC218;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/permutation-combination.html" class="post-card" data-category="&#xC774;&#xC0B0;&#xC218;&#xD559;">
+                        <div class="post-header">
+                            <div class="kr-category-badge">&#xC774;&#xC0B0;&#xC218;&#xD559;</div>
+                            <h2>&#xACBD;&#xC6B0;&#xC758; &#xC218;: &#xC21C;&#xC5F4;&#xACFC; &#xC870;&#xD569;&#xC758; &#xBE44;&#xAD50;</h2>
+                            <div class="post-date">2025&#xB144; 10&#xC6D4; 19&#xC77C;</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">&#xC21C;&#xC5F4;&#xACFC; &#xC870;&#xD569;&#xC758; &#xAC1C;&#xB150;&#xC744; &#xBA85;&#xD655;&#xD788; &#xC774;&#xD574;&#xD558;&#xACE0;, &#xB450; &#xAC1C;&#xB150;&#xC758; &#xCC28;&#xC774;&#xC810;&#xC744; &#xBE44;&#xAD50;&#xD569;&#xB2C8;&#xB2E4;.</p>
+                            <div class="post-tags"><span class="tag">&#xACBD;&#xC6B0;&#xC758; &#xC218;</span><span class="tag">&#xC21C;&#xC5F4;</span><span class="tag">&#xC870;&#xD569;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/duplicate-combination.html" class="post-card" data-category="&#xC774;&#xC0B0;&#xC218;&#xD559;">
+                        <div class="post-header">
+                            <div class="kr-category-badge">&#xC774;&#xC0B0;&#xC218;&#xD559;</div>
+                            <h2>&#xC911;&#xBCF5;&#xC870;&#xD569;&#xC758; &#xAC1C;&#xB150;&#xACFC; &#xD65C;&#xC6A9;</h2>
+                            <div class="post-date">2025&#xB144; 10&#xC6D4; 19&#xC77C;</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">&#xC911;&#xBCF5;&#xC870;&#xD569;&#xC758; &#xAC1C;&#xB150;&#xC744; &#xBA85;&#xD655;&#xD788; &#xC774;&#xD574;&#xD558;&#xACE0;, x+y+z=7 &#xC608;&#xC81C;&#xB97C; &#xD1B5;&#xD574; &#xD574;&#xB97C; &#xAD6C;&#xD569;&#xB2C8;&#xB2E4;.</p>
+                            <div class="post-tags"><span class="tag">&#xC911;&#xBCF5;&#xC870;&#xD569;</span><span class="tag">&#xC870;&#xD569;&#xB860;</span><span class="tag">&#xC815;&#xC218;&#xD574;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/complex-polar-form.html" class="post-card" data-category="&#xBCF5;&#xC18C;&#xD568;&#xC218;&#xB860;">
+                        <div class="post-header">
+                            <div class="kr-category-badge">&#xBCF5;&#xC18C;&#xD568;&#xC218;&#xB860;</div>
+                            <h2>&#xBCF5;&#xC18C;&#xC218;&#xC758; &#xADF9;&#xD615;&#xC2DD;&#xACFC; &#xB4DC;&#xBB34;&#xC544;&#xBE0C;&#xB974; &#xC815;&#xB9AC;</h2>
+                            <div class="post-date">2025&#xB144; 10&#xC6D4; 19&#xC77C;</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">&#xBCF5;&#xC18C;&#xC218;&#xB97C; &#xADF9;&#xD615;&#xC2DD;&#xC73C;&#xB85C; &#xD45C;&#xD604;&#xD558;&#xACE0; &#xB4DC;&#xBB34;&#xC544;&#xBE0C;&#xB974; &#xC815;&#xB9AC;&#xB97C; &#xD65C;&#xC6A9;&#xD558;&#xC5EC; &#xAC70;&#xB4ED;&#xC81C;&#xACF1;&#xC744; &#xACC4;&#xC0B0;&#xD569;&#xB2C8;&#xB2E4;.</p>
+                            <div class="post-tags"><span class="tag">&#xBCF5;&#xC18C;&#xC218;</span><span class="tag">&#xADF9;&#xD615;&#xC2DD;</span><span class="tag">&#xB4DC;&#xBB34;&#xC544;&#xBE0C;&#xB974;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/chinese-remainder-theorem.html" class="post-card" data-category="&#xC815;&#xC218;&#xB860;">
+                        <div class="post-header">
+                            <div class="kr-category-badge">&#xC815;&#xC218;&#xB860;</div>
+                            <h2>&#xC911;&#xAD6D;&#xC778;&#xC758; &#xB098;&#xBA38;&#xC9C0; &#xC815;&#xB9AC;</h2>
+                            <div class="post-date">2025&#xB144; 10&#xC6D4; 19&#xC77C;</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">&#xC5F0;&#xB9BD; &#xD569;&#xB3D9;&#xC2DD;&#xC744; &#xD6A8;&#xC728;&#xC801;&#xC73C;&#xB85C; &#xD478;&#xB294; &#xC911;&#xAD6D;&#xC778;&#xC758; &#xB098;&#xBA38;&#xC9C0; &#xC815;&#xB9AC;&#xB97C; &#xD559;&#xC2B5;&#xD569;&#xB2C8;&#xB2E4;.</p>
+                            <div class="post-tags"><span class="tag">&#xD569;&#xB3D9;&#xC2DD;</span><span class="tag">&#xC911;&#xAD6D;&#xC778;&#xC758; &#xB098;&#xBA38;&#xC9C0; &#xC815;&#xB9AC;</span><span class="tag">&#xC815;&#xC218;&#xB860;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/dirichlet-theorem.html" class="post-card" data-category="&#xC815;&#xC218;&#xB860;">
+                        <div class="post-header">
+                            <div class="kr-category-badge">&#xC815;&#xC218;&#xB860;</div>
+                            <h2>&#xB514;&#xB9AC;&#xD074;&#xB808; &#xC18C;&#xC218; &#xC815;&#xB9AC;</h2>
+                            <div class="post-date">2025&#xB144; 10&#xC6D4; 19&#xC77C;</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">&#xB4F1;&#xCC28;&#xC218;&#xC5F4; &#xC18D;&#xC5D0; &#xBB34;&#xD55C;&#xD788; &#xB9CE;&#xC740; &#xC18C;&#xC218;&#xAC00; &#xC874;&#xC7AC;&#xD568;&#xC744; &#xC99D;&#xBA85;&#xD558;&#xB294; &#xB514;&#xB9AC;&#xD074;&#xB808; &#xC815;&#xB9AC;&#xB97C; &#xD559;&#xC2B5;&#xD569;&#xB2C8;&#xB2E4;.</p>
+                            <div class="post-tags"><span class="tag">&#xC18C;&#xC218;</span><span class="tag">&#xB514;&#xB9AC;&#xD074;&#xB808;</span><span class="tag">&#xB4F1;&#xCC28;&#xC218;&#xC5F4;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/euler-phi-function.html" class="post-card" data-category="&#xC815;&#xC218;&#xB860;">
+                        <div class="post-header">
+                            <div class="kr-category-badge">&#xC815;&#xC218;&#xB860;</div>
+                            <h2>&#xC624;&#xC77C;&#xB7EC; &#xD30C;&#xC774; &#xD568;&#xC218;&#xC640; &#xAD00;&#xB828; &#xACF5;&#xC2DD;</h2>
+                            <div class="post-date">2025&#xB144; 10&#xC6D4; 19&#xC77C;</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">&#xC624;&#xC77C;&#xB7EC; &#xD30C;&#xC774; &#xD568;&#xC218;&#xC758; &#xC815;&#xC758;&#xC640; &#xACF1;&#xC148;&#xC801; &#xC131;&#xC9C8;, &#xACC4;&#xC0B0; &#xACF5;&#xC2DD;&#xC744; &#xD559;&#xC2B5;&#xD569;&#xB2C8;&#xB2E4;.</p>
+                            <div class="post-tags"><span class="tag">&#xC624;&#xC77C;&#xB7EC; &#xD30C;&#xC774;</span><span class="tag">&#xD1A0;&#xC158;&#xD2B8;</span><span class="tag">&#xC815;&#xC218;&#xB860;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/fermats-little-theorem.html" class="post-card" data-category="&#xC815;&#xC218;&#xB860;">
+                        <div class="post-header">
+                            <div class="kr-category-badge">&#xC815;&#xC218;&#xB860;</div>
+                            <h2>&#xD398;&#xB974;&#xB9C8;&#xC758; &#xC18C;&#xC815;&#xB9AC;</h2>
+                            <div class="post-date">2025&#xB144; 10&#xC6D4; 19&#xC77C;</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">&#xC18C;&#xC218;&#xC640; &#xAC70;&#xB4ED;&#xC81C;&#xACF1;&#xC758; &#xAD00;&#xACC4;&#xB97C; &#xB2E4;&#xB8E8;&#xB294; &#xD398;&#xB974;&#xB9C8;&#xC758; &#xC18C;&#xC815;&#xB9AC;&#xB97C; &#xD559;&#xC2B5;&#xD569;&#xB2C8;&#xB2E4;.</p>
+                            <div class="post-tags"><span class="tag">&#xD398;&#xB974;&#xB9C8;</span><span class="tag">&#xD569;&#xB3D9;&#xC2DD;</span><span class="tag">&#xBAA8;&#xB4C8;&#xB85C;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/polar-coordinates.html" class="post-card" data-category="Precalculus">
+                        <div class="post-header">
+                            <div class="kr-category-badge">Precalculus</div>
+                            <h2>&#xADF9;&#xC88C;&#xD45C;&#xC640; &#xADF9;&#xD615;&#xC2DD;</h2>
+                            <div class="post-date">2025&#xB144; 10&#xC6D4; 19&#xC77C;</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">&#xADF9;&#xC88C;&#xD45C;&#xACC4;&#xC758; &#xAC1C;&#xB150;&#xACFC; &#xC9C1;&#xAD50;&#xC88C;&#xD45C;&#xC640;&#xC758; &#xBCC0;&#xD658; &#xBC29;&#xBC95;&#xC744; &#xD559;&#xC2B5;&#xD569;&#xB2C8;&#xB2E4;.</p>
+                            <div class="post-tags"><span class="tag">&#xADF9;&#xC88C;&#xD45C;</span><span class="tag">&#xADF9;&#xD615;&#xC2DD;</span><span class="tag">&#xBCF5;&#xC18C;&#xC218;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/euler-formula.html" class="post-card" data-category="Precalculus">
+                        <div class="post-header">
+                            <div class="kr-category-badge">Precalculus</div>
+                            <h2>&#xC624;&#xC77C;&#xB7EC; &#xACF5;&#xC2DD;&#xACFC; &#xBCF5;&#xC18C;&#xC9C0;&#xC218;&#xD568;&#xC218;</h2>
+                            <div class="post-date">2025&#xB144; 10&#xC6D4; 19&#xC77C;</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">&#xC218;&#xD559;&#xC5D0;&#xC11C; &#xAC00;&#xC7A5; &#xC544;&#xB984;&#xB2E4;&#xC6B4; &#xACF5;&#xC2DD;&#xC73C;&#xB85C; &#xAF3D;&#xD788;&#xB294; &#xC624;&#xC77C;&#xB7EC; &#xACF5;&#xC2DD;&#xC744; &#xD559;&#xC2B5;&#xD569;&#xB2C8;&#xB2E4;.</p>
+                            <div class="post-tags"><span class="tag">&#xC624;&#xC77C;&#xB7EC; &#xACF5;&#xC2DD;</span><span class="tag">&#xC624;&#xC77C;&#xB7EC; &#xD56D;&#xB4F1;&#xC2DD;</span><span class="tag">&#xBCF5;&#xC18C;&#xC9C0;&#xC218;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/trigonometric-formulas.html" class="post-card" data-category="Precalculus">
+                        <div class="post-header">
+                            <div class="kr-category-badge">Precalculus</div>
+                            <h2>&#xC0BC;&#xAC01;&#xD568;&#xC218; &#xBC30;&#xAC01;&#xACF5;&#xC2DD;&#xACFC; &#xBC18;&#xAC01;&#xACF5;&#xC2DD;</h2>
+                            <div class="post-date">2025&#xB144; 10&#xC6D4; 19&#xC77C;</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">&#xC0BC;&#xAC01;&#xD568;&#xC218;&#xC758; &#xBC30;&#xAC01;&#xACF5;&#xC2DD;&#xACFC; &#xBC18;&#xAC01;&#xACF5;&#xC2DD;&#xC744; &#xC720;&#xB3C4;&#xD558;&#xACE0; &#xD65C;&#xC6A9;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC744; &#xD559;&#xC2B5;&#xD569;&#xB2C8;&#xB2E4;.</p>
+                            <div class="post-tags"><span class="tag">&#xBC30;&#xAC01;&#xACF5;&#xC2DD;</span><span class="tag">&#xBC18;&#xAC01;&#xACF5;&#xC2DD;</span><span class="tag">&#xC0BC;&#xAC01;&#xD568;&#xC218;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/trigonometric-calculus.html" class="post-card" data-category="&#xBBF8;&#xC801;&#xBD84;">
+                        <div class="post-header">
+                            <div class="kr-category-badge">&#xBBF8;&#xC801;&#xBD84;</div>
+                            <h2>&#xC0BC;&#xAC01;&#xD568;&#xC218;&#xC758; &#xBBF8;&#xBD84;&#xACFC; &#xC801;&#xBD84;</h2>
+                            <div class="post-date">2025&#xB144; 10&#xC6D4; 19&#xC77C;</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">&#xC0BC;&#xAC01;&#xD568;&#xC218; sin, cos, tan&#xC758; &#xBBF8;&#xBD84;&#xACFC; &#xC801;&#xBD84; &#xACF5;&#xC2DD;&#xC744; &#xC720;&#xB3C4;&#xD569;&#xB2C8;&#xB2E4;.</p>
+                            <div class="post-tags"><span class="tag">&#xC0BC;&#xAC01;&#xD568;&#xC218;</span><span class="tag">&#xBBF8;&#xBD84;</span><span class="tag">&#xC801;&#xBD84;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/logarithm-calculus.html" class="post-card" data-category="&#xBBF8;&#xC801;&#xBD84;">
+                        <div class="post-header">
+                            <div class="kr-category-badge">&#xBBF8;&#xC801;&#xBD84;</div>
+                            <h2>&#xB85C;&#xADF8;&#xD568;&#xC218;&#xC758; &#xBBF8;&#xBD84;&#xACFC; &#xC801;&#xBD84;</h2>
+                            <div class="post-date">2025&#xB144; 10&#xC6D4; 19&#xC77C;</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">&#xC790;&#xC5F0;&#xB85C;&#xADF8; ln x&#xC640; &#xC77C;&#xBC18;&#xB85C;&#xADF8;&#xC758; &#xBBF8;&#xBD84;&#xACFC; &#xC801;&#xBD84; &#xACF5;&#xC2DD;&#xC744; &#xC720;&#xB3C4;&#xD569;&#xB2C8;&#xB2E4;.</p>
+                            <div class="post-tags"><span class="tag">&#xB85C;&#xADF8;&#xD568;&#xC218;</span><span class="tag">&#xC790;&#xC5F0;&#xB85C;&#xADF8;</span><span class="tag">&#xBBF8;&#xBD84;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/godel-incompleteness.html" class="post-card" data-category="&#xC218;&#xD559; &#xC774;&#xC57C;&#xAE30;">
+                        <div class="post-header">
+                            <div class="kr-category-badge">&#xC218;&#xD559; &#xC774;&#xC57C;&#xAE30;</div>
+                            <h2>&#xAD34;&#xB378;&#xC758; &#xBD88;&#xC644;&#xC804;&#xC131; &#xC815;&#xB9AC;</h2>
+                            <div class="post-date">2025&#xB144; 10&#xC6D4; 19&#xC77C;</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">&#xC218;&#xD559; &#xAE30;&#xCD08;&#xB860;&#xC744; &#xB4A4;&#xD754;&#xB4E0; &#xAD34;&#xB378;&#xC758; &#xBD88;&#xC644;&#xC804;&#xC131; &#xC815;&#xB9AC;&#xB97C; &#xD0D0;&#xAD6C;&#xD569;&#xB2C8;&#xB2E4;.</p>
+                            <div class="post-tags"><span class="tag">&#xAD34;&#xB378;</span><span class="tag">&#xBD88;&#xC644;&#xC804;&#xC131;</span><span class="tag">&#xC218;&#xD559;&#xAE30;&#xCD08;&#xB860;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/origami-cubic-equation.html" class="post-card" data-category="&#xAE30;&#xD558;&#xD559;">
+                        <div class="post-header">
+                            <div class="kr-category-badge">&#xAE30;&#xD558;&#xD559;</div>
+                            <h2>&#xC885;&#xC774;&#xC811;&#xAE30; &#xAE30;&#xD558;&#xD559;&#xACFC; &#xC0BC;&#xCC28;&#xBC29;&#xC815;&#xC2DD;</h2>
+                            <div class="post-date">2025&#xB144; 10&#xC6D4; 19&#xC77C;</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">&#xC885;&#xC774;&#xC811;&#xAE30;&#xB85C; &#xC0BC;&#xCC28;&#xBC29;&#xC815;&#xC2DD;&#xC744; &#xD480; &#xC218; &#xC788;&#xB2E4;&#xB294; &#xB180;&#xB77C;&#xC6B4; &#xC0AC;&#xC2E4;&#xC744; &#xD0D0;&#xAD6C;&#xD569;&#xB2C8;&#xB2E4;.</p>
+                            <div class="post-tags"><span class="tag">&#xC885;&#xC774;&#xC811;&#xAE30;</span><span class="tag">&#xC0BC;&#xCC28;&#xBC29;&#xC815;&#xC2DD;</span><span class="tag">&#xC791;&#xB3C4;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="../api-experiment.html" class="post-card" data-category="&#xC2E4;&#xD5D8;&#xC2E4;">
+                        <div class="post-header">
+                            <div class="kr-category-badge">&#xC2E4;&#xD5D8;&#xC2E4;</div>
+                            <h2>Desmos & GeoGebra API &#xC2E4;&#xD5D8;&#xC2E4;</h2>
+                            <div class="post-date">2025&#xB144; 10&#xC6D4; 19&#xC77C;</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">Desmos&#xC640; GeoGebra&#xC758; JavaScript API&#xB97C; &#xD65C;&#xC6A9;&#xD55C; &#xC778;&#xD130;&#xB799;&#xD2F0;&#xBE0C; &#xC218;&#xD559; &#xC2DC;&#xAC01;&#xD654; &#xC2E4;&#xD5D8; &#xD398;&#xC774;&#xC9C0;&#xC785;&#xB2C8;&#xB2E4;.</p>
+                            <div class="post-tags"><span class="tag">API</span><span class="tag">&#xC2DC;&#xAC01;&#xD654;</span><span class="tag">&#xC778;&#xD130;&#xB799;&#xD2F0;&#xBE0C;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/2x-vs-x2.html" class="post-card" data-category="&#xBBF8;&#xC801;&#xBD84;">
+                        <div class="post-header">
+                            <div class="kr-category-badge">&#xBBF8;&#xC801;&#xBD84;</div>
+                            <h2>Oxford Interview: Comparing 2&#x02E3; and x&#x00B2;</h2>
+                            <div class="post-date">2025&#xB144; 11&#xC6D4; 10&#xC77C;</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">&#xC625;&#xC2A4;&#xD3EC;&#xB4DC; &#xC778;&#xD130;&#xBDF0; &#xBB38;&#xC81C;: 2&#x02E3;&#xC640; x&#x00B2;&#xB97C; &#xBE44;&#xAD50;&#xD558;&#xB294; &#xBD84;&#xC11D;&#xC801; &#xBC29;&#xBC95;&#xC744; &#xD559;&#xC2B5;&#xD569;&#xB2C8;&#xB2E4;.</p>
+                            <div class="post-tags"><span class="tag">&#xC625;&#xC2A4;&#xD3EC;&#xB4DC;</span><span class="tag">&#xC9C0;&#xC218;&#xD568;&#xC218;</span><span class="tag">&#xB2E4;&#xD56D;&#xD568;&#xC218;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/liouville-integration-theorem.html" class="post-card" data-category="&#xBBF8;&#xC801;&#xBD84;">
+                        <div class="post-header">
+                            <div class="kr-category-badge">&#xBBF8;&#xC801;&#xBD84;</div>
+                            <h2>&#xB9AC;&#xC6B0;&#xBE4C;&#xC758; &#xC801;&#xBD84; &#xC815;&#xB9AC;</h2>
+                            <div class="post-date">2025&#xB144; 11&#xC6D4; 13&#xC77C;</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">&#xC5B4;&#xB5A4; &#xD568;&#xC218;&#xC758; &#xBD80;&#xC815;&#xC801;&#xBD84;&#xC774; &#xCD08;&#xB4F1;&#xD568;&#xC218;&#xB85C; &#xD45C;&#xD604; &#xAC00;&#xB2A5;&#xD55C;&#xC9C0; &#xD310;&#xB2E8;&#xD558;&#xB294; &#xB9AC;&#xC6B0;&#xBE4C;&#xC758; &#xC815;&#xB9AC;&#xB97C; &#xD559;&#xC2B5;&#xD569;&#xB2C8;&#xB2E4;.</p>
+                            <div class="post-tags"><span class="tag">&#xB9AC;&#xC6B0;&#xBE4C;</span><span class="tag">&#xCD08;&#xB4F1;&#xD568;&#xC218;</span><span class="tag">&#xC801;&#xBD84;</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/advanced-number-theory.html" class="post-card" data-category="&#xC815;&#xC218;&#xB860;">
+                        <div class="post-header">
+                            <div class="kr-category-badge">&#xC815;&#xC218;&#xB860;</div>
+                            <h2>&#xC911;&#xAD6D;&#xC778;&#xC758; &#xB098;&#xBA38;&#xC9C0; &#xC815;&#xB9AC;&#xC640; &#xCD94;&#xAC00; &#xBD84;&#xC11D;&#xBC95;</h2>
+                            <div class="post-date">2025&#xB144; 11&#xC6D4; 17&#xC77C;</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">&#xC911;&#xAD6D;&#xC778;&#xC758; &#xB098;&#xBA38;&#xC9C0; &#xC815;&#xB9AC;, &#xCE74;&#xB9C8;&#xC774;&#xD074; &#xD568;&#xC218;, p-adic &#xBD84;&#xC11D; &#xB4F1; &#xC815;&#xC218;&#xB860;&#xC758; &#xACE0;&#xAE09; &#xBD84;&#xC11D;&#xBC95;&#xC744; &#xD559;&#xC2B5;&#xD569;&#xB2C8;&#xB2E4;.</p>
+                            <div class="post-tags"><span class="tag">&#xC911;&#xAD6D;&#xC778;&#xC758; &#xB098;&#xBA38;&#xC9C0;</span><span class="tag">&#xCE74;&#xB9C8;&#xC774;&#xD074;</span><span class="tag">p-adic</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/taylor-series-error-bound.html" class="post-card" data-category="&#xBBF8;&#xC801;&#xBD84;">
+                        <div class="post-header">
+                            <div class="kr-category-badge">&#xBBF8;&#xC801;&#xBD84;</div>
+                            <h2>&#xD14C;&#xC77C;&#xB7EC; &#xAE09;&#xC218; &#xC5D0;&#xB7EC; &#xBC14;&#xC6B4;&#xB4DC; &#xAD6C;&#xD558;&#xAE30;</h2>
+                            <div class="post-date">2025&#xB144; 11&#xC6D4; 21&#xC77C;</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">&#xD14C;&#xC77C;&#xB7EC; &#xAE09;&#xC218;&#xC758; &#xC5D0;&#xB7EC; &#xBC14;&#xC6B4;&#xB4DC;&#xB97C; &#xAD6C;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC744; &#xB2E8;&#xACC4;&#xBCC4;&#xB85C; &#xD559;&#xC2B5;&#xD569;&#xB2C8;&#xB2E4;.</p>
+                            <div class="post-tags"><span class="tag">&#xD14C;&#xC77C;&#xB7EC; &#xAE09;&#xC218;</span><span class="tag">&#xC5D0;&#xB7EC; &#xBC14;&#xC6B4;&#xB4DC;</span><span class="tag">&#xD14C;&#xC77C;&#xB7EC; &#xC815;&#xB9AC;</span></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-banner" style="margin-top: 40px;">
+            <p><strong>&#xBB38;&#xC81C;&#xC740;&#xD589;</strong>&#xC5D0;&#xC11C; &#xB354; &#xB9CE;&#xC740; &#xC218;&#xD559; &#xBB38;&#xC81C;&#xB97C; &#xD480;&#xC5B4;&#xBCF4;&#xC138;&#xC694;!</p>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="cta-btn">&#xBB34;&#xB8CC;&#xB85C; &#xC2DC;&#xC791;&#xD558;&#xAE30; &rarr;</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 MathHub Global. All rights reserved.</p>
+    </div>
+
+    <script src="../assets/js/common.js"></script>
+    <script src="../assets/js/filter.js"></script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "MathHub Korea",
+        "url": "https://randomwalk1225.github.io/kr/",
+        "description": "&#xC218;&#xB2A5; &#xAE30;&#xCD9C;&#xBB38;&#xC81C;, &#xAD50;&#xC7AC; &#xB2F5;&#xC9C0;, &#xC218;&#xD559; &#xBE14;&#xB85C;&#xADF8;",
+        "inLanguage": "ko"
+    }
+    </script>
+</body>
+</html>

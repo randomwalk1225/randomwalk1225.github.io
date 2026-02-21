@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>리우빌의 적분 정리 - 초등함수로 표현 가능한 적분 - 수학 블로그</title>
+    <meta name="description" content="리우빌의 적분 정리를 통해 어떤 함수의 부정적분이 초등함수로 표현 가능한지 판단하는 방법을 학습합니다. e^(x²), sin(x)/x 등 적분 불가능한 함수들을 살펴봅니다.">
+    <meta name="keywords" content="리우빌 정리, Liouville theorem, 초등함수, elementary functions, 적분, 수학">
+    <meta name="author" content="수학 블로그">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://randomwalk1225.github.io/posts/liouville-integration-theorem.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://randomwalk1225.github.io/posts/liouville-integration-theorem.html">
+    <meta property="og:title" content="리우빌의 적분 정리 - 초등함수로 표현 가능한 적분">
+    <meta property="og:description" content="어떤 함수의 부정적분이 초등함수로 표현 가능한지 판단하는 리우빌의 정리를 학습합니다.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://randomwalk1225.github.io/posts/liouville-integration-theorem.html">
+    <meta property="twitter:title" content="리우빌의 적분 정리 - 초등함수로 표현 가능한 적분">
+    <meta property="twitter:description" content="어떤 함수의 부정적분이 초등함수로 표현 가능한지 판단하는 리우빌의 정리를 학습합니다.">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax Configuration -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        .category-badge {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .date {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .definition-box {
+            background-color: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .theorem-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .example-box {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .problem-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #64748b;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .solution-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.3em;
+        }
+        .note-box {
+            background-color: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .history-box {
+            background-color: #f5f3ff;
+            border-left: 4px solid #8b5cf6;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .formula {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            margin-top: 50px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #667eea;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="global-nav" style="background:#1a1a2e;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:50px;position:sticky;top:0;z-index:1000"><a href="../../" style="color:#fff;font-weight:700;font-size:1.1em;text-decoration:none">MathHub</a><div style="display:flex;gap:0;height:100%"><a href="../../kr/" style="color:#fff;text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em;border-bottom:2px solid #667eea">KR</a><a href="../../us/" style="color:rgba(255,255,255,0.7);text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em">US</a><a href="../../uk/" style="color:rgba(255,255,255,0.7);text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em">UK</a></div></nav>
+    <div class="header">
+        <div class="category-badge">Calculus & Analysis</div>
+        <h1>리우빌의 적분 정리<br><small style="font-size:0.6em;">초등함수로 표현 가능한 적분</small></h1>
+        <div class="date">2025년 11월 13일</div>
+    </div>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← 목록으로 돌아가기</a>
+
+        <h2>1. 서론: 적분할 수 없는 함수가 있다?</h2>
+
+        <p>
+            미적분학을 배우면서 우리는 많은 함수의 부정적분(indefinite integral)을 구하는 법을 배웁니다.
+            그런데 다음과 같은 간단해 보이는 함수들의 부정적분은 어떻게 구할까요?
+        </p>
+
+        <div class="formula">
+            $$\int e^{x^2} dx, \quad \int \frac{\sin x}{x} dx, \quad \int \frac{1}{\ln x} dx$$
+        </div>
+
+        <p>
+            놀랍게도, 이러한 함수들의 부정적분은 <strong>초등함수(elementary functions)</strong>로 표현할 수 없습니다!
+            이것은 우리가 아직 적분 기술이 부족해서가 아니라, 수학적으로 불가능하다는 의미입니다.
+        </p>
+
+        <p>
+            19세기 프랑스 수학자 조제프 리우빌(Joseph Liouville, 1809-1882)은
+            어떤 함수의 부정적분이 초등함수로 표현 가능한지를 판정하는 이론을 개발했습니다.
+            이것이 바로 <strong>리우빌의 적분 정리(Liouville's theorem on integration)</strong>입니다.
+        </p>
+
+        <h2>2. 초등함수란?</h2>
+
+        <div class="definition-box">
+            <h3>정의: 초등함수 (Elementary Functions)</h3>
+            <p>
+                <strong>초등함수</strong>는 다음 함수들과 이들의 유한 번의 사칙연산과 합성으로 만들어지는 함수입니다:
+            </p>
+            <ul>
+                <li><strong>상수함수:</strong> $c$ (상수)</li>
+                <li><strong>항등함수:</strong> $x$</li>
+                <li><strong>지수함수:</strong> $e^x$, $a^x$</li>
+                <li><strong>로그함수:</strong> $\ln x$, $\log_a x$</li>
+                <li><strong>삼각함수:</strong> $\sin x$, $\cos x$, $\tan x$, etc.</li>
+                <li><strong>역삼각함수:</strong> $\arcsin x$, $\arctan x$, etc.</li>
+                <li><strong>쌍곡함수:</strong> $\sinh x$, $\cosh x$, etc.</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h3>초등함수의 예</h3>
+            <ul>
+                <li>$f(x) = x^3 + 2x - 1$ (다항식)</li>
+                <li>$f(x) = \frac{x^2 + 1}{x - 3}$ (유리함수)</li>
+                <li>$f(x) = e^{\sin x}$ (합성)</li>
+                <li>$f(x) = x \ln x$ (곱)</li>
+                <li>$f(x) = \arctan(e^x)$ (합성)</li>
+                <li>$f(x) = \sqrt{1 - x^2}$ (대수함수)</li>
+            </ul>
+        </div>
+
+        <p>
+            초등함수는 우리가 고등학교와 대학 미적분학에서 다루는 대부분의 함수를 포함합니다.
+        </p>
+
+        <h2>3. 리우빌의 적분 정리</h2>
+
+        <div class="theorem-box">
+            <h3>정리 (리우빌의 적분 정리, 간략 버전)</h3>
+            <p>
+                초등함수 $f(x)$의 부정적분이 초등함수로 표현되려면, 특정한 형태를 가져야 합니다.
+            </p>
+            <p>
+                더 구체적으로, $f(x)$가 초등함수이고 $\int f(x) dx$가 초등함수로 표현 가능하다면,
+            </p>
+            <div class="formula">
+                $$\int f(x) dx = g(x) + c_1 \ln|h_1(x)| + c_2 \ln|h_2(x)| + \cdots + c_n \ln|h_n(x)|$$
+            </div>
+            <p>
+                여기서 $g(x)$, $h_i(x)$는 모두 대수함수(algebraic functions)이고,
+                $c_i$는 상수입니다.
+            </p>
+        </div>
+
+        <div class="note-box">
+            <h3>주의</h3>
+            <p>
+                완전한 리우빌 정리는 미분대수학(differential algebra)의 개념을 사용하며 매우 복잡합니다.
+                여기서는 직관적인 이해를 위해 단순화된 버전을 소개합니다.
+            </p>
+            <p>
+                핵심은: <strong>초등함수의 부정적분이 초등함수가 되려면 매우 제한적인 형태여야 한다</strong>는 것입니다.
+            </p>
+        </div>
+
+        <h2>3.1 왜 이런 형태가 필연적인가?</h2>
+
+        <p>
+            왜 부정적분이 초등함수라면 반드시 $g + \sum c_i \ln h_i$ 형태가 되어야 할까요?
+            이것은 단순히 경험적 관찰이 아니라 수학적으로 <strong>필연적</strong>인 결과입니다.
+        </p>
+
+        <div class="highlight-box" style="font-size:1em; text-align: left;">
+            <strong>핵심 원리:</strong>
+            <p style="margin-top: 10px;">
+                초등적 원시함수에 나타나는 "비-정확 미분(exact derivative가 아닌 부분)"은
+                <strong>오직 로그미분(logarithmic derivative)</strong> $\frac{h'}{h}$들의 상수계수 합뿐입니다.
+            </p>
+            <div class="formula">
+                $$\int f = g + \sum_{i=1}^n c_i \ln h_i \quad \Longleftrightarrow \quad f = g' + \sum_{i=1}^n c_i \frac{h_i'}{h_i}$$
+            </div>
+        </div>
+
+        <p>
+            이제 세 가지 관점에서 왜 이런 형태가 필연적인지 살펴보겠습니다.
+        </p>
+
+        <h3>관점 1: 부분분수에서 이미 드러나는 패턴</h3>
+
+        <p>
+            가장 간단한 경우인 <strong>유리함수(rational function)</strong>부터 시작합니다.
+        </p>
+
+        <div class="example-box">
+            <h3>유리함수의 적분 패턴</h3>
+            <p>
+                유리함수 $R(x)$는 Hermite 감약(Hermite reduction)과 부분분수 분해를 통해 다음 형태로 쪼개집니다:
+            </p>
+            <div class="formula">
+                $$R(x) = G'(x) + \sum_{j=1}^m \frac{\alpha_j}{x - a_j}$$
+            </div>
+            <p>
+                여기서 $\alpha_j$는 상수이고, $G(x)$는 유리함수입니다.
+            </p>
+
+            <p>적분하면:</p>
+            <div class="formula">
+                $$\int R(x) dx = G(x) + \sum_{j=1}^m \alpha_j \ln|x - a_j| + C$$
+            </div>
+
+            <p><strong>관찰:</strong></p>
+            <ul>
+                <li>$G'(x)$ 부분은 <strong>정확 미분(exact derivative)</strong></li>
+                <li>$\frac{\alpha_j}{x-a_j}$ 부분은 <strong>로그미분</strong> $\frac{d}{dx}\ln|x-a_j|$</li>
+            </ul>
+
+            <p>
+                <strong>리우빌 정리는 이 패턴이 유리함수를 넘어 모든 초등함수로 확장될 때도
+                형식이 그대로 유지된다는 사실을 증명합니다.</strong>
+            </p>
+        </div>
+
+        <div class="example-box">
+            <h3>구체적 예: $\int \frac{x^2 + 1}{x^2 - 1} dx$</h3>
+            <p>부분분수 분해:</p>
+            <div class="formula">
+                $$\frac{x^2 + 1}{x^2 - 1} = 1 + \frac{2}{x^2 - 1} = 1 + \frac{1}{x-1} - \frac{1}{x+1}$$
+            </div>
+            <p>적분:</p>
+            <div class="formula">
+                $$\int \frac{x^2 + 1}{x^2 - 1} dx = x + \ln|x-1| - \ln|x+1| + C$$
+            </div>
+            <p>
+                $= x$ (대수함수) $+ 1 \cdot \ln|x-1| - 1 \cdot \ln|x+1|$ (로그들의 상수결합)
+            </p>
+        </div>
+
+        <h3>관점 2: 미분체 확장 이론</h3>
+
+        <p>
+            더 수학적으로, <strong>미분체(differential field)</strong> 이론으로 설명할 수 있습니다.
+        </p>
+
+        <div class="definition-box">
+            <h3>미분체 확장의 구조</h3>
+            <p>
+                초등함수는 "유리함수 → 대수 확장 → $\exp$/$\log$를 순차로 붙인 탑(tower)"으로 볼 수 있습니다.
+            </p>
+
+            <p><strong>각 확장 단계에서 허용되는 새로운 미분형식:</strong></p>
+
+            <p><strong>1) 대수 확장 $K \subset K(\alpha)$:</strong></p>
+            <p>
+                $y' \in K$인 $y \in K(\alpha)$는 추적(trace) 조작을 통해
+                $K$의 원소(정확미분)와 로그미분들의 합으로 표현됩니다.
+            </p>
+
+            <p><strong>2) 로그 확장 ($t = \ln u$):</strong></p>
+            <div class="formula">
+                $$t' = \frac{u'}{u}$$
+            </div>
+            <p>
+                새로 생기는 미분형식은 오직 $\frac{u'}{u}$ 꼴, 즉 <strong>로그미분</strong>입니다.
+            </p>
+
+            <p><strong>3) 지수 확장 ($t = \exp(u)$):</strong></p>
+            <div class="formula">
+                $$t' = u' \cdot t$$
+            </div>
+            <p>
+                어떤 $y$의 미분이 기저장(base field)에 떨어지면,
+                $y/t$를 미분해 정리하면 결국 $y$의 "비-정확" 부분이 $\frac{w'}{w}$들의 상수결합으로만 남습니다.
+            </p>
+        </div>
+
+        <div class="note-box">
+            <h3>결론</h3>
+            <p>
+                확장을 한 단계씩 추가해도,
+                <strong>"정확미분 + 로그미분들의 상수결합"</strong> 말고는
+                새로 허용되는 형태가 생기지 않습니다.
+            </p>
+            <p>
+                이것이 리우빌-Rosenlicht-Risch 이론의 핵심 뼈대입니다.
+            </p>
+        </div>
+
+        <h3>관점 3: 해석적 직관 (단일값성과 회로적분)</h3>
+
+        <p>
+            복소해석학(complex analysis)의 관점에서도 이 현상을 이해할 수 있습니다.
+        </p>
+
+        <div class="example-box">
+            <h3>다가성(Multi-valuedness)과 로그</h3>
+
+            <p><strong>단일값 함수 vs 다가 함수:</strong></p>
+            <p>
+                초등적 원시함수는 (분지 절단을 제외하면) 비교적 단순한
+                <strong>단일값성(single-valuedness)</strong>과 모노드로미(monodromy)를 가져야 합니다.
+            </p>
+
+            <p><strong>로그의 다가성:</strong></p>
+            <p>
+                $\ln h$는 복소평면에서 폐곡선을 한 바퀴 돌면 $2\pi i \times (\text{winding number})$만큼 바뀝니다.
+            </p>
+            <div class="formula">
+                $$\oint \frac{dz}{z} = 2\pi i$$
+            </div>
+
+            <p><strong>핵심 통찰:</strong></p>
+            <p>
+                <strong>원시함수의 다가성을 만들어내는 "허용된 방식"이 바로 로그뿐</strong>입니다.
+            </p>
+
+            <p>
+                반면, 타원 적분(elliptic integral) 같은 것:
+            </p>
+            <div class="formula">
+                $$\int \frac{dx}{\sqrt{x^3 - x}}$$
+            </div>
+            <p>
+                이들은 주기(period)가 복잡해서 로그처럼 상수배 한 번으로 설명되지 않습니다.
+                따라서 초등적이 될 수 없습니다.
+            </p>
+        </div>
+
+        <div class="note-box">
+            <h3>잔차 정리와의 연결</h3>
+            <p>
+                복소해석에서 <strong>잔차 정리(Residue Theorem)</strong>는:
+            </p>
+            <div class="formula">
+                $$\oint_C f(z) dz = 2\pi i \sum \text{Res}(f, a_k)$$
+            </div>
+            <p>
+                로그미분 $\frac{h'}{h}$의 잔차는 $h$의 영점과 극점의 차수로 결정되며,
+                이것이 원시함수의 다가성을 정확히 설명합니다.
+            </p>
+            <p>
+                즉, 다가성의 원천이 로그 하나로 정규화되어 $\sum c_i \ln h_i$가 나타나는 것입니다.
+            </p>
+        </div>
+
+        <h3>종합 정리</h3>
+
+        <div class="theorem-box">
+            <h3>왜 $g + \sum c_i \ln h_i$ 형태인가?</h3>
+
+            <p><strong>세 가지 관점의 합의:</strong></p>
+
+            <ol>
+                <li><strong>대수적 관점 (부분분수):</strong>
+                    가장 기본적인 유리함수에서 이미 이 패턴이 나타남</li>
+
+                <li><strong>미분대수 관점 (체 확장):</strong>
+                    초등함수 확장의 각 단계에서 정확미분과 로그미분만 허용됨</li>
+
+                <li><strong>해석적 관점 (복소해석):</strong>
+                    단일값성과 다가성을 정규화하는 유일한 방법이 로그</li>
+            </ol>
+
+            <p style="margin-top: 20px;"><strong>결론:</strong></p>
+            <ul>
+                <li>정확미분은 $g'$로 흡수</li>
+                <li>정확이 아닌 부분은 <strong>오직 로그미분 $\frac{h'}{h}$들의 상수계수 합으로만</strong> 가능</li>
+                <li>따라서 부정적분이 초등함수라면 <strong>"대수함수 $g$ + 로그들의 상수결합"</strong>이 유일한 형태</li>
+            </ul>
+        </div>
+
+        <div class="history-box">
+            <h3>이론적 근거 문헌</h3>
+            <ul>
+                <li><strong>Risch, R. H.</strong> "The Problem of Integration in Finite Terms," <em>Trans. AMS</em> (1969)</li>
+                <li><strong>Risch, R. H.</strong> "The Solution of the Problem of Integration in Finite Terms," <em>J. ACM</em> (1970)</li>
+                <li><strong>Rosenlicht, M.</strong> "Liouville's Theorem on Functions of a Complex Variable," <em>Pacific J. Math.</em> (1968)</li>
+                <li><strong>Bronstein, M.</strong> <em>Symbolic Integration I: Transcendental Functions</em>, Springer</li>
+            </ul>
+            <p>
+                이들 논문은 리우빌의 직관을 엄밀한 알고리즘(Risch algorithm)으로 발전시켰으며,
+                현대 컴퓨터 대수 시스템의 기반이 되었습니다.
+            </p>
+        </div>
+
+        <h2>4. 초등함수로 표현 불가능한 적분들</h2>
+
+        <h3>4.1 가우스 적분</h3>
+
+        <div class="example-box">
+            <h3>예제 1: $\int e^{x^2} dx$</h3>
+            <p>
+                이 적분은 초등함수로 표현할 수 없습니다.
+            </p>
+            <p><strong>이유:</strong></p>
+            <p>
+                만약 $\int e^{x^2} dx = F(x)$가 초등함수라면, 미분하면:
+            </p>
+            <div class="formula">
+                $$F'(x) = e^{x^2}$$
+            </div>
+            <p>
+                리우빌의 정리에 의하면, 이러한 $F(x)$는 대수함수와 로그의 조합으로 표현되어야 하는데,
+                $e^{x^2}$의 특수한 증가율(growth rate) 때문에 이것이 불가능합니다.
+            </p>
+            <p><strong>대신 사용하는 것:</strong></p>
+            <p>
+                <strong>오차 함수(error function)</strong>로 정의:
+            </p>
+            <div class="formula">
+                $$\text{erf}(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} dt$$
+            </div>
+            <p>
+                오차 함수는 초등함수가 아니지만, 특수 함수(special function)로 정의되어
+                과학과 공학에서 널리 사용됩니다.
+            </p>
+        </div>
+
+        <h3>4.2 적분 사인과 적분 코사인</h3>
+
+        <div class="example-box">
+            <h3>예제 2: $\int \frac{\sin x}{x} dx$</h3>
+            <p>
+                이 적분도 초등함수로 표현할 수 없습니다.
+            </p>
+            <p><strong>대신 사용하는 것:</strong></p>
+            <p>
+                <strong>적분 사인 함수(sine integral)</strong>로 정의:
+            </p>
+            <div class="formula">
+                $$\text{Si}(x) = \int_0^x \frac{\sin t}{t} dt$$
+            </div>
+            <p>
+                마찬가지로, <strong>적분 코사인 함수(cosine integral)</strong>:
+            </p>
+            <div class="formula">
+                $$\text{Ci}(x) = -\int_x^\infty \frac{\cos t}{t} dt$$
+            </div>
+        </div>
+
+        <h3>4.3 로그 적분</h3>
+
+        <div class="example-box">
+            <h3>예제 3: $\int \frac{1}{\ln x} dx$</h3>
+            <p>
+                이 적분 역시 초등함수로 표현할 수 없습니다.
+            </p>
+            <p><strong>대신 사용하는 것:</strong></p>
+            <p>
+                <strong>로그 적분 함수(logarithmic integral)</strong>로 정의:
+            </p>
+            <div class="formula">
+                $$\text{li}(x) = \int_0^x \frac{1}{\ln t} dt$$
+            </div>
+            <p>
+                로그 적분은 소수의 분포를 연구하는 정수론에서 중요한 역할을 합니다.
+            </p>
+        </div>
+
+        <h3>4.4 타원 적분</h3>
+
+        <div class="example-box">
+            <h3>예제 4: $\int \sqrt{1 + x^3} dx$</h3>
+            <p>
+                더 일반적으로, 다음 형태의 적분:
+            </p>
+            <div class="formula">
+                $$\int \sqrt{a + bx + cx^2 + dx^3 + ex^4} dx$$
+            </div>
+            <p>
+                대부분 초등함수로 표현 불가능하며, <strong>타원 적분(elliptic integrals)</strong>로 분류됩니다.
+            </p>
+            <p>
+                타원 적분은 타원의 둘레, 진자 운동, 행성 궤도 등을 계산할 때 나타납니다.
+            </p>
+        </div>
+
+        <h2>5. 초등함수로 표현 가능한 적분들</h2>
+
+        <p>
+            반면, 다음 적분들은 초등함수로 표현 가능합니다:
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>적분</th>
+                    <th>부정적분</th>
+                    <th>비고</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>$\int e^x dx$</td>
+                    <td>$e^x + C$</td>
+                    <td>기본 적분</td>
+                </tr>
+                <tr>
+                    <td>$\int \frac{1}{x} dx$</td>
+                    <td>$\ln|x| + C$</td>
+                    <td>로그 함수</td>
+                </tr>
+                <tr>
+                    <td>$\int \frac{1}{1+x^2} dx$</td>
+                    <td>$\arctan x + C$</td>
+                    <td>역삼각함수</td>
+                </tr>
+                <tr>
+                    <td>$\int \frac{1}{\sqrt{1-x^2}} dx$</td>
+                    <td>$\arcsin x + C$</td>
+                    <td>역삼각함수</td>
+                </tr>
+                <tr>
+                    <td>$\int x e^x dx$</td>
+                    <td>$e^x(x-1) + C$</td>
+                    <td>부분적분</td>
+                </tr>
+                <tr>
+                    <td>$\int \sec^2 x dx$</td>
+                    <td>$\tan x + C$</td>
+                    <td>삼각함수</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>6. 어떻게 판단할까?</h2>
+
+        <p>
+            일반적으로 다음과 같은 경우 초등함수로 표현 불가능할 가능성이 높습니다:
+        </p>
+
+        <div class="note-box">
+            <h3>초등함수로 적분 불가능 패턴</h3>
+            <ol>
+                <li><strong>$e$의 다항식 지수:</strong> $e^{x^n}$ (단, $n \neq 0, 1$)</li>
+                <li><strong>분수 형태의 삼각함수:</strong> $\frac{\sin x}{x}$, $\frac{\cos x}{x}$, $\frac{\tan x}{x}$</li>
+                <li><strong>로그 분모:</strong> $\frac{1}{\ln x}$, $\frac{x}{\ln x}$</li>
+                <li><strong>복잡한 근호:</strong> $\sqrt{1 + x^3}$, $\sqrt{x^3 - 1}$ 등</li>
+                <li><strong>합성 지수:</strong> $e^{e^x}$, $e^{\sin x}$ 등</li>
+                <li><strong>$x$의 $x$ 제곱:</strong> $x^x$</li>
+            </ol>
+        </div>
+
+        <h2>7. 연습문제</h2>
+
+        <div class="problem-box">
+            <h3>문제 1</h3>
+            <p>
+                다음 중 초등함수로 부정적분을 표현할 수 있는 것을 모두 고르시오:
+            </p>
+            <ol type="a">
+                <li>$\int x^2 e^x dx$</li>
+                <li>$\int e^{-x^2} dx$</li>
+                <li>$\int \frac{\ln x}{x} dx$</li>
+                <li>$\int \frac{1}{x \ln x} dx$</li>
+            </ol>
+        </div>
+
+        <div class="solution-box">
+            <h3>풀이 1</h3>
+
+            <p><strong>(a) $\int x^2 e^x dx$:</strong> ✅ <strong>가능</strong></p>
+            <p>
+                부분적분을 두 번 사용:
+            </p>
+            <div class="formula">
+                $$\int x^2 e^x dx = x^2 e^x - 2x e^x + 2e^x + C = e^x(x^2 - 2x + 2) + C$$
+            </div>
+
+            <p><strong>(b) $\int e^{-x^2} dx$:</strong> ❌ <strong>불가능</strong></p>
+            <p>
+                가우스 적분의 일종으로, 오차 함수로만 표현 가능:
+            </p>
+            <div class="formula">
+                $$\int e^{-x^2} dx = \frac{\sqrt{\pi}}{2} \text{erf}(x) + C$$
+            </div>
+
+            <p><strong>(c) $\int \frac{\ln x}{x} dx$:</strong> ✅ <strong>가능</strong></p>
+            <p>
+                $u = \ln x$로 치환하면:
+            </p>
+            <div class="formula">
+                $$\int \frac{\ln x}{x} dx = \int u \, du = \frac{u^2}{2} + C = \frac{(\ln x)^2}{2} + C$$
+            </div>
+
+            <p><strong>(d) $\int \frac{1}{x \ln x} dx$:</strong> ✅ <strong>가능</strong></p>
+            <p>
+                $u = \ln x$로 치환하면:
+            </p>
+            <div class="formula">
+                $$\int \frac{1}{x \ln x} dx = \int \frac{1}{u} du = \ln|u| + C = \ln|\ln x| + C$$
+            </div>
+        </div>
+
+        <div class="problem-box">
+            <h3>문제 2</h3>
+            <p>
+                다음 적분이 초등함수로 표현 가능한지 판단하고 이유를 설명하시오:
+            </p>
+            <div class="formula">
+                $$\int \frac{e^x}{x} dx$$
+            </div>
+        </div>
+
+        <div class="solution-box">
+            <h3>풀이 2</h3>
+
+            <p><strong>판정:</strong> ❌ <strong>초등함수로 표현 불가능</strong></p>
+
+            <p><strong>이유:</strong></p>
+            <p>
+                이 적분은 <strong>지수 적분(exponential integral)</strong> $\text{Ei}(x)$로 정의됩니다:
+            </p>
+            <div class="formula">
+                $$\text{Ei}(x) = \int_{-\infty}^x \frac{e^t}{t} dt$$
+            </div>
+
+            <p>
+                $\frac{e^x}{x}$는 $e^x$와 $\frac{1}{x}$의 곱으로, 부분적분을 시도하면:
+            </p>
+            <div class="formula">
+                $$\int \frac{e^x}{x} dx = \frac{e^x}{x} - \int \frac{-e^x}{x^2} dx = \frac{e^x}{x} + \int \frac{e^x}{x^2} dx$$
+            </div>
+            <p>
+                계속 반복해도 같은 패턴이 나타나며, 초등함수로 수렴하지 않습니다.
+            </p>
+
+            <p>
+                리우빌의 정리 관점에서, $e^x$의 지수 증가와 $\frac{1}{x}$의 대수적 감소가
+                초등함수 형태의 균형을 맞출 수 없습니다.
+            </p>
+        </div>
+
+        <div class="problem-box">
+            <h3>문제 3</h3>
+            <p>
+                왜 $\int e^x dx$는 초등함수로 표현 가능하지만,
+                $\int e^{x^2} dx$는 불가능한지 설명하시오.
+            </p>
+        </div>
+
+        <div class="solution-box">
+            <h3>풀이 3</h3>
+
+            <p><strong>$\int e^x dx = e^x + C$:</strong></p>
+            <p>
+                $e^x$는 자기 자신을 미분해도 $e^x$이므로, 부정적분도 자기 자신입니다.
+                이는 가장 간단한 초등함수입니다.
+            </p>
+
+            <p><strong>$\int e^{x^2} dx$가 불가능한 이유:</strong></p>
+
+            <ol>
+                <li><strong>증가율 차이:</strong>
+                    <p>
+                        $e^{x^2}$는 $e^x$보다 훨씬 빠르게 증가합니다 ($x^2 > x$ for $|x| > 1$).
+                        이러한 급격한 증가율을 초등함수로 "포착"할 수 없습니다.
+                    </p>
+                </li>
+
+                <li><strong>대칭성:</strong>
+                    <p>
+                        $e^{x^2}$는 우함수(even function)입니다: $f(-x) = f(x)$.
+                        그런데 만약 $F(x) = \int e^{x^2} dx$가 초등함수라면,
+                        $F'(x) = e^{x^2}$도 우함수이므로 $F(x)$는 기함수(odd function)여야 합니다.
+                    </p>
+                    <p>
+                        하지만 초등함수 중에서 이러한 조건을 만족하면서 $e^{x^2}$의 증가율을 따라갈 수 있는
+                        기함수는 존재하지 않습니다.
+                    </p>
+                </li>
+
+                <li><strong>리우빌 조건:</strong>
+                    <p>
+                        리우빌 정리의 기술적 조건들을 확인하면, $e^{x^2}$는
+                        대수함수와 로그의 조합으로 부정적분을 표현할 수 있는 형태가 아닙니다.
+                    </p>
+                </li>
+            </ol>
+
+            <p><strong>결론:</strong></p>
+            <p>
+                $e^x$의 "선형" 지수는 초등함수 체계 안에 머물지만,
+                $e^{x^2}$의 "이차" 지수는 초등함수 체계를 벗어납니다.
+            </p>
+        </div>
+
+        <div class="problem-box">
+            <h3>문제 4 (도전)</h3>
+            <p>
+                정적분 $\int_0^\infty e^{-x^2} dx$의 값이 $\frac{\sqrt{\pi}}{2}$임은 잘 알려져 있습니다.
+                부정적분이 초등함수로 표현되지 않는데 정적분은 어떻게 정확한 값을 가질 수 있는지 설명하시오.
+            </p>
+        </div>
+
+        <div class="solution-box">
+            <h3>풀이 4</h3>
+
+            <p>
+                이것은 수학에서 흥미로운 현상입니다: <strong>부정적분은 초등함수가 아니지만,
+                정적분은 초등함수 (또는 상수)로 표현될 수 있습니다.</strong>
+            </p>
+
+            <p><strong>이유:</strong></p>
+
+            <ol>
+                <li><strong>부정적분 vs 정적분:</strong>
+                    <p>
+                        부정적분 $\int e^{-x^2} dx$는 모든 $x$에서의 값을 나타내는 <strong>함수</strong>입니다.
+                        이 함수는 초등함수가 아닙니다.
+                    </p>
+                    <p>
+                        정적분 $\int_0^\infty e^{-x^2} dx$는 특정 구간에서의 <strong>넓이 (숫자)</strong>입니다.
+                    </p>
+                </li>
+
+                <li><strong>극좌표 변환:</strong>
+                    <p>
+                        유명한 증명 방법:
+                    </p>
+                    <div class="formula">
+                        $$I = \int_0^\infty e^{-x^2} dx$$
+                    </div>
+                    <p>
+                        $I^2$를 계산하면:
+                    </p>
+                    <div class="formula">
+                        $$I^2 = \left(\int_0^\infty e^{-x^2} dx\right) \left(\int_0^\infty e^{-y^2} dy\right) = \int_0^\infty \int_0^\infty e^{-(x^2+y^2)} dx\, dy$$
+                    </div>
+                    <p>
+                        극좌표로 변환하면 ($x^2 + y^2 = r^2$, $dx\,dy = r\,dr\,d\theta$):
+                    </p>
+                    <div class="formula">
+                        $$I^2 = \int_0^{\pi/2} \int_0^\infty e^{-r^2} r\, dr\, d\theta = \frac{\pi}{2} \cdot \frac{1}{2} = \frac{\pi}{4}$$
+                    </div>
+                    <p>
+                        따라서 $I = \frac{\sqrt{\pi}}{2}$
+                    </p>
+                </li>
+
+                <li><strong>핵심 통찰:</strong>
+                    <p>
+                        극좌표 변환과 적분 순서 교환은 <strong>구간이 정해진 정적분에서만</strong> 가능한 기법입니다.
+                        부정적분에는 적용할 수 없습니다.
+                    </p>
+                    <p>
+                        즉, 특정 구간에서는 기하학적 대칭성이나 특수한 기법을 통해 정확한 값을 구할 수 있지만,
+                        일반적인 부정적분 함수는 초등함수가 아닙니다.
+                    </p>
+                </li>
+            </ol>
+
+            <p><strong>비유:</strong></p>
+            <p>
+                무리수 $\pi$를 유리수로 표현할 수 없지만, $\sin(\pi) = 0$은 유리수입니다.
+                마찬가지로 부정적분이 초등함수가 아니어도, 특정 구간에서의 정적분은 초등함수일 수 있습니다.
+            </p>
+        </div>
+
+        <h2>8. 역사적 배경</h2>
+
+        <div class="history-box">
+            <h3>조제프 리우빌 (Joseph Liouville, 1809-1882)</h3>
+            <p>
+                프랑스 수학자 리우빌은 1833년부터 1841년 사이에 초등함수의 적분에 관한 연구를 발표했습니다.
+            </p>
+
+            <p><strong>주요 업적:</strong></p>
+            <ul>
+                <li>어떤 함수가 초등함수로 적분 가능한지 판정하는 이론 개발</li>
+                <li>$e^{x^2}$, $\frac{\sin x}{x}$ 등이 초등함수로 적분 불가능함을 엄밀히 증명</li>
+                <li>미분대수학(differential algebra)의 기초 확립</li>
+                <li>초월수(transcendental numbers)의 존재를 최초로 증명 (리우빌 수)</li>
+            </ul>
+
+            <p>
+                리우빌의 연구는 현대 기호 적분(symbolic integration) 알고리즘의 기반이 되었으며,
+                Mathematica, Maple 같은 컴퓨터 대수 시스템이 적분 가능 여부를 판단하는 데 사용됩니다.
+            </p>
+        </div>
+
+        <h2>9. 현대적 응용</h2>
+
+        <h3>9.1 컴퓨터 대수 시스템</h3>
+
+        <p>
+            리우빌의 이론은 Mathematica, Maple, SymPy 같은 소프트웨어에서 구현되어,
+            주어진 함수가 초등함수로 적분 가능한지 자동으로 판단합니다.
+        </p>
+
+        <p>
+            이러한 알고리즘들은 <strong>Risch 알고리즘(Risch algorithm)</strong>으로 알려져 있으며,
+            리우빌 이론을 계산 가능한 형태로 발전시킨 것입니다.
+        </p>
+
+        <h3>9.2 특수 함수 이론</h3>
+
+        <p>
+            초등함수로 표현할 수 없는 적분들은 <strong>특수 함수(special functions)</strong>로 정의되어
+            과학과 공학에서 중요한 역할을 합니다:
+        </p>
+
+        <ul>
+            <li><strong>오차 함수:</strong> 확률론, 통계학</li>
+            <li><strong>적분 사인/코사인:</strong> 신호 처리, 광학</li>
+            <li><strong>타원 적분:</strong> 천체역학, 전자기학</li>
+            <li><strong>베셀 함수:</strong> 파동 방정식, 원통 좌표계</li>
+        </ul>
+
+        <h2>10. 요약</h2>
+
+        <div class="highlight-box" style="font-size: 1em; text-align: left;">
+            <strong>핵심 내용:</strong>
+            <ul style="margin-top: 15px;">
+                <li>초등함수: 다항식, 지수, 로그, 삼각함수 및 이들의 사칙연산과 합성</li>
+                <li>리우빌 정리: 초등함수의 부정적분이 초등함수가 되는 조건을 규명</li>
+                <li>$\int e^{x^2} dx$, $\int \frac{\sin x}{x} dx$, $\int \frac{1}{\ln x} dx$ 등은 초등함수로 표현 불가능</li>
+                <li>초등함수로 적분 불가능 ≠ 적분 자체가 불가능</li>
+                <li>특수 함수(오차 함수, 적분 사인 등)로 정의하여 사용</li>
+                <li>컴퓨터 대수 시스템에서 Risch 알고리즘으로 구현</li>
+            </ul>
+        </div>
+
+        <table style="margin-top: 20px;">
+            <thead>
+                <tr>
+                    <th>함수</th>
+                    <th>초등함수로 적분 가능?</th>
+                    <th>대안</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>$e^x$</td>
+                    <td>✅ 가능</td>
+                    <td>$e^x + C$</td>
+                </tr>
+                <tr>
+                    <td>$e^{x^2}$</td>
+                    <td>❌ 불가능</td>
+                    <td>오차 함수 $\text{erf}(x)$</td>
+                </tr>
+                <tr>
+                    <td>$\frac{\sin x}{x}$</td>
+                    <td>❌ 불가능</td>
+                    <td>적분 사인 $\text{Si}(x)$</td>
+                </tr>
+                <tr>
+                    <td>$\frac{1}{\ln x}$</td>
+                    <td>❌ 불가능</td>
+                    <td>로그 적분 $\text{li}(x)$</td>
+                </tr>
+                <tr>
+                    <td>$\sqrt{1+x^3}$</td>
+                    <td>❌ 불가능</td>
+                    <td>타원 적분</td>
+                </tr>
+                <tr>
+                    <td>$\frac{1}{1+x^2}$</td>
+                    <td>✅ 가능</td>
+                    <td>$\arctan x + C$</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 수학 블로그. All rights reserved.</p>
+    </div>
+
+    <!-- Structured Data (Schema.org JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "리우빌의 적분 정리 - 초등함수로 표현 가능한 적분",
+        "description": "어떤 함수의 부정적분이 초등함수로 표현 가능한지 판단하는 리우빌의 정리를 학습합니다.",
+        "author": {
+            "@type": "Person",
+            "name": "수학 블로그"
+        },
+        "datePublished": "2025-11-13",
+        "publisher": {
+            "@type": "Organization",
+            "name": "수학 블로그"
+        }
+    }
+    </script>
+</body>
+</html>

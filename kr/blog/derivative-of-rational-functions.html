@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="r9UcF77YDnBPQmN1ffcpHb8lculr-u-0YjNaqsD8QkM" />
+
+    <!-- SEO Meta Tags -->
+    <title>분수함수의 미분 - 몫의 미분법 완벽 가이드 | 수학 블로그</title>
+    <meta name="description" content="몫의 미분법(Quotient Rule)을 이용한 분수함수 미분 방법을 알아봅니다. 유도 과정, 예제, 연습문제와 풀이를 통해 완벽하게 이해할 수 있습니다.">
+    <meta name="keywords" content="분수함수, 미분, 몫의 미분법, Quotient Rule, 미적분, 수학">
+    <meta name="author" content="수학 블로그">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://randomwalk1225.github.io/posts/derivative-of-rational-functions.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://randomwalk1225.github.io/posts/derivative-of-rational-functions.html">
+    <meta property="og:title" content="분수함수의 미분 - 몫의 미분법 완벽 가이드">
+    <meta property="og:description" content="몫의 미분법(Quotient Rule)을 이용한 분수함수 미분 방법을 유도 과정, 예제, 연습문제와 함께 학습하세요.">
+    <meta property="og:article:published_time" content="2025-10-19T00:00:00+09:00">
+    <meta property="og:article:section" content="미적분">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://randomwalk1225.github.io/posts/derivative-of-rational-functions.html">
+    <meta property="twitter:title" content="분수함수의 미분 - 몫의 미분법 완벽 가이드">
+    <meta property="twitter:description" content="몫의 미분법(Quotient Rule)을 이용한 분수함수 미분 방법을 유도 과정, 예제, 연습문제와 함께 학습하세요.">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        .category-badge {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .date {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            color: #764ba2;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            font-size: 1.8em;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+        }
+        .formula {
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+        }
+        .problem {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            border-left: 4px solid #ffc107;
+        }
+        .solution {
+            background-color: #d4edda;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            border-left: 4px solid #28a745;
+        }
+        .highlight {
+            background-color: #e7f3ff;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+<nav class="global-nav" style="background:#1a1a2e;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:50px;position:sticky;top:0;z-index:1000"><a href="../../" style="color:#fff;font-weight:700;font-size:1.1em;text-decoration:none">MathHub</a><div style="display:flex;gap:0;height:100%"><a href="../../kr/" style="color:#fff;text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em;border-bottom:2px solid #667eea">KR</a><a href="../../us/" style="color:rgba(255,255,255,0.7);text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em">US</a><a href="../../uk/" style="color:rgba(255,255,255,0.7);text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em">UK</a></div></nav>
+    <div class="header">
+        <div class="category-badge">미적분</div>
+        <h1>분수함수의 미분</h1>
+        <div class="date">2025년 10월 19일 09:30</div>
+    </div>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← 목록으로 돌아가기</a>
+
+        <h2>1. 몫의 미분법 (Quotient Rule)</h2>
+        <p>
+            분수함수는 두 함수의 나눗셈으로 표현되는 함수입니다. 분수함수 \(\frac{f(x)}{g(x)}\)를 미분할 때는
+            <span class="highlight">몫의 미분법</span>을 사용합니다.
+        </p>
+
+        <div class="formula">
+            <strong>몫의 미분법 공식:</strong>
+            $$\left(\frac{f(x)}{g(x)}\right)' = \frac{f'(x)g(x) - f(x)g'(x)}{[g(x)]^2}$$
+        </div>
+
+        <p>
+            이 공식을 기억하기 쉽게 "아래×위 미분 - 위×아래 미분, 모두 아래제곱으로 나누기"라고 외울 수 있습니다.
+            단, 분모 \(g(x) \neq 0\)이어야 합니다.
+        </p>
+
+        <h2>2. 유도 과정</h2>
+        <p>
+            몫의 미분법은 곱의 미분법과 연쇄법칙으로부터 유도할 수 있습니다.
+            \(h(x) = \frac{f(x)}{g(x)} = f(x) \cdot [g(x)]^{-1}\)로 쓸 수 있으므로:
+        </p>
+
+        <div class="formula">
+            $$h'(x) = f'(x) \cdot [g(x)]^{-1} + f(x) \cdot (-1)[g(x)]^{-2} \cdot g'(x)$$
+            $$= \frac{f'(x)}{g(x)} - \frac{f(x)g'(x)}{[g(x)]^2} = \frac{f'(x)g(x) - f(x)g'(x)}{[g(x)]^2}$$
+        </div>
+
+        <h2>3. 기본 예제</h2>
+        <p>
+            간단한 예로 \(y = \frac{x^2 + 1}{x - 1}\)을 미분해 봅시다.
+            \(f(x) = x^2 + 1\), \(g(x) = x - 1\)이므로 \(f'(x) = 2x\), \(g'(x) = 1\)입니다.
+        </p>
+
+        <div class="formula">
+            $$y' = \frac{2x(x-1) - (x^2+1) \cdot 1}{(x-1)^2} = \frac{2x^2 - 2x - x^2 - 1}{(x-1)^2} = \frac{x^2 - 2x - 1}{(x-1)^2}$$
+        </div>
+
+        <h2>4. 연습문제</h2>
+
+        <div class="problem">
+            <strong>문제 1.</strong> 다음 함수를 미분하시오.
+            $$f(x) = \frac{3x + 2}{x^2 + 1}$$
+        </div>
+
+        <div class="solution">
+            <strong>풀이 1.</strong><br>
+            분자: \(f(x) = 3x + 2\) → \(f'(x) = 3\)<br>
+            분모: \(g(x) = x^2 + 1\) → \(g'(x) = 2x\)<br><br>
+
+            몫의 미분법을 적용하면:
+            $$f'(x) = \frac{3(x^2 + 1) - (3x + 2)(2x)}{(x^2 + 1)^2}$$
+            $$= \frac{3x^2 + 3 - 6x^2 - 4x}{(x^2 + 1)^2}$$
+            $$= \frac{-3x^2 - 4x + 3}{(x^2 + 1)^2}$$
+        </div>
+
+        <div class="problem">
+            <strong>문제 2.</strong> 다음 함수를 미분하시오.
+            $$g(x) = \frac{x^3}{2x - 1}$$
+        </div>
+
+        <div class="solution">
+            <strong>풀이 2.</strong><br>
+            분자: \(f(x) = x^3\) → \(f'(x) = 3x^2\)<br>
+            분모: \(h(x) = 2x - 1\) → \(h'(x) = 2\)<br><br>
+
+            몫의 미분법을 적용하면:
+            $$g'(x) = \frac{3x^2(2x - 1) - x^3 \cdot 2}{(2x - 1)^2}$$
+            $$= \frac{6x^3 - 3x^2 - 2x^3}{(2x - 1)^2}$$
+            $$= \frac{4x^3 - 3x^2}{(2x - 1)^2}$$
+            $$= \frac{x^2(4x - 3)}{(2x - 1)^2}$$
+        </div>
+
+        <h2>5. 마무리</h2>
+        <p>
+            분수함수의 미분은 처음에는 복잡해 보일 수 있지만, 공식을 정확히 이해하고 반복해서 연습하면
+            자연스럽게 익힐 수 있습니다. 계산 과정에서 부호와 전개 과정을 주의 깊게 확인하는 것이 중요합니다.
+        </p>
+    </div>
+
+    <!-- Structured Data (Schema.org JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "분수함수의 미분 - 몫의 미분법 완벽 가이드",
+        "description": "몫의 미분법(Quotient Rule)을 이용한 분수함수 미분 방법을 알아봅니다. 유도 과정, 예제, 연습문제와 풀이를 통해 완벽하게 이해할 수 있습니다.",
+        "author": {
+            "@type": "Organization",
+            "name": "수학 블로그"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "수학 블로그"
+        },
+        "datePublished": "2025-10-19",
+        "dateModified": "2025-10-19",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://randomwalk1225.github.io/posts/derivative-of-rational-functions.html"
+        },
+        "articleSection": "미적분",
+        "keywords": ["분수함수", "미분", "몫의 미분법", "Quotient Rule"]
+    }
+    </script>
+</body>
+</html>

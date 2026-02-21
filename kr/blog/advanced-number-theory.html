@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>중국인의 나머지 정리와 추가 분석법 - 수학 블로그</title>
+    <meta name="description" content="중국인의 나머지 정리, 카마이클 함수, p-adic 분석 등 정수론의 고급 분석법을 예제와 함께 학습합니다.">
+    <meta name="keywords" content="정수론, 중국인의 나머지 정리, 카마이클 함수, p-adic, 르장드르 공식, 수학">
+    <meta name="author" content="수학 블로그">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://randomwalk1225.github.io/posts/advanced-number-theory.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://randomwalk1225.github.io/posts/advanced-number-theory.html">
+    <meta property="og:title" content="중국인의 나머지 정리와 추가 분석법">
+    <meta property="og:description" content="중국인의 나머지 정리, 카마이클 함수, p-adic 분석 등 정수론의 고급 분석법을 예제와 함께 학습합니다.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://randomwalk1225.github.io/posts/advanced-number-theory.html">
+    <meta property="twitter:title" content="중국인의 나머지 정리와 추가 분석법">
+    <meta property="twitter:description" content="중국인의 나머지 정리, 카마이클 함수, p-adic 분석 등 정수론의 고급 분석법을 예제와 함께 학습합니다.">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax Configuration -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        .category-badge {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .date {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        h4 {
+            color: #555;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .definition-box {
+            background-color: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .theorem-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .example-box {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .problem-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #64748b;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .solution-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .remark-box {
+            background-color: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .formula {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            margin-top: 50px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #667eea;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .toc {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+        .toc h3 {
+            margin-top: 0;
+            color: #667eea;
+        }
+        .toc ul {
+            margin-left: 20px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="global-nav" style="background:#1a1a2e;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:50px;position:sticky;top:0;z-index:1000"><a href="../../" style="color:#fff;font-weight:700;font-size:1.1em;text-decoration:none">MathHub</a><div style="display:flex;gap:0;height:100%"><a href="../../kr/" style="color:#fff;text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em;border-bottom:2px solid #667eea">KR</a><a href="../../us/" style="color:rgba(255,255,255,0.7);text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em">US</a><a href="../../uk/" style="color:rgba(255,255,255,0.7);text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em">UK</a></div></nav>
+    <div class="header">
+        <div class="category-badge">정수론</div>
+        <h1>중국인의 나머지 정리와 추가 분석법</h1>
+        <div class="subtitle" style="font-size: 1.1em; margin: 10px 0;">카마이클 함수, p-adic 분석, 중국인의 나머지 정리</div>
+        <div class="date">2025년 11월 17일</div>
+    </div>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← 목록으로 돌아가기</a>
+
+        <div class="toc">
+            <h3>목차</h3>
+            <ol>
+                <li>카마이클 함수 (Carmichael's Lambda Function)</li>
+                <li>p-adic 분석 (p-adic Valuation)</li>
+                <li>중국인의 나머지 정리 (Chinese Remainder Theorem)</li>
+                <li>연습문제</li>
+            </ol>
+        </div>
+
+        <h2>1. 카마이클 함수 (Carmichael's Lambda Function)</h2>
+
+        <h3>1.1 정의와 기본 개념</h3>
+
+        <div class="definition-box">
+            <h4>정의: 카마이클 함수</h4>
+            <p><strong>카마이클 함수</strong> $\lambda(n)$은 다음을 만족하는 <strong>가장 작은</strong> 양의 정수입니다:</p>
+            <div class="formula">
+                $$a^{\lambda(n)} \equiv 1 \pmod{n} \quad \text{for all } \gcd(a,n) = 1$$
+            </div>
+            <p>이는 <strong>군론</strong>에서 말하는 $(\mathbb{Z}/n\mathbb{Z})^*$의 <strong>지수(exponent)</strong>입니다.</p>
+        </div>
+
+        <h4>오일러 함수와의 관계</h4>
+
+        <p><strong>오일러 정리</strong>는 다음을 말합니다:</p>
+        <div class="formula">
+            $$a^{\phi(n)} \equiv 1 \pmod{n} \quad \text{for } \gcd(a,n) = 1$$
+        </div>
+
+        <p>카마이클 함수는 이것의 <strong>개선된 버전</strong>입니다:</p>
+        <div class="formula">
+            $$\lambda(n) \mid \phi(n) \quad \text{and} \quad \lambda(n) \leq \phi(n)$$
+        </div>
+
+        <p>즉, 카마이클 함수는 1이 되는 <strong>최소</strong> 지수를 제공합니다.</p>
+
+        <h3>1.2 계산 공식</h3>
+
+        <h4>규칙 1: 소수 거듭제곱</h4>
+
+        <p><strong>2의 거듭제곱 (특수 케이스)</strong>:</p>
+        <ul>
+            <li>$\lambda(1) = 1$</li>
+            <li>$\lambda(2) = 1$</li>
+            <li>$\lambda(4) = 2$</li>
+            <li>$\lambda(2^k) = 2^{k-2}$ for $k \geq 3$</li>
+        </ul>
+
+        <p><strong>홀수 소수 $p$의 거듭제곱</strong>:</p>
+        <div class="formula">
+            $$\lambda(p^k) = \phi(p^k) = p^{k-1}(p-1)$$
+        </div>
+
+        <h4>규칙 2: 서로소인 수들의 곱</h4>
+
+        <p>$\gcd(m,n) = 1$일 때:</p>
+        <div class="formula">
+            $$\lambda(mn) = \text{lcm}(\lambda(m), \lambda(n))$$
+        </div>
+
+        <div class="remark-box">
+            <strong>주의:</strong> 오일러 함수는 곱셈적이지만 ($\phi(mn) = \phi(m)\phi(n)$), 카마이클 함수는 <strong>LCM</strong>을 사용합니다!
+        </div>
+
+        <div class="example-box">
+            <h4>예제: $\lambda(100)$ 계산</h4>
+
+            <p>$100 = 4 \times 25 = 2^2 \times 5^2$</p>
+
+            <p><strong>단계 1</strong>: 각 소수 거듭제곱에 대해:</p>
+            <div class="formula">
+                $$\begin{align}
+                \lambda(4) &= \lambda(2^2) = 2 \\
+                \lambda(25) &= \lambda(5^2) = \phi(5^2) = 5^{2-1} \cdot (5-1) = 5 \cdot 4 = 20
+                \end{align}$$
+            </div>
+
+            <p><strong>단계 2</strong>: LCM 계산:</p>
+            <div class="formula">
+                $$\lambda(100) = \text{lcm}(2, 20) = 20$$
+            </div>
+
+            <p><strong>오일러 함수와의 비교</strong>:</p>
+            <div class="formula">
+                $$\phi(100) = \phi(4) \cdot \phi(25) = 2 \cdot 20 = 40$$
+            </div>
+
+            <p><strong>결과</strong>:</p>
+            <ul>
+                <li>$\lambda(100) = 20$ ← 더 작음!</li>
+                <li>$\phi(100) = 40$</li>
+            </ul>
+
+            <p>이것은 $\gcd(a, 100) = 1$인 모든 $a$에 대해:</p>
+            <div class="formula">
+                $$a^{20} \equiv 1 \pmod{100}$$
+            </div>
+            <p>둘 다 맞지만, <strong>20이 최소 지수</strong>입니다.</p>
+        </div>
+
+        <h3>1.3 더 많은 예시</h3>
+
+        <table>
+            <tr>
+                <th>$n$</th>
+                <th>소인수분해</th>
+                <th>$\lambda(n)$</th>
+                <th>$\phi(n)$</th>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>$2^2 \times 3$</td>
+                <td>lcm(2, 2) = 2</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>$3 \times 5$</td>
+                <td>lcm(2, 4) = 4</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>$2^2 \times 5$</td>
+                <td>lcm(2, 4) = 4</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>$3 \times 7$</td>
+                <td>lcm(2, 6) = 6</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>$2^3 \times 3$</td>
+                <td>lcm(2, 2) = 2</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>$2 \times 3 \times 5$</td>
+                <td>lcm(1, 2, 4) = 4</td>
+                <td>8</td>
+            </tr>
+        </table>
+
+        <p><strong>패턴 관찰</strong>:</p>
+        <ul>
+            <li>2의 거듭제곱 때문에 $\lambda(n)$이 $\phi(n)$보다 훨씬 작을 수 있습니다.</li>
+            <li>$n$이 홀수이고 제곱 없는 수(square-free)이면 $\lambda(n) = \phi(n)/2$</li>
+        </ul>
+
+        <h2>2. p-adic 분석 (p-adic Valuation)</h2>
+
+        <h3>2.1 정의와 기본 개념</h3>
+
+        <div class="definition-box">
+            <h4>정의: p-adic valuation</h4>
+            <p><strong>$p$-adic valuation</strong> $v_p(n)$은 정수 $n$을 나누는 소수 $p$의 <strong>최대 거듭제곱 지수</strong>입니다.</p>
+
+            <p>수학적으로:</p>
+            <div class="formula">
+                $$n = p^{v_p(n)} \cdot m \quad \text{where } \gcd(p, m) = 1$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>p-adic valuation 계산 예시</h4>
+            <ol>
+                <li>$v_2(24) = ?$
+                    <ul>
+                        <li>$24 = 2^3 \times 3$</li>
+                        <li>$v_2(24) = 3$</li>
+                    </ul>
+                </li>
+                <li>$v_5(250) = ?$
+                    <ul>
+                        <li>$250 = 2 \times 5^3$</li>
+                        <li>$v_5(250) = 3$</li>
+                    </ul>
+                </li>
+                <li>$v_3(100) = ?$
+                    <ul>
+                        <li>$100 = 2^2 \times 5^2$</li>
+                        <li>$v_3(100) = 0$ (3으로 나누어지지 않음)</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <h3>2.2 기본 성질</h3>
+
+        <div class="theorem-box">
+            <h4>p-adic valuation의 성질</h4>
+            <ol>
+                <li><strong>곱셈</strong>: $v_p(ab) = v_p(a) + v_p(b)$</li>
+                <li><strong>거듭제곱</strong>: $v_p(a^k) = k \cdot v_p(a)$</li>
+                <li><strong>나눗셈</strong>: $v_p(a/b) = v_p(a) - v_p(b)$ (단, $b \neq 0$)</li>
+                <li><strong>덧셈 (삼각 부등식)</strong>: $v_p(a + b) \geq \min(v_p(a), v_p(b))$</li>
+            </ol>
+        </div>
+
+        <div class="remark-box">
+            <strong>주의:</strong> 덧셈에서 등호 조건: $v_p(a) \neq v_p(b)$이면
+            $$v_p(a + b) = \min(v_p(a), v_p(b))$$
+        </div>
+
+        <h3>2.3 르장드르 공식 (Legendre's Formula)</h3>
+
+        <div class="theorem-box">
+            <h4>정리: 르장드르 공식</h4>
+            <p>$N!$에서 소수 $p$의 거듭제곱:</p>
+            <div class="formula">
+                $$v_p(N!) = \sum_{i=1}^{\infty} \left\lfloor \frac{N}{p^i} \right\rfloor$$
+            </div>
+            <p>실제로는 $p^i > N$이면 항이 0이므로 유한 합입니다.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>예제: $v_5(100!)$ 계산</h4>
+            <div class="formula">
+                $$\begin{align}
+                v_5(100!) &= \left\lfloor \frac{100}{5} \right\rfloor + \left\lfloor \frac{100}{25} \right\rfloor + \left\lfloor \frac{100}{125} \right\rfloor + \cdots \\
+                &= 20 + 4 + 0 + \cdots = 24
+                \end{align}$$
+            </div>
+            <p>따라서 $100! = 5^{24} \times (\text{5와 서로소인 수})$</p>
+
+            <p><strong>직관적 이해</strong>:</p>
+            <ul>
+                <li>$\lfloor 100/5 \rfloor = 20$: 5의 배수 개수</li>
+                <li>$\lfloor 100/25 \rfloor = 4$: 25의 배수 개수 (추가로 5를 하나 더)</li>
+                <li>$\lfloor 100/125 \rfloor = 0$: 125의 배수 개수</li>
+            </ul>
+        </div>
+
+        <h2>3. 중국인의 나머지 정리 (Chinese Remainder Theorem)</h2>
+
+        <h3>3.1 정의와 정리</h3>
+
+        <div class="theorem-box">
+            <h4>정리: 중국인의 나머지 정리</h4>
+            <p>$m_1, m_2, \ldots, m_k$가 쌍으로 서로소인 양의 정수들이고 (즉, $\gcd(m_i, m_j) = 1$ for $i \neq j$),
+            $a_1, a_2, \ldots, a_k$가 임의의 정수들일 때, 다음 연립 합동식:</p>
+
+            <div class="formula">
+                $$\begin{cases}
+                x \equiv a_1 \pmod{m_1} \\
+                x \equiv a_2 \pmod{m_2} \\
+                \vdots \\
+                x \equiv a_k \pmod{m_k}
+                \end{cases}$$
+            </div>
+
+            <p>은 $\bmod M = m_1 \cdot m_2 \cdot \cdots \cdot m_k$에서 <strong>유일한 해</strong>를 가집니다.</p>
+        </div>
+
+        <h4>역사적 배경</h4>
+
+        <p>이 정리는 중국 수학자 <strong>손자(孫子, Sun Tzu, 4세기경)</strong>의 저서 『손자산경(孫子算經)』에 처음 등장했습니다.</p>
+
+        <p><strong>원래 문제</strong>:
+        "물건의 개수를 3으로 나누면 2가 남고, 5로 나누면 3이 남고, 7로 나누면 2가 남는다. 물건은 몇 개인가?"</p>
+
+        <div class="formula">
+            $$\begin{cases}
+            x \equiv 2 \pmod{3} \\
+            x \equiv 3 \pmod{5} \\
+            x \equiv 2 \pmod{7}
+            \end{cases}$$
+        </div>
+
+        <p>답: $x \equiv 23 \pmod{105}$ (최소 양수 해는 23)</p>
+
+        <h3>3.2 두 개 합동식의 경우</h3>
+
+        <div class="example-box">
+            <h4>예제: 간단한 2개 합동식</h4>
+            <div class="formula">
+                $$\begin{cases}
+                x \equiv 2 \pmod{5} \\
+                x \equiv 3 \pmod{7}
+                \end{cases}$$
+            </div>
+
+            <p>$M = 5 \times 7 = 35$</p>
+            <p>$M_1 = 35/5 = 7$, $M_2 = 35/7 = 5$</p>
+
+            <p><strong>$y_1$ 찾기</strong>: $7 \cdot y_1 \equiv 1 \pmod{5}$</p>
+            <ul>
+                <li>$7 \equiv 2 \pmod{5}$</li>
+                <li>$2 \cdot y_1 \equiv 1 \pmod{5}$</li>
+                <li>$y_1 = 3$ (왜냐하면 $2 \times 3 = 6 \equiv 1 \pmod{5}$)</li>
+            </ul>
+
+            <p><strong>$y_2$ 찾기</strong>: $5 \cdot y_2 \equiv 1 \pmod{7}$</p>
+            <ul>
+                <li>$y_2 = 3$ (왜냐하면 $5 \times 3 = 15 \equiv 1 \pmod{7}$)</li>
+            </ul>
+
+            <p><strong>해 구성</strong>:</p>
+            <div class="formula">
+                $$\begin{align}
+                x &= 2 \cdot 7 \cdot 3 + 3 \cdot 5 \cdot 3 = 42 + 45 = 87 \\
+                87 &\bmod 35 = 17
+                \end{align}$$
+            </div>
+
+            <p><strong>답</strong>: $x \equiv 17 \pmod{35}$</p>
+
+            <p><strong>검증</strong>:</p>
+            <ul>
+                <li>$17 = 3 \times 5 + 2 \equiv 2 \pmod{5}$ ✓</li>
+                <li>$17 = 2 \times 7 + 3 \equiv 3 \pmod{7}$ ✓</li>
+            </ul>
+        </div>
+
+        <h3>3.3 세 개 이상 합동식의 경우</h3>
+
+        <div class="example-box">
+            <h4>예제: 손자의 원래 문제</h4>
+            <div class="formula">
+                $$\begin{cases}
+                x \equiv 2 \pmod{3} \\
+                x \equiv 3 \pmod{5} \\
+                x \equiv 2 \pmod{7}
+                \end{cases}$$
+            </div>
+
+            <p>$M = 3 \times 5 \times 7 = 105$</p>
+            <p>$M_1 = 105/3 = 35$, $M_2 = 105/5 = 21$, $M_3 = 105/7 = 15$</p>
+
+            <p><strong>$y_1$ 찾기</strong>: $35 \cdot y_1 \equiv 1 \pmod{3}$</p>
+            <ul>
+                <li>$35 = 11 \times 3 + 2 \equiv 2 \pmod{3}$</li>
+                <li>$2 \cdot y_1 \equiv 1 \pmod{3}$</li>
+                <li>$y_1 = 2$ (왜냐하면 $2 \times 2 = 4 \equiv 1 \pmod{3}$)</li>
+            </ul>
+
+            <p><strong>$y_2$ 찾기</strong>: $21 \cdot y_2 \equiv 1 \pmod{5}$</p>
+            <ul>
+                <li>$21 = 4 \times 5 + 1 \equiv 1 \pmod{5}$</li>
+                <li>$y_2 = 1$</li>
+            </ul>
+
+            <p><strong>$y_3$ 찾기</strong>: $15 \cdot y_3 \equiv 1 \pmod{7}$</p>
+            <ul>
+                <li>$15 = 2 \times 7 + 1 \equiv 1 \pmod{7}$</li>
+                <li>$y_3 = 1$</li>
+            </ul>
+
+            <p><strong>해 구성</strong>:</p>
+            <div class="formula">
+                $$\begin{align}
+                x &= 2 \cdot 35 \cdot 2 + 3 \cdot 21 \cdot 1 + 2 \cdot 15 \cdot 1 \\
+                  &= 140 + 63 + 30 = 233
+                \end{align}$$
+            </div>
+
+            <p>$233 = 2 \times 105 + 23$</p>
+
+            <p><strong>답</strong>: $x \equiv 23 \pmod{105}$</p>
+
+            <p><strong>검증</strong>:</p>
+            <ul>
+                <li>$23 = 7 \times 3 + 2 \equiv 2 \pmod{3}$ ✓</li>
+                <li>$23 = 4 \times 5 + 3 \equiv 3 \pmod{5}$ ✓</li>
+                <li>$23 = 3 \times 7 + 2 \equiv 2 \pmod{7}$ ✓</li>
+            </ul>
+
+            <p>최소 양의 정수 해는 <strong>23</strong>입니다!</p>
+        </div>
+
+        <h3>3.4 응용과 활용</h3>
+
+        <ol>
+            <li><strong>큰 수의 모듈러 연산</strong>: 큰 모듈러스 $n = p_1 \cdot p_2 \cdot \cdots \cdot p_k$ (소인수분해)에 대한 계산을 각 소인수별로 분리하여 계산 후 결합</li>
+            <li><strong>달력 문제</strong>: 여러 주기가 있는 현상들의 동시 발생 시점 찾기</li>
+            <li><strong>수 이론 문제</strong>: 여러 나머지 조건을 만족하는 수 찾기</li>
+            <li><strong>암호학</strong>: RSA 암호 시스템의 핵심 도구</li>
+        </ol>
+
+        <h2>4. 연습문제</h2>
+
+        <div class="problem-box">
+            <h4>연습문제 1: $\lambda(360)$ 계산</h4>
+            <p>$\lambda(360)$을 계산하시오.</p>
+        </div>
+
+        <div class="solution-box">
+            <h4>풀이</h4>
+
+            <p><strong>단계 1</strong>: 소인수분해</p>
+            <div class="formula">
+                $$360 = 8 \times 45 = 2^3 \times 3^2 \times 5$$
+            </div>
+
+            <p><strong>단계 2</strong>: 각 소수 거듭제곱에 대한 카마이클 함수</p>
+            <div class="formula">
+                $$\begin{align}
+                \lambda(2^3) &= 2^{3-2} = 2 \\
+                \lambda(3^2) &= \phi(3^2) = 3^{2-1}(3-1) = 3 \times 2 = 6 \\
+                \lambda(5) &= \phi(5) = 4
+                \end{align}$$
+            </div>
+
+            <p><strong>단계 3</strong>: LCM 계산</p>
+            <div class="formula">
+                $$\lambda(360) = \text{lcm}(2, 6, 4) = 12$$
+            </div>
+
+            <p><strong>답</strong>: $\lambda(360) = 12$</p>
+
+            <p><strong>검증</strong>: $\phi(360) = \phi(2^3) \times \phi(3^2) \times \phi(5) = 4 \times 6 \times 4 = 96$</p>
+            <p>$\lambda(360) = 12$는 $\phi(360) = 96$의 약수입니다. ($96 = 12 \times 8$) ✓</p>
+        </div>
+
+        <div class="problem-box">
+            <h4>연습문제 2: 팩토리얼의 끝자리 0의 개수</h4>
+            <p>$1000!$의 끝자리에 0이 몇 개 붙는가?</p>
+        </div>
+
+        <div class="solution-box">
+            <h4>풀이</h4>
+
+            <p>끝자리 0의 개수 = $\min(v_2(1000!), v_5(1000!))$</p>
+            <p>일반적으로 $v_5(n!) < v_2(n!)$이므로 $v_5(1000!)$만 계산하면 됩니다.</p>
+
+            <p><strong>르장드르 공식</strong>:</p>
+            <div class="formula">
+                $$v_5(1000!) = \sum_{i=1}^{\infty} \left\lfloor \frac{1000}{5^i} \right\rfloor$$
+            </div>
+
+            <p>계산:</p>
+            <div class="formula">
+                $$\begin{align}
+                \left\lfloor \frac{1000}{5} \right\rfloor &= 200 \\
+                \left\lfloor \frac{1000}{25} \right\rfloor &= 40 \\
+                \left\lfloor \frac{1000}{125} \right\rfloor &= 8 \\
+                \left\lfloor \frac{1000}{625} \right\rfloor &= 1 \\
+                \left\lfloor \frac{1000}{3125} \right\rfloor &= 0
+                \end{align}$$
+            </div>
+
+            <p>합계:</p>
+            <div class="formula">
+                $$v_5(1000!) = 200 + 40 + 8 + 1 = 249$$
+            </div>
+
+            <p><strong>답</strong>: $1000!$의 끝자리에는 <strong>249개의 0</strong>이 붙습니다.</p>
+        </div>
+
+        <div class="problem-box">
+            <h4>연습문제 3: 연립 합동식 풀기</h4>
+            <p>다음 연립 합동식을 풀어라.</p>
+            <div class="formula">
+                $$\begin{cases}
+                x \equiv 3 \pmod{8} \\
+                x \equiv 5 \pmod{13}
+                \end{cases}$$
+            </div>
+        </div>
+
+        <div class="solution-box">
+            <h4>풀이</h4>
+
+            <p>$\gcd(8, 13) = 1$이므로 중국인의 나머지 정리를 적용할 수 있습니다.</p>
+
+            <p>$M = 8 \times 13 = 104$</p>
+            <p>$M_1 = 104/8 = 13$, $M_2 = 104/13 = 8$</p>
+
+            <p><strong>$y_1$ 찾기</strong>: $13 \cdot y_1 \equiv 1 \pmod{8}$</p>
+            <ul>
+                <li>$13 = 1 \times 8 + 5 \equiv 5 \pmod{8}$</li>
+                <li>$5 \cdot y_1 \equiv 1 \pmod{8}$</li>
+                <li>시행착오: $5 \times 5 = 25 \equiv 1 \pmod{8}$</li>
+                <li>$y_1 = 5$</li>
+            </ul>
+
+            <p><strong>$y_2$ 찾기</strong>: $8 \cdot y_2 \equiv 1 \pmod{13}$</p>
+            <ul>
+                <li>확장 유클리드: $8 \times 5 = 40 = 3 \times 13 + 1$</li>
+                <li>$y_2 = 5$</li>
+            </ul>
+
+            <p><strong>해 구성</strong>:</p>
+            <div class="formula">
+                $$\begin{align}
+                x &= 3 \cdot 13 \cdot 5 + 5 \cdot 8 \cdot 5 \\
+                  &= 195 + 200 = 395 \\
+                395 &= 3 \times 104 + 83
+                \end{align}$$
+            </div>
+
+            <p><strong>답</strong>: $x \equiv 83 \pmod{104}$</p>
+
+            <p><strong>검증</strong>:</p>
+            <ul>
+                <li>$83 = 10 \times 8 + 3 \equiv 3 \pmod{8}$ ✓</li>
+                <li>$83 = 6 \times 13 + 5 \equiv 5 \pmod{13}$ ✓</li>
+            </ul>
+
+            <p><strong>최소 양의 정수 해</strong>: $x = 83$</p>
+        </div>
+
+        <h2>5. 핵심 요약</h2>
+
+        <h3>카마이클 함수</h3>
+        <ul>
+            <li><strong>정의</strong>: $a^{\lambda(n)} \equiv 1 \pmod{n}$을 만족하는 최소 지수</li>
+            <li><strong>계산</strong>: $\lambda(p^k)$ 공식 + LCM</li>
+            <li><strong>활용</strong>: 거듭제곱 계산 최적화, 주기 분석</li>
+        </ul>
+
+        <h3>p-adic 분석</h3>
+        <ul>
+            <li><strong>정의</strong>: $v_p(n)$ = $n$을 나누는 $p$의 최대 거듭제곱 지수</li>
+            <li><strong>성질</strong>: 곱셈, 거듭제곱, 나눗셈 규칙</li>
+            <li><strong>르장드르 공식</strong>: $v_p(N!) = \sum_{i \geq 1} \lfloor N/p^i \rfloor$</li>
+            <li><strong>활용</strong>: 나누어떨어짐 분석, 조합론 문제</li>
+        </ul>
+
+        <h3>중국인의 나머지 정리</h3>
+        <ul>
+            <li><strong>정의</strong>: 서로소인 모듈러스에 대한 연립 합동식의 유일해 존재</li>
+            <li><strong>2개 합동식</strong>: 직접 대입 또는 구성적 방법</li>
+            <li><strong>3개 이상</strong>: 순차적 해결 또는 일반 공식</li>
+            <li><strong>활용</strong>: 큰 수의 모듈러 연산, RSA 암호화</li>
+        </ul>
+
+        <h3>결합 사용</h3>
+        <ul>
+            <li>세 기법을 함께 사용하여 복잡한 문제 해결</li>
+            <li>각 소수별로 독립적 분석 (p-adic) 후 결합 (CRT)</li>
+            <li>거듭제곱 최적화 (카마이클 함수)</li>
+        </ul>
+
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 수학 블로그. All rights reserved.</p>
+    </div>
+
+    <!-- Structured Data (Schema.org JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "중국인의 나머지 정리와 추가 분석법",
+        "description": "중국인의 나머지 정리, 카마이클 함수, p-adic 분석 등 정수론의 고급 분석법을 예제와 함께 학습합니다.",
+        "author": {
+            "@type": "Person",
+            "name": "수학 블로그"
+        },
+        "datePublished": "2025-11-17",
+        "publisher": {
+            "@type": "Organization",
+            "name": "수학 블로그"
+        }
+    }
+    </script>
+</body>
+</html>

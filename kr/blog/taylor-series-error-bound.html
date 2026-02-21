@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>테일러 급수 에러 바운드 구하기 - 수학 블로그</title>
+    <meta name="description" content="테일러 급수의 에러 바운드를 구하는 방법을 단계별로 학습합니다. 테일러 정리를 활용한 오차 추정과 실전 예제를 통해 근사의 정확도를 평가하는 방법을 익힙니다.">
+    <meta name="keywords" content="테일러 급수, 에러 바운드, 테일러 정리, 근사 오차, 미적분, 수학">
+    <meta name="author" content="수학 블로그">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://randomwalk1225.github.io/posts/taylor-series-error-bound.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://randomwalk1225.github.io/posts/taylor-series-error-bound.html">
+    <meta property="og:title" content="테일러 급수 에러 바운드 구하기">
+    <meta property="og:description" content="테일러 급수의 에러 바운드를 구하는 방법을 단계별로 학습합니다. 테일러 정리를 활용한 오차 추정과 실전 예제를 다룹니다.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://randomwalk1225.github.io/posts/taylor-series-error-bound.html">
+    <meta property="twitter:title" content="테일러 급수 에러 바운드 구하기">
+    <meta property="twitter:description" content="테일러 급수의 에러 바운드를 구하는 방법을 단계별로 학습합니다.">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax Configuration -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        .category-badge {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .date {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        h4 {
+            color: #555;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .definition-box {
+            background-color: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .definition-box h4 {
+            color: #1976D2;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .theorem-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .theorem-box h4 {
+            color: #f57c00;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .example-box {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .example-box h4 {
+            color: #0284c7;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .step-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .step-box h4 {
+            color: #16a34a;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .summary-box {
+            background-color: #f3e5f5;
+            border: 2px solid #9c27b0;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+        .summary-box h4 {
+            color: #7b1fa2;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .formula {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        .highlight {
+            background-color: #fff9c4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            margin-top: 50px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="global-nav" style="background:#1a1a2e;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:50px;position:sticky;top:0;z-index:1000"><a href="../../" style="color:#fff;font-weight:700;font-size:1.1em;text-decoration:none">MathHub</a><div style="display:flex;gap:0;height:100%"><a href="../../kr/" style="color:#fff;text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em;border-bottom:2px solid #667eea">KR</a><a href="../../us/" style="color:rgba(255,255,255,0.7);text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em">US</a><a href="../../uk/" style="color:rgba(255,255,255,0.7);text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em">UK</a></div></nav>
+    <div class="header">
+        <div class="category-badge">미적분</div>
+        <h1>테일러 급수 에러 바운드 구하기</h1>
+        <div class="date">2025년 11월 21일</div>
+    </div>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← 목록으로 돌아가기</a>
+
+        <h2>개요</h2>
+
+        <p>
+            테일러 급수에서 에러 바운드(error bound)를 찾는 과정은 주로 <strong>테일러 정리</strong>를 활용하여
+            근사값과 실제값 사이의 오차를 추정하는 데 초점을 맞춥니다.
+            이는 수학적 계산에서 테일러 다항식을 사용해 함수를 근사할 때 얼마나 정확한지 알아내는 데 유용합니다.
+        </p>
+
+        <h2>1. 문제 이해 및 설정</h2>
+
+        <p>
+            테일러 급수는 특정 점 $a$를 중심으로 함수 $f(x)$를 무한 차수의 다항식으로 표현한 것입니다:
+        </p>
+
+        <div class="formula">
+            $$f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \frac{f'''(a)}{3!}(x-a)^3 + \cdots$$
+        </div>
+
+        <p>
+            그러나 실제로는 무한항을 모두 계산할 수 없으므로, $n$차 테일러 다항식 $P_n(x)$로 근사합니다:
+        </p>
+
+        <div class="formula">
+            $$P_n(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots + \frac{f^{(n)}(a)}{n!}(x-a)^n$$
+        </div>
+
+        <div class="definition-box">
+            <h4>오차(Remainder) 정의</h4>
+            <p>이 때의 오차 $R_n(x)$는 다음과 같이 정의됩니다:</p>
+            <div class="formula">
+                $$R_n(x) = f(x) - P_n(x)$$
+            </div>
+            <p><span class="highlight">목표</span>: 이 오차 $R_n(x)$의 상한, 즉 <strong>에러 바운드</strong>를 구하는 것입니다.</p>
+        </div>
+
+        <h2>2. 테일러 정리와 나머지 항(Remainder) 공식 사용</h2>
+
+        <div class="theorem-box">
+            <h4>테일러 정리 (Taylor's Theorem)</h4>
+            <p>$n$차 테일러 다항식으로 근사했을 때 오차 $R_n(x)$는 다음과 같이 표현됩니다:</p>
+            <div class="formula">
+                $$R_n(x) = \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}$$
+            </div>
+            <p><strong>여기서:</strong></p>
+            <ul>
+                <li>$c$는 $a$와 $x$ 사이의 어떤 값 (정확한 값은 알 수 없음)</li>
+                <li>$f^{(n+1)}(c)$는 함수 $f$의 $n+1$차 도함수로, $c$에서 평가된 값</li>
+            </ul>
+        </div>
+
+        <p>
+            이 공식을 이용해 오차를 추정하려면 <span class="highlight">$f^{(n+1)}(x)$의 최대값</span>을 구해야 합니다.
+        </p>
+
+        <h2>3. 도함수의 최대값 찾기</h2>
+
+        <div class="step-box">
+            <h4>최대값 추정 과정</h4>
+            <p>$R_n(x)$의 크기를 추정하려면 $f^{(n+1)}(c)$의 절대값에 대한 상한을 알아야 합니다.</p>
+            <p>구체적으로, 관심 구간(예: $[a, x]$ 또는 $[a, b]$)에서 $|f^{(n+1)}(x)|$의 최대값 $M$을 구합니다:</p>
+            <div class="formula">
+                $$|f^{(n+1)}(c)| \leq M$$
+            </div>
+            <p><strong>이를 위해:</strong></p>
+            <ol>
+                <li>$f(x)$의 $n+1$차 도함수를 계산합니다.</li>
+                <li>구간 내에서 $|f^{(n+1)}(x)|$의 최대값을 찾습니다 (극값, 경계값 등을 확인).</li>
+            </ol>
+        </div>
+
+        <h2>4. 에러 바운드 공식 적용</h2>
+
+        <p>
+            $|f^{(n+1)}(c)| \leq M$을 사용해 오차의 상한을 구합니다:
+        </p>
+
+        <div class="formula">
+            $$|R_n(x)| = \left| \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1} \right| \leq \frac{M}{(n+1)!}|x-a|^{n+1}$$
+        </div>
+
+        <p><strong>공식의 구성 요소:</strong></p>
+        <ul>
+            <li><strong>$M$</strong>: 구간 내 $|f^{(n+1)}(x)|$의 최대값</li>
+            <li><strong>$(n+1)!$</strong>: 팩토리얼로, 분모를 크게 만들어 오차를 줄이는 역할</li>
+            <li><strong>$|x-a|^{n+1}$</strong>: 중심점 $a$에서 $x$까지의 거리의 $n+1$제곱</li>
+        </ul>
+
+        <h2>5. 예시를 통한 적용</h2>
+
+        <div class="example-box">
+            <h4>예제: $f(x) = e^x$의 2차 테일러 근사</h4>
+            <p>함수 $f(x) = e^x$를 $a = 0$에서 2차 테일러 다항식으로 근사하고, $x = 1$에서의 에러 바운드를 구해봅시다.</p>
+
+            <p><strong>단계 1: 테일러 다항식 계산</strong></p>
+            <ul>
+                <li>$f(x) = e^x$, $f'(x) = e^x$, $f''(x) = e^x$, $f'''(x) = e^x$</li>
+                <li>$a = 0$에서: $f(0) = 1$, $f'(0) = 1$, $f''(0) = 1$</li>
+            </ul>
+            <div class="formula">
+                $$P_2(x) = 1 + x + \frac{x^2}{2}$$
+            </div>
+
+            <p><strong>단계 2: 나머지 항</strong></p>
+            <div class="formula">
+                $$R_2(x) = \frac{f'''(c)}{3!}(x-0)^3 = \frac{e^c}{6}x^3$$
+            </div>
+            <p>$x = 1$일 때: $R_2(1) = \frac{e^c}{6}$, 여기서 $c$는 $[0, 1]$ 사이의 값</p>
+
+            <p><strong>단계 3: 최대값 찾기</strong></p>
+            <ul>
+                <li>$f'''(x) = e^x$는 $[0, 1]$에서 증가함수</li>
+                <li>$|f'''(c)| = e^c \leq e^1 = e$ (최대값은 $x = 1$에서)</li>
+            </ul>
+
+            <p><strong>단계 4: 에러 바운드</strong></p>
+            <div class="formula">
+                $$|R_2(1)| \leq \frac{e}{6} \cdot 1^3 = \frac{e}{6} \approx 0.452$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>검증</h4>
+            <p>실제로 계산해보면:</p>
+            <ul>
+                <li>근사값: $P_2(1) = 1 + 1 + \frac{1}{2} = 2.5$</li>
+                <li>실제값: $e^1 \approx 2.718$</li>
+                <li>실제 오차: $|2.718 - 2.5| = 0.218$</li>
+                <li>에러 바운드: $\frac{e}{6} \approx 0.452$</li>
+            </ul>
+            <p>실제 오차 $(0.218)$가 에러 바운드 $(0.452)$보다 작으므로, 우리의 추정이 올바릅니다! ✓</p>
+        </div>
+
+        <h2>6. 단계별 요약</h2>
+
+        <div class="summary-box">
+            <h4>📌 에러 바운드를 구하는 6단계</h4>
+            <ol>
+                <li><strong>테일러 다항식 계산</strong>: $n$차까지 전개</li>
+                <li><strong>$n+1$차 도함수 구하기</strong>: $f^{(n+1)}(x)$ 계산</li>
+                <li><strong>구간 설정</strong>: $a$와 $x$ 사이의 구간 결정</li>
+                <li><strong>최대값 찾기</strong>: 구간에서 $|f^{(n+1)}(x)|$의 최대값 $M$ 구하기</li>
+                <li><strong>공식 적용</strong>: $|R_n(x)| \leq \frac{M}{(n+1)!}|x-a|^{n+1}$</li>
+                <li><strong>해석</strong>: 이 값이 근사의 정확도를 나타냄</li>
+            </ol>
+        </div>
+
+        <h2>7. 실용적 응용</h2>
+
+        <p>에러 바운드는 다음과 같은 경우에 유용합니다:</p>
+
+        <ul>
+            <li><strong>정확도 보장</strong>: 계산 결과가 특정 오차 범위 내에 있음을 보장</li>
+            <li><strong>항의 개수 결정</strong>: 원하는 정확도를 얻기 위해 몇 차까지 전개해야 하는지 결정</li>
+            <li><strong>컴퓨터 계산</strong>: 근사 알고리즘의 신뢰성 검증</li>
+            <li><strong>과학 계산</strong>: 실험 오차와 이론값의 차이 분석</li>
+        </ul>
+
+        <div class="step-box">
+            <h4>💡 핵심 포인트</h4>
+            <ul>
+                <li>에러 바운드는 <strong>최대 오차</strong>를 나타내며, 실제 오차는 보통 이보다 작습니다.</li>
+                <li>$n$이 커질수록 $(n+1)!$이 빠르게 증가하여 에러 바운드가 감소합니다.</li>
+                <li>$|x-a|$가 작을수록 (중심점에 가까울수록) 오차가 작아집니다.</li>
+                <li>도함수가 빠르게 증가하는 함수는 더 많은 항이 필요할 수 있습니다.</li>
+            </ul>
+        </div>
+
+        <h2>결론</h2>
+
+        <p>
+            테일러 급수의 에러 바운드는 근사의 품질을 수치적으로 평가할 수 있게 해주는 강력한 도구입니다.
+            테일러 정리를 통해 우리는 근사가 얼마나 정확한지, 그리고 추가 항을 포함해야 할지를
+            과학적으로 판단할 수 있습니다.
+        </p>
+
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 수학 블로그. All rights reserved.</p>
+    </div>
+
+    <!-- Structured Data (Schema.org JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "테일러 급수 에러 바운드 구하기",
+        "description": "테일러 급수의 에러 바운드를 구하는 방법을 단계별로 학습합니다. 테일러 정리를 활용한 오차 추정과 실전 예제를 다룹니다.",
+        "author": {
+            "@type": "Person",
+            "name": "수학 블로그"
+        },
+        "datePublished": "2025-11-21",
+        "publisher": {
+            "@type": "Organization",
+            "name": "수학 블로그"
+        }
+    }
+    </script>
+</body>
+</html>

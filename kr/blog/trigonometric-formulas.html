@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>삼각함수 배각공식과 반각공식 - 수학 블로그</title>
+    <meta name="description" content="삼각함수의 배각공식(Double Angle Formulas)과 반각공식(Half Angle Formulas)을 유도하고 활용하는 방법을 학습합니다.">
+    <meta name="keywords" content="삼각함수, 배각공식, 반각공식, 삼각법, Precalculus, 수학">
+    <meta name="author" content="수학 블로그">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://randomwalk1225.github.io/posts/trigonometric-formulas.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://randomwalk1225.github.io/posts/trigonometric-formulas.html">
+    <meta property="og:title" content="삼각함수 배각공식과 반각공식">
+    <meta property="og:description" content="삼각함수의 배각공식과 반각공식을 유도하고 활용하는 방법을 학습합니다.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://randomwalk1225.github.io/posts/trigonometric-formulas.html">
+    <meta property="twitter:title" content="삼각함수 배각공식과 반각공식">
+    <meta property="twitter:description" content="삼각함수의 배각공식과 반각공식을 유도하고 활용하는 방법을 학습합니다.">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax Configuration -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        .category-badge {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .date {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            color: #764ba2;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        h3 {
+            color: #555;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .formula-box {
+            background-color: #e7f3ff;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            border-left: 4px solid #2196F3;
+        }
+        .formula-box h3 {
+            color: #1976D2;
+            margin-top: 0;
+        }
+        .derivation-box {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            border-left: 4px solid #6c757d;
+        }
+        .problem {
+            background-color: #fff3cd;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+        .problem h3 {
+            color: #856404;
+            margin-top: 0;
+        }
+        .solution {
+            background-color: #d4edda;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+        .solution h3 {
+            color: #155724;
+            margin-top: 0;
+        }
+        .highlight {
+            background-color: #fff3e0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            margin-top: 50px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="global-nav" style="background:#1a1a2e;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:50px;position:sticky;top:0;z-index:1000"><a href="../../" style="color:#fff;font-weight:700;font-size:1.1em;text-decoration:none">MathHub</a><div style="display:flex;gap:0;height:100%"><a href="../../kr/" style="color:#fff;text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em;border-bottom:2px solid #667eea">KR</a><a href="../../us/" style="color:rgba(255,255,255,0.7);text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em">US</a><a href="../../uk/" style="color:rgba(255,255,255,0.7);text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em">UK</a></div></nav>
+    <div class="header">
+        <div class="category-badge">Precalculus</div>
+        <h1>삼각함수 배각공식과 반각공식</h1>
+        <div class="date">2025년 10월 19일 15:00</div>
+    </div>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← 목록으로 돌아가기</a>
+
+        <h2>1. 배각공식 (Double Angle Formulas)</h2>
+
+        <p>
+            <span class="highlight">배각공식</span>은 각의 크기가 2배인 삼각함수 값을 구하는 공식입니다.
+            덧셈정리로부터 유도할 수 있으며, 삼각함수의 계산을 단순화하거나 적분 문제를 푸는 데 유용하게 사용됩니다.
+        </p>
+
+        <div class="formula-box">
+            <h3>배각공식</h3>
+            <p><strong>사인 배각공식:</strong></p>
+            $$\sin(2\theta) = 2\sin\theta\cos\theta$$
+
+            <p style="margin-top: 15px;"><strong>코사인 배각공식:</strong></p>
+            $$\cos(2\theta) = \cos^2\theta - \sin^2\theta$$
+            $$\cos(2\theta) = 2\cos^2\theta - 1$$
+            $$\cos(2\theta) = 1 - 2\sin^2\theta$$
+
+            <p style="margin-top: 15px;"><strong>탄젠트 배각공식:</strong></p>
+            $$\tan(2\theta) = \frac{2\tan\theta}{1 - \tan^2\theta}$$
+        </div>
+
+        <h3>배각공식의 유도</h3>
+
+        <div class="derivation-box">
+            <p><strong>사인 배각공식 유도:</strong></p>
+            <p>덧셈정리 $\sin(\alpha + \beta) = \sin\alpha\cos\beta + \cos\alpha\sin\beta$에서 $\alpha = \beta = \theta$를 대입하면:</p>
+            $$\sin(2\theta) = \sin(\theta + \theta) = \sin\theta\cos\theta + \cos\theta\sin\theta = 2\sin\theta\cos\theta$$
+
+            <p style="margin-top: 20px;"><strong>코사인 배각공식 유도:</strong></p>
+            <p>덧셈정리 $\cos(\alpha + \beta) = \cos\alpha\cos\beta - \sin\alpha\sin\beta$에서 $\alpha = \beta = \theta$를 대입하면:</p>
+            $$\cos(2\theta) = \cos(\theta + \theta) = \cos\theta\cos\theta - \sin\theta\sin\theta = \cos^2\theta - \sin^2\theta$$
+
+            <p>삼각함수의 기본 항등식 $\sin^2\theta + \cos^2\theta = 1$을 이용하면:</p>
+            <ul style="margin-left: 30px; margin-top: 10px;">
+                <li>$\sin^2\theta = 1 - \cos^2\theta$를 대입하면: $\cos(2\theta) = \cos^2\theta - (1 - \cos^2\theta) = 2\cos^2\theta - 1$</li>
+                <li>$\cos^2\theta = 1 - \sin^2\theta$를 대입하면: $\cos(2\theta) = (1 - \sin^2\theta) - \sin^2\theta = 1 - 2\sin^2\theta$</li>
+            </ul>
+
+            <p style="margin-top: 20px;"><strong>탄젠트 배각공식 유도:</strong></p>
+            <p>$\tan(2\theta) = \frac{\sin(2\theta)}{\cos(2\theta)}$에 배각공식을 대입하면:</p>
+            $$\tan(2\theta) = \frac{2\sin\theta\cos\theta}{\cos^2\theta - \sin^2\theta}$$
+
+            <p>분자와 분모를 $\cos^2\theta$로 나누면:</p>
+            $$\tan(2\theta) = \frac{2\frac{\sin\theta}{\cos\theta}}{1 - \frac{\sin^2\theta}{\cos^2\theta}} = \frac{2\tan\theta}{1 - \tan^2\theta}$$
+        </div>
+
+        <h2>2. 반각공식 (Half Angle Formulas)</h2>
+
+        <p>
+            <span class="highlight">반각공식</span>은 각의 크기가 절반인 삼각함수 값을 구하는 공식입니다.
+            코사인 배각공식으로부터 유도할 수 있으며, 특히 적분 계산에서 자주 사용됩니다.
+        </p>
+
+        <div class="formula-box">
+            <h3>반각공식</h3>
+            <p><strong>사인 반각공식:</strong></p>
+            $$\sin\left(\frac{\theta}{2}\right) = \pm\sqrt{\frac{1 - \cos\theta}{2}}$$
+
+            <p style="margin-top: 15px;"><strong>코사인 반각공식:</strong></p>
+            $$\cos\left(\frac{\theta}{2}\right) = \pm\sqrt{\frac{1 + \cos\theta}{2}}$$
+
+            <p style="margin-top: 15px;"><strong>탄젠트 반각공식:</strong></p>
+            $$\tan\left(\frac{\theta}{2}\right) = \pm\sqrt{\frac{1 - \cos\theta}{1 + \cos\theta}} = \frac{\sin\theta}{1 + \cos\theta} = \frac{1 - \cos\theta}{\sin\theta}$$
+
+            <p style="margin-top: 10px; font-size: 0.95em; color: #666;">
+                ※ 부호는 $\frac{\theta}{2}$가 속하는 사분면에 따라 결정됩니다.
+            </p>
+        </div>
+
+        <h3>반각공식의 유도</h3>
+
+        <div class="derivation-box">
+            <p><strong>사인 반각공식 유도:</strong></p>
+            <p>코사인 배각공식 $\cos(2\alpha) = 1 - 2\sin^2\alpha$에서 $\alpha = \frac{\theta}{2}$를 대입하면:</p>
+            $$\cos\theta = 1 - 2\sin^2\left(\frac{\theta}{2}\right)$$
+
+            <p>이를 정리하면:</p>
+            $$2\sin^2\left(\frac{\theta}{2}\right) = 1 - \cos\theta$$
+            $$\sin^2\left(\frac{\theta}{2}\right) = \frac{1 - \cos\theta}{2}$$
+            $$\sin\left(\frac{\theta}{2}\right) = \pm\sqrt{\frac{1 - \cos\theta}{2}}$$
+
+            <p style="margin-top: 20px;"><strong>코사인 반각공식 유도:</strong></p>
+            <p>코사인 배각공식 $\cos(2\alpha) = 2\cos^2\alpha - 1$에서 $\alpha = \frac{\theta}{2}$를 대입하면:</p>
+            $$\cos\theta = 2\cos^2\left(\frac{\theta}{2}\right) - 1$$
+
+            <p>이를 정리하면:</p>
+            $$2\cos^2\left(\frac{\theta}{2}\right) = 1 + \cos\theta$$
+            $$\cos^2\left(\frac{\theta}{2}\right) = \frac{1 + \cos\theta}{2}$$
+            $$\cos\left(\frac{\theta}{2}\right) = \pm\sqrt{\frac{1 + \cos\theta}{2}}$$
+
+            <p style="margin-top: 20px;"><strong>탄젠트 반각공식 유도:</strong></p>
+            <p>$\tan\left(\frac{\theta}{2}\right) = \frac{\sin\left(\frac{\theta}{2}\right)}{\cos\left(\frac{\theta}{2}\right)}$에 반각공식을 대입하여 정리하면:</p>
+            $$\tan\left(\frac{\theta}{2}\right) = \frac{\sqrt{\frac{1 - \cos\theta}{2}}}{\sqrt{\frac{1 + \cos\theta}{2}}} = \sqrt{\frac{1 - \cos\theta}{1 + \cos\theta}}$$
+
+            <p>또는 $\sin\theta = 2\sin\left(\frac{\theta}{2}\right)\cos\left(\frac{\theta}{2}\right)$와 $\cos\theta = 2\cos^2\left(\frac{\theta}{2}\right) - 1$을 이용하면:</p>
+            $$\tan\left(\frac{\theta}{2}\right) = \frac{\sin\theta}{1 + \cos\theta} = \frac{1 - \cos\theta}{\sin\theta}$$
+        </div>
+
+        <h2>3. 연습문제</h2>
+
+        <div class="problem">
+            <h3>연습문제 1</h3>
+            <p>$\sin 15°$의 값을 반각공식을 이용하여 구하시오.</p>
+        </div>
+
+        <div class="solution">
+            <h3>풀이</h3>
+            <p>$15° = \frac{30°}{2}$이므로 반각공식을 적용할 수 있습니다.</p>
+
+            <p>사인 반각공식을 사용하면:</p>
+            $$\sin 15° = \sin\left(\frac{30°}{2}\right) = \pm\sqrt{\frac{1 - \cos 30°}{2}}$$
+
+            <p>$15°$는 제1사분면 각이므로 양수입니다. $\cos 30° = \frac{\sqrt{3}}{2}$를 대입하면:</p>
+            $$\sin 15° = \sqrt{\frac{1 - \frac{\sqrt{3}}{2}}{2}} = \sqrt{\frac{\frac{2 - \sqrt{3}}{2}}{2}} = \sqrt{\frac{2 - \sqrt{3}}{4}}$$
+
+            <p>간단히 하면:</p>
+            $$\sin 15° = \frac{\sqrt{2 - \sqrt{3}}}{2} = \frac{\sqrt{6} - \sqrt{2}}{4}$$
+
+            <p style="margin-top: 15px; padding: 15px; background-color: #fff; border-radius: 4px;">
+                <strong>답:</strong> $\sin 15° = \frac{\sqrt{6} - \sqrt{2}}{4} \approx 0.2588$
+            </p>
+        </div>
+
+        <div class="problem">
+            <h3>연습문제 2</h3>
+            <p>$\sin\theta = \frac{3}{5}$이고 $\theta$가 제2사분면의 각일 때, $\sin 2\theta$와 $\cos 2\theta$의 값을 구하시오.</p>
+        </div>
+
+        <div class="solution">
+            <h3>풀이</h3>
+            <p><strong>Step 1:</strong> $\cos\theta$ 구하기</p>
+            <p>삼각함수의 기본 항등식 $\sin^2\theta + \cos^2\theta = 1$을 이용합니다:</p>
+            $$\cos^2\theta = 1 - \sin^2\theta = 1 - \left(\frac{3}{5}\right)^2 = 1 - \frac{9}{25} = \frac{16}{25}$$
+
+            <p>$\theta$가 제2사분면의 각이므로 $\cos\theta < 0$입니다:</p>
+            $$\cos\theta = -\frac{4}{5}$$
+
+            <p style="margin-top: 20px;"><strong>Step 2:</strong> $\sin 2\theta$ 구하기</p>
+            <p>사인 배각공식을 적용합니다:</p>
+            $$\sin 2\theta = 2\sin\theta\cos\theta = 2 \times \frac{3}{5} \times \left(-\frac{4}{5}\right) = -\frac{24}{25}$$
+
+            <p style="margin-top: 20px;"><strong>Step 3:</strong> $\cos 2\theta$ 구하기</p>
+            <p>코사인 배각공식을 적용합니다:</p>
+            $$\cos 2\theta = \cos^2\theta - \sin^2\theta = \left(-\frac{4}{5}\right)^2 - \left(\frac{3}{5}\right)^2$$
+            $$= \frac{16}{25} - \frac{9}{25} = \frac{7}{25}$$
+
+            <p style="margin-top: 15px; padding: 15px; background-color: #fff; border-radius: 4px;">
+                <strong>답:</strong> $\sin 2\theta = -\frac{24}{25}$, $\cos 2\theta = \frac{7}{25}$
+            </p>
+        </div>
+
+        <h2>4. 배각공식과 반각공식의 활용</h2>
+
+        <p>
+            배각공식과 반각공식은 다음과 같은 경우에 유용하게 사용됩니다:
+        </p>
+
+        <ul style="margin-left: 30px; margin-bottom: 20px;">
+            <li><strong>삼각방정식 풀이:</strong> 복잡한 삼각방정식을 단순화할 수 있습니다.</li>
+            <li><strong>적분 계산:</strong> 삼각함수의 거듭제곱을 포함하는 적분 문제에서 자주 사용됩니다.</li>
+            <li><strong>특수각의 값:</strong> $15°, 22.5°, 75°$ 등의 특수각 값을 구할 수 있습니다.</li>
+            <li><strong>물리학 응용:</strong> 파동, 진동, 회전운동 등을 다룰 때 사용됩니다.</li>
+            <li><strong>신호처리:</strong> 주파수 변환과 신호 분석에 활용됩니다.</li>
+        </ul>
+
+        <p>
+            이러한 공식들을 잘 이해하고 활용하면 삼각함수와 관련된 다양한 문제를 효율적으로 해결할 수 있습니다.
+        </p>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 수학 블로그. All rights reserved.</p>
+    </div>
+</body>
+</html>

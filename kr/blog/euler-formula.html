@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>오일러 공식과 복소지수함수 - 수학 블로그</title>
+    <meta name="description" content="오일러 공식(Euler's Formula) e^(iθ) = cos(θ) + i sin(θ)의 개념과 증명, 그리고 아름다운 오일러 항등식을 학습합니다. 복소지수함수의 응용을 예제와 함께 익혀보세요.">
+    <meta name="keywords" content="오일러 공식, 오일러 항등식, 복소지수함수, Euler formula, 수학">
+    <meta name="author" content="수학 블로그">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://randomwalk1225.github.io/posts/euler-formula.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://randomwalk1225.github.io/posts/euler-formula.html">
+    <meta property="og:title" content="오일러 공식과 복소지수함수">
+    <meta property="og:description" content="수학에서 가장 아름다운 공식으로 꼽히는 오일러 공식과 오일러 항등식을 학습합니다.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://randomwalk1225.github.io/posts/euler-formula.html">
+    <meta property="twitter:title" content="오일러 공식과 복소지수함수">
+    <meta property="twitter:description" content="수학에서 가장 아름다운 공식으로 꼽히는 오일러 공식과 오일러 항등식을 학습합니다.">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax Configuration -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        .category-badge {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .date {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .definition-box {
+            background-color: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .theorem-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .example-box {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .problem-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #64748b;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .solution-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.3em;
+        }
+        .formula {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            margin-top: 50px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="global-nav" style="background:#1a1a2e;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:50px;position:sticky;top:0;z-index:1000"><a href="../../" style="color:#fff;font-weight:700;font-size:1.1em;text-decoration:none">MathHub</a><div style="display:flex;gap:0;height:100%"><a href="../../kr/" style="color:#fff;text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em;border-bottom:2px solid #667eea">KR</a><a href="../../us/" style="color:rgba(255,255,255,0.7);text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em">US</a><a href="../../uk/" style="color:rgba(255,255,255,0.7);text-decoration:none;padding:0 16px;height:50px;display:flex;align-items:center;font-size:0.9em">UK</a></div></nav>
+    <div class="header">
+        <div class="category-badge">Precalculus</div>
+        <h1>오일러 공식과 복소지수함수</h1>
+        <div class="date">2025년 10월 19일 13:45</div>
+    </div>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← 목록으로 돌아가기</a>
+
+        <h2>1. 오일러 공식이란?</h2>
+
+        <p>
+            오일러 공식(Euler's Formula)은 18세기 수학자 레온하르트 오일러(Leonhard Euler)가 발견한
+            지수함수, 삼각함수, 그리고 복소수를 연결하는 놀라운 관계식입니다.
+            이 공식은 수학에서 가장 아름다운 공식 중 하나로 꼽히며,
+            복소해석학, 신호처리, 양자역학 등 다양한 분야에서 핵심적인 역할을 합니다.
+        </p>
+
+        <div class="highlight-box">
+            $$e^{i\theta} = \cos\theta + i\sin\theta$$
+        </div>
+
+        <p>
+            여기서 $e$는 자연상수 (약 2.71828), $i$는 허수단위 ($i^2 = -1$), $\theta$는 실수 각도(라디안)입니다.
+        </p>
+
+        <h2>2. 오일러 공식의 증명</h2>
+
+        <p>오일러 공식은 여러 방법으로 증명할 수 있습니다. 여기서는 테일러 급수를 이용한 증명을 소개합니다.</p>
+
+        <h3>2.1 테일러 급수를 이용한 증명</h3>
+
+        <p>지수함수, 코사인, 사인의 테일러 급수 전개:</p>
+
+        <div class="formula">
+            $$e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \cdots = \sum_{n=0}^{\infty} \frac{x^n}{n!}$$
+        </div>
+
+        <div class="formula">
+            $$\cos x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n)!}$$
+        </div>
+
+        <div class="formula">
+            $$\sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!}$$
+        </div>
+
+        <p>$x$를 $i\theta$로 치환하면:</p>
+
+        <div class="formula">
+            $$\begin{align}
+            e^{i\theta} &= 1 + i\theta + \frac{(i\theta)^2}{2!} + \frac{(i\theta)^3}{3!} + \frac{(i\theta)^4}{4!} + \frac{(i\theta)^5}{5!} + \cdots \\
+            &= 1 + i\theta + \frac{i^2\theta^2}{2!} + \frac{i^3\theta^3}{3!} + \frac{i^4\theta^4}{4!} + \frac{i^5\theta^5}{5!} + \cdots \\
+            &= 1 + i\theta - \frac{\theta^2}{2!} - \frac{i\theta^3}{3!} + \frac{\theta^4}{4!} + \frac{i\theta^5}{5!} - \cdots
+            \end{align}$$
+        </div>
+
+        <p>실부와 허부를 분리하면:</p>
+
+        <div class="formula">
+            $$\begin{align}
+            e^{i\theta} &= \left(1 - \frac{\theta^2}{2!} + \frac{\theta^4}{4!} - \cdots\right) + i\left(\theta - \frac{\theta^3}{3!} + \frac{\theta^5}{5!} - \cdots\right) \\
+            &= \cos\theta + i\sin\theta
+            \end{align}$$
+        </div>
+
+        <h2>3. 오일러 항등식</h2>
+
+        <p>
+            오일러 공식에 $\theta = \pi$를 대입하면 수학에서 가장 아름다운 등식이 나타납니다.
+            이 식은 수학의 5대 상수 ($0, 1, e, i, \pi$)를 하나의 식으로 연결합니다.
+        </p>
+
+        <div class="highlight-box">
+            $$e^{i\pi} + 1 = 0$$
+        </div>
+
+        <p><strong>유도:</strong></p>
+        <div class="formula">
+            $$\begin{align}
+            e^{i\pi} &= \cos\pi + i\sin\pi \\
+            &= -1 + i \cdot 0 \\
+            &= -1
+            \end{align}$$
+        </div>
+        <p>따라서 $e^{i\pi} = -1$ 즉, $e^{i\pi} + 1 = 0$</p>
+
+        <p>
+            이 식은 리처드 파인만(Richard Feynman)이 "수학에서 가장 놀라운 공식"이라고 평가했으며,
+            순수 추상의 산물인 허수와 초월수들이 완벽한 조화를 이루는 것을 보여줍니다.
+        </p>
+
+        <h2>4. 복소수의 지수 표현</h2>
+
+        <p>오일러 공식을 이용하면 복소수를 매우 간결하게 표현할 수 있습니다.</p>
+
+        <div class="theorem-box">
+            <h3>복소수의 지수 형식 (Exponential Form)</h3>
+            <p>복소수 $z$를 다음과 같이 표현할 수 있습니다:</p>
+            <div class="formula">
+                $$z = r e^{i\theta}$$
+            </div>
+            <p>여기서 $r = |z|$이고 $\theta = \arg(z)$</p>
+
+            <p><strong>극형식과의 관계:</strong></p>
+            <div class="formula">
+                $$r(\cos\theta + i\sin\theta) = r e^{i\theta}$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h3>예제 1</h3>
+            <p>복소수 $z = 1 + i$를 지수 형식으로 나타내시오.</p>
+            <p><strong>풀이:</strong></p>
+            <p>1단계: 크기 계산</p>
+            <div class="formula">
+                $$r = \sqrt{1^2 + 1^2} = \sqrt{2}$$
+            </div>
+
+            <p>2단계: 편각 계산</p>
+            <div class="formula">
+                $$\theta = \arctan\frac{1}{1} = \frac{\pi}{4}$$
+            </div>
+
+            <p>3단계: 지수 형식</p>
+            <div class="formula">
+                $$z = \sqrt{2} e^{i\pi/4}$$
+            </div>
+        </div>
+
+        <h2>5. 오일러 공식의 응용</h2>
+
+        <h3>5.1 복소수의 곱셈</h3>
+
+        <p>지수 형식을 사용하면 복소수의 곱셈이 매우 간단해집니다:</p>
+
+        <div class="formula">
+            $$\begin{align}
+            z_1 z_2 &= r_1 e^{i\theta_1} \cdot r_2 e^{i\theta_2} \\
+            &= r_1 r_2 e^{i(\theta_1 + \theta_2)}
+            \end{align}$$
+        </div>
+
+        <h3>5.2 드무아브르 정리</h3>
+
+        <p>오일러 공식을 이용하면 드무아브르 정리를 즉시 얻을 수 있습니다:</p>
+
+        <div class="formula">
+            $$\begin{align}
+            (e^{i\theta})^n &= e^{in\theta} \\
+            (\cos\theta + i\sin\theta)^n &= \cos(n\theta) + i\sin(n\theta)
+            \end{align}$$
+        </div>
+
+        <h3>5.3 삼각함수 항등식 유도</h3>
+
+        <p>오일러 공식과 그 켤레를 이용하면 삼각함수를 지수함수로 표현할 수 있습니다:</p>
+
+        <div class="formula">
+            $$e^{i\theta} = \cos\theta + i\sin\theta$$
+            $$e^{-i\theta} = \cos\theta - i\sin\theta$$
+        </div>
+
+        <p>두 식을 더하거나 빼면:</p>
+
+        <div class="theorem-box">
+            <h3>삼각함수의 지수 표현</h3>
+            <div class="formula">
+                $$\cos\theta = \frac{e^{i\theta} + e^{-i\theta}}{2}$$
+            </div>
+            <div class="formula">
+                $$\sin\theta = \frac{e^{i\theta} - e^{-i\theta}}{2i}$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h3>예제 2: 덧셈 정리 유도</h3>
+            <p>$\cos(\alpha + \beta)$를 유도해봅시다.</p>
+            <p><strong>풀이:</strong></p>
+            <div class="formula">
+                $$\begin{align}
+                e^{i(\alpha + \beta)} &= e^{i\alpha} \cdot e^{i\beta} \\
+                \cos(\alpha+\beta) + i\sin(\alpha+\beta) &= (\cos\alpha + i\sin\alpha)(\cos\beta + i\sin\beta) \\
+                &= (\cos\alpha\cos\beta - \sin\alpha\sin\beta) + i(\sin\alpha\cos\beta + \cos\alpha\sin\beta)
+                \end{align}$$
+            </div>
+            <p>실부를 비교하면:</p>
+            <div class="formula">
+                $$\cos(\alpha + \beta) = \cos\alpha\cos\beta - \sin\alpha\sin\beta$$
+            </div>
+        </div>
+
+        <h2>6. 연습문제</h2>
+
+        <div class="problem-box">
+            <h3>문제 1</h3>
+            <p>다음을 계산하시오:</p>
+            <ol>
+                <li>$e^{i\pi/2}$</li>
+                <li>$e^{i\pi/6}$</li>
+                <li>$e^{2\pi i}$</li>
+            </ol>
+        </div>
+
+        <div class="solution-box">
+            <h3>풀이 1</h3>
+
+            <p><strong>1) $e^{i\pi/2}$</strong></p>
+            <div class="formula">
+                $$e^{i\pi/2} = \cos\frac{\pi}{2} + i\sin\frac{\pi}{2} = 0 + i = i$$
+            </div>
+
+            <p><strong>2) $e^{i\pi/6}$</strong></p>
+            <div class="formula">
+                $$e^{i\pi/6} = \cos\frac{\pi}{6} + i\sin\frac{\pi}{6} = \frac{\sqrt{3}}{2} + i\frac{1}{2}$$
+            </div>
+
+            <p><strong>3) $e^{2\pi i}$</strong></p>
+            <div class="formula">
+                $$e^{2\pi i} = \cos(2\pi) + i\sin(2\pi) = 1 + 0 = 1$$
+            </div>
+            <p>이것은 복소평면에서 한 바퀴 회전하면 원래 위치로 돌아옴을 보여줍니다.</p>
+        </div>
+
+        <div class="problem-box">
+            <h3>문제 2</h3>
+            <p>$i^i$의 값을 구하시오. (주값 사용)</p>
+        </div>
+
+        <div class="solution-box">
+            <h3>풀이 2</h3>
+            <p>먼저 $i$를 지수 형식으로 표현합니다:</p>
+            <div class="formula">
+                $$i = e^{i\pi/2}$$
+            </div>
+
+            <p>따라서:</p>
+            <div class="formula">
+                $$i^i = (e^{i\pi/2})^i = e^{i^2 \pi/2} = e^{-\pi/2}$$
+            </div>
+
+            <p>이것은 실수입니다!</p>
+            <div class="formula">
+                $$i^i = e^{-\pi/2} \approx 0.2079$$
+            </div>
+
+            <p><strong>놀라운 사실:</strong> 허수의 허수제곱이 실수가 됩니다!</p>
+        </div>
+
+        <h2>7. 기하학적 해석</h2>
+
+        <p>
+            $e^{i\theta}$는 복소평면에서 단위원 위의 점을 나타냅니다.
+            각도 $\theta$가 변화하면서 $e^{i\theta}$는 단위원 위를 반시계방향으로 회전합니다.
+        </p>
+
+        <ul>
+            <li>$e^{i \cdot 0} = 1$ (시작점, 양의 실수축)</li>
+            <li>$e^{i\pi/2} = i$ (위쪽, 양의 허수축)</li>
+            <li>$e^{i\pi} = -1$ (왼쪽, 음의 실수축)</li>
+            <li>$e^{i3\pi/2} = -i$ (아래쪽, 음의 허수축)</li>
+            <li>$e^{i2\pi} = 1$ (한 바퀴 회전 후 원점 복귀)</li>
+        </ul>
+
+        <p>
+            즉, $e^{i\theta}$에 어떤 복소수를 곱하는 것은 그 복소수를 원점을 중심으로 $\theta$만큼 회전시키는 것과 같습니다.
+        </p>
+
+        <h2>8. 요약</h2>
+
+        <ul>
+            <li>오일러 공식: $e^{i\theta} = \cos\theta + i\sin\theta$</li>
+            <li>오일러 항등식: $e^{i\pi} + 1 = 0$</li>
+            <li>복소수의 지수 표현: $z = re^{i\theta}$</li>
+            <li>삼각함수의 지수 표현: $\cos\theta = \frac{e^{i\theta}+e^{-i\theta}}{2}$, $\sin\theta = \frac{e^{i\theta}-e^{-i\theta}}{2i}$</li>
+            <li>$e^{i\theta}$는 복소평면에서 각도 $\theta$의 회전을 나타냄</li>
+            <li>응용: 복소수 연산, 삼각함수 항등식, 신호처리, 양자역학</li>
+        </ul>
+
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 수학 블로그. All rights reserved.</p>
+    </div>
+
+    <!-- Structured Data (Schema.org JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "오일러 공식과 복소지수함수",
+        "description": "수학에서 가장 아름다운 공식으로 꼽히는 오일러 공식과 오일러 항등식을 학습합니다.",
+        "author": {
+            "@type": "Person",
+            "name": "수학 블로그"
+        },
+        "datePublished": "2025-10-19",
+        "publisher": {
+            "@type": "Organization",
+            "name": "수학 블로그"
+        }
+    }
+    </script>
+</body>
+</html>
