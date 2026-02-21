@@ -5,15 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>MathHub USA - SAT, AP Calculus, AP Statistics Past Papers</title>
-    <meta name="description" content="Free SAT Math, AP Calculus AB/BC, AP Statistics, and AP Computer Science past papers. MCQ and FRQ organized by year.">
-    <meta name="keywords" content="SAT math, AP Calculus, AP Statistics, AP Computer Science, past papers, MCQ, FRQ, practice test">
+    <meta name="description" content="Free SAT Math, AP Calculus AB/BC, AP Statistics, and AP Computer Science past papers. Download PDFs organized by year.">
+    <meta name="keywords" content="SAT math, AP Calculus, AP Statistics, AP Computer Science, past papers, practice test, free download">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://randomwalk1225.github.io/us/">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://randomwalk1225.github.io/us/">
     <meta property="og:title" content="MathHub USA - SAT & AP Past Papers">
-    <meta property="og:description" content="Free SAT and AP math exam resources organized by year.">
+    <meta property="og:description" content="Free SAT and AP math exam resources. Download PDFs organized by year.">
+
+    <link rel="alternate" hreflang="ko" href="https://randomwalk1225.github.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://randomwalk1225.github.io/us/">
+    <link rel="alternate" hreflang="en-GB" href="https://randomwalk1225.github.io/uk/">
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
@@ -30,36 +34,93 @@
 
     <link rel="stylesheet" href="../assets/css/common.css">
     <style>
-        .coming-hero {
-            min-height: 70vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+        .us-hero {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+            color: white;
             padding: 60px 20px;
+            text-align: center;
         }
-        .coming-hero .flag { font-size: 5em; margin-bottom: 20px; }
-        .coming-hero h1 { font-size: 2.5em; color: #2c3e50; margin-bottom: 10px; }
-        .coming-hero .subtitle { color: #64748b; font-size: 1.2em; margin-bottom: 40px; }
-        .preview-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px; max-width: 800px; width: 100%; margin-bottom: 40px;
+        .us-hero .flag { font-size: 4em; margin-bottom: 15px; }
+        .us-hero h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .us-hero .subtitle { opacity: 0.9; font-size: 1.15em; }
+
+        .exam-grid {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
         }
-        .preview-card {
-            background: white; border-radius: 12px; padding: 24px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-align: center;
+        .exam-card {
+            background: white;
+            border-radius: 12px;
+            padding: 32px 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
-        .preview-card .icon { font-size: 2em; margin-bottom: 10px; }
-        .preview-card h3 { color: #2c3e50; margin-bottom: 6px; font-size: 1.1em; }
-        .preview-card p { color: #64748b; font-size: 0.9em; }
-        .notify-text { color: #64748b; margin-bottom: 20px; }
-        .back-home {
-            display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white; padding: 12px 28px; border-radius: 25px;
-            text-decoration: none; font-weight: 600; transition: opacity 0.2s;
+        .exam-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
         }
-        .back-home:hover { opacity: 0.9; }
+        .exam-card .icon { font-size: 3em; margin-bottom: 16px; }
+        .exam-card h2 {
+            font-size: 1.4em;
+            color: #1e3a5f;
+            margin: 0 0 8px 0;
+            padding: 0;
+            border: none;
+        }
+        .exam-card .desc {
+            color: #64748b;
+            font-size: 0.95em;
+            margin-bottom: 16px;
+        }
+        .exam-card .badge {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+        .exam-card .badge.ready {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+        .exam-card .badge.coming {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .info-section {
+            max-width: 900px;
+            margin: 20px auto 40px;
+            padding: 0 20px;
+        }
+        .info-box {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .info-box h3 {
+            color: #1e3a5f;
+            margin: 0 0 15px 0;
+            font-size: 1.2em;
+        }
+        .info-box ul { margin: 0; padding-left: 20px; }
+        .info-box li { margin-bottom: 6px; color: #475569; }
+
+        @media (max-width: 768px) {
+            .us-hero h1 { font-size: 1.8em; }
+            .exam-grid { margin: 20px auto; }
+        }
     </style>
 </head>
 <body>
@@ -73,36 +134,59 @@
         </div>
     </nav>
 
-    <div class="coming-hero">
+    <div class="us-hero">
         <div class="flag">&#x1F1FA;&#x1F1F8;</div>
         <h1>MathHub USA</h1>
-        <p class="subtitle">Coming Soon &mdash; SAT & AP Math Resources</p>
+        <p class="subtitle">SAT & AP Exam Past Papers &mdash; Free PDF Downloads</p>
+    </div>
 
-        <div class="preview-grid">
-            <div class="preview-card">
-                <div class="icon">&#x1F4DD;</div>
-                <h3>SAT Math</h3>
-                <p>Practice tests by year</p>
-            </div>
-            <div class="preview-card">
-                <div class="icon">&#x1F4CA;</div>
-                <h3>AP Calculus</h3>
-                <p>AB & BC MCQ/FRQ</p>
-            </div>
-            <div class="preview-card">
-                <div class="icon">&#x1F4C8;</div>
-                <h3>AP Statistics</h3>
-                <p>Past exams by year</p>
-            </div>
-            <div class="preview-card">
-                <div class="icon">&#x1F4BB;</div>
-                <h3>AP CS</h3>
-                <p>CSA & CSP resources</p>
-            </div>
+    <div class="exam-grid">
+        <a href="sat/" class="exam-card">
+            <div class="icon">&#x1F4DD;</div>
+            <h2>SAT Math</h2>
+            <p class="desc">Official practice tests and released exams organized by year</p>
+            <span class="badge ready">Available</span>
+        </a>
+
+        <a href="ap-calculus/" class="exam-card">
+            <div class="icon">&#x1F4CA;</div>
+            <h2>AP Calculus</h2>
+            <p class="desc">AB & BC &mdash; MCQ and FRQ past papers by year</p>
+            <span class="badge ready">Available</span>
+        </a>
+
+        <a href="ap-statistics/" class="exam-card">
+            <div class="icon">&#x1F4C8;</div>
+            <h2>AP Statistics</h2>
+            <p class="desc">Multiple choice and free response questions by year</p>
+            <span class="badge ready">Available</span>
+        </a>
+
+        <a href="ap-cs/" class="exam-card">
+            <div class="icon">&#x1F4BB;</div>
+            <h2>AP Computer Science</h2>
+            <p class="desc">CSA & CSP &mdash; Past exams and practice materials</p>
+            <span class="badge ready">Available</span>
+        </a>
+    </div>
+
+    <div class="info-section">
+        <div class="info-box">
+            <h3>How to Use</h3>
+            <ul>
+                <li>Select an exam above to see all available papers</li>
+                <li>Papers are organized by year with separate MCQ and FRQ sections</li>
+                <li>Click the download button to save PDFs to your device</li>
+                <li>All materials are freely available for personal study</li>
+            </ul>
         </div>
+    </div>
 
-        <p class="notify-text">Resources are being organized. Check back soon!</p>
-        <a href="../" class="back-home">&larr; Back to MathHub Global</a>
+    <div class="info-section" style="margin-top: 0;">
+        <div class="cta-banner">
+            <p><strong>Online Question Bank</strong> &mdash; Practice thousands of math problems with instant feedback!</p>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="cta-btn">Try Now &rarr;</a>
+        </div>
     </div>
 
     <div class="footer">
@@ -110,5 +194,21 @@
     </div>
 
     <script src="../assets/js/common.js"></script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "MathHub USA - SAT & AP Past Papers",
+        "description": "Free SAT Math, AP Calculus, AP Statistics, and AP Computer Science past papers",
+        "url": "https://randomwalk1225.github.io/us/",
+        "inLanguage": "en-US",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "MathHub Global",
+            "url": "https://randomwalk1225.github.io/"
+        }
+    }
+    </script>
 </body>
 </html>
