@@ -26,6 +26,24 @@
     <link rel="stylesheet" href="../../assets/css/common.css">
     <link rel="stylesheet" href="../../assets/css/exam-list.css">
     <style>
+        .paper-year { background: white; border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+        .paper-year.collapsed .paper-year-content { display: none; }
+        .paper-year-title { cursor: pointer; color: #1e3a5f; font-size: 1.1em; margin: 0; user-select: none; }
+        .paper-year-title:hover { color: #2563eb; }
+        .paper-count { color: #94a3b8; font-size: 0.85em; font-weight: 400; }
+        .paper-session { color: #475569; font-size: 0.95em; margin: 12px 0 6px 0; padding-left: 8px; border-left: 3px solid #e2e8f0; }
+        .paper-group { margin: 4px 0 4px 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+        .paper-label { font-weight: 600; color: #334155; font-size: 0.85em; min-width: 70px; }
+        .paper-link { font-size: 0.75em; padding: 3px 10px; border-radius: 4px; text-decoration: none; font-weight: 600; background: #2563eb; color: white; display: inline-block; }
+        .paper-link:hover { background: #1d4ed8; }
+        .paper-link.link-ms { background: #dcfce7; color: #16a34a; }
+        .paper-link.link-ms:hover { background: #bbf7d0; }
+        .paper-link.link-ma { background: #fef3c7; color: #d97706; }
+        .paper-link.link-ma:hover { background: #fde68a; }
+        .paper-size { font-weight: 400; opacity: 0.7; }
+        .self-hosted-badge { display: inline-block; background: #dcfce7; color: #16a34a; padding: 2px 10px; border-radius: 8px; font-size: 0.8em; font-weight: 600; margin-left: 8px; }
+    </style>
+    <style>
         .board-intro {
             background: white;
             border-radius: 10px;
@@ -169,140 +187,10 @@
                 </p>
             </div>
 
-            <!-- CIE Recent Papers (2020-2024) -->
             <div class="year-section">
-                <h2>Recent Papers (2020&ndash;2024)</h2>
-                <div class="resource-cards">
-                    <div class="resource-card">
-                        <div class="rc-title">2024 Papers</div>
-                        <div class="rc-desc">Feb/Mar, May/Jun, Oct/Nov sessions</div>
-                        <div class="rc-links">
-                            <a href="https://pastpapers.papacambridge.com/papers/caie/as-and-a-level-mathematics-9709/2024" target="_blank">All 2024 Papers</a>
-                            <a href="https://pastpapers.co/caie/a-level/mathematics-9709/?dir=2024" target="_blank" class="link-ext">Mirror</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">2023 Papers</div>
-                        <div class="rc-desc">Feb/Mar, May/Jun, Oct/Nov sessions</div>
-                        <div class="rc-links">
-                            <a href="https://pastpapers.papacambridge.com/papers/caie/as-and-a-level-mathematics-9709/2023" target="_blank">All 2023 Papers</a>
-                            <a href="https://pastpapers.co/caie/a-level/mathematics-9709/?dir=2023" target="_blank" class="link-ext">Mirror</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">2022 Papers</div>
-                        <div class="rc-desc">Feb/Mar, May/Jun, Oct/Nov sessions</div>
-                        <div class="rc-links">
-                            <a href="https://pastpapers.papacambridge.com/papers/caie/as-and-a-level-mathematics-9709/2022" target="_blank">All 2022 Papers</a>
-                            <a href="https://pastpapers.co/caie/a-level/mathematics-9709/?dir=2022" target="_blank" class="link-ext">Mirror</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">2021 Papers</div>
-                        <div class="rc-desc">Feb/Mar, May/Jun, Oct/Nov sessions</div>
-                        <div class="rc-links">
-                            <a href="https://pastpapers.papacambridge.com/papers/caie/as-and-a-level-mathematics-9709/2021" target="_blank">All 2021 Papers</a>
-                            <a href="https://pastpapers.co/caie/a-level/mathematics-9709/?dir=2021" target="_blank" class="link-ext">Mirror</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">2020 Papers</div>
-                        <div class="rc-desc">Feb/Mar, May/Jun, Oct/Nov sessions</div>
-                        <div class="rc-links">
-                            <a href="https://pastpapers.papacambridge.com/papers/caie/as-and-a-level-mathematics-9709/2020" target="_blank">All 2020 Papers</a>
-                            <a href="https://pastpapers.co/caie/a-level/mathematics-9709/?dir=2020" target="_blank" class="link-ext">Mirror</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CIE Older Papers -->
-            <div class="year-section">
-                <h2>Older Papers (2015&ndash;2019)</h2>
-                <div class="resource-cards">
-                    <div class="resource-card">
-                        <div class="rc-title">2019 Papers</div>
-                        <div class="rc-desc">All sessions &amp; components</div>
-                        <div class="rc-links">
-                            <a href="https://pastpapers.papacambridge.com/papers/caie/as-and-a-level-mathematics-9709/2019" target="_blank">All 2019 Papers</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">2018 Papers</div>
-                        <div class="rc-desc">All sessions &amp; components</div>
-                        <div class="rc-links">
-                            <a href="https://pastpapers.papacambridge.com/papers/caie/as-and-a-level-mathematics-9709/2018" target="_blank">All 2018 Papers</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">2017 Papers</div>
-                        <div class="rc-desc">All sessions &amp; components</div>
-                        <div class="rc-links">
-                            <a href="https://pastpapers.papacambridge.com/papers/caie/as-and-a-level-mathematics-9709/2017" target="_blank">All 2017 Papers</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">2016 Papers</div>
-                        <div class="rc-desc">All sessions &amp; components</div>
-                        <div class="rc-links">
-                            <a href="https://pastpapers.papacambridge.com/papers/caie/as-and-a-level-mathematics-9709/2016" target="_blank">All 2016 Papers</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">2015 Papers</div>
-                        <div class="rc-desc">All sessions &amp; components</div>
-                        <div class="rc-links">
-                            <a href="https://pastpapers.papacambridge.com/papers/caie/as-and-a-level-mathematics-9709/2015" target="_blank">All 2015 Papers</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CIE By Component -->
-            <div class="year-section">
-                <h2>Browse by Component</h2>
-                <div class="resource-cards">
-                    <div class="resource-card">
-                        <div class="rc-title">Paper 1 &mdash; Pure Mathematics 1</div>
-                        <div class="rc-desc">AS Level core pure maths</div>
-                        <div class="rc-links">
-                            <a href="https://www.physicsandmathstutor.com/a-level-maths-papers/cie-paper-1/" target="_blank">PMT Papers</a>
-                            <a href="https://pastpapers.co/caie/a-level/mathematics-9709/topical-past-papers/?dir=Paper+1" target="_blank" class="link-ext">Topical</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">Paper 3 &mdash; Pure Mathematics 3</div>
-                        <div class="rc-desc">A2 Level advanced pure maths</div>
-                        <div class="rc-links">
-                            <a href="https://www.physicsandmathstutor.com/a-level-maths-papers/cie-paper-3/" target="_blank">PMT Papers</a>
-                            <a href="https://pastpapers.co/caie/a-level/mathematics-9709/topical-past-papers/?dir=Paper+3" target="_blank" class="link-ext">Topical</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">Paper 4 &mdash; Mechanics</div>
-                        <div class="rc-desc">Forces, energy, motion</div>
-                        <div class="rc-links">
-                            <a href="https://www.physicsandmathstutor.com/a-level-maths-papers/cie-paper-4/" target="_blank">PMT Papers</a>
-                            <a href="https://pastpapers.co/caie/a-level/mathematics-9709/topical-past-papers/?dir=Paper+4" target="_blank" class="link-ext">Topical</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">Paper 5 &mdash; Probability &amp; Statistics 1</div>
-                        <div class="rc-desc">AS Level statistics</div>
-                        <div class="rc-links">
-                            <a href="https://www.physicsandmathstutor.com/a-level-maths-papers/cie-paper-5/" target="_blank">PMT Papers</a>
-                            <a href="https://pastpapers.co/caie/a-level/mathematics-9709/topical-past-papers/?dir=Paper+5" target="_blank" class="link-ext">Topical</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">Paper 6 &mdash; Probability &amp; Statistics 2</div>
-                        <div class="rc-desc">A2 Level advanced statistics</div>
-                        <div class="rc-links">
-                            <a href="https://www.physicsandmathstutor.com/a-level-maths-papers/cie-paper-6/" target="_blank">PMT Papers</a>
-                            <a href="https://pastpapers.co/caie/a-level/mathematics-9709/topical-past-papers/?dir=Paper+6" target="_blank" class="link-ext">Topical</a>
-                        </div>
-                    </div>
-                </div>
+                <h2>All Papers (2015&ndash;2024) <span class="self-hosted-badge">Self-Hosted</span></h2>
+                <p style="color:#64748b;font-size:0.9em;margin:0 0 16px 0">839 PDFs &mdash; Question Papers &amp; Mark Schemes for all sessions and components. Click any year to expand.</p>
+                <div id="papers-cie"></div>
             </div>
 
             <!-- CIE Additional Resources -->
@@ -340,88 +228,10 @@
                 </p>
             </div>
 
-            <div class="component-section">
-                <h3>Pure Mathematics</h3>
-                <div class="resource-cards">
-                    <div class="resource-card">
-                        <div class="rc-title">Pure Maths Paper 1</div>
-                        <div class="rc-desc">Proof, algebra, functions, coordinate geometry, series, trigonometry, exponentials, differentiation, integration</div>
-                        <div class="rc-links">
-                            <a href="https://www.physicsandmathstutor.com/maths-revision/a-level-edexcel/papers/" target="_blank">PMT Papers</a>
-                            <a href="https://www.mathsgenie.co.uk/alevelpapers.php" target="_blank" class="link-ext">Maths Genie</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">Pure Maths Paper 2</div>
-                        <div class="rc-desc">Further algebra, functions, trigonometry, parametric equations, vectors, numerical methods</div>
-                        <div class="rc-links">
-                            <a href="https://www.physicsandmathstutor.com/maths-revision/a-level-edexcel/papers/" target="_blank">PMT Papers</a>
-                            <a href="https://www.mathsgenie.co.uk/alevelpapers.php" target="_blank" class="link-ext">Maths Genie</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="component-section">
-                <h3>Applied Mathematics</h3>
-                <div class="resource-cards">
-                    <div class="resource-card">
-                        <div class="rc-title">Statistics &amp; Mechanics</div>
-                        <div class="rc-desc">Paper 3: Combined Statistics &amp; Mechanics paper</div>
-                        <div class="rc-links">
-                            <a href="https://www.physicsandmathstutor.com/maths-revision/a-level-edexcel/papers/" target="_blank">PMT Papers</a>
-                            <a href="https://www.mathsgenie.co.uk/alevelpapers.php" target="_blank" class="link-ext">Maths Genie</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div class="year-section">
-                <h2>Papers by Year</h2>
-                <div class="resource-cards">
-                    <div class="resource-card">
-                        <div class="rc-title">2024 (June)</div>
-                        <div class="rc-desc">Papers 1, 2 &amp; 3 with mark schemes</div>
-                        <div class="rc-links">
-                            <a href="https://www.physicsandmathstutor.com/maths-revision/a-level-edexcel/papers/" target="_blank">View on PMT</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">2023 (June)</div>
-                        <div class="rc-desc">Papers 1, 2 &amp; 3 with mark schemes</div>
-                        <div class="rc-links">
-                            <a href="https://www.physicsandmathstutor.com/maths-revision/a-level-edexcel/papers/" target="_blank">View on PMT</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">2022 (June &amp; Oct)</div>
-                        <div class="rc-desc">Papers 1, 2 &amp; 3 with mark schemes</div>
-                        <div class="rc-links">
-                            <a href="https://www.physicsandmathstutor.com/maths-revision/a-level-edexcel/papers/" target="_blank">View on PMT</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">2021 (June &amp; Oct)</div>
-                        <div class="rc-desc">Papers 1, 2 &amp; 3 with mark schemes</div>
-                        <div class="rc-links">
-                            <a href="https://www.physicsandmathstutor.com/maths-revision/a-level-edexcel/papers/" target="_blank">View on PMT</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">2019 (June)</div>
-                        <div class="rc-desc">Papers 1, 2 &amp; 3 with mark schemes</div>
-                        <div class="rc-links">
-                            <a href="https://www.physicsandmathstutor.com/maths-revision/a-level-edexcel/papers/" target="_blank">View on PMT</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">2018 (June)</div>
-                        <div class="rc-desc">First year of new spec (9MA0)</div>
-                        <div class="rc-links">
-                            <a href="https://www.physicsandmathstutor.com/maths-revision/a-level-edexcel/papers/" target="_blank">View on PMT</a>
-                        </div>
-                    </div>
-                </div>
+                <h2>All Papers (2018&ndash;2024) <span class="self-hosted-badge">Self-Hosted</span></h2>
+                <p style="color:#64748b;font-size:0.9em;margin:0 0 16px 0">202 PDFs &mdash; A Level &amp; Further Maths, Question Papers &amp; Mark Schemes. Click any year to expand.</p>
+                <div id="papers-edexcel"></div>
             </div>
 
             <div class="year-section">
@@ -465,6 +275,12 @@
                 </p>
             </div>
 
+            <div class="year-section">
+                <h2>All Papers (2018&ndash;2024) <span class="self-hosted-badge">Self-Hosted</span></h2>
+                <p style="color:#64748b;font-size:0.9em;margin:0 0 16px 0">54 PDFs &mdash; OCR A &amp; MEI, Question Papers &amp; Mark Schemes. Click any year to expand.</p>
+                <div id="papers-ocr"></div>
+            </div>
+
             <div class="component-section">
                 <h3>OCR A (H240)</h3>
                 <div class="resource-cards">
@@ -473,13 +289,6 @@
                         <div class="rc-desc">Papers 1 (Pure), 2 (Pure &amp; Stats), 3 (Pure &amp; Mechanics)</div>
                         <div class="rc-links">
                             <a href="https://www.physicsandmathstutor.com/maths-revision/a-level-ocr/papers/" target="_blank">PMT Papers</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">AS Level Papers (H230)</div>
-                        <div class="rc-desc">Papers 1 (Pure) &amp; 2 (Pure &amp; Applied)</div>
-                        <div class="rc-links">
-                            <a href="https://www.physicsandmathstutor.com/maths-revision/a-level-ocr/papers-as/" target="_blank">PMT AS Papers</a>
                         </div>
                     </div>
                     <div class="resource-card">
@@ -500,13 +309,6 @@
                         <div class="rc-desc">Papers A (Pure &amp; Stats), B (Pure &amp; Mechanics), plus comprehension</div>
                         <div class="rc-links">
                             <a href="https://www.physicsandmathstutor.com/maths-revision/a-level-ocr-mei/papers/" target="_blank">PMT Papers</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">MEI AS Level Papers</div>
-                        <div class="rc-desc">Year 1 content</div>
-                        <div class="rc-links">
-                            <a href="https://www.physicsandmathstutor.com/maths-revision/a-level-ocr-mei/papers-as/" target="_blank">PMT AS Papers</a>
                         </div>
                     </div>
                     <div class="resource-card">
@@ -533,54 +335,9 @@
             </div>
 
             <div class="year-section">
-                <h2>Papers by Year</h2>
-                <div class="resource-cards">
-                    <div class="resource-card">
-                        <div class="rc-title">2024 (June)</div>
-                        <div class="rc-desc">Papers 1, 2 &amp; 3 with mark schemes</div>
-                        <div class="rc-links">
-                            <a href="https://www.mathsgenie.co.uk/AQA-a-level-papers.php" target="_blank">Maths Genie</a>
-                            <a href="https://revisionmaths.com/level-maths/level-maths-past-papers/aqa-level-maths-past-papers" target="_blank" class="link-ext">Revision Maths</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">2023 (June)</div>
-                        <div class="rc-desc">Papers 1, 2 &amp; 3 with mark schemes</div>
-                        <div class="rc-links">
-                            <a href="https://www.mathsgenie.co.uk/AQA-a-level-papers.php" target="_blank">Maths Genie</a>
-                            <a href="https://revisionmaths.com/level-maths/level-maths-past-papers/aqa-level-maths-past-papers" target="_blank" class="link-ext">Revision Maths</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">2022 (June)</div>
-                        <div class="rc-desc">Papers 1, 2 &amp; 3 with mark schemes</div>
-                        <div class="rc-links">
-                            <a href="https://www.mathsgenie.co.uk/AQA-a-level-papers.php" target="_blank">Maths Genie</a>
-                            <a href="https://revisionmaths.com/level-maths/level-maths-past-papers/aqa-level-maths-past-papers" target="_blank" class="link-ext">Revision Maths</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">2021 (June &amp; Nov)</div>
-                        <div class="rc-desc">Papers 1, 2 &amp; 3 with mark schemes</div>
-                        <div class="rc-links">
-                            <a href="https://www.mathsgenie.co.uk/AQA-a-level-papers.php" target="_blank">Maths Genie</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">2019 (June)</div>
-                        <div class="rc-desc">Papers 1, 2 &amp; 3 with mark schemes</div>
-                        <div class="rc-links">
-                            <a href="https://www.mathsgenie.co.uk/AQA-a-level-papers.php" target="_blank">Maths Genie</a>
-                        </div>
-                    </div>
-                    <div class="resource-card">
-                        <div class="rc-title">2018 (June)</div>
-                        <div class="rc-desc">First year of new spec (7357)</div>
-                        <div class="rc-links">
-                            <a href="https://www.mathsgenie.co.uk/AQA-a-level-papers.php" target="_blank">Maths Genie</a>
-                        </div>
-                    </div>
-                </div>
+                <h2>All Papers (2018&ndash;2024) <span class="self-hosted-badge">Self-Hosted</span></h2>
+                <p style="color:#64748b;font-size:0.9em;margin:0 0 16px 0">60 PDFs &mdash; Question Papers &amp; Mark Schemes. Click any year to expand.</p>
+                <div id="papers-aqa"></div>
             </div>
 
             <div class="year-section">
@@ -633,6 +390,7 @@
     </div>
 
     <script src="../../assets/js/common.js"></script>
+    <script src="../../assets/js/paper-browser.js"></script>
     <script>
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -642,6 +400,11 @@
                 document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
             });
         });
+
+        PaperBrowser('papers-cie', 'papers/cie/manifest.json', { type: 'cie' });
+        PaperBrowser('papers-edexcel', 'papers/edexcel/manifest.json', { type: 'edexcel' });
+        PaperBrowser('papers-ocr', 'papers/ocr/manifest.json', { type: 'ocr' });
+        PaperBrowser('papers-aqa', 'papers/aqa/manifest.json', { type: 'aqa' });
     </script>
 </body>
 </html>
