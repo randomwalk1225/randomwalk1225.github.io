@@ -7,5 +7,7 @@
 
 | ID | Time | T | Title | Read |
 |----|------|---|-------|------|
+| #9479 | 1:17 AM | 🟣 | Korean Exam Archive and Textbook Database Deployed to Production | ~458 |
+| #9448 | 1:14 AM | 🟣 | Populated Exam Paper Repository with Korean Mock Exam PDFs | ~551 |
 | #9390 | 12:34 AM | 🟣 | Korean exam resources expanded with military academies and enhanced filtering | ~623 |
 </claude-mem-context>
