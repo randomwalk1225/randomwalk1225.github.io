@@ -231,6 +231,47 @@
             font-weight: 600;
         }
         .solution-grid .sg-cell a:hover { text-decoration: underline; }
+        .btn-cutoff {
+            background: none;
+            border: none;
+            color: #d97706;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.9em;
+            padding: 0;
+            margin-left: 8px;
+        }
+        .btn-cutoff:hover { text-decoration: underline; }
+        .cutoff-table-wrap {
+            background: white;
+            border: 1px solid #fde68a;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin: 8px 0 16px;
+            overflow-x: auto;
+        }
+        .cutoff-table-wrap table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85em;
+        }
+        .cutoff-table-wrap th {
+            background: #fffbeb;
+            color: #92400e;
+            padding: 8px 10px;
+            text-align: center;
+            font-weight: 600;
+            border-bottom: 2px solid #fde68a;
+            white-space: nowrap;
+        }
+        .cutoff-table-wrap td {
+            padding: 6px 10px;
+            border-bottom: 1px solid #fef3c7;
+            text-align: center;
+            color: #334155;
+        }
+        .cutoff-table-wrap tr:hover { background: #fffbeb; }
+        .cutoff-table-wrap td:first-child { font-weight: 600; }
         .faq-section { margin-top: 30px; }
         .faq-item {
             background: white;
@@ -329,7 +370,9 @@
 
             <div class="cutoff-note">
                 <strong>AIME Qualification:</strong> Typically requires a score of ~100&ndash;115 on the AMC 10 (varies by year). Top 2.5% of AMC 10 scorers qualify.
+                <button class="btn-cutoff" onclick="toggleRow('cutoff-amc10')">View Cutoff History &darr;</button>
             </div>
+            <div id="cutoff-amc10" class="cutoff-table-wrap" style="display:none"></div>
 
             <table class="year-table">
                 <thead>
@@ -360,7 +403,9 @@
 
             <div class="cutoff-note">
                 <strong>AIME Qualification:</strong> Typically requires a score of ~85&ndash;100 on the AMC 12 (varies by year). Top 5% of AMC 12 scorers qualify.
+                <button class="btn-cutoff" onclick="toggleRow('cutoff-amc12')">View Cutoff History &darr;</button>
             </div>
+            <div id="cutoff-amc12" class="cutoff-table-wrap" style="display:none"></div>
 
             <table class="year-table">
                 <thead>
@@ -388,6 +433,12 @@
                     <span class="spec-badge">USAMO Qualifier</span>
                 </div>
             </div>
+
+            <div class="cutoff-note">
+                <strong>USAMO/USAJMO Qualification:</strong> Based on AIME score &times; 10 + AMC score. Cutoffs vary by year.
+                <button class="btn-cutoff" onclick="toggleRow('cutoff-aime')">View Cutoff History &darr;</button>
+            </div>
+            <div id="cutoff-aime" class="cutoff-table-wrap" style="display:none"></div>
 
             <table class="year-table">
                 <thead>
@@ -498,6 +549,86 @@
     });
 
     var AOPS = 'https://artofproblemsolving.com/wiki/index.php/';
+
+    // ── AIME Cutoff History Data ──
+    // Format: [year, AMC10A, AMC10B, AMC12A, AMC12B]
+    var CUTOFFS = [
+        [2025, 105, 99, 96, 100.5],
+        [2024, 94.5, 105, 76.5, 88.5],
+        [2023, 103.5, 105, 85.5, 88.5],
+        [2022, 93, 94.5, 85.5, 81],
+        ['2021F', 96, 96, 91.5, 84],
+        ['2021S', 103.5, 102, 93, 91.5],
+        [2020, 103.5, 102, 87, 87],
+        [2019, 103.5, 108, 84, 94.5],
+        [2018, 111, 108, 93, 99],
+        [2017, 112.5, 120, 96, 100.5],
+        [2016, 110, 110, 92, 100],
+        [2015, 106.5, 120, 99, 100],
+        [2014, 120, 120, 93, 100],
+        [2013, 108, 120, 88.5, 93],
+        [2012, 115.5, 120, 94.5, 99],
+        [2011, 117, 117, 93, 97.5],
+        [2010, 118.5, 118.5, 88.5, 88.5],
+        [2009, 120, 120, 97.5, 100],
+        [2008, 117, 120, 97.5, 97.5],
+        [2007, 117, 115.5, 97.5, 100],
+        [2006, 120, 120, 100, 100],
+        [2005, 120, 120, 100, 100],
+        [2004, 110, 120, 100, 100],
+        [2003, 119, 121, 100, 100]
+    ];
+
+    // USAMO/USAJMO index cutoffs: [year, USAJMO, USAMO]
+    var OLYMPIAD_CUTOFFS = [
+        [2024, 230, 235],
+        [2023, 190.5, 223],
+        [2022, 196.5, 222],
+        ['2021F', 213, 229.5],
+        ['2021S', 217, 238],
+        [2020, 230, 234],
+        [2019, 216, 230.5],
+        [2018, 212, 215],
+        [2017, 224.5, 225.5],
+        [2016, 210.5, 220],
+        [2015, 213, 219],
+        [2014, 211, 211.5],
+        [2013, 210.5, 209],
+        [2012, 204, 204.5],
+        [2011, 179, 188]
+    ];
+
+    // Render cutoff tables
+    function renderCutoffTable(containerId, type) {
+        var el = document.getElementById(containerId);
+        if (!el) return;
+        var html = '<table>';
+        if (type === 'amc10') {
+            html += '<thead><tr><th>Year</th><th>AMC 10A</th><th>AMC 10B</th></tr></thead><tbody>';
+            for (var i = 0; i < CUTOFFS.length; i++) {
+                var c = CUTOFFS[i];
+                html += '<tr><td>' + c[0] + '</td><td>' + c[1] + '</td><td>' + c[2] + '</td></tr>';
+            }
+        } else if (type === 'amc12') {
+            html += '<thead><tr><th>Year</th><th>AMC 12A</th><th>AMC 12B</th></tr></thead><tbody>';
+            for (var i = 0; i < CUTOFFS.length; i++) {
+                var c = CUTOFFS[i];
+                html += '<tr><td>' + c[0] + '</td><td>' + c[3] + '</td><td>' + c[4] + '</td></tr>';
+            }
+        } else if (type === 'aime') {
+            html += '<thead><tr><th>Year</th><th>USAJMO Index</th><th>USAMO Index</th></tr></thead><tbody>';
+            for (var i = 0; i < OLYMPIAD_CUTOFFS.length; i++) {
+                var c = OLYMPIAD_CUTOFFS[i];
+                html += '<tr><td>' + c[0] + '</td><td>' + c[1] + '</td><td>' + c[2] + '</td></tr>';
+            }
+        }
+        html += '</tbody></table>';
+        el.innerHTML = html;
+    }
+
+    renderCutoffTable('cutoff-amc10', 'amc10');
+    renderCutoffTable('cutoff-amc12', 'amc12');
+    renderCutoffTable('cutoff-aime', 'aime');
 
     // ── Answer Key Data (verified from official sources) ──
     var AK = {
