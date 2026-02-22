@@ -35,88 +35,170 @@
     <link rel="stylesheet" href="/assets/css/common.css">
     <link rel="stylesheet" href="/assets/css/exam-list.css">
     <style>
-        .comp-intro {
-            background: white;
-            border-radius: 10px;
-            padding: 20px 24px;
-            box-shadow: 0 1px 6px rgba(0,0,0,0.06);
-            margin-bottom: 24px;
-        }
-        .comp-intro h3 {
-            color: #1e3a5f;
-            margin: 0 0 8px;
-            font-size: 1.15em;
-        }
-        .comp-intro p {
-            color: #475569;
-            margin: 0 0 10px;
-            font-size: 0.95em;
-            line-height: 1.6;
-        }
-        .comp-intro .spec-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .comp-intro .spec-badge {
-            display: inline-block;
-            background: #e0f2fe;
-            color: #0369a1;
-            padding: 3px 10px;
-            border-radius: 6px;
-            font-size: 0.8em;
-            font-weight: 600;
-        }
+        /* ── Pipeline box ── */
         .pipeline-box {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            border-radius: 10px;
-            padding: 20px 24px;
-            margin-bottom: 24px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 18px 24px;
+            margin-bottom: 20px;
             text-align: center;
         }
         .pipeline-box h3 {
-            color: #1e3a5f;
+            color: #0f172a;
             margin: 0 0 12px;
-            font-size: 1.1em;
+            font-size: 0.95em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #64748b;
         }
         .pipeline {
             display: flex;
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
             font-size: 0.9em;
         }
         .pipeline .stage {
             background: white;
-            padding: 6px 14px;
-            border-radius: 20px;
+            border: 1px solid #cbd5e1;
+            padding: 5px 14px;
+            border-radius: 4px;
             font-weight: 600;
-            color: #1e3a5f;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            color: #1e40af;
         }
-        .pipeline .arrow { color: #94a3b8; font-weight: 700; }
+        .pipeline .arrow {
+            color: #94a3b8;
+            font-size: 1.1em;
+        }
+
+        /* ── Feature banner ── */
+        .feature-banner {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #16a34a;
+            border-radius: 0 6px 6px 0;
+            padding: 14px 18px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.92em;
+            color: #334155;
+        }
+        .feature-banner .fb-icon {
+            font-size: 1.3em;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .feature-banner strong {
+            color: #15803d;
+        }
+        .feature-banner .fb-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+        .feature-banner .fb-badge {
+            display: inline-block;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        /* ── Inline tag ── */
+        .inline-tag {
+            display: inline-block;
+            background: #f0fdf4;
+            color: #166534;
+            font-size: 0.7em;
+            padding: 2px 7px;
+            border-radius: 3px;
+            font-weight: 600;
+            margin-left: 6px;
+            vertical-align: middle;
+            border: 1px solid #bbf7d0;
+            letter-spacing: 0.02em;
+        }
+
+        /* ── Competition intro card ── */
+        .comp-intro {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 20px 22px;
+            margin-bottom: 20px;
+        }
+        .comp-intro h3 {
+            color: #0f172a;
+            margin: 0 0 8px;
+            font-size: 1.1em;
+            font-weight: 700;
+        }
+        .comp-intro p {
+            color: #475569;
+            margin: 0 0 12px;
+            font-size: 0.93em;
+            line-height: 1.65;
+        }
+        .comp-intro .spec-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .comp-intro .spec-badge {
+            display: inline-block;
+            background: #eff6ff;
+            color: #1d4ed8;
+            border: 1px solid #bfdbfe;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.78em;
+            font-weight: 600;
+        }
+
+        /* ── Cutoff note ── */
+        .cutoff-note {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 11px 16px;
+            border-radius: 0 6px 6px 0;
+            margin: 16px 0;
+            font-size: 0.88em;
+            color: #78350f;
+        }
+
+        /* ── Year table ── */
         .year-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 16px 0;
+            margin: 12px 0;
+            font-size: 0.9em;
         }
         .year-table th {
             background: #f8fafc;
-            color: #1e3a5f;
-            padding: 10px 12px;
+            color: #475569;
+            padding: 9px 12px;
             text-align: left;
-            font-size: 0.85em;
-            font-weight: 600;
+            font-size: 0.8em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
             border-bottom: 2px solid #e2e8f0;
         }
         .year-table td {
             padding: 8px 12px;
             border-bottom: 1px solid #f1f5f9;
-            font-size: 0.9em;
             color: #334155;
         }
-        .year-table tr:hover { background: #f8fafc; }
+        .year-table tr:hover td { background: #f8fafc; }
         .year-table a {
             color: #2563eb;
             text-decoration: none;
@@ -124,136 +206,113 @@
         }
         .year-table a:hover { text-decoration: underline; }
         .link-problems { color: #2563eb; }
-        .link-answers { color: #16a34a; }
-        .link-solutions { color: #d97706; }
-        .feature-banner {
-            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-            border: 1px solid #6ee7b7;
-            border-radius: 10px;
-            padding: 14px 20px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.92em;
-            color: #065f46;
-        }
-        .feature-banner .fb-icon {
-            font-size: 1.5em;
-            flex-shrink: 0;
-        }
-        .feature-banner strong { color: #047857; }
-        .feature-banner .fb-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 6px;
-        }
-        .feature-banner .fb-badge {
-            display: inline-block;
-            background: white;
-            border: 1px solid #6ee7b7;
-            color: #047857;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.82em;
+        .link-answers  { color: #16a34a; }
+        .link-solutions { color: #92400e; }
+
+        /* ── Answer / Solution action buttons ── */
+        .btn-answers {
+            background: none;
+            border: none;
+            color: #15803d;
             font-weight: 600;
+            cursor: pointer;
+            font-size: 0.88em;
+            padding: 0;
+            text-decoration: none;
+            font-family: inherit;
         }
-        .inline-tag {
-            display: inline-block;
-            background: #ecfdf5;
-            color: #047857;
-            font-size: 0.7em;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-weight: 600;
-            margin-left: 6px;
-            vertical-align: middle;
-            border: 1px solid #a7f3d0;
-        }
-        .cutoff-note {
-            background: #fef3c7;
-            border-left: 4px solid #d97706;
-            padding: 12px 16px;
-            border-radius: 0 8px 8px 0;
-            margin: 16px 0;
-            font-size: 0.9em;
+        .btn-answers:hover { text-decoration: underline; }
+        .btn-answers.ext-link { color: #15803d; }
+
+        .btn-solutions {
+            background: none;
+            border: none;
             color: #92400e;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.88em;
+            padding: 0;
+            text-decoration: none;
+            font-family: inherit;
         }
+        .btn-solutions:hover { text-decoration: underline; }
+
+        .btn-cutoff {
+            background: none;
+            border: none;
+            color: #b45309;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.85em;
+            padding: 0;
+            margin-left: 8px;
+            font-family: inherit;
+        }
+        .btn-cutoff:hover { text-decoration: underline; }
+
+        /* ── Answer grid ── */
         .answer-grid {
             display: none;
-            background: #f0fdf4;
-            border: 1px solid #bbf7d0;
-            border-radius: 8px;
-            padding: 12px 16px;
-            margin: 4px 0 8px;
+            background: #f8fffe;
+            border: 1px solid #d1fae5;
+            border-top: 3px solid #16a34a;
+            border-radius: 0 0 6px 6px;
+            padding: 14px 16px;
+            margin: 0 0 10px;
         }
         .answer-grid.open { display: block; }
         .answer-grid .ag-title {
-            font-size: 0.8em;
-            font-weight: 600;
-            color: #16a34a;
-            margin-bottom: 8px;
+            font-size: 0.75em;
+            font-weight: 700;
+            color: #15803d;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 10px;
         }
         .answer-grid .ag-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 5px;
         }
         .answer-grid .ag-cell {
             display: inline-flex;
-            align-items: center;
-            gap: 5px;
+            align-items: baseline;
+            gap: 4px;
             background: white;
-            border: 1px solid #dcfce7;
-            border-radius: 6px;
-            padding: 7px 14px;
-            font-size: 1.15em;
-            font-family: monospace;
+            border: 1px solid #d1fae5;
+            border-radius: 4px;
+            padding: 6px 12px;
+            font-size: 1.18em;
+            font-family: 'Menlo', 'Consolas', 'Monaco', monospace;
+            min-width: 52px;
+            justify-content: center;
         }
         .answer-grid .ag-cell .q {
             color: #94a3b8;
+            font-size: 0.72em;
             font-weight: 600;
         }
         .answer-grid .ag-cell .a {
-            color: #111827;
+            color: #0f172a;
             font-weight: 700;
         }
-        .btn-answers {
-            background: none;
-            border: none;
-            color: #16a34a;
-            font-weight: 500;
-            cursor: pointer;
-            font-size: 0.9em;
-            padding: 0;
-            text-decoration: none;
-        }
-        .btn-answers:hover { text-decoration: underline; }
-        .btn-answers.ext-link { color: #16a34a; }
-        .btn-solutions {
-            background: none;
-            border: none;
-            color: #d97706;
-            font-weight: 500;
-            cursor: pointer;
-            font-size: 0.9em;
-            padding: 0;
-            text-decoration: none;
-        }
-        .btn-solutions:hover { text-decoration: underline; }
+
+        /* ── Solution grid ── */
         .solution-grid {
-            background: #fffbeb;
+            background: #fefce8;
             border: 1px solid #fde68a;
-            border-radius: 8px;
-            padding: 12px 16px;
-            margin: 4px 0 8px;
+            border-top: 3px solid #d97706;
+            border-radius: 0 0 6px 6px;
+            padding: 14px 16px;
+            margin: 0 0 10px;
         }
         .solution-grid .sg-title {
-            font-size: 0.8em;
-            font-weight: 600;
-            color: #d97706;
-            margin-bottom: 8px;
+            font-size: 0.75em;
+            font-weight: 700;
+            color: #92400e;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 10px;
         }
         .solution-grid .sg-row {
             display: flex;
@@ -265,33 +324,24 @@
             align-items: center;
             background: white;
             border: 1px solid #fde68a;
-            border-radius: 6px;
-            padding: 7px 14px;
-            font-size: 1.05em;
-            font-family: monospace;
+            border-radius: 4px;
+            padding: 5px 10px;
+            font-size: 0.88em;
+            font-family: 'Menlo', 'Consolas', 'Monaco', monospace;
         }
         .solution-grid .sg-cell a {
-            color: #d97706;
+            color: #92400e;
             text-decoration: none;
             font-weight: 600;
         }
         .solution-grid .sg-cell a:hover { text-decoration: underline; }
-        .btn-cutoff {
-            background: none;
-            border: none;
-            color: #d97706;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 0.9em;
-            padding: 0;
-            margin-left: 8px;
-        }
-        .btn-cutoff:hover { text-decoration: underline; }
+
+        /* ── Cutoff table ── */
         .cutoff-table-wrap {
             background: white;
-            border: 1px solid #fde68a;
-            border-radius: 8px;
-            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 0;
             margin: 8px 0 16px;
             overflow-x: auto;
         }
@@ -301,36 +351,62 @@
             font-size: 0.85em;
         }
         .cutoff-table-wrap th {
-            background: #fffbeb;
-            color: #92400e;
-            padding: 8px 10px;
+            background: #f8fafc;
+            color: #475569;
+            padding: 8px 12px;
             text-align: center;
-            font-weight: 600;
-            border-bottom: 2px solid #fde68a;
+            font-size: 0.8em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            border-bottom: 2px solid #e2e8f0;
             white-space: nowrap;
         }
         .cutoff-table-wrap td {
-            padding: 6px 10px;
-            border-bottom: 1px solid #fef3c7;
+            padding: 7px 12px;
+            border-bottom: 1px solid #f1f5f9;
             text-align: center;
             color: #334155;
         }
-        .cutoff-table-wrap tr:hover { background: #fffbeb; }
-        .cutoff-table-wrap td:first-child { font-weight: 600; }
-        .faq-section { margin-top: 30px; }
+        .cutoff-table-wrap tr:last-child td { border-bottom: none; }
+        .cutoff-table-wrap tr:hover td { background: #f8fafc; }
+        .cutoff-table-wrap td:first-child { font-weight: 600; color: #0f172a; }
+
+        /* ── FAQ section ── */
+        .faq-section { margin-top: 32px; }
         .faq-item {
             background: white;
-            border-radius: 8px;
-            padding: 18px;
-            margin-bottom: 10px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 16px 20px;
+            margin-bottom: 8px;
         }
         .faq-item h4 {
-            color: #1e3a5f;
+            color: #0f172a;
             margin: 0 0 6px;
-            font-size: 1em;
+            font-size: 0.95em;
+            font-weight: 600;
         }
-        .faq-item p { margin: 0; font-size: 0.9em; color: #475569; }
+        .faq-item p {
+            margin: 0;
+            font-size: 0.88em;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 600px) {
+            .pipeline-box { padding: 14px 16px; }
+            .feature-banner { padding: 12px 14px; }
+            .comp-intro { padding: 16px; }
+            .answer-grid .ag-cell {
+                font-size: 1.05em;
+                padding: 5px 9px;
+                min-width: 46px;
+            }
+            .year-table th,
+            .year-table td { padding: 7px 8px; }
+        }
     </style>
 </head>
 <body>
