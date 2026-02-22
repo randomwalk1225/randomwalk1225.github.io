@@ -72,7 +72,11 @@ function renderPapers(container, files, manifestUrl, config) {
     html += year + ' <span class="paper-count">(' + papers.length + ' files)</span></h3>';
     html += '<div class="paper-year-content">';
 
-    var sessionOrder = ['May/Jun', 'Oct/Nov', 'Feb/Mar', 'June', 'January', 'November', 'October', 'main'];
+    var sessionOrder = [
+      'May/Jun', 'Oct/Nov', 'Feb/Mar', 'June', 'January', 'November', 'October',
+      '3월 교육청', '4월 교육청', '6월 평가원', '7월 교육청', '9월 평가원', '10월 교육청', '11월 교육청',
+      'main'
+    ];
     var sortedSessions = Object.keys(sessions).sort(function(a, b) {
       var ai = sessionOrder.indexOf(a);
       var bi = sessionOrder.indexOf(b);
@@ -158,6 +162,40 @@ function parseName(filename, type) {
       result.year = 'Specimen';
       result.session = 'main';
       result.docType = sp[3];
+    }
+  } else if (type === 'korean') {
+    // Korean exam formats:
+    // g3-pyeongwon-2024-06-QP.pdf  (고3 6월 평가원)
+    // g3-edu-2024-03-QP.pdf        (고3 3월 교육청)
+    // g1-edu-2024-03-QP.pdf        (고1 3월 교육청)
+    // csat-2025-QP.pdf             (수능)
+    var KR_MONTHS = {
+      '03': '3월', '04': '4월', '06': '6월',
+      '07': '7월', '09': '9월', '10': '10월', '11': '11월'
+    };
+    var KR_ORGS = {
+      'pyeongwon': '평가원',
+      'edu': '교육청'
+    };
+
+    // CSAT (수능): csat-2025-QP.pdf
+    var mc = filename.match(/^csat-(\d{4})-(QP|MS)\.pdf$/);
+    if (mc) {
+      result.year = mc[1];
+      result.session = 'main';
+      result.paperLabel = '수능';
+      result.docType = mc[2];
+    }
+
+    // Grade exams: g3-pyeongwon-2024-06-QP.pdf
+    var mg = filename.match(/^g(\d)-(pyeongwon|edu)-(\d{4})-(\d{2})-(QP|MS)\.pdf$/);
+    if (mg) {
+      result.year = mg[3];
+      var monthNum = mg[4];
+      var org = KR_ORGS[mg[2]] || mg[2];
+      result.session = (KR_MONTHS[monthNum] || monthNum) + ' ' + org;
+      result.paperLabel = '수학';
+      result.docType = mg[5];
     }
   } else if (type === 'edexcel-igcse') {
     var IGCSE_EDEXCEL_LABELS = {
