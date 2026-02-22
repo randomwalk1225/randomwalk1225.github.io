@@ -41,24 +41,27 @@
     <link rel="stylesheet" href="../../assets/css/common.css">
     <link rel="stylesheet" href="../../assets/css/exam-list.css">
     <style>
-        .exam-year-table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,0.06); margin-bottom: 30px; }
+        .exam-year-table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,0.06); margin-bottom: 30px; table-layout: fixed; }
         .exam-year-table thead { background: #f8fafc; }
-        .exam-year-table th { padding: 12px 16px; text-align: left; font-weight: 600; color: #475569; font-size: 0.9em; border-bottom: 2px solid #e2e8f0; }
-        .exam-year-table td { padding: 10px 16px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; }
+        .exam-year-table th { padding: 10px 8px; text-align: left; font-weight: 600; color: #475569; font-size: 0.85em; border-bottom: 2px solid #e2e8f0; white-space: nowrap; }
+        .exam-year-table th:nth-child(1) { width: 22%; }
+        .exam-year-table th:nth-child(2) { width: 22%; }
+        .exam-year-table th:nth-child(3) { width: 56%; }
+        .exam-year-table td { padding: 8px 8px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; }
         .exam-year-table tbody tr:hover { background: #f8fafc; }
-        .exam-year-table .year-cell { font-weight: 700; color: #1e3a5f; white-space: nowrap; }
-        .exam-year-table .year-sub { display: block; font-size: 0.75em; color: #94a3b8; font-weight: 400; }
-        .exam-year-table .session-cell { color: #64748b; font-size: 0.9em; }
-        .exam-year-table .link-cell { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+        .exam-year-table .year-cell { font-weight: 700; color: #1e3a5f; white-space: nowrap; font-size: 0.9em; }
+        .exam-year-table .year-sub { display: block; font-size: 0.7em; color: #94a3b8; font-weight: 400; }
+        .exam-year-table .session-cell { color: #64748b; font-size: 0.85em; white-space: nowrap; }
+        .exam-year-table .link-cell { display: flex; gap: 5px; flex-wrap: nowrap; align-items: center; }
         .exam-year-table .link-cell a, .exam-year-table .link-cell button {
-            display: inline-block; padding: 5px 14px; border-radius: 5px; text-decoration: none;
-            font-size: 0.8em; font-weight: 600; cursor: pointer; border: none;
+            display: inline-block; padding: 5px 10px; border-radius: 5px; text-decoration: none;
+            font-size: 0.8em; font-weight: 600; cursor: pointer; border: none; white-space: nowrap;
         }
         .link-qp { background: #2563eb; color: white !important; }
         .link-qp:hover { background: #1d4ed8; }
         .link-ms { background: #dcfce7; color: #16a34a !important; }
         .link-ms:hover { background: #bbf7d0; }
-        .link-ans { background: #fef3c7; color: #d97706 !important; font-size: 0.78em !important; }
+        .link-ans { background: #fef3c7; color: #d97706 !important; }
         .link-ans:hover { background: #fde68a; }
         .link-ans.active { background: #d97706; color: white !important; }
         .coming-label { color: #94a3b8; font-style: italic; font-size: 0.85em; }
@@ -87,22 +90,23 @@
         .ad-unit { text-align: center; margin: 24px 0; min-height: 90px; }
         .ad-unit-sidebar { margin: 20px 0; min-height: 250px; }
 
-        .content-layout { display: flex; gap: 30px; max-width: 1200px; }
+        .content-layout { display: flex; gap: 24px; max-width: 1200px; }
         .content-main { flex: 1; min-width: 0; }
-        .content-sidebar { width: 300px; flex-shrink: 0; }
+        .content-sidebar { width: 220px; flex-shrink: 0; }
         .sidebar-sticky { position: sticky; top: 70px; }
         .sidebar-box { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 1px 6px rgba(0,0,0,0.06); margin-bottom: 20px; }
         .sidebar-box h4 { color: #1e3a5f; margin: 0 0 12px; font-size: 0.95em; }
         .sidebar-link { display: block; padding: 8px 0; color: #2563eb; text-decoration: none; font-size: 0.9em; border-bottom: 1px solid #f1f5f9; }
         .sidebar-link:hover { color: #1d4ed8; }
 
-        @media (max-width: 900px) {
+        @media (max-width: 960px) {
             .content-layout { flex-direction: column; }
             .content-sidebar { width: 100%; }
             .sidebar-sticky { position: static; }
         }
         @media (max-width: 768px) {
-            .exam-year-table th, .exam-year-table td { padding: 8px 10px; font-size: 0.85em; }
+            .exam-year-table th, .exam-year-table td { padding: 6px 6px; font-size: 0.82em; }
+            .exam-year-table .link-cell a, .exam-year-table .link-cell button { padding: 4px 8px; font-size: 0.75em; }
             .quick-answer-frame { height: 300px; }
             .site-stats { gap: 10px; }
             .stat-item { padding: 8px 14px; }
@@ -133,11 +137,11 @@
         </div>
     </div>
 
-    <div class="exam-container">
+    <div class="exam-container" style="max-width: 1200px;">
         <div class="content-layout">
             <div class="content-main">
 
-                <div class="tab-bar">
+                <div class="tab-bar" style="flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;">
                     <button class="tab-btn active" onclick="showTab('g1')">고1</button>
                     <button class="tab-btn" onclick="showTab('g2')">고2</button>
                     <button class="tab-btn" onclick="showTab('g3')">고3</button>
