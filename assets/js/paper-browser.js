@@ -160,17 +160,25 @@ function parseName(filename, type) {
       result.docType = sp[3];
     }
   } else if (type === 'edexcel-igcse') {
+    var IGCSE_EDEXCEL_LABELS = {
+      '1F': 'Paper 1F — Foundation Non-Calc',
+      '2F': 'Paper 2F — Foundation Calculator',
+      '1H': 'Paper 1H — Higher Non-Calc',
+      '2H': 'Paper 2H — Higher Calculator',
+      '3H': 'Paper 3H — Higher Non-Calc (Old)',
+      '4H': 'Paper 4H — Higher Calculator (Old)'
+    };
     // edexcel-igcse-Paper-1H-June-2024-QP.pdf
     var m = filename.match(/Paper-(\w+)-(\w+)-(\d{4})-(\w+)\.pdf/);
     if (m) {
-      result.paperLabel = 'Paper ' + m[1];
+      result.paperLabel = IGCSE_EDEXCEL_LABELS[m[1]] || ('Paper ' + m[1]);
       result.session = m[2];
       result.year = m[3];
       result.docType = m[4];
     }
     var sp = filename.match(/Paper-(\w+)-Specimen-(\w+)\.pdf/);
     if (sp) {
-      result.paperLabel = 'Paper ' + sp[1];
+      result.paperLabel = IGCSE_EDEXCEL_LABELS[sp[1]] || ('Paper ' + sp[1]);
       result.year = 'Specimen';
       result.session = 'main';
       result.docType = sp[2];
