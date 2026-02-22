@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>수학 기출문제 - 수능, 평가원, 교육청 모의고사 | MathHub Korea</title>
-    <meta name="description" content="수능, 평가원 모의고사, 교육청 모의고사 수학 기출문제와 정답해설을 무료로 제공합니다. 고1, 고2, 고3 학년별 기출문제 PDF 다운로드.">
-    <meta name="keywords" content="수능 기출, 평가원 모의고사, 교육청 모의고사, 수학 기출문제, 고1 모의고사, 고2 모의고사, 고3 모의고사">
+    <title>수학 기출문제 - 수능, 평가원, 교육청, 사관학교 | MathHub Korea</title>
+    <meta name="description" content="수능, 평가원, 교육청 모의고사, 육사, 해사, 공사, 대학별 고사 수학 기출문제와 정답해설을 10년치 무료 제공합니다.">
+    <meta name="keywords" content="수능 기출, 평가원 모의고사, 교육청 모의고사, 육사 기출, 해사 기출, 공사 기출, 대학별 고사, 수학 기출문제, 10년치">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://randomwalk1225.github.io/kr/exams/">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://randomwalk1225.github.io/kr/exams/">
-    <meta property="og:title" content="수학 기출문제 - 수능, 평가원, 교육청 모의고사 | MathHub Korea">
-    <meta property="og:description" content="수능, 평가원 모의고사, 교육청 모의고사 수학 기출문제와 정답해설을 무료로 제공합니다.">
+    <meta property="og:title" content="수학 기출문제 - 수능, 평가원, 교육청, 사관학교 | MathHub Korea">
+    <meta property="og:description" content="수능, 모의고사, 사관학교 수학 기출문제와 정답해설을 10년치 무료 제공합니다.">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="수학 기출문제 | MathHub Korea">
 
@@ -28,6 +28,28 @@
 
     <link rel="stylesheet" href="../../assets/css/common.css">
     <link rel="stylesheet" href="../../assets/css/exam-list.css">
+    <style>
+        .exam-year-table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,0.06); margin-bottom: 30px; }
+        .exam-year-table thead { background: #f8fafc; }
+        .exam-year-table th { padding: 12px 16px; text-align: left; font-weight: 600; color: #475569; font-size: 0.9em; border-bottom: 2px solid #e2e8f0; }
+        .exam-year-table td { padding: 10px 16px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; }
+        .exam-year-table tbody tr:hover { background: #f8fafc; }
+        .exam-year-table .year-cell { font-weight: 700; color: #1e3a5f; white-space: nowrap; }
+        .exam-year-table .session-cell { color: #64748b; font-size: 0.9em; }
+        .exam-year-table .link-cell { display: flex; gap: 6px; flex-wrap: wrap; }
+        .exam-year-table .link-cell a {
+            display: inline-block; padding: 4px 12px; border-radius: 5px; text-decoration: none;
+            font-size: 0.8em; font-weight: 600;
+        }
+        .link-qp { background: #2563eb; color: white; }
+        .link-qp:hover { background: #1d4ed8; }
+        .link-ms { background: #dcfce7; color: #16a34a; }
+        .link-ms:hover { background: #bbf7d0; }
+        .coming-label { color: #94a3b8; font-style: italic; font-size: 0.85em; }
+        @media (max-width: 768px) {
+            .exam-year-table th, .exam-year-table td { padding: 8px 10px; font-size: 0.85em; }
+        }
+    </style>
 </head>
 <body>
     <nav class="global-nav">
@@ -43,7 +65,7 @@
     <div class="exam-hero" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
         <div class="breadcrumb"><a href="../../">MathHub</a> &gt; <a href="../">Korea</a> &gt; 기출문제</div>
         <h1>수학 기출문제</h1>
-        <p>수능, 평가원, 교육청 모의고사 문제지와 정답해설</p>
+        <p>수능, 평가원, 교육청, 사관학교, 대학별 고사 &mdash; 10년치</p>
     </div>
 
     <div class="exam-container">
@@ -52,50 +74,74 @@
             <button class="tab-btn" onclick="showTab('g2')">고2</button>
             <button class="tab-btn" onclick="showTab('g3')">고3</button>
             <button class="tab-btn" onclick="showTab('csat')">수능</button>
+            <button class="tab-btn" onclick="showTab('kma')">육사</button>
+            <button class="tab-btn" onclick="showTab('kna')">해사</button>
+            <button class="tab-btn" onclick="showTab('kafa')">공사</button>
+            <button class="tab-btn" onclick="showTab('univ')">대학별</button>
         </div>
 
         <!-- 고1 -->
         <div id="tab-g1" class="tab-content active">
             <h2>고1 교육청 모의고사</h2>
-            <p class="section-note">전국연합학력평가 (3월, 6월, 9월, 11월)</p>
+            <p class="section-note">전국연합학력평가 (3월, 6월, 9월, 11월) &mdash; 최근 10년</p>
             <div id="g1-papers"></div>
-            <div class="empty-placeholder" style="text-align:center; color:#94a3b8; padding:40px 20px;">
-                <p style="font-size:1.1em; margin-bottom:8px;">기출문제가 곧 업로드됩니다.</p>
-                <p style="font-size:0.9em;">고1 교육청 모의고사 수학 문제지와 해설을 준비 중입니다.</p>
-            </div>
+            <table class="exam-year-table" id="g1-table"></table>
         </div>
 
         <!-- 고2 -->
         <div id="tab-g2" class="tab-content">
             <h2>고2 교육청 모의고사</h2>
-            <p class="section-note">전국연합학력평가 (3월, 6월, 9월, 11월)</p>
+            <p class="section-note">전국연합학력평가 (3월, 6월, 9월, 11월) &mdash; 최근 10년</p>
             <div id="g2-papers"></div>
-            <div class="empty-placeholder" style="text-align:center; color:#94a3b8; padding:40px 20px;">
-                <p style="font-size:1.1em; margin-bottom:8px;">기출문제가 곧 업로드됩니다.</p>
-                <p style="font-size:0.9em;">고2 교육청 모의고사 수학 문제지와 해설을 준비 중입니다.</p>
-            </div>
+            <table class="exam-year-table" id="g2-table"></table>
         </div>
 
         <!-- 고3 -->
         <div id="tab-g3" class="tab-content">
             <h2>고3 모의고사</h2>
-            <p class="section-note">평가원 (6월, 9월) + 교육청 (3월, 4월, 7월, 10월)</p>
+            <p class="section-note">평가원 (6월, 9월) + 교육청 (3월, 4월, 7월, 10월) &mdash; 최근 10년</p>
             <div id="g3-papers"></div>
-            <div class="empty-placeholder" style="text-align:center; color:#94a3b8; padding:40px 20px;">
-                <p style="font-size:1.1em; margin-bottom:8px;">기출문제가 곧 업로드됩니다.</p>
-                <p style="font-size:0.9em;">고3 평가원/교육청 모의고사 수학 문제지와 해설을 준비 중입니다.</p>
-            </div>
+            <table class="exam-year-table" id="g3-table"></table>
         </div>
 
         <!-- 수능 -->
         <div id="tab-csat" class="tab-content">
             <h2>대학수학능력시험 (수능)</h2>
-            <p class="section-note">매년 11월 시행</p>
+            <p class="section-note">매년 11월 시행 &mdash; 최근 10년</p>
             <div id="csat-papers"></div>
-            <div class="empty-placeholder" style="text-align:center; color:#94a3b8; padding:40px 20px;">
-                <p style="font-size:1.1em; margin-bottom:8px;">기출문제가 곧 업로드됩니다.</p>
-                <p style="font-size:0.9em;">수능 수학 문제지와 해설을 준비 중입니다.</p>
-            </div>
+            <table class="exam-year-table" id="csat-table"></table>
+        </div>
+
+        <!-- 육사 -->
+        <div id="tab-kma" class="tab-content">
+            <h2>육군사관학교 (육사) 1차 수학</h2>
+            <p class="section-note">육군사관학교 1차 시험 수학 기출문제 &mdash; 최근 10년</p>
+            <div id="kma-papers"></div>
+            <table class="exam-year-table" id="kma-table"></table>
+        </div>
+
+        <!-- 해사 -->
+        <div id="tab-kna" class="tab-content">
+            <h2>해군사관학교 (해사) 1차 수학</h2>
+            <p class="section-note">해군사관학교 1차 시험 수학 기출문제 &mdash; 최근 10년</p>
+            <div id="kna-papers"></div>
+            <table class="exam-year-table" id="kna-table"></table>
+        </div>
+
+        <!-- 공사 -->
+        <div id="tab-kafa" class="tab-content">
+            <h2>공군사관학교 (공사) 1차 수학</h2>
+            <p class="section-note">공군사관학교 1차 시험 수학 기출문제 &mdash; 최근 10년</p>
+            <div id="kafa-papers"></div>
+            <table class="exam-year-table" id="kafa-table"></table>
+        </div>
+
+        <!-- 대학별 -->
+        <div id="tab-univ" class="tab-content">
+            <h2>대학별 고사 수학</h2>
+            <p class="section-note">주요 대학 논술/특기자전형 수학 기출문제 &mdash; 최근 10년</p>
+            <div id="univ-papers"></div>
+            <table class="exam-year-table" id="univ-table"></table>
         </div>
 
         <!-- How to Use -->
@@ -106,6 +152,7 @@
                 <li><strong>MS</strong> = 정답 및 해설 (Mark Scheme)</li>
                 <li>각 연도별로 문제지와 해설을 나란히 확인할 수 있습니다.</li>
                 <li>PDF 파일을 클릭하면 새 탭에서 열립니다.</li>
+                <li>10년치 기출문제를 구비하고 있으며, 순차적으로 업로드됩니다.</li>
             </ul>
         </div>
 
@@ -138,18 +185,51 @@
         PaperBrowser('g2-papers', 'papers/g2/manifest.json', { type: 'korean' });
         PaperBrowser('g3-papers', 'papers/g3/manifest.json', { type: 'korean' });
         PaperBrowser('csat-papers', 'papers/csat/manifest.json', { type: 'korean' });
+        PaperBrowser('kma-papers', 'papers/kma/manifest.json', { type: 'korean' });
+        PaperBrowser('kna-papers', 'papers/kna/manifest.json', { type: 'korean' });
+        PaperBrowser('kafa-papers', 'papers/kafa/manifest.json', { type: 'korean' });
+        PaperBrowser('univ-papers', 'papers/univ/manifest.json', { type: 'korean' });
+
+        // Generate 10-year placeholder tables
+        var currentYear = new Date().getFullYear();
+
+        var EXAM_CONFIGS = {
+            'g1': { sessions: ['3월 교육청', '6월 교육청', '9월 교육청', '11월 교육청'] },
+            'g2': { sessions: ['3월 교육청', '6월 교육청', '9월 교육청', '11월 교육청'] },
+            'g3': { sessions: ['3월 교육청', '4월 교육청', '6월 평가원', '7월 교육청', '9월 평가원', '10월 교육청'] },
+            'csat': { sessions: ['수능 (11월)'] },
+            'kma': { sessions: ['1차 시험'] },
+            'kna': { sessions: ['1차 시험'] },
+            'kafa': { sessions: ['1차 시험'] },
+            'univ': { sessions: ['서울대 논술', '연세대 논술', '고려대 논술', 'KAIST', 'POSTECH'] }
+        };
+
+        Object.keys(EXAM_CONFIGS).forEach(function(key) {
+            var table = document.getElementById(key + '-table');
+            if (!table) return;
+            var cfg = EXAM_CONFIGS[key];
+            var html = '<thead><tr><th>연도</th><th>시행</th><th>다운로드</th></tr></thead><tbody>';
+            for (var y = currentYear; y >= currentYear - 9; y--) {
+                cfg.sessions.forEach(function(sess, i) {
+                    html += '<tr>';
+                    if (i === 0) html += '<td class="year-cell" rowspan="' + cfg.sessions.length + '">' + y + '</td>';
+                    html += '<td class="session-cell">' + sess + '</td>';
+                    html += '<td><span class="coming-label">준비 중</span></td>';
+                    html += '</tr>';
+                });
+            }
+            html += '</tbody>';
+            table.innerHTML = html;
+        });
     </script>
 
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Course",
-        "name": "수학 기출문제 - 수능, 평가원, 교육청",
-        "description": "수능, 평가원 모의고사, 교육청 모의고사 수학 기출문제와 정답해설을 무료로 제공합니다.",
-        "provider": {
-            "@type": "Organization",
-            "name": "MathHub Korea"
-        },
+        "name": "수학 기출문제 - 수능, 평가원, 교육청, 사관학교",
+        "description": "수능, 평가원, 교육청 모의고사, 육사, 해사, 공사, 대학별 고사 수학 기출문제와 정답해설을 10년치 무료 제공합니다.",
+        "provider": { "@type": "Organization", "name": "MathHub Korea" },
         "educationalLevel": "고등학교",
         "inLanguage": "ko",
         "isAccessibleForFree": true,
