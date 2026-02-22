@@ -41,8 +41,9 @@ function PaperBrowser(containerId, manifestUrl, config) {
 function renderPapers(container, files, manifestUrl, config) {
   var basePath = manifestUrl.replace('/manifest.json', '/');
   var parsed = files.map(function(f) {
-    var p = parseName(f.name, config.type);
-    p.name = f.name;
+    var fname = typeof f === 'string' ? f : f.name;
+    var p = parseName(fname, config.type);
+    p.name = fname;
     return p;
   });
 
@@ -196,6 +197,15 @@ function parseName(filename, type) {
       result.session = (KR_MONTHS[monthNum] || monthNum) + ' ' + org;
       result.paperLabel = '수학';
       result.docType = mg[5];
+    }
+
+    // Military academy: kma-2025-QP.pdf, kna-2024-MS.pdf, kafa-2023-QP.pdf
+    var ma = filename.match(/^(kma|kna|kafa)-(\d{4})-(QP|MS)\.pdf$/);
+    if (ma) {
+      result.year = ma[2];
+      result.session = 'main';
+      result.paperLabel = '수학';
+      result.docType = ma[3];
     }
   } else if (type === 'edexcel-igcse') {
     var IGCSE_EDEXCEL_LABELS = {
