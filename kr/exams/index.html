@@ -17,7 +17,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://randomwalk1225.github.io/kr/exams/">
     <meta property="og:title" content="수학 기출문제 무료 다운로드 - 수능/평가원/교육청 10년치 | MathHub">
-    <meta property="og:description" content="수능, 평가원, 교육청 모의고사 수학 기출문제 184개+ PDF 무료 다운로드. 빠른 답지로 즉시 채점.">
+    <meta property="og:description" content="수능, 평가원, 교육청 모의고사 수학 기출문제 348개+ PDF 무료 다운로드. 빠른 답지로 즉시 채점.">
     <meta property="og:site_name" content="MathHub Korea">
     <meta property="og:locale" content="ko_KR">
 
@@ -130,7 +130,7 @@
         <h1>수학 기출문제 무료 다운로드</h1>
         <p>수능 &middot; 평가원 &middot; 교육청 &middot; 사관학교 &mdash; 10년치 PDF + 빠른 답지</p>
         <div class="site-stats">
-            <div class="stat-item"><span class="stat-num" id="total-papers">184</span><span class="stat-label">기출문제 PDF</span></div>
+            <div class="stat-item"><span class="stat-num" id="total-papers">348</span><span class="stat-label">기출문제 PDF</span></div>
             <div class="stat-item"><span class="stat-num">10</span><span class="stat-label">년치 보유</span></div>
             <div class="stat-item"><span class="stat-num">8</span><span class="stat-label">시험 유형</span></div>
             <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">무료 제공</span></div>
@@ -281,7 +281,7 @@
                         <li><strong>빠른답지</strong> = 페이지 내에서 바로 답지 확인 (접기/펼치기)</li>
                         <li>교육청 시험은 <strong>시행연도</strong>(예: 2025년)로 표기합니다.</li>
                         <li>평가원/수능/사관학교는 <strong>학년도</strong>(예: 2026학년도)로 표기합니다.</li>
-                        <li>184개+ 기출문제를 보유하고 있으며, 계속 업데이트됩니다.</li>
+                        <li>348개+ 기출문제를 보유하고 있으며, 계속 업데이트됩니다.</li>
                     </ul>
                 </div>
 
@@ -452,12 +452,19 @@
             return year + '년';
         }
 
-        function findFile(files, prefix, year, month, org, docType) {
-            var pattern;
-            if (prefix === 'csat') pattern = 'csat-' + year + '-' + docType + '.pdf';
-            else if (prefix === 'kma' || prefix === 'kna' || prefix === 'kafa') pattern = prefix + '-' + year + '-' + docType + '.pdf';
-            else pattern = prefix + '-' + org + '-' + year + '-' + month + '-' + docType + '.pdf';
-            return files.indexOf(pattern) !== -1 ? pattern : null;
+        function findFiles(files, prefix, year, month, org, docType) {
+            var result = { unified: null, ga: null, na: null };
+            var base;
+            if (prefix === 'csat') base = 'csat-' + year;
+            else if (prefix === 'kma' || prefix === 'kna' || prefix === 'kafa') base = prefix + '-' + year;
+            else base = prefix + '-' + org + '-' + year + '-' + month;
+            var unified = base + '-' + docType + '.pdf';
+            var ga = base + '-ga-' + docType + '.pdf';
+            var na = base + '-na-' + docType + '.pdf';
+            if (files.indexOf(unified) !== -1) result.unified = unified;
+            if (files.indexOf(ga) !== -1) result.ga = ga;
+            if (files.indexOf(na) !== -1) result.na = na;
+            return result;
         }
 
         function buildTable(key) {
@@ -473,30 +480,74 @@
         function renderTable(table, cfg, files) {
             var html = '<thead><tr><th>연도</th><th>시행</th><th>다운로드</th></tr></thead><tbody>';
             for (var y = currentYear; y >= currentYear - 9; y--) {
-                cfg.sessions.forEach(function(sess, i) {
-                    var qp = findFile(files, cfg.prefix, y, sess.month, sess.org, 'QP');
-                    var ms = findFile(files, cfg.prefix, y, sess.month, sess.org, 'MS');
-                    var yt = cfg.yearType;
-                    if (yt === 'mixed' && sess.yearType) yt = sess.yearType;
+                var rowSpan = 0;
+                var rowsHtml = '';
+                cfg.sessions.forEach(function(sess) {
+                    var qpF = findFiles(files, cfg.prefix, y, sess.month, sess.org, 'QP');
+                    var msF = findFiles(files, cfg.prefix, y, sess.month, sess.org, 'MS');
+                    var hasGaNaQP = qpF.ga || qpF.na;
+                    var hasGaNaMS = msF.ga || msF.na;
+                    var hasAny = qpF.unified || qpF.ga || qpF.na || msF.unified || msF.ga || msF.na;
 
-                    html += '<tr>';
-                    if (i === 0) html += '<td class="year-cell" rowspan="' + cfg.sessions.length + '">' + formatYear(y, yt) + '</td>';
-                    html += '<td class="session-cell">' + sess.label + '</td>';
-                    html += '<td class="link-cell">';
-                    if (qp || ms) {
-                        if (qp) html += '<a href="' + cfg.basePath + qp + '" target="_blank" class="link-qp">문제</a>';
-                        if (ms) {
-                            html += '<a href="' + cfg.basePath + ms + '" target="_blank" class="link-ms">해설</a>';
-                            html += '<button class="link-ans" onclick="toggleQuickAnswer(this, \'' + cfg.basePath + ms + '\')">빠른답지</button>';
-                        }
+                    if (hasGaNaQP) {
+                        // QP가 가/나 분리: 가형, 나형 각각 행
+                        ['ga', 'na'].forEach(function(t) {
+                            var label = t === 'ga' ? '가' : '나';
+                            rowsHtml += '<tr><td class="session-cell">' + sess.label + ' ' + label + '형</td><td class="link-cell">';
+                            if (qpF[t]) rowsHtml += '<a href="' + cfg.basePath + qpF[t] + '" target="_blank" class="link-qp">문제</a>';
+                            if (msF[t]) {
+                                rowsHtml += '<a href="' + cfg.basePath + msF[t] + '" target="_blank" class="link-ms">해설</a>';
+                                rowsHtml += '<button class="link-ans" onclick="toggleQuickAnswer(this, \'' + cfg.basePath + msF[t] + '\')">빠른답지</button>';
+                            } else if (msF.unified) {
+                                rowsHtml += '<a href="' + cfg.basePath + msF.unified + '" target="_blank" class="link-ms">해설</a>';
+                            }
+                            rowsHtml += '</td></tr>';
+                            if (msF[t]) {
+                                rowsHtml += '<tr class="quick-answer-row"><td colspan="3"><iframe class="quick-answer-frame" loading="lazy"></iframe></td></tr>';
+                            }
+                            rowSpan++;
+                        });
+                    } else if (!hasGaNaQP && hasGaNaMS && qpF.unified) {
+                        // QP 통합 + MS만 가/나 분리 (예: csat-2021)
+                        rowsHtml += '<tr><td class="session-cell">' + sess.label + '</td><td class="link-cell">';
+                        rowsHtml += '<a href="' + cfg.basePath + qpF.unified + '" target="_blank" class="link-qp">문제</a>';
+                        if (msF.ga) rowsHtml += '<a href="' + cfg.basePath + msF.ga + '" target="_blank" class="link-ms">해설(가)</a>';
+                        if (msF.na) rowsHtml += '<a href="' + cfg.basePath + msF.na + '" target="_blank" class="link-ms">해설(나)</a>';
+                        rowsHtml += '</td></tr>';
+                        rowSpan++;
                     } else {
-                        html += '<span class="coming-label">준비 중</span>';
-                    }
-                    html += '</td></tr>';
-                    if (ms) {
-                        html += '<tr class="quick-answer-row"><td colspan="3"><iframe class="quick-answer-frame" loading="lazy"></iframe></td></tr>';
+                        // 통합형 (2022~ 또는 가/나 없는 시험)
+                        rowsHtml += '<tr><td class="session-cell">' + sess.label + '</td><td class="link-cell">';
+                        if (hasAny) {
+                            if (qpF.unified) rowsHtml += '<a href="' + cfg.basePath + qpF.unified + '" target="_blank" class="link-qp">문제</a>';
+                            if (msF.unified) {
+                                rowsHtml += '<a href="' + cfg.basePath + msF.unified + '" target="_blank" class="link-ms">해설</a>';
+                                rowsHtml += '<button class="link-ans" onclick="toggleQuickAnswer(this, \'' + cfg.basePath + msF.unified + '\')">빠른답지</button>';
+                            }
+                            // MS만 가/나인데 QP도 없는 경우 (예: kma-2017-ga-MS만 있는 경우)
+                            if (!qpF.unified && !msF.unified) {
+                                if (msF.ga) rowsHtml += '<a href="' + cfg.basePath + msF.ga + '" target="_blank" class="link-ms">해설(가)</a>';
+                                if (msF.na) rowsHtml += '<a href="' + cfg.basePath + msF.na + '" target="_blank" class="link-ms">해설(나)</a>';
+                            }
+                        } else {
+                            rowsHtml += '<span class="coming-label">준비 중</span>';
+                        }
+                        rowsHtml += '</td></tr>';
+                        if (msF.unified) {
+                            rowsHtml += '<tr class="quick-answer-row"><td colspan="3"><iframe class="quick-answer-frame" loading="lazy"></iframe></td></tr>';
+                        }
+                        rowSpan++;
                     }
                 });
+                var yt = cfg.yearType;
+                if (yt === 'mixed') yt = cfg.sessions[0].yearType || 'edu';
+                html += '<tr><td class="year-cell" rowspan="' + rowSpan + '">' + formatYear(y, yt) + '</td>';
+                // Insert first row's content (strip leading <tr>)
+                var firstTr = rowsHtml.indexOf('<tr>');
+                if (firstTr === 0) {
+                    rowsHtml = rowsHtml.substring(4); // remove first <tr>
+                }
+                html += rowsHtml;
             }
             html += '</tbody>';
             table.innerHTML = html;
@@ -544,7 +595,7 @@
                 "name": "수능 수학 기출문제를 무료로 다운받을 수 있나요?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "네, MathHub Korea에서 2016년부터 2025년까지 10년치 수능 수학 기출문제와 정답해설을 PDF로 무료 다운로드할 수 있습니다. 빠른 답지 기능으로 페이지 내에서 바로 채점도 가능합니다."
+                    "text": "네, MathHub Korea에서 2016년부터 2025년까지 10년치 수능 수학 기출문제와 정답해설을 PDF로 무료 다운로드할 수 있습니다. 348개+ PDF를 보유하고 있으며, 빠른 답지 기능으로 페이지 내에서 바로 채점도 가능합니다."
                 }
             },
             {
@@ -560,7 +611,7 @@
                 "name": "고1, 고2 모의고사도 제공하나요?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "네, 고1과 고2 전국연합학력평가(3월, 6월, 9월, 11월) 기출문제를 2020년부터 2025년까지 제공합니다. 문제지와 해설 PDF 모두 무료로 다운로드 가능합니다."
+                    "text": "네, 고1과 고2 전국연합학력평가(3월, 6월, 9월, 11월) 기출문제를 2017년부터 2025년까지 제공합니다. 문제지와 해설 PDF 모두 무료로 다운로드 가능합니다."
                 }
             },
             {
@@ -568,7 +619,7 @@
                 "name": "사관학교(육사/해사/공사) 수학 기출문제도 있나요?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "네, 육군사관학교(육사), 해군사관학교(해사), 공군사관학교(공사) 1차 시험 수학 기출문제를 2022년부터 2025년까지 제공합니다. 사관학교 1차 시험은 세 학교 공통으로 시행됩니다."
+                    "text": "네, 육군사관학교(육사), 해군사관학교(해사), 공군사관학교(공사) 1차 시험 수학 기출문제를 2016년부터 2025년까지 제공합니다. 사관학교 1차 시험은 세 학교 공통으로 시행됩니다."
                 }
             },
             {
@@ -589,7 +640,7 @@
         "@context": "https://schema.org",
         "@type": "Dataset",
         "name": "한국 수학 기출문제 PDF 아카이브",
-        "description": "수능, 평가원, 교육청 모의고사, 사관학교 수학 기출문제 184개+ PDF 모음",
+        "description": "수능, 평가원, 교육청 모의고사, 사관학교 수학 기출문제 348개+ PDF 모음",
         "url": "https://randomwalk1225.github.io/kr/exams/",
         "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
         "creator": { "@type": "Organization", "name": "MathHub Korea" },
