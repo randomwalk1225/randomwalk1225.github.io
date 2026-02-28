@@ -8,14 +8,12 @@
     <meta name="description" content="수학 문제집 추천! 중1~고3 학년별, 기본서부터 심화서까지 수준별 베스트 수학 교재를 소개합니다. 개념원리, 쎈, 블랙라벨, EBS 수능특강 등.">
     <meta name="keywords" content="수학 문제집 추천, 수학 교재, 쎈, 개념원리, 블랙라벨, RPM, 수학의 정석, EBS 수능특강, 자이스토리, 중학교 수학">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://randomwalk1225.github.io/kr/books/">
+    <link rel="canonical" href="https://mathhub.io/kr/books/">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://randomwalk1225.github.io/kr/books/">
+    <meta property="og:url" content="https://mathhub.io/kr/books/">
     <meta property="og:title" content="수학 문제집 추천 | MathHub Korea">
     <meta property="og:description" content="중1~고3 학년별, 수준별 베스트 수학 문제집을 추천합니다.">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="수학 문제집 추천 | MathHub Korea">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
@@ -29,80 +27,252 @@
     <link rel="stylesheet" href="../../assets/css/common.css">
     <link rel="stylesheet" href="../../assets/css/exam-list.css">
     <style>
+        /* ── Filter Controls ── */
+        .filter-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
         .grade-filter {
-            display: flex; gap: 0; background: white; border-radius: 10px;
-            box-shadow: 0 1px 6px rgba(0,0,0,0.06); margin-bottom: 16px; overflow: hidden;
+            display: flex;
+            gap: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+            overflow: hidden;
         }
         .grade-btn {
-            flex: 1; padding: 12px 8px; text-align: center; border: none; background: none;
-            color: #64748b; font-size: 0.9em; font-weight: 600; cursor: pointer; transition: all 0.2s;
+            flex: 1;
+            padding: 13px 8px;
+            text-align: center;
+            border: none;
+            background: none;
+            color: #64748b;
+            font-size: 0.9em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
         }
-        .grade-btn:hover { background: #f5f3ff; color: #667eea; }
-        .grade-btn.active { background: #667eea; color: white; }
+        .grade-btn:hover { background: #f5f3ff; color: #5b21b6; }
+        .grade-btn.active { background: #5b21b6; color: white; }
 
-        .semester-filter {
-            display: flex; gap: 8px; margin-bottom: 16px; justify-content: center;
+        .row-filters {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
         }
-        .semester-btn {
-            padding: 8px 20px; border: 2px solid #e2e8f0; border-radius: 20px;
-            background: white; color: #64748b; font-weight: 600; cursor: pointer; transition: all 0.2s;
+        .filter-pill {
+            padding: 7px 18px;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            background: white;
+            color: #64748b;
+            font-weight: 600;
+            font-size: 0.88em;
+            cursor: pointer;
+            transition: all 0.2s;
         }
-        .semester-btn:hover { border-color: #667eea; color: #667eea; }
-        .semester-btn.active { background: #667eea; color: white; border-color: #667eea; }
+        .filter-pill:hover { border-color: #5b21b6; color: #5b21b6; }
+        .filter-pill.active { background: #5b21b6; color: white; border-color: #5b21b6; }
 
-        .category-tabs {
-            display: flex; gap: 0; background: white; border-radius: 10px;
-            box-shadow: 0 1px 6px rgba(0,0,0,0.06); margin-bottom: 24px; overflow: hidden;
-        }
-        .category-tab {
-            flex: 1; padding: 14px 8px; text-align: center; border: none; background: none;
-            color: #64748b; font-size: 0.9em; font-weight: 600; cursor: pointer; transition: all 0.2s;
-            border-bottom: 3px solid transparent;
-        }
-        .category-tab:hover { background: #f5f3ff; color: #667eea; }
-        .category-tab.active { color: #667eea; border-bottom-color: #667eea; background: #f5f3ff; }
-
+        /* ── Book Grid ── */
         .book-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px; margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
         }
+
+        /* ── Book Card ── */
         .book-card {
-            background: white; border-radius: 12px; overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08); display: flex; flex-direction: column;
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        .book-card-top { display: flex; gap: 16px; padding: 20px; }
-        .book-cover {
-            width: 80px; height: 110px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 6px; display: flex; align-items: center; justify-content: center;
-            color: white; font-weight: 700; font-size: 0.85em; text-align: center;
-            flex-shrink: 0; line-height: 1.3; padding: 8px;
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.14);
         }
-        .book-info { flex: 1; }
-        .book-info h3 { margin: 0 0 4px; font-size: 1.1em; color: #1e3a5f; }
-        .book-info .publisher { color: #64748b; font-size: 0.85em; margin-bottom: 6px; }
-        .book-info .price { color: #2563eb; font-weight: 700; font-size: 0.95em; }
-        .book-info .recommendation { margin-top: 8px; color: #475569; font-size: 0.88em; line-height: 1.4; }
-        .book-card-bottom { padding: 0 20px 20px; margin-top: auto; }
-        .btn-buy {
-            display: block; text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white; padding: 12px; border-radius: 8px; text-decoration: none;
-            font-weight: 700; font-size: 0.95em; transition: opacity 0.2s;
+
+        /* ── Book Cover Image Area ── */
+        .book-cover-wrap {
+            position: relative;
+            width: 100%;
+            padding-top: 140%; /* 5:7 portrait ratio */
+            overflow: hidden;
+            flex-shrink: 0;
         }
-        .btn-buy:hover { opacity: 0.9; }
+        .book-cover-wrap img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .book-cover-fallback {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            color: white;
+        }
+        .book-cover-fallback .cover-brand {
+            font-size: 0.7em;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+        .book-cover-fallback .cover-title {
+            font-size: 1.15em;
+            font-weight: 800;
+            text-align: center;
+            line-height: 1.35;
+            letter-spacing: -0.01em;
+        }
+        .book-cover-fallback .cover-sub {
+            font-size: 0.72em;
+            opacity: 0.75;
+            margin-top: 10px;
+            text-align: center;
+        }
+        /* decorative stripe */
+        .book-cover-fallback::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: rgba(255,255,255,0.35);
+        }
+        /* subtle diagonal pattern */
+        .book-cover-fallback::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 20px,
+                rgba(255,255,255,0.04) 20px,
+                rgba(255,255,255,0.04) 40px
+            );
+            pointer-events: none;
+        }
+
+        /* ── Card Body ── */
+        .book-body {
+            padding: 14px 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .book-body h3 {
+            margin: 0 0 4px;
+            font-size: 0.97em;
+            color: #1e3a5f;
+            line-height: 1.3;
+        }
+        .book-publisher {
+            color: #94a3b8;
+            font-size: 0.78em;
+            margin-bottom: 6px;
+        }
+        .book-level {
+            display: inline-block;
+            font-size: 0.72em;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-bottom: 8px;
+        }
+        .level-basic  { background: #dbeafe; color: #1d4ed8; }
+        .level-type   { background: #dcfce7; color: #15803d; }
+        .level-adv    { background: #fee2e2; color: #dc2626; }
+        .level-csat   { background: #fef3c7; color: #b45309; }
+        .level-kmo    { background: #ede9fe; color: #7c3aed; }
+        .book-desc {
+            color: #64748b;
+            font-size: 0.82em;
+            line-height: 1.5;
+            flex: 1;
+            margin-bottom: 12px;
+        }
+        .btn-naver {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: #03c75a;
+            color: white;
+            padding: 10px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.88em;
+            transition: background 0.2s;
+            margin-top: auto;
+        }
+        .btn-naver:hover { background: #02b350; }
+        .btn-naver svg { flex-shrink: 0; }
+
+        /* ── Info Box ── */
+        .info-box {
+            background: white;
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-top: 20px;
+        }
+        .info-box h3 { color: #1e3a5f; margin: 0 0 14px; font-size: 1.1em; }
+        .guide-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+        }
+        .guide-table th {
+            background: #f8fafc;
+            color: #475569;
+            font-weight: 600;
+            padding: 9px 12px;
+            text-align: left;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .guide-table td {
+            padding: 9px 12px;
+            border-bottom: 1px solid #f1f5f9;
+            color: #475569;
+        }
+        .guide-table tr:last-child td { border-bottom: none; }
 
         .affiliate-notice {
-            text-align: center; color: #94a3b8; font-size: 0.8em;
-            margin-top: 30px; padding: 16px; border-top: 1px solid #e2e8f0;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.8em;
+            margin-top: 30px;
+            padding: 14px;
+            border-top: 1px solid #e2e8f0;
         }
         .no-results {
-            text-align: center; color: #94a3b8; padding: 40px; grid-column: 1 / -1;
+            text-align: center;
+            color: #94a3b8;
+            padding: 48px 20px;
+            grid-column: 1 / -1;
         }
 
         @media (max-width: 768px) {
-            .grade-btn { font-size: 0.8em; padding: 10px 4px; }
-            .category-tab { font-size: 0.8em; padding: 12px 4px; }
-            .book-grid { grid-template-columns: 1fr; }
-            .book-card-top { flex-direction: column; align-items: center; text-align: center; }
+            .grade-btn { font-size: 0.78em; padding: 10px 4px; }
+            .book-grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 14px; }
         }
     </style>
 </head>
@@ -113,65 +283,76 @@
             <a href="../../kr/" class="active">KR</a>
             <a href="../../us/">US</a>
             <a href="../../uk/">UK</a>
+            <a href="../../ca/">CA</a>
             <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
         </div>
     </nav>
 
-    <div class="exam-hero" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+    <div class="exam-hero kr-theme">
         <div class="breadcrumb"><a href="../../">MathHub</a> &gt; <a href="../">Korea</a> &gt; 문제집 추천</div>
         <h1>수학 문제집 추천</h1>
-        <p>학년별, 수준별 베스트 수학 교재를 만나보세요</p>
+        <p>학년별·수준별 베스트 수학 교재를 만나보세요</p>
     </div>
 
     <div class="exam-container">
-        <!-- Grade Filter -->
-        <div class="grade-filter">
-            <button class="grade-btn" data-grade="m1" onclick="filterGrade('m1')">중1</button>
-            <button class="grade-btn" data-grade="m2" onclick="filterGrade('m2')">중2</button>
-            <button class="grade-btn" data-grade="m3" onclick="filterGrade('m3')">중3</button>
-            <button class="grade-btn active" data-grade="h1" onclick="filterGrade('h1')">고1</button>
-            <button class="grade-btn" data-grade="h2" onclick="filterGrade('h2')">고2</button>
-            <button class="grade-btn" data-grade="h3" onclick="filterGrade('h3')">고3</button>
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+            <div class="grade-filter">
+                <button class="grade-btn" data-grade="m1" onclick="filterGrade('m1')">중1</button>
+                <button class="grade-btn" data-grade="m2" onclick="filterGrade('m2')">중2</button>
+                <button class="grade-btn" data-grade="m3" onclick="filterGrade('m3')">중3</button>
+                <button class="grade-btn active" data-grade="h1" onclick="filterGrade('h1')">고1</button>
+                <button class="grade-btn" data-grade="h2" onclick="filterGrade('h2')">고2</button>
+                <button class="grade-btn" data-grade="h3" onclick="filterGrade('h3')">고3</button>
+            </div>
+            <div class="row-filters">
+                <button class="filter-pill active" data-cat="all" onclick="filterCat('all')">전체</button>
+                <button class="filter-pill" data-cat="basic" onclick="filterCat('basic')">기본서</button>
+                <button class="filter-pill" data-cat="type" onclick="filterCat('type')">유형서</button>
+                <button class="filter-pill" data-cat="advanced" onclick="filterCat('advanced')">심화서</button>
+                <button class="filter-pill" data-cat="csat" onclick="filterCat('csat')">수능대비</button>
+            </div>
         </div>
 
-        <!-- Semester Filter -->
-        <div class="semester-filter">
-            <button class="semester-btn active" data-semester="1" onclick="filterSemester('1')">1학기</button>
-            <button class="semester-btn" data-semester="2" onclick="filterSemester('2')">2학기</button>
-        </div>
-
-        <!-- Category Tabs -->
-        <div class="category-tabs">
-            <button class="category-tab active" data-cat="all" onclick="filterCategory('all')">전체</button>
-            <button class="category-tab" data-cat="basic" onclick="filterCategory('basic')">기본서</button>
-            <button class="category-tab" data-cat="type" onclick="filterCategory('type')">유형서</button>
-            <button class="category-tab" data-cat="advanced" onclick="filterCategory('advanced')">심화서</button>
-            <button class="category-tab" data-cat="csat" onclick="filterCategory('csat')">수능대비</button>
-        </div>
-
-        <!-- Dynamic Book Grid -->
+        <!-- Book Grid -->
         <div id="bookGrid" class="book-grid"></div>
 
-        <!-- How to Choose -->
-        <div style="background:#f8fafc; border-radius:12px; padding:24px; margin-top:20px;">
-            <h3 style="color:#1e3a5f; margin-top:0;">교재 선택 가이드</h3>
-            <table class="paper-table" style="margin-top:12px;">
+        <!-- Selector Guide -->
+        <div class="info-box">
+            <h3>📖 교재 선택 가이드</h3>
+            <table class="guide-table">
                 <thead>
-                    <tr><th>수준</th><th>추천 교재</th><th>대상</th></tr>
+                    <tr><th>수준</th><th>추천 교재</th><th>대상 학생</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td><span class="type-badge mcq">기초</span></td><td>개념원리, 개념유형 개념편, 마플교과서</td><td>개념이 부족한 학생</td></tr>
-                    <tr><td><span class="type-badge key">중급</span></td><td>쎈, RPM, 개념유형 유형편, 수학의 바이블</td><td>유형 연습이 필요한 학생</td></tr>
-                    <tr><td><span class="type-badge frq">상급</span></td><td>블랙라벨, 일품, 정석 실력편, A급 수학</td><td>1등급 목표 학생</td></tr>
-                    <tr><td><span class="type-badge full">수능</span></td><td>EBS 수능특강, 자이스토리</td><td>수능 대비 학생</td></tr>
+                    <tr>
+                        <td><span class="book-level level-basic">기초</span></td>
+                        <td>개념원리, 개념유형 개념편, 마플교과서</td>
+                        <td>개념 이해가 부족한 학생</td>
+                    </tr>
+                    <tr>
+                        <td><span class="book-level level-type">중급</span></td>
+                        <td>쎈, RPM, 개념유형 유형편, 수학의 바이블</td>
+                        <td>유형 연습이 필요한 학생</td>
+                    </tr>
+                    <tr>
+                        <td><span class="book-level level-adv">상급</span></td>
+                        <td>블랙라벨, 일품, 수학의 정석 실력편</td>
+                        <td>1등급 목표 학생</td>
+                    </tr>
+                    <tr>
+                        <td><span class="book-level level-csat">수능</span></td>
+                        <td>EBS 수능특강, 자이스토리</td>
+                        <td>수능 대비 학생</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
 
         <!-- Related Links -->
-        <div style="margin-top:30px; padding:20px; background:white; border-radius:12px; box-shadow:0 1px 6px rgba(0,0,0,0.06);">
-            <h3 style="color:#1e3a5f; margin-top:0;">관련 페이지</h3>
-            <ul style="line-height:2;">
+        <div style="margin-top:20px; padding:20px; background:white; border-radius:12px; box-shadow:0 1px 6px rgba(0,0,0,0.06);">
+            <h3 style="color:#1e3a5f; margin-top:0; font-size:1em;">관련 페이지</h3>
+            <ul style="line-height:2; margin:0; padding-left:20px;">
                 <li><a href="../exams/" style="color:#2563eb;">기출문제</a> &mdash; 수능/모의고사 기출문제 다운로드</li>
                 <li><a href="../answers/" style="color:#2563eb;">교재 답지</a> &mdash; 인기 수학 교재 답지 보기</li>
                 <li><a href="../" style="color:#2563eb;">수학 블로그</a> &mdash; 수학 개념 정리 글</li>
@@ -179,97 +360,121 @@
         </div>
 
         <div class="affiliate-notice">
-            <p>이 페이지의 구매 링크는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받을 수 있습니다.</p>
+            <p>구매 링크는 네이버 쇼핑으로 연결됩니다. 가격은 판매처 및 시기에 따라 다를 수 있습니다.</p>
         </div>
     </div>
 
     <div class="footer">
-        <p>&copy; 2025 MathHub Global. All rights reserved.</p>
+        <p>&copy; 2026 MathHub Global. All rights reserved.</p>
     </div>
 
     <script>
+    // Publisher brand colors & gradients
+    var COLORS = {
+        '개념원리':    { bg: 'linear-gradient(160deg, #4c1d95, #7c3aed)', accent: '#7c3aed' },
+        '비상교육':    { bg: 'linear-gradient(160deg, #1e3a8a, #2563eb)', accent: '#2563eb' },
+        '성지출판':    { bg: 'linear-gradient(160deg, #7f1d1d, #dc2626)', accent: '#dc2626' },
+        '희망에듀':    { bg: 'linear-gradient(160deg, #14532d, #16a34a)', accent: '#16a34a' },
+        '좋은책신사고': { bg: 'linear-gradient(160deg, #92400e, #d97706)', accent: '#d97706' },
+        '이투스북':    { bg: 'linear-gradient(160deg, #0c4a6e, #0891b2)', accent: '#0891b2' },
+        '진학사':      { bg: 'linear-gradient(160deg, #0f172a, #334155)', accent: '#475569' },
+        'EBS':         { bg: 'linear-gradient(160deg, #064e3b, #059669)', accent: '#059669' },
+        '수경출판사':  { bg: 'linear-gradient(160deg, #3b0764, #7c3aed)', accent: '#9333ea' },
+        '세화':        { bg: 'linear-gradient(160deg, #0f1729, #1e3a5f)', accent: '#2563eb' },
+        '디딤돌':      { bg: 'linear-gradient(160deg, #064e3b, #047857)', accent: '#10b981' }
+    };
+
     var BOOKS = [
         // 기본서
-        { name: '개념원리', cover: '개념<br>원리', publisher: '개념원리', price: '15,000원~18,000원', desc: '수학 개념을 기초부터 체계적으로 정리. 개념 이해가 부족한 학생에게 추천.', cat: 'basic', grades: ['h1','h2','h3'], semesters: ['1','2'] },
-        { name: '개념유형 개념편', cover: '개념<br>유형', publisher: '비상교육', price: '14,000원~16,000원', desc: '핵심 개념을 쉽게 이해하고 기본 문제로 다지는 개념 중심 교재.', cat: 'basic', grades: ['m1','m2','m3','h1','h2','h3'], semesters: ['1','2'] },
-        { name: '수학의 정석 (기본편)', cover: '수학의<br>정석', publisher: '성지출판', price: '16,000원~19,000원', desc: '대한민국 수학 교재의 전설. 기본편으로 시작하여 실력편으로 진행.', cat: 'basic', grades: ['h1','h2','h3'], semesters: ['1','2'] },
-        { name: '마플교과서', cover: '마플<br>교과서', publisher: '희망에듀', price: '14,000원~17,000원', desc: '교과서 개념을 충실히 다루며 내신 대비에 효과적인 기본서.', cat: 'basic', grades: ['h1','h2','h3'], semesters: ['1','2'] },
+        { name: '개념원리', publisher: '개념원리', level: 'basic', levelLabel: '기본서', price: '15,000원~18,000원', desc: '수학 개념을 기초부터 체계적으로 정리. 개념 이해가 부족한 학생에게 추천.', grades: ['h1','h2','h3'], sems: ['1','2'] },
+        { name: '개념유형 개념편', publisher: '비상교육', level: 'basic', levelLabel: '기본서', price: '14,000원~16,000원', desc: '핵심 개념을 쉽게 이해하고 기본 문제로 다지는 개념 중심 교재.', grades: ['m1','m2','m3','h1','h2','h3'], sems: ['1','2'] },
+        { name: '수학의 정석 기본편', publisher: '성지출판', level: 'basic', levelLabel: '기본서', price: '16,000원~19,000원', desc: '대한민국 수학 교재의 전설. 기본편으로 시작하여 실력편으로 진행.', grades: ['h1','h2','h3'], sems: ['1','2'] },
+        { name: '마플교과서', publisher: '희망에듀', level: 'basic', levelLabel: '기본서', price: '14,000원~17,000원', desc: '교과서 개념을 충실히 다루며 내신 대비에 효과적인 기본서.', grades: ['h1','h2','h3'], sems: ['1','2'] },
         // 유형서
-        { name: '쎈 수학', cover: '쎈<br>수학', publisher: '좋은책신사고', price: '15,000원~18,000원', desc: '유형별 문제 분류가 체계적. 내신과 수능 모두 대비 가능한 베스트셀러.', cat: 'type', grades: ['m1','m2','m3','h1','h2','h3'], semesters: ['1','2'] },
-        { name: 'RPM', cover: 'RPM', publisher: '개념원리', price: '13,000원~16,000원', desc: '개념원리와 연계하여 유형별 반복 학습에 최적화된 문제집.', cat: 'type', grades: ['m1','m2','m3','h1','h2','h3'], semesters: ['1','2'] },
-        { name: '개념유형 유형편', cover: '개념유형<br>유형편', publisher: '비상교육', price: '14,000원~16,000원', desc: '유형별 문제 풀이로 실전 감각을 키우는 유형 중심 교재.', cat: 'type', grades: ['m1','m2','m3','h1','h2','h3'], semesters: ['1','2'] },
-        { name: '수학의 바이블', cover: '수학의<br>바이블', publisher: '이투스북', price: '15,000원~17,000원', desc: '개념과 유형을 균형 있게 다루는 종합 교재. 내신 대비에 강점.', cat: 'type', grades: ['h1','h2','h3'], semesters: ['1','2'] },
+        { name: '쎈 수학', publisher: '좋은책신사고', level: 'type', levelLabel: '유형서', price: '15,000원~18,000원', desc: '유형별 문제 분류가 체계적. 내신과 수능 모두 대비 가능한 베스트셀러.', grades: ['m1','m2','m3','h1','h2','h3'], sems: ['1','2'] },
+        { name: 'RPM', publisher: '개념원리', level: 'type', levelLabel: '유형서', price: '13,000원~16,000원', desc: '개념원리와 연계하여 유형별 반복 학습에 최적화된 문제집.', grades: ['m1','m2','m3','h1','h2','h3'], sems: ['1','2'] },
+        { name: '개념유형 유형편', publisher: '비상교육', level: 'type', levelLabel: '유형서', price: '14,000원~16,000원', desc: '유형별 문제 풀이로 실전 감각을 키우는 유형 중심 교재.', grades: ['m1','m2','m3','h1','h2','h3'], sems: ['1','2'] },
+        { name: '수학의 바이블', publisher: '이투스북', level: 'type', levelLabel: '유형서', price: '15,000원~17,000원', desc: '개념과 유형을 균형 있게 다루는 종합 교재. 내신 대비에 강점.', grades: ['h1','h2','h3'], sems: ['1','2'] },
         // 심화서
-        { name: '블랙라벨', cover: '블랙<br>라벨', publisher: '진학사', price: '14,000원~17,000원', desc: '1등급을 목표로 하는 학생들의 필수 심화 문제집.', cat: 'advanced', grades: ['m1','m2','m3','h1','h2','h3'], semesters: ['1','2'] },
-        { name: '일품', cover: '일품', publisher: '좋은책신사고', price: '13,000원~16,000원', desc: '쎈보다 한 단계 높은 난이도. 고난도 문제로 실력을 끌어올리는 교재.', cat: 'advanced', grades: ['h1','h2','h3'], semesters: ['1','2'] },
-        { name: '수학의 정석 (실력편)', cover: '정석<br>실력', publisher: '성지출판', price: '16,000원~19,000원', desc: '기본편을 마스터한 후 도전. 깊이 있는 문제로 수학적 사고력 강화.', cat: 'advanced', grades: ['h1','h2','h3'], semesters: ['1','2'] },
-        { name: 'A급 수학', cover: 'A급<br>수학', publisher: '디딤돌', price: '13,000원~15,000원', desc: '최상위권 도전을 위한 고난도 사고력 수학 문제집.', cat: 'advanced', grades: ['m1','m2','m3'], semesters: ['1','2'] },
-        // 수능대비
-        { name: 'EBS 수능특강', cover: 'EBS<br>수능<br>특강', publisher: 'EBS', price: '6,500원~8,500원', desc: '수능 연계 교재. 수능 출제 경향을 반영한 필수 대비 교재.', cat: 'csat', grades: ['h3'], semesters: ['1','2'] },
-        { name: '자이스토리', cover: '자이<br>스토리', publisher: '수경출판사', price: '14,000원~17,000원', desc: '수능 기출 분석과 유형 연습에 특화. 기출을 통한 실전 감각 향상.', cat: 'csat', grades: ['m1','m2','m3','h1','h2','h3'], semesters: ['1','2'] },
+        { name: '블랙라벨', publisher: '진학사', level: 'advanced', levelLabel: '심화서', price: '14,000원~17,000원', desc: '1등급을 목표로 하는 학생들의 필수 심화 문제집.', grades: ['m1','m2','m3','h1','h2','h3'], sems: ['1','2'] },
+        { name: '일품', publisher: '좋은책신사고', level: 'advanced', levelLabel: '심화서', price: '13,000원~16,000원', desc: '쎈보다 한 단계 높은 난이도. 고난도 문제로 실력을 끌어올리는 교재.', grades: ['h1','h2','h3'], sems: ['1','2'] },
+        { name: '수학의 정석 실력편', publisher: '성지출판', level: 'advanced', levelLabel: '심화서', price: '16,000원~19,000원', desc: '기본편을 마스터한 후 도전. 깊이 있는 문제로 수학적 사고력 강화.', grades: ['h1','h2','h3'], sems: ['1','2'] },
+        { name: 'A급 수학', publisher: '디딤돌', level: 'advanced', levelLabel: '심화서', price: '13,000원~15,000원', desc: '최상위권 도전을 위한 고난도 사고력 수학 문제집.', grades: ['m1','m2','m3'], sems: ['1','2'] },
+        // 수능
+        { name: 'EBS 수능특강', publisher: 'EBS', level: 'csat', levelLabel: '수능대비', price: '6,500원~8,500원', desc: '수능 연계 교재. 수능 출제 경향을 반영한 필수 대비 교재.', grades: ['h3'], sems: ['1','2'] },
+        { name: '자이스토리', publisher: '수경출판사', level: 'csat', levelLabel: '수능대비', price: '14,000원~17,000원', desc: '수능 기출 분석과 유형 연습에 특화. 기출을 통한 실전 감각 향상.', grades: ['m1','m2','m3','h1','h2','h3'], sems: ['1','2'] },
         // KMO
-        { name: 'KMO바이블 대수', cover: 'KMO<br>대수', publisher: '세화', price: '18,000원~22,000원', desc: 'KMO 대비 대수 분야 - 방정식, 부등식, 다항식, 수열.', cat: 'advanced', grades: ['m1','m2','m3','h1','h2'], semesters: ['1','2'] },
-        { name: 'KMO바이블 조합', cover: 'KMO<br>조합', publisher: '세화', price: '18,000원~22,000원', desc: 'KMO 대비 조합 분야 - 경우의 수, 비둘기집, 그래프 이론.', cat: 'advanced', grades: ['m1','m2','m3','h1','h2'], semesters: ['1','2'] },
-        { name: 'KMO바이블 정수론', cover: 'KMO<br>정수론', publisher: '세화', price: '18,000원~22,000원', desc: 'KMO 대비 정수론 분야 - 약수, 합동식, 소수.', cat: 'advanced', grades: ['m1','m2','m3','h1','h2'], semesters: ['1','2'] },
-        { name: 'KMO바이블 기하', cover: 'KMO<br>기하', publisher: '세화', price: '18,000원~22,000원', desc: 'KMO 대비 기하 분야 - 삼각형, 원, 사영기하, 반전.', cat: 'advanced', grades: ['m1','m2','m3','h1','h2'], semesters: ['1','2'] }
+        { name: 'KMO바이블 대수', publisher: '세화', level: 'advanced', levelLabel: '경시대비', price: '18,000원~22,000원', desc: 'KMO 대비 대수 분야 — 방정식, 부등식, 다항식, 수열.', grades: ['m1','m2','m3','h1','h2'], sems: ['1','2'] },
+        { name: 'KMO바이블 조합', publisher: '세화', level: 'advanced', levelLabel: '경시대비', price: '18,000원~22,000원', desc: 'KMO 대비 조합 분야 — 경우의 수, 비둘기집, 그래프 이론.', grades: ['m1','m2','m3','h1','h2'], sems: ['1','2'] },
+        { name: 'KMO바이블 정수론', publisher: '세화', level: 'advanced', levelLabel: '경시대비', price: '18,000원~22,000원', desc: 'KMO 대비 정수론 분야 — 약수, 합동식, 소수.', grades: ['m1','m2','m3','h1','h2'], sems: ['1','2'] },
+        { name: 'KMO바이블 기하', publisher: '세화', level: 'advanced', levelLabel: '경시대비', price: '18,000원~22,000원', desc: 'KMO 대비 기하 분야 — 삼각형, 원, 사영기하, 반전.', grades: ['m1','m2','m3','h1','h2'], sems: ['1','2'] }
     ];
 
-    var selectedGrade = 'h1';
-    var selectedSemester = '1';
-    var selectedCategory = 'all';
+    var LEVEL_CLASS = { basic: 'level-basic', type: 'level-type', advanced: 'level-adv', csat: 'level-csat' };
+
+    var selGrade = 'h1';
+    var selCat   = 'all';
 
     function filterGrade(g) {
-        selectedGrade = g;
-        document.querySelectorAll('.grade-btn').forEach(function(b) { b.classList.remove('active'); });
-        document.querySelector('.grade-btn[data-grade="' + g + '"]').classList.add('active');
-        renderBooks();
+        selGrade = g;
+        document.querySelectorAll('.grade-btn').forEach(function(b){ b.classList.remove('active'); });
+        document.querySelector('.grade-btn[data-grade="'+g+'"]').classList.add('active');
+        render();
     }
-    function filterSemester(s) {
-        selectedSemester = s;
-        document.querySelectorAll('.semester-btn').forEach(function(b) { b.classList.remove('active'); });
-        document.querySelector('.semester-btn[data-semester="' + s + '"]').classList.add('active');
-        renderBooks();
-    }
-    function filterCategory(c) {
-        selectedCategory = c;
-        document.querySelectorAll('.category-tab').forEach(function(b) { b.classList.remove('active'); });
-        document.querySelector('.category-tab[data-cat="' + c + '"]').classList.add('active');
-        renderBooks();
+    function filterCat(c) {
+        selCat = c;
+        document.querySelectorAll('.filter-pill').forEach(function(b){ b.classList.remove('active'); });
+        document.querySelector('.filter-pill[data-cat="'+c+'"]').classList.add('active');
+        render();
     }
 
-    function renderBooks() {
+    function naverUrl(name) {
+        return 'https://search.shopping.naver.com/search/all?query=' + encodeURIComponent(name + ' 수학 문제집');
+    }
+
+    function renderCover(book) {
+        var c = COLORS[book.publisher] || { bg: 'linear-gradient(160deg,#1e3a5f,#475569)' };
+        return '<div class="book-cover-fallback" style="background:' + c.bg + ';">'
+             + '<div class="cover-brand">' + book.publisher + '</div>'
+             + '<div class="cover-title">' + book.name + '</div>'
+             + '<div class="cover-sub">' + book.price + '</div>'
+             + '</div>';
+    }
+
+    function render() {
         var grid = document.getElementById('bookGrid');
-        var filtered = BOOKS.filter(function(b) {
-            var gradeMatch = b.grades.indexOf(selectedGrade) !== -1;
-            var semMatch = b.semesters.indexOf(selectedSemester) !== -1;
-            var catMatch = selectedCategory === 'all' || b.cat === selectedCategory;
-            return gradeMatch && semMatch && catMatch;
+        var list = BOOKS.filter(function(b) {
+            var gOk = b.grades.indexOf(selGrade) !== -1;
+            var cOk = selCat === 'all' || b.level === selCat;
+            return gOk && cOk;
         });
 
-        if (filtered.length === 0) {
+        if (!list.length) {
             grid.innerHTML = '<div class="no-results"><p>해당 조건에 맞는 교재가 없습니다.</p></div>';
             return;
         }
 
         var html = '';
-        filtered.forEach(function(b) {
+        list.forEach(function(b) {
+            var lv  = LEVEL_CLASS[b.level] || 'level-basic';
+            var url = naverUrl(b.name);
             html += '<div class="book-card">';
-            html += '<div class="book-card-top">';
-            html += '<div class="book-cover">' + b.cover + '</div>';
-            html += '<div class="book-info">';
+            html += '<div class="book-cover-wrap">' + renderCover(b) + '</div>';
+            html += '<div class="book-body">';
             html += '<h3>' + b.name + '</h3>';
-            html += '<div class="publisher">' + b.publisher + '</div>';
-            html += '<div class="price">' + b.price + '</div>';
-            html += '<div class="recommendation">' + b.desc + '</div>';
-            html += '</div></div>';
-            html += '<div class="book-card-bottom">';
-            html += '<a href="#" class="btn-buy" onclick="return false;">구매하기 (쿠팡)</a>';
+            html += '<div class="book-publisher">' + b.publisher + '</div>';
+            html += '<span class="book-level ' + lv + '">' + b.levelLabel + '</span>';
+            html += '<p class="book-desc">' + b.desc + '</p>';
+            html += '<a href="' + url + '" class="btn-naver" target="_blank" rel="noopener"'
+                  + ' onclick="gtag(\'event\',\'book_click\',{book_name:\'' + b.name.replace(/'/g,"\\'") + '\',publisher:\'' + b.publisher + '\'})">'
+                  + '<svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727z"/></svg>'
+                  + '네이버 쇼핑에서 보기</a>';
             html += '</div></div>';
         });
         grid.innerHTML = html;
     }
 
-    renderBooks();
+    render();
     </script>
 
     <script type="application/ld+json">
@@ -278,21 +483,9 @@
         "@type": "WebPage",
         "name": "수학 문제집 추천",
         "description": "중1~고3 학년별, 수준별 베스트 수학 문제집을 추천합니다.",
-        "url": "https://randomwalk1225.github.io/kr/books/",
+        "url": "https://mathhub.io/kr/books/",
         "inLanguage": "ko",
-        "isPartOf": { "@type": "WebSite", "name": "MathHub Korea", "url": "https://randomwalk1225.github.io/kr/" }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            { "@type": "Question", "name": "수학 문제집 어떤 순서로 풀어야 하나요?", "acceptedAnswer": { "@type": "Answer", "text": "개념서(개념원리, 정석 기본편)로 기초를 다진 후, 유형서(쎈, RPM)로 연습하고, 실력이 쌓이면 심화서(블랙라벨, 일품)에 도전하세요. 고3은 EBS 수능특강을 병행하는 것을 추천합니다." } },
-            { "@type": "Question", "name": "내신 대비에 가장 좋은 문제집은?", "acceptedAnswer": { "@type": "Answer", "text": "내신 대비에는 쎈 수학이 가장 인기 있습니다. 유형별 분류가 체계적이고 난이도 조절이 잘 되어 있어 학교 시험 준비에 효과적입니다." } },
-            { "@type": "Question", "name": "수능 수학 1등급을 위한 문제집 추천해주세요.", "acceptedAnswer": { "@type": "Answer", "text": "EBS 수능특강은 필수이고, 블랙라벨이나 일품으로 고난도 문제를 연습하세요. 자이스토리로 기출 유형을 분석하는 것도 효과적입니다." } },
-            { "@type": "Question", "name": "중학교 수학 심화 문제집은?", "acceptedAnswer": { "@type": "Answer", "text": "중학교 심화서로는 블랙라벨, A급 수학(디딤돌)이 인기 있습니다. KMO 준비를 위해서는 KMO바이블 시리즈(대수, 조합, 정수론, 기하)를 추천합니다." } }
-        ]
+        "isPartOf": { "@type": "WebSite", "name": "MathHub Korea", "url": "https://mathhub.io/kr/" }
     }
     </script>
 </body>
