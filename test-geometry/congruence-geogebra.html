@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangle Congruence: SSS, SAS, ASA (Interactive) — Geometry | MathHub</title>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 820px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.1em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #64748b; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+
+        .definition-box { background: #e7f3ff; border-left: 4px solid #3b82f6; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .definition-box h4 { color: #1e40af; margin-bottom: 10px; font-size: 1.05em; }
+        .theorem-box { background: #fff8e7; border-left: 4px solid #f59e0b; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .theorem-box h4 { color: #92400e; margin-bottom: 10px; font-size: 1.05em; }
+        .example-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .example-box h4 { color: #0369a1; margin-bottom: 10px; font-size: 1.05em; }
+        .tip-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .tip-box h4 { color: #166534; margin-bottom: 10px; }
+        .practice-box { background: #fdf4ff; border-left: 4px solid #a855f7; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .practice-box h4 { color: #7e22ce; margin-bottom: 10px; }
+
+        .ggb-wrap {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            margin: 24px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .ggb-wrap .ggb-title {
+            font-weight: 700;
+            color: #1e3a5f;
+            font-size: 0.95em;
+            margin-bottom: 10px;
+        }
+        .ggb-wrap .ggb-hint {
+            font-size: 0.82em;
+            color: #64748b;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        .ggb-container { width: 100%; border-radius: 8px; overflow: hidden; }
+
+        .version-badge {
+            display: inline-block;
+            background: #fdf4ff;
+            color: #7e22ce;
+            border: 1px solid #d8b4fe;
+            border-radius: 20px;
+            padding: 4px 14px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .compare-note {
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 8px;
+            padding: 14px 18px;
+            font-size: 0.88em;
+            color: #475569;
+            margin-bottom: 24px;
+        }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th { background: #1e3a5f; color: white; padding: 10px 14px; text-align: left; }
+        td { padding: 8px 14px; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        tr:nth-child(even) td { background: #f8fafc; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="../../" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="../../us/" class="active">US</a>
+            <a href="../../uk/">UK</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="../../us/">US</a> &rsaquo; <a href="../../us/#geometry">Geometry</a> &rsaquo; Triangle Congruence
+        </div>
+
+        <span class="version-badge">Version B — GeoGebra Interactive Figures</span>
+        <div class="compare-note">
+            🔬 <strong>Comparison Test:</strong> This page uses <strong>GeoGebra</strong> embedded applets for interactive figures.
+            See also the <a href="congruence-svg.html">SVG version</a>.
+        </div>
+
+        <h1>Triangle Congruence: SSS, SAS, and ASA</h1>
+        <div class="blog-meta">Geometry &bull; High School &bull; MathHub Global &bull; February 2026</div>
+
+        <p>
+            Two triangles are <strong>congruent</strong> when they have exactly the same shape and size — one can be placed perfectly on top of the other. Use the <strong>interactive applets</strong> below to drag vertices and explore how each congruence condition works.
+        </p>
+
+        <!-- ===== CONGRUENCE BASICS ===== -->
+        <h2>What Does Congruence Mean?</h2>
+        <div class="definition-box">
+            <h4>Definition — Congruent Triangles</h4>
+            <p>$\triangle ABC \cong \triangle DEF$ means all six corresponding parts match:</p>
+            <ul>
+                <li>Three pairs of <strong>congruent sides</strong>: $AB=DE,\; BC=EF,\; CA=FD$</li>
+                <li>Three pairs of <strong>congruent angles</strong>: $\angle A=\angle D,\; \angle B=\angle E,\; \angle C=\angle F$</li>
+            </ul>
+        </div>
+        <p>Just <strong>three</strong> carefully chosen parts are enough — that is what SSS, SAS, and ASA tell us.</p>
+
+        <!-- ===== SSS ===== -->
+        <h2>1. SSS — Side-Side-Side</h2>
+        <div class="theorem-box">
+            <h4>SSS Congruence Postulate</h4>
+            <p>If <strong>three sides</strong> of one triangle are congruent to three sides of another triangle, the triangles are congruent.</p>
+            <p>$$\overline{AB}\cong\overline{DE},\;\overline{BC}\cong\overline{EF},\;\overline{CA}\cong\overline{FD} \;\Longrightarrow\; \triangle ABC\cong\triangle DEF$$</p>
+        </div>
+
+        <div class="ggb-wrap">
+            <div class="ggb-title">🔵 SSS Explorer — Drag the vertices of △ABC</div>
+            <div class="ggb-container" id="ggb_sss"></div>
+            <p class="ggb-hint">Drag A, B, or C to change the triangle. The side lengths a, b, c update in real time. Any other triangle with the same three side lengths will be congruent to this one.</p>
+        </div>
+
+        <div class="tip-box">
+            <h4>💡 Why SSS Works</h4>
+            <p>A triangle is a <em>rigid frame</em>. Once three side lengths are fixed, there is only one possible shape — the frame cannot flex. That rigidity makes SSS a valid proof method.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 1 — SSS</h4>
+            <p>$AB=5,\;BC=7,\;CA=6,\;DE=5,\;EF=7,\;FD=6.$</p>
+            <ol>
+                <li>$\overline{AB}\cong\overline{DE}$ ✓</li>
+                <li>$\overline{BC}\cong\overline{EF}$ ✓</li>
+                <li>$\overline{CA}\cong\overline{FD}$ ✓</li>
+                <li>$\therefore\;\triangle ABC\cong\triangle DEF$ by <strong>SSS</strong></li>
+            </ol>
+        </div>
+
+        <!-- ===== SAS ===== -->
+        <h2>2. SAS — Side-Angle-Side</h2>
+        <div class="theorem-box">
+            <h4>SAS Congruence Postulate</h4>
+            <p>If <strong>two sides</strong> and the <strong>included angle</strong> between them of one triangle are congruent to the corresponding parts of another, the triangles are congruent.</p>
+            <p>$$\overline{AB}\cong\overline{DE},\;\angle B\cong\angle E,\;\overline{BC}\cong\overline{EF} \;\Longrightarrow\; \triangle ABC\cong\triangle DEF$$</p>
+        </div>
+
+        <div class="ggb-wrap">
+            <div class="ggb-title">🟡 SAS Explorer — Adjust sides AB, BC and included angle B</div>
+            <div class="ggb-container" id="ggb_sas"></div>
+            <p class="ggb-hint">Move the sliders to change the two side lengths and the angle between them. Once those three values are set, there is exactly one possible triangle shape.</p>
+        </div>
+
+        <div class="tip-box">
+            <h4>⚠️ The Included Angle Matters</h4>
+            <p><strong>SSA is NOT a valid congruence rule.</strong> The angle must be <em>between</em> the two sides — not on the outside. SSA can produce two different triangles from the same measurements.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2 — SAS</h4>
+            <p>$\overline{KL}\cong\overline{NP},\;\overline{LM}\cong\overline{PQ},\;\angle L\cong\angle P.$</p>
+            <ol>
+                <li>$\overline{KL}\cong\overline{NP}$ ✓</li>
+                <li>$\angle L\cong\angle P$ (included angle) ✓</li>
+                <li>$\overline{LM}\cong\overline{PQ}$ ✓</li>
+                <li>$\therefore\;\triangle KLM\cong\triangle NPQ$ by <strong>SAS</strong></li>
+            </ol>
+        </div>
+
+        <!-- ===== ASA ===== -->
+        <h2>3. ASA — Angle-Side-Angle</h2>
+        <div class="theorem-box">
+            <h4>ASA Congruence Postulate</h4>
+            <p>If <strong>two angles</strong> and the <strong>included side</strong> between them of one triangle are congruent to the corresponding parts of another, the triangles are congruent.</p>
+            <p>$$\angle A\cong\angle D,\;\overline{AB}\cong\overline{DE},\;\angle B\cong\angle E \;\Longrightarrow\; \triangle ABC\cong\triangle DEF$$</p>
+        </div>
+
+        <div class="ggb-wrap">
+            <div class="ggb-title">🟢 ASA Explorer — Adjust angles A, B and the included side AB</div>
+            <div class="ggb-container" id="ggb_asa"></div>
+            <p class="ggb-hint">Move the sliders to change ∠A, ∠B, and the length of AB. Notice: once two angles and the included side are fixed, the third vertex C is completely determined.</p>
+        </div>
+
+        <div class="tip-box">
+            <h4>💡 ASA vs AAS</h4>
+            <p>In <strong>ASA</strong>, the side is <em>between</em> the two angles. In <strong>AAS</strong>, it is <em>not</em>. Both are valid, but name them correctly in proofs.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3 — ASA</h4>
+            <p>$\angle R\cong\angle U,\;\overline{RS}\cong\overline{UV},\;\angle S\cong\angle V.$</p>
+            <ol>
+                <li>$\angle R\cong\angle U$ ✓</li>
+                <li>$\overline{RS}\cong\overline{UV}$ (included side) ✓</li>
+                <li>$\angle S\cong\angle V$ ✓</li>
+                <li>$\therefore\;\triangle RST\cong\triangle UVW$ by <strong>ASA</strong></li>
+            </ol>
+        </div>
+
+        <!-- ===== SUMMARY ===== -->
+        <h2>Summary — Which Postulate to Use?</h2>
+        <table>
+            <thead>
+                <tr><th>Postulate</th><th>What You Need</th><th>Key Condition</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>SSS</strong></td><td>3 pairs of congruent sides</td><td>All three sides match</td></tr>
+                <tr><td><strong>SAS</strong></td><td>2 sides + included angle</td><td>Angle is <em>between</em> the two sides</td></tr>
+                <tr><td><strong>ASA</strong></td><td>2 angles + included side</td><td>Side is <em>between</em> the two angles</td></tr>
+                <tr><td style="color:#ef4444"><strong>SSA ✗</strong></td><td>2 sides + non-included angle</td><td>NOT valid — ambiguous case</td></tr>
+                <tr><td style="color:#ef4444"><strong>AAA ✗</strong></td><td>3 pairs of congruent angles</td><td>NOT valid — only proves similarity</td></tr>
+            </tbody>
+        </table>
+
+        <!-- ===== PRACTICE ===== -->
+        <h2>Practice Problems</h2>
+        <div class="practice-box">
+            <h4>Problem 1</h4>
+            <p>$\overline{MN}\cong\overline{QR}$, $\overline{NP}\cong\overline{RS}$, $\overline{MP}\cong\overline{QS}$. Which postulate proves $\triangle MNP\cong\triangle QRS$?</p>
+            <details style="margin-top:12px;">
+                <summary style="cursor:pointer;color:#7e22ce;font-weight:600;">Show Answer</summary>
+                <p style="margin-top:10px;"><strong>SSS</strong> — all three side pairs are congruent.</p>
+            </details>
+        </div>
+        <div class="practice-box">
+            <h4>Problem 2</h4>
+            <p>$\angle X\cong\angle A$, $\overline{XY}\cong\overline{AB}$, $\angle Y\cong\angle B$. Which postulate?</p>
+            <details style="margin-top:12px;">
+                <summary style="cursor:pointer;color:#7e22ce;font-weight:600;">Show Answer</summary>
+                <p style="margin-top:10px;"><strong>ASA</strong> — two angles with the included side $\overline{XY}$.</p>
+            </details>
+        </div>
+        <div class="practice-box">
+            <h4>Problem 3</h4>
+            <p>$\overline{JK}\cong\overline{PQ}$, $\overline{KL}\cong\overline{QR}$, $\angle K\cong\angle Q$. Which postulate?</p>
+            <details style="margin-top:12px;">
+                <summary style="cursor:pointer;color:#7e22ce;font-weight:600;">Show Answer</summary>
+                <p style="margin-top:10px;"><strong>SAS</strong> — two sides with the included angle $\angle K$.</p>
+            </details>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;margin-top:48px;padding-top:20px;border-top:1px solid #e2e8f0;">
+            <a href="../" style="color:#3b82f6;text-decoration:none;">← Test Geometry Home</a>
+            <a href="congruence-svg.html" style="color:#3b82f6;text-decoration:none;">SVG Version →</a>
+        </div>
+    </article>
+
+    <script>
+    // ─── GeoGebra init ─────────────────────────────────────────────
+    // deployggb.js는 버전마다 콜백 방식이 다름.
+    // 가장 안정적인 방법: API가 생길 때까지 100ms 간격으로 polling.
+
+    function waitForAPI(appletId, initFn) {
+        var attempts = 0;
+        var timer = setInterval(function() {
+            attempts++;
+            var api = window[appletId];
+            if (api && typeof api.evalCommand === 'function') {
+                clearInterval(timer);
+                initFn(api);
+            } else if (attempts > 100) {
+                clearInterval(timer); // 10초 후 포기
+            }
+        }, 100);
+    }
+
+    var ggbInits = {
+
+        ggb_sss: function(api) {
+            // Triangle ABC (draggable)
+            api.evalCommand("A = (0.5, 0.5)");
+            api.evalCommand("B = (4.5, 0.5)");
+            api.evalCommand("C = (2.5, 3.5)");
+            api.evalCommand("poly1 = Polygon(A, B, C)");
+
+            // Triangle DEF — congruent copy, offset right by 7
+            api.evalCommand("D = A + (7, 0)");
+            api.evalCommand("E = B + (7, 0)");
+            api.evalCommand("F = C + (7, 0)");
+            api.evalCommand("poly1b = Polygon(D, E, F)");
+
+            // Side length labels (between the two triangles)
+            api.evalCommand("la = Text(\"a = \" + round(Distance(B,C)*10)/10, (5.5, 3.5), false, false)");
+            api.evalCommand("lb = Text(\"b = \" + round(Distance(A,C)*10)/10, (5.5, 3.0), false, false)");
+            api.evalCommand("lc = Text(\"c = \" + round(Distance(A,B)*10)/10, (5.5, 2.5), false, false)");
+            api.evalCommand("info = Text(\"Drag A, B, or C — DEF updates to match\", (2, 4.8), true, true)");
+
+            // Set view wide enough for both triangles
+            api.setCoordSystem(-1, 13, -1, 5.5);
+            api.setGridVisible(true);
+            api.setAxesVisible(true, true);
+        },
+
+        ggb_sas: function(api) {
+            // Sliders for side lengths and included angle
+            api.evalCommand("s_AB = Slider(1, 5, 0.1, 1, 100, false, true, false, false)");
+            api.evalCommand("s_BC = Slider(1, 5, 0.1, 1, 100, false, true, false, false)");
+            api.evalCommand("s_B  = Slider(20, 140, 1, 60, 100, false, true, false, false)");
+            // Set default values so the triangle is visible on load
+            api.setValue("s_AB", 3);
+            api.setValue("s_BC", 3.5);
+            api.setValue("s_B",  60);
+
+            api.setCaption("s_AB", "Side AB");
+            api.setCaption("s_BC", "Side BC");
+            api.setCaption("s_B",  "∠B (deg)");
+
+            // Triangle A2B2C2 (slider-controlled)
+            api.evalCommand("A2 = (1, 1)");
+            api.evalCommand("B2 = (1 + s_AB, 1)");
+            api.evalCommand("C2 = (1 + s_AB + s_BC * cos(s_B * pi / 180), 1 + s_BC * sin(s_B * pi / 180))");
+            api.evalCommand("poly2 = Polygon(A2, B2, C2)");
+
+            // Triangle D2E2F2 — congruent copy, offset right by 8
+            api.evalCommand("D2 = A2 + (8, 0)");
+            api.evalCommand("E2 = B2 + (8, 0)");
+            api.evalCommand("F2 = C2 + (8, 0)");
+            api.evalCommand("poly2b = Polygon(D2, E2, F2)");
+
+            // Labels
+            api.evalCommand("lAB = Text(\"AB = \" + s_AB, (6.5, 4), true, true)");
+            api.evalCommand("lBC = Text(\"BC = \" + s_BC, (6.5, 3.4), true, true)");
+            api.evalCommand("lBa = Text(\"∠B = \" + s_B + \"°\", (6.5, 2.8), true, true)");
+
+            api.setCoordSystem(-0.5, 15, -0.5, 6);
+            api.setGridVisible(true);
+            api.setAxesVisible(true, true);
+        },
+
+        ggb_asa: function(api) {
+            // Sliders for two angles and included side
+            api.evalCommand("s_side = Slider(2, 6, 0.1, 4, 100, false, true, false, false)");
+            api.evalCommand("s_A   = Slider(20, 120, 1, 50, 100, false, true, false, false)");
+            api.evalCommand("s_Ba  = Slider(20, 120, 1, 60, 100, false, true, false, false)");
+            // Set default values so the triangle is visible on load
+            api.setValue("s_side", 4);
+            api.setValue("s_A",    50);
+            api.setValue("s_Ba",   60);
+
+            api.setCaption("s_side", "Side AB");
+            api.setCaption("s_A",   "∠A (deg)");
+            api.setCaption("s_Ba",  "∠B (deg)");
+
+            // Triangle AaBaCa from base + two angles
+            api.evalCommand("Aa = (1, 1)");
+            api.evalCommand("Ba = Aa + (s_side, 0)");
+            api.evalCommand("rA = Ray(Aa, Aa + (cos(s_A * pi/180), sin(s_A * pi/180)))");
+            api.evalCommand("rB = Ray(Ba, Ba + (cos((180 - s_Ba) * pi/180), sin((180 - s_Ba) * pi/180)))");
+            api.evalCommand("Ca = Intersect(rA, rB)");
+            api.evalCommand("poly3 = Polygon(Aa, Ba, Ca)");
+            api.setVisible("rA", false);
+            api.setVisible("rB", false);
+
+            // Triangle DaEaFa — congruent copy, offset right by 8
+            api.evalCommand("Da = Aa + (8, 0)");
+            api.evalCommand("Ea = Ba + (8, 0)");
+            api.evalCommand("Fa = Ca + (8, 0)");
+            api.evalCommand("poly3b = Polygon(Da, Ea, Fa)");
+
+            // Labels
+            api.evalCommand("l1 = Text(\"AB = \" + s_side, (6.5, 4), true, true)");
+            api.evalCommand("l2 = Text(\"∠A = \" + s_A + \"°\", (6.5, 3.4), true, true)");
+            api.evalCommand("l3 = Text(\"∠B = \" + s_Ba + \"°\", (6.5, 2.8), true, true)");
+            api.evalCommand("l4 = Text(\"∠C = \" + round((180 - s_A - s_Ba)*10)/10 + \"°\", (6.5, 2.2), true, true)");
+
+            api.setCoordSystem(-0.5, 16, -0.5, 6);
+            api.setGridVisible(true);
+            api.setAxesVisible(true, true);
+        }
+    };
+
+    // ─── Inject applets + polling ──────────────────────────────────
+    var commonParams = {
+        showToolBar: false,
+        showAlgebraInput: false,
+        showMenuBar: false,
+        enableRightClick: false,
+        showResetIcon: true,
+        enableLabelDrags: true,
+        useBrowserForJS: false,
+        width: 760,
+        height: 340,
+        appName: "geometry"
+    };
+
+    function injectGGB(containerId) {
+        var params = Object.assign({}, commonParams, { id: containerId });
+        var app = new GGBApplet(params, containerId);
+        app.inject();
+        // polling: API가 window[containerId]에 생기면 init 실행
+        waitForAPI(containerId, ggbInits[containerId]);
+    }
+
+    injectGGB("ggb_sss");
+    injectGGB("ggb_sas");
+    injectGGB("ggb_asa");
+    </script>
+</body>
+</html>
