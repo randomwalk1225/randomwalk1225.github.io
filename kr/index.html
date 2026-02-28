@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>MathHub Korea - 수능 기출, 교재 답지, 수학 블로그</title>
-    <meta name="description" content="수능, 평가원 모의고사 기출문제와 EBS, 쎈, 비상 교재 답지를 무료로 제공합니다. 미적분, 정수론, 기하학 등 수학 블로그와 온라인 문제집도 함께 이용하세요.">
+    <meta name="description" content="수능, 평가원 모의고사 기출문제와 EBS, 쎈, 비상 교재 답지를 제공합니다. 미적분, 정수론, 기하학 등 수학 블로그와 온라인 문제집도 함께 이용하세요.">
     <meta name="keywords" content="수능 기출, 평가원 모의고사, 교재 답지, 쎈 답지, EBS 답지, 수학 블로그, 미적분, 정수론">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://randomwalk1225.github.io/kr/">
+    <link rel="canonical" href="https://mathhub.io/kr/">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://randomwalk1225.github.io/kr/">
+    <meta property="og:url" content="https://mathhub.io/kr/">
     <meta property="og:title" content="MathHub Korea - 수능 기출, 교재 답지, 수학 블로그">
-    <meta property="og:description" content="수능, 평가원 모의고사 기출문제와 교재 답지를 무료로 제공합니다.">
+    <meta property="og:description" content="수능, 평가원 모의고사 기출문제와 교재 답지를 제공합니다.">
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="MathHub Korea - 수능 기출, 교재 답지, 수학 블로그">
@@ -56,22 +56,28 @@
         .category-list { list-style: none; }
         .category-item { padding: 12px 15px; margin-bottom: 8px; border-radius: 8px; cursor: pointer; transition: all 0.3s; display: flex; justify-content: space-between; align-items: center; }
         .category-item:hover { background-color: #f0f0f0; }
-        .category-item.active { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-weight: 600; }
+        .category-item.active { background: #667eea; color: white; font-weight: 600; }
         .category-count { background-color: rgba(0,0,0,0.1); padding: 2px 8px; border-radius: 12px; font-size: 0.85em; }
         .active .category-count { background-color: rgba(255,255,255,0.2); }
 
         .content { flex: 1; min-width: 0; }
-        .post-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
-        .post-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; text-decoration: none; color: inherit; display: block; }
+        .post-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .post-card {
+            background: white; border-radius: 10px; overflow: hidden;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            border: 1px solid #e8ecf1;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            text-decoration: none; color: inherit; display: flex; flex-direction: column;
+        }
         .post-card.hidden { display: none; }
-        .post-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.2); }
-        .post-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; color: white; }
-        .post-header h2 { font-size: 1.5em; margin-bottom: 8px; border: none; padding: 0; color: white; }
-        .post-date { font-size: 0.9em; opacity: 0.9; }
-        .post-body { padding: 20px; }
-        .post-description { color: #555; line-height: 1.6; margin-bottom: 15px; }
-        .post-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-        .tag { background-color: #e7f3ff; color: #0066cc; padding: 4px 12px; border-radius: 20px; font-size: 0.85em; }
+        .post-card:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,0.1); border-color: #cbd5e1; }
+        .post-header { padding: 20px 20px 0; }
+        .post-header h2 { font-size: 1.15em; margin-bottom: 0; border: none; padding: 0; color: #1a202c; line-height: 1.4; font-weight: 700; }
+        .post-date { font-size: 0.8em; color: #94a3b8; margin-top: 6px; }
+        .post-body { padding: 12px 20px 20px; flex: 1; display: flex; flex-direction: column; }
+        .post-description { color: #64748b; line-height: 1.5; margin-bottom: 14px; font-size: 0.9em; flex: 1; }
+        .post-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+        .tag { background-color: #f1f5f9; color: #475569; padding: 3px 10px; border-radius: 6px; font-size: 0.78em; font-weight: 500; }
 
         /* Section tabs */
         .section-tabs {
@@ -89,8 +95,9 @@
         .section-tab .tab-icon { display: block; font-size: 1.5em; margin-bottom: 4px; }
 
         .kr-category-badge {
-            display: inline-block; background-color: #fff3cd; color: #856404;
-            padding: 4px 12px; border-radius: 20px; font-size: 0.85em; margin-bottom: 10px;
+            display: inline-block; background-color: #f0f4ff; color: #4361ee;
+            padding: 3px 10px; border-radius: 6px; font-size: 0.75em; font-weight: 600;
+            margin-bottom: 8px; letter-spacing: 0.02em;
         }
 
         @media (max-width: 1024px) {
@@ -116,6 +123,7 @@
             <a href="../kr/" class="active">KR</a>
             <a href="../us/">US</a>
             <a href="../uk/">UK</a>
+            <a href="../ca/">CA</a>
             <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
         </div>
     </nav>
@@ -161,7 +169,8 @@
                 <div class="sidebar-sticky">
                     <h3>&#xCE74;&#xD14C;&#xACE0;&#xB9AC;</h3>
                     <ul class="category-list">
-                        <li class="category-item active" data-category="all"><span>&#xC804;&#xCCB4;</span><span class="category-count">20</span></li>
+                        <li class="category-item active" data-category="all"><span>전체</span><span class="category-count">25</span></li>
+                        <li class="category-item" data-category="중2 1학기"><span>중2 1학기</span><span class="category-count">5</span></li>
                         <li class="category-item" data-category="&#xBBF8;&#xC801;&#xBD84;"><span>&#xBBF8;&#xC801;&#xBD84;</span><span class="category-count">6</span></li>
                         <li class="category-item" data-category="&#xB300;&#xC218;&#xD559;"><span>&#xB300;&#xC218;&#xD559;</span><span class="category-count">0</span></li>
                         <li class="category-item" data-category="&#xAE30;&#xD558;&#xD559;"><span>&#xAE30;&#xD558;&#xD559;</span><span class="category-count">1</span></li>
@@ -178,6 +187,90 @@
 
             <div class="content">
                 <div class="post-grid">
+                    <a href="blog/middle2-rational-numbers.html" class="post-card" data-category="중2 1학기">
+                        <div class="post-header">
+                            <div class="kr-category-badge">중2 1학기</div>
+                            <h2>유리수와 순환소수</h2>
+                            <div class="post-date">2026년 2월 25일</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">유한소수·무한소수·순환소수의 뜻과 표기법, 유한소수 판별 조건, 순환소수를 분수로 나타내는 방법을 익힙니다.</p>
+                            <div class="post-tags"><span class="tag">유리수</span><span class="tag">순환소수</span><span class="tag">중2 수학</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/middle2-monomial.html" class="post-card" data-category="중2 1학기">
+                        <div class="post-header">
+                            <div class="kr-category-badge">중2 1학기</div>
+                            <h2>단항식의 계산</h2>
+                            <div class="post-date">2026년 2월 25일</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">지수법칙 4가지와 단항식의 곱셈·나눗셈을 체계적으로 익힙니다. $a^m \times a^n = a^{m+n}$ 등 핵심 공식을 예제로 연습합니다.</p>
+                            <div class="post-tags"><span class="tag">지수법칙</span><span class="tag">단항식</span><span class="tag">중2 수학</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/middle2-polynomial.html" class="post-card" data-category="중2 1학기">
+                        <div class="post-header">
+                            <div class="kr-category-badge">중2 1학기</div>
+                            <h2>다항식의 계산</h2>
+                            <div class="post-date">2026년 2월 25일</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">동류항 정리, 다항식 덧셈·뺄셈, 분배법칙을 이용한 곱셈·나눗셈, 등식의 변형까지 다항식 계산 전반을 다룹니다.</p>
+                            <div class="post-tags"><span class="tag">다항식</span><span class="tag">분배법칙</span><span class="tag">중2 수학</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/middle2-simultaneous.html" class="post-card" data-category="중2 1학기">
+                        <div class="post-header">
+                            <div class="kr-category-badge">중2 1학기</div>
+                            <h2>연립방정식</h2>
+                            <div class="post-date">2026년 2월 25일</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">대입법과 가감법으로 연립방정식을 푸는 법과 개수·거리·농도 등 다양한 활용 문제를 단계별로 학습합니다.</p>
+                            <div class="post-tags"><span class="tag">연립방정식</span><span class="tag">대입법</span><span class="tag">가감법</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/middle2-inequality.html" class="post-card" data-category="중2 1학기">
+                        <div class="post-header">
+                            <div class="kr-category-badge">중2 1학기</div>
+                            <h2>부등식</h2>
+                            <div class="post-date">2026년 2월 25일</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">부등식의 성질, 일차부등식 풀이, 연립부등식, 실생활 활용 문제까지. 음수 곱셈 시 부등호 방향 전환 규칙을 확실히 익힙니다.</p>
+                            <div class="post-tags"><span class="tag">부등식</span><span class="tag">일차부등식</span><span class="tag">연립부등식</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/middle3-quadratic-function.html" class="post-card" data-category="중3 2학기">
+                        <div class="post-header">
+                            <div class="kr-category-badge">중3 2학기</div>
+                            <h2>이차함수</h2>
+                            <div class="post-date">2026년 3월 1일</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">$y=a(x-p)^2+q$ 표준형, 꼭짓점, 축의 방정식, 평행이동, 최댓값·최솟값, 이차함수의 식 구하기까지 단계별 예제와 함께 완벽 정리합니다.</p>
+                            <div class="post-tags"><span class="tag">이차함수</span><span class="tag">꼭짓점</span><span class="tag">포물선</span><span class="tag">최댓값·최솟값</span></div>
+                        </div>
+                    </a>
+
+                    <a href="blog/csat-math-format-history.html" class="post-card" data-category="수능 가이드">
+                        <div class="post-header">
+                            <div class="kr-category-badge">&#xC218;&#xB2A5; &#xAC00;&#xC774;&#xB4DC;</div>
+                            <h2>&#xC218;&#xB2A5; &#xC218;&#xD559; &#xBCC0;&#xCC9C;&#xC0AC; &#xCD1D;&#xC815;&#xB9AC; (2005~2028)</h2>
+                            <div class="post-date">2026&#xB144; 2&#xC6D4; 23&#xC77C;</div>
+                        </div>
+                        <div class="post-body">
+                            <p class="post-description">&#xAC00;&#xD615;/&#xB098;&#xD615;&#xBD80;&#xD130; 2028 &#xAC1C;&#xD3B8;&#xAE4C;&#xC9C0;, &#xC218;&#xB2A5; &#xC218;&#xD559;&#xC758; &#xBAA8;&#xB4E0; &#xBCC0;&#xD654;&#xB97C; &#xC5F0;&#xB3C4;&#xBCC4;&#xB85C; &#xC815;&#xB9AC;&#xD569;&#xB2C8;&#xB2E4;. &#xD604; &#xACE0;2&#xAC00; &#xCE58;&#xB974;&#xB294; 2028 &#xC218;&#xB2A5; &#xAD6C;&#xC870;&#xAE4C;&#xC9C0;.</p>
+                            <div class="post-tags"><span class="tag">&#xC218;&#xB2A5;</span><span class="tag">2028 &#xAC1C;&#xD3B8;</span><span class="tag">&#xAC00;&#xD615; &#xB098;&#xD615;</span><span class="tag">&#xC120;&#xD0DD;&#xACFC;&#xBAA9;</span></div>
+                        </div>
+                    </a>
+
                     <a href="blog/riemann-sum.html" class="post-card" data-category="&#xBBF8;&#xC801;&#xBD84;">
                         <div class="post-header">
                             <div class="kr-category-badge">&#xBBF8;&#xC801;&#xBD84;</div>
@@ -452,7 +545,7 @@
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "MathHub Korea",
-        "url": "https://randomwalk1225.github.io/kr/",
+        "url": "https://mathhub.io/kr/",
         "description": "&#xC218;&#xB2A5; &#xAE30;&#xCD9C;&#xBB38;&#xC81C;, &#xAD50;&#xC7AC; &#xB2F5;&#xC9C0;, &#xC218;&#xD559; &#xBE14;&#xB85C;&#xADF8;",
         "inLanguage": "ko"
     }
