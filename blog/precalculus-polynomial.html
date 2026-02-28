@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Precalculus: Polynomial Functions - Chapter 2 | MathHub</title>
+    <meta name="description" content="Precalculus polynomial functions: degree, zeros, factoring, graphing, and inequalities. Includes Rational Root Theorem, synthetic division, worked examples, interactive Desmos graph, and practice problems.">
+    <meta name="keywords" content="precalculus, polynomial functions, zeros of polynomials, factoring polynomials, Rational Root Theorem, synthetic division, polynomial inequalities, end behavior, multiplicity, graphing polynomials">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/blog/precalculus-polynomial.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/blog/precalculus-polynomial.html">
+    <meta property="og:title" content="Precalculus: Polynomial Functions - Chapter 2">
+    <meta property="og:description" content="Comprehensive chapter on polynomial functions for Precalculus. Covers degree, zeros, factoring, Rational Root Theorem, graphing with Desmos, and polynomial inequalities with worked examples.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Precalculus: Polynomial Functions - Chapter 2">
+    <meta name="twitter:description" content="Learn polynomial functions for Precalculus with worked examples, interactive graphs, and practice problems.">
+
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Precalculus: Polynomial Functions - Chapter 2",
+        "description": "Precalculus polynomial functions: degree, zeros, factoring, graphing, and inequalities with worked examples and practice problems.",
+        "url": "https://mathhub.io/blog/precalculus-polynomial.html",
+        "datePublished": "2026-02-23",
+        "dateModified": "2026-02-23",
+        "publisher": {
+            "@type": "Organization",
+            "name": "MathHub Global"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "MathHub Global"
+        },
+        "educationalLevel": "Precalculus",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Polynomial Functions" },
+            { "@type": "Thing", "name": "Precalculus" },
+            { "@type": "Thing", "name": "Algebra" }
+        ]
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Desmos API -->
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <style>
+        .blog-article {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .blog-article h1 {
+            font-size: 2.2em;
+            color: #1e3a5f;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .blog-meta {
+            color: #64748b;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .blog-article h2 {
+            font-size: 1.5em;
+            color: #1e3a5f;
+            margin: 36px 0 16px;
+            padding-top: 12px;
+        }
+        .blog-article h3 {
+            font-size: 1.2em;
+            color: #334155;
+            margin: 24px 0 10px;
+        }
+        .blog-article p {
+            color: #334155;
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+        .blog-article ul, .blog-article ol {
+            margin: 12px 0 20px 24px;
+            color: #334155;
+        }
+        .blog-article li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+        .breadcrumb {
+            font-size: 0.85em;
+            color: #94a3b8;
+            margin-bottom: 16px;
+        }
+        .breadcrumb a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .example-box {
+            background: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .example-box h4 {
+            color: #1d4ed8;
+            margin: 0 0 12px;
+            font-size: 1.05em;
+        }
+        .example-box p, .example-box li {
+            color: #334155;
+            line-height: 1.8;
+        }
+        .definition-box {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .definition-box h4 {
+            color: #15803d;
+            margin: 0 0 12px;
+            font-size: 1.05em;
+        }
+        .definition-box p {
+            color: #334155;
+            line-height: 1.8;
+        }
+        .theorem-box {
+            background: #faf5ff;
+            border-left: 4px solid #8b5cf6;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .theorem-box h4 {
+            color: #6d28d9;
+            margin: 0 0 12px;
+            font-size: 1.05em;
+        }
+        .theorem-box p {
+            color: #334155;
+            line-height: 1.8;
+        }
+        .practice-problem {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 20px 24px;
+            margin: 16px 0;
+            border-radius: 8px;
+        }
+        .practice-problem h4 {
+            color: #1e3a5f;
+            margin: 0 0 10px;
+            font-size: 1em;
+        }
+        .practice-problem p {
+            margin-bottom: 12px;
+        }
+        details.solution {
+            margin-top: 12px;
+        }
+        details.solution summary {
+            cursor: pointer;
+            color: #3b82f6;
+            font-weight: 600;
+            font-size: 0.95em;
+            padding: 6px 0;
+            user-select: none;
+        }
+        details.solution summary:hover {
+            color: #1d4ed8;
+        }
+        .solution-content {
+            padding: 16px 20px;
+            background: #f0f7ff;
+            border-radius: 6px;
+            margin-top: 8px;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .solution-content p {
+            margin-bottom: 10px;
+        }
+        .toc {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px 28px;
+            margin: 24px 0 36px;
+        }
+        .toc h3 {
+            color: #1e3a5f;
+            margin: 0 0 12px;
+            font-size: 1.1em;
+        }
+        .toc ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .toc li {
+            margin-bottom: 6px;
+        }
+        .toc a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 48px 0 20px;
+            padding: 20px 0;
+            border-top: 2px solid #e2e8f0;
+        }
+        .chapter-nav a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+        .chapter-nav a:hover {
+            text-decoration: underline;
+        }
+        .chapter-nav .disabled {
+            color: #cbd5e1;
+            cursor: default;
+        }
+        .step-label {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            font-size: 0.8em;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 4px;
+            margin-right: 6px;
+        }
+        .desmos-container {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 24px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .desmos-container > div {
+            width: 100%;
+            height: 420px;
+        }
+        .desmos-caption {
+            text-align: center;
+            font-size: 0.88em;
+            color: #64748b;
+            padding: 10px 16px 14px;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+        }
+        table.division-table {
+            border-collapse: collapse;
+            margin: 16px auto;
+            font-size: 1em;
+        }
+        table.division-table td {
+            padding: 6px 14px;
+            text-align: center;
+        }
+        table.division-table .border-bottom {
+            border-bottom: 2px solid #334155;
+        }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="../" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/" class="active">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="/us/">US</a> &rsaquo; <a href="../blog/">Precalculus</a> &rsaquo; Chapter 2: Polynomial Functions
+        </div>
+
+        <h1>Chapter 2: Polynomial Functions</h1>
+        <div class="blog-meta">Precalculus &middot; Updated February 2026 &middot; 25 min read</div>
+
+        <p>Polynomial functions are among the most fundamental objects in all of mathematics. They appear everywhere: in physics when modeling projectile motion, in economics when analyzing cost and revenue, and throughout higher mathematics as the building blocks of more complex functions. In this chapter we develop a thorough understanding of polynomial functions&mdash;their structure, their zeros, their graphs, and how to solve polynomial inequalities. Mastering this material is essential preparation for calculus, where polynomials serve as the local approximations to virtually every function you will encounter.</p>
+
+        <nav class="toc">
+            <h3>Chapter Contents</h3>
+            <ol>
+                <li><a href="#section-2-1">Polynomial Basics</a></li>
+                <li><a href="#section-2-2">Zeros and Factoring</a></li>
+                <li><a href="#section-2-3">Graphing Polynomials</a></li>
+                <li><a href="#section-2-4">Polynomial Inequalities</a></li>
+                <li><a href="#section-2-5">Practice Problems</a></li>
+            </ol>
+        </nav>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 2.1 -->
+        <!-- ============================================================ -->
+        <h2 id="section-2-1">2.1 Polynomial Basics</h2>
+
+        <p>We begin with precise language. A <strong>polynomial function</strong> is a function that can be written as a sum of terms, each consisting of a constant multiplied by a non-negative integer power of $x$. Despite this simple definition, polynomial functions exhibit rich and varied behavior that rewards careful study.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Polynomial Function</h4>
+            <p>A <strong>polynomial function of degree $n$</strong> is a function of the form</p>
+            <p>$$f(x) = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0$$</p>
+            <p>where $a_n, a_{n-1}, \ldots, a_1, a_0$ are real numbers called <strong>coefficients</strong>, $n$ is a non-negative integer called the <strong>degree</strong>, and $a_n \neq 0$. The term $a_n x^n$ is called the <strong>leading term</strong>, $a_n$ is the <strong>leading coefficient</strong>, and $a_0$ is the <strong>constant term</strong>.</p>
+        </div>
+
+        <p>When the terms are arranged from highest to lowest power of $x$, we say the polynomial is in <strong>standard form</strong>. For example, $f(x) = 3x^4 - 2x^3 + 7x - 5$ is a degree-4 polynomial (also called a quartic) in standard form with leading coefficient $3$ and constant term $-5$.</p>
+
+        <h3>Common Polynomial Types</h3>
+        <ul>
+            <li><strong>Constant:</strong> $f(x) = c$ (degree 0)</li>
+            <li><strong>Linear:</strong> $f(x) = ax + b$ (degree 1)</li>
+            <li><strong>Quadratic:</strong> $f(x) = ax^2 + bx + c$ (degree 2)</li>
+            <li><strong>Cubic:</strong> $f(x) = ax^3 + bx^2 + cx + d$ (degree 3)</li>
+            <li><strong>Quartic:</strong> degree 4</li>
+            <li><strong>Quintic:</strong> degree 5</li>
+        </ul>
+
+        <p>Note that expressions like $f(x) = x^{-1}$ or $f(x) = \sqrt{x} = x^{1/2}$ are <em>not</em> polynomials because the exponents are not non-negative integers.</p>
+
+        <h3>End Behavior</h3>
+
+        <p>The <strong>end behavior</strong> of a polynomial describes what happens to $f(x)$ as $x \to +\infty$ and as $x \to -\infty$. For large values of $|x|$, the leading term dominates all other terms, so end behavior is determined entirely by the degree $n$ and the leading coefficient $a_n$.</p>
+
+        <div class="theorem-box">
+            <h4>End Behavior of Polynomials</h4>
+            <p>Let $f(x) = a_n x^n + \cdots$ be a polynomial of degree $n$ with leading coefficient $a_n$.</p>
+            <p><strong>Even degree ($n$ even):</strong> Both ends point the same direction. If $a_n > 0$, both ends rise ($f(x) \to +\infty$ as $x \to \pm\infty$). If $a_n < 0$, both ends fall.</p>
+            <p><strong>Odd degree ($n$ odd):</strong> The ends point in opposite directions. If $a_n > 0$, the left end falls and the right end rises. If $a_n < 0$, the left end rises and the right end falls.</p>
+        </div>
+
+        <p>A useful mnemonic: for odd-degree polynomials with positive leading coefficient, the graph goes from lower-left to upper-right, like the graph of $y = x$. For even-degree polynomials with positive leading coefficient, the graph opens upward like a bowl, similar to $y = x^2$.</p>
+
+        <div class="example-box">
+            <h4>Example 2.1: Identifying Polynomial Features</h4>
+            <p>Describe the degree, leading coefficient, constant term, and end behavior of $f(x) = -2x^5 + 4x^3 - x + 6$.</p>
+            <p><strong>Solution.</strong> The polynomial is already in standard form. Reading off the components:</p>
+            <ul>
+                <li><strong>Degree:</strong> $5$ (odd)</li>
+                <li><strong>Leading coefficient:</strong> $-2$ (negative)</li>
+                <li><strong>Constant term:</strong> $6$</li>
+                <li><strong>End behavior:</strong> Since the degree is odd and the leading coefficient is negative, $f(x) \to +\infty$ as $x \to -\infty$ and $f(x) \to -\infty$ as $x \to +\infty$. The graph rises on the left and falls on the right.</li>
+            </ul>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 2.2 -->
+        <!-- ============================================================ -->
+        <h2 id="section-2-2">2.2 Zeros and Factoring</h2>
+
+        <p>A <strong>zero</strong> (or <strong>root</strong>) of a polynomial $f(x)$ is a value $c$ such that $f(c) = 0$. Geometrically, zeros are the $x$-intercepts of the graph. Finding zeros is one of the central problems in algebra, and several powerful theorems help us locate them.</p>
+
+        <div class="theorem-box">
+            <h4>Factor Theorem</h4>
+            <p>$c$ is a zero of the polynomial $f(x)$ if and only if $(x - c)$ is a factor of $f(x)$.</p>
+        </div>
+
+        <p>The Factor Theorem connects two problems: finding zeros and factoring. If you know that $f(3) = 0$, then you know immediately that $(x - 3)$ divides $f(x)$ evenly. Conversely, if you can factor out $(x - 3)$, then $x = 3$ is a zero.</p>
+
+        <div class="theorem-box">
+            <h4>Remainder Theorem</h4>
+            <p>If a polynomial $f(x)$ is divided by $(x - c)$, then the remainder is $f(c)$.</p>
+        </div>
+
+        <p>The Remainder Theorem is more general: it tells you that the remainder upon dividing $f(x)$ by $(x - c)$ is simply $f(c)$. The Factor Theorem is a special case where the remainder is zero.</p>
+
+        <h3>The Rational Root Theorem</h3>
+
+        <p>When we need to find zeros of a polynomial with integer coefficients, the Rational Root Theorem dramatically narrows the search.</p>
+
+        <div class="theorem-box">
+            <h4>Rational Root Theorem</h4>
+            <p>If $f(x) = a_n x^n + \cdots + a_1 x + a_0$ has integer coefficients and $\frac{p}{q}$ is a rational zero (in lowest terms), then:</p>
+            <p>$p$ is a factor of the constant term $a_0$, and $q$ is a factor of the leading coefficient $a_n$.</p>
+        </div>
+
+        <p>This theorem does not tell us which rational numbers are zeros&mdash;it tells us which rational numbers could <em>possibly</em> be zeros. We must test each candidate, but the list of candidates is finite.</p>
+
+        <div class="example-box">
+            <h4>Example 2.2: Using the Rational Root Theorem</h4>
+            <p>Find all rational zeros of $f(x) = 2x^3 + 3x^2 - 8x + 3$.</p>
+            <p><strong>Solution.</strong> The constant term is $a_0 = 3$ with factors $\pm 1, \pm 3$. The leading coefficient is $a_n = 2$ with factors $\pm 1, \pm 2$. The possible rational zeros are:</p>
+            <p>$$\frac{p}{q} = \pm 1, \pm 3, \pm \frac{1}{2}, \pm \frac{3}{2}$$</p>
+            <p>We test these systematically. Starting with $x = 1$:</p>
+            <p>$$f(1) = 2(1) + 3(1) - 8(1) + 3 = 0 \checkmark$$</p>
+            <p>Since $f(1) = 0$, we know $(x - 1)$ is a factor. Dividing by $(x - 1)$ using synthetic division (detailed below), we get $f(x) = (x - 1)(2x^2 + 5x - 3)$. Factoring the quadratic:</p>
+            <p>$$2x^2 + 5x - 3 = (2x - 1)(x + 3)$$</p>
+            <p>Therefore $f(x) = (x - 1)(2x - 1)(x + 3)$, and the zeros are $x = 1$, $x = \frac{1}{2}$, and $x = -3$.</p>
+        </div>
+
+        <h3>Synthetic Division</h3>
+
+        <p>Synthetic division is a streamlined method for dividing a polynomial by a linear factor $(x - c)$. It is faster than long division and particularly convenient when combined with the Rational Root Theorem.</p>
+
+        <p>To divide $f(x) = 2x^3 + 3x^2 - 8x + 3$ by $(x - 1)$, we write the coefficients and the value $c = 1$:</p>
+
+        <div class="example-box">
+            <h4>Example 2.3: Synthetic Division Step by Step</h4>
+            <p>Divide $f(x) = 2x^3 + 3x^2 - 8x + 3$ by $(x - 1)$.</p>
+            <p><strong>Setup:</strong> Write $c = 1$ on the left and the coefficients $2, 3, -8, 3$ in a row.</p>
+            <p><strong>Step 1:</strong> Bring down the first coefficient: $2$.</p>
+            <p><strong>Step 2:</strong> Multiply $2 \times 1 = 2$. Add to the next coefficient: $3 + 2 = 5$.</p>
+            <p><strong>Step 3:</strong> Multiply $5 \times 1 = 5$. Add to the next coefficient: $-8 + 5 = -3$.</p>
+            <p><strong>Step 4:</strong> Multiply $-3 \times 1 = -3$. Add to the last coefficient: $3 + (-3) = 0$.</p>
+            <p>The bottom row reads $2, 5, -3, 0$. The last number is the remainder ($0$, confirming $x = 1$ is a zero), and the other numbers are coefficients of the quotient: $2x^2 + 5x - 3$.</p>
+        </div>
+
+        <h3>Multiplicity of Zeros</h3>
+
+        <p>When a factor $(x - c)$ appears more than once in the factorization of a polynomial, we say the zero $c$ has <strong>multiplicity</strong> greater than one. The multiplicity determines how the graph behaves at that zero.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Multiplicity</h4>
+            <p>If $(x - c)^k$ is a factor of $f(x)$ but $(x - c)^{k+1}$ is not, then $c$ is a zero of <strong>multiplicity $k$</strong>.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Behavior at Zeros by Multiplicity</h4>
+            <p><strong>Odd multiplicity</strong> (1, 3, 5, ...): The graph <strong>crosses</strong> the $x$-axis at the zero. At multiplicity 1, it crosses cleanly; at higher odd multiplicities, it flattens near the axis before crossing.</p>
+            <p><strong>Even multiplicity</strong> (2, 4, 6, ...): The graph <strong>touches</strong> the $x$-axis at the zero and turns around (bounces) without crossing.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2.4: Multiplicity and Graph Behavior</h4>
+            <p>Describe the behavior of $g(x) = (x + 1)^3(x - 2)^2$ at each zero.</p>
+            <p><strong>Solution.</strong></p>
+            <ul>
+                <li>$x = -1$ has multiplicity $3$ (odd), so the graph <strong>crosses</strong> the $x$-axis at $x = -1$. Because the multiplicity is greater than 1, the graph flattens as it passes through this point.</li>
+                <li>$x = 2$ has multiplicity $2$ (even), so the graph <strong>touches</strong> the $x$-axis at $x = 2$ and bounces back without crossing.</li>
+            </ul>
+            <p>The degree of $g$ is $3 + 2 = 5$ (odd), and the leading coefficient is positive (expand: the leading term is $x^5$), so the end behavior goes from lower-left to upper-right.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 2.3 -->
+        <!-- ============================================================ -->
+        <h2 id="section-2-3">2.3 Graphing Polynomials</h2>
+
+        <p>We now combine everything from the previous sections into a systematic approach for graphing polynomial functions by hand. Even with graphing technology readily available, understanding how to sketch a polynomial by hand deepens your understanding of its algebraic structure.</p>
+
+        <div class="theorem-box">
+            <h4>Steps for Graphing a Polynomial</h4>
+            <p><strong>Step 1:</strong> Determine the end behavior from the degree and leading coefficient.</p>
+            <p><strong>Step 2:</strong> Find all real zeros by factoring (using the Rational Root Theorem and synthetic division as needed). Note each zero's multiplicity.</p>
+            <p><strong>Step 3:</strong> Find the $y$-intercept by computing $f(0)$.</p>
+            <p><strong>Step 4:</strong> Plot the zeros and $y$-intercept. Determine sign changes and the behavior at each zero (cross or touch). Connect the points smoothly, respecting end behavior.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2.5: Graphing a Cubic Polynomial</h4>
+            <p>Sketch the graph of $f(x) = x^3 - 4x^2 + x + 6$.</p>
+            <p><strong>Step 1 (End behavior):</strong> Degree 3, leading coefficient $+1$. The graph goes from lower-left to upper-right.</p>
+            <p><strong>Step 2 (Zeros):</strong> Testing $x = -1$: $f(-1) = -1 - 4 - 1 + 6 = 0$. So $(x + 1)$ is a factor. Synthetic division gives $f(x) = (x + 1)(x^2 - 5x + 6) = (x + 1)(x - 2)(x - 3)$. The zeros are $x = -1, 2, 3$, each with multiplicity 1 (all cross).</p>
+            <p><strong>Step 3 ($y$-intercept):</strong> $f(0) = 6$. The point $(0, 6)$ is on the graph.</p>
+            <p><strong>Step 4 (Sketch):</strong> Plot $(-1, 0)$, $(2, 0)$, $(3, 0)$, and $(0, 6)$. The graph rises from lower-left, crosses at $x = -1$, rises to a local maximum near $(0, 6)$, falls through $(2, 0)$, reaches a local minimum between $x = 2$ and $x = 3$, crosses at $(3, 0)$, and rises toward upper-right.</p>
+        </div>
+
+        <h3>Interactive Polynomial Graph</h3>
+
+        <p>Use the Desmos graph below to explore how changing the leading coefficient $a$ and the roots $r_1, r_2, r_3$ affects the shape of the cubic polynomial $y = a(x - r_1)(x - r_2)(x - r_3)$. Drag the sliders to move the roots and change the stretch factor.</p>
+
+        <div class="desmos-container">
+            <div id="poly-graph"></div>
+            <p class="desmos-caption">Interactive: Adjust sliders for leading coefficient $a$ and roots $r_1, r_2, r_3$ to explore cubic polynomial behavior.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2.6: Graphing a Quartic with Repeated Root</h4>
+            <p>Sketch the graph of $h(x) = -x^4 + 4x^3 - 4x^2$.</p>
+            <p><strong>Step 1 (End behavior):</strong> Degree 4 (even), leading coefficient $-1$ (negative). Both ends fall: $h(x) \to -\infty$ as $x \to \pm\infty$.</p>
+            <p><strong>Step 2 (Zeros):</strong> Factor out $-x^2$:</p>
+            <p>$$h(x) = -x^2(x^2 - 4x + 4) = -x^2(x - 2)^2$$</p>
+            <p>The zeros are $x = 0$ (multiplicity 2, touches) and $x = 2$ (multiplicity 2, touches).</p>
+            <p><strong>Step 3 ($y$-intercept):</strong> $h(0) = 0$.</p>
+            <p><strong>Step 4 (Sketch):</strong> Both zeros are "bounce" points. The graph falls from upper-left, touches and bounces at $x = 0$, rises to a local maximum between $0$ and $2$, touches and bounces at $x = 2$, then falls toward the lower-right. To find the local max, evaluate the midpoint: $h(1) = -1 + 4 - 4 = -1$. So the graph peaks at $(1, -1)$, which is still below the $x$-axis. This means the entire graph lies on or below the $x$-axis.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 2.4 -->
+        <!-- ============================================================ -->
+        <h2 id="section-2-4">2.4 Polynomial Inequalities</h2>
+
+        <p>A <strong>polynomial inequality</strong> is an inequality of the form $f(x) > 0$, $f(x) \geq 0$, $f(x) < 0$, or $f(x) \leq 0$. The key idea for solving these is <strong>sign analysis</strong>: a polynomial can only change sign at its zeros, so we find the zeros, divide the number line into intervals, and test the sign on each interval.</p>
+
+        <div class="theorem-box">
+            <h4>Sign Analysis Method</h4>
+            <p><strong>Step 1:</strong> Move all terms to one side so the inequality has the form $f(x) > 0$ (or $\geq, <, \leq$).</p>
+            <p><strong>Step 2:</strong> Factor $f(x)$ completely and find all real zeros.</p>
+            <p><strong>Step 3:</strong> Plot the zeros on a number line, dividing it into intervals.</p>
+            <p><strong>Step 4:</strong> Test one value in each interval to determine the sign of $f(x)$ there.</p>
+            <p><strong>Step 5:</strong> Select the intervals that satisfy the inequality. Include endpoints for $\geq$ or $\leq$; exclude them for $>$ or $<$.</p>
+        </div>
+
+        <p>The reason this works is the <strong>Intermediate Value Theorem</strong>: a continuous function (and all polynomials are continuous) can only change sign by passing through zero. So the sign of $f(x)$ is constant on each interval between consecutive zeros.</p>
+
+        <div class="example-box">
+            <h4>Example 2.7: Solving a Quadratic Inequality</h4>
+            <p>Solve $x^2 - 5x + 6 \leq 0$.</p>
+            <p><strong>Step 1:</strong> The inequality is already in the form $f(x) \leq 0$ with $f(x) = x^2 - 5x + 6$.</p>
+            <p><strong>Step 2:</strong> Factor: $f(x) = (x - 2)(x - 3)$. Zeros at $x = 2$ and $x = 3$.</p>
+            <p><strong>Step 3:</strong> Three intervals: $(-\infty, 2)$, $(2, 3)$, $(3, \infty)$.</p>
+            <p><strong>Step 4:</strong> Test values:</p>
+            <ul>
+                <li>$x = 0$: $(0 - 2)(0 - 3) = (-2)(-3) = 6 > 0$</li>
+                <li>$x = 2.5$: $(0.5)(-0.5) = -0.25 < 0$</li>
+                <li>$x = 4$: $(2)(1) = 2 > 0$</li>
+            </ul>
+            <p><strong>Step 5:</strong> We need $f(x) \leq 0$. The sign is negative on $(2, 3)$, and we include the endpoints because of $\leq$.</p>
+            <p><strong>Answer:</strong> $[2, 3]$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2.8: Solving a Higher-Degree Inequality</h4>
+            <p>Solve $x^3 - x^2 - 6x > 0$.</p>
+            <p><strong>Step 1:</strong> Already in the form $f(x) > 0$.</p>
+            <p><strong>Step 2:</strong> Factor out $x$: $f(x) = x(x^2 - x - 6) = x(x - 3)(x + 2)$. Zeros at $x = -2, 0, 3$.</p>
+            <p><strong>Step 3:</strong> Four intervals: $(-\infty, -2)$, $(-2, 0)$, $(0, 3)$, $(3, \infty)$.</p>
+            <p><strong>Step 4:</strong> Test values:</p>
+            <ul>
+                <li>$x = -3$: $(-3)(-6)(-1) = -18 < 0$</li>
+                <li>$x = -1$: $(-1)(-4)(1) = 4 > 0$</li>
+                <li>$x = 1$: $(1)(-2)(3) = -6 < 0$</li>
+                <li>$x = 4$: $(4)(1)(6) = 24 > 0$</li>
+            </ul>
+            <p><strong>Step 5:</strong> We need $f(x) > 0$. The sign is positive on $(-2, 0)$ and $(3, \infty)$. Endpoints are excluded because the inequality is strict.</p>
+            <p><strong>Answer:</strong> $(-2, 0) \cup (3, \infty)$</p>
+        </div>
+
+        <p>A useful shortcut when all factors are linear and each has multiplicity 1: the sign alternates between consecutive zeros, starting from the sign you determine for the leftmost interval. When zeros have even multiplicity, the sign does <em>not</em> change at that zero (the graph bounces).</p>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 2.5 -->
+        <!-- ============================================================ -->
+        <h2 id="section-2-5">2.5 Practice Problems</h2>
+
+        <p>Test your understanding of polynomial functions with the following problems. Each has a detailed solution you can reveal after attempting the problem on your own.</p>
+
+        <!-- Problem 1 -->
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>State the degree, leading coefficient, and end behavior of $f(x) = -3x^6 + 2x^4 - x + 7$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>Degree:</strong> $6$ (even).</p>
+                    <p><strong>Leading coefficient:</strong> $-3$ (negative).</p>
+                    <p><strong>End behavior:</strong> Even degree with negative leading coefficient means both ends fall. As $x \to +\infty$, $f(x) \to -\infty$, and as $x \to -\infty$, $f(x) \to -\infty$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 2 -->
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>Use the Rational Root Theorem to list all possible rational zeros of $f(x) = 3x^3 - 7x^2 + 4$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Constant term $a_0 = 4$, factors: $\pm 1, \pm 2, \pm 4$.</p>
+                    <p>Leading coefficient $a_n = 3$, factors: $\pm 1, \pm 3$.</p>
+                    <p>Possible rational zeros: $\pm 1, \pm 2, \pm 4, \pm \frac{1}{3}, \pm \frac{2}{3}, \pm \frac{4}{3}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 3 -->
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>Find all zeros of $f(x) = x^3 - 6x^2 + 11x - 6$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Possible rational zeros: $\pm 1, \pm 2, \pm 3, \pm 6$.</p>
+                    <p>Test $x = 1$: $f(1) = 1 - 6 + 11 - 6 = 0$. So $(x - 1)$ is a factor.</p>
+                    <p>Synthetic division: $x^3 - 6x^2 + 11x - 6 = (x - 1)(x^2 - 5x + 6) = (x - 1)(x - 2)(x - 3)$.</p>
+                    <p>The zeros are $x = 1, 2, 3$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 4 -->
+        <div class="practice-problem">
+            <h4>Problem 4</h4>
+            <p>When $f(x) = 2x^3 + kx^2 - 5x + 3$ is divided by $(x - 1)$, the remainder is $4$. Find $k$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>By the Remainder Theorem, the remainder when dividing by $(x - 1)$ is $f(1)$.</p>
+                    <p>$$f(1) = 2(1)^3 + k(1)^2 - 5(1) + 3 = 2 + k - 5 + 3 = k$$</p>
+                    <p>Setting $f(1) = 4$: $k = 4$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 5 -->
+        <div class="practice-problem">
+            <h4>Problem 5</h4>
+            <p>Describe the behavior of $g(x) = (x - 1)^2(x + 3)^3$ at each zero. What is the degree and end behavior?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>At $x = 1$ (multiplicity 2, even): the graph <strong>touches</strong> the $x$-axis and bounces back.</p>
+                    <p>At $x = -3$ (multiplicity 3, odd): the graph <strong>crosses</strong> the $x$-axis with a flattening effect.</p>
+                    <p>Degree: $2 + 3 = 5$ (odd). Leading coefficient: expanding, the leading term is $x^5$ (positive).</p>
+                    <p>End behavior: falls on the left ($x \to -\infty, f(x) \to -\infty$) and rises on the right ($x \to +\infty, f(x) \to +\infty$).</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 6 -->
+        <div class="practice-problem">
+            <h4>Problem 6</h4>
+            <p>Use synthetic division to divide $f(x) = 3x^4 - 2x^3 + x - 5$ by $(x + 1)$. State the quotient and remainder.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Dividing by $(x + 1) = (x - (-1))$, so $c = -1$. Coefficients: $3, -2, 0, 1, -5$ (note the $0$ for the missing $x^2$ term).</p>
+                    <p>Synthetic division:</p>
+                    <p>Bring down $3$. Then $3 \times (-1) = -3$; $-2 + (-3) = -5$.</p>
+                    <p>$-5 \times (-1) = 5$; $0 + 5 = 5$.</p>
+                    <p>$5 \times (-1) = -5$; $1 + (-5) = -4$.</p>
+                    <p>$-4 \times (-1) = 4$; $-5 + 4 = -1$.</p>
+                    <p><strong>Quotient:</strong> $3x^3 - 5x^2 + 5x - 4$. <strong>Remainder:</strong> $-1$.</p>
+                    <p>Check: $f(-1) = 3(1) - 2(-1) + (-1) - 5 = 3 + 2 - 1 - 5 = -1$. Confirmed by the Remainder Theorem.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 7 -->
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>Solve $x^2 - 4x - 5 > 0$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Factor: $(x - 5)(x + 1) > 0$. Zeros at $x = -1$ and $x = 5$.</p>
+                    <p>Test intervals:</p>
+                    <ul>
+                        <li>$x = -2$: $(-7)(-1) = 7 > 0$</li>
+                        <li>$x = 0$: $(-5)(1) = -5 < 0$</li>
+                        <li>$x = 6$: $(1)(7) = 7 > 0$</li>
+                    </ul>
+                    <p>The polynomial is positive on $(-\infty, -1) \cup (5, \infty)$.</p>
+                    <p><strong>Answer:</strong> $(-\infty, -1) \cup (5, \infty)$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 8 -->
+        <div class="practice-problem">
+            <h4>Problem 8</h4>
+            <p>Solve $x^3 + 2x^2 - 4x - 8 \leq 0$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Factor by grouping: $x^2(x + 2) - 4(x + 2) = (x + 2)(x^2 - 4) = (x + 2)(x - 2)(x + 2) = (x + 2)^2(x - 2)$.</p>
+                    <p>Zeros: $x = -2$ (multiplicity 2) and $x = 2$ (multiplicity 1).</p>
+                    <p>Test intervals:</p>
+                    <ul>
+                        <li>$x = -3$: $(1)(-5) = -5 < 0$</li>
+                        <li>$x = 0$: $(4)(-2) = -8 < 0$</li>
+                        <li>$x = 3$: $(25)(1) = 25 > 0$</li>
+                    </ul>
+                    <p>Note: The sign does <em>not</em> change at $x = -2$ because the multiplicity is even.</p>
+                    <p>We need $f(x) \leq 0$: negative on $(-\infty, -2)$ and $(-2, 2)$, and zero at $x = -2$ and $x = 2$.</p>
+                    <p><strong>Answer:</strong> $(-\infty, 2]$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 9 -->
+        <div class="practice-problem">
+            <h4>Problem 9</h4>
+            <p>Find a polynomial of degree 4 with leading coefficient $1$ that has zeros at $x = -1$ (multiplicity 2) and $x = 3$ (multiplicity 2).</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Using the Factor Theorem, the polynomial is:</p>
+                    <p>$$f(x) = (x + 1)^2(x - 3)^2$$</p>
+                    <p>Expanding: $(x + 1)^2 = x^2 + 2x + 1$ and $(x - 3)^2 = x^2 - 6x + 9$.</p>
+                    <p>$f(x) = (x^2 + 2x + 1)(x^2 - 6x + 9)$</p>
+                    <p>$= x^4 - 6x^3 + 9x^2 + 2x^3 - 12x^2 + 18x + x^2 - 6x + 9$</p>
+                    <p>$= x^4 - 4x^3 - 2x^2 + 12x + 9$</p>
+                    <p>The graph touches the $x$-axis at both $x = -1$ and $x = 3$ (both even multiplicity).</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 10 -->
+        <div class="practice-problem">
+            <h4>Problem 10</h4>
+            <p>Sketch a rough graph of $p(x) = -(x + 2)(x - 1)^2(x - 4)$, identifying zeros, end behavior, and $y$-intercept.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>Zeros:</strong> $x = -2$ (multiplicity 1, crosses), $x = 1$ (multiplicity 2, touches/bounces), $x = 4$ (multiplicity 1, crosses).</p>
+                    <p><strong>Degree:</strong> $1 + 2 + 1 = 4$ (even). <strong>Leading coefficient:</strong> $-1$ (negative, from the leading $-$ sign). Both ends fall.</p>
+                    <p><strong>$y$-intercept:</strong> $p(0) = -(0 + 2)(0 - 1)^2(0 - 4) = -(2)(1)(-4) = 8$. The point $(0, 8)$ is on the graph.</p>
+                    <p><strong>Sketch:</strong> The graph falls from the upper-left, crosses the $x$-axis at $x = -2$, rises through $(0, 8)$, bounces at $x = 1$, rises to a local max, then crosses downward through $x = 4$, and falls toward the lower-right.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Chapter Navigation -->
+        <div class="chapter-nav">
+            <a href="#">&larr; Chapter 1: Functions and Their Graphs</a>
+            <a href="#">Chapter 3: Rational Functions &rarr;</a>
+        </div>
+    </article>
+
+    <div class="footer">
+        <p>&copy; 2025 MathHub Global. All rights reserved.</p>
+    </div>
+
+    <!-- Desmos Graph Initialization -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elt = document.getElementById('poly-graph');
+            if (elt) {
+                var calc1 = Desmos.GraphingCalculator(elt, {
+                    expressions: false,
+                    settingsMenu: false,
+                    zoomButtons: true
+                });
+                calc1.setExpression({id: 'a', latex: 'a=1', sliderBounds: {min: -2, max: 2, step: 0.1}});
+                calc1.setExpression({id: 'r1', latex: 'r_1=-2', sliderBounds: {min: -5, max: 5, step: 0.5}});
+                calc1.setExpression({id: 'r2', latex: 'r_2=0', sliderBounds: {min: -5, max: 5, step: 0.5}});
+                calc1.setExpression({id: 'r3', latex: 'r_3=3', sliderBounds: {min: -5, max: 5, step: 0.5}});
+                calc1.setExpression({id: 'f', latex: 'y=a(x-r_1)(x-r_2)(x-r_3)', color: '#2563eb'});
+            }
+        });
+    </script>
+</body>
+</html>

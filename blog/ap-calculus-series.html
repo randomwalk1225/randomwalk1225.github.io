@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Calculus BC: Infinite Series &amp; Taylor Series - Chapter 10 | MathHub</title>
+    <meta name="description" content="AP Calculus BC series: convergence tests, power series, Taylor and Maclaurin series, Lagrange error bound. Complete guide with worked examples.">
+    <meta name="keywords" content="AP Calculus BC, infinite series, Taylor series, Maclaurin series, convergence tests, power series, Lagrange error bound, ratio test, integral test, AP exam">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/blog/ap-calculus-series.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/blog/ap-calculus-series.html">
+    <meta property="og:title" content="AP Calculus BC: Infinite Series & Taylor Series - Chapter 10">
+    <meta property="og:description" content="Complete AP Calculus BC guide to infinite series, convergence tests, power series, Taylor and Maclaurin series with worked examples.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Calculus BC: Infinite Series & Taylor Series - Chapter 10">
+    <meta name="twitter:description" content="AP Calculus BC series: convergence tests, power series, Taylor series, Lagrange error bound.">
+
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+    <!-- Desmos API -->
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../assets/css/common.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "AP Calculus BC: Infinite Series & Taylor Series - Chapter 10",
+        "description": "Complete AP Calculus BC guide covering infinite sequences and series, convergence tests, power series, Taylor and Maclaurin series, and Lagrange error bound.",
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "datePublished": "2025-06-01",
+        "dateModified": "2026-02-23"
+    }
+    </script>
+
+    <style>
+        .blog-article { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h2:first-of-type { border-top: none; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .bc-badge {
+            display: inline-block;
+            background: #7c3aed;
+            color: #fff;
+            font-size: 0.75em;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+            vertical-align: middle;
+            margin-left: 8px;
+            letter-spacing: 0.5px;
+        }
+        .breadcrumb {
+            font-size: 0.85em;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+        .breadcrumb a { color: #2563eb; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .definition-box {
+            background: #f0fdf4;
+            border-left: 4px solid #16a34a;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .definition-box strong { color: #15803d; }
+        .theorem-box {
+            background: #fefce8;
+            border-left: 4px solid #ca8a04;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .theorem-box strong { color: #a16207; }
+        .example-box {
+            background: #f0f9ff;
+            border-left: 4px solid #2563eb;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .example-box strong { color: #1d4ed8; }
+        .example-box .example-title {
+            font-weight: 700;
+            color: #1d4ed8;
+            margin-bottom: 8px;
+        }
+        .practice-problem {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 16px 0;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+        .practice-problem .problem-number {
+            font-weight: 700;
+            color: #1e3a5f;
+            margin-bottom: 8px;
+        }
+        details.solution {
+            margin-top: 12px;
+        }
+        details.solution summary {
+            cursor: pointer;
+            color: #2563eb;
+            font-weight: 600;
+            font-size: 0.95em;
+            padding: 6px 0;
+            user-select: none;
+        }
+        details.solution summary:hover { color: #1d4ed8; }
+        details.solution .solution-content {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 16px;
+            margin-top: 8px;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .reference-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.92em;
+        }
+        .reference-table th, .reference-table td {
+            padding: 10px 14px;
+            border: 1px solid #e2e8f0;
+            text-align: left;
+            vertical-align: top;
+        }
+        .reference-table th {
+            background: #1e3a5f;
+            color: #fff;
+            font-weight: 600;
+        }
+        .reference-table tr:nth-child(even) { background: #f8fafc; }
+        .reference-table td { color: #334155; }
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 40px 0 20px;
+            padding: 20px 0;
+            border-top: 2px solid #e2e8f0;
+            font-size: 0.95em;
+        }
+        .chapter-nav a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .chapter-nav a:hover { text-decoration: underline; }
+        .chapter-nav .nav-center {
+            color: #16a34a;
+            font-weight: 700;
+            text-align: center;
+        }
+        .tip-box {
+            background: #f0f9ff;
+            border-left: 4px solid #2563eb;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .tip-box strong { color: #1d4ed8; }
+        .toc {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 20px 0 30px;
+        }
+        .toc h3 { margin: 0 0 12px; color: #1e3a5f; font-size: 1.1em; }
+        .toc ol { margin: 0 0 0 20px; }
+        .toc li { margin-bottom: 4px; line-height: 1.6; }
+        .toc a { color: #2563eb; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .desmos-container {
+            width: 100%;
+            height: 400px;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+        .desmos-caption {
+            text-align: center;
+            font-size: 0.9em;
+            color: #64748b;
+            margin-top: 8px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 600px) {
+            .blog-article h1 { font-size: 1.6em; }
+            .reference-table { font-size: 0.8em; }
+            .reference-table th, .reference-table td { padding: 6px 8px; }
+            .chapter-nav { flex-direction: column; gap: 10px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="../" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/" class="active">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="../">Home</a> &rsaquo; <a href="./">Blog</a> &rsaquo; AP Calculus BC Textbook &rsaquo; Chapter 10
+        </div>
+
+        <h1>Chapter 10: Infinite Sequences and Series <span class="bc-badge">BC ONLY</span></h1>
+        <div class="blog-meta">Updated February 2026 &middot; 25 min read &middot; <a href="../us/ap-calculus/">AP Calculus Past Papers</a></div>
+
+        <p>Infinite series is the single most important topic that separates AP Calculus BC from AB. This chapter covers everything you need to know: sequences, convergence tests, power series, Taylor and Maclaurin series, and Lagrange error bounds. Roughly 17&ndash;20% of the BC exam focuses on series, making this chapter essential for a high score.</p>
+
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ol>
+                <li><a href="#sequences">10.1 Sequences</a></li>
+                <li><a href="#series-convergence">10.2 Series and Convergence</a></li>
+                <li><a href="#convergence-tests">10.3 Convergence Tests</a></li>
+                <li><a href="#absolute-conditional">10.4 Absolute and Conditional Convergence</a></li>
+                <li><a href="#power-series">10.5 Power Series</a></li>
+                <li><a href="#taylor-maclaurin">10.6 Taylor and Maclaurin Series</a></li>
+                <li><a href="#error-bound">10.7 Taylor Polynomial Error Bound (Lagrange)</a></li>
+                <li><a href="#practice">10.8 Practice Problems</a></li>
+            </ol>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 10.1 SEQUENCES -->
+        <!-- ============================================================ -->
+        <h2 id="sequences">10.1 Sequences</h2>
+
+        <div class="definition-box">
+            <strong>Definition &mdash; Sequence:</strong> A sequence is an ordered list of numbers defined by a function $a_n = f(n)$ for positive integers $n$. We write $\{a_n\}_{n=1}^{\infty}$ or simply $\{a_n\}$.
+        </div>
+
+        <p>Think of a sequence as an infinite list: $a_1, a_2, a_3, \ldots$ Each term is determined by plugging $n$ into a formula. For example, if $a_n = \frac{1}{n}$, the sequence is $1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \ldots$</p>
+
+        <h3>Convergence and Divergence</h3>
+
+        <div class="definition-box">
+            <strong>Definition &mdash; Convergence of a Sequence:</strong> A sequence $\{a_n\}$ <em>converges</em> to a limit $L$ if for every $\varepsilon > 0$, there exists a positive integer $N$ such that $|a_n - L| < \varepsilon$ for all $n > N$. We write $\lim_{n \to \infty} a_n = L$. If no such $L$ exists, the sequence <em>diverges</em>.
+        </div>
+
+        <p>In practical terms, a sequence converges if its terms approach a fixed number as $n$ grows. To evaluate $\lim_{n \to \infty} a_n$, you can use the same techniques as limits of functions: direct substitution, L'Hopital's Rule (by treating $n$ as a continuous variable $x$), and the Squeeze Theorem.</p>
+
+        <h3>Bounded and Monotonic Sequences</h3>
+
+        <p>A sequence $\{a_n\}$ is:</p>
+        <ul>
+            <li><strong>Bounded above</strong> if there exists $M$ such that $a_n \leq M$ for all $n$</li>
+            <li><strong>Bounded below</strong> if there exists $m$ such that $a_n \geq m$ for all $n$</li>
+            <li><strong>Monotonically increasing</strong> if $a_{n+1} \geq a_n$ for all $n$</li>
+            <li><strong>Monotonically decreasing</strong> if $a_{n+1} \leq a_n$ for all $n$</li>
+        </ul>
+
+        <div class="theorem-box">
+            <strong>Monotonic Convergence Theorem:</strong> Every bounded, monotonic sequence converges.
+        </div>
+
+        <p>This theorem is powerful because it guarantees convergence without requiring you to find the limit explicitly. If you can show a sequence is increasing and bounded above (or decreasing and bounded below), it must converge.</p>
+
+        <div class="example-box">
+            <div class="example-title">Example 1: Determine whether the sequence converges or diverges</div>
+            <p>Find $\lim_{n \to \infty} \frac{3n^2 + 1}{5n^2 - 2n}$.</p>
+            <p><strong>Solution:</strong> Divide numerator and denominator by $n^2$:</p>
+            $$\lim_{n \to \infty} \frac{3 + \frac{1}{n^2}}{5 - \frac{2}{n}} = \frac{3 + 0}{5 - 0} = \frac{3}{5}$$
+            <p>The sequence converges to $\frac{3}{5}$.</p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 2: Sequence with factorials</div>
+            <p>Find $\lim_{n \to \infty} \frac{n!}{n^n}$.</p>
+            <p><strong>Solution:</strong> Write out the ratio:</p>
+            $$\frac{n!}{n^n} = \frac{1}{n} \cdot \frac{2}{n} \cdot \frac{3}{n} \cdots \frac{n}{n}$$
+            <p>Every factor $\frac{k}{n} \leq 1$, and the first factor is $\frac{1}{n} \to 0$. Since $0 \leq \frac{n!}{n^n} \leq \frac{1}{n}$ and $\frac{1}{n} \to 0$, by the Squeeze Theorem:</p>
+            $$\lim_{n \to \infty} \frac{n!}{n^n} = 0$$
+            <p>The sequence converges to $0$.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 10.2 SERIES AND CONVERGENCE -->
+        <!-- ============================================================ -->
+        <h2 id="series-convergence">10.2 Series and Convergence</h2>
+
+        <div class="definition-box">
+            <strong>Definition &mdash; Infinite Series:</strong> An infinite series is the sum of the terms of a sequence:
+            $$\sum_{n=1}^{\infty} a_n = a_1 + a_2 + a_3 + \cdots$$
+            The <em>$n$th partial sum</em> is $S_n = \sum_{k=1}^{n} a_k$. The series <em>converges</em> if $\lim_{n \to \infty} S_n = S$ exists and is finite; the sum of the series is $S$. Otherwise, the series <em>diverges</em>.
+        </div>
+
+        <h3>Geometric Series</h3>
+
+        <div class="theorem-box">
+            <strong>Geometric Series:</strong> The series $\displaystyle\sum_{n=0}^{\infty} ar^n = a + ar + ar^2 + \cdots$ converges if and only if $|r| < 1$, and its sum is:
+            $$\sum_{n=0}^{\infty} ar^n = \frac{a}{1-r}, \quad |r| < 1$$
+            If $|r| \geq 1$, the geometric series diverges.
+        </div>
+
+        <p>The geometric series is one of the most important series on the AP exam. You must be able to identify a geometric series, determine if it converges, and compute its sum. Watch for series that can be rewritten in geometric form through algebraic manipulation.</p>
+
+        <div class="example-box">
+            <div class="example-title">Example 3: Geometric series</div>
+            <p>Find the sum of $\displaystyle\sum_{n=1}^{\infty} \frac{3}{4^n}$.</p>
+            <p><strong>Solution:</strong> Rewrite as $\displaystyle\sum_{n=1}^{\infty} 3 \cdot \left(\frac{1}{4}\right)^n = 3 \cdot \sum_{n=1}^{\infty} \left(\frac{1}{4}\right)^n$.</p>
+            <p>This is a geometric series starting at $n=1$ with $a = \frac{1}{4}$ and $r = \frac{1}{4}$. Since the sum starting at $n=0$ is $\frac{1}{1 - 1/4} = \frac{4}{3}$, the sum starting at $n=1$ is $\frac{4}{3} - 1 = \frac{1}{3}$.</p>
+            <p>Alternatively, use the formula with first term $\frac{3}{4}$ and ratio $\frac{1}{4}$:</p>
+            $$\frac{3/4}{1 - 1/4} = \frac{3/4}{3/4} = 1$$
+            <p>The sum is $1$.</p>
+        </div>
+
+        <div class="desmos-container" id="geometric-series"></div>
+        <p class="desmos-caption">Geometric series partial sums: S_n = &Sigma; r^k from k=0 to n. When |r| &lt; 1, the partial sums converge to 1/(1-r). Adjust r to see convergence vs divergence.</p>
+        <script>
+        (function() {
+            var elt = document.getElementById('geometric-series');
+            var calc = Desmos.GraphingCalculator(elt, {expressions: true, settingsMenu: false, zoomButtons: true});
+            calc.setExpression({id: 'r', latex: 'r_0 = 0.5', sliderBounds: {min: '-0.99', max: '0.99', step: '0.01'}});
+            calc.setExpression({id: 'S', latex: 'S(n) = \\sum_{k=0}^{n} r_0^k', color: '#2563eb'});
+            calc.setExpression({id: 'pts', latex: '(n, S(n))', color: '#2563eb', pointSize: 8});
+            calc.setExpression({id: 'limit', latex: 'y = \\frac{1}{1 - r_0}', color: '#dc2626', lineStyle: Desmos.Styles.DASHED});
+            calc.setExpression({id: 'n_list', latex: 'n = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]'});
+            calc.setMathBounds({left: -1, right: 16, bottom: -1, top: 4});
+        })();
+        </script>
+
+        <h3>Telescoping Series</h3>
+
+        <p>A telescoping series is one where most terms cancel in the partial sum. The classic form uses partial fractions:</p>
+
+        <div class="example-box">
+            <div class="example-title">Example 4: Telescoping series</div>
+            <p>Find the sum of $\displaystyle\sum_{n=1}^{\infty} \frac{1}{n(n+1)}$.</p>
+            <p><strong>Solution:</strong> Use partial fractions: $\frac{1}{n(n+1)} = \frac{1}{n} - \frac{1}{n+1}$.</p>
+            <p>Write out the partial sum:</p>
+            $$S_n = \left(\frac{1}{1} - \frac{1}{2}\right) + \left(\frac{1}{2} - \frac{1}{3}\right) + \left(\frac{1}{3} - \frac{1}{4}\right) + \cdots + \left(\frac{1}{n} - \frac{1}{n+1}\right)$$
+            <p>After cancellation: $S_n = 1 - \frac{1}{n+1}$. Therefore:</p>
+            $$\sum_{n=1}^{\infty} \frac{1}{n(n+1)} = \lim_{n \to \infty} \left(1 - \frac{1}{n+1}\right) = 1$$
+        </div>
+
+        <h3>Divergence Test (nth Term Test)</h3>
+
+        <div class="theorem-box">
+            <strong>Divergence Test:</strong> If $\lim_{n \to \infty} a_n \neq 0$, then $\displaystyle\sum_{n=1}^{\infty} a_n$ diverges.
+        </div>
+
+        <p><strong>Important caveat:</strong> If $\lim_{n \to \infty} a_n = 0$, the series may or may not converge. The harmonic series $\sum \frac{1}{n}$ diverges even though $\frac{1}{n} \to 0$. The Divergence Test can only prove divergence, never convergence.</p>
+
+        <div class="example-box">
+            <div class="example-title">Example 5: Divergence Test</div>
+            <p>Does $\displaystyle\sum_{n=1}^{\infty} \frac{n}{2n+3}$ converge or diverge?</p>
+            <p><strong>Solution:</strong> Check the limit: $\lim_{n \to \infty} \frac{n}{2n+3} = \frac{1}{2} \neq 0$.</p>
+            <p>Since the terms do not approach zero, the series <strong>diverges</strong> by the Divergence Test.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 10.3 CONVERGENCE TESTS -->
+        <!-- ============================================================ -->
+        <h2 id="convergence-tests">10.3 Convergence Tests</h2>
+
+        <p>This section covers the major convergence tests you need for the AP exam. Choosing the right test is a critical skill. After presenting each test, we provide a comprehensive summary table.</p>
+
+        <h3>Integral Test</h3>
+
+        <div class="theorem-box">
+            <strong>Integral Test:</strong> Let $f$ be a continuous, positive, decreasing function on $[1, \infty)$ with $a_n = f(n)$. Then:
+            $$\sum_{n=1}^{\infty} a_n \text{ converges if and only if } \int_1^{\infty} f(x)\,dx \text{ converges.}$$
+        </div>
+
+        <p>The Integral Test does not give you the sum of the series&mdash;it only tells you whether the series converges or diverges. The value of the integral is generally not equal to the sum of the series.</p>
+
+        <h3>p-Series Test</h3>
+
+        <div class="theorem-box">
+            <strong>p-Series Test:</strong> The series $\displaystyle\sum_{n=1}^{\infty} \frac{1}{n^p}$ converges if $p > 1$ and diverges if $p \leq 1$.
+        </div>
+
+        <p>Key cases to memorize: $\sum \frac{1}{n}$ diverges ($p = 1$, the harmonic series), $\sum \frac{1}{n^2}$ converges ($p = 2$), and $\sum \frac{1}{\sqrt{n}}$ diverges ($p = \frac{1}{2}$).</p>
+
+        <h3>Comparison Tests</h3>
+
+        <div class="theorem-box">
+            <strong>Direct Comparison Test:</strong> Suppose $0 \leq a_n \leq b_n$ for all $n$.
+            <ul style="margin:8px 0 0 20px;">
+                <li>If $\sum b_n$ converges, then $\sum a_n$ converges.</li>
+                <li>If $\sum a_n$ diverges, then $\sum b_n$ diverges.</li>
+            </ul>
+        </div>
+
+        <div class="theorem-box">
+            <strong>Limit Comparison Test:</strong> If $a_n > 0$, $b_n > 0$, and $\displaystyle\lim_{n \to \infty} \frac{a_n}{b_n} = L$ where $0 < L < \infty$, then $\sum a_n$ and $\sum b_n$ either both converge or both diverge.
+        </div>
+
+        <p>The Limit Comparison Test is often easier to use than Direct Comparison because you don't need to establish an inequality&mdash;you just compute a limit. Compare your series to a known p-series or geometric series.</p>
+
+        <h3>Alternating Series Test</h3>
+
+        <div class="theorem-box">
+            <strong>Alternating Series Test (Leibniz):</strong> The alternating series $\displaystyle\sum_{n=1}^{\infty} (-1)^{n+1} b_n$ converges if:
+            <ol style="margin:8px 0 0 20px;">
+                <li>$b_n > 0$ for all $n$</li>
+                <li>$b_{n+1} \leq b_n$ for all $n$ (decreasing)</li>
+                <li>$\lim_{n \to \infty} b_n = 0$</li>
+            </ol>
+        </div>
+
+        <h3>Ratio Test</h3>
+
+        <div class="theorem-box">
+            <strong>Ratio Test:</strong> Let $\displaystyle L = \lim_{n \to \infty} \left|\frac{a_{n+1}}{a_n}\right|$.
+            <ul style="margin:8px 0 0 20px;">
+                <li>If $L < 1$, the series converges absolutely.</li>
+                <li>If $L > 1$ (or $L = \infty$), the series diverges.</li>
+                <li>If $L = 1$, the test is inconclusive.</li>
+            </ul>
+        </div>
+
+        <p>The Ratio Test is the go-to test for series involving factorials, exponentials, or products of both. It is also the primary tool for finding the radius of convergence of a power series.</p>
+
+        <h3>Root Test</h3>
+
+        <div class="theorem-box">
+            <strong>Root Test:</strong> Let $\displaystyle L = \lim_{n \to \infty} \sqrt[n]{|a_n|}$.
+            <ul style="margin:8px 0 0 20px;">
+                <li>If $L < 1$, the series converges absolutely.</li>
+                <li>If $L > 1$, the series diverges.</li>
+                <li>If $L = 1$, the test is inconclusive.</li>
+            </ul>
+        </div>
+
+        <p>The Root Test is useful when $a_n$ has an $n$th power form like $(c_n)^n$. It appears less frequently on the AP exam than the Ratio Test, but it is good to know.</p>
+
+        <h3>Convergence Test Summary Table</h3>
+
+        <div class="tip-box">
+            <strong>AP Exam Tip:</strong> This table is your most important reference for the series FRQ. Memorize which test to use for which type of series.
+        </div>
+
+        <table class="reference-table">
+            <thead>
+                <tr>
+                    <th>Test</th>
+                    <th>When to Use</th>
+                    <th>Conclusion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Divergence Test</strong></td>
+                    <td>Always try first: check if $a_n \to 0$</td>
+                    <td>If $\lim a_n \neq 0$: diverges. If $= 0$: inconclusive</td>
+                </tr>
+                <tr>
+                    <td><strong>Geometric Series</strong></td>
+                    <td>Series has the form $\sum ar^n$</td>
+                    <td>$|r|<1$: converges to $\frac{a}{1-r}$. $|r|\geq 1$: diverges</td>
+                </tr>
+                <tr>
+                    <td><strong>p-Series</strong></td>
+                    <td>Series has the form $\sum \frac{1}{n^p}$</td>
+                    <td>$p > 1$: converges. $p \leq 1$: diverges</td>
+                </tr>
+                <tr>
+                    <td><strong>Integral Test</strong></td>
+                    <td>$f(n) = a_n$ is positive, continuous, decreasing</td>
+                    <td>$\int_1^\infty f(x)\,dx$ converges $\Leftrightarrow$ $\sum a_n$ converges</td>
+                </tr>
+                <tr>
+                    <td><strong>Direct Comparison</strong></td>
+                    <td>Can bound $a_n$ above/below by a known series</td>
+                    <td>$a_n \leq b_n$ and $\sum b_n$ conv. $\Rightarrow$ $\sum a_n$ conv.</td>
+                </tr>
+                <tr>
+                    <td><strong>Limit Comparison</strong></td>
+                    <td>$a_n$ resembles a known series for large $n$</td>
+                    <td>If $\lim \frac{a_n}{b_n} = L \in (0,\infty)$: both behave the same</td>
+                </tr>
+                <tr>
+                    <td><strong>Alternating Series</strong></td>
+                    <td>Series has $(-1)^n$ factor with decreasing terms</td>
+                    <td>$b_n$ decreasing, $b_n \to 0$: converges</td>
+                </tr>
+                <tr>
+                    <td><strong>Ratio Test</strong></td>
+                    <td>Factorials, exponentials, or $n!$ and $a^n$ terms</td>
+                    <td>$L < 1$: conv. abs. $L > 1$: div. $L = 1$: inconclusive</td>
+                </tr>
+                <tr>
+                    <td><strong>Root Test</strong></td>
+                    <td>Terms with $n$th power form $(c_n)^n$</td>
+                    <td>Same as Ratio Test conclusions</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box">
+            <div class="example-title">Example 6: Integral Test</div>
+            <p>Determine whether $\displaystyle\sum_{n=1}^{\infty} \frac{1}{n^2 + 1}$ converges or diverges.</p>
+            <p><strong>Solution:</strong> Let $f(x) = \frac{1}{x^2+1}$. This function is positive, continuous, and decreasing on $[1, \infty)$.</p>
+            $$\int_1^{\infty} \frac{1}{x^2+1}\,dx = \lim_{b \to \infty} \left[\arctan x\right]_1^b = \lim_{b \to \infty} \left(\arctan b - \arctan 1\right) = \frac{\pi}{2} - \frac{\pi}{4} = \frac{\pi}{4}$$
+            <p>Since the integral converges, the series $\sum \frac{1}{n^2+1}$ <strong>converges</strong> by the Integral Test.</p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 7: Limit Comparison Test</div>
+            <p>Determine whether $\displaystyle\sum_{n=1}^{\infty} \frac{n}{n^3 + 4}$ converges or diverges.</p>
+            <p><strong>Solution:</strong> For large $n$, $\frac{n}{n^3+4} \approx \frac{n}{n^3} = \frac{1}{n^2}$. Compare with $b_n = \frac{1}{n^2}$:</p>
+            $$\lim_{n \to \infty} \frac{a_n}{b_n} = \lim_{n \to \infty} \frac{n/(n^3+4)}{1/n^2} = \lim_{n \to \infty} \frac{n^3}{n^3+4} = 1$$
+            <p>Since $L = 1 \in (0, \infty)$ and $\sum \frac{1}{n^2}$ converges (p-series, $p=2$), the series $\sum \frac{n}{n^3+4}$ <strong>converges</strong> by the Limit Comparison Test.</p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 8: Alternating Series Test</div>
+            <p>Determine whether $\displaystyle\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n}$ converges or diverges.</p>
+            <p><strong>Solution:</strong> This is the alternating harmonic series. Let $b_n = \frac{1}{n}$.</p>
+            <ol>
+                <li>$b_n > 0$ for all $n$. &check;</li>
+                <li>$b_{n+1} = \frac{1}{n+1} < \frac{1}{n} = b_n$ (decreasing). &check;</li>
+                <li>$\lim_{n \to \infty} b_n = 0$. &check;</li>
+            </ol>
+            <p>All three conditions are met, so the alternating harmonic series <strong>converges</strong> by the Alternating Series Test. (Its sum is $\ln 2$.)</p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 9: Ratio Test</div>
+            <p>Determine whether $\displaystyle\sum_{n=1}^{\infty} \frac{n!}{3^n}$ converges or diverges.</p>
+            <p><strong>Solution:</strong> Apply the Ratio Test:</p>
+            $$L = \lim_{n \to \infty} \left|\frac{a_{n+1}}{a_n}\right| = \lim_{n \to \infty} \frac{(n+1)!}{3^{n+1}} \cdot \frac{3^n}{n!} = \lim_{n \to \infty} \frac{n+1}{3} = \infty$$
+            <p>Since $L = \infty > 1$, the series <strong>diverges</strong> by the Ratio Test.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 10.4 ABSOLUTE AND CONDITIONAL CONVERGENCE -->
+        <!-- ============================================================ -->
+        <h2 id="absolute-conditional">10.4 Absolute and Conditional Convergence</h2>
+
+        <div class="definition-box">
+            <strong>Definitions:</strong>
+            <ul style="margin: 8px 0 0 20px;">
+                <li>A series $\sum a_n$ <strong>converges absolutely</strong> if $\sum |a_n|$ converges.</li>
+                <li>A series $\sum a_n$ <strong>converges conditionally</strong> if $\sum a_n$ converges but $\sum |a_n|$ diverges.</li>
+            </ul>
+        </div>
+
+        <div class="theorem-box">
+            <strong>Absolute Convergence Theorem:</strong> If $\sum |a_n|$ converges, then $\sum a_n$ converges. In other words, absolute convergence implies convergence.
+        </div>
+
+        <p>The converse is not true. The alternating harmonic series $\sum \frac{(-1)^{n+1}}{n}$ converges, but $\sum \frac{1}{n}$ (the harmonic series) diverges. So the alternating harmonic series converges conditionally, not absolutely.</p>
+
+        <p>The distinction matters because absolutely convergent series have stronger properties: you can rearrange terms without changing the sum. Conditionally convergent series can be rearranged to converge to any number (the Riemann Rearrangement Theorem).</p>
+
+        <div class="example-box">
+            <div class="example-title">Example 10: Classifying convergence</div>
+            <p>Determine whether $\displaystyle\sum_{n=1}^{\infty} \frac{(-1)^n}{n^2}$ converges absolutely, converges conditionally, or diverges.</p>
+            <p><strong>Solution:</strong> Check absolute convergence first. Consider $\sum |a_n| = \sum \frac{1}{n^2}$.</p>
+            <p>This is a p-series with $p = 2 > 1$, so $\sum \frac{1}{n^2}$ converges.</p>
+            <p>Since $\sum |a_n|$ converges, the original series <strong>converges absolutely</strong>.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 10.5 POWER SERIES -->
+        <!-- ============================================================ -->
+        <h2 id="power-series">10.5 Power Series</h2>
+
+        <div class="definition-box">
+            <strong>Definition &mdash; Power Series:</strong> A power series centered at $a$ is a series of the form:
+            $$\sum_{n=0}^{\infty} c_n (x-a)^n = c_0 + c_1(x-a) + c_2(x-a)^2 + \cdots$$
+            where $c_n$ are constants (the coefficients) and $a$ is the center.
+        </div>
+
+        <h3>Radius and Interval of Convergence</h3>
+
+        <p>Every power series has a <strong>radius of convergence</strong> $R$ such that:</p>
+        <ul>
+            <li>The series converges absolutely for $|x - a| < R$</li>
+            <li>The series diverges for $|x - a| > R$</li>
+            <li>At $|x - a| = R$ (the endpoints), you must check each endpoint separately</li>
+        </ul>
+
+        <p>The radius $R$ can be $0$ (converges only at $x=a$), a positive number, or $\infty$ (converges for all $x$). The <strong>interval of convergence</strong> includes all $x$ for which the series converges, and it may or may not include the endpoints.</p>
+
+        <h3>Finding the Radius of Convergence</h3>
+
+        <p>Use the Ratio Test. For $\sum c_n(x-a)^n$, compute:</p>
+        $$L = \lim_{n \to \infty} \left|\frac{c_{n+1}}{c_n}\right| \cdot |x - a|$$
+        <p>The series converges when $L < 1$, which gives $|x-a| < \frac{1}{\lim |c_{n+1}/c_n|}$. Therefore $R = \frac{1}{\lim |c_{n+1}/c_n|}$.</p>
+
+        <div class="example-box">
+            <div class="example-title">Example 11: Finding the radius and interval of convergence</div>
+            <p>Find the radius and interval of convergence for $\displaystyle\sum_{n=1}^{\infty} \frac{x^n}{n}$.</p>
+            <p><strong>Solution:</strong> Apply the Ratio Test:</p>
+            $$L = \lim_{n \to \infty} \left|\frac{x^{n+1}/(n+1)}{x^n/n}\right| = \lim_{n \to \infty} |x| \cdot \frac{n}{n+1} = |x|$$
+            <p>Converges when $|x| < 1$, so $R = 1$. Now check endpoints:</p>
+            <ul>
+                <li><strong>$x = 1$:</strong> $\sum \frac{1}{n}$ is the harmonic series, which <strong>diverges</strong>.</li>
+                <li><strong>$x = -1$:</strong> $\sum \frac{(-1)^n}{n}$ is the alternating harmonic series, which <strong>converges</strong> (by AST).</li>
+            </ul>
+            <p>Interval of convergence: $[-1, 1)$.</p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 12: Power series with factorials</div>
+            <p>Find the radius of convergence for $\displaystyle\sum_{n=0}^{\infty} \frac{x^n}{n!}$.</p>
+            <p><strong>Solution:</strong> Apply the Ratio Test:</p>
+            $$L = \lim_{n \to \infty} \left|\frac{x^{n+1}/(n+1)!}{x^n/n!}\right| = \lim_{n \to \infty} \frac{|x|}{n+1} = 0$$
+            <p>Since $L = 0 < 1$ for all $x$, the series converges for all real numbers. The radius of convergence is $R = \infty$, and the interval is $(-\infty, \infty)$.</p>
+            <p>(This is the Maclaurin series for $e^x$.)</p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 13: Power series centered at $a \neq 0$</div>
+            <p>Find the radius and interval of convergence for $\displaystyle\sum_{n=0}^{\infty} \frac{(x-3)^n}{2^n}$.</p>
+            <p><strong>Solution:</strong> This is a geometric series with ratio $r = \frac{x-3}{2}$. It converges when $\left|\frac{x-3}{2}\right| < 1$, i.e., $|x-3| < 2$.</p>
+            <p>Radius of convergence: $R = 2$. The interval before endpoint checks: $(1, 5)$.</p>
+            <ul>
+                <li><strong>$x = 1$:</strong> $\sum \frac{(-2)^n}{2^n} = \sum (-1)^n$ diverges.</li>
+                <li><strong>$x = 5$:</strong> $\sum \frac{2^n}{2^n} = \sum 1$ diverges.</li>
+            </ul>
+            <p>Interval of convergence: $(1, 5)$.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 10.6 TAYLOR AND MACLAURIN SERIES -->
+        <!-- ============================================================ -->
+        <h2 id="taylor-maclaurin">10.6 Taylor and Maclaurin Series</h2>
+
+        <div class="definition-box">
+            <strong>Definition &mdash; Taylor Series:</strong> If $f$ has derivatives of all orders at $x = a$, then the Taylor series for $f$ centered at $a$ is:
+            $$f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots$$
+            A <strong>Maclaurin series</strong> is a Taylor series centered at $a = 0$.
+        </div>
+
+        <h3>Must-Know Maclaurin Series</h3>
+
+        <div class="tip-box">
+            <strong>AP Exam Essential:</strong> You are expected to know these series by heart. They appear in multiple-choice and free-response questions every year.
+        </div>
+
+        <table class="reference-table">
+            <thead>
+                <tr>
+                    <th>Function</th>
+                    <th>Maclaurin Series</th>
+                    <th>Interval</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>$e^x$</td>
+                    <td>$\displaystyle\sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots$</td>
+                    <td>$(-\infty, \infty)$</td>
+                </tr>
+                <tr>
+                    <td>$\sin x$</td>
+                    <td>$\displaystyle\sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!} = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots$</td>
+                    <td>$(-\infty, \infty)$</td>
+                </tr>
+                <tr>
+                    <td>$\cos x$</td>
+                    <td>$\displaystyle\sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n)!} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \cdots$</td>
+                    <td>$(-\infty, \infty)$</td>
+                </tr>
+                <tr>
+                    <td>$\dfrac{1}{1-x}$</td>
+                    <td>$\displaystyle\sum_{n=0}^{\infty} x^n = 1 + x + x^2 + x^3 + \cdots$</td>
+                    <td>$(-1, 1)$</td>
+                </tr>
+                <tr>
+                    <td>$\ln(1+x)$</td>
+                    <td>$\displaystyle\sum_{n=1}^{\infty} \frac{(-1)^{n+1} x^n}{n} = x - \frac{x^2}{2} + \frac{x^3}{3} - \cdots$</td>
+                    <td>$(-1, 1]$</td>
+                </tr>
+                <tr>
+                    <td>$\arctan x$</td>
+                    <td>$\displaystyle\sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{2n+1} = x - \frac{x^3}{3} + \frac{x^5}{5} - \cdots$</td>
+                    <td>$[-1, 1]$</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="desmos-container" id="taylor-approx"></div>
+        <p class="desmos-caption">Taylor polynomial approximation of sin(x) centered at 0. Increase the degree n to see how the polynomial matches the function more closely.</p>
+        <script>
+        (function() {
+            var elt = document.getElementById('taylor-approx');
+            var calc = Desmos.GraphingCalculator(elt, {expressions: true, settingsMenu: false, zoomButtons: true});
+            calc.setExpression({id: 'f', latex: 'f(x) = \\sin(x)', color: '#2563eb'});
+            calc.setExpression({id: 'n', latex: 'n_0 = 3', sliderBounds: {min: '1', max: '15', step: '2'}});
+            calc.setExpression({id: 'T', latex: 'T(x) = \\sum_{k=0}^{n_0} \\frac{(-1)^k x^{2k+1}}{(2k+1)!}', color: '#dc2626'});
+            calc.setMathBounds({left: -10, right: 10, bottom: -3, top: 3});
+        })();
+        </script>
+
+        <h3>Operations on Power Series</h3>
+
+        <p>You can create new Taylor series from known ones using these operations:</p>
+
+        <ul>
+            <li><strong>Substitution:</strong> Replace $x$ with an expression. Example: The series for $e^{-x^2}$ is obtained by substituting $-x^2$ for $x$ in the series for $e^x$.</li>
+            <li><strong>Differentiation:</strong> Differentiate term by term within the interval of convergence. Example: Since $\frac{1}{1-x} = \sum x^n$, differentiating gives $\frac{1}{(1-x)^2} = \sum nx^{n-1}$.</li>
+            <li><strong>Integration:</strong> Integrate term by term. Example: Since $\frac{1}{1+x} = \sum (-1)^n x^n$, integrating gives $\ln(1+x) = \sum \frac{(-1)^n x^{n+1}}{n+1}$.</li>
+            <li><strong>Multiplication:</strong> Multiply two known series (Cauchy product), or multiply a series by a polynomial.</li>
+        </ul>
+
+        <div class="example-box">
+            <div class="example-title">Example 14: Finding a Taylor series using known series</div>
+            <p>Find the Maclaurin series for $e^{-x^2}$.</p>
+            <p><strong>Solution:</strong> Start with $e^u = \sum_{n=0}^{\infty} \frac{u^n}{n!}$ and substitute $u = -x^2$:</p>
+            $$e^{-x^2} = \sum_{n=0}^{\infty} \frac{(-x^2)^n}{n!} = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{n!} = 1 - x^2 + \frac{x^4}{2!} - \frac{x^6}{3!} + \cdots$$
+            <p>This series converges for all $x$ (since the series for $e^u$ converges for all $u$).</p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 15: Finding a Taylor series from the definition</div>
+            <p>Find the Taylor series for $f(x) = \ln x$ centered at $a = 1$, up to the general term.</p>
+            <p><strong>Solution:</strong> Compute derivatives at $a = 1$:</p>
+            <ul>
+                <li>$f(x) = \ln x \Rightarrow f(1) = 0$</li>
+                <li>$f'(x) = \frac{1}{x} \Rightarrow f'(1) = 1$</li>
+                <li>$f''(x) = -\frac{1}{x^2} \Rightarrow f''(1) = -1$</li>
+                <li>$f'''(x) = \frac{2}{x^3} \Rightarrow f'''(1) = 2$</li>
+                <li>$f^{(n)}(x) = \frac{(-1)^{n-1}(n-1)!}{x^n} \Rightarrow f^{(n)}(1) = (-1)^{n-1}(n-1)!$</li>
+            </ul>
+            <p>The Taylor series is:</p>
+            $$\ln x = \sum_{n=1}^{\infty} \frac{(-1)^{n-1}(n-1)!}{n!}(x-1)^n = \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n}(x-1)^n$$
+            <p>Which equals $(x-1) - \frac{(x-1)^2}{2} + \frac{(x-1)^3}{3} - \cdots$, valid for $0 < x \leq 2$.</p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 16: Integration of a power series</div>
+            <p>Use a known Maclaurin series to find $\displaystyle\int_0^1 \frac{\sin x}{x}\,dx$ as an infinite series.</p>
+            <p><strong>Solution:</strong> Since $\sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots$, we have:</p>
+            $$\frac{\sin x}{x} = 1 - \frac{x^2}{3!} + \frac{x^4}{5!} - \frac{x^6}{7!} + \cdots = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n+1)!}$$
+            <p>Integrating term by term from $0$ to $1$:</p>
+            $$\int_0^1 \frac{\sin x}{x}\,dx = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)(2n+1)!} = 1 - \frac{1}{3 \cdot 3!} + \frac{1}{5 \cdot 5!} - \frac{1}{7 \cdot 7!} + \cdots$$
+            <p>This is an alternating series, so partial sums give accurate approximations with known error bounds.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 10.7 TAYLOR POLYNOMIAL ERROR BOUND -->
+        <!-- ============================================================ -->
+        <h2 id="error-bound">10.7 Taylor Polynomial Error Bound (Lagrange)</h2>
+
+        <p>When we approximate a function $f(x)$ using a Taylor polynomial $P_n(x)$, the error (or remainder) is $R_n(x) = f(x) - P_n(x)$. The Lagrange error bound gives us a way to control this error.</p>
+
+        <div class="theorem-box">
+            <strong>Lagrange Error Bound:</strong> If $f$ has $n+1$ continuous derivatives on an interval containing $a$ and $x$, and if $|f^{(n+1)}(c)| \leq M$ for all $c$ between $a$ and $x$, then:
+            $$|R_n(x)| = |f(x) - P_n(x)| \leq \frac{M|x-a|^{n+1}}{(n+1)!}$$
+        </div>
+
+        <p>The key challenge is finding $M$, the maximum value of $|f^{(n+1)}|$ on the relevant interval. For many common functions, this is straightforward:</p>
+        <ul>
+            <li>For $\sin x$ and $\cos x$: all derivatives are bounded by $1$, so $M = 1$.</li>
+            <li>For $e^x$ on $[0, b]$: the $(n+1)$th derivative is $e^x$, so $M = e^b$.</li>
+        </ul>
+
+        <div class="theorem-box">
+            <strong>Alternating Series Error Bound:</strong> For a convergent alternating series $\sum (-1)^{n+1} b_n$ with decreasing positive terms, the error of the $n$th partial sum is bounded by the first omitted term:
+            $$|S - S_n| \leq b_{n+1}$$
+        </div>
+
+        <p>The Alternating Series Error Bound is often simpler to apply than Lagrange. If the series is alternating and meets the AST conditions, the error is no more than the absolute value of the next term.</p>
+
+        <div class="example-box">
+            <div class="example-title">Example 17: Lagrange error bound</div>
+            <p>Use the third-degree Taylor polynomial for $\sin x$ centered at $0$ to approximate $\sin(0.5)$, and bound the error.</p>
+            <p><strong>Solution:</strong> The third-degree Maclaurin polynomial for $\sin x$ is:</p>
+            $$P_3(x) = x - \frac{x^3}{3!} = x - \frac{x^3}{6}$$
+            <p>So $P_3(0.5) = 0.5 - \frac{(0.5)^3}{6} = 0.5 - \frac{0.125}{6} = 0.5 - 0.02083\overline{3} \approx 0.47917$.</p>
+            <p>For the Lagrange error bound with $n = 3$, we need $|f^{(4)}(c)| \leq M$ for $c$ between $0$ and $0.5$. The fourth derivative of $\sin x$ is $\sin x$, and $|\sin c| \leq 1$, so $M = 1$.</p>
+            $$|R_3(0.5)| \leq \frac{1 \cdot |0.5|^4}{4!} = \frac{0.0625}{24} \approx 0.0026$$
+            <p>Our approximation $\sin(0.5) \approx 0.47917$ has an error of at most $0.0026$. (The actual value is $\sin(0.5) \approx 0.47943$.)</p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 18: Alternating series error bound</div>
+            <p>Approximate $\cos(1)$ using the first three nonzero terms of its Maclaurin series, and bound the error.</p>
+            <p><strong>Solution:</strong> The Maclaurin series for $\cos x$ is $1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots$</p>
+            <p>First three nonzero terms at $x = 1$:</p>
+            $$1 - \frac{1}{2} + \frac{1}{24} = \frac{24 - 12 + 1}{24} = \frac{13}{24} \approx 0.54167$$
+            <p>This is an alternating series with decreasing terms. By the Alternating Series Error Bound, the error is at most the first omitted term:</p>
+            $$|S - S_3| \leq \frac{1^6}{6!} = \frac{1}{720} \approx 0.00139$$
+            <p>So $\cos(1) \approx 0.54167$ with an error of at most $0.00139$. (The actual value is $\cos(1) \approx 0.54030$.)</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 10.8 PRACTICE PROBLEMS -->
+        <!-- ============================================================ -->
+        <h2 id="practice">10.8 Practice Problems</h2>
+
+        <p>Test your understanding with these 12 problems covering all topics from this chapter. Click "Show Solution" to check your work.</p>
+
+        <!-- Problem 1 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 1 &mdash; Sequences</div>
+            <p>Determine whether the sequence $a_n = \frac{(-1)^n n}{n+1}$ converges or diverges.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Consider the subsequences for even and odd $n$:</p>
+                    <p>For even $n$: $a_n = \frac{n}{n+1} \to 1$.</p>
+                    <p>For odd $n$: $a_n = \frac{-n}{n+1} \to -1$.</p>
+                    <p>Since the subsequences approach different limits, the sequence <strong>diverges</strong>.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 2 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 2 &mdash; Geometric Series</div>
+            <p>Find the sum of $\displaystyle\sum_{n=0}^{\infty} \frac{(-1)^n 5}{3^n}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Rewrite: $\sum_{n=0}^{\infty} 5 \left(-\frac{1}{3}\right)^n$. This is geometric with $a = 5$ and $r = -\frac{1}{3}$.</p>
+                    <p>Since $|r| = \frac{1}{3} < 1$, the series converges:</p>
+                    $$S = \frac{5}{1-(-1/3)} = \frac{5}{4/3} = \frac{15}{4}$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 3 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 3 &mdash; Divergence Test</div>
+            <p>Determine whether $\displaystyle\sum_{n=1}^{\infty} \frac{2^n}{2^n + 1}$ converges or diverges.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\lim_{n \to \infty} \frac{2^n}{2^n + 1} = \lim_{n \to \infty} \frac{1}{1 + 2^{-n}} = 1 \neq 0$.</p>
+                    <p>The series <strong>diverges</strong> by the Divergence Test.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 4 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 4 &mdash; Integral Test</div>
+            <p>Determine whether $\displaystyle\sum_{n=2}^{\infty} \frac{1}{n \ln n}$ converges or diverges.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Let $f(x) = \frac{1}{x \ln x}$, which is positive, continuous, and decreasing on $[2, \infty)$.</p>
+                    $$\int_2^{\infty} \frac{1}{x \ln x}\,dx = \lim_{b \to \infty} [\ln(\ln x)]_2^b = \lim_{b \to \infty} (\ln(\ln b) - \ln(\ln 2)) = \infty$$
+                    <p>The integral diverges, so the series <strong>diverges</strong> by the Integral Test.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 5 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 5 &mdash; Comparison Test</div>
+            <p>Determine whether $\displaystyle\sum_{n=1}^{\infty} \frac{\sin^2 n}{n^2}$ converges or diverges.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Since $0 \leq \sin^2 n \leq 1$, we have $0 \leq \frac{\sin^2 n}{n^2} \leq \frac{1}{n^2}$.</p>
+                    <p>$\sum \frac{1}{n^2}$ converges (p-series, $p = 2$), so $\sum \frac{\sin^2 n}{n^2}$ <strong>converges</strong> by the Direct Comparison Test.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 6 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 6 &mdash; Ratio Test</div>
+            <p>Determine whether $\displaystyle\sum_{n=1}^{\infty} \frac{n^3}{3^n}$ converges or diverges.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Apply the Ratio Test:</p>
+                    $$L = \lim_{n \to \infty} \frac{(n+1)^3/3^{n+1}}{n^3/3^n} = \lim_{n \to \infty} \frac{(n+1)^3}{3n^3} = \frac{1}{3} \lim_{n \to \infty} \left(\frac{n+1}{n}\right)^3 = \frac{1}{3}$$
+                    <p>Since $L = \frac{1}{3} < 1$, the series <strong>converges</strong> by the Ratio Test.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 7 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 7 &mdash; Absolute/Conditional Convergence</div>
+            <p>Determine whether $\displaystyle\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{\sqrt{n}}$ converges absolutely, conditionally, or diverges.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>Absolute convergence:</strong> $\sum \frac{1}{\sqrt{n}} = \sum \frac{1}{n^{1/2}}$ is a p-series with $p = \frac{1}{2} \leq 1$, so it diverges. Not absolutely convergent.</p>
+                    <p><strong>Conditional convergence:</strong> The series is alternating with $b_n = \frac{1}{\sqrt{n}}$. Since $b_n$ is decreasing and $b_n \to 0$, the series converges by the Alternating Series Test.</p>
+                    <p>The series <strong>converges conditionally</strong>.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 8 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 8 &mdash; Power Series (Interval of Convergence)</div>
+            <p>Find the interval of convergence for $\displaystyle\sum_{n=1}^{\infty} \frac{(x+2)^n}{n \cdot 3^n}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Apply the Ratio Test:</p>
+                    $$L = \lim_{n \to \infty} \left|\frac{(x+2)^{n+1}}{(n+1) \cdot 3^{n+1}} \cdot \frac{n \cdot 3^n}{(x+2)^n}\right| = |x+2| \cdot \frac{1}{3} \cdot \lim_{n \to \infty} \frac{n}{n+1} = \frac{|x+2|}{3}$$
+                    <p>Converges when $\frac{|x+2|}{3} < 1$, so $|x+2| < 3$. Thus $R = 3$ and center $a = -2$: $-5 < x < 1$.</p>
+                    <p><strong>At $x = 1$:</strong> $\sum \frac{3^n}{n \cdot 3^n} = \sum \frac{1}{n}$ diverges (harmonic).</p>
+                    <p><strong>At $x = -5$:</strong> $\sum \frac{(-3)^n}{n \cdot 3^n} = \sum \frac{(-1)^n}{n}$ converges (alternating harmonic).</p>
+                    <p>Interval of convergence: $[-5, 1)$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 9 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 9 &mdash; Taylor Series (from definition)</div>
+            <p>Find the first four nonzero terms of the Taylor series for $f(x) = \sqrt{x}$ centered at $a = 4$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Compute derivatives at $a = 4$:</p>
+                    <ul style="margin: 8px 0 8px 20px;">
+                        <li>$f(x) = x^{1/2} \Rightarrow f(4) = 2$</li>
+                        <li>$f'(x) = \frac{1}{2}x^{-1/2} \Rightarrow f'(4) = \frac{1}{4}$</li>
+                        <li>$f''(x) = -\frac{1}{4}x^{-3/2} \Rightarrow f''(4) = -\frac{1}{32}$</li>
+                        <li>$f'''(x) = \frac{3}{8}x^{-5/2} \Rightarrow f'''(4) = \frac{3}{256}$</li>
+                    </ul>
+                    $$\sqrt{x} \approx 2 + \frac{1}{4}(x-4) + \frac{-1/32}{2!}(x-4)^2 + \frac{3/256}{3!}(x-4)^3$$
+                    $$= 2 + \frac{1}{4}(x-4) - \frac{1}{64}(x-4)^2 + \frac{1}{512}(x-4)^3$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 10 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 10 &mdash; Taylor Series (using known series)</div>
+            <p>Find the Maclaurin series for $f(x) = x^2 \cos(x^2)$ through the $x^{10}$ term.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Start with $\cos u = 1 - \frac{u^2}{2!} + \frac{u^4}{4!} - \cdots$. Substitute $u = x^2$:</p>
+                    $$\cos(x^2) = 1 - \frac{x^4}{2} + \frac{x^8}{24} - \cdots$$
+                    <p>Multiply by $x^2$:</p>
+                    $$x^2 \cos(x^2) = x^2 - \frac{x^6}{2} + \frac{x^{10}}{24} - \cdots$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 11 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 11 &mdash; Lagrange Error Bound</div>
+            <p>Use the second-degree Maclaurin polynomial for $e^x$ to approximate $e^{0.1}$, and find the maximum error using the Lagrange error bound.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$P_2(x) = 1 + x + \frac{x^2}{2}$, so $P_2(0.1) = 1 + 0.1 + 0.005 = 1.105$.</p>
+                    <p>For the error bound: $f^{(3)}(x) = e^x$. On $[0, 0.1]$, the maximum is $e^{0.1} < e < 3$, so $M = 3$.</p>
+                    $$|R_2(0.1)| \leq \frac{3 \cdot (0.1)^3}{3!} = \frac{3 \cdot 0.001}{6} = 0.0005$$
+                    <p>So $e^{0.1} \approx 1.105$ with error at most $0.0005$. (Actual: $e^{0.1} \approx 1.10517$.)</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 12 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 12 &mdash; Alternating Series Error Bound</div>
+            <p>How many terms of the series $\displaystyle\sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}$ are needed to approximate $\sin(1)$ with an error less than $0.001$?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>This is the Maclaurin series for $\sin x$ evaluated at $x = 1$: $\sin(1) = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}$.</p>
+                    <p>By the Alternating Series Error Bound, we need $\frac{1}{(2n+3)!} < 0.001$, where the error is bounded by the first omitted term.</p>
+                    <ul style="margin: 8px 0 8px 20px;">
+                        <li>$n=0$: first omitted term is $\frac{1}{3!} = \frac{1}{6} \approx 0.167$ (too large)</li>
+                        <li>$n=1$: first omitted term is $\frac{1}{5!} = \frac{1}{120} \approx 0.0083$ (too large)</li>
+                        <li>$n=2$: first omitted term is $\frac{1}{7!} = \frac{1}{5040} \approx 0.000198 < 0.001$ &check;</li>
+                    </ul>
+                    <p>We need <strong>3 terms</strong> ($n = 0, 1, 2$): $\sin(1) \approx 1 - \frac{1}{6} + \frac{1}{120} = \frac{101}{120} \approx 0.84167$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- CHAPTER NAVIGATION -->
+        <!-- ============================================================ -->
+        <div class="chapter-nav">
+            <a href="ap-calculus-parametric.html">&larr; Chapter 9: Parametric, Polar &amp; Vectors</a>
+            <div class="nav-center">Complete the AP Calculus Textbook!</div>
+            <span style="color: #94a3b8;">Final Chapter &rarr;</span>
+        </div>
+
+        <!-- AdSense -->
+        <ins class="adsbygoogle"
+             style="display:block; margin: 30px 0;"
+             data-ad-client="ca-pub-7322143430416257"
+             data-ad-slot="auto"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    </article>
+
+    <footer style="text-align:center; padding:30px 20px; color:#64748b; font-size:0.85em; border-top:1px solid #e2e8f0; margin-top:20px;">
+        &copy; 2025 MathHub Global. All rights reserved. |
+        <a href="../" style="color:#2563eb; text-decoration:none;">Home</a> |
+        <a href="../us/ap-calculus/" style="color:#2563eb; text-decoration:none;">AP Calculus Papers</a> |
+        <a href="../blog/" style="color:#2563eb; text-decoration:none;">Blog</a>
+    </footer>
+</body>
+</html>

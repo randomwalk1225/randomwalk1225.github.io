@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Precalculus: Trigonometric Functions - Chapter 5 | MathHub</title>
+    <meta name="description" content="Precalculus Chapter 5: Trigonometric Functions. Master the unit circle, six trig functions, graphing sine and cosine with transformations, inverse trig functions, and practice problems with solutions.">
+    <meta name="keywords" content="precalculus, trigonometric functions, unit circle, sine cosine graphs, inverse trig functions, trig identities, ASTC rule, radian measure, reference angles, precalculus textbook">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/blog/precalculus-trigonometry.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/blog/precalculus-trigonometry.html">
+    <meta property="og:title" content="Precalculus: Trigonometric Functions - Chapter 5">
+    <meta property="og:description" content="Comprehensive chapter on trigonometric functions for precalculus. Unit circle, graphing, inverse trig, worked examples, and interactive Desmos graphs.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Precalculus: Trigonometric Functions - Chapter 5">
+    <meta name="twitter:description" content="Master trigonometric functions with the unit circle, graphing transformations, inverse trig, and interactive Desmos visualizations.">
+
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Precalculus: Trigonometric Functions - Chapter 5",
+        "description": "Precalculus Chapter 5: Trigonometric Functions. Master the unit circle, six trig functions, graphing sine and cosine with transformations, inverse trig functions, and practice problems.",
+        "url": "https://mathhub.io/blog/precalculus-trigonometry.html",
+        "datePublished": "2026-02-23",
+        "dateModified": "2026-02-23",
+        "publisher": {
+            "@type": "Organization",
+            "name": "MathHub Global"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "MathHub Global"
+        },
+        "educationalLevel": "Precalculus",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Trigonometric Functions" },
+            { "@type": "Thing", "name": "Unit Circle" },
+            { "@type": "Thing", "name": "Precalculus" }
+        ]
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Desmos API -->
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <style>
+        .blog-article {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .blog-article h1 {
+            font-size: 2.2em;
+            color: #1e3a5f;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .blog-meta {
+            color: #64748b;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .blog-article h2 {
+            font-size: 1.5em;
+            color: #1e3a5f;
+            margin: 36px 0 16px;
+            padding-top: 12px;
+        }
+        .blog-article h3 {
+            font-size: 1.2em;
+            color: #334155;
+            margin: 24px 0 10px;
+        }
+        .blog-article p {
+            color: #334155;
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+        .blog-article ul, .blog-article ol {
+            margin: 12px 0 20px 24px;
+            color: #334155;
+        }
+        .blog-article li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+        .breadcrumb {
+            font-size: 0.85em;
+            color: #94a3b8;
+            margin-bottom: 16px;
+        }
+        .breadcrumb a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .example-box {
+            background: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .example-box h4 {
+            color: #1d4ed8;
+            margin: 0 0 12px;
+            font-size: 1.05em;
+        }
+        .example-box p, .example-box li {
+            color: #334155;
+            line-height: 1.8;
+        }
+        .definition-box {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .definition-box h4 {
+            color: #15803d;
+            margin: 0 0 12px;
+            font-size: 1.05em;
+        }
+        .definition-box p {
+            color: #334155;
+            line-height: 1.8;
+        }
+        .theorem-box {
+            background: #faf5ff;
+            border-left: 4px solid #8b5cf6;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .theorem-box h4 {
+            color: #6d28d9;
+            margin: 0 0 12px;
+            font-size: 1.05em;
+        }
+        .theorem-box p {
+            color: #334155;
+            line-height: 1.8;
+        }
+        .practice-problem {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 20px 24px;
+            margin: 16px 0;
+            border-radius: 8px;
+        }
+        .practice-problem h4 {
+            color: #1e3a5f;
+            margin: 0 0 10px;
+            font-size: 1em;
+        }
+        .practice-problem p {
+            margin-bottom: 12px;
+        }
+        details.solution {
+            margin-top: 12px;
+        }
+        details.solution summary {
+            cursor: pointer;
+            color: #3b82f6;
+            font-weight: 600;
+            font-size: 0.95em;
+            padding: 6px 0;
+            user-select: none;
+        }
+        details.solution summary:hover {
+            color: #1d4ed8;
+        }
+        .solution-content {
+            padding: 16px 20px;
+            background: #f0f7ff;
+            border-radius: 6px;
+            margin-top: 8px;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .solution-content p {
+            margin-bottom: 10px;
+        }
+        .toc {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px 28px;
+            margin: 24px 0 36px;
+        }
+        .toc h3 {
+            color: #1e3a5f;
+            margin: 0 0 12px;
+            font-size: 1.1em;
+        }
+        .toc ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .toc li {
+            margin-bottom: 6px;
+        }
+        .toc a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 48px 0 20px;
+            padding: 20px 0;
+            border-top: 2px solid #e2e8f0;
+        }
+        .chapter-nav a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+        .chapter-nav a:hover {
+            text-decoration: underline;
+        }
+        .chapter-nav .disabled {
+            color: #cbd5e1;
+            cursor: default;
+        }
+        .step-label {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            font-size: 0.8em;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 4px;
+            margin-right: 6px;
+        }
+        .values-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .values-table th, .values-table td {
+            padding: 10px 14px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .values-table th {
+            background: #f0f9ff;
+            color: #1e3a5f;
+            font-weight: 600;
+        }
+        .values-table td {
+            color: #334155;
+        }
+        .desmos-container {
+            width: 100%;
+            height: 420px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+        .desmos-caption {
+            font-size: 0.88em;
+            color: #64748b;
+            text-align: center;
+            margin: -12px 0 20px;
+            font-style: italic;
+        }
+        .warning-box {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .warning-box strong {
+            color: #b45309;
+        }
+        .warning-box p {
+            color: #334155;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="../" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/" class="active">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="/us/">US</a> &rsaquo; <a href="./">Blog</a> &rsaquo; Precalculus: Chapter 5
+        </div>
+
+        <h1>Chapter 5: Trigonometric Functions</h1>
+        <div class="blog-meta">Precalculus &middot; Updated February 2026 &middot; 30 min read</div>
+
+        <p>Trigonometric functions are among the most important tools in all of mathematics. They arise naturally from the study of triangles and circles, yet their applications extend far beyond geometry into physics, engineering, music, and data science. In this chapter, we build trigonometry from the ground up: starting with angles and the unit circle, defining all six trigonometric functions, learning to graph them and their transformations, and finally introducing inverse trigonometric functions. If you master this chapter, you will have the foundation needed for calculus and beyond.</p>
+
+        <nav class="toc">
+            <h3>Chapter Contents</h3>
+            <ol>
+                <li><a href="#section-5-1">Angles and the Unit Circle</a></li>
+                <li><a href="#section-5-2">The Six Trigonometric Functions</a></li>
+                <li><a href="#section-5-3">Graphs of Sine and Cosine</a></li>
+                <li><a href="#section-5-4">Graphs of Other Trigonometric Functions</a></li>
+                <li><a href="#section-5-5">Inverse Trigonometric Functions</a></li>
+                <li><a href="#section-5-6">Practice Problems</a></li>
+            </ol>
+        </nav>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 5.1 -->
+        <!-- ============================================================ -->
+        <h2 id="section-5-1">5.1 Angles and the Unit Circle</h2>
+
+        <p>An <strong>angle</strong> is formed by rotating a ray from an initial side to a terminal side. When we place an angle in <strong>standard position</strong>, its vertex sits at the origin and its initial side lies along the positive $x$-axis. Angles measured counterclockwise are positive; angles measured clockwise are negative.</p>
+
+        <h3>Degree and Radian Measure</h3>
+
+        <p>There are two standard units for measuring angles. <strong>Degrees</strong> divide one full rotation into 360 equal parts, so a full rotation is $360°$. <strong>Radians</strong> measure the angle by the length of the arc it subtends on a unit circle. Since the circumference of the unit circle is $2\pi$, a full rotation is $2\pi$ radians.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Radian Measure</h4>
+            <p>One <strong>radian</strong> is the measure of a central angle that intercepts an arc equal in length to the radius of the circle. In general, if an arc of length $s$ is subtended by a central angle $\theta$ in a circle of radius $r$, then:</p>
+            <p>$$\theta = \frac{s}{r}$$</p>
+        </div>
+
+        <p>The conversion between degrees and radians follows from the fact that $360° = 2\pi$ radians:</p>
+
+        <p>$$\text{Degrees to radians: } \theta_{\text{rad}} = \theta_{\text{deg}} \times \frac{\pi}{180}$$</p>
+        <p>$$\text{Radians to degrees: } \theta_{\text{deg}} = \theta_{\text{rad}} \times \frac{180}{\pi}$$</p>
+
+        <h3>The Unit Circle</h3>
+
+        <p>The <strong>unit circle</strong> is the circle of radius 1 centered at the origin: $x^2 + y^2 = 1$. It is the single most important diagram in trigonometry. Given any angle $\theta$ in standard position, the terminal side intersects the unit circle at a unique point $P$. We define:</p>
+
+        <p>$$\cos\theta = x\text{-coordinate of }P, \quad \sin\theta = y\text{-coordinate of }P$$</p>
+
+        <p>This definition works for <em>all</em> angles, not just acute angles in right triangles. It unifies trigonometry across all four quadrants and for angles greater than $360°$ or less than $0°$.</p>
+
+        <h3>Reference Angles</h3>
+
+        <p>A <strong>reference angle</strong> is the acute angle $\alpha$ formed between the terminal side of an angle and the $x$-axis. The reference angle always lies between $0°$ and $90°$ (or between $0$ and $\frac{\pi}{2}$ radians). Here is how to find it in each quadrant:</p>
+
+        <ul>
+            <li><strong>Quadrant I:</strong> $\alpha = \theta$</li>
+            <li><strong>Quadrant II:</strong> $\alpha = 180° - \theta$ (or $\pi - \theta$)</li>
+            <li><strong>Quadrant III:</strong> $\alpha = \theta - 180°$ (or $\theta - \pi$)</li>
+            <li><strong>Quadrant IV:</strong> $\alpha = 360° - \theta$ (or $2\pi - \theta$)</li>
+        </ul>
+
+        <p>The value of any trigonometric function at angle $\theta$ equals $\pm$ the value of that function at the reference angle $\alpha$. The sign depends on which quadrant $\theta$ is in (we cover the sign rules in Section 5.2).</p>
+
+        <h3>Special Angles</h3>
+
+        <p>There are three special angles whose trigonometric values you must memorize. These come from the $30$-$60$-$90$ triangle (half of an equilateral triangle) and the $45$-$45$-$90$ triangle (half of a square cut along the diagonal).</p>
+
+        <table class="values-table">
+            <thead>
+                <tr>
+                    <th>Degrees</th>
+                    <th>Radians</th>
+                    <th>$\sin\theta$</th>
+                    <th>$\cos\theta$</th>
+                    <th>$\tan\theta$</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>$0°$</td>
+                    <td>$0$</td>
+                    <td>$0$</td>
+                    <td>$1$</td>
+                    <td>$0$</td>
+                </tr>
+                <tr>
+                    <td>$30°$</td>
+                    <td>$\dfrac{\pi}{6}$</td>
+                    <td>$\dfrac{1}{2}$</td>
+                    <td>$\dfrac{\sqrt{3}}{2}$</td>
+                    <td>$\dfrac{\sqrt{3}}{3}$</td>
+                </tr>
+                <tr>
+                    <td>$45°$</td>
+                    <td>$\dfrac{\pi}{4}$</td>
+                    <td>$\dfrac{\sqrt{2}}{2}$</td>
+                    <td>$\dfrac{\sqrt{2}}{2}$</td>
+                    <td>$1$</td>
+                </tr>
+                <tr>
+                    <td>$60°$</td>
+                    <td>$\dfrac{\pi}{3}$</td>
+                    <td>$\dfrac{\sqrt{3}}{2}$</td>
+                    <td>$\dfrac{1}{2}$</td>
+                    <td>$\sqrt{3}$</td>
+                </tr>
+                <tr>
+                    <td>$90°$</td>
+                    <td>$\dfrac{\pi}{2}$</td>
+                    <td>$1$</td>
+                    <td>$0$</td>
+                    <td>undefined</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="warning-box">
+            <p><strong>Memory tip:</strong> For sine at $0°, 30°, 45°, 60°, 90°$, the values follow the pattern $\frac{\sqrt{0}}{2}, \frac{\sqrt{1}}{2}, \frac{\sqrt{2}}{2}, \frac{\sqrt{3}}{2}, \frac{\sqrt{4}}{2}$. For cosine, the same sequence runs in reverse.</p>
+        </div>
+
+        <!-- Example 1 -->
+        <div class="example-box">
+            <h4>Example 5.1.1 &mdash; Converting Between Degrees and Radians</h4>
+            <p><strong>Problem:</strong> Convert $150°$ to radians. Convert $\dfrac{5\pi}{4}$ radians to degrees.</p>
+            <p><span class="step-label">Step 1</span> Degrees to radians: multiply by $\frac{\pi}{180}$.</p>
+            <p>$$150° \times \frac{\pi}{180} = \frac{150\pi}{180} = \frac{5\pi}{6}$$</p>
+            <p><span class="step-label">Step 2</span> Radians to degrees: multiply by $\frac{180}{\pi}$.</p>
+            <p>$$\frac{5\pi}{4} \times \frac{180}{\pi} = \frac{5 \times 180}{4} = \frac{900}{4} = 225°$$</p>
+        </div>
+
+        <!-- Example 2 -->
+        <div class="example-box">
+            <h4>Example 5.1.2 &mdash; Finding Exact Trig Values Using the Unit Circle</h4>
+            <p><strong>Problem:</strong> Find $\sin\left(\dfrac{5\pi}{3}\right)$ and $\cos\left(\dfrac{5\pi}{3}\right)$.</p>
+            <p><span class="step-label">Step 1</span> Convert to degrees to identify the quadrant: $\frac{5\pi}{3} = 300°$. This is in Quadrant IV.</p>
+            <p><span class="step-label">Step 2</span> Find the reference angle: $\alpha = 360° - 300° = 60°$.</p>
+            <p><span class="step-label">Step 3</span> Use the special angle values for $60°$ and apply quadrant signs. In Quadrant IV, cosine is positive and sine is negative.</p>
+            <p>$$\cos\left(\frac{5\pi}{3}\right) = +\cos 60° = \frac{1}{2}$$</p>
+            <p>$$\sin\left(\frac{5\pi}{3}\right) = -\sin 60° = -\frac{\sqrt{3}}{2}$$</p>
+        </div>
+
+
+        <!-- ============================================================ -->
+        <!-- SECTION 5.2 -->
+        <!-- ============================================================ -->
+        <h2 id="section-5-2">5.2 The Six Trigonometric Functions</h2>
+
+        <p>Using the unit circle, we have already defined sine and cosine. The remaining four trigonometric functions are built from these two.</p>
+
+        <div class="definition-box">
+            <h4>Definitions of the Six Trigonometric Functions</h4>
+            <p>For a point $P(x, y)$ on the unit circle corresponding to angle $\theta$:</p>
+            <p>$$\sin\theta = y \qquad \cos\theta = x \qquad \tan\theta = \frac{y}{x} = \frac{\sin\theta}{\cos\theta} \; (x \neq 0)$$</p>
+            <p>$$\csc\theta = \frac{1}{y} = \frac{1}{\sin\theta} \; (y \neq 0) \qquad \sec\theta = \frac{1}{x} = \frac{1}{\cos\theta} \; (x \neq 0) \qquad \cot\theta = \frac{x}{y} = \frac{\cos\theta}{\sin\theta} \; (y \neq 0)$$</p>
+        </div>
+
+        <p>Notice that tangent and secant are undefined when $\cos\theta = 0$ (at $\theta = \frac{\pi}{2}, \frac{3\pi}{2}, \ldots$), while cosecant and cotangent are undefined when $\sin\theta = 0$ (at $\theta = 0, \pi, 2\pi, \ldots$).</p>
+
+        <h3>Signs in Each Quadrant: The ASTC Rule</h3>
+
+        <p>Since $\cos\theta$ gives the $x$-coordinate and $\sin\theta$ gives the $y$-coordinate on the unit circle, the signs of the trigonometric functions depend on the quadrant:</p>
+
+        <table class="values-table">
+            <thead>
+                <tr>
+                    <th>Quadrant</th>
+                    <th>$\sin\theta$</th>
+                    <th>$\cos\theta$</th>
+                    <th>$\tan\theta$</th>
+                    <th>Positive functions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>I ($0° < \theta < 90°$)</td>
+                    <td>$+$</td>
+                    <td>$+$</td>
+                    <td>$+$</td>
+                    <td><strong>A</strong>ll</td>
+                </tr>
+                <tr>
+                    <td>II ($90° < \theta < 180°$)</td>
+                    <td>$+$</td>
+                    <td>$-$</td>
+                    <td>$-$</td>
+                    <td><strong>S</strong>ine (and csc)</td>
+                </tr>
+                <tr>
+                    <td>III ($180° < \theta < 270°$)</td>
+                    <td>$-$</td>
+                    <td>$-$</td>
+                    <td>$+$</td>
+                    <td><strong>T</strong>angent (and cot)</td>
+                </tr>
+                <tr>
+                    <td>IV ($270° < \theta < 360°$)</td>
+                    <td>$-$</td>
+                    <td>$+$</td>
+                    <td>$-$</td>
+                    <td><strong>C</strong>osine (and sec)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>A common mnemonic is <strong>"All Students Take Calculus"</strong> (ASTC), reading counterclockwise from Quadrant I. In Quadrant I, <em>All</em> functions are positive. In II, only <em>Sine</em>. In III, only <em>Tangent</em>. In IV, only <em>Cosine</em>.</p>
+
+        <h3>Pythagorean Identities</h3>
+
+        <p>Since any point $(x, y)$ on the unit circle satisfies $x^2 + y^2 = 1$, we immediately get the most fundamental identity in trigonometry:</p>
+
+        <div class="theorem-box">
+            <h4>Pythagorean Identities</h4>
+            <p>$$\sin^2\theta + \cos^2\theta = 1$$</p>
+            <p>Dividing both sides by $\cos^2\theta$: $\quad \tan^2\theta + 1 = \sec^2\theta$</p>
+            <p>Dividing both sides by $\sin^2\theta$: $\quad 1 + \cot^2\theta = \csc^2\theta$</p>
+        </div>
+
+        <!-- Example 3 -->
+        <div class="example-box">
+            <h4>Example 5.2.1 &mdash; Finding All Six Trig Values from One</h4>
+            <p><strong>Problem:</strong> Given $\sin\theta = \dfrac{3}{5}$ and $\theta$ is in Quadrant II, find the remaining five trigonometric functions.</p>
+            <p><span class="step-label">Step 1</span> Use the Pythagorean identity to find $\cos\theta$:</p>
+            <p>$$\cos^2\theta = 1 - \sin^2\theta = 1 - \frac{9}{25} = \frac{16}{25}$$</p>
+            <p>Since $\theta$ is in Quadrant II, cosine is negative: $\cos\theta = -\frac{4}{5}$.</p>
+            <p><span class="step-label">Step 2</span> Compute the remaining functions:</p>
+            <p>$$\tan\theta = \frac{\sin\theta}{\cos\theta} = \frac{3/5}{-4/5} = -\frac{3}{4}$$</p>
+            <p>$$\csc\theta = \frac{1}{\sin\theta} = \frac{5}{3}, \quad \sec\theta = \frac{1}{\cos\theta} = -\frac{5}{4}, \quad \cot\theta = \frac{1}{\tan\theta} = -\frac{4}{3}$$</p>
+        </div>
+
+        <!-- Example 4 -->
+        <div class="example-box">
+            <h4>Example 5.2.2 &mdash; Evaluating Trig Functions at Non-Standard Angles</h4>
+            <p><strong>Problem:</strong> Find the exact value of $\tan\left(\dfrac{7\pi}{6}\right)$.</p>
+            <p><span class="step-label">Step 1</span> Convert: $\frac{7\pi}{6}$ radians $= 210°$. This is in Quadrant III.</p>
+            <p><span class="step-label">Step 2</span> Reference angle: $\alpha = 210° - 180° = 30°$.</p>
+            <p><span class="step-label">Step 3</span> In Quadrant III, tangent is positive (both sine and cosine are negative, so their ratio is positive).</p>
+            <p>$$\tan\left(\frac{7\pi}{6}\right) = +\tan 30° = \frac{\sqrt{3}}{3}$$</p>
+        </div>
+
+
+        <!-- ============================================================ -->
+        <!-- SECTION 5.3 -->
+        <!-- ============================================================ -->
+        <h2 id="section-5-3">5.3 Graphs of Sine and Cosine</h2>
+
+        <p>Graphing trigonometric functions is one of the most important skills in precalculus. The graphs of sine and cosine are smooth, wave-like curves that repeat every $2\pi$ units. Understanding how to read and transform these graphs is essential for modeling periodic phenomena such as sound waves, tides, and seasonal temperatures.</p>
+
+        <h3>The Basic Graphs</h3>
+
+        <p>The graph of $y = \sin x$ starts at the origin, rises to a maximum of $1$ at $x = \frac{\pi}{2}$, returns to $0$ at $x = \pi$, falls to a minimum of $-1$ at $x = \frac{3\pi}{2}$, and returns to $0$ at $x = 2\pi$. The graph of $y = \cos x$ has the same shape but is shifted $\frac{\pi}{2}$ units to the left: it starts at $1$, falls to $0$ at $\frac{\pi}{2}$, reaches $-1$ at $\pi$, returns to $0$ at $\frac{3\pi}{2}$, and returns to $1$ at $2\pi$.</p>
+
+        <p>Key properties of the basic graphs:</p>
+        <ul>
+            <li><strong>Domain:</strong> $(-\infty, \infty)$ for both</li>
+            <li><strong>Range:</strong> $[-1, 1]$ for both</li>
+            <li><strong>Period:</strong> $2\pi$ (the length of one complete cycle)</li>
+            <li><strong>Amplitude:</strong> $1$ (the distance from the midline to a peak or trough)</li>
+        </ul>
+
+        <h3>The General Sinusoidal Form</h3>
+
+        <p>The general form of a sinusoidal function is:</p>
+
+        <p>$$y = A\sin\bigl(B(x - C)\bigr) + D$$</p>
+
+        <p>Each parameter controls a specific transformation:</p>
+
+        <table class="values-table">
+            <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Effect</th>
+                    <th>Formula</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>$A$</td>
+                    <td>Amplitude (vertical stretch/compression). If $A < 0$, the graph is reflected vertically.</td>
+                    <td>Amplitude $= |A|$</td>
+                </tr>
+                <tr>
+                    <td>$B$</td>
+                    <td>Horizontal stretch/compression, which changes the period.</td>
+                    <td>Period $= \dfrac{2\pi}{|B|}$</td>
+                </tr>
+                <tr>
+                    <td>$C$</td>
+                    <td>Phase shift (horizontal translation). Positive $C$ shifts right; negative $C$ shifts left.</td>
+                    <td>Phase shift $= C$</td>
+                </tr>
+                <tr>
+                    <td>$D$</td>
+                    <td>Vertical shift (moves the midline up or down).</td>
+                    <td>Midline: $y = D$</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="warning-box">
+            <p><strong>Common mistake:</strong> Make sure the function is in the form $B(x - C)$, not $Bx - C$. For example, if you see $y = \sin(2x - \pi)$, you must factor: $y = \sin\bigl(2(x - \frac{\pi}{2})\bigr)$. The phase shift is $\frac{\pi}{2}$, not $\pi$.</p>
+        </div>
+
+        <h3>Interactive Graph: Exploring Sinusoidal Transformations</h3>
+
+        <p>Use the sliders below to change the values of $A$, $B$, $C$, and $D$ and watch how the graph of $y = A\sin(B(x - C)) + D$ (blue) transforms compared to the base graph $y = \sin x$ (dashed gray).</p>
+
+        <div id="trig-graph" class="desmos-container"></div>
+        <p class="desmos-caption">Drag the sliders to adjust amplitude, period, phase shift, and vertical shift.</p>
+
+        <!-- Example 5 -->
+        <div class="example-box">
+            <h4>Example 5.3.1 &mdash; Identifying Parameters from an Equation</h4>
+            <p><strong>Problem:</strong> For $y = -3\cos\left(2x + \pi\right) + 1$, find the amplitude, period, phase shift, and vertical shift.</p>
+            <p><span class="step-label">Step 1</span> Rewrite in standard form by factoring the argument:</p>
+            <p>$$y = -3\cos\left(2\left(x + \frac{\pi}{2}\right)\right) + 1$$</p>
+            <p><span class="step-label">Step 2</span> Identify parameters: $A = -3$, $B = 2$, $C = -\frac{\pi}{2}$, $D = 1$.</p>
+            <p><span class="step-label">Step 3</span> Compute:</p>
+            <ul>
+                <li><strong>Amplitude:</strong> $|A| = |-3| = 3$</li>
+                <li><strong>Period:</strong> $\frac{2\pi}{|B|} = \frac{2\pi}{2} = \pi$</li>
+                <li><strong>Phase shift:</strong> $C = -\frac{\pi}{2}$ (shifted $\frac{\pi}{2}$ units to the left)</li>
+                <li><strong>Vertical shift:</strong> $D = 1$ (midline is $y = 1$)</li>
+                <li>The negative $A$ means the graph is reflected vertically (starts going down instead of up).</li>
+            </ul>
+        </div>
+
+        <!-- Example 6 -->
+        <div class="example-box">
+            <h4>Example 5.3.2 &mdash; Writing an Equation from a Description</h4>
+            <p><strong>Problem:</strong> A sinusoidal function has amplitude $4$, period $\pi$, phase shift $\frac{\pi}{3}$ to the right, and midline $y = -2$. Write an equation using sine.</p>
+            <p><span class="step-label">Step 1</span> From the given information: $|A| = 4$, so $A = 4$ (assuming no reflection). The midline is $D = -2$. The phase shift is $C = \frac{\pi}{3}$.</p>
+            <p><span class="step-label">Step 2</span> Find $B$ from the period:</p>
+            <p>$$\text{Period} = \frac{2\pi}{|B|} = \pi \implies |B| = \frac{2\pi}{\pi} = 2$$</p>
+            <p><span class="step-label">Step 3</span> Assemble the equation:</p>
+            <p>$$y = 4\sin\left(2\left(x - \frac{\pi}{3}\right)\right) - 2$$</p>
+        </div>
+
+        <!-- Example 7 -->
+        <div class="example-box">
+            <h4>Example 5.3.3 &mdash; Graphing a Transformed Sine Function by Hand</h4>
+            <p><strong>Problem:</strong> Sketch one full period of $y = 2\sin\left(\frac{1}{2}x - \frac{\pi}{4}\right)$.</p>
+            <p><span class="step-label">Step 1</span> Rewrite: $y = 2\sin\left(\frac{1}{2}\left(x - \frac{\pi}{2}\right)\right)$.</p>
+            <p>So $A = 2$, $B = \frac{1}{2}$, $C = \frac{\pi}{2}$, $D = 0$.</p>
+            <p><span class="step-label">Step 2</span> Period $= \frac{2\pi}{1/2} = 4\pi$. The cycle starts at $x = C = \frac{\pi}{2}$ and ends at $x = \frac{\pi}{2} + 4\pi = \frac{9\pi}{2}$.</p>
+            <p><span class="step-label">Step 3</span> Find key points by dividing the period into four equal intervals of length $\pi$:</p>
+            <ul>
+                <li>Start: $x = \frac{\pi}{2}$, $y = 0$ (midline)</li>
+                <li>Quarter: $x = \frac{\pi}{2} + \pi = \frac{3\pi}{2}$, $y = 2$ (maximum)</li>
+                <li>Half: $x = \frac{\pi}{2} + 2\pi = \frac{5\pi}{2}$, $y = 0$ (midline)</li>
+                <li>Three-quarter: $x = \frac{\pi}{2} + 3\pi = \frac{7\pi}{2}$, $y = -2$ (minimum)</li>
+                <li>End: $x = \frac{9\pi}{2}$, $y = 0$ (midline)</li>
+            </ul>
+            <p>Plot these five points and connect them with a smooth wave. The graph oscillates between $y = 2$ and $y = -2$ with midline $y = 0$.</p>
+        </div>
+
+
+        <!-- ============================================================ -->
+        <!-- SECTION 5.4 -->
+        <!-- ============================================================ -->
+        <h2 id="section-5-4">5.4 Graphs of Other Trigonometric Functions</h2>
+
+        <p>The four remaining trigonometric functions &mdash; tangent, cotangent, secant, and cosecant &mdash; have graphs that look quite different from the smooth waves of sine and cosine. Their most distinctive feature is the presence of <strong>vertical asymptotes</strong> where the function is undefined.</p>
+
+        <h3>The Tangent Function</h3>
+
+        <p>Since $\tan x = \frac{\sin x}{\cos x}$, the tangent function is undefined wherever $\cos x = 0$, which occurs at $x = \frac{\pi}{2} + n\pi$ for any integer $n$. These produce vertical asymptotes.</p>
+
+        <p>Key properties of $y = \tan x$:</p>
+        <ul>
+            <li><strong>Domain:</strong> All real numbers except $x = \frac{\pi}{2} + n\pi$</li>
+            <li><strong>Range:</strong> $(-\infty, \infty)$</li>
+            <li><strong>Period:</strong> $\pi$ (not $2\pi$)</li>
+            <li><strong>No amplitude</strong> (the function is unbounded)</li>
+            <li>The graph passes through the origin and is increasing on each branch</li>
+            <li>It has an inflection point at each $x$-intercept</li>
+        </ul>
+
+        <h3>Interactive Graph: Tangent Function</h3>
+
+        <div id="tan-graph" class="desmos-container"></div>
+        <p class="desmos-caption">The tangent function with its vertical asymptotes shown as dashed lines.</p>
+
+        <h3>The Cotangent Function</h3>
+
+        <p>Since $\cot x = \frac{\cos x}{\sin x}$, it is undefined wherever $\sin x = 0$, producing vertical asymptotes at $x = n\pi$. The cotangent also has period $\pi$ but decreases on each branch, which is the opposite behavior of tangent.</p>
+
+        <h3>Secant and Cosecant</h3>
+
+        <p>The secant function $y = \sec x = \frac{1}{\cos x}$ has vertical asymptotes wherever $\cos x = 0$ and its graph consists of U-shaped and inverted-U-shaped branches opening away from the $x$-axis. Similarly, $y = \csc x = \frac{1}{\sin x}$ has vertical asymptotes wherever $\sin x = 0$. Both secant and cosecant have period $2\pi$ and range $(-\infty, -1] \cup [1, \infty)$.</p>
+
+        <table class="values-table">
+            <thead>
+                <tr>
+                    <th>Function</th>
+                    <th>Period</th>
+                    <th>Vertical Asymptotes</th>
+                    <th>Range</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>$\tan x$</td>
+                    <td>$\pi$</td>
+                    <td>$x = \frac{\pi}{2} + n\pi$</td>
+                    <td>$(-\infty, \infty)$</td>
+                </tr>
+                <tr>
+                    <td>$\cot x$</td>
+                    <td>$\pi$</td>
+                    <td>$x = n\pi$</td>
+                    <td>$(-\infty, \infty)$</td>
+                </tr>
+                <tr>
+                    <td>$\sec x$</td>
+                    <td>$2\pi$</td>
+                    <td>$x = \frac{\pi}{2} + n\pi$</td>
+                    <td>$(-\infty, -1] \cup [1, \infty)$</td>
+                </tr>
+                <tr>
+                    <td>$\csc x$</td>
+                    <td>$2\pi$</td>
+                    <td>$x = n\pi$</td>
+                    <td>$(-\infty, -1] \cup [1, \infty)$</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Example 8 -->
+        <div class="example-box">
+            <h4>Example 5.4.1 &mdash; Graphing a Transformed Tangent</h4>
+            <p><strong>Problem:</strong> Find the period and asymptotes of $y = \tan(2x)$, and sketch one period.</p>
+            <p><span class="step-label">Step 1</span> The period of $\tan(Bx)$ is $\frac{\pi}{|B|}$. Here $B = 2$, so the period is $\frac{\pi}{2}$.</p>
+            <p><span class="step-label">Step 2</span> Asymptotes occur where $2x = \frac{\pi}{2} + n\pi$, i.e., $x = \frac{\pi}{4} + \frac{n\pi}{2}$.</p>
+            <p><span class="step-label">Step 3</span> One period lies between consecutive asymptotes: from $x = -\frac{\pi}{4}$ to $x = \frac{\pi}{4}$. The graph passes through the origin $(0, 0)$ and increases from $-\infty$ to $+\infty$ within this interval.</p>
+            <p>Key points within this period:</p>
+            <ul>
+                <li>$x = -\frac{\pi}{8}$: $y = \tan\left(-\frac{\pi}{4}\right) = -1$</li>
+                <li>$x = 0$: $y = \tan(0) = 0$</li>
+                <li>$x = \frac{\pi}{8}$: $y = \tan\left(\frac{\pi}{4}\right) = 1$</li>
+            </ul>
+        </div>
+
+        <!-- Example 9 -->
+        <div class="example-box">
+            <h4>Example 5.4.2 &mdash; Identifying a Cosecant Graph</h4>
+            <p><strong>Problem:</strong> Find the period and vertical asymptotes of $y = \csc\left(\frac{x}{2}\right)$.</p>
+            <p><span class="step-label">Step 1</span> Since $\csc$ has the same period formula as $\sin$, the period is $\frac{2\pi}{|B|} = \frac{2\pi}{1/2} = 4\pi$.</p>
+            <p><span class="step-label">Step 2</span> Vertical asymptotes occur where $\sin\left(\frac{x}{2}\right) = 0$, i.e., $\frac{x}{2} = n\pi$, so $x = 2n\pi$ (at $x = 0, \pm 2\pi, \pm 4\pi, \ldots$).</p>
+            <p><span class="step-label">Step 3</span> The range is still $(-\infty, -1] \cup [1, \infty)$ because there is no vertical stretch. The graph has U-shaped branches between consecutive asymptotes, alternating between opening upward and downward.</p>
+        </div>
+
+
+        <!-- ============================================================ -->
+        <!-- SECTION 5.5 -->
+        <!-- ============================================================ -->
+        <h2 id="section-5-5">5.5 Inverse Trigonometric Functions</h2>
+
+        <p>Since trigonometric functions are periodic, they are not one-to-one on their entire domains and therefore do not have inverses unless we restrict their domains. By choosing a specific interval on which the function is one-to-one, we can define inverse trigonometric functions that "undo" the original function.</p>
+
+        <div class="definition-box">
+            <h4>Inverse Trigonometric Functions</h4>
+            <p><strong>Arcsine:</strong> $y = \arcsin x = \sin^{-1} x$ means $\sin y = x$ where $-\frac{\pi}{2} \leq y \leq \frac{\pi}{2}$.</p>
+            <p>Domain: $[-1, 1]$. Range: $\left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$.</p>
+            <p><strong>Arccosine:</strong> $y = \arccos x = \cos^{-1} x$ means $\cos y = x$ where $0 \leq y \leq \pi$.</p>
+            <p>Domain: $[-1, 1]$. Range: $[0, \pi]$.</p>
+            <p><strong>Arctangent:</strong> $y = \arctan x = \tan^{-1} x$ means $\tan y = x$ where $-\frac{\pi}{2} < y < \frac{\pi}{2}$.</p>
+            <p>Domain: $(-\infty, \infty)$. Range: $\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$.</p>
+        </div>
+
+        <p>The restricted domains are chosen carefully so that each inverse function gives a unique output for every input. For arcsine and arctangent, the range is centered around $0$. For arccosine, the range starts at $0$ and goes to $\pi$, which covers the top half of the unit circle.</p>
+
+        <div class="warning-box">
+            <p><strong>Notation warning:</strong> $\sin^{-1}x$ means arcsine, NOT $\frac{1}{\sin x}$. To write the reciprocal, use $(\sin x)^{-1}$ or $\csc x$. This is an unfortunate but standard notational ambiguity.</p>
+        </div>
+
+        <h3>Evaluating Inverse Trig Functions (Exact Values)</h3>
+
+        <p>To evaluate an expression like $\arcsin\left(\frac{\sqrt{3}}{2}\right)$, ask: "What angle $\theta$ in the range $\left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$ has $\sin\theta = \frac{\sqrt{3}}{2}$?" The answer is $\frac{\pi}{3}$, since $\sin\frac{\pi}{3} = \frac{\sqrt{3}}{2}$ and $\frac{\pi}{3}$ is in the required range.</p>
+
+        <p>For $\arccos\left(-\frac{1}{2}\right)$, we need an angle in $[0, \pi]$ with cosine equal to $-\frac{1}{2}$. The reference angle is $\frac{\pi}{3}$ (since $\cos\frac{\pi}{3} = \frac{1}{2}$), and to get a negative cosine we need Quadrant II: $\theta = \pi - \frac{\pi}{3} = \frac{2\pi}{3}$.</p>
+
+        <!-- Example 10 -->
+        <div class="example-box">
+            <h4>Example 5.5.1 &mdash; Evaluating Inverse Trig Expressions</h4>
+            <p><strong>Problem:</strong> Find the exact values of: (a) $\arctan(-1)$, (b) $\arcsin\left(-\frac{\sqrt{2}}{2}\right)$, (c) $\cos\left(\arcsin\frac{3}{5}\right)$.</p>
+            <p><strong>(a)</strong> We need $\theta \in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$ with $\tan\theta = -1$. The reference angle is $\frac{\pi}{4}$ (since $\tan\frac{\pi}{4} = 1$). The negative value requires $\theta$ in the fourth quadrant portion of the range: $\theta = -\frac{\pi}{4}$.</p>
+            <p>$$\arctan(-1) = -\frac{\pi}{4}$$</p>
+            <p><strong>(b)</strong> We need $\theta \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$ with $\sin\theta = -\frac{\sqrt{2}}{2}$. The reference angle is $\frac{\pi}{4}$, and the negative value requires $\theta = -\frac{\pi}{4}$.</p>
+            <p>$$\arcsin\left(-\frac{\sqrt{2}}{2}\right) = -\frac{\pi}{4}$$</p>
+            <p><strong>(c)</strong> Let $\theta = \arcsin\frac{3}{5}$, so $\sin\theta = \frac{3}{5}$ with $\theta \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$. Since $\frac{3}{5} > 0$, $\theta$ is in Quadrant I where cosine is positive.</p>
+            <p>$$\cos\theta = \sqrt{1 - \sin^2\theta} = \sqrt{1 - \frac{9}{25}} = \sqrt{\frac{16}{25}} = \frac{4}{5}$$</p>
+        </div>
+
+        <!-- Example 11 -->
+        <div class="example-box">
+            <h4>Example 5.5.2 &mdash; Composition of Trig and Inverse Trig</h4>
+            <p><strong>Problem:</strong> Find the exact value of $\sin\left(\arccos\left(-\frac{3}{4}\right)\right)$.</p>
+            <p><span class="step-label">Step 1</span> Let $\theta = \arccos\left(-\frac{3}{4}\right)$. Then $\cos\theta = -\frac{3}{4}$ with $\theta \in [0, \pi]$.</p>
+            <p><span class="step-label">Step 2</span> Since $\cos\theta < 0$, $\theta$ is in Quadrant II where sine is positive.</p>
+            <p><span class="step-label">Step 3</span> Use the Pythagorean identity:</p>
+            <p>$$\sin\theta = \sqrt{1 - \cos^2\theta} = \sqrt{1 - \frac{9}{16}} = \sqrt{\frac{7}{16}} = \frac{\sqrt{7}}{4}$$</p>
+            <p>We take the positive root because $\theta$ is in Quadrant II (sine is positive there).</p>
+        </div>
+
+
+        <!-- ============================================================ -->
+        <!-- SECTION 5.6 -->
+        <!-- ============================================================ -->
+        <h2 id="section-5-6">5.6 Practice Problems</h2>
+
+        <p>Test your understanding of Chapter 5 with these problems. Each has a full solution that you can reveal by clicking "Show Solution."</p>
+
+        <!-- Problem 1 -->
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>Convert $\dfrac{7\pi}{12}$ radians to degrees.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Multiply by $\frac{180}{\pi}$:</p>
+                    <p>$$\frac{7\pi}{12} \times \frac{180}{\pi} = \frac{7 \times 180}{12} = \frac{1260}{12} = 105°$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 2 -->
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>Find the exact values of $\sin\left(\dfrac{3\pi}{4}\right)$ and $\cos\left(\dfrac{3\pi}{4}\right)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\frac{3\pi}{4} = 135°$, which is in Quadrant II. The reference angle is $180° - 135° = 45°$.</p>
+                    <p>In Quadrant II, sine is positive and cosine is negative:</p>
+                    <p>$$\sin\left(\frac{3\pi}{4}\right) = +\sin 45° = \frac{\sqrt{2}}{2}$$</p>
+                    <p>$$\cos\left(\frac{3\pi}{4}\right) = -\cos 45° = -\frac{\sqrt{2}}{2}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 3 -->
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>If $\cos\theta = -\dfrac{5}{13}$ and $\theta$ is in Quadrant III, find $\sin\theta$ and $\tan\theta$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Use $\sin^2\theta = 1 - \cos^2\theta = 1 - \frac{25}{169} = \frac{144}{169}$.</p>
+                    <p>In Quadrant III, sine is negative: $\sin\theta = -\frac{12}{13}$.</p>
+                    <p>$$\tan\theta = \frac{\sin\theta}{\cos\theta} = \frac{-12/13}{-5/13} = \frac{12}{5}$$</p>
+                    <p>Note that tangent is positive in Quadrant III, which checks out.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 4 -->
+        <div class="practice-problem">
+            <h4>Problem 4</h4>
+            <p>Find the amplitude, period, phase shift, and midline of $y = -2\sin\left(3x - \pi\right) + 5$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Rewrite in standard form: $y = -2\sin\left(3\left(x - \frac{\pi}{3}\right)\right) + 5$.</p>
+                    <p>Parameters: $A = -2$, $B = 3$, $C = \frac{\pi}{3}$, $D = 5$.</p>
+                    <ul>
+                        <li><strong>Amplitude:</strong> $|A| = 2$</li>
+                        <li><strong>Period:</strong> $\frac{2\pi}{3}$</li>
+                        <li><strong>Phase shift:</strong> $\frac{\pi}{3}$ to the right</li>
+                        <li><strong>Midline:</strong> $y = 5$</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 5 -->
+        <div class="practice-problem">
+            <h4>Problem 5</h4>
+            <p>Write a cosine equation with amplitude $3$, period $4\pi$, no phase shift, and midline $y = -1$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>We need $|A| = 3$, so $A = 3$. The midline gives $D = -1$. No phase shift means $C = 0$.</p>
+                    <p>Find $B$: Period $= \frac{2\pi}{|B|} = 4\pi \implies |B| = \frac{2\pi}{4\pi} = \frac{1}{2}$.</p>
+                    <p>$$y = 3\cos\left(\frac{1}{2}x\right) - 1$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 6 -->
+        <div class="practice-problem">
+            <h4>Problem 6</h4>
+            <p>Find the period and two consecutive vertical asymptotes of $y = \tan\left(\dfrac{\pi x}{4}\right)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Period $= \frac{\pi}{|B|} = \frac{\pi}{\pi/4} = 4$.</p>
+                    <p>Vertical asymptotes occur where $\frac{\pi x}{4} = \frac{\pi}{2} + n\pi$, i.e., $x = 2 + 4n$.</p>
+                    <p>Two consecutive asymptotes: $x = -2$ (when $n = -1$) and $x = 2$ (when $n = 0$).</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 7 -->
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>Evaluate: $\arccos\left(\dfrac{\sqrt{3}}{2}\right)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>We need $\theta \in [0, \pi]$ such that $\cos\theta = \frac{\sqrt{3}}{2}$.</p>
+                    <p>From the special angles table, $\cos\frac{\pi}{6} = \frac{\sqrt{3}}{2}$, and $\frac{\pi}{6} \in [0, \pi]$.</p>
+                    <p>$$\arccos\left(\frac{\sqrt{3}}{2}\right) = \frac{\pi}{6}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 8 -->
+        <div class="practice-problem">
+            <h4>Problem 8</h4>
+            <p>Find the exact value of $\tan\left(\arcsin\dfrac{5}{13}\right)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Let $\theta = \arcsin\frac{5}{13}$, so $\sin\theta = \frac{5}{13}$ with $\theta \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$.</p>
+                    <p>Since $\sin\theta > 0$, $\theta$ is in Quadrant I. Find $\cos\theta$:</p>
+                    <p>$$\cos\theta = \sqrt{1 - \frac{25}{169}} = \sqrt{\frac{144}{169}} = \frac{12}{13}$$</p>
+                    <p>$$\tan\theta = \frac{\sin\theta}{\cos\theta} = \frac{5/13}{12/13} = \frac{5}{12}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 9 -->
+        <div class="practice-problem">
+            <h4>Problem 9</h4>
+            <p>A Ferris wheel has a diameter of 40 meters with its center 25 meters above the ground. It completes one revolution every 3 minutes. Write a sinusoidal equation for the height $h(t)$ (in meters) of a rider as a function of time $t$ (in minutes), assuming the rider starts at the bottom.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>The amplitude equals the radius: $A = 20$. The midline is the center height: $D = 25$. The period is $3$ minutes, so $B = \frac{2\pi}{3}$.</p>
+                    <p>Since the rider starts at the bottom (minimum height), we can use a negative cosine:</p>
+                    <p>$$h(t) = -20\cos\left(\frac{2\pi}{3}\,t\right) + 25$$</p>
+                    <p><strong>Verification:</strong> At $t = 0$: $h(0) = -20(1) + 25 = 5$ m (bottom, since the center is at 25 m and radius is 20 m). At $t = 1.5$: $h(1.5) = -20(-1) + 25 = 45$ m (top). This is correct.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 10 -->
+        <div class="practice-problem">
+            <h4>Problem 10</h4>
+            <p>Find all six trigonometric function values for $\theta = \dfrac{11\pi}{6}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\frac{11\pi}{6} = 330°$, which is in Quadrant IV. Reference angle: $360° - 330° = 30°$.</p>
+                    <p>In Quadrant IV: cosine and secant are positive; sine, cosecant, tangent, and cotangent are negative.</p>
+                    <p>$$\sin\frac{11\pi}{6} = -\sin 30° = -\frac{1}{2}$$</p>
+                    <p>$$\cos\frac{11\pi}{6} = +\cos 30° = \frac{\sqrt{3}}{2}$$</p>
+                    <p>$$\tan\frac{11\pi}{6} = -\tan 30° = -\frac{\sqrt{3}}{3}$$</p>
+                    <p>$$\csc\frac{11\pi}{6} = -2, \quad \sec\frac{11\pi}{6} = \frac{2\sqrt{3}}{3}, \quad \cot\frac{11\pi}{6} = -\sqrt{3}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Chapter Navigation -->
+        <div class="chapter-nav">
+            <a href="#">&larr; Chapter 4: Polynomial and Rational Functions</a>
+            <a href="#">Chapter 6: Trigonometric Identities &rarr;</a>
+        </div>
+    </article>
+
+    <div class="footer">
+        <p>&copy; 2025 MathHub Global. All rights reserved.</p>
+    </div>
+
+    <!-- Desmos Interactive Graphs -->
+    <script>
+        // Graph 1: Sinusoidal transformations with sliders
+        (function() {
+            var elt1 = document.getElementById('trig-graph');
+            if (!elt1) return;
+            var calc1 = Desmos.GraphingCalculator(elt1, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: true,
+                xAxisLabel: 'x',
+                yAxisLabel: 'y'
+            });
+            calc1.setMathBounds({ left: -2 * Math.PI, right: 2 * Math.PI, bottom: -5, top: 5 });
+            calc1.setExpression({ id: 'A', latex: 'A=1', sliderBounds: { min: -3, max: 3, step: 0.1 } });
+            calc1.setExpression({ id: 'B', latex: 'B=1', sliderBounds: { min: 0.1, max: 4, step: 0.1 } });
+            calc1.setExpression({ id: 'C', latex: 'C=0', sliderBounds: { min: -3.14, max: 3.14, step: 0.1 } });
+            calc1.setExpression({ id: 'D', latex: 'D=0', sliderBounds: { min: -3, max: 3, step: 0.1 } });
+            calc1.setExpression({ id: 'f', latex: 'y=A\\sin(B(x-C))+D', color: '#2563eb' });
+            calc1.setExpression({ id: 'base', latex: 'y=\\sin(x)', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED });
+        })();
+
+        // Graph 2: Tangent function with asymptotes
+        (function() {
+            var elt2 = document.getElementById('tan-graph');
+            if (!elt2) return;
+            var calc2 = Desmos.GraphingCalculator(elt2, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: true
+            });
+            calc2.setMathBounds({ left: -2 * Math.PI, right: 2 * Math.PI, bottom: -6, top: 6 });
+            calc2.setExpression({ id: 'tan', latex: 'y=\\tan(x)', color: '#2563eb' });
+            calc2.setExpression({ id: 'a1', latex: 'x=\\frac{\\pi}{2}', color: '#ef4444', lineStyle: Desmos.Styles.DASHED });
+            calc2.setExpression({ id: 'a2', latex: 'x=-\\frac{\\pi}{2}', color: '#ef4444', lineStyle: Desmos.Styles.DASHED });
+            calc2.setExpression({ id: 'a3', latex: 'x=\\frac{3\\pi}{2}', color: '#ef4444', lineStyle: Desmos.Styles.DASHED });
+            calc2.setExpression({ id: 'a4', latex: 'x=-\\frac{3\\pi}{2}', color: '#ef4444', lineStyle: Desmos.Styles.DASHED });
+        })();
+    </script>
+</body>
+</html>

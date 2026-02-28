@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Precalculus: Introduction to Calculus (Limits Preview) - Chapter 10 | MathHub</title>
+    <meta name="description" content="Precalculus introduction to calculus concepts. Learn limits intuitively, the tangent line problem, average vs instantaneous rate of change, and area under a curve preview with interactive Desmos graphs.">
+    <meta name="keywords" content="precalculus, introduction to calculus, limits preview, tangent line problem, rate of change, difference quotient, Riemann sum, precalculus limits, secant line, derivative preview">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/blog/precalculus-intro-calculus.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/blog/precalculus-intro-calculus.html">
+    <meta property="og:title" content="Precalculus: Introduction to Calculus (Limits Preview) - Chapter 10">
+    <meta property="og:description" content="Bridge from precalculus to calculus. Learn limits, the tangent line problem, rates of change, and area under a curve with interactive Desmos visualizations.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Precalculus: Introduction to Calculus - Chapter 10">
+    <meta name="twitter:description" content="Introduction to calculus concepts for precalculus students with interactive graphs and worked examples.">
+
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Precalculus: Introduction to Calculus (Limits Preview) - Chapter 10",
+        "description": "Precalculus introduction to calculus concepts. Learn limits intuitively, the tangent line problem, average vs instantaneous rate of change, and area under a curve preview.",
+        "url": "https://mathhub.io/blog/precalculus-intro-calculus.html",
+        "datePublished": "2025-06-01",
+        "dateModified": "2026-02-23",
+        "publisher": {
+            "@type": "Organization",
+            "name": "MathHub Global"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "MathHub Global"
+        },
+        "educationalLevel": "Precalculus",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Limits" },
+            { "@type": "Thing", "name": "Tangent Line" },
+            { "@type": "Thing", "name": "Rate of Change" },
+            { "@type": "Thing", "name": "Precalculus" }
+        ]
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Desmos API -->
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <style>
+        .blog-article {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .blog-article h1 {
+            font-size: 2.2em;
+            color: #1e3a5f;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .blog-meta {
+            color: #64748b;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .blog-article h2 {
+            font-size: 1.5em;
+            color: #1e3a5f;
+            margin: 36px 0 16px;
+            padding-top: 12px;
+        }
+        .blog-article h3 {
+            font-size: 1.2em;
+            color: #334155;
+            margin: 24px 0 10px;
+        }
+        .blog-article p {
+            color: #334155;
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+        .blog-article ul, .blog-article ol {
+            margin: 12px 0 20px 24px;
+            color: #334155;
+        }
+        .blog-article li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+        .breadcrumb {
+            font-size: 0.85em;
+            color: #94a3b8;
+            margin-bottom: 16px;
+        }
+        .breadcrumb a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .example-box {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .example-box h4 {
+            color: #1d4ed8;
+            margin: 0 0 12px;
+            font-size: 1.05em;
+        }
+        .example-box p, .example-box li {
+            color: #334155;
+            line-height: 1.8;
+        }
+        .definition-box {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .definition-box h4 {
+            color: #15803d;
+            margin: 0 0 12px;
+            font-size: 1.05em;
+        }
+        .definition-box p {
+            color: #334155;
+            line-height: 1.8;
+        }
+        .theorem-box {
+            background: #faf5ff;
+            border-left: 4px solid #8b5cf6;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .theorem-box h4 {
+            color: #6d28d9;
+            margin: 0 0 12px;
+            font-size: 1.05em;
+        }
+        .theorem-box p {
+            color: #334155;
+            line-height: 1.8;
+        }
+        .practice-problem {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 20px 24px;
+            margin: 16px 0;
+            border-radius: 8px;
+        }
+        .practice-problem h4 {
+            color: #1e3a5f;
+            margin: 0 0 10px;
+            font-size: 1em;
+        }
+        .practice-problem p {
+            margin-bottom: 12px;
+        }
+        details.solution {
+            margin-top: 12px;
+        }
+        details.solution summary {
+            cursor: pointer;
+            color: #3b82f6;
+            font-weight: 600;
+            font-size: 0.95em;
+            padding: 6px 0;
+            user-select: none;
+        }
+        details.solution summary:hover {
+            color: #1d4ed8;
+        }
+        .solution-content {
+            padding: 16px 20px;
+            background: #eff6ff;
+            border-radius: 6px;
+            margin-top: 8px;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .solution-content p {
+            margin-bottom: 10px;
+        }
+        .toc {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px 28px;
+            margin: 24px 0 36px;
+        }
+        .toc h3 {
+            color: #1e3a5f;
+            margin: 0 0 12px;
+            font-size: 1.1em;
+        }
+        .toc ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .toc li {
+            margin-bottom: 6px;
+        }
+        .toc a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 48px 0 20px;
+            padding: 20px 0;
+            border-top: 2px solid #e2e8f0;
+        }
+        .chapter-nav a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+        .chapter-nav a:hover {
+            text-decoration: underline;
+        }
+        .chapter-nav .disabled {
+            color: #cbd5e1;
+            cursor: default;
+        }
+        .step-label {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            font-size: 0.8em;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 4px;
+            margin-right: 6px;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .comparison-table th {
+            background: #f0f9ff;
+            color: #1e3a5f;
+            font-weight: 600;
+        }
+        .comparison-table td {
+            color: #334155;
+        }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="../" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/" class="active">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="/us/">US</a> &rsaquo; <a href="../us/precalculus/">Precalculus</a> &rsaquo; Chapter 10: Introduction to Calculus
+        </div>
+
+        <h1>Chapter 10: Introduction to Calculus (Limits Preview)</h1>
+        <div class="blog-meta">Precalculus &middot; Updated February 2026 &middot; 25 min read</div>
+
+        <p>This final chapter of precalculus serves as a bridge to calculus. You have spent the preceding chapters building a toolkit of functions, graphs, and algebraic techniques. Now we turn to the two central questions that motivated the invention of calculus: How do we find the slope of a curve at a single point? And how do we find the area of a region with curved boundaries? Both questions lead to the same fundamental concept: the <strong>limit</strong>.</p>
+
+        <nav class="toc">
+            <h3>Chapter Contents</h3>
+            <ol>
+                <li><a href="#section-10-1">The Intuitive Idea of a Limit</a></li>
+                <li><a href="#section-10-2">Evaluating Limits Numerically and Graphically</a></li>
+                <li><a href="#section-10-3">Limit Laws and Algebraic Techniques</a></li>
+                <li><a href="#section-10-4">One-Sided Limits</a></li>
+                <li><a href="#section-10-5">Limits at Infinity and Horizontal Asymptotes</a></li>
+                <li><a href="#section-10-6">The Tangent Line Problem</a></li>
+                <li><a href="#section-10-7">Average vs. Instantaneous Rate of Change</a></li>
+                <li><a href="#section-10-8">Area Under a Curve Preview</a></li>
+                <li><a href="#section-10-9">Practice Problems</a></li>
+            </ol>
+        </nav>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 10.1 -->
+        <!-- ============================================================ -->
+        <h2 id="section-10-1">10.1 The Intuitive Idea of a Limit</h2>
+
+        <p>In precalculus, you have evaluated functions by plugging in values: given \(f(x) = x^2\), you know that \(f(3) = 9\). But what happens when you cannot simply plug in a value? Consider the function</p>
+
+        \[f(x) = \frac{x^2 - 4}{x - 2}\]
+
+        <p>At \(x = 2\), we get \(\frac{0}{0}\), which is undefined. The function has no output at \(x = 2\). Yet if we ask what value \(f(x)\) is <em>approaching</em> as \(x\) gets closer and closer to \(2\), we discover something meaningful. This idea of "approaching" is the heart of a limit.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Limit (Informal)</h4>
+            <p>We write</p>
+            <p>$$\lim_{x \to a} f(x) = L$$</p>
+            <p>and say "the limit of \(f(x)\) as \(x\) approaches \(a\) equals \(L\)" if the values of \(f(x)\) get arbitrarily close to \(L\) whenever \(x\) is sufficiently close to \(a\) (but not equal to \(a\)).</p>
+        </div>
+
+        <p>The key insight is that a limit describes <strong>behavior near a point</strong>, not at the point itself. The function does not need to be defined at \(x = a\) for the limit to exist. Think of it as asking: "Where is the function heading?" rather than "Where is the function right now?"</p>
+
+        <div class="example-box">
+            <h4>Worked Example 10.1</h4>
+            <p>Investigate \(\displaystyle\lim_{x \to 2} \frac{x^2 - 4}{x - 2}\).</p>
+
+            <p><span class="step-label">Step 1</span> Notice that \(f(2)\) is undefined since the denominator is zero. But we can simplify for \(x \neq 2\):</p>
+            <p>$$\frac{x^2 - 4}{x - 2} = \frac{(x-2)(x+2)}{x-2} = x + 2$$</p>
+
+            <p><span class="step-label">Step 2</span> The simplified function \(g(x) = x + 2\) agrees with \(f(x)\) everywhere except at \(x = 2\). As \(x\) approaches \(2\), the expression \(x + 2\) approaches \(4\).</p>
+
+            <p><span class="step-label">Step 3</span> Therefore, \(\displaystyle\lim_{x \to 2} \frac{x^2 - 4}{x - 2} = 4\).</p>
+
+            <p>The graph of \(f\) is the line \(y = x + 2\) with a hole at the point \((2, 4)\). The limit tells us the \(y\)-value the function is heading toward, even though there is a hole there.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 10.2 -->
+        <!-- ============================================================ -->
+        <h2 id="section-10-2">10.2 Evaluating Limits Numerically and Graphically</h2>
+
+        <h3>Numerical Approach: Tables of Values</h3>
+
+        <p>One way to estimate a limit is to build a table of function values for inputs approaching the target from both sides. Let us revisit the function \(f(x) = \dfrac{x^2 - 4}{x - 2}\) near \(x = 2\):</p>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>\(x\)</th>
+                    <th>1.9</th>
+                    <th>1.99</th>
+                    <th>1.999</th>
+                    <th>2</th>
+                    <th>2.001</th>
+                    <th>2.01</th>
+                    <th>2.1</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>\(f(x)\)</td>
+                    <td>3.9</td>
+                    <td>3.99</td>
+                    <td>3.999</td>
+                    <td>undef.</td>
+                    <td>4.001</td>
+                    <td>4.01</td>
+                    <td>4.1</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>From both the left and the right, the output values converge toward \(4\). This numerical evidence strongly suggests that the limit is \(4\).</p>
+
+        <div class="example-box">
+            <h4>Worked Example 10.2a &mdash; Numerical Limit Estimation</h4>
+            <p>Use a table of values to estimate \(\displaystyle\lim_{x \to 0} \frac{\sin x}{x}\) (with \(x\) in radians).</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>\(x\)</th>
+                        <th>\(-0.1\)</th>
+                        <th>\(-0.01\)</th>
+                        <th>\(-0.001\)</th>
+                        <th>0</th>
+                        <th>0.001</th>
+                        <th>0.01</th>
+                        <th>0.1</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\(\frac{\sin x}{x}\)</td>
+                        <td>0.9983</td>
+                        <td>0.99998</td>
+                        <td>0.9999998</td>
+                        <td>undef.</td>
+                        <td>0.9999998</td>
+                        <td>0.99998</td>
+                        <td>0.9983</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>The values approach \(1\) from both sides. Therefore \(\displaystyle\lim_{x \to 0} \frac{\sin x}{x} = 1\). This is one of the most important limits in all of calculus.</p>
+        </div>
+
+        <h3>Graphical Approach</h3>
+
+        <p>A graph provides visual confirmation of a limit. To find \(\displaystyle\lim_{x \to a} f(x)\) graphically, trace the curve from both sides toward \(x = a\). If both sides approach the same \(y\)-value, that value is the limit. Use the interactive graph below to explore how function values behave as \(x\) approaches a target value.</p>
+
+        <!-- Desmos: Limit Visualization -->
+        <div id="limit-calculator" style="width:100%;height:400px;margin:20px 0;border-radius:8px;overflow:hidden;"></div>
+        <script>
+        (function(){
+            var elt = document.getElementById('limit-calculator');
+            var calc = Desmos.GraphingCalculator(elt, {expressions:true, settingsMenu:false, zoomButtons:true, expressionsTopbar:false});
+            calc.setExpression({id:'func', latex:'f(x)=\\frac{x^2-4}{x-2}'});
+            calc.setExpression({id:'a', latex:'a=2', sliderBounds:{min:-5,max:5,step:0.01}});
+            calc.setExpression({id:'approach', latex:'(a, f(a))', color:'#e74c3c', pointStyle:'OPEN', pointSize:12});
+            calc.setExpression({id:'left1', latex:'(a-0.5, f(a-0.5))', color:'#3b82f6', pointStyle:'POINT', pointSize:8});
+            calc.setExpression({id:'left2', latex:'(a-0.2, f(a-0.2))', color:'#3b82f6', pointStyle:'POINT', pointSize:8});
+            calc.setExpression({id:'left3', latex:'(a-0.05, f(a-0.05))', color:'#3b82f6', pointStyle:'POINT', pointSize:8});
+            calc.setExpression({id:'right1', latex:'(a+0.5, f(a+0.5))', color:'#2ecc71', pointStyle:'POINT', pointSize:8});
+            calc.setExpression({id:'right2', latex:'(a+0.2, f(a+0.2))', color:'#2ecc71', pointStyle:'POINT', pointSize:8});
+            calc.setExpression({id:'right3', latex:'(a+0.05, f(a+0.05))', color:'#2ecc71', pointStyle:'POINT', pointSize:8});
+        })();
+        </script>
+        <p style="font-size:0.85em;color:#64748b;text-align:center;">Drag the slider for \(a\) to explore the limit at different points. Blue points approach from the left; green from the right. The open circle marks the target point.</p>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 10.3 -->
+        <!-- ============================================================ -->
+        <h2 id="section-10-3">10.3 Limit Laws and Algebraic Techniques</h2>
+
+        <p>While tables and graphs give useful estimates, we need algebraic methods for exact answers. The following laws allow us to compute limits systematically.</p>
+
+        <div class="theorem-box">
+            <h4>Theorem: Basic Limit Laws</h4>
+            <p>If \(\displaystyle\lim_{x \to a} f(x) = L\) and \(\displaystyle\lim_{x \to a} g(x) = M\), then:</p>
+            <p>$$\lim_{x \to a} [f(x) + g(x)] = L + M \qquad \text{(Sum Law)}$$</p>
+            <p>$$\lim_{x \to a} [f(x) - g(x)] = L - M \qquad \text{(Difference Law)}$$</p>
+            <p>$$\lim_{x \to a} [c \cdot f(x)] = cL \qquad \text{(Constant Multiple Law)}$$</p>
+            <p>$$\lim_{x \to a} [f(x) \cdot g(x)] = L \cdot M \qquad \text{(Product Law)}$$</p>
+            <p>$$\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{L}{M}, \quad M \neq 0 \qquad \text{(Quotient Law)}$$</p>
+        </div>
+
+        <h3>Technique 1: Direct Substitution</h3>
+
+        <p>The simplest approach: if the function is "well-behaved" at \(x = a\) (specifically, if it is continuous there), then \(\displaystyle\lim_{x \to a} f(x) = f(a)\). All polynomials and rational functions (where the denominator is nonzero) allow direct substitution.</p>
+
+        <div class="example-box">
+            <h4>Worked Example 10.3a &mdash; Direct Substitution</h4>
+            <p>Evaluate \(\displaystyle\lim_{x \to 3} (x^3 - 4x + 7)\).</p>
+            <p><span class="step-label">Solution</span> Since this is a polynomial, substitute directly:</p>
+            <p>$$\lim_{x \to 3} (x^3 - 4x + 7) = 27 - 12 + 7 = 22$$</p>
+        </div>
+
+        <h3>Technique 2: Factoring</h3>
+
+        <p>When direct substitution produces the indeterminate form \(\frac{0}{0}\), factor the numerator and denominator to cancel the common factor that is causing both to be zero.</p>
+
+        <div class="example-box">
+            <h4>Worked Example 10.3b &mdash; Factoring</h4>
+            <p>Evaluate \(\displaystyle\lim_{x \to -3} \frac{x^2 + 5x + 6}{x + 3}\).</p>
+
+            <p><span class="step-label">Step 1</span> Direct substitution: \(\dfrac{(-3)^2 + 5(-3) + 6}{-3 + 3} = \dfrac{9 - 15 + 6}{0} = \dfrac{0}{0}\). Indeterminate.</p>
+
+            <p><span class="step-label">Step 2</span> Factor the numerator: \(x^2 + 5x + 6 = (x + 2)(x + 3)\).</p>
+
+            <p><span class="step-label">Step 3</span> Cancel the common factor (valid for \(x \neq -3\)):</p>
+            <p>$$\frac{(x+2)(x+3)}{x+3} = x + 2$$</p>
+
+            <p><span class="step-label">Step 4</span> Substitute: \(\displaystyle\lim_{x \to -3} (x + 2) = -3 + 2 = -1\).</p>
+        </div>
+
+        <h3>Technique 3: Rationalizing</h3>
+
+        <p>When the indeterminate form involves square roots, multiply numerator and denominator by the <strong>conjugate</strong> of the radical expression.</p>
+
+        <div class="example-box">
+            <h4>Worked Example 10.3c &mdash; Rationalizing</h4>
+            <p>Evaluate \(\displaystyle\lim_{x \to 0} \frac{\sqrt{x + 4} - 2}{x}\).</p>
+
+            <p><span class="step-label">Step 1</span> Direct substitution: \(\dfrac{\sqrt{4} - 2}{0} = \dfrac{0}{0}\). Indeterminate.</p>
+
+            <p><span class="step-label">Step 2</span> Multiply by the conjugate:</p>
+            <p>$$\frac{\sqrt{x+4} - 2}{x} \cdot \frac{\sqrt{x+4} + 2}{\sqrt{x+4} + 2} = \frac{(x+4) - 4}{x(\sqrt{x+4} + 2)} = \frac{x}{x(\sqrt{x+4} + 2)}$$</p>
+
+            <p><span class="step-label">Step 3</span> Cancel \(x\) (valid for \(x \neq 0\)):</p>
+            <p>$$= \frac{1}{\sqrt{x+4} + 2}$$</p>
+
+            <p><span class="step-label">Step 4</span> Substitute \(x = 0\):</p>
+            <p>$$\lim_{x \to 0} \frac{1}{\sqrt{x+4} + 2} = \frac{1}{\sqrt{4} + 2} = \frac{1}{4}$$</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 10.4 -->
+        <!-- ============================================================ -->
+        <h2 id="section-10-4">10.4 One-Sided Limits</h2>
+
+        <p>Sometimes a function behaves differently depending on which direction \(x\) approaches the target value. We formalize this with one-sided limits.</p>
+
+        <div class="definition-box">
+            <h4>Definition: One-Sided Limits</h4>
+            <p><strong>Left-hand limit:</strong> \(\displaystyle\lim_{x \to a^-} f(x) = L\) means \(f(x) \to L\) as \(x\) approaches \(a\) from values less than \(a\).</p>
+            <p><strong>Right-hand limit:</strong> \(\displaystyle\lim_{x \to a^+} f(x) = L\) means \(f(x) \to L\) as \(x\) approaches \(a\) from values greater than \(a\).</p>
+            <p>The two-sided limit exists if and only if both one-sided limits exist and are equal:</p>
+            <p>$$\lim_{x \to a} f(x) = L \quad \Longleftrightarrow \quad \lim_{x \to a^-} f(x) = \lim_{x \to a^+} f(x) = L$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 10.4</h4>
+            <p>Let \(f(x) = \begin{cases} x^2 + 1, & x < 1 \\ 3x - 1, & x \geq 1 \end{cases}\). Does \(\displaystyle\lim_{x \to 1} f(x)\) exist?</p>
+
+            <p><span class="step-label">Step 1</span> Left-hand limit: as \(x \to 1^-\), use \(f(x) = x^2 + 1\):</p>
+            <p>$$\lim_{x \to 1^-} (x^2 + 1) = 1 + 1 = 2$$</p>
+
+            <p><span class="step-label">Step 2</span> Right-hand limit: as \(x \to 1^+\), use \(f(x) = 3x - 1\):</p>
+            <p>$$\lim_{x \to 1^+} (3x - 1) = 3 - 1 = 2$$</p>
+
+            <p><span class="step-label">Step 3</span> Since both one-sided limits equal \(2\), the two-sided limit exists: \(\displaystyle\lim_{x \to 1} f(x) = 2\). Moreover, \(f(1) = 3(1) - 1 = 2\), so the function is also continuous at \(x = 1\).</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 10.5 -->
+        <!-- ============================================================ -->
+        <h2 id="section-10-5">10.5 Limits at Infinity and Horizontal Asymptotes</h2>
+
+        <p>We can also ask what happens to \(f(x)\) as \(x\) grows without bound. This is the concept of a <em>limit at infinity</em>, which connects directly to the horizontal asymptotes you have already studied in precalculus.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Limit at Infinity</h4>
+            <p>We write \(\displaystyle\lim_{x \to \infty} f(x) = L\) if the values of \(f(x)\) can be made arbitrarily close to \(L\) by taking \(x\) sufficiently large. If this limit equals \(L\), the line \(y = L\) is a <strong>horizontal asymptote</strong> of the graph.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Theorem: End Behavior of Rational Functions</h4>
+            <p>For the rational function \(R(x) = \dfrac{a_n x^n + \cdots}{b_m x^m + \cdots}\) with leading coefficients \(a_n\) and \(b_m\):</p>
+            <p>$$\lim_{x \to \infty} R(x) = \begin{cases} 0, & n < m \\ \dfrac{a_n}{b_m}, & n = m \\ \pm\infty, & n > m \end{cases}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 10.5</h4>
+            <p>Find all horizontal asymptotes of \(f(x) = \dfrac{3x^2 + 1}{x^2 - 5x + 2}\).</p>
+
+            <p><span class="step-label">Step 1</span> Both numerator and denominator have degree 2. The leading coefficients are \(3\) and \(1\).</p>
+
+            <p><span class="step-label">Step 2</span> Divide every term by \(x^2\):</p>
+            <p>$$\frac{3x^2 + 1}{x^2 - 5x + 2} = \frac{3 + \frac{1}{x^2}}{1 - \frac{5}{x} + \frac{2}{x^2}}$$</p>
+
+            <p><span class="step-label">Step 3</span> As \(x \to \pm\infty\), the fractional terms vanish:</p>
+            <p>$$\lim_{x \to \pm\infty} f(x) = \frac{3 + 0}{1 - 0 + 0} = 3$$</p>
+
+            <p>The horizontal asymptote is \(y = 3\).</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 10.6 -->
+        <!-- ============================================================ -->
+        <h2 id="section-10-6">10.6 The Tangent Line Problem</h2>
+
+        <p>One of the great motivating problems of calculus is this: given a curve, how do we find the slope of the line tangent to the curve at a single point? A tangent line touches the curve at exactly one point (locally) and represents the direction the curve is heading at that instant.</p>
+
+        <p>The strategy is to approximate the tangent line using <strong>secant lines</strong>. A secant line passes through two points on the curve. As we bring the second point closer to the first, the secant line rotates toward the tangent line.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Slope of the Secant Line</h4>
+            <p>Given a function \(f\) and two points \(x = a\) and \(x = a + h\) on its graph, the slope of the secant line through \((a, f(a))\) and \((a+h, f(a+h))\) is:</p>
+            <p>$$m_{\text{sec}} = \frac{f(a+h) - f(a)}{h}$$</p>
+            <p>This expression is called a <strong>difference quotient</strong>.</p>
+        </div>
+
+        <p>As \(h \to 0\), the second point slides along the curve toward the first point, and the secant line approaches the tangent line. The slope of the tangent line is:</p>
+
+        <p>$$m_{\text{tan}} = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}$$</p>
+
+        <p>Use the interactive graph below to see this convergence in action. Drag the slider for \(h\) toward zero and watch the red secant line rotate to match the tangent line.</p>
+
+        <!-- Desmos: Secant → Tangent Visualization -->
+        <div id="tangent-calculator" style="width:100%;height:400px;margin:20px 0;border-radius:8px;overflow:hidden;"></div>
+        <script>
+        (function(){
+            var elt = document.getElementById('tangent-calculator');
+            var calc = Desmos.GraphingCalculator(elt, {expressions:true, settingsMenu:false, zoomButtons:true, expressionsTopbar:false});
+            calc.setExpression({id:'func', latex:'f(x)=x^2'});
+            calc.setExpression({id:'a', latex:'a=1', sliderBounds:{min:-3,max:3,step:0.1}});
+            calc.setExpression({id:'h', latex:'h=1', sliderBounds:{min:0.01,max:2,step:0.01}});
+            calc.setExpression({id:'secant', latex:'y=\\frac{f(a+h)-f(a)}{h}(x-a)+f(a)', color:'#e74c3c'});
+            calc.setExpression({id:'pt1', latex:'(a, f(a))', color:'#2ecc71', pointStyle:'POINT', pointSize:12});
+            calc.setExpression({id:'pt2', latex:'(a+h, f(a+h))', color:'#e74c3c', pointStyle:'POINT', pointSize:12});
+        })();
+        </script>
+        <p style="font-size:0.85em;color:#64748b;text-align:center;">Drag \(h\) toward 0 to watch the secant line (red) approach the tangent line. The green point is fixed at \(x = a\); the red point slides toward it.</p>
+
+        <div class="example-box">
+            <h4>Worked Example 10.6 &mdash; Finding the Tangent Slope</h4>
+            <p>Find the slope of the tangent line to \(f(x) = x^2\) at \(x = 3\).</p>
+
+            <p><span class="step-label">Step 1</span> Write the difference quotient:</p>
+            <p>$$\frac{f(3+h) - f(3)}{h} = \frac{(3+h)^2 - 9}{h}$$</p>
+
+            <p><span class="step-label">Step 2</span> Expand the numerator:</p>
+            <p>$$\frac{9 + 6h + h^2 - 9}{h} = \frac{6h + h^2}{h} = 6 + h$$</p>
+
+            <p><span class="step-label">Step 3</span> Take the limit as \(h \to 0\):</p>
+            <p>$$m_{\text{tan}} = \lim_{h \to 0} (6 + h) = 6$$</p>
+
+            <p>The slope of the tangent line at \(x = 3\) is \(6\). The tangent line equation is \(y - 9 = 6(x - 3)\), or \(y = 6x - 9\).</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 10.7 -->
+        <!-- ============================================================ -->
+        <h2 id="section-10-7">10.7 Average vs. Instantaneous Rate of Change</h2>
+
+        <p>The difference quotient from the previous section has a physical interpretation. If \(f(t)\) represents position at time \(t\), then the difference quotient gives the <strong>average rate of change</strong> (average velocity) over a time interval, while the limit gives the <strong>instantaneous rate of change</strong> (instantaneous velocity) at a single moment.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Average Rate of Change</h4>
+            <p>The average rate of change of \(f\) on the interval \([a, b]\) is:</p>
+            <p>$$\text{Average rate} = \frac{f(b) - f(a)}{b - a}$$</p>
+            <p>Geometrically, this is the slope of the secant line through \((a, f(a))\) and \((b, f(b))\).</p>
+        </div>
+
+        <div class="definition-box">
+            <h4>Definition: Instantaneous Rate of Change</h4>
+            <p>The instantaneous rate of change of \(f\) at \(x = a\) is:</p>
+            <p>$$\text{Instantaneous rate} = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}$$</p>
+            <p>Geometrically, this is the slope of the tangent line at \(x = a\). In calculus, this limit is called the <strong>derivative</strong> of \(f\) at \(a\), written \(f'(a)\).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 10.7 &mdash; Average vs. Instantaneous Velocity</h4>
+            <p>A ball dropped from a building has height \(s(t) = 100 - 4.9t^2\) meters after \(t\) seconds.</p>
+
+            <p><strong>(a)</strong> Find the average velocity on \([1, 3]\).</p>
+            <p><span class="step-label">Solution</span></p>
+            <p>$$\frac{s(3) - s(1)}{3 - 1} = \frac{(100 - 44.1) - (100 - 4.9)}{2} = \frac{55.9 - 95.1}{2} = \frac{-39.2}{2} = -19.6 \text{ m/s}$$</p>
+
+            <p><strong>(b)</strong> Find the instantaneous velocity at \(t = 2\).</p>
+            <p><span class="step-label">Solution</span></p>
+            <p>$$\lim_{h \to 0} \frac{s(2+h) - s(2)}{h} = \lim_{h \to 0} \frac{[100 - 4.9(2+h)^2] - [100 - 4.9(4)]}{h}$$</p>
+            <p>$$= \lim_{h \to 0} \frac{-4.9(4 + 4h + h^2) + 19.6}{h} = \lim_{h \to 0} \frac{-19.6 - 19.6h - 4.9h^2 + 19.6}{h}$$</p>
+            <p>$$= \lim_{h \to 0} \frac{-19.6h - 4.9h^2}{h} = \lim_{h \to 0} (-19.6 - 4.9h) = -19.6 \text{ m/s}$$</p>
+
+            <p>The negative sign indicates the ball is moving downward at \(19.6\) m/s at the instant \(t = 2\).</p>
+        </div>
+
+        <h3>Introduction to the Derivative Concept</h3>
+
+        <p>The limit of the difference quotient appears so frequently in calculus that it receives its own name and notation.</p>
+
+        <div class="definition-box">
+            <h4>Definition: The Derivative (Preview)</h4>
+            <p>The <strong>derivative</strong> of \(f\) at \(x = a\) is defined as:</p>
+            <p>$$f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}$$</p>
+            <p>provided this limit exists. The derivative gives the slope of the tangent line to the graph of \(f\) at the point \((a, f(a))\), and represents the instantaneous rate of change of \(f\) at \(x = a\).</p>
+        </div>
+
+        <p>You will study derivatives in depth in calculus. For now, the important takeaway is that the derivative is simply a limit, and you already have the tools to compute it for polynomial functions using the difference quotient.</p>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 10.8 -->
+        <!-- ============================================================ -->
+        <h2 id="section-10-8">10.8 Area Under a Curve Preview</h2>
+
+        <p>The second great problem of calculus is computing the area of a region bounded by a curve. For rectangles, triangles, and circles, you already know area formulas. But what about the area under a general curve like \(y = x^2\) from \(x = 0\) to \(x = 1\)?</p>
+
+        <p>The key idea is <strong>approximation by rectangles</strong>. Divide the interval into \(n\) equal subintervals, build a rectangle on each subinterval whose height matches the function value, and add up the areas. As \(n\) increases, the approximation improves. The exact area is the limit as \(n \to \infty\).</p>
+
+        <div class="definition-box">
+            <h4>Definition: Right Riemann Sum</h4>
+            <p>To approximate the area under \(f(x)\) from \(x = a\) to \(x = b\) using \(n\) rectangles of equal width:</p>
+            <p>$$\Delta x = \frac{b - a}{n}, \qquad R_n = \sum_{i=1}^{n} f\!\left(a + i\,\Delta x\right) \cdot \Delta x$$</p>
+            <p>The exact area is \(\displaystyle A = \lim_{n \to \infty} R_n\).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 10.8 &mdash; Riemann Sum Approximation</h4>
+            <p>Estimate the area under \(f(x) = x^2\) from \(x = 0\) to \(x = 1\) using \(n = 4\) right-endpoint rectangles.</p>
+
+            <p><span class="step-label">Step 1</span> Compute \(\Delta x = \frac{1 - 0}{4} = 0.25\). The right endpoints are \(x_1 = 0.25,\ x_2 = 0.5,\ x_3 = 0.75,\ x_4 = 1\).</p>
+
+            <p><span class="step-label">Step 2</span> Evaluate the function at each right endpoint:</p>
+            <ul>
+                <li>\(f(0.25) = 0.0625\)</li>
+                <li>\(f(0.5) = 0.25\)</li>
+                <li>\(f(0.75) = 0.5625\)</li>
+                <li>\(f(1) = 1\)</li>
+            </ul>
+
+            <p><span class="step-label">Step 3</span> Sum the rectangle areas:</p>
+            <p>$$R_4 = (0.0625 + 0.25 + 0.5625 + 1)(0.25) = 1.875 \times 0.25 = 0.46875$$</p>
+
+            <p>This is an overestimate because \(f(x) = x^2\) is increasing on \([0, 1]\) and we used right endpoints. The exact area (which you will learn to compute using integration in calculus) is \(\frac{1}{3} \approx 0.3333\). With more rectangles, the approximation converges to this exact value.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Key Insight: Limits Connect Everything</h4>
+            <p>Both the tangent line problem and the area problem are solved using limits. The derivative is the limit of a difference quotient, and the definite integral is the limit of a Riemann sum. This unifying role of limits is why they are the starting point of calculus.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 10.9 -->
+        <!-- ============================================================ -->
+        <h2 id="section-10-9">10.9 Practice Problems</h2>
+
+        <p>Test your understanding with the following problems. Attempt each one before revealing the solution.</p>
+
+        <!-- Problem 1 -->
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>Evaluate \(\displaystyle\lim_{x \to 5} \frac{x^2 - 25}{x - 5}\).</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Direct substitution gives \(\frac{0}{0}\). Factor the numerator:</p>
+                    <p>$$\frac{x^2 - 25}{x - 5} = \frac{(x-5)(x+5)}{x-5} = x + 5 \quad (x \neq 5)$$</p>
+                    <p>$$\lim_{x \to 5} (x + 5) = 10$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 2 -->
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>Evaluate \(\displaystyle\lim_{x \to 0} \frac{\sqrt{x + 1} - 1}{x}\).</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Direct substitution gives \(\frac{0}{0}\). Multiply by the conjugate:</p>
+                    <p>$$\frac{\sqrt{x+1} - 1}{x} \cdot \frac{\sqrt{x+1} + 1}{\sqrt{x+1} + 1} = \frac{(x+1) - 1}{x(\sqrt{x+1} + 1)} = \frac{1}{\sqrt{x+1} + 1}$$</p>
+                    <p>$$\lim_{x \to 0} \frac{1}{\sqrt{x+1} + 1} = \frac{1}{1 + 1} = \frac{1}{2}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 3 -->
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>Evaluate \(\displaystyle\lim_{x \to \infty} \frac{4x^3 + x}{2x^3 - 5x^2 + 1}\).</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Both numerator and denominator have degree 3. Divide every term by \(x^3\):</p>
+                    <p>$$\frac{4 + \frac{1}{x^2}}{2 - \frac{5}{x} + \frac{1}{x^3}}$$</p>
+                    <p>As \(x \to \infty\), all fractional terms vanish:</p>
+                    <p>$$\lim_{x \to \infty} = \frac{4}{2} = 2$$</p>
+                    <p>The horizontal asymptote is \(y = 2\).</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 4 -->
+        <div class="practice-problem">
+            <h4>Problem 4</h4>
+            <p>Let \(f(x) = \begin{cases} 2x + 3, & x < 2 \\ x^2, & x \geq 2 \end{cases}\). Does \(\displaystyle\lim_{x \to 2} f(x)\) exist? Is \(f\) continuous at \(x = 2\)?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>Left-hand limit:</strong> \(\displaystyle\lim_{x \to 2^-} (2x + 3) = 4 + 3 = 7\)</p>
+                    <p><strong>Right-hand limit:</strong> \(\displaystyle\lim_{x \to 2^+} x^2 = 4\)</p>
+                    <p>Since \(7 \neq 4\), the one-sided limits are not equal. The two-sided limit <strong>does not exist</strong>, and therefore \(f\) is not continuous at \(x = 2\). This is a jump discontinuity.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 5 -->
+        <div class="practice-problem">
+            <h4>Problem 5</h4>
+            <p>Use the difference quotient to find the slope of the tangent line to \(f(x) = x^2 + 3x\) at \(x = 2\).</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Compute the difference quotient:</p>
+                    <p>$$\frac{f(2+h) - f(2)}{h} = \frac{[(2+h)^2 + 3(2+h)] - [4 + 6]}{h}$$</p>
+                    <p>$$= \frac{[4 + 4h + h^2 + 6 + 3h] - 10}{h} = \frac{7h + h^2}{h} = 7 + h$$</p>
+                    <p>$$f'(2) = \lim_{h \to 0} (7 + h) = 7$$</p>
+                    <p>The slope of the tangent line at \(x = 2\) is \(7\).</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 6 -->
+        <div class="practice-problem">
+            <h4>Problem 6</h4>
+            <p>Use the difference quotient to find the slope of the tangent line to \(f(x) = \dfrac{1}{x}\) at \(x = 3\).</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Compute the difference quotient:</p>
+                    <p>$$\frac{f(3+h) - f(3)}{h} = \frac{\frac{1}{3+h} - \frac{1}{3}}{h} = \frac{\frac{3 - (3+h)}{3(3+h)}}{h} = \frac{-h}{3h(3+h)} = \frac{-1}{3(3+h)}$$</p>
+                    <p>$$f'(3) = \lim_{h \to 0} \frac{-1}{3(3+h)} = \frac{-1}{3 \cdot 3} = -\frac{1}{9}$$</p>
+                    <p>The slope of the tangent line at \(x = 3\) is \(-\frac{1}{9}\).</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 7 -->
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>A car's position is given by \(s(t) = t^3 - 2t\) meters at time \(t\) seconds. Find the average velocity on \([1, 4]\) and the instantaneous velocity at \(t = 2\).</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>Average velocity on \([1, 4]\):</strong></p>
+                    <p>$$\frac{s(4) - s(1)}{4 - 1} = \frac{(64 - 8) - (1 - 2)}{3} = \frac{56 - (-1)}{3} = \frac{57}{3} = 19 \text{ m/s}$$</p>
+                    <p><strong>Instantaneous velocity at \(t = 2\):</strong></p>
+                    <p>$$\lim_{h \to 0} \frac{s(2+h) - s(2)}{h} = \lim_{h \to 0} \frac{[(2+h)^3 - 2(2+h)] - [8 - 4]}{h}$$</p>
+                    <p>$$= \lim_{h \to 0} \frac{[8 + 12h + 6h^2 + h^3 - 4 - 2h] - 4}{h} = \lim_{h \to 0} \frac{10h + 6h^2 + h^3}{h}$$</p>
+                    <p>$$= \lim_{h \to 0} (10 + 6h + h^2) = 10 \text{ m/s}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 8 -->
+        <div class="practice-problem">
+            <h4>Problem 8</h4>
+            <p>Evaluate \(\displaystyle\lim_{x \to 1} \frac{x^3 - 1}{x - 1}\).</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Direct substitution gives \(\frac{0}{0}\). Factor using the difference of cubes formula:</p>
+                    <p>$$x^3 - 1 = (x - 1)(x^2 + x + 1)$$</p>
+                    <p>$$\frac{(x-1)(x^2 + x + 1)}{x - 1} = x^2 + x + 1 \quad (x \neq 1)$$</p>
+                    <p>$$\lim_{x \to 1} (x^2 + x + 1) = 1 + 1 + 1 = 3$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 9 -->
+        <div class="practice-problem">
+            <h4>Problem 9</h4>
+            <p>Estimate the area under \(f(x) = x^3\) from \(x = 0\) to \(x = 2\) using a right Riemann sum with \(n = 4\) rectangles.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>\(\Delta x = \frac{2 - 0}{4} = 0.5\). The right endpoints are \(0.5,\ 1,\ 1.5,\ 2\).</p>
+                    <p>Function values:</p>
+                    <ul>
+                        <li>\(f(0.5) = 0.125\)</li>
+                        <li>\(f(1) = 1\)</li>
+                        <li>\(f(1.5) = 3.375\)</li>
+                        <li>\(f(2) = 8\)</li>
+                    </ul>
+                    <p>$$R_4 = (0.125 + 1 + 3.375 + 8)(0.5) = 12.5 \times 0.5 = 6.25$$</p>
+                    <p>The exact area (computed in calculus using integration) is \(\frac{2^4}{4} = 4\). The right Riemann sum overestimates because \(f(x) = x^3\) is increasing on \([0, 2]\).</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 10 -->
+        <div class="practice-problem">
+            <h4>Problem 10</h4>
+            <p>Evaluate \(\displaystyle\lim_{x \to \infty} \frac{2x + 1}{5x - 3}\).</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Both numerator and denominator are degree 1. Divide every term by \(x\):</p>
+                    <p>$$\frac{2 + \frac{1}{x}}{5 - \frac{3}{x}}$$</p>
+                    <p>As \(x \to \infty\):</p>
+                    <p>$$\lim_{x \to \infty} \frac{2 + 0}{5 - 0} = \frac{2}{5}$$</p>
+                    <p>The horizontal asymptote is \(y = \frac{2}{5}\).</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 11 -->
+        <div class="practice-problem">
+            <h4>Problem 11</h4>
+            <p>Let \(f(x) = \begin{cases} ax + 1, & x \leq 2 \\ x^2 - 3, & x > 2 \end{cases}\). Find the value of \(a\) that makes \(f\) continuous at \(x = 2\).</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>For continuity at \(x = 2\), we need \(\displaystyle\lim_{x \to 2^-} f(x) = \lim_{x \to 2^+} f(x) = f(2)\).</p>
+                    <p><strong>Left-hand limit and function value:</strong> \(\displaystyle\lim_{x \to 2^-} (ax + 1) = 2a + 1\), and \(f(2) = 2a + 1\).</p>
+                    <p><strong>Right-hand limit:</strong> \(\displaystyle\lim_{x \to 2^+} (x^2 - 3) = 4 - 3 = 1\).</p>
+                    <p>Set them equal: \(2a + 1 = 1\), so \(a = 0\).</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 12 -->
+        <div class="practice-problem">
+            <h4>Problem 12</h4>
+            <p>Find the equation of the tangent line to \(f(x) = x^2 - x\) at the point where \(x = 4\).</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>Find the point:</strong> \(f(4) = 16 - 4 = 12\). The point is \((4, 12)\).</p>
+                    <p><strong>Find the slope using the difference quotient:</strong></p>
+                    <p>$$\frac{f(4+h) - f(4)}{h} = \frac{[(4+h)^2 - (4+h)] - 12}{h} = \frac{16 + 8h + h^2 - 4 - h - 12}{h} = \frac{7h + h^2}{h} = 7 + h$$</p>
+                    <p>$$m = \lim_{h \to 0} (7 + h) = 7$$</p>
+                    <p><strong>Write the equation:</strong> Using point-slope form:</p>
+                    <p>$$y - 12 = 7(x - 4) \quad \Longrightarrow \quad y = 7x - 16$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Chapter Navigation -->
+        <div class="chapter-nav">
+            <a href="precalculus-sequences-series.html">&larr; Chapter 9: Sequences &amp; Series</a>
+            <a href="ap-calculus-limits.html">Continue to AP Calculus &rarr;</a>
+        </div>
+    </article>
+
+    <div class="footer">
+        <p>&copy; 2025 MathHub Global. All rights reserved.</p>
+    </div>
+</body>
+</html>

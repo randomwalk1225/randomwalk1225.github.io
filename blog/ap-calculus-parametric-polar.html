@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Calculus BC: Parametric, Polar & Vectors - Chapter 9 | MathHub</title>
+    <meta name="description" content="AP Calculus BC parametric equations, polar coordinates, and vector-valued functions. Arc length, polar area, and derivatives with worked examples.">
+    <meta name="keywords" content="AP Calculus BC, parametric equations, polar coordinates, vector-valued functions, arc length, polar area, parametric derivatives, BC only topics">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/blog/ap-calculus-parametric-polar.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/blog/ap-calculus-parametric-polar.html">
+    <meta property="og:title" content="AP Calculus BC: Parametric, Polar & Vectors - Chapter 9">
+    <meta property="og:description" content="AP Calculus BC parametric equations, polar coordinates, and vector-valued functions with worked examples and practice problems.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Calculus BC: Parametric, Polar & Vectors - Chapter 9">
+    <meta name="twitter:description" content="Master parametric equations, polar coordinates, and vector-valued functions for AP Calculus BC.">
+
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+    <!-- Desmos Graphing Calculator API -->
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <style>
+        .blog-article {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .blog-article h1 {
+            font-size: 2.2em;
+            color: #1e3a5f;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .blog-meta {
+            color: #64748b;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .blog-article h2 {
+            font-size: 1.5em;
+            color: #1e3a5f;
+            margin: 36px 0 16px;
+            padding-top: 12px;
+        }
+        .blog-article h3 {
+            font-size: 1.2em;
+            color: #334155;
+            margin: 24px 0 10px;
+        }
+        .blog-article p {
+            color: #334155;
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+        .blog-article ul, .blog-article ol {
+            margin: 12px 0 20px 24px;
+            color: #334155;
+        }
+        .blog-article li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+        .bc-badge {
+            display: inline-block;
+            background: #7c3aed;
+            color: #fff;
+            font-size: 0.7em;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+            vertical-align: middle;
+            margin-left: 10px;
+            letter-spacing: 0.5px;
+        }
+        .breadcrumb {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            font-size: 0.9em;
+        }
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .toc {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 20px 0 30px;
+        }
+        .toc h3 {
+            margin: 0 0 12px;
+            font-size: 1.05em;
+            color: #1e3a5f;
+        }
+        .toc ol {
+            margin: 0 0 0 20px;
+            color: #334155;
+        }
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .toc a:hover { text-decoration: underline; }
+        .example-box {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .example-box h4 { color: #0284c7; margin-top: 0; margin-bottom: 15px; font-size: 1.05em; }
+        .definition-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .definition-box h4 { color: #16a34a; margin-top: 0; margin-bottom: 15px; font-size: 1.05em; }
+        .theorem-box {
+            background-color: #faf5ff;
+            border-left: 4px solid #7c3aed;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .theorem-box h4 { color: #6d28d9; margin-top: 0; margin-bottom: 15px; font-size: 1.05em; }
+        .practice-problem {
+            background: #f1f5f9;
+            border-left: 4px solid #64748b;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .practice-problem h4 { color: #475569; margin-top: 0; margin-bottom: 15px; font-size: 1.05em; }
+        details.solution {
+            margin-top: 12px;
+        }
+        details.solution summary {
+            cursor: pointer;
+            color: #667eea;
+            font-weight: 600;
+            font-size: 0.95em;
+            padding: 6px 0;
+        }
+        details.solution summary:hover { text-decoration: underline; }
+        details.solution .solution-content {
+            background: #f0fdf4;
+            border-left: 3px solid #22c55e;
+            padding: 16px;
+            margin-top: 10px;
+            border-radius: 0 6px 6px 0;
+        }
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+        .chapter-nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+        .chapter-nav a:hover { text-decoration: underline; }
+        .ad-container {
+            margin: 30px 0;
+            text-align: center;
+            min-height: 100px;
+        }
+        .desmos-container {
+            width: 100%;
+            height: 400px;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+        .desmos-caption {
+            text-align: center;
+            font-size: 0.9em;
+            color: #64748b;
+            margin-top: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="../" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/" class="active">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="../us/ap-calculus/">&larr; AP Calculus Home</a>
+            <span>Chapter 9 of 10</span>
+        </div>
+
+        <h1>Chapter 9: Parametric, Polar, and Vector-Valued Functions <span class="bc-badge">BC Only</span></h1>
+        <div class="blog-meta">Updated February 2026 &middot; 20 min read &middot; <a href="../us/ap-calculus/">AP Calculus Past Papers</a></div>
+
+        <p>This chapter covers three powerful frameworks for describing curves and motion that go beyond the standard $y = f(x)$ approach. Parametric equations let you describe curves using an independent parameter. Polar coordinates offer a natural way to express curves with rotational symmetry. Vector-valued functions combine both components into a single object ideal for modeling motion. These topics appear exclusively on the AP Calculus BC exam and frequently account for 10&ndash;15% of the test.</p>
+
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ol>
+                <li><a href="#sec-9-1">Parametric Equations</a></li>
+                <li><a href="#sec-9-2">Arc Length and Speed for Parametric Curves</a></li>
+                <li><a href="#sec-9-3">Polar Coordinates</a></li>
+                <li><a href="#sec-9-4">Area and Arc Length in Polar Coordinates</a></li>
+                <li><a href="#sec-9-5">Vector-Valued Functions</a></li>
+                <li><a href="#sec-9-6">Cycloid Curves</a></li>
+                <li><a href="#sec-9-7">Practice Problems</a></li>
+            </ol>
+        </div>
+
+        <!-- Ad Unit -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7322143430416257"
+                 data-ad-slot="auto"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 9.1 Parametric Equations -->
+        <!-- ============================================================ -->
+        <h2 id="sec-9-1">9.1 Parametric Equations</h2>
+
+        <p>In many real-world scenarios, both $x$ and $y$ depend on a third variable, typically time. Instead of writing $y$ as a function of $x$, we describe the curve with a pair of functions that share a common parameter.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Parametric Equations</h4>
+            <p>A <strong>parametric curve</strong> in the plane is defined by</p>
+            $$x = f(t), \qquad y = g(t), \qquad a \le t \le b$$
+            <p>where $t$ is the <strong>parameter</strong> (often representing time). As $t$ increases from $a$ to $b$, the point $(x, y)$ traces a path called the <strong>parametric curve</strong>. The direction of travel is called the <strong>orientation</strong> of the curve.</p>
+        </div>
+
+        <h3>Eliminating the Parameter</h3>
+        <p>Sometimes we can eliminate $t$ to obtain a standard Cartesian equation. This is done by solving one parametric equation for $t$ and substituting into the other, or by using algebraic identities (such as $\cos^2 t + \sin^2 t = 1$).</p>
+        <p>For example, given $x = 2\cos t$ and $y = 2\sin t$, we have $\cos t = x/2$ and $\sin t = y/2$. Using the Pythagorean identity: $(x/2)^2 + (y/2)^2 = 1$, which gives $x^2 + y^2 = 4$, a circle of radius 2.</p>
+
+        <h3>Derivatives of Parametric Curves</h3>
+
+        <div class="theorem-box">
+            <h4>Theorem: First and Second Derivatives for Parametric Curves</h4>
+            <p>If $x = f(t)$ and $y = g(t)$ are differentiable and $dx/dt \neq 0$, then:</p>
+            <p><strong>First derivative:</strong></p>
+            $$\frac{dy}{dx} = \frac{dy/dt}{dx/dt} = \frac{g'(t)}{f'(t)}$$
+            <p><strong>Second derivative:</strong></p>
+            $$\frac{d^2 y}{dx^2} = \frac{\frac{d}{dt}\!\left(\frac{dy}{dx}\right)}{\frac{dx}{dt}}$$
+            <p>That is, you first compute $dy/dx$ as a function of $t$, then differentiate that result with respect to $t$, and finally divide by $dx/dt$.</p>
+        </div>
+
+        <p>A common mistake is computing the second derivative as $\frac{d^2y/dt^2}{d^2x/dt^2}$. This formula is incorrect. You must differentiate $dy/dx$ (which is a function of $t$) with respect to $t$, then divide by $dx/dt$.</p>
+
+        <div class="example-box">
+            <h4>Example 9.1.1</h4>
+            <p><strong>Problem:</strong> A curve is defined by $x = t^2 - 1$ and $y = t^3 - 3t$. Find $dy/dx$ and the equation of the tangent line at $t = 2$.</p>
+            <p><strong>Solution:</strong></p>
+            <p>Compute the derivatives with respect to $t$:</p>
+            $$\frac{dx}{dt} = 2t, \qquad \frac{dy}{dt} = 3t^2 - 3$$
+            <p>Therefore:</p>
+            $$\frac{dy}{dx} = \frac{3t^2 - 3}{2t}$$
+            <p>At $t = 2$: $\dfrac{dy}{dx} = \dfrac{3(4) - 3}{2(2)} = \dfrac{9}{4}$</p>
+            <p>The point at $t = 2$ is $(x, y) = (2^2 - 1,\; 2^3 - 6) = (3, 2)$.</p>
+            <p>The tangent line is $y - 2 = \dfrac{9}{4}(x - 3)$, or equivalently $y = \dfrac{9}{4}x - \dfrac{19}{4}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.1.2</h4>
+            <p><strong>Problem:</strong> For $x = e^t$ and $y = e^{-2t}$, eliminate the parameter and find $d^2y/dx^2$.</p>
+            <p><strong>Solution:</strong></p>
+            <p><em>Eliminating the parameter:</em> Since $x = e^t$, we have $t = \ln x$. Then $y = e^{-2t} = e^{-2\ln x} = x^{-2} = 1/x^2$.</p>
+            <p><em>Second derivative:</em></p>
+            $$\frac{dx}{dt} = e^t, \qquad \frac{dy}{dt} = -2e^{-2t}$$
+            $$\frac{dy}{dx} = \frac{-2e^{-2t}}{e^t} = -2e^{-3t}$$
+            <p>Now differentiate $dy/dx$ with respect to $t$:</p>
+            $$\frac{d}{dt}\!\left(\frac{dy}{dx}\right) = \frac{d}{dt}(-2e^{-3t}) = 6e^{-3t}$$
+            <p>Divide by $dx/dt$:</p>
+            $$\frac{d^2y}{dx^2} = \frac{6e^{-3t}}{e^t} = 6e^{-4t}$$
+            <p>Since $e^t = x$, we can write $\dfrac{d^2y}{dx^2} = \dfrac{6}{x^4}$, which is consistent with differentiating $y = x^{-2}$ twice directly.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.1.3</h4>
+            <p><strong>Problem:</strong> Find all points where the curve $x = t^3 - 3t$, $y = t^2 - 4$ has a horizontal or vertical tangent.</p>
+            <p><strong>Solution:</strong></p>
+            $$\frac{dx}{dt} = 3t^2 - 3, \qquad \frac{dy}{dt} = 2t$$
+            <p><strong>Horizontal tangent</strong> occurs when $dy/dt = 0$ and $dx/dt \neq 0$: $2t = 0 \Rightarrow t = 0$. At $t = 0$: $dx/dt = -3 \neq 0$, so the point $(0, -4)$ has a horizontal tangent.</p>
+            <p><strong>Vertical tangent</strong> occurs when $dx/dt = 0$ and $dy/dt \neq 0$: $3t^2 - 3 = 0 \Rightarrow t = \pm 1$.</p>
+            <ul>
+                <li>At $t = 1$: $(x, y) = (-2, -3)$; $dy/dt = 2 \neq 0$. Vertical tangent.</li>
+                <li>At $t = -1$: $(x, y) = (2, -3)$; $dy/dt = -2 \neq 0$. Vertical tangent.</li>
+            </ul>
+        </div>
+
+        <div class="desmos-container" id="parametric-explorer"></div>
+        <p class="desmos-caption">Parametric curves: (x(t), y(t)) = (a·cos(t), b·sin(t)). Adjust a and b to see how the ellipse shape changes. The red dot traces the curve as t increases.</p>
+        <script>
+        (function() {
+            var elt = document.getElementById('parametric-explorer');
+            var calc = Desmos.GraphingCalculator(elt, {expressions: true, settingsMenu: false, zoomButtons: true});
+            calc.setExpression({id: 'a', latex: 'a_0 = 3', sliderBounds: {min: '0.5', max: '5', step: '0.1'}});
+            calc.setExpression({id: 'b', latex: 'b_0 = 2', sliderBounds: {min: '0.5', max: '5', step: '0.1'}});
+            calc.setExpression({id: 'curve', latex: '(a_0\\cos(t), b_0\\sin(t))', color: '#2563eb', parametricDomain: {min: '0', max: '2\\pi'}});
+            calc.setExpression({id: 't0', latex: 't_0 = 1', sliderBounds: {min: '0', max: '6.28', step: '0.05'}});
+            calc.setExpression({id: 'point', latex: '(a_0\\cos(t_0), b_0\\sin(t_0))', color: '#dc2626', pointSize: 12});
+            calc.setMathBounds({left: -6, right: 6, bottom: -4, top: 4});
+        })();
+        </script>
+
+        <!-- ============================================================ -->
+        <!-- 9.2 Arc Length and Speed -->
+        <!-- ============================================================ -->
+        <h2 id="sec-9-2">9.2 Arc Length and Speed for Parametric Curves</h2>
+
+        <p>One of the most natural applications of parametric equations is computing the length of a curve and the speed at which a point moves along it.</p>
+
+        <div class="theorem-box">
+            <h4>Theorem: Arc Length of a Parametric Curve</h4>
+            <p>If a curve is defined by $x = f(t)$ and $y = g(t)$ for $a \le t \le b$, and both $f'$ and $g'$ are continuous, then the <strong>arc length</strong> is:</p>
+            $$L = \int_a^b \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2}\,dt$$
+        </div>
+
+        <div class="definition-box">
+            <h4>Definition: Speed</h4>
+            <p>The <strong>speed</strong> of a particle moving along a parametric curve at time $t$ is the magnitude of the velocity vector:</p>
+            $$\text{speed} = \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2}$$
+            <p>Notice that arc length equals the integral of speed over the time interval. This makes intuitive sense: distance = integral of speed.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.2.1</h4>
+            <p><strong>Problem:</strong> Find the arc length of the curve $x = 3\cos t$, $y = 3\sin t$ for $0 \le t \le 2\pi$.</p>
+            <p><strong>Solution:</strong></p>
+            $$\frac{dx}{dt} = -3\sin t, \qquad \frac{dy}{dt} = 3\cos t$$
+            $$\sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2} = \sqrt{9\sin^2 t + 9\cos^2 t} = \sqrt{9} = 3$$
+            $$L = \int_0^{2\pi} 3\,dt = 6\pi$$
+            <p>This confirms the well-known circumference formula $C = 2\pi r$ with $r = 3$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.2.2</h4>
+            <p><strong>Problem:</strong> A particle moves along the path $x = t^2$, $y = \tfrac{2}{3}t^3$ for $0 \le t \le 3$. Find the total distance traveled and the speed at $t = 2$.</p>
+            <p><strong>Solution:</strong></p>
+            $$\frac{dx}{dt} = 2t, \qquad \frac{dy}{dt} = 2t^2$$
+            <p>Speed at time $t$:</p>
+            $$\sqrt{(2t)^2 + (2t^2)^2} = \sqrt{4t^2 + 4t^4} = 2t\sqrt{1 + t^2}$$
+            <p>(We use $2t\sqrt{1 + t^2}$ since $t \ge 0$ on our interval.)</p>
+            <p><strong>Speed at $t = 2$:</strong> $2(2)\sqrt{1 + 4} = 4\sqrt{5}$.</p>
+            <p><strong>Total distance:</strong></p>
+            $$L = \int_0^3 2t\sqrt{1 + t^2}\,dt$$
+            <p>Substitute $u = 1 + t^2$, $du = 2t\,dt$. When $t = 0$, $u = 1$; when $t = 3$, $u = 10$.</p>
+            $$L = \int_1^{10} \sqrt{u}\,du = \left[\frac{2}{3}u^{3/2}\right]_1^{10} = \frac{2}{3}\left(10\sqrt{10} - 1\right)$$
+        </div>
+
+        <!-- Ad Unit -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7322143430416257"
+                 data-ad-slot="auto"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 9.3 Polar Coordinates -->
+        <!-- ============================================================ -->
+        <h2 id="sec-9-3">9.3 Polar Coordinates</h2>
+
+        <p>Polar coordinates describe a point in the plane by its distance from the origin and the angle it makes with the positive $x$-axis. Many curves that are complicated in Cartesian form become simple and elegant in polar coordinates.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Polar Coordinates</h4>
+            <p>A point $P$ in the plane is represented as $(r, \theta)$, where $r$ is the directed distance from the origin (pole) and $\theta$ is the angle measured counterclockwise from the positive $x$-axis (polar axis).</p>
+            <p><strong>Conversion formulas:</strong></p>
+            $$x = r\cos\theta, \qquad y = r\sin\theta$$
+            $$r^2 = x^2 + y^2, \qquad \tan\theta = \frac{y}{x}$$
+        </div>
+
+        <h3>Common Polar Curves</h3>
+        <p>The AP BC exam expects you to recognize several standard families of polar curves:</p>
+        <ul>
+            <li><strong>Circle:</strong> $r = a$ (centered at origin, radius $|a|$); $r = a\cos\theta$ or $r = a\sin\theta$ (centered off-origin, diameter $|a|$)</li>
+            <li><strong>Cardioid:</strong> $r = a(1 + \cos\theta)$ or $r = a(1 + \sin\theta)$. Heart-shaped curve passing through the origin.</li>
+            <li><strong>Lima&ccedil;on:</strong> $r = a + b\cos\theta$. If $|a| = |b|$, it is a cardioid. If $|a| &lt; |b|$, it has an inner loop. If $|a| &gt; |b|$, it is a dimpled or convex lima&ccedil;on.</li>
+            <li><strong>Rose curve:</strong> $r = a\cos(n\theta)$ or $r = a\sin(n\theta)$. If $n$ is odd, it has $n$ petals; if $n$ is even, it has $2n$ petals.</li>
+            <li><strong>Spiral:</strong> $r = a\theta$ (Archimedean spiral), $r = ae^{b\theta}$ (logarithmic spiral).</li>
+        </ul>
+
+        <h3>Slope of Polar Curves</h3>
+
+        <div class="theorem-box">
+            <h4>Theorem: Derivative $dy/dx$ in Polar Coordinates</h4>
+            <p>A polar curve $r = f(\theta)$ can be treated as a parametric curve with $\theta$ as the parameter:</p>
+            $$x = r\cos\theta = f(\theta)\cos\theta, \qquad y = r\sin\theta = f(\theta)\sin\theta$$
+            <p>Then by the parametric derivative formula:</p>
+            $$\frac{dy}{dx} = \frac{dy/d\theta}{dx/d\theta} = \frac{f'(\theta)\sin\theta + f(\theta)\cos\theta}{f'(\theta)\cos\theta - f(\theta)\sin\theta}$$
+            <p>Equivalently, using $r$ and $dr/d\theta$:</p>
+            $$\frac{dy}{dx} = \frac{\dfrac{dr}{d\theta}\sin\theta + r\cos\theta}{\dfrac{dr}{d\theta}\cos\theta - r\sin\theta}$$
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.3.1</h4>
+            <p><strong>Problem:</strong> Convert the polar equation $r = 4\sin\theta$ to Cartesian form, and identify the curve.</p>
+            <p><strong>Solution:</strong></p>
+            <p>Multiply both sides by $r$:</p>
+            $$r^2 = 4r\sin\theta$$
+            <p>Using $r^2 = x^2 + y^2$ and $r\sin\theta = y$:</p>
+            $$x^2 + y^2 = 4y$$
+            $$x^2 + y^2 - 4y = 0$$
+            $$x^2 + (y - 2)^2 = 4$$
+            <p>This is a circle centered at $(0, 2)$ with radius 2.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.3.2</h4>
+            <p><strong>Problem:</strong> Find the slope of the cardioid $r = 1 + \cos\theta$ at $\theta = \pi/3$.</p>
+            <p><strong>Solution:</strong></p>
+            <p>We have $r = 1 + \cos\theta$ and $dr/d\theta = -\sin\theta$.</p>
+            $$\frac{dy}{dx} = \frac{(-\sin\theta)\sin\theta + (1 + \cos\theta)\cos\theta}{(-\sin\theta)\cos\theta - (1 + \cos\theta)\sin\theta}$$
+            <p>At $\theta = \pi/3$: $\sin(\pi/3) = \sqrt{3}/2$, $\cos(\pi/3) = 1/2$, $r = 3/2$.</p>
+            <p><strong>Numerator:</strong></p>
+            $$-\frac{\sqrt{3}}{2}\cdot\frac{\sqrt{3}}{2} + \frac{3}{2}\cdot\frac{1}{2} = -\frac{3}{4} + \frac{3}{4} = 0$$
+            <p><strong>Denominator:</strong></p>
+            $$-\frac{\sqrt{3}}{2}\cdot\frac{1}{2} - \frac{3}{2}\cdot\frac{\sqrt{3}}{2} = -\frac{\sqrt{3}}{4} - \frac{3\sqrt{3}}{4} = -\sqrt{3}$$
+            <p>Therefore $\dfrac{dy}{dx} = \dfrac{0}{-\sqrt{3}} = 0$. The tangent line is horizontal at $\theta = \pi/3$.</p>
+        </div>
+
+        <div class="desmos-container" id="polar-explorer"></div>
+        <p class="desmos-caption">Polar curves: explore rose curves r = a·cos(nθ) and limaçons r = c + d·cos(θ) by adjusting the parameters.</p>
+        <script>
+        (function() {
+            var elt = document.getElementById('polar-explorer');
+            var calc = Desmos.GraphingCalculator(elt, {expressions: true, settingsMenu: false, zoomButtons: true, degreeMode: false});
+            calc.setExpression({id: 'a', latex: 'a_0 = 3', sliderBounds: {min: '0.5', max: '5', step: '0.1'}});
+            calc.setExpression({id: 'n', latex: 'n_0 = 3', sliderBounds: {min: '1', max: '8', step: '1'}});
+            calc.setExpression({id: 'rose', latex: 'r = a_0\\cos(n_0\\theta)', color: '#2563eb'});
+            calc.setExpression({id: 'c', latex: 'c_0 = 2', sliderBounds: {min: '0', max: '5', step: '0.1'}});
+            calc.setExpression({id: 'd', latex: 'd_0 = 3', sliderBounds: {min: '0', max: '5', step: '0.1'}});
+            calc.setExpression({id: 'limacon', latex: 'r = c_0 + d_0\\cos(\\theta)', color: '#16a34a', hidden: true});
+            calc.setMathBounds({left: -6, right: 6, bottom: -6, top: 6});
+        })();
+        </script>
+
+        <!-- ============================================================ -->
+        <!-- 9.4 Area and Arc Length in Polar Coordinates -->
+        <!-- ============================================================ -->
+        <h2 id="sec-9-4">9.4 Area and Arc Length in Polar Coordinates</h2>
+
+        <p>Computing area in polar coordinates requires a different approach from Cartesian integration. Instead of rectangles, we use thin circular sectors.</p>
+
+        <div class="theorem-box">
+            <h4>Theorem: Area in Polar Coordinates</h4>
+            <p>The area enclosed by the polar curve $r = f(\theta)$ and the rays $\theta = \alpha$ and $\theta = \beta$ (where $\alpha < \beta$) is:</p>
+            $$A = \frac{1}{2}\int_\alpha^\beta \left[f(\theta)\right]^2\,d\theta = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta$$
+            <p><strong>Area between two polar curves:</strong> If $f(\theta) \ge g(\theta) \ge 0$ on $[\alpha, \beta]$, the area between $r = f(\theta)$ (outer) and $r = g(\theta)$ (inner) is:</p>
+            $$A = \frac{1}{2}\int_\alpha^\beta \left([f(\theta)]^2 - [g(\theta)]^2\right)\,d\theta$$
+        </div>
+
+        <div class="theorem-box">
+            <h4>Theorem: Arc Length in Polar Coordinates</h4>
+            <p>The arc length of the polar curve $r = f(\theta)$ from $\theta = \alpha$ to $\theta = \beta$ is:</p>
+            $$L = \int_\alpha^\beta \sqrt{r^2 + \left(\frac{dr}{d\theta}\right)^2}\,d\theta$$
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.4.1 &mdash; Area Enclosed by a Cardioid</h4>
+            <p><strong>Problem:</strong> Find the area enclosed by the cardioid $r = 2(1 + \cos\theta)$.</p>
+            <p><strong>Solution:</strong></p>
+            <p>The cardioid traces once for $0 \le \theta \le 2\pi$.</p>
+            $$A = \frac{1}{2}\int_0^{2\pi} [2(1 + \cos\theta)]^2\,d\theta = \frac{1}{2}\int_0^{2\pi} 4(1 + \cos\theta)^2\,d\theta$$
+            $$= 2\int_0^{2\pi} (1 + 2\cos\theta + \cos^2\theta)\,d\theta$$
+            <p>Use $\cos^2\theta = \dfrac{1 + \cos 2\theta}{2}$:</p>
+            $$= 2\int_0^{2\pi} \left(1 + 2\cos\theta + \frac{1}{2} + \frac{\cos 2\theta}{2}\right)d\theta = 2\int_0^{2\pi} \left(\frac{3}{2} + 2\cos\theta + \frac{\cos 2\theta}{2}\right)d\theta$$
+            $$= 2\left[\frac{3}{2}\theta + 2\sin\theta + \frac{\sin 2\theta}{4}\right]_0^{2\pi} = 2\left(3\pi + 0 + 0\right) = 6\pi$$
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.4.2 &mdash; Area Between Two Polar Curves</h4>
+            <p><strong>Problem:</strong> Find the area of the region inside $r = 3\cos\theta$ and outside $r = 1 + \cos\theta$.</p>
+            <p><strong>Solution:</strong></p>
+            <p>First, find where the curves intersect by setting $3\cos\theta = 1 + \cos\theta$:</p>
+            $$2\cos\theta = 1 \implies \cos\theta = \frac{1}{2} \implies \theta = \pm\frac{\pi}{3}$$
+            <p>On $[-\pi/3, \pi/3]$, we have $3\cos\theta \ge 1 + \cos\theta$ (outer curve is the circle). By symmetry about the polar axis:</p>
+            $$A = 2 \cdot \frac{1}{2}\int_0^{\pi/3} \left[(3\cos\theta)^2 - (1 + \cos\theta)^2\right]d\theta$$
+            $$= \int_0^{\pi/3} \left[9\cos^2\theta - 1 - 2\cos\theta - \cos^2\theta\right]d\theta$$
+            $$= \int_0^{\pi/3} \left[8\cos^2\theta - 2\cos\theta - 1\right]d\theta$$
+            <p>Using $\cos^2\theta = \frac{1 + \cos 2\theta}{2}$:</p>
+            $$= \int_0^{\pi/3} \left[4 + 4\cos 2\theta - 2\cos\theta - 1\right]d\theta = \int_0^{\pi/3} \left[3 + 4\cos 2\theta - 2\cos\theta\right]d\theta$$
+            $$= \left[3\theta + 2\sin 2\theta - 2\sin\theta\right]_0^{\pi/3} = \pi + 2\cdot\frac{\sqrt{3}}{2} - 2\cdot\frac{\sqrt{3}}{2} = \pi$$
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.4.3 &mdash; Area of One Petal of a Rose</h4>
+            <p><strong>Problem:</strong> Find the area of one petal of the rose $r = 4\cos(3\theta)$.</p>
+            <p><strong>Solution:</strong></p>
+            <p>Since $n = 3$ is odd, the rose has 3 petals. One petal is traced when $r \ge 0$. For the petal along the positive $x$-axis, $\cos(3\theta) \ge 0$ when $-\pi/6 \le \theta \le \pi/6$.</p>
+            $$A = \frac{1}{2}\int_{-\pi/6}^{\pi/6} [4\cos(3\theta)]^2\,d\theta = \frac{1}{2}\int_{-\pi/6}^{\pi/6} 16\cos^2(3\theta)\,d\theta$$
+            <p>By symmetry:</p>
+            $$= 16\int_0^{\pi/6} \frac{1 + \cos(6\theta)}{2}\,d\theta = 8\left[\theta + \frac{\sin(6\theta)}{6}\right]_0^{\pi/6}$$
+            $$= 8\left(\frac{\pi}{6} + \frac{\sin\pi}{6}\right) = 8 \cdot \frac{\pi}{6} = \frac{4\pi}{3}$$
+        </div>
+
+        <!-- Ad Unit -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7322143430416257"
+                 data-ad-slot="auto"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 9.5 Vector-Valued Functions -->
+        <!-- ============================================================ -->
+        <h2 id="sec-9-5">9.5 Vector-Valued Functions</h2>
+
+        <p>Vector-valued functions unify parametric equations and provide a natural language for describing motion. Instead of tracking $x$ and $y$ separately, we combine them into a single vector.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Vector-Valued Function</h4>
+            <p>A <strong>vector-valued function</strong> in the plane is</p>
+            $$\vec{r}(t) = \langle x(t),\, y(t) \rangle = x(t)\,\mathbf{i} + y(t)\,\mathbf{j}$$
+            <p>where $x(t)$ and $y(t)$ are called the <strong>component functions</strong>.</p>
+        </div>
+
+        <h3>Position, Velocity, and Acceleration</h3>
+        <p>When $\vec{r}(t)$ represents the position of a particle at time $t$, we define:</p>
+        <ul>
+            <li><strong>Position:</strong> $\vec{r}(t) = \langle x(t), y(t) \rangle$</li>
+            <li><strong>Velocity:</strong> $\vec{v}(t) = \vec{r}\,'(t) = \langle x'(t), y'(t) \rangle$</li>
+            <li><strong>Acceleration:</strong> $\vec{a}(t) = \vec{v}\,'(t) = \langle x''(t), y''(t) \rangle$</li>
+        </ul>
+
+        <div class="theorem-box">
+            <h4>Speed and Distance Traveled</h4>
+            <p>The <strong>speed</strong> of the particle at time $t$ is the magnitude of the velocity vector:</p>
+            $$|\vec{v}(t)| = \sqrt{[x'(t)]^2 + [y'(t)]^2}$$
+            <p>The <strong>total distance traveled</strong> from $t = a$ to $t = b$ is:</p>
+            $$\text{distance} = \int_a^b |\vec{v}(t)|\,dt = \int_a^b \sqrt{[x'(t)]^2 + [y'(t)]^2}\,dt$$
+            <p>Note the distinction: <strong>displacement</strong> is $\vec{r}(b) - \vec{r}(a)$ (a vector), while <strong>distance</strong> is the scalar integral above. These are equal only when the particle moves in one direction without turning back.</p>
+        </div>
+
+        <p>On the AP BC exam, vector-valued function problems frequently involve finding speed at a given time, computing total distance by integrating speed, or determining when a particle is at rest (when $\vec{v}(t) = \langle 0, 0 \rangle$, meaning both components of velocity are simultaneously zero).</p>
+
+        <div class="example-box">
+            <h4>Example 9.5.1</h4>
+            <p><strong>Problem:</strong> A particle moves in the $xy$-plane with position $\vec{r}(t) = \langle t^2 - 4t,\; 3t - t^2 \rangle$ for $t \ge 0$. Find the velocity and speed at $t = 1$, and determine when the particle is at rest.</p>
+            <p><strong>Solution:</strong></p>
+            <p><strong>Velocity:</strong></p>
+            $$\vec{v}(t) = \langle 2t - 4,\; 3 - 2t \rangle$$
+            <p>At $t = 1$: $\vec{v}(1) = \langle -2, 1 \rangle$.</p>
+            <p><strong>Speed at $t = 1$:</strong></p>
+            $$|\vec{v}(1)| = \sqrt{(-2)^2 + 1^2} = \sqrt{5}$$
+            <p><strong>At rest:</strong> Both components must be zero simultaneously.</p>
+            $$2t - 4 = 0 \implies t = 2, \qquad 3 - 2t = 0 \implies t = 3/2$$
+            <p>Since $t = 2 \neq 3/2$, the particle is <em>never at rest</em>. There is no time when both velocity components vanish simultaneously.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.5.2</h4>
+            <p><strong>Problem:</strong> A particle has velocity $\vec{v}(t) = \langle \cos t,\; e^{-t} \rangle$ and initial position $\vec{r}(0) = \langle 0, 2 \rangle$. Find the position function and the total distance traveled from $t = 0$ to $t = \pi$.</p>
+            <p><strong>Solution:</strong></p>
+            <p><strong>Position function:</strong> Integrate each component and apply initial conditions.</p>
+            $$x(t) = \int \cos t\,dt = \sin t + C_1$$
+            <p>$x(0) = 0 \Rightarrow C_1 = 0$, so $x(t) = \sin t$.</p>
+            $$y(t) = \int e^{-t}\,dt = -e^{-t} + C_2$$
+            <p>$y(0) = 2 \Rightarrow -1 + C_2 = 2 \Rightarrow C_2 = 3$, so $y(t) = 3 - e^{-t}$.</p>
+            <p>Thus $\vec{r}(t) = \langle \sin t,\; 3 - e^{-t} \rangle$.</p>
+            <p><strong>Distance traveled:</strong></p>
+            $$\text{distance} = \int_0^\pi \sqrt{\cos^2 t + e^{-2t}}\,dt$$
+            <p>This integral has no elementary closed form, so on the AP exam you would evaluate it numerically using a calculator. Using numerical integration:</p>
+            $$\text{distance} \approx 2.504$$
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 9.6 Cycloid Curves -->
+        <!-- ============================================================ -->
+        <h2 id="sec-9-6">9.6 Cycloid Curves <span class="bc-badge">BC</span></h2>
+
+        <p>The cycloid is one of the most famous curves in the history of mathematics, studied by Galileo, Pascal, Bernoulli, and many others. It provides a beautiful application of parametric equations, combining geometry, calculus, and physics.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Cycloid</h4>
+            <p>A <strong>cycloid</strong> is the curve traced by a point on the rim of a circle of radius $r$ as the circle rolls without slipping along a straight line. Its parametric equations are:</p>
+            $$x = r(t - \sin t), \qquad y = r(1 - \cos t)$$
+            <p>where $t$ is the parameter representing the angle (in radians) through which the circle has rotated. One complete arch corresponds to $0 \le t \le 2\pi$.</p>
+        </div>
+
+        <h3>Derivation of the Parametric Equations</h3>
+
+        <p>Consider a circle of radius $r$ rolling along the $x$-axis. Let $t$ be the angle through which the circle has rotated from its starting position.</p>
+
+        <p><strong>Step 1: Locate the center of the circle.</strong> As the circle rolls without slipping, the distance traveled along the $x$-axis equals the arc length on the circle. After rotating through angle $t$, the contact point has moved $rt$ units along the $x$-axis. The center of the circle is always directly above the contact point at height $r$. Therefore, the center is at the point $(rt,\, r)$.</p>
+
+        <p><strong>Step 2: Locate the point on the rim.</strong> The point $P$ on the rim started at the bottom of the circle (at the origin). After the circle has rotated through angle $t$, the point $P$ is displaced from the center by the vector from the center to $P$. Measuring the angle $t$ clockwise from the downward vertical (since the circle rolls to the right), the displacement from the center is:</p>
+        $$\Delta x = -r\sin t, \qquad \Delta y = -r\cos t$$
+
+        <p><strong>Step 3: Combine.</strong> Adding the center coordinates and the displacement:</p>
+        $$x = rt + (-r\sin t) = r(t - \sin t)$$
+        $$y = r + (-r\cos t) = r(1 - \cos t)$$
+
+        <p>This completes the derivation. When $t = 0$, the point is at the origin $(0, 0)$. When $t = \pi$, the point is at the top of the arch: $(r\pi,\, 2r)$. When $t = 2\pi$, the point returns to the line at $(2\pi r,\, 0)$.</p>
+
+        <h3>Arc Length of One Arch</h3>
+
+        <div class="theorem-box">
+            <h4>Theorem: Arc Length of a Cycloid Arch</h4>
+            <p>The arc length of one complete arch of the cycloid $x = r(t - \sin t)$, $y = r(1 - \cos t)$ for $0 \le t \le 2\pi$ is:</p>
+            $$L = 8r$$
+        </div>
+
+        <p><strong>Proof.</strong> We use the parametric arc length formula $L = \int_0^{2\pi}\sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2}\,dt$.</p>
+
+        <p>Compute the derivatives:</p>
+        $$\frac{dx}{dt} = r(1 - \cos t), \qquad \frac{dy}{dt} = r\sin t$$
+
+        <p>The integrand becomes:</p>
+        $$\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2 = r^2(1 - \cos t)^2 + r^2\sin^2 t$$
+        $$= r^2\left(1 - 2\cos t + \cos^2 t + \sin^2 t\right) = r^2(2 - 2\cos t) = 2r^2(1 - \cos t)$$
+
+        <p>Now we apply the half-angle identity $1 - \cos t = 2\sin^2(t/2)$:</p>
+        $$\sqrt{2r^2(1 - \cos t)} = r\sqrt{2 \cdot 2\sin^2(t/2)} = 2r\,|\sin(t/2)|$$
+
+        <p>For $0 \le t \le 2\pi$, we have $0 \le t/2 \le \pi$, so $\sin(t/2) \ge 0$ and $|\sin(t/2)| = \sin(t/2)$. Therefore:</p>
+        $$L = \int_0^{2\pi} 2r\sin(t/2)\,dt$$
+
+        <p>Substitute $u = t/2$, $du = dt/2$:</p>
+        $$L = 2r\int_0^{\pi} \sin u \cdot 2\,du = 4r\left[-\cos u\right]_0^{\pi} = 4r\left[-\cos\pi + \cos 0\right] = 4r(1 + 1) = 8r$$
+
+        <p>The arc length of one arch is exactly $8r$, which is remarkably simple: it is exactly 4 times the diameter of the generating circle. $\blacksquare$</p>
+
+        <h3>Area Under One Arch</h3>
+
+        <div class="theorem-box">
+            <h4>Theorem: Area Under a Cycloid Arch</h4>
+            <p>The area under one complete arch of the cycloid is:</p>
+            $$A = 3\pi r^2$$
+            <p>This is exactly 3 times the area of the generating circle.</p>
+        </div>
+
+        <p><strong>Proof.</strong> Using the parametric area formula $A = \int y\,dx = \int_0^{2\pi} y(t)\,\frac{dx}{dt}\,dt$:</p>
+        $$A = \int_0^{2\pi} r(1 - \cos t) \cdot r(1 - \cos t)\,dt = r^2\int_0^{2\pi}(1 - \cos t)^2\,dt$$
+
+        <p>Expand the integrand:</p>
+        $$(1 - \cos t)^2 = 1 - 2\cos t + \cos^2 t = 1 - 2\cos t + \frac{1 + \cos 2t}{2} = \frac{3}{2} - 2\cos t + \frac{\cos 2t}{2}$$
+
+        <p>Integrate term by term:</p>
+        $$\int_0^{2\pi}\left(\frac{3}{2} - 2\cos t + \frac{\cos 2t}{2}\right)dt = \left[\frac{3}{2}t - 2\sin t + \frac{\sin 2t}{4}\right]_0^{2\pi}$$
+        $$= \frac{3}{2}(2\pi) - 0 + 0 = 3\pi$$
+
+        <p>Therefore $A = r^2 \cdot 3\pi = 3\pi r^2$. $\blacksquare$</p>
+
+        <h3>Properties of the Cycloid</h3>
+
+        <div class="tip-box" style="background-color: #fffbeb; border-left: 4px solid #f59e0b; padding: 20px; margin: 25px 0; border-radius: 0 8px 8px 0;">
+            <h4 style="color: #d97706; margin-top: 0; margin-bottom: 15px; font-size: 1.05em;">Notable Properties of the Cycloid</h4>
+            <ul>
+                <li><strong>Tautochrone property:</strong> The cycloid is a <em>tautochrone</em> (from Greek "tauto" = same, "chronos" = time). A ball released from rest at any point on an inverted cycloid will reach the bottom in exactly the same amount of time, regardless of its starting position. This was proven by Christiaan Huygens in 1659.</li>
+                <li><strong>Brachistochrone property:</strong> The cycloid is also a <em>brachistochrone</em> (from Greek "brachistos" = shortest, "chronos" = time). Among all smooth curves connecting two points (where the second is lower than the first), the inverted cycloid is the curve along which a frictionless bead sliding under gravity travels in the least time. This was proven by Johann Bernoulli in 1696.</li>
+                <li><strong>Cusps:</strong> The cycloid has cusps (sharp points) at $t = 0, 2\pi, 4\pi, \ldots$ where the point on the rim touches the line. At these cusps, the tangent line is vertical.</li>
+                <li><strong>Maximum height:</strong> The highest point of each arch occurs at $t = \pi$ (when the generating point is at the top of the circle), giving a maximum height of $y = 2r$.</li>
+            </ul>
+        </div>
+
+        <h3>Worked Examples</h3>
+
+        <div class="example-box">
+            <h4>Example 9.6.1 &mdash; Slope of the Cycloid</h4>
+            <p><strong>Problem:</strong> Find the slope of the cycloid with $r = 1$ at $t = \pi/3$.</p>
+            <p><strong>Solution:</strong></p>
+            <p>With $r = 1$, we have $x = t - \sin t$ and $y = 1 - \cos t$.</p>
+            $$\frac{dx}{dt} = 1 - \cos t, \qquad \frac{dy}{dt} = \sin t$$
+            $$\frac{dy}{dx} = \frac{dy/dt}{dx/dt} = \frac{\sin t}{1 - \cos t}$$
+            <p>At $t = \pi/3$: $\sin(\pi/3) = \sqrt{3}/2$ and $\cos(\pi/3) = 1/2$.</p>
+            $$\frac{dy}{dx}\bigg|_{t=\pi/3} = \frac{\sqrt{3}/2}{1 - 1/2} = \frac{\sqrt{3}/2}{1/2} = \sqrt{3}$$
+            <p>The slope at $t = \pi/3$ is $\sqrt{3}$, corresponding to a $60°$ angle with the horizontal.</p>
+            <p><em>Alternative using the identity:</em> $\dfrac{\sin t}{1 - \cos t} = \dfrac{2\sin(t/2)\cos(t/2)}{2\sin^2(t/2)} = \cot(t/2)$. At $t = \pi/3$: $\cot(\pi/6) = \sqrt{3}$. This confirms our answer.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.6.2 &mdash; Arc Length of One Arch</h4>
+            <p><strong>Problem:</strong> Compute the arc length of one complete arch of the cycloid $x = 3(t - \sin t)$, $y = 3(1 - \cos t)$ for $0 \le t \le 2\pi$.</p>
+            <p><strong>Solution:</strong></p>
+            <p>Here $r = 3$. Compute the derivatives:</p>
+            $$\frac{dx}{dt} = 3(1 - \cos t), \qquad \frac{dy}{dt} = 3\sin t$$
+            <p>The speed is:</p>
+            $$\sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2} = \sqrt{9(1 - \cos t)^2 + 9\sin^2 t} = 3\sqrt{2(1 - \cos t)}$$
+            <p>Applying $1 - \cos t = 2\sin^2(t/2)$:</p>
+            $$= 3\sqrt{4\sin^2(t/2)} = 6\sin(t/2) \qquad (\text{since } 0 \le t/2 \le \pi)$$
+            <p>Integrate:</p>
+            $$L = \int_0^{2\pi} 6\sin(t/2)\,dt = 6\left[-2\cos(t/2)\right]_0^{2\pi} = -12[\cos\pi - \cos 0] = -12(-1 - 1) = 24$$
+            <p>This confirms $L = 8r = 8(3) = 24$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.6.3 &mdash; Area Under One Arch</h4>
+            <p><strong>Problem:</strong> Compute the area under one arch of the cycloid $x = 2(t - \sin t)$, $y = 2(1 - \cos t)$ for $0 \le t \le 2\pi$.</p>
+            <p><strong>Solution:</strong></p>
+            <p>Here $r = 2$. Using the parametric area formula:</p>
+            $$A = \int_0^{2\pi} y\,\frac{dx}{dt}\,dt = \int_0^{2\pi} 2(1 - \cos t) \cdot 2(1 - \cos t)\,dt = 4\int_0^{2\pi}(1 - \cos t)^2\,dt$$
+            <p>Expand:</p>
+            $$(1 - \cos t)^2 = 1 - 2\cos t + \cos^2 t = \frac{3}{2} - 2\cos t + \frac{\cos 2t}{2}$$
+            <p>Integrate:</p>
+            $$4\int_0^{2\pi}\left(\frac{3}{2} - 2\cos t + \frac{\cos 2t}{2}\right)dt = 4\left[\frac{3}{2}t - 2\sin t + \frac{\sin 2t}{4}\right]_0^{2\pi} = 4(3\pi) = 12\pi$$
+            <p>This confirms $A = 3\pi r^2 = 3\pi(4) = 12\pi$.</p>
+        </div>
+
+        <h3>Cycloid Practice Problems</h3>
+
+        <div class="practice-problem">
+            <h4>Problem: Horizontal and Vertical Tangent Lines</h4>
+            <p>For the cycloid $x = r(t - \sin t)$, $y = r(1 - \cos t)$, find all values of $t$ in $[0, 2\pi]$ where the tangent line is horizontal, and determine the behavior at the cusps where $t = 0$ and $t = 2\pi$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>We have $\dfrac{dx}{dt} = r(1 - \cos t)$ and $\dfrac{dy}{dt} = r\sin t$.</p>
+                    <p><strong>Horizontal tangent</strong> occurs when $dy/dt = 0$ and $dx/dt \neq 0$.</p>
+                    <p>$r\sin t = 0 \Rightarrow t = 0, \pi, 2\pi$.</p>
+                    <p>At $t = \pi$: $dx/dt = r(1 - \cos\pi) = r(1 - (-1)) = 2r \neq 0$. So the tangent is horizontal at $t = \pi$, which corresponds to the point $(r\pi,\, 2r)$, the top of the arch.</p>
+                    <p><strong>Behavior at cusps ($t = 0$ and $t = 2\pi$):</strong> At these points, both $dx/dt = 0$ and $dy/dt = 0$ simultaneously, so $dy/dx$ takes the indeterminate form $0/0$. Using L'Hopital's Rule or the identity $\dfrac{dy}{dx} = \cot(t/2)$:</p>
+                    <p>As $t \to 0^+$: $\cot(t/2) \to +\infty$, so the tangent line is vertical.</p>
+                    <p>As $t \to 2\pi^-$: $\cot(t/2) = \cot(\pi^-) \to -\infty$, so the tangent line is also vertical.</p>
+                    <p>Therefore, the cycloid has a horizontal tangent only at $t = \pi$ and vertical tangent lines at the cusps $t = 0$ and $t = 2\pi$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem: Arc Length of Half an Arch</h4>
+            <p>Compute the arc length of the cycloid $x = 5(t - \sin t)$, $y = 5(1 - \cos t)$ for $0 \le t \le \pi$ (the first half of the arch).</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>With $r = 5$:</p>
+                    $$\frac{dx}{dt} = 5(1 - \cos t), \qquad \frac{dy}{dt} = 5\sin t$$
+                    <p>The speed is:</p>
+                    $$\sqrt{25(1 - \cos t)^2 + 25\sin^2 t} = 5\sqrt{2(1 - \cos t)} = 5\sqrt{4\sin^2(t/2)} = 10\sin(t/2)$$
+                    <p>(valid since $\sin(t/2) \ge 0$ for $0 \le t \le \pi$).</p>
+                    <p>Integrate:</p>
+                    $$L = \int_0^{\pi} 10\sin(t/2)\,dt = 10\left[-2\cos(t/2)\right]_0^{\pi} = -20\left[\cos(\pi/2) - \cos(0)\right]$$
+                    $$= -20(0 - 1) = 20$$
+                    <p>The arc length of the first half of the arch is $20$. Note that this is exactly half of $8r = 40$, which makes sense by the symmetry of the cycloid about $t = \pi$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem: Area with Specific Radius</h4>
+            <p>A wheel of radius $r = 4$ rolls along a flat road. Find the area between the cycloid traced by a point on the rim and the road for one complete revolution of the wheel.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>The cycloid has parametric equations $x = 4(t - \sin t)$, $y = 4(1 - \cos t)$ with $0 \le t \le 2\pi$.</p>
+                    <p>Using the area formula:</p>
+                    $$A = \int_0^{2\pi} y\,\frac{dx}{dt}\,dt = \int_0^{2\pi} 4(1 - \cos t) \cdot 4(1 - \cos t)\,dt = 16\int_0^{2\pi}(1 - \cos t)^2\,dt$$
+                    <p>We already know $\int_0^{2\pi}(1 - \cos t)^2\,dt = 3\pi$, so:</p>
+                    $$A = 16 \cdot 3\pi = 48\pi$$
+                    <p>Alternatively, by the formula $A = 3\pi r^2 = 3\pi(16) = 48\pi$.</p>
+                    <p>For comparison, the area of the wheel itself is $\pi r^2 = 16\pi$, so the area under the arch is exactly 3 times the area of the generating circle.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="desmos-container" id="cycloid-graph"></div>
+        <p class="desmos-caption">Cycloid curve traced by a point on a rolling circle. Adjust the radius $r$ and watch the generating circle roll. The blue curve is the cycloid, and the red dot shows the tracing point.</p>
+
+        <!-- Ad Unit -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7322143430416257"
+                 data-ad-slot="auto"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 9.7 Practice Problems -->
+        <!-- ============================================================ -->
+        <h2 id="sec-9-7">9.7 Practice Problems</h2>
+
+        <p>Test your understanding of the concepts from this chapter. Each problem is followed by a detailed solution that you can reveal after attempting it on your own.</p>
+
+        <!-- Problem 1 -->
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>A curve is defined parametrically by $x = t + \sin t$ and $y = 1 - \cos t$ for $0 \le t \le 2\pi$. Find $dy/dx$ at $t = \pi/2$ and determine where the curve has horizontal tangent lines.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\dfrac{dx}{dt} = 1 + \cos t$ and $\dfrac{dy}{dt} = \sin t$.</p>
+                    <p>$\dfrac{dy}{dx} = \dfrac{\sin t}{1 + \cos t}$.</p>
+                    <p>At $t = \pi/2$: $\dfrac{dy}{dx} = \dfrac{1}{1 + 0} = 1$.</p>
+                    <p>Horizontal tangent when $\sin t = 0$ and $1 + \cos t \neq 0$: $t = 0$ or $t = 2\pi$ (at both, $1 + \cos t = 2 \neq 0$). At $t = \pi$, $\sin\pi = 0$ but $1 + \cos\pi = 0$, so $t = \pi$ is not a horizontal tangent (it is a cusp). Thus the horizontal tangent occurs at $(0, 0)$ and $(2\pi, 0)$ (the same point).</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 2 -->
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>Find $\dfrac{d^2y}{dx^2}$ for the parametric curve $x = t - t^2$ and $y = t^3$ at $t = 1$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\dfrac{dx}{dt} = 1 - 2t$, $\dfrac{dy}{dt} = 3t^2$.</p>
+                    <p>$\dfrac{dy}{dx} = \dfrac{3t^2}{1 - 2t}$.</p>
+                    <p>Differentiate with respect to $t$ using the quotient rule:</p>
+                    <p>$\dfrac{d}{dt}\!\left(\dfrac{dy}{dx}\right) = \dfrac{6t(1 - 2t) - 3t^2(-2)}{(1 - 2t)^2} = \dfrac{6t - 12t^2 + 6t^2}{(1 - 2t)^2} = \dfrac{6t - 6t^2}{(1 - 2t)^2}$</p>
+                    <p>$\dfrac{d^2y}{dx^2} = \dfrac{6t - 6t^2}{(1 - 2t)^2} \cdot \dfrac{1}{1 - 2t} = \dfrac{6t(1 - t)}{(1 - 2t)^3}$</p>
+                    <p>At $t = 1$: $\dfrac{d^2y}{dx^2} = \dfrac{6(1)(0)}{(1 - 2)^3} = \dfrac{0}{-1} = 0$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 3 -->
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>Find the arc length of the curve $x = e^t\cos t$, $y = e^t\sin t$ for $0 \le t \le \pi$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\dfrac{dx}{dt} = e^t\cos t - e^t\sin t = e^t(\cos t - \sin t)$</p>
+                    <p>$\dfrac{dy}{dt} = e^t\sin t + e^t\cos t = e^t(\sin t + \cos t)$</p>
+                    <p>$\left(\dfrac{dx}{dt}\right)^2 + \left(\dfrac{dy}{dt}\right)^2 = e^{2t}(\cos t - \sin t)^2 + e^{2t}(\sin t + \cos t)^2$</p>
+                    <p>$= e^{2t}[\cos^2 t - 2\sin t\cos t + \sin^2 t + \sin^2 t + 2\sin t\cos t + \cos^2 t]$</p>
+                    <p>$= e^{2t}[1 + 1] = 2e^{2t}$</p>
+                    <p>$L = \int_0^\pi \sqrt{2e^{2t}}\,dt = \sqrt{2}\int_0^\pi e^t\,dt = \sqrt{2}(e^\pi - 1)$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 4 -->
+        <div class="practice-problem">
+            <h4>Problem 4</h4>
+            <p>Convert $r = 2\sec\theta$ to Cartesian form and identify the curve.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$r = \dfrac{2}{\cos\theta}$, so $r\cos\theta = 2$. Since $x = r\cos\theta$, we get $x = 2$. This is a vertical line.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 5 -->
+        <div class="practice-problem">
+            <h4>Problem 5</h4>
+            <p>Find the total area enclosed by the rose $r = 2\sin(2\theta)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Since $n = 2$ is even, the rose has $2n = 4$ petals. One petal (in the first quadrant) is traced for $0 \le \theta \le \pi/2$.</p>
+                    <p>Area of one petal:</p>
+                    <p>$A_1 = \dfrac{1}{2}\int_0^{\pi/2} [2\sin(2\theta)]^2\,d\theta = \dfrac{1}{2}\int_0^{\pi/2} 4\sin^2(2\theta)\,d\theta = 2\int_0^{\pi/2}\dfrac{1 - \cos(4\theta)}{2}\,d\theta$</p>
+                    <p>$= \int_0^{\pi/2}[1 - \cos(4\theta)]\,d\theta = \left[\theta - \dfrac{\sin(4\theta)}{4}\right]_0^{\pi/2} = \dfrac{\pi}{2}$</p>
+                    <p>Total area $= 4 \cdot \dfrac{\pi}{2} = 2\pi$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 6 -->
+        <div class="practice-problem">
+            <h4>Problem 6</h4>
+            <p>Find the area of the region inside both $r = \sin\theta$ and $r = \cos\theta$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>The curves intersect when $\sin\theta = \cos\theta$, i.e., $\theta = \pi/4$. For $0 \le \theta \le \pi/4$, $\sin\theta \le \cos\theta$, so $r = \sin\theta$ is the inner curve. For $\pi/4 \le \theta \le \pi/2$, $\cos\theta \le \sin\theta$, so $r = \cos\theta$ is the inner curve.</p>
+                    <p>By symmetry about $\theta = \pi/4$:</p>
+                    <p>$A = 2 \cdot \dfrac{1}{2}\int_0^{\pi/4}\sin^2\theta\,d\theta = \int_0^{\pi/4}\dfrac{1 - \cos(2\theta)}{2}\,d\theta$</p>
+                    <p>$= \dfrac{1}{2}\left[\theta - \dfrac{\sin(2\theta)}{2}\right]_0^{\pi/4} = \dfrac{1}{2}\left(\dfrac{\pi}{4} - \dfrac{1}{2}\right) = \dfrac{\pi}{8} - \dfrac{1}{4}$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 7 -->
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>A particle moves with velocity $\vec{v}(t) = \langle 2t,\; 3t^2 - 1 \rangle$ and has position $\vec{r}(0) = \langle 1, -2 \rangle$. Find the position at $t = 2$ and the speed at $t = 1$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>Position:</strong> Integrate the velocity.</p>
+                    <p>$x(t) = \int 2t\,dt = t^2 + C_1$. $x(0) = 1 \Rightarrow C_1 = 1$. So $x(t) = t^2 + 1$.</p>
+                    <p>$y(t) = \int (3t^2 - 1)\,dt = t^3 - t + C_2$. $y(0) = -2 \Rightarrow C_2 = -2$. So $y(t) = t^3 - t - 2$.</p>
+                    <p>At $t = 2$: $\vec{r}(2) = \langle 5, 4 \rangle$.</p>
+                    <p><strong>Speed at $t = 1$:</strong></p>
+                    <p>$\vec{v}(1) = \langle 2, 2 \rangle$, so $|\vec{v}(1)| = \sqrt{4 + 4} = 2\sqrt{2}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 8 -->
+        <div class="practice-problem">
+            <h4>Problem 8</h4>
+            <p>Find the total distance traveled by a particle with position $\vec{r}(t) = \langle 4\cos t,\; 3\sin t \rangle$ over $0 \le t \le 2\pi$. (This is the perimeter of an ellipse&mdash;set up the integral.)</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\vec{v}(t) = \langle -4\sin t, 3\cos t \rangle$.</p>
+                    <p>$|\vec{v}(t)| = \sqrt{16\sin^2 t + 9\cos^2 t} = \sqrt{9 + 7\sin^2 t}$</p>
+                    <p>$\text{distance} = \int_0^{2\pi}\sqrt{9 + 7\sin^2 t}\,dt$</p>
+                    <p>This is an elliptic integral and cannot be evaluated in closed form. Using a calculator: $\text{distance} \approx 22.103$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 9 -->
+        <div class="practice-problem">
+            <h4>Problem 9</h4>
+            <p>For the polar curve $r = 2 + \cos\theta$, find the slope $dy/dx$ at $\theta = \pi/2$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$r = 2 + \cos\theta$, $dr/d\theta = -\sin\theta$.</p>
+                    <p>$\dfrac{dy}{dx} = \dfrac{(-\sin\theta)\sin\theta + (2 + \cos\theta)\cos\theta}{(-\sin\theta)\cos\theta - (2 + \cos\theta)\sin\theta}$</p>
+                    <p>At $\theta = \pi/2$: $\sin(\pi/2) = 1$, $\cos(\pi/2) = 0$, $r = 2$.</p>
+                    <p>Numerator: $(-1)(1) + (2)(0) = -1$.</p>
+                    <p>Denominator: $(-1)(0) - (2)(1) = -2$.</p>
+                    <p>$\dfrac{dy}{dx} = \dfrac{-1}{-2} = \dfrac{1}{2}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 10 -->
+        <div class="practice-problem">
+            <h4>Problem 10</h4>
+            <p>A particle has acceleration $\vec{a}(t) = \langle 6t,\; -2 \rangle$, initial velocity $\vec{v}(0) = \langle 1, 4 \rangle$, and initial position $\vec{r}(0) = \langle 0, 0 \rangle$. Find the position at $t = 3$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>Velocity:</strong> Integrate acceleration.</p>
+                    <p>$\vec{v}(t) = \langle 3t^2 + C_1,\; -2t + C_2 \rangle$.</p>
+                    <p>$\vec{v}(0) = \langle 1, 4 \rangle \Rightarrow C_1 = 1,\; C_2 = 4$.</p>
+                    <p>$\vec{v}(t) = \langle 3t^2 + 1,\; -2t + 4 \rangle$.</p>
+                    <p><strong>Position:</strong> Integrate velocity.</p>
+                    <p>$\vec{r}(t) = \langle t^3 + t + D_1,\; -t^2 + 4t + D_2 \rangle$.</p>
+                    <p>$\vec{r}(0) = \langle 0, 0 \rangle \Rightarrow D_1 = 0,\; D_2 = 0$.</p>
+                    <p>$\vec{r}(t) = \langle t^3 + t,\; -t^2 + 4t \rangle$.</p>
+                    <p>At $t = 3$: $\vec{r}(3) = \langle 27 + 3,\; -9 + 12 \rangle = \langle 30, 3 \rangle$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Chapter Navigation -->
+        <div class="chapter-nav">
+            <a href="#">&larr; Chapter 8: Applications of Integration</a>
+            <a href="#">Chapter 10: Infinite Sequences and Series &rarr;</a>
+        </div>
+
+        <!-- Ad Unit -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7322143430416257"
+                 data-ad-slot="auto"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+    </footer>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "AP Calculus BC: Parametric, Polar & Vectors - Chapter 9",
+        "description": "AP Calculus BC parametric equations, polar coordinates, and vector-valued functions. Arc length, polar area, and derivatives with worked examples.",
+        "author": {
+            "@type": "Organization",
+            "name": "MathHub Global"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "MathHub Global"
+        },
+        "datePublished": "2026-02-23",
+        "dateModified": "2026-02-23",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://mathhub.io/blog/ap-calculus-parametric-polar.html"
+        },
+        "about": [
+            "AP Calculus BC",
+            "Parametric Equations",
+            "Polar Coordinates",
+            "Vector-Valued Functions"
+        ]
+    }
+    </script>
+
+    <!-- Cycloid Desmos Graph -->
+    <script>
+    (function() {
+        var elt = document.getElementById('cycloid-graph');
+        if (!elt) return;
+        var calc = Desmos.GraphingCalculator(elt, {expressions: true, settingsMenu: false, zoomButtons: true});
+
+        // Radius slider
+        calc.setExpression({id: 'r', latex: 'r_0 = 2', sliderBounds: {min: '0.5', max: '5', step: '0.1'}});
+
+        // Animation parameter for the rolling circle position
+        calc.setExpression({id: 'tval', latex: 't_0 = 3.14', sliderBounds: {min: '0', max: '6.28', step: '0.02'}});
+
+        // Cycloid curve (full arch)
+        calc.setExpression({id: 'cycloid', latex: '(r_0(t - \\sin(t)),\\, r_0(1 - \\cos(t)))', color: '#2563eb', parametricDomain: {min: '0', max: '2\\pi'}});
+
+        // Rolling circle center
+        calc.setExpression({id: 'center', latex: '(r_0 t_0,\\, r_0)', color: '#94a3b8', pointSize: 6, showLabel: false});
+
+        // Rolling circle
+        calc.setExpression({id: 'circle', latex: '(r_0 t_0 + r_0\\cos(s),\\, r_0 + r_0\\sin(s))', color: '#94a3b8', parametricDomain: {min: '0', max: '2\\pi'}, lineWidth: 1.5, lineStyle: Desmos.Styles.DASHED});
+
+        // Tracing point on the rim
+        calc.setExpression({id: 'point', latex: '(r_0(t_0 - \\sin(t_0)),\\, r_0(1 - \\cos(t_0)))', color: '#dc2626', pointSize: 12});
+
+        // Line from center to tracing point (spoke)
+        calc.setExpression({id: 'spoke', latex: '(r_0 t_0 + s(r_0(t_0 - \\sin(t_0)) - r_0 t_0),\\, r_0 + s(r_0(1 - \\cos(t_0)) - r_0))', color: '#f59e0b', parametricDomain: {min: '0', max: '1'}, lineWidth: 1.5});
+
+        // Baseline (the road)
+        calc.setExpression({id: 'baseline', latex: 'y = 0', color: '#64748b', lineWidth: 1, lineStyle: Desmos.Styles.DASHED});
+
+        calc.setMathBounds({left: -1, right: 14, bottom: -1, top: 6});
+    })();
+    </script>
+</body>
+</html>
