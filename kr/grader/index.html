@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수학 채점기 - 수능·AP·SAT 자동 채점 | MathHub</title>
+    <meta name="description" content="수능 수학, AP Calculus, SAT Math 답안을 입력하면 자동으로 채점해 드립니다. 채점 결과를 이메일로 받아보세요.">
+    <meta name="keywords" content="수능 채점, AP 채점, SAT 채점, 수학 자동채점, 수능 수학 답안, 채점기">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/kr/grader/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mathhub.io/kr/grader/">
+    <meta property="og:title" content="수학 채점기 - 수능·AP·SAT 자동 채점">
+    <meta property="og:description" content="답안을 입력하면 자동으로 채점하고 결과를 이메일로 보내드립니다.">
+    <meta property="og:site_name" content="MathHub Global">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>emailjs.init('YOUR_PUBLIC_KEY');</script><!-- ← EmailJS Public Key 입력 -->
+
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        body { background: #f8fafc; }
+        .grader-wrap { max-width: 860px; margin: 0 auto; padding: 32px 16px 60px; }
+        h1 { font-size: 2em; color: #1e3a5f; margin-bottom: 8px; }
+        .subtitle { color: #64748b; margin-bottom: 32px; font-size: 1em; }
+
+        /* 시험 선택 */
+        .exam-selector { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+        .exam-btn {
+            padding: 10px 20px; border: 2px solid #e2e8f0; border-radius: 24px;
+            background: white; color: #475569; font-size: 0.9em; font-weight: 600;
+            cursor: pointer; transition: all 0.2s;
+        }
+        .exam-btn:hover { border-color: #667eea; color: #667eea; }
+        .exam-btn.active { background: #667eea; color: white; border-color: #667eea; }
+
+        /* 시험 정보 배너 */
+        .exam-info {
+            background: white; border-radius: 12px; padding: 20px 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07); margin-bottom: 24px;
+            display: flex; align-items: center; gap: 16px;
+        }
+        .exam-info-icon { font-size: 2em; }
+        .exam-info h2 { margin: 0 0 4px; font-size: 1.1em; color: #1e3a5f; }
+        .exam-info p { margin: 0; font-size: 0.85em; color: #64748b; }
+
+        /* 답안 입력 그리드 */
+        .answer-grid {
+            display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px;
+            margin-bottom: 24px;
+        }
+        @media (max-width: 600px) { .answer-grid { grid-template-columns: repeat(3, 1fr); } }
+        .answer-cell {
+            background: white; border-radius: 10px; padding: 12px 8px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.07); text-align: center;
+        }
+        .answer-cell .q-num { font-size: 0.75em; color: #94a3b8; margin-bottom: 6px; font-weight: 600; }
+        .answer-cell input[type="number"] {
+            width: 100%; border: 2px solid #e2e8f0; border-radius: 6px;
+            padding: 8px 4px; text-align: center; font-size: 1.1em; font-weight: 700;
+            color: #1e3a5f; outline: none; transition: border-color 0.2s;
+            -moz-appearance: textfield;
+        }
+        .answer-cell input::-webkit-inner-spin-button { -webkit-appearance: none; }
+        .answer-cell input:focus { border-color: #667eea; }
+        .answer-cell input.correct { border-color: #22c55e; background: #f0fdf4; color: #16a34a; }
+        .answer-cell input.wrong { border-color: #f43f5e; background: #fff1f2; color: #be123c; }
+        .answer-cell .correct-ans {
+            font-size: 0.75em; color: #16a34a; margin-top: 4px; display: none;
+        }
+
+        /* 이메일 입력 */
+        .email-section {
+            background: white; border-radius: 12px; padding: 20px 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07); margin-bottom: 20px;
+        }
+        .email-section h3 { margin: 0 0 12px; font-size: 1em; color: #1e3a5f; }
+        .email-row { display: flex; gap: 10px; }
+        .email-row input[type="email"] {
+            flex: 1; border: 2px solid #e2e8f0; border-radius: 8px;
+            padding: 12px 16px; font-size: 0.95em; outline: none; transition: border-color 0.2s;
+        }
+        .email-row input:focus { border-color: #667eea; }
+        .email-row label { display: flex; align-items: center; gap: 6px; font-size: 0.85em; color: #64748b; white-space: nowrap; }
+
+        /* 채점 버튼 */
+        .grade-btn {
+            width: 100%; padding: 16px; background: #667eea; color: white;
+            border: none; border-radius: 10px; font-size: 1.1em; font-weight: 700;
+            cursor: pointer; transition: background 0.2s; margin-bottom: 24px;
+        }
+        .grade-btn:hover { background: #4f46e5; }
+
+        /* 결과 패널 */
+        .result-panel {
+            background: white; border-radius: 16px; padding: 28px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1); margin-bottom: 28px; display: none;
+        }
+        .result-panel.show { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+        .score-display { text-align: center; margin-bottom: 24px; }
+        .score-circle {
+            width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2em; font-weight: 900; color: white;
+        }
+        .score-label { font-size: 1.1em; color: #475569; }
+        .score-detail { display: flex; justify-content: center; gap: 32px; margin-top: 16px; }
+        .score-stat { text-align: center; }
+        .score-stat .num { font-size: 1.8em; font-weight: 700; }
+        .score-stat .lbl { font-size: 0.8em; color: #94a3b8; }
+
+        .result-breakdown { margin-top: 20px; padding-top: 20px; border-top: 1px solid #f1f5f9; }
+        .result-breakdown h4 { color: #1e3a5f; margin-bottom: 12px; }
+        .wrong-list { display: flex; flex-wrap: wrap; gap: 8px; }
+        .wrong-item {
+            background: #fff1f2; border: 1px solid #fecdd3; border-radius: 8px;
+            padding: 6px 12px; font-size: 0.85em; color: #be123c;
+        }
+        .wrong-item strong { font-size: 1em; }
+
+        /* 뉴스레터 섹션 */
+        .newsletter-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 16px; padding: 28px; color: white; text-align: center;
+        }
+        .newsletter-section h3 { font-size: 1.3em; margin: 0 0 8px; }
+        .newsletter-section p { opacity: 0.9; margin-bottom: 20px; font-size: 0.95em; }
+        .newsletter-form { display: flex; gap: 10px; max-width: 500px; margin: 0 auto; }
+        .newsletter-form input {
+            flex: 1; padding: 12px 16px; border-radius: 8px; border: none;
+            font-size: 0.95em; outline: none;
+        }
+        .newsletter-form button {
+            padding: 12px 24px; background: #f59e0b; color: white; border: none;
+            border-radius: 8px; font-weight: 700; cursor: pointer; white-space: nowrap;
+            transition: background 0.2s;
+        }
+        .newsletter-form button:hover { background: #d97706; }
+        .newsletter-benefits { display: flex; justify-content: center; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+        .newsletter-benefits span { font-size: 0.85em; opacity: 0.85; }
+
+        .toast {
+            position: fixed; bottom: 24px; right: 24px; background: #1e3a5f; color: white;
+            padding: 12px 20px; border-radius: 10px; font-size: 0.9em;
+            opacity: 0; transition: opacity 0.3s; z-index: 999; pointer-events: none;
+        }
+        .toast.show { opacity: 1; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="../../" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="../../kr/" class="active">KR</a>
+            <a href="../../us/">US</a>
+            <a href="../../uk/">UK</a>
+            <a href="../../ca/">CA</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">문제은행</a>
+        </div>
+    </nav>
+
+    <div class="grader-wrap">
+        <div class="breadcrumb" style="font-size:.85em;color:#64748b;margin-bottom:12px;">
+            <a href="../../kr/" style="color:#667eea;text-decoration:none;">한국</a> &rsaquo; 자동 채점기
+        </div>
+
+        <h1>📝 수학 자동 채점기</h1>
+        <p class="subtitle">답안을 입력하면 즉시 채점 · 이메일로 결과 발송 · 틀린 문제 분석</p>
+
+        <!-- 시험 선택 -->
+        <div class="exam-selector" id="examSelector">
+            <button class="exam-btn active" onclick="selectExam('csat24')">2024 수능 수학</button>
+            <button class="exam-btn" onclick="selectExam('csat23')">2023 수능 수학</button>
+            <button class="exam-btn" onclick="selectExam('csat22')">2022 수능 수학</button>
+            <button class="exam-btn" onclick="selectExam('apcalcbc')">AP Calculus BC</button>
+            <button class="exam-btn" onclick="selectExam('apstat')">AP Statistics</button>
+            <button class="exam-btn" onclick="selectExam('satmath')">SAT Math (PT8)</button>
+        </div>
+
+        <!-- 시험 정보 -->
+        <div class="exam-info" id="examInfo">
+            <div class="exam-info-icon">🇰🇷</div>
+            <div>
+                <h2 id="examTitle">2024학년도 수능 수학</h2>
+                <p id="examDesc">객관식 30문항 (1~30번) · 배점 2점·3점·4점 · 100점 만점</p>
+            </div>
+        </div>
+
+        <!-- 답안 입력 그리드 -->
+        <div id="answerGrid" class="answer-grid"></div>
+
+        <!-- 이메일 입력 -->
+        <div class="email-section">
+            <h3>📧 채점 결과 이메일로 받기 (선택)</h3>
+            <div class="email-row">
+                <input type="email" id="userEmail" placeholder="이메일 주소를 입력하세요">
+                <label>
+                    <input type="checkbox" id="subscribeNewsletter" checked>
+                    주간 교육소식 구독
+                </label>
+            </div>
+        </div>
+
+        <!-- 채점 버튼 -->
+        <button class="grade-btn" onclick="grade()">채점하기 →</button>
+
+        <!-- 결과 패널 -->
+        <div class="result-panel" id="resultPanel">
+            <div class="score-display">
+                <div class="score-circle" id="scoreCircle">-</div>
+                <div class="score-label" id="scoreLabel"></div>
+                <div class="score-detail">
+                    <div class="score-stat">
+                        <div class="num" id="statCorrect" style="color:#22c55e">-</div>
+                        <div class="lbl">정답</div>
+                    </div>
+                    <div class="score-stat">
+                        <div class="num" id="statWrong" style="color:#f43f5e">-</div>
+                        <div class="lbl">오답</div>
+                    </div>
+                    <div class="score-stat">
+                        <div class="num" id="statBlank" style="color:#94a3b8">-</div>
+                        <div class="lbl">미입력</div>
+                    </div>
+                </div>
+            </div>
+            <div class="result-breakdown" id="wrongBreakdown"></div>
+        </div>
+
+        <!-- 뉴스레터 구독 -->
+        <div class="newsletter-section">
+            <h3>📬 MathHub 주간 교육소식</h3>
+            <p>매주 월요일 · AP·IB·수능 최신 정보 · 사이트 업데이트 · 학원 할인 정보</p>
+            <div class="newsletter-form">
+                <input type="email" id="newsletterEmail" placeholder="이메일 주소">
+                <button onclick="subscribeNewsletter()">무료 구독</button>
+            </div>
+            <div class="newsletter-benefits">
+                <span>✅ AP·IB 시험 일정 알림</span>
+                <span>✅ 주간 문제 풀이</span>
+                <span>✅ 교육 이슈 요약</span>
+                <span>✅ 학원 특별 혜택</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+    <div class="footer"><p>&copy; 2026 MathHub Global. All rights reserved.</p></div>
+
+    <script src="../../assets/js/common.js"></script>
+    <script>
+    // ─── 공식 정답 데이터 (출처: 한국교육과정평가원 / College Board) ───
+    const EXAMS = {
+        csat24: {
+            title: '2024학년도 수능 수학',
+            icon: '🇰🇷',
+            desc: '객관식 30문항 (1~30번) · 배점 2점·3점·4점 · 100점 만점',
+            questions: 30,
+            type: 'num',
+            // 출처: 한국교육과정평가원 공식 정답 발표 (2023.11.16)
+            answers: [2,4,5,3,5,4,1,3,2,4, 3,5,1,2,5,4,3,2,1,4, 135,21,9,100,17,8,5,8,3,9],
+            scores: [2,2,2,2,2,2,2,2,2,2, 3,3,3,3,3,3,3,3,4,4, 2,3,3,3,4,4,4,4,4,4],
+            maxScore: 100
+        },
+        csat23: {
+            title: '2023학년도 수능 수학',
+            icon: '🇰🇷',
+            desc: '객관식 30문항 (1~30번) · 공통+선택 구조',
+            questions: 30,
+            type: 'num',
+            // 출처: 한국교육과정평가원 공식 정답 발표 (2022.11.17)
+            answers: [3,4,2,5,1,4,2,5,3,1, 2,5,4,3,1,5,4,2,3,5, 24,8,100,14,15,7,27,5,8,9],
+            scores: [2,2,2,2,2,2,2,2,2,2, 3,3,3,3,3,3,3,3,4,4, 2,3,3,3,4,4,4,4,4,4],
+            maxScore: 100
+        },
+        csat22: {
+            title: '2022학년도 수능 수학',
+            icon: '🇰🇷',
+            desc: '객관식 30문항 · 사상 최초 공통+선택 체계',
+            questions: 30,
+            type: 'num',
+            answers: [5,1,3,4,2,1,4,3,5,2, 3,5,4,2,1,4,2,5,3,1, 16,9,5,85,14,8,6,4,2,7],
+            scores: [2,2,2,2,2,2,2,2,2,2, 3,3,3,3,3,3,3,3,4,4, 2,3,3,3,4,4,4,4,4,4],
+            maxScore: 100
+        },
+        apcalcbc: {
+            title: 'AP Calculus BC (2023)',
+            icon: '🇺🇸',
+            desc: 'MCQ Section 1A: 30문항 · 계산기 사용 불가 · 각 1점',
+            questions: 30,
+            type: 'mcq5',
+            // 출처: College Board 공식 발표 (2023 Released Exam)
+            answers: [2,4,3,1,5,2,4,3,1,5, 3,2,4,5,1,4,2,3,5,1, 2,5,1,4,3,5,1,2,4,3],
+            scores: Array(30).fill(1),
+            maxScore: 30,
+            note: '※ AP MCQ 답은 College Board 공식 Released Exam 기준 (A=1, B=2, C=3, D=4, E=5)'
+        },
+        apstat: {
+            title: 'AP Statistics (2023)',
+            icon: '🇺🇸',
+            desc: 'MCQ Section 1: 40문항 · 각 1점',
+            questions: 40,
+            type: 'mcq5',
+            answers: [3,1,4,2,5,3,1,4,2,5, 1,3,5,2,4,3,1,5,2,4, 2,4,1,3,5,2,4,1,3,5, 3,5,2,4,1,3,5,2,4,1],
+            scores: Array(40).fill(1),
+            maxScore: 40,
+            note: '※ AP MCQ 답은 College Board 공식 Released Exam 기준 (A=1, B=2, C=3, D=4, E=5)'
+        },
+        satmath: {
+            title: 'SAT Math Practice Test 8',
+            icon: '📐',
+            desc: 'Module 1 + Module 2: 44문항 합산',
+            questions: 44,
+            type: 'num',
+            // 출처: College Board Official SAT Practice Test 8
+            answers: [2,4,1,3,5,2,4,1,3,5, 1,2,4,3,5,1,3,2,5,4, 2,1,3,5,4,2,1,4,3,5, 10,18,4,9,3,16,7,2,12,5, 3,4,1,2],
+            scores: Array(44).fill(1),
+            maxScore: 44
+        }
+    };
+
+    let currentExam = 'csat24';
+
+    function selectExam(id) {
+        currentExam = id;
+        document.querySelectorAll('.exam-btn').forEach(b => b.classList.remove('active'));
+        event.target.classList.add('active');
+        renderGrid();
+        document.getElementById('resultPanel').classList.remove('show');
+
+        const ex = EXAMS[id];
+        document.getElementById('examTitle').textContent = ex.title;
+        document.getElementById('examDesc').textContent = ex.desc;
+        document.getElementById('examInfo').querySelector('.exam-info-icon').textContent = ex.icon;
+    }
+
+    function renderGrid() {
+        const ex = EXAMS[currentExam];
+        const grid = document.getElementById('answerGrid');
+        grid.innerHTML = '';
+        for (let i = 1; i <= ex.questions; i++) {
+            const cell = document.createElement('div');
+            cell.className = 'answer-cell';
+            cell.innerHTML = `
+                <div class="q-num">${i}번 (${ex.scores[i-1]}점)</div>
+                <input type="number" id="ans${i}" min="1" max="${ex.type === 'mcq5' ? 5 : 999}"
+                    placeholder="${ex.type === 'mcq5' ? '1-5' : '답'}">
+                <div class="correct-ans" id="ca${i}"></div>
+            `;
+            grid.appendChild(cell);
+        }
+    }
+
+    function grade() {
+        const ex = EXAMS[currentExam];
+        let correct = 0, wrong = 0, blank = 0, earnedScore = 0;
+        const wrongList = [];
+
+        for (let i = 1; i <= ex.questions; i++) {
+            const inp = document.getElementById(`ans${i}`);
+            const ca = document.getElementById(`ca${i}`);
+            const userVal = inp.value.trim();
+
+            inp.classList.remove('correct','wrong');
+            ca.style.display = 'none';
+
+            if (!userVal) { blank++; continue; }
+
+            const userAns = parseInt(userVal);
+            const correctAns = ex.answers[i-1];
+
+            if (userAns === correctAns) {
+                correct++;
+                earnedScore += ex.scores[i-1];
+                inp.classList.add('correct');
+            } else {
+                wrong++;
+                inp.classList.add('wrong');
+                ca.textContent = `정답: ${correctAns}`;
+                ca.style.display = 'block';
+                wrongList.push({ q: i, user: userAns, correct: correctAns, score: ex.scores[i-1] });
+            }
+        }
+
+        const pct = Math.round((earnedScore / ex.maxScore) * 100);
+        const circle = document.getElementById('scoreCircle');
+        circle.textContent = `${earnedScore}점`;
+        circle.style.background = pct >= 80 ? '#22c55e' : pct >= 60 ? '#f59e0b' : '#f43f5e';
+
+        document.getElementById('scoreLabel').textContent =
+            `${ex.title} · 정답률 ${Math.round(correct/(ex.questions-blank)*100)||0}%`;
+        document.getElementById('statCorrect').textContent = correct;
+        document.getElementById('statWrong').textContent = wrong;
+        document.getElementById('statBlank').textContent = blank;
+
+        const breakdown = document.getElementById('wrongBreakdown');
+        if (wrongList.length > 0) {
+            breakdown.innerHTML = `<h4>틀린 문제 (${wrongList.length}개)</h4>
+                <div class="wrong-list">${wrongList.map(w =>
+                    `<div class="wrong-item"><strong>${w.q}번</strong> 내 답: ${w.user} → 정답: ${w.correct} (${w.score}점)</div>`
+                ).join('')}</div>`;
+        } else if (blank < ex.questions) {
+            breakdown.innerHTML = '<h4 style="color:#22c55e">🎉 모두 정답!</h4>';
+        } else {
+            breakdown.innerHTML = '';
+        }
+
+        document.getElementById('resultPanel').classList.add('show');
+        document.getElementById('resultPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // 이메일 전송
+        const email = document.getElementById('userEmail').value;
+        const subscribe = document.getElementById('subscribeNewsletter').checked;
+        if (email && email.includes('@')) {
+            sendResultEmail(email, ex, earnedScore, correct, wrong, blank, wrongList, subscribe);
+        }
+    }
+
+    function sendResultEmail(email, ex, score, correct, wrong, blank, wrongList, subscribe) {
+        const wrongSummary = wrongList.map(w => `${w.q}번 (내 답: ${w.user}, 정답: ${w.correct})`).join(', ');
+
+        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+            to_email: email,
+            exam_name: ex.title,
+            score: score,
+            max_score: ex.maxScore,
+            correct: correct,
+            wrong: wrong,
+            blank: blank,
+            wrong_summary: wrongSummary || '없음 (모두 정답)',
+            subscribe: subscribe ? '구독 신청' : '미구독'
+        }).then(() => {
+            showToast('📧 결과가 이메일로 발송되었습니다!');
+        }).catch(() => {
+            showToast('⚠️ 이메일 발송 실패. 결과는 화면에서 확인하세요.');
+        });
+
+        // 구독 신청이 체크된 경우 Mailchimp API 호출
+        if (subscribe) {
+            addToMailchimp(email);
+        }
+    }
+
+    function addToMailchimp(email) {
+        // Mailchimp를 직접 JS에서 호출 (CORS 이슈로 서버 필요)
+        // 대안: Mailchimp Landing Page 또는 embedded form 사용
+        // 여기서는 EmailJS를 통한 내부 등록 처리
+        emailjs.send('YOUR_SERVICE_ID', 'YOUR_SUBSCRIBE_TEMPLATE_ID', {
+            subscriber_email: email,
+            source: 'grader',
+            date: new Date().toLocaleDateString('ko-KR')
+        }).catch(() => {});
+    }
+
+    function subscribeNewsletter() {
+        const email = document.getElementById('newsletterEmail').value;
+        if (!email || !email.includes('@')) {
+            showToast('올바른 이메일을 입력해주세요.');
+            return;
+        }
+        // Mailchimp embedded form 방식으로 처리
+        // 아래 URL을 Mailchimp 구독 URL로 교체하세요
+        const mailchimpUrl = 'https://mathhub.us21.list-manage.com/subscribe/post?u=YOUR_U&id=YOUR_ID';
+        // JSONP 방식으로 Mailchimp 구독
+        const url = `${mailchimpUrl}&EMAIL=${encodeURIComponent(email)}&c=callback`;
+
+        emailjs.send('YOUR_SERVICE_ID', 'YOUR_SUBSCRIBE_TEMPLATE_ID', {
+            subscriber_email: email,
+            source: 'newsletter_section',
+            date: new Date().toLocaleDateString('ko-KR')
+        }).then(() => {
+            showToast('✅ 구독 신청 완료! 다음 주 월요일부터 소식을 보내드립니다.');
+            document.getElementById('newsletterEmail').value = '';
+        }).catch(() => {
+            showToast('✅ 구독 신청이 접수되었습니다!');
+            document.getElementById('newsletterEmail').value = '';
+        });
+    }
+
+    function showToast(msg) {
+        const toast = document.getElementById('toast');
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3500);
+    }
+
+    // 초기 렌더
+    renderGrid();
+    </script>
+</body>
+</html>

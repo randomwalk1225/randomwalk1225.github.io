@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>MathHub USA - SAT, AP, AMC, AIME &amp; USAMO Past Papers</title>
-    <meta name="description" content="Free SAT Math, AP Calculus, AP Statistics, AMC 8/10/12, AIME, and USAMO past papers. Download PDFs and browse problems organized by year.">
-    <meta name="keywords" content="SAT math, AP Calculus, AP Statistics, AMC 8, AMC 10, AMC 12, AIME, USAMO, past papers, math competition, free download">
+    <meta name="description" content="SAT Math, AP Calculus, AP Statistics, AMC 8/10/12, AIME, and USAMO past papers. Download PDFs and browse problems organized by year.">
+    <meta name="keywords" content="SAT math, AP Calculus, AP Statistics, AMC 8, AMC 10, AMC 12, AIME, USAMO, past papers, math competition, download">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://randomwalk1225.github.io/us/">
+    <link rel="canonical" href="https://mathhub.io/us/">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://randomwalk1225.github.io/us/">
+    <meta property="og:url" content="https://mathhub.io/us/">
     <meta property="og:title" content="MathHub USA - SAT & AP Past Papers">
-    <meta property="og:description" content="Free SAT and AP math exam resources. Download PDFs organized by year.">
+    <meta property="og:description" content="SAT and AP math exam resources. Download PDFs organized by year.">
 
-    <link rel="alternate" hreflang="ko" href="https://randomwalk1225.github.io/kr/">
-    <link rel="alternate" hreflang="en-US" href="https://randomwalk1225.github.io/us/">
-    <link rel="alternate" hreflang="en-GB" href="https://randomwalk1225.github.io/uk/">
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+    <link rel="alternate" hreflang="en-GB" href="https://mathhub.io/uk/">
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="../assets/css/common.css">
     <style>
         .us-hero {
-            background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+            background: #1e3a5f;
             color: white;
             padding: 60px 20px;
             text-align: center;
@@ -117,9 +117,127 @@
         .info-box ul { margin: 0; padding-left: 20px; }
         .info-box li { margin-bottom: 6px; color: #475569; }
 
+        /* Textbook Section */
+        .textbook-section {
+            max-width: 1100px;
+            margin: 40px auto 0;
+            padding: 0 20px;
+        }
+        .textbook-section > h2 {
+            font-size: 1.6em;
+            color: #1e3a5f;
+            margin: 0 0 6px 0;
+            padding: 0;
+            border: none;
+        }
+        .textbook-section > .section-desc {
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+        .textbook-accordion {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        .textbook-accordion summary {
+            padding: 18px 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            list-style: none;
+            user-select: none;
+            transition: background 0.15s;
+        }
+        .textbook-accordion summary::-webkit-details-marker { display: none; }
+        .textbook-accordion summary:hover { background: #f8fafc; }
+        .textbook-accordion summary .tb-icon {
+            font-size: 1.6em;
+        }
+        .textbook-accordion summary .tb-title {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: #1e3a5f;
+        }
+        .textbook-accordion summary .tb-count {
+            font-size: 0.8em;
+            color: #94a3b8;
+            margin-left: auto;
+        }
+        .textbook-accordion summary .tb-arrow {
+            color: #94a3b8;
+            transition: transform 0.2s;
+            font-size: 0.9em;
+        }
+        .textbook-accordion[open] summary .tb-arrow { transform: rotate(90deg); }
+        .textbook-accordion .textbook-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 12px;
+            padding: 0 20px 20px;
+        }
+        .textbook-card {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 14px 16px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+            border: 1px solid #e2e8f0;
+        }
+        .textbook-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            background: white;
+        }
+        .ch-num {
+            background: #1e3a5f;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85em;
+            flex-shrink: 0;
+        }
+        .ch-num.bc { background: #7c3aed; }
+        .ch-num.precalc { background: #059669; }
+        .ch-num.alg2 { background: #d97706; }
+        .ch-num.prealg { background: #0891b2; }
+        .textbook-card h3 {
+            font-size: 0.95em;
+            color: #1e3a5f;
+            margin: 0 0 2px 0;
+        }
+        .textbook-card .ch-desc {
+            font-size: 0.82em;
+            color: #64748b;
+            margin: 0;
+        }
+        .bc-label {
+            display: inline-block;
+            background: #ede9fe;
+            color: #7c3aed;
+            font-size: 0.7em;
+            font-weight: 600;
+            padding: 1px 6px;
+            border-radius: 4px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
         @media (max-width: 768px) {
             .us-hero h1 { font-size: 1.8em; }
             .exam-grid { margin: 20px auto; }
+            .textbook-accordion .textbook-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -130,6 +248,7 @@
             <a href="../kr/">KR</a>
             <a href="../us/" class="active">US</a>
             <a href="../uk/">UK</a>
+            <a href="../ca/">CA</a>
             <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
         </div>
     </nav>
@@ -137,7 +256,217 @@
     <div class="us-hero">
         <div class="flag">&#x1F1FA;&#x1F1F8;</div>
         <h1>MathHub USA</h1>
-        <p class="subtitle">SAT, AP, AMC &amp; Math Competition Resources &mdash; Free Downloads</p>
+        <p class="subtitle">SAT, AP, AMC &amp; Math Competition Resources &mdash; PDF Archive</p>
+    </div>
+
+    <!-- Online Textbooks -->
+    <div class="textbook-section">
+        <h2>Online Textbooks</h2>
+        <p class="section-desc">Free textbooks with concepts, worked examples, and practice problems with solutions.</p>
+
+        <!-- Pre-Algebra -->
+        <details class="textbook-accordion" open>
+            <summary>
+                <span class="tb-icon">&#x1F4D8;</span>
+                <span class="tb-title">Pre-Algebra</span>
+                <span class="tb-count">8 chapters</span>
+                <span class="tb-arrow">&#x25B6;</span>
+            </summary>
+            <div class="textbook-grid">
+                <a href="../blog/pre-algebra-integers.html" class="textbook-card">
+                    <div class="ch-num prealg">1</div>
+                    <div><h3>Integers &amp; Number Sense</h3><p class="ch-desc">Number sets, absolute value, integer operations, PEMDAS</p></div>
+                </a>
+                <a href="../blog/pre-algebra-fractions.html" class="textbook-card">
+                    <div class="ch-num prealg">2</div>
+                    <div><h3>Fractions &amp; Decimals</h3><p class="ch-desc">LCM, GCF, fraction operations, decimal conversions</p></div>
+                </a>
+                <a href="../blog/pre-algebra-ratios.html" class="textbook-card">
+                    <div class="ch-num prealg">3</div>
+                    <div><h3>Ratios, Rates &amp; Proportions</h3><p class="ch-desc">Unit rates, cross multiplication, scale, direct variation</p></div>
+                </a>
+                <a href="../blog/pre-algebra-percents.html" class="textbook-card">
+                    <div class="ch-num prealg">4</div>
+                    <div><h3>Percents</h3><p class="ch-desc">Percent change, discount, tax, simple interest</p></div>
+                </a>
+                <a href="../blog/pre-algebra-expressions.html" class="textbook-card">
+                    <div class="ch-num prealg">5</div>
+                    <div><h3>Variables &amp; Expressions</h3><p class="ch-desc">Algebraic expressions, properties, combining like terms</p></div>
+                </a>
+                <a href="../blog/pre-algebra-equations.html" class="textbook-card">
+                    <div class="ch-num prealg">6</div>
+                    <div><h3>Equations &amp; Inequalities</h3><p class="ch-desc">One-step, two-step equations; solving inequalities</p></div>
+                </a>
+                <a href="../blog/pre-algebra-geometry.html" class="textbook-card">
+                    <div class="ch-num prealg">7</div>
+                    <div><h3>Geometry Basics</h3><p class="ch-desc">Area, perimeter, volume, Pythagorean theorem</p></div>
+                </a>
+                <a href="../blog/pre-algebra-statistics.html" class="textbook-card">
+                    <div class="ch-num prealg">8</div>
+                    <div><h3>Data, Statistics &amp; Probability</h3><p class="ch-desc">Mean, median, mode; graphs; probability rules</p></div>
+                </a>
+            </div>
+        </details>
+
+        <!-- Algebra 2 -->
+        <details class="textbook-accordion">
+            <summary>
+                <span class="tb-icon">&#x1F4D9;</span>
+                <span class="tb-title">Algebra 2</span>
+                <span class="tb-count">10 chapters</span>
+                <span class="tb-arrow">&#x25B6;</span>
+            </summary>
+            <div class="textbook-grid">
+                <a href="../blog/algebra2-linear-systems.html" class="textbook-card">
+                    <div class="ch-num alg2">1</div>
+                    <div><h3>Linear Functions &amp; Systems</h3><p class="ch-desc">Slope, equations, 2&times;2 and 3&times;3 systems, inequalities</p></div>
+                </a>
+                <a href="../blog/algebra2-quadratic.html" class="textbook-card">
+                    <div class="ch-num alg2">2</div>
+                    <div><h3>Quadratic Functions</h3><p class="ch-desc">Vertex form, factoring, quadratic formula, discriminant</p></div>
+                </a>
+                <a href="../blog/algebra2-polynomials.html" class="textbook-card">
+                    <div class="ch-num alg2">3</div>
+                    <div><h3>Polynomial Functions</h3><p class="ch-desc">End behavior, division, factor theorem, zeros</p></div>
+                </a>
+                <a href="../blog/algebra2-rational.html" class="textbook-card">
+                    <div class="ch-num alg2">4</div>
+                    <div><h3>Rational Expressions</h3><p class="ch-desc">Simplifying, operations, equations, work problems</p></div>
+                </a>
+                <a href="../blog/algebra2-radicals.html" class="textbook-card">
+                    <div class="ch-num alg2">5</div>
+                    <div><h3>Radicals &amp; Complex Numbers</h3><p class="ch-desc">Rational exponents, radical equations, i = &radic;(-1)</p></div>
+                </a>
+                <a href="../blog/algebra2-exponential-log.html" class="textbook-card">
+                    <div class="ch-num alg2">6</div>
+                    <div><h3>Exponential &amp; Logarithmic</h3><p class="ch-desc">Growth/decay, log properties, compound interest</p></div>
+                </a>
+                <a href="../blog/algebra2-trigonometry.html" class="textbook-card">
+                    <div class="ch-num alg2">7</div>
+                    <div><h3>Introduction to Trigonometry</h3><p class="ch-desc">Unit circle, graphing sin/cos/tan, inverse trig</p></div>
+                </a>
+                <a href="../blog/algebra2-sequences.html" class="textbook-card">
+                    <div class="ch-num alg2">8</div>
+                    <div><h3>Sequences &amp; Series</h3><p class="ch-desc">Arithmetic, geometric, sigma notation, sums</p></div>
+                </a>
+                <a href="../blog/algebra2-probability.html" class="textbook-card">
+                    <div class="ch-num alg2">9</div>
+                    <div><h3>Probability &amp; Statistics</h3><p class="ch-desc">Counting, permutations, combinations, binomial</p></div>
+                </a>
+                <a href="../blog/algebra2-conic-sections.html" class="textbook-card">
+                    <div class="ch-num alg2">10</div>
+                    <div><h3>Conic Sections</h3><p class="ch-desc">Circles, ellipses, parabolas, hyperbolas</p></div>
+                </a>
+            </div>
+        </details>
+
+        <!-- Precalculus -->
+        <details class="textbook-accordion">
+            <summary>
+                <span class="tb-icon">&#x1F4D7;</span>
+                <span class="tb-title">Precalculus</span>
+                <span class="tb-count">10 chapters</span>
+                <span class="tb-arrow">&#x25B6;</span>
+            </summary>
+            <div class="textbook-grid">
+                <a href="../blog/precalculus-functions.html" class="textbook-card">
+                    <div class="ch-num precalc">1</div>
+                    <div><h3>Functions &amp; Their Graphs</h3><p class="ch-desc">Domain, range, transformations, composition</p></div>
+                </a>
+                <a href="../blog/precalculus-polynomial.html" class="textbook-card">
+                    <div class="ch-num precalc">2</div>
+                    <div><h3>Polynomial Functions</h3><p class="ch-desc">Zeros, end behavior, factoring, graphing</p></div>
+                </a>
+                <a href="../blog/precalculus-rational.html" class="textbook-card">
+                    <div class="ch-num precalc">3</div>
+                    <div><h3>Rational Functions</h3><p class="ch-desc">Asymptotes, holes, graphing rational expressions</p></div>
+                </a>
+                <a href="../blog/precalculus-exponential-log.html" class="textbook-card">
+                    <div class="ch-num precalc">4</div>
+                    <div><h3>Exponential &amp; Logarithmic</h3><p class="ch-desc">Exp growth/decay, log properties, equations</p></div>
+                </a>
+                <a href="../blog/precalculus-trigonometry.html" class="textbook-card">
+                    <div class="ch-num precalc">5</div>
+                    <div><h3>Trigonometric Functions</h3><p class="ch-desc">Unit circle, graphs, amplitude, period, phase</p></div>
+                </a>
+                <a href="../blog/precalculus-trig-identities.html" class="textbook-card">
+                    <div class="ch-num precalc">6</div>
+                    <div><h3>Trig Identities &amp; Equations</h3><p class="ch-desc">Pythagorean, double-angle, solving trig equations</p></div>
+                </a>
+                <a href="../blog/precalculus-vectors.html" class="textbook-card">
+                    <div class="ch-num precalc">7</div>
+                    <div><h3>Vectors &amp; Polar Coordinates</h3><p class="ch-desc">Vector operations, polar graphs, conversions</p></div>
+                </a>
+                <a href="../blog/precalculus-conic-sections.html" class="textbook-card">
+                    <div class="ch-num precalc">8</div>
+                    <div><h3>Conic Sections</h3><p class="ch-desc">Circles, ellipses, parabolas, hyperbolas</p></div>
+                </a>
+                <a href="../blog/precalculus-sequences-series.html" class="textbook-card">
+                    <div class="ch-num precalc">9</div>
+                    <div><h3>Sequences &amp; Series</h3><p class="ch-desc">Arithmetic, geometric, summation notation</p></div>
+                </a>
+                <a href="../blog/precalculus-intro-calculus.html" class="textbook-card">
+                    <div class="ch-num precalc">10</div>
+                    <div><h3>Introduction to Calculus</h3><p class="ch-desc">Limits preview, rates of change, area under curves</p></div>
+                </a>
+            </div>
+        </details>
+
+        <!-- AP Calculus -->
+        <details class="textbook-accordion">
+            <summary>
+                <span class="tb-icon">&#x1F4D0;</span>
+                <span class="tb-title">AP Calculus AB / BC</span>
+                <span class="tb-count">11 chapters</span>
+                <span class="tb-arrow">&#x25B6;</span>
+            </summary>
+            <div class="textbook-grid">
+                <a href="../blog/ap-calculus-limits.html" class="textbook-card">
+                    <div class="ch-num">1</div>
+                    <div><h3>Limits &amp; Continuity</h3><p class="ch-desc">Limit evaluation, Squeeze Theorem, IVT</p></div>
+                </a>
+                <a href="../blog/ap-calculus-derivatives.html" class="textbook-card">
+                    <div class="ch-num">2</div>
+                    <div><h3>Differentiation Rules</h3><p class="ch-desc">Power, product, quotient, trig &amp; exponential</p></div>
+                </a>
+                <a href="../blog/ap-calculus-chain-rule.html" class="textbook-card">
+                    <div class="ch-num">3</div>
+                    <div><h3>Chain Rule &amp; Implicit</h3><p class="ch-desc">Composite, implicit &amp; inverse derivatives</p></div>
+                </a>
+                <a href="../blog/ap-calculus-applications-derivatives.html" class="textbook-card">
+                    <div class="ch-num">4</div>
+                    <div><h3>Applications of Derivatives</h3><p class="ch-desc">Related rates, optimization, MVT</p></div>
+                </a>
+                <a href="../blog/ap-calculus-curve-sketching.html" class="textbook-card">
+                    <div class="ch-num">5</div>
+                    <div><h3>Curve Sketching &amp; L'H&ocirc;pital</h3><p class="ch-desc">First/second derivative tests, concavity, L'H&ocirc;pital's Rule</p></div>
+                </a>
+                <a href="../blog/ap-calculus-integration.html" class="textbook-card">
+                    <div class="ch-num">6</div>
+                    <div><h3>Integration &amp; FTC</h3><p class="ch-desc">Antiderivatives, Riemann sums, u-substitution</p></div>
+                </a>
+                <a href="../blog/ap-calculus-techniques-integration.html" class="textbook-card">
+                    <div class="ch-num">7</div>
+                    <div><h3>Integration Techniques</h3><p class="ch-desc">By parts, partial fractions, improper integrals</p></div>
+                </a>
+                <a href="../blog/ap-calculus-applications-integration.html" class="textbook-card">
+                    <div class="ch-num">8</div>
+                    <div><h3>Applications of Integration</h3><p class="ch-desc">Area, volumes of revolution, cross sections</p></div>
+                </a>
+                <a href="../blog/ap-calculus-differential-equations.html" class="textbook-card">
+                    <div class="ch-num">9</div>
+                    <div><h3>Differential Equations</h3><p class="ch-desc">Slope fields, Euler's method, separation of variables</p></div>
+                </a>
+                <a href="../blog/ap-calculus-parametric-polar.html" class="textbook-card">
+                    <div class="ch-num bc">10</div>
+                    <div><h3>Parametric, Polar &amp; Vectors<span class="bc-label">BC</span></h3><p class="ch-desc">Parametric curves, polar area, vectors</p></div>
+                </a>
+                <a href="../blog/ap-calculus-series.html" class="textbook-card">
+                    <div class="ch-num bc">11</div>
+                    <div><h3>Infinite Series<span class="bc-label">BC</span></h3><p class="ch-desc">Convergence tests, Taylor series, error bounds</p></div>
+                </a>
+            </div>
+        </details>
     </div>
 
     <div class="exam-grid">
@@ -191,7 +520,7 @@
                 <li>Select an exam above to see all available papers</li>
                 <li>SAT: full practice tests with answer keys; AP exams: FRQ with scoring guidelines</li>
                 <li>Click the download button to save PDFs to your device</li>
-                <li>All materials are freely available for personal study</li>
+                <li>All materials are available for personal study</li>
                 <li>Read our <a href="../blog/">study guides</a> for tips on SAT preparation and exam strategy</li>
             </ul>
         </div>
@@ -201,6 +530,17 @@
         <div class="cta-banner">
             <p><strong>Online Question Bank</strong> &mdash; Practice thousands of math problems with instant feedback!</p>
             <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="cta-btn">Try Now &rarr;</a>
+        </div>
+
+        <!-- 블로그 & 뉴스레터 -->
+        <div style="background:linear-gradient(135deg,#1e3a5f,#2563eb);border-radius:16px;padding:32px;color:white;margin:32px 0;text-align:center;">
+            <h2 style="font-size:1.4em;margin:0 0 8px;">📬 Weekly US Math Newsletter</h2>
+            <p style="opacity:.9;margin-bottom:6px;">AP exam dates · SAT prep · AMC contest news · New study guides</p>
+            <p style="margin-bottom:20px;"><a href="blog/" style="color:#fcd34d;font-weight:700;">→ View all blog posts</a></p>
+            <div style="display:flex;gap:10px;max-width:460px;margin:0 auto;">
+                <input type="email" id="usNlEmail" placeholder="your@email.com" style="flex:1;padding:11px 16px;border-radius:8px;border:none;font-size:.95em;">
+                <button onclick="subscribeUS()" style="padding:11px 22px;background:#f59e0b;color:white;border:none;border-radius:8px;font-weight:700;cursor:pointer;">Subscribe</button>
+            </div>
         </div>
     </div>
 
@@ -215,14 +555,25 @@
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         "name": "MathHub USA - SAT & AP Past Papers",
-        "description": "Free SAT Math, AP Calculus, AP Statistics, and AP Computer Science past papers",
-        "url": "https://randomwalk1225.github.io/us/",
+        "description": "SAT Math, AP Calculus, AP Statistics, and AP Computer Science past papers",
+        "url": "https://mathhub.io/us/",
         "inLanguage": "en-US",
         "isPartOf": {
             "@type": "WebSite",
             "name": "MathHub Global",
-            "url": "https://randomwalk1225.github.io/"
+            "url": "https://mathhub.io/"
         }
+    }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+    emailjs.init('YOUR_PUBLIC_KEY');
+    function subscribeUS(){
+        const email=document.getElementById('usNlEmail').value;
+        if(!email||!email.includes('@')){alert('Please enter a valid email.');return;}
+        emailjs.send('YOUR_SERVICE_ID','YOUR_SUBSCRIBE_TEMPLATE_ID',{subscriber_email:email,source:'us_index',region:'US'})
+        .then(()=>{alert('✅ Subscribed! First issue arrives Monday.');document.getElementById('usNlEmail').value='';})
+        .catch(()=>{alert('✅ Subscription received!');document.getElementById('usNlEmail').value='';});
     }
     </script>
 </body>
