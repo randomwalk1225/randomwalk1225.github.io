@@ -12,6 +12,20 @@ var CIE_PAPER_NAMES = {
     '5': 'Paper 5 — Statistics 1',
     '6': 'Paper 6 — Statistics 2'
   },
+  '9702': {
+    '1': 'Paper 1 — Multiple Choice',
+    '2': 'Paper 2 — AS Structured',
+    '3': 'Paper 3 — Advanced Practical',
+    '4': 'Paper 4 — A2 Structured',
+    '5': 'Paper 5 — Planning & Analysis'
+  },
+  '9701': {
+    '1': 'Paper 1 — Multiple Choice',
+    '2': 'Paper 2 — AS Structured',
+    '3': 'Paper 3 — Advanced Practical',
+    '4': 'Paper 4 — A2 Structured',
+    '5': 'Paper 5 — Planning & Analysis'
+  },
   '0580': {
     '1': 'Paper 1 — Core Short',
     '2': 'Paper 2 — Extended Short',

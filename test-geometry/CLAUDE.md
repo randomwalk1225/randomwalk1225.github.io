@@ -26,6 +26,14 @@
 ### 5. CPCTC Text Placement
 - CPCTC labels must appear OUTSIDE all triangle polygons
 
+### 6. SVG Overflow / Coordinate Bounds (BUG-004)
+- **Rule:** ALL polygon/path/text coordinates must stay INSIDE the viewBox
+- **Check:** For viewBox `"x0 y0 w h"`, every coordinate must satisfy `x0 ≤ x ≤ x0+w` and `y0 ≤ y ≤ y0+h`
+- **Danger zone:** Squares on the hypotenuse — the outward perpendicular can push vertices FAR outside bounds
+- **Hyp square formula:** For hyp from P1→P2 (dir=(dx,dy)), outward perp = rotate CW = (dy,−dx). Square: P1 → P2 → P2+(dy,−dx) → P1+(dy,−dx). Verify ALL four vertices against viewBox before writing.
+- **Safety net:** Always add `overflow: hidden` to `.figure-card` CSS
+- **Fix pattern:** Reposition triangle so the hyp square opens toward the larger empty area of the viewBox. Example: right angle at bottom-right → hyp square opens upper-left.
+
 <claude-mem-context>
 # Recent Activity
 

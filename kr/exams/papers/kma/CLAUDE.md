@@ -7,7 +7,6 @@
 
 | ID | Time | T | Title | Read |
 |----|------|---|-------|------|
-| #9448 | 1:14 AM | 🟣 | Populated Exam Paper Repository with Korean Mock Exam PDFs | ~551 |
-| #9442 | 1:12 AM | ✅ | Added Military Academy Entrance Exam Archive | ~451 |
-| #9390 | 12:34 AM | 🟣 | Korean exam resources expanded with military academies and enhanced filtering | ~623 |
+| #9787 | 7:14 PM | 🟣 | Military Academy Exam PDFs Split and Organized for Missing Years 2017-2020 | ~414 |
+| #9751 | 6:45 PM | 🔵 | Horaeng Archive Identified as Source for Missing Military Academy Exam Years | ~314 |
 </claude-mem-context>
