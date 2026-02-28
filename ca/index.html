@@ -131,9 +131,124 @@
         .info-box ul { margin: 0; padding-left: 20px; }
         .info-box li { margin-bottom: 6px; color: #475569; }
 
+        /* Textbook Section */
+        .textbook-section {
+            max-width: 1100px;
+            margin: 40px auto 0;
+            padding: 0 20px;
+        }
+        .textbook-section > h2 {
+            font-size: 1.6em;
+            color: #1e3a5f;
+            margin: 0 0 6px 0;
+            padding: 0;
+            border: none;
+        }
+        .textbook-section > .section-desc {
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+        .textbook-accordion {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        .textbook-accordion summary {
+            padding: 18px 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            list-style: none;
+            user-select: none;
+            transition: background 0.15s;
+        }
+        .textbook-accordion summary::-webkit-details-marker { display: none; }
+        .textbook-accordion summary:hover { background: #f8fafc; }
+        .textbook-accordion summary .tb-icon { font-size: 1.6em; }
+        .textbook-accordion summary .tb-title {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: #1e3a5f;
+        }
+        .textbook-accordion summary .tb-count {
+            font-size: 0.8em;
+            color: #94a3b8;
+            margin-left: auto;
+        }
+        .textbook-accordion summary .tb-arrow {
+            color: #94a3b8;
+            transition: transform 0.2s;
+            font-size: 0.9em;
+        }
+        .textbook-accordion[open] summary .tb-arrow { transform: rotate(90deg); }
+        .textbook-accordion .textbook-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 12px;
+            padding: 0 20px 20px;
+        }
+        .textbook-card {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 14px 16px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+            border: 1px solid #e2e8f0;
+        }
+        .textbook-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            background: white;
+        }
+        .ch-num {
+            background: #1e3a5f;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85em;
+            flex-shrink: 0;
+        }
+        .ch-num.foundations { background: #b91c1c; }
+        .ch-num.precalc { background: #b45309; }
+        .ch-num.fr { background: #1d4ed8; }
+        .textbook-card h3 {
+            font-size: 0.95em;
+            color: #1e3a5f;
+            margin: 0 0 2px 0;
+        }
+        .textbook-card .ch-desc {
+            font-size: 0.82em;
+            color: #64748b;
+            margin: 0;
+        }
+        .fr-badge {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1d4ed8;
+            font-size: 0.7em;
+            font-weight: 600;
+            padding: 1px 6px;
+            border-radius: 4px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
         @media (max-width: 768px) {
             .ca-hero h1 { font-size: 1.8em; }
             .exam-grid { margin: 20px auto; }
+            .textbook-accordion .textbook-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -145,6 +260,7 @@
             <a href="../us/">US</a>
             <a href="../uk/">UK</a>
             <a href="../ca/" class="active">CA</a>
+            <a href="../ib/">IB</a>
             <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
         </div>
     </nav>
@@ -167,6 +283,122 @@
                 </div>
             </div>
         </a>
+    </div>
+
+    <!-- Online Textbooks -->
+    <div class="textbook-section">
+        <h2>Online Textbooks</h2>
+        <p class="section-desc">Free textbooks covering Canadian high school mathematics — English and French.</p>
+
+        <!-- Foundations of Mathematics -->
+        <details class="textbook-accordion" open>
+            <summary>
+                <span class="tb-icon">&#x1F4D8;</span>
+                <span class="tb-title">Foundations of Mathematics 10/11</span>
+                <span class="tb-count">6 chapters</span>
+                <span class="tb-arrow">&#x25B6;</span>
+            </summary>
+            <div class="textbook-grid">
+                <a href="blog/foundations-measurement.html" class="textbook-card">
+                    <div class="ch-num foundations">1</div>
+                    <div><h3>Measurement</h3><p class="ch-desc">Surface area, volume, unit conversion, SI vs imperial</p></div>
+                </a>
+                <a href="blog/foundations-geometry.html" class="textbook-card">
+                    <div class="ch-num foundations">2</div>
+                    <div><h3>Geometry</h3><p class="ch-desc">Angle properties, similar triangles, Pythagorean theorem</p></div>
+                </a>
+                <a href="blog/foundations-statistics.html" class="textbook-card">
+                    <div class="ch-num foundations">3</div>
+                    <div><h3>Statistics</h3><p class="ch-desc">Collecting data, measures of central tendency, scatter plots</p></div>
+                </a>
+                <a href="blog/foundations-probability.html" class="textbook-card">
+                    <div class="ch-num foundations">4</div>
+                    <div><h3>Probability</h3><p class="ch-desc">Experimental vs theoretical, odds, independent events</p></div>
+                </a>
+                <a href="blog/foundations-linear.html" class="textbook-card">
+                    <div class="ch-num foundations">5</div>
+                    <div><h3>Linear Relations</h3><p class="ch-desc">Slope, y-intercept, graphing, linear equations</p></div>
+                </a>
+                <a href="blog/foundations-systems.html" class="textbook-card">
+                    <div class="ch-num foundations">6</div>
+                    <div><h3>Systems of Equations</h3><p class="ch-desc">Substitution, elimination, graphical solutions</p></div>
+                </a>
+            </div>
+        </details>
+
+        <!-- Pre-Calculus 11/12 -->
+        <details class="textbook-accordion">
+            <summary>
+                <span class="tb-icon">&#x1F4D9;</span>
+                <span class="tb-title">Pre-Calculus 11/12</span>
+                <span class="tb-count">8 chapters</span>
+                <span class="tb-arrow">&#x25B6;</span>
+            </summary>
+            <div class="textbook-grid">
+                <a href="blog/precalc11-sequences.html" class="textbook-card">
+                    <div class="ch-num precalc">1</div>
+                    <div><h3>Sequences &amp; Series</h3><p class="ch-desc">Arithmetic, geometric sequences, sigma notation, sums</p></div>
+                </a>
+                <a href="blog/precalc11-quadratics.html" class="textbook-card">
+                    <div class="ch-num precalc">2</div>
+                    <div><h3>Quadratic Functions</h3><p class="ch-desc">Vertex form, standard form, discriminant, completing square</p></div>
+                </a>
+                <a href="blog/precalc11-radicals.html" class="textbook-card">
+                    <div class="ch-num precalc">3</div>
+                    <div><h3>Radical Expressions</h3><p class="ch-desc">Simplifying, operations, solving radical equations</p></div>
+                </a>
+                <a href="blog/precalc11-rationals.html" class="textbook-card">
+                    <div class="ch-num precalc">4</div>
+                    <div><h3>Rational Expressions</h3><p class="ch-desc">Simplifying, multiplying/dividing, solving rational equations</p></div>
+                </a>
+                <a href="blog/precalc12-trig.html" class="textbook-card">
+                    <div class="ch-num precalc">5</div>
+                    <div><h3>Trigonometry</h3><p class="ch-desc">Unit circle, radians, graphs, identities, equations</p></div>
+                </a>
+                <a href="blog/precalc12-exponential-log.html" class="textbook-card">
+                    <div class="ch-num precalc">6</div>
+                    <div><h3>Exponential &amp; Logarithmic</h3><p class="ch-desc">Exponent laws, logarithm properties, solving equations</p></div>
+                </a>
+                <a href="blog/precalc12-functions.html" class="textbook-card">
+                    <div class="ch-num precalc">7</div>
+                    <div><h3>Function Transformations</h3><p class="ch-desc">Translations, reflections, stretches, inverses, compositions</p></div>
+                </a>
+                <a href="blog/precalc12-polynomials.html" class="textbook-card">
+                    <div class="ch-num precalc">8</div>
+                    <div><h3>Polynomial Functions</h3><p class="ch-desc">Remainder theorem, factor theorem, graphing, roots</p></div>
+                </a>
+            </div>
+        </details>
+
+        <!-- Mathématiques — Secondaire (French) -->
+        <details class="textbook-accordion">
+            <summary>
+                <span class="tb-icon">&#x1F1EB;&#x1F1F7;</span>
+                <span class="tb-title">Mathématiques — Secondaire <span class="fr-badge">Français</span></span>
+                <span class="tb-count">2 chapitres</span>
+                <span class="tb-arrow">&#x25B6;</span>
+            </summary>
+            <div class="textbook-grid">
+                <a href="blog/fr-secondaire-fonctions.html" class="textbook-card">
+                    <div class="ch-num fr">1</div>
+                    <div><h3>Fonctions (Secondaire 4)</h3><p class="ch-desc">Fonctions du 1er et 2e degré, graphiques, exercices — Québec</p></div>
+                </a>
+                <a href="blog/fr-secondaire-statistiques.html" class="textbook-card">
+                    <div class="ch-num fr">2</div>
+                    <div><h3>Statistiques (Secondaire 4)</h3><p class="ch-desc">Collecte de données, mesures, diagrammes, corrélation</p></div>
+                </a>
+            </div>
+        </details>
+
+        <!-- IB Math link card -->
+        <div style="background:linear-gradient(135deg,#1e3a5f,#0f6b5b);border-radius:12px;padding:20px 24px;display:flex;align-items:center;gap:20px;margin-top:8px;">
+            <div style="font-size:2em;">&#x1F310;</div>
+            <div style="flex:1;">
+                <div style="color:white;font-weight:700;font-size:1.1em;">IB Mathematics (AA &amp; AI)</div>
+                <div style="color:rgba(255,255,255,0.8);font-size:0.9em;margin-top:4px;">Canada has strong IB adoption. Explore free IB Math AA and AI online textbooks — SL &amp; HL.</div>
+            </div>
+            <a href="../ib/" style="background:#f59e0b;color:white;padding:10px 20px;border-radius:8px;font-weight:700;text-decoration:none;white-space:nowrap;">Explore IB &rarr;</a>
+        </div>
     </div>
 
     <div class="info-section">

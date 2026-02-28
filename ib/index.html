@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MathHub IB - IB Mathematics AA & AI Online Textbooks</title>
+    <meta name="description" content="Free IB Mathematics online textbooks for Analysis & Approaches (AA) and Applications & Interpretation (AI). SL and HL chapters with worked examples and practice problems.">
+    <meta name="keywords" content="IB Mathematics, IB Math AA, IB Math AI, Analysis and Approaches, Applications and Interpretation, SL, HL, online textbook, past papers, worked examples">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/ib/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mathhub.io/ib/">
+    <meta property="og:title" content="MathHub IB - IB Mathematics AA & AI Online Textbooks">
+    <meta property="og:description" content="Free IB Math AA and AI textbooks. Concepts, worked examples, and practice problems for SL and HL students.">
+
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+    <link rel="alternate" hreflang="en-GB" href="https://mathhub.io/uk/">
+    <link rel="alternate" hreflang="en-CA" href="https://mathhub.io/ca/">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <style>
+        .ib-hero {
+            background: linear-gradient(135deg, #1e3a5f, #0f6b5b);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .ib-hero .flag { font-size: 4em; margin-bottom: 15px; }
+        .ib-hero h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .ib-hero .subtitle { opacity: 0.9; font-size: 1.15em; }
+
+        .ib-badges {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .ib-badge {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.4);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        /* Textbook Section */
+        .textbook-section {
+            max-width: 1100px;
+            margin: 40px auto 0;
+            padding: 0 20px;
+        }
+        .textbook-section > h2 {
+            font-size: 1.6em;
+            color: #1e3a5f;
+            margin: 0 0 6px 0;
+            padding: 0;
+            border: none;
+        }
+        .textbook-section > .section-desc {
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+        .textbook-accordion {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        .textbook-accordion summary {
+            padding: 18px 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            list-style: none;
+            user-select: none;
+            transition: background 0.15s;
+        }
+        .textbook-accordion summary::-webkit-details-marker { display: none; }
+        .textbook-accordion summary:hover { background: #f8fafc; }
+        .textbook-accordion summary .tb-icon { font-size: 1.6em; }
+        .textbook-accordion summary .tb-title {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: #1e3a5f;
+        }
+        .textbook-accordion summary .tb-count {
+            font-size: 0.8em;
+            color: #94a3b8;
+            margin-left: auto;
+        }
+        .textbook-accordion summary .tb-arrow {
+            color: #94a3b8;
+            transition: transform 0.2s;
+            font-size: 0.9em;
+        }
+        .textbook-accordion[open] summary .tb-arrow { transform: rotate(90deg); }
+        .textbook-accordion .textbook-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 12px;
+            padding: 0 20px 20px;
+        }
+        .textbook-card {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 14px 16px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+            border: 1px solid #e2e8f0;
+        }
+        .textbook-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            background: white;
+        }
+        .ch-num {
+            background: #0f6b5b;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85em;
+            flex-shrink: 0;
+        }
+        .ch-num.hl { background: #1e3a5f; }
+        .ch-num.ai { background: #7c3aed; }
+        .ch-num.ai-hl { background: #5b21b6; }
+        .textbook-card h3 {
+            font-size: 0.95em;
+            color: #1e3a5f;
+            margin: 0 0 2px 0;
+        }
+        .textbook-card .ch-desc {
+            font-size: 0.82em;
+            color: #64748b;
+            margin: 0;
+        }
+        .hl-label {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1e3a5f;
+            font-size: 0.7em;
+            font-weight: 600;
+            padding: 1px 6px;
+            border-radius: 4px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .info-section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .info-box {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .info-box h3 {
+            color: #1e3a5f;
+            margin: 0 0 15px 0;
+            font-size: 1.2em;
+        }
+        .info-box ul { margin: 0; padding-left: 20px; }
+        .info-box li { margin-bottom: 6px; color: #475569; }
+
+        @media (max-width: 768px) {
+            .ib-hero h1 { font-size: 1.8em; }
+            .textbook-accordion .textbook-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="../" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="../kr/">KR</a>
+            <a href="../us/">US</a>
+            <a href="../uk/">UK</a>
+            <a href="../ca/">CA</a>
+            <a href="../ib/" class="active">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <div class="ib-hero">
+        <div class="flag">&#x1F310;</div>
+        <h1>IB Mathematics</h1>
+        <p class="subtitle">Online Textbooks for Analysis &amp; Approaches and Applications &amp; Interpretation</p>
+        <div class="ib-badges">
+            <span class="ib-badge">Math AA SL</span>
+            <span class="ib-badge">Math AA HL</span>
+            <span class="ib-badge">Math AI SL</span>
+            <span class="ib-badge">Math AI HL</span>
+        </div>
+    </div>
+
+    <!-- IB Math AA -->
+    <div class="textbook-section">
+        <h2>IB Math Analysis &amp; Approaches (AA)</h2>
+        <p class="section-desc">Concepts, proofs, and analytical thinking. Ideal for students pursuing mathematics, physics, or engineering.</p>
+
+        <!-- AA Topics 1–5 (SL + HL) -->
+        <details class="textbook-accordion" open>
+            <summary>
+                <span class="tb-icon">&#x1F4D8;</span>
+                <span class="tb-title">IB Math AA — Core Topics (SL &amp; HL)</span>
+                <span class="tb-count">11 chapters</span>
+                <span class="tb-arrow">&#x25B6;</span>
+            </summary>
+            <div class="textbook-grid">
+                <a href="../blog/ib-aa-number-algebra.html" class="textbook-card">
+                    <div class="ch-num">1</div>
+                    <div><h3>Number &amp; Algebra</h3><p class="ch-desc">Sequences, series, binomial theorem, proof by induction</p></div>
+                </a>
+                <a href="../blog/ib-aa-functions.html" class="textbook-card">
+                    <div class="ch-num">2</div>
+                    <div><h3>Functions</h3><p class="ch-desc">Domain/range, transformations, inverse, composite, modelling</p></div>
+                </a>
+                <a href="../blog/ib-aa-geometry-trig.html" class="textbook-card">
+                    <div class="ch-num">3</div>
+                    <div><h3>Geometry &amp; Trigonometry</h3><p class="ch-desc">Radians, unit circle, identities, sine/cosine rules, 3D trig</p></div>
+                </a>
+                <a href="../blog/ib-aa-statistics-probability.html" class="textbook-card">
+                    <div class="ch-num">4</div>
+                    <div><h3>Statistics &amp; Probability</h3><p class="ch-desc">Descriptive stats, distributions, regression, hypothesis testing</p></div>
+                </a>
+                <a href="../blog/ib-aa-calculus-sl.html" class="textbook-card">
+                    <div class="ch-num">5</div>
+                    <div><h3>Calculus (SL)</h3><p class="ch-desc">Differentiation, integration, areas, optimization, kinematics</p></div>
+                </a>
+                <a href="../blog/ib-aa-complex-numbers.html" class="textbook-card">
+                    <div class="ch-num hl">6</div>
+                    <div><h3>Complex Numbers <span class="hl-label">HL</span></h3><p class="ch-desc">Cartesian &amp; polar form, de Moivre, roots of unity</p></div>
+                </a>
+                <a href="../blog/ib-aa-further-algebra.html" class="textbook-card">
+                    <div class="ch-num hl">7</div>
+                    <div><h3>Further Algebra <span class="hl-label">HL</span></h3><p class="ch-desc">Partial fractions, proof, systems of equations, row reduction</p></div>
+                </a>
+                <a href="../blog/ib-aa-vectors.html" class="textbook-card">
+                    <div class="ch-num hl">8</div>
+                    <div><h3>Vectors <span class="hl-label">HL</span></h3><p class="ch-desc">Scalar/vector products, lines &amp; planes, intersections</p></div>
+                </a>
+                <a href="../blog/ib-aa-further-trig.html" class="textbook-card">
+                    <div class="ch-num hl">9</div>
+                    <div><h3>Further Trigonometry <span class="hl-label">HL</span></h3><p class="ch-desc">Inverse trig, compound/double angle, general solutions</p></div>
+                </a>
+                <a href="../blog/ib-aa-further-probability.html" class="textbook-card">
+                    <div class="ch-num hl">10</div>
+                    <div><h3>Further Probability &amp; Statistics <span class="hl-label">HL</span></h3><p class="ch-desc">Combinations/permutations, conditional, discrete distributions</p></div>
+                </a>
+                <a href="../blog/ib-aa-calculus-hl.html" class="textbook-card">
+                    <div class="ch-num hl">11</div>
+                    <div><h3>Further Calculus <span class="hl-label">HL</span></h3><p class="ch-desc">Limits, L'Hôpital, implicit diff, Maclaurin series, DEs</p></div>
+                </a>
+            </div>
+        </details>
+    </div>
+
+    <!-- IB Math AI -->
+    <div class="textbook-section" style="margin-top: 40px;">
+        <h2>IB Math Applications &amp; Interpretation (AI)</h2>
+        <p class="section-desc">Real-world applications and technology-integrated approaches. Ideal for social sciences, business, and life sciences.</p>
+
+        <details class="textbook-accordion" open>
+            <summary>
+                <span class="tb-icon">&#x1F4D7;</span>
+                <span class="tb-title">IB Math AI — Core Topics (SL &amp; HL)</span>
+                <span class="tb-count">9 chapters</span>
+                <span class="tb-arrow">&#x25B6;</span>
+            </summary>
+            <div class="textbook-grid">
+                <a href="../blog/ib-ai-number-algebra.html" class="textbook-card">
+                    <div class="ch-num ai">1</div>
+                    <div><h3>Number &amp; Algebra</h3><p class="ch-desc">Number systems, finance, loans/annuities, sequences, GDC use</p></div>
+                </a>
+                <a href="../blog/ib-ai-functions.html" class="textbook-card">
+                    <div class="ch-num ai">2</div>
+                    <div><h3>Functions</h3><p class="ch-desc">Linear, quadratic, exponential, logistic, piecewise modelling</p></div>
+                </a>
+                <a href="../blog/ib-ai-geometry.html" class="textbook-card">
+                    <div class="ch-num ai">3</div>
+                    <div><h3>Geometry &amp; Trigonometry</h3><p class="ch-desc">2D/3D measurement, sine/cosine rules, Voronoi diagrams</p></div>
+                </a>
+                <a href="../blog/ib-ai-statistics.html" class="textbook-card">
+                    <div class="ch-num ai">4</div>
+                    <div><h3>Statistics &amp; Probability</h3><p class="ch-desc">Bivariate data, regression, normal/binomial distributions</p></div>
+                </a>
+                <a href="../blog/ib-ai-calculus-sl.html" class="textbook-card">
+                    <div class="ch-num ai">5</div>
+                    <div><h3>Calculus (SL)</h3><p class="ch-desc">Differentiation, optimisation, integration, trapezoidal rule</p></div>
+                </a>
+                <a href="../blog/ib-ai-further-number.html" class="textbook-card">
+                    <div class="ch-num ai-hl">6</div>
+                    <div><h3>Further Number &amp; Proof <span class="hl-label">HL</span></h3><p class="ch-desc">Graph theory, adjacency matrices, minimum spanning trees</p></div>
+                </a>
+                <a href="../blog/ib-ai-further-functions.html" class="textbook-card">
+                    <div class="ch-num ai-hl">7</div>
+                    <div><h3>Further Functions <span class="hl-label">HL</span></h3><p class="ch-desc">Fourier series (intro), smoothing, transformation of curves</p></div>
+                </a>
+                <a href="../blog/ib-ai-further-statistics.html" class="textbook-card">
+                    <div class="ch-num ai-hl">8</div>
+                    <div><h3>Further Statistics <span class="hl-label">HL</span></h3><p class="ch-desc">Markov chains, transition matrices, steady-state, &chi;² test</p></div>
+                </a>
+                <a href="../blog/ib-ai-calculus-hl.html" class="textbook-card">
+                    <div class="ch-num ai-hl">9</div>
+                    <div><h3>Further Calculus <span class="hl-label">HL</span></h3><p class="ch-desc">Related rates, implicit differentiation, slope fields, Euler's method</p></div>
+                </a>
+            </div>
+        </details>
+    </div>
+
+    <div class="info-section">
+        <div class="info-box">
+            <h3>About the IB Programme</h3>
+            <ul>
+                <li>The <strong>International Baccalaureate (IB)</strong> Diploma Programme is offered at over 5,000 schools in 159 countries.</li>
+                <li><strong>Math AA</strong> (Analysis &amp; Approaches) focuses on rigorous mathematical theory and proof — suitable for students intending to study mathematics or sciences at university.</li>
+                <li><strong>Math AI</strong> (Applications &amp; Interpretation) emphasises modelling and real-world applications — suited for business, social sciences, and life sciences.</li>
+                <li>Both courses are offered at <strong>Standard Level (SL)</strong> and <strong>Higher Level (HL)</strong>. HL chapters are marked above.</li>
+                <li>Read our <a href="../blog/">study guides</a> for IB exam strategies and worked past-paper solutions.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div style="max-width:900px;margin:0 auto;padding:0 20px 40px;">
+        <div style="background:linear-gradient(135deg,#1e3a5f,#0f6b5b);border-radius:16px;padding:32px;color:white;text-align:center;">
+            <h2 style="font-size:1.4em;margin:0 0 8px;">&#x1F4AC; Questions? Practice online!</h2>
+            <p style="opacity:.9;margin-bottom:20px;">Thousands of IB-style problems with instant feedback in our Question Bank.</p>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" style="display:inline-block;padding:12px 28px;background:#f59e0b;color:white;border-radius:8px;font-weight:700;text-decoration:none;">Try Question Bank &rarr;</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+    </div>
+
+    <script src="../assets/js/common.js"></script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "MathHub IB - IB Mathematics Online Textbooks",
+        "description": "Free IB Mathematics AA and AI online textbooks with worked examples",
+        "url": "https://mathhub.io/ib/",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "MathHub Global",
+            "url": "https://mathhub.io/"
+        }
+    }
+    </script>
+</body>
+</html>
