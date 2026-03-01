@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Further Statistics — IB Math AI (HL) | MathHub</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <style>
+        body { font-family: 'Georgia', serif; line-height: 1.8; color: #1e293b; background: #f8fafc; }
+        .page-header { background: linear-gradient(135deg, #4c1d95, #7c3aed); color: white; padding: 50px 20px; text-align: center; }
+        .page-header h1 { font-size: 2.2em; margin: 0 0 10px; }
+        .ib-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.8em; margin: 8px 4px 0; }
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px 60px; }
+        h2 { color: #4c1d95; border-bottom: 2px solid #7c3aed; padding-bottom: 8px; margin-top: 48px; }
+        h3 { color: #7c3aed; margin-top: 32px; }
+        .formula-box { background: #f5f3ff; border: 1px solid #c4b5fd; border-left: 4px solid #7c3aed; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+        .formula-box h4 { color: #7c3aed; margin: 0 0 12px; font-size: 1em; text-transform: uppercase; letter-spacing: 0.05em; }
+        .worked-example { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 24px; margin: 24px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+        .worked-example .example-label { font-size: 0.8em; font-weight: 700; color: #7c3aed; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+        .worked-example h4 { color: #4c1d95; margin: 0 0 16px; }
+        .step { display: flex; gap: 16px; margin-bottom: 14px; }
+        .step-num { background: #7c3aed; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85em; flex-shrink: 0; }
+        .practice-section { background: #f5f3ff; border-radius: 10px; padding: 24px; margin: 40px 0; }
+        .practice-section h3 { color: #4c1d95; margin-top: 0; }
+        .practice-q { background: white; border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; }
+        details.solution-toggle summary { cursor: pointer; color: #7c3aed; font-weight: 600; font-size: 0.9em; margin-top: 8px; }
+        details.solution-toggle .sol-body { background: #f5f3ff; border-radius: 6px; padding: 14px; margin-top: 8px; }
+        .hl-tag { display: inline-block; background: #4c1d95; color: white; font-size: 0.7em; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-left: 6px; vertical-align: middle; }
+        .key-insight { background: #fef9c3; border-left: 4px solid #d97706; border-radius: 6px; padding: 14px 18px; margin: 20px 0; }
+        .footer { text-align: center; padding: 30px; color: #64748b; border-top: 1px solid #e2e8f0; margin-top: 60px; font-size: 0.9em; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th { background: #4c1d95; color: white; padding: 10px 14px; text-align: left; }
+        td { padding: 9px 14px; border-bottom: 1px solid #e2e8f0; }
+        tr:nth-child(even) td { background: #f8f4ff; }
+        .error-type { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 0.85em; font-weight: 600; }
+        .type-i { background: #fee2e2; color: #dc2626; }
+        .type-ii { background: #fef9c3; color: #92400e; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/">UK</a><a href="/ca/">CA</a>
+            <a href="/ib/" class="active">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>Further Statistics <span class="hl-tag">HL</span></h1>
+        <p style="opacity:0.9;margin:8px 0 16px;">Markov chains, steady-state distributions, &chi;&sup2; tests, and confidence intervals</p>
+        <span class="ib-badge">Math AI HL</span>
+        <span class="ib-badge">Topic 4 Extension</span>
+    </div>
+
+    <div class="container">
+
+        <h2>1. Markov Chains</h2>
+        <p>A <strong>Markov chain</strong> is a stochastic process where the probability of moving to the next state depends only on the current state (not the history). This property is called the <strong>Markov property</strong>.</p>
+
+        <h3>Key Components</h3>
+        <ul>
+            <li><strong>States:</strong> The possible conditions of the system (e.g., sunny/rainy, market states)</li>
+            <li><strong>Transition probabilities:</strong> $p_{ij}$ = probability of moving from state $i$ to state $j$</li>
+            <li><strong>Transition matrix $P$:</strong> rows represent current states, columns represent next states; each row sums to 1</li>
+            <li><strong>State vector $s_n$:</strong> a row vector giving the probability distribution across states at step $n$</li>
+        </ul>
+
+        <div class="formula-box">
+            <h4>Markov Chain Equations</h4>
+            <p><strong>State after $n$ steps:</strong></p>
+            $$s_n = s_0 \cdot P^n$$
+            <p>where $s_0$ is the initial state vector and $P$ is the transition matrix.</p>
+            <p><strong>Transition matrix structure:</strong> Each entry $P_{ij} \geq 0$ and $\sum_j P_{ij} = 1$ for each row $i$.</p>
+        </div>
+
+        <h3>Transition Diagrams</h3>
+        <p>A <strong>transition diagram</strong> (state diagram) is a directed graph where:</p>
+        <ul>
+            <li>Each vertex represents a state</li>
+            <li>Each directed edge has a label showing the transition probability</li>
+            <li>Arrows leaving each state must have probabilities summing to 1</li>
+        </ul>
+
+        <div class="worked-example">
+            <div class="example-label">Worked Example 1</div>
+            <h4>Setting Up a Transition Matrix — Weather Model</h4>
+            <p>The weather in a city is either Sunny (S) or Rainy (R). If today is sunny, tomorrow is sunny with probability 0.7. If today is rainy, tomorrow is sunny with probability 0.4. Write the transition matrix and find the state after 2 days if today is sunny.</p>
+
+            <div class="step">
+                <div class="step-num">1</div>
+                <div><strong>Identify probabilities:</strong>
+                <ul>
+                    <li>$P(S\to S) = 0.7$, $P(S\to R) = 0.3$</li>
+                    <li>$P(R\to S) = 0.4$, $P(R\to R) = 0.6$</li>
+                </ul>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div><strong>Write transition matrix</strong> (rows = from, columns = to):
+                $$P = \begin{pmatrix} 0.7 & 0.3 \\ 0.4 & 0.6 \end{pmatrix}$$
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div><strong>Initial state vector</strong> (starts sunny): $s_0 = (1, 0)$</div>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <div><strong>After 1 day:</strong> $s_1 = s_0 P = (1,0)\begin{pmatrix}0.7&0.3\\0.4&0.6\end{pmatrix} = (0.7, 0.3)$</div>
+            </div>
+            <div class="step">
+                <div class="step-num">5</div>
+                <div><strong>After 2 days:</strong> $s_2 = s_1 P = (0.7, 0.3)\begin{pmatrix}0.7&0.3\\0.4&0.6\end{pmatrix} = (0.49+0.12,\ 0.21+0.18) = (0.61, 0.39)$
+                <br>So after 2 days, $P(\text{Sunny}) = 0.61$ and $P(\text{Rainy}) = 0.39$.
+                </div>
+            </div>
+        </div>
+
+        <h2>2. Steady-State Distribution</h2>
+        <p>A <strong>regular</strong> Markov chain (some power of $P$ has all positive entries) converges to a unique <strong>steady-state distribution</strong> $\pi$, regardless of the initial state.</p>
+
+        <div class="formula-box">
+            <h4>Finding the Steady-State Distribution</h4>
+            <p>The steady-state vector $\pi = (\pi_1, \pi_2, \ldots)$ satisfies:</p>
+            $$\boldsymbol{\pi} P = \boldsymbol{\pi} \quad \text{and} \quad \sum_i \pi_i = 1$$
+            <p><strong>Method 1 (for 2 states):</strong> Solve $\pi_1 p_{12} = \pi_2 p_{21}$ (balance equations) with $\pi_1 + \pi_2 = 1$.</p>
+            <p><strong>Method 2 (general):</strong> Solve $(P^T - I)\boldsymbol{\pi}^T = \mathbf{0}$ as a homogeneous system, then normalise.</p>
+            <p><strong>Method 3 (technology):</strong> Compute $P^n$ for large $n$ — all rows converge to $\pi$.</p>
+        </div>
+
+        <div class="worked-example">
+            <div class="example-label">Worked Example 2</div>
+            <h4>Finding the Steady-State Distribution</h4>
+            <p>Using the weather Markov chain from Example 1 ($P_{SS}=0.7$, $P_{SR}=0.3$, $P_{RS}=0.4$, $P_{RR}=0.6$), find the long-run proportion of sunny days.</p>
+
+            <div class="step">
+                <div class="step-num">1</div>
+                <div><strong>Set up balance equation:</strong> In steady state, flow from S to R = flow from R to S:
+                $$\pi_S \cdot 0.3 = \pi_R \cdot 0.4$$
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div><strong>Use normalisation:</strong> $\pi_S + \pi_R = 1 \implies \pi_R = 1 - \pi_S$</div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div><strong>Solve:</strong> $0.3\pi_S = 0.4(1-\pi_S) \implies 0.3\pi_S = 0.4 - 0.4\pi_S \implies 0.7\pi_S = 0.4$
+                $$\pi_S = \frac{4}{7} \approx 0.571, \quad \pi_R = \frac{3}{7} \approx 0.429$$
+                In the long run, approximately <strong>57.1% of days are sunny</strong>.
+                </div>
+            </div>
+        </div>
+
+        <h2>3. Chi-Squared ($\chi^2$) Goodness of Fit Test</h2>
+        <p>The $\chi^2$ goodness of fit test determines whether observed data follows a claimed probability distribution.</p>
+
+        <div class="formula-box">
+            <h4>Chi-Squared Test Procedure</h4>
+            <p><strong>Test statistic:</strong></p>
+            $$\chi^2_{\text{calc}} = \sum \frac{(O-E)^2}{E}$$
+            <p>where $O$ = observed frequency, $E$ = expected frequency.</p>
+            <p><strong>Degrees of freedom:</strong> $\nu = k - 1 - m$, where $k$ = number of categories, $m$ = number of parameters estimated from data.</p>
+            <p><strong>Decision rule:</strong> Reject $H_0$ if $\chi^2_{\text{calc}} > \chi^2_{\text{crit}}$ at the chosen significance level $\alpha$.</p>
+            <p><strong>Conditions:</strong> Expected frequencies $E \geq 5$ for each cell (merge categories if needed).</p>
+        </div>
+
+        <div class="worked-example">
+            <div class="example-label">Worked Example 3</div>
+            <h4>$\chi^2$ Goodness of Fit Test — Uniform Distribution</h4>
+            <p>A die is rolled 120 times. Results: 1=18, 2=22, 3=25, 4=14, 5=20, 6=21. Test at 5% significance whether the die is fair.</p>
+
+            <div class="step">
+                <div class="step-num">1</div>
+                <div><strong>Hypotheses:</strong> $H_0$: the die is fair (each face equally likely). $H_1$: the die is not fair.</div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div><strong>Expected frequencies:</strong> If fair, $E = 120/6 = 20$ for each face.</div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div><strong>Calculate $\chi^2$:</strong>
+                $$\chi^2 = \frac{(18-20)^2}{20}+\frac{(22-20)^2}{20}+\frac{(25-20)^2}{20}+\frac{(14-20)^2}{20}+\frac{(20-20)^2}{20}+\frac{(21-20)^2}{20}$$
+                $$= \frac{4+4+25+36+0+1}{20} = \frac{70}{20} = 3.5$$
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <div><strong>Degrees of freedom:</strong> $\nu = 6-1 = 5$ (no parameters estimated). Critical value: $\chi^2_{5, 0.05} = 11.07$.</div>
+            </div>
+            <div class="step">
+                <div class="step-num">5</div>
+                <div><strong>Decision:</strong> $3.5 < 11.07$, so <strong>fail to reject $H_0$</strong>. There is insufficient evidence at 5% to conclude the die is unfair.</div>
+            </div>
+        </div>
+
+        <h2>4. The $t$-Test</h2>
+        <p>The $t$-test is used when testing population means with small samples or unknown population variance. It is more robust than the $z$-test for small $n$.</p>
+
+        <div class="formula-box">
+            <h4>Two-Sample Independent $t$-Test</h4>
+            <p>Tests $H_0: \mu_1 = \mu_2$ (two population means are equal).</p>
+            <p>Test statistic: $t = \dfrac{\bar{x}_1 - \bar{x}_2}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}$</p>
+            <p>Degrees of freedom: Welch's approximation (use GDC).</p>
+            <p><strong>Paired $t$-test:</strong> For matched pairs (before/after), compute differences $d_i = x_{i1}-x_{i2}$, then test $H_0: \mu_d = 0$.</p>
+        </div>
+
+        <h3>Type I and Type II Errors</h3>
+        <table>
+            <tr><th>Error Type</th><th>Definition</th><th>Probability</th><th>Controlled by</th></tr>
+            <tr><td><span class="error-type type-i">Type I</span></td><td>Reject $H_0$ when $H_0$ is true (false positive)</td><td>$\alpha$ (significance level)</td><td>Choice of $\alpha$</td></tr>
+            <tr><td><span class="error-type type-ii">Type II</span></td><td>Fail to reject $H_0$ when $H_1$ is true (false negative)</td><td>$\beta$</td><td>Sample size, effect size</td></tr>
+        </table>
+
+        <div class="key-insight">
+            <strong>$p$-value interpretation:</strong> The $p$-value is the probability of observing a test statistic at least as extreme as the one computed, assuming $H_0$ is true. If $p < \alpha$, reject $H_0$. A small $p$-value provides evidence against $H_0$, but does not prove $H_1$.
+        </div>
+
+        <h2>5. Confidence Intervals</h2>
+        <p>A <strong>confidence interval (CI)</strong> is a range of plausible values for the true population parameter, constructed so that (for a 95% CI) 95% of such intervals computed from repeated sampling would contain the true parameter.</p>
+
+        <div class="formula-box">
+            <h4>Confidence Interval for the Mean</h4>
+            <p><strong>Known $\sigma$ (use $z$):</strong> $\bar{x} \pm z^* \cdot \dfrac{\sigma}{\sqrt{n}}$, where $z^* = 1.96$ for 95%.</p>
+            <p><strong>Unknown $\sigma$ (use $t$):</strong> $\bar{x} \pm t^* \cdot \dfrac{s}{\sqrt{n}}$, where $t^*$ has $n-1$ degrees of freedom.</p>
+            <ul>
+                <li>Wider CI = more confidence but less precision</li>
+                <li>Increasing $n$ narrows the CI</li>
+                <li>"95% confident" means the method produces intervals containing $\mu$ 95% of the time</li>
+            </ul>
+        </div>
+
+        <div class="practice-section">
+            <h3>Practice Problems</h3>
+
+            <div class="practice-q">
+                <p><strong>1.</strong> A Markov chain has 3 states with transition matrix $P = \begin{pmatrix}0.5&0.3&0.2\\0.1&0.6&0.3\\0.4&0.2&0.4\end{pmatrix}$. If the initial state vector is $s_0 = (1,0,0)$, find $s_1$ and $s_2$.</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>$s_1 = s_0 P = (1,0,0)P = (0.5, 0.3, 0.2)$ (just the first row of $P$)</p>
+                        <p>$s_2 = s_1 P = (0.5,0.3,0.2)\begin{pmatrix}0.5&0.3&0.2\\0.1&0.6&0.3\\0.4&0.2&0.4\end{pmatrix}$</p>
+                        <p>$= (0.25+0.03+0.08,\ 0.15+0.18+0.04,\ 0.10+0.09+0.08) = (0.36, 0.37, 0.27)$</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-q">
+                <p><strong>2.</strong> For a 2-state Markov chain with $P = \begin{pmatrix}0.8&0.2\\0.3&0.7\end{pmatrix}$, find the steady-state distribution.</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>Balance equation: $\pi_1 \cdot 0.2 = \pi_2 \cdot 0.3$, and $\pi_1 + \pi_2 = 1$.</p>
+                        <p>$0.2\pi_1 = 0.3(1-\pi_1) \Rightarrow 0.5\pi_1 = 0.3 \Rightarrow \pi_1 = 0.6$, $\pi_2 = 0.4$.</p>
+                        <p><strong>Steady-state:</strong> $\boldsymbol{\pi} = (0.6, 0.4)$</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-q">
+                <p><strong>3.</strong> A sample of 16 observations has mean 42.3 and standard deviation 5.1. Construct a 95% confidence interval for the population mean (use $t^*_{15} = 2.131$).</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>$\bar{x} \pm t^* \cdot \dfrac{s}{\sqrt{n}} = 42.3 \pm 2.131 \times \dfrac{5.1}{\sqrt{16}} = 42.3 \pm 2.131 \times 1.275$</p>
+                        <p>$= 42.3 \pm 2.717$</p>
+                        <p><strong>95% CI:</strong> $(39.58,\ 45.02)$</p>
+                        <p>We are 95% confident the true population mean lies between 39.58 and 45.02.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <div style="background:#4c1d95;color:white;border-radius:10px;padding:24px;text-align:center;margin-top:40px;">
+            <h3 style="margin:0 0 10px;color:white;">Continue Learning</h3>
+            <p style="opacity:0.9;margin-bottom:18px;">Explore other IB Math AI HL topics</p>
+            <a href="/ib/" style="display:inline-block;background:#7c3aed;color:white;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:700;margin:4px;">Back to IB Hub</a>
+            <a href="ib-ai-calculus-hl.html" style="display:inline-block;background:rgba(255,255,255,0.15);color:white;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:700;margin:4px;">Further Calculus &rarr;</a>
+        </div>
+    </div>
+
+    <div class="footer"><p>&copy; 2026 MathHub Global. All rights reserved.</p></div>
+    <script src="../assets/js/common.js"></script>
+</body>
+</html>

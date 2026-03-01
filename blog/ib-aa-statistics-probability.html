@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics &amp; Probability — IB Math AA | MathHub</title>
+    <meta name="description" content="IB Math AA Topic 4: Statistics and Probability. Descriptive statistics, probability rules, binomial and normal distributions, regression, and hypothesis testing.">
+    <meta name="keywords" content="IB Math AA, statistics, probability, normal distribution, binomial distribution, regression, correlation, hypothesis testing, chi-squared">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/blog/ib-aa-statistics-probability.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/blog/ib-aa-statistics-probability.html">
+    <meta property="og:title" content="Statistics &amp; Probability — IB Math AA | MathHub">
+    <meta property="og:description" content="IB Math AA Topic 4: Statistics and Probability — distributions, regression, and hypothesis testing.">
+    <meta property="og:site_name" content="MathHub Global">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Statistics & Probability — IB Math AA",
+        "description": "IB Math AA Topic 4: Statistics and Probability covering descriptive stats, probability, distributions, and regression.",
+        "url": "https://mathhub.io/blog/ib-aa-statistics-probability.html",
+        "datePublished": "2026-03-01",
+        "dateModified": "2026-03-01",
+        "publisher": {"@type": "Organization", "name": "MathHub Global"},
+        "author": {"@type": "Organization", "name": "MathHub Global"},
+        "educationalLevel": "IB",
+        "learningResourceType": "Textbook Chapter"
+    }
+    </script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <!-- MathJax -->
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <style>
+        body { font-family: 'Georgia', serif; line-height: 1.8; color: #1e293b; background: #f8fafc; }
+        .page-header { background: linear-gradient(135deg, #1e3a5f, #0f6b5b); color: white; padding: 50px 20px; text-align: center; }
+        .page-header .breadcrumb { font-size: 0.85em; opacity: 0.8; margin-bottom: 12px; }
+        .page-header .breadcrumb a { color: white; text-decoration: none; }
+        .page-header h1 { font-size: 2.2em; margin: 0 0 10px; }
+        .page-header .subtitle { opacity: 0.9; font-size: 1.05em; }
+        .ib-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.8em; margin: 8px 4px 0; }
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px 60px; }
+        h2 { color: #1e3a5f; border-bottom: 2px solid #0f6b5b; padding-bottom: 8px; margin-top: 48px; }
+        h3 { color: #0f6b5b; margin-top: 32px; }
+        p { color: #334155; line-height: 1.8; margin-bottom: 16px; }
+        ul, ol { color: #334155; margin: 12px 0 20px 24px; }
+        li { margin-bottom: 8px; line-height: 1.7; }
+        .formula-box { background: #f0fdf4; border: 1px solid #86efac; border-left: 4px solid #0f6b5b; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+        .formula-box h4 { color: #0f6b5b; margin: 0 0 12px; font-size: 1em; text-transform: uppercase; letter-spacing: 0.05em; }
+        .worked-example { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 24px; margin: 24px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+        .worked-example .example-label { font-size: 0.8em; font-weight: 700; color: #0f6b5b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+        .worked-example h4 { color: #1e3a5f; margin: 0 0 16px; }
+        .solution-steps { margin-top: 16px; }
+        .step { display: flex; gap: 16px; margin-bottom: 14px; align-items: flex-start; }
+        .step-num { background: #0f6b5b; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85em; flex-shrink: 0; margin-top: 2px; }
+        .practice-section { background: #eff6ff; border-radius: 10px; padding: 24px; margin: 40px 0; }
+        .practice-section h3 { color: #1e3a5f; margin-top: 0; }
+        .practice-q { background: white; border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; }
+        .practice-q .q-num { font-weight: 700; color: #0f6b5b; }
+        details.solution-toggle { margin-top: 10px; }
+        details.solution-toggle summary { cursor: pointer; color: #0f6b5b; font-weight: 600; font-size: 0.9em; }
+        details.solution-toggle .sol-body { background: #f0fdf4; border-radius: 6px; padding: 14px; margin-top: 8px; }
+        .hl-note { background: #dbeafe; border-left: 4px solid #1e3a5f; border-radius: 6px; padding: 14px 18px; margin: 20px 0; font-size: 0.9em; }
+        .hl-note strong { color: #1e3a5f; }
+        .key-insight { background: #fef9c3; border-left: 4px solid #d97706; border-radius: 6px; padding: 14px 18px; margin: 20px 0; }
+        .footer { text-align: center; padding: 30px; color: #64748b; border-top: 1px solid #e2e8f0; margin-top: 60px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="/ib/" class="active">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="breadcrumb">
+            <a href="/ib/">IB Math</a> &rsaquo; Statistics &amp; Probability
+        </div>
+        <h1>Statistics &amp; Probability</h1>
+        <p class="subtitle">Distributions, Regression &amp; Hypothesis Testing</p>
+        <div>
+            <span class="ib-badge">Math AA SL/HL</span>
+            <span class="ib-badge">Topic 4</span>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <h2>1. Descriptive Statistics</h2>
+
+        <p>Descriptive statistics summarise the key features of a data set.</p>
+
+        <div class="formula-box">
+            <h4>Measures of Centre &amp; Spread</h4>
+            <ul>
+                <li><strong>Mean:</strong> $ar{x} = \dfrac{\sum x_i}{n}$ (or $\dfrac{\sum f_i x_i}{\sum f_i}$ for grouped data)</li>
+                <li><strong>Median:</strong> Middle value when data is ordered</li>
+                <li><strong>Mode:</strong> Most frequent value</li>
+                <li><strong>Range:</strong> max $-$ min</li>
+                <li><strong>IQR:</strong> $Q_3 - Q_1$ (interquartile range)</li>
+                <li><strong>Population standard deviation:</strong> $\sigma = \sqrt{\dfrac{\sum(x_i - ar{x})^2}{n}}$</li>
+                <li><strong>Sample standard deviation:</strong> $s = \sqrt{\dfrac{\sum(x_i - ar{x})^2}{n-1}}$</li>
+            </ul>
+        </div>
+
+        <div class="key-insight">
+            <strong>Which SD to use?</strong> Use the <em>population</em> standard deviation ($\sigma$, divides by $n$) when you have all the data. Use the <em>sample</em> standard deviation ($s$, divides by $n-1$) when your data is a sample from a larger population. IB calculators typically give both — read the question carefully.
+        </div>
+
+        <h2>2. Probability Rules</h2>
+
+        <div class="formula-box">
+            <h4>Core Probability Formulas</h4>
+            <ul>
+                <li>$0 \leq P(A) \leq 1$ for any event $A$</li>
+                <li>$P(A') = 1 - P(A)$ (complement)</li>
+                <li>$P(A \cup B) = P(A) + P(B) - P(A \cap B)$</li>
+                <li><strong>Mutually exclusive:</strong> $P(A \cap B) = 0 \implies P(A \cup B) = P(A) + P(B)$</li>
+                <li><strong>Conditional probability:</strong> $P(A \mid B) = \dfrac{P(A \cap B)}{P(B)}$</li>
+                <li><strong>Independent events:</strong> $P(A \cap B) = P(A) \cdot P(B)$</li>
+            </ul>
+        </div>
+
+        <h3>Bayes' Theorem (HL)</h3>
+        <div class="hl-note">
+            <strong>HL:</strong> $P(A \mid B) = \dfrac{P(B \mid A) \cdot P(A)}{P(B)}$. Often solved using a tree diagram — multiply along branches and add across outcomes.
+        </div>
+
+        <h2>3. Discrete Distributions — Binomial</h2>
+
+        <p>If $X$ counts the number of successes in $n$ independent trials, each with probability $p$ of success, then $X \sim B(n, p)$.</p>
+
+        <div class="formula-box">
+            <h4>Binomial Distribution</h4>
+            <p>$$P(X = r) = inom{n}{r} p^r (1-p)^{n-r}$$</p>
+            <p><strong>Expected value:</strong> $E(X) = np$</p>
+            <p><strong>Variance:</strong> $	ext{Var}(X) = np(1-p)$</p>
+            <p><strong>Standard deviation:</strong> $\sigma = \sqrt{np(1-p)}$</p>
+        </div>
+
+        <h2>4. Normal Distribution</h2>
+
+        <p>The <strong>normal distribution</strong> $X \sim N(\mu, \sigma^2)$ is a symmetric, bell-shaped continuous distribution.</p>
+
+        <div class="formula-box">
+            <h4>Normal Distribution Key Facts</h4>
+            <ul>
+                <li>Mean $= \mu$, Variance $= \sigma^2$, SD $= \sigma$</li>
+                <li>Symmetrical about $\mu$</li>
+                <li>Standardisation: $Z = \dfrac{X - \mu}{\sigma}$, where $Z \sim N(0, 1)$</li>
+                <li>68% of data within $\mu \pm \sigma$; 95% within $\mu \pm 2\sigma$; 99.7% within $\mu \pm 3\sigma$</li>
+            </ul>
+        </div>
+
+        <p>In the IB exam, all normal distribution probabilities are found using the <strong>GDC</strong> (graphical display calculator), not tables.</p>
+
+        <h2>5. Regression &amp; Correlation</h2>
+
+        <p>The <strong>Pearson's product-moment correlation coefficient</strong> (PMCC) $r$ measures the strength and direction of a linear relationship:</p>
+        <ul>
+            <li>$r = 1$: perfect positive linear correlation</li>
+            <li>$r = -1$: perfect negative linear correlation</li>
+            <li>$r = 0$: no linear correlation</li>
+        </ul>
+
+        <div class="formula-box">
+            <h4>Regression Line of $y$ on $x$</h4>
+            <p>$$\hat{y} = a + bx, \quad 	ext{where } b = rac{S_{xy}}{S_{xx}}, \quad a = ar{y} - bar{x}$$</p>
+            <p>The regression line always passes through $(ar{x}, ar{y})$.</p>
+            <p>Use the regression line of $y$ on $x$ to predict $y$ from a given $x$ value.</p>
+        </div>
+
+        <div class="key-insight">
+            <strong>Caution:</strong> Correlation does not imply causation. Do not extrapolate beyond the data range — predictions become unreliable.
+        </div>
+
+        <h2>6. Hypothesis Testing (HL)</h2>
+
+        <div class="hl-note">
+            <strong>HL:</strong> Hypothesis testing involves making a statistical decision about a population parameter based on sample data.
+        </div>
+
+        <p>The general procedure:</p>
+        <ol>
+            <li>State $H_0$ (null hypothesis) and $H_1$ (alternative hypothesis).</li>
+            <li>Choose a significance level $lpha$ (e.g., 5% = 0.05).</li>
+            <li>Calculate the test statistic and corresponding $p$-value using GDC.</li>
+            <li>Decision: if $p \leq lpha$, reject $H_0$; if $p > lpha$, do not reject $H_0$.</li>
+            <li>Conclude in context.</li>
+        </ol>
+
+        <p>Common tests in IB AA HL:</p>
+        <ul>
+            <li><strong>$t$-test:</strong> Test a claim about a population mean when $\sigma$ is unknown.</li>
+            <li><strong>Chi-squared ($\chi^2$) test:</strong> Test for independence between two categorical variables using a contingency table.</li>
+        </ul>
+
+        <!-- WORKED EXAMPLES -->
+        <h2>Worked Examples</h2>
+
+        <div class="worked-example">
+            <div class="example-label">Worked Example 1</div>
+            <h4>Binomial Distribution — Probability Calculation</h4>
+            <p>A fair six-sided die is rolled 8 times. Let $X$ be the number of times a 6 is rolled. Find $P(X \geq 2)$.</p>
+            <div class="solution-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div>Identify: $X \sim B\!\left(8, rac{1}{6}ight)$. We need $P(X \geq 2) = 1 - P(X \leq 1) = 1 - P(X=0) - P(X=1)$.</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div>$P(X=0) = inom{8}{0}\left(rac{1}{6}ight)^0\!\left(rac{5}{6}ight)^8 = \left(rac{5}{6}ight)^8 pprox 0.2326$</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div>$P(X=1) = inom{8}{1}\left(rac{1}{6}ight)^1\!\left(rac{5}{6}ight)^7 = 8 	imes rac{1}{6} 	imes \left(rac{5}{6}ight)^7 pprox 0.3721$</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div>$P(X \geq 2) = 1 - 0.2326 - 0.3721 = oxed{0.395}$ (to 3 s.f.)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="worked-example">
+            <div class="example-label">Worked Example 2</div>
+            <h4>Normal Distribution — Finding a Probability and an Unknown Mean</h4>
+            <p>The mass of apples is normally distributed with mean $\mu = 180$ g and standard deviation $\sigma = 15$ g. (a) Find $P(X > 200)$. (b) Find the value of $m$ such that $P(X > m) = 0.1$.</p>
+            <div class="solution-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div><strong>Part (a):</strong> Standardise: $Z = \dfrac{200 - 180}{15} = \dfrac{20}{15} pprox 1.333$.</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div>$P(X > 200) = P(Z > 1.333) pprox oxed{0.0912}$ (from GDC: normalcdf$(200, \infty, 180, 15) pprox 0.0912$)</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div><strong>Part (b):</strong> $P(X > m) = 0.1$ means $P(X \leq m) = 0.9$. Using GDC: invNorm$(0.9, 180, 15) pprox oxed{199.2}$ g.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="worked-example">
+            <div class="example-label">Worked Example 3</div>
+            <h4>Conditional Probability — Tree Diagram</h4>
+            <p>Box A contains 3 red and 2 blue balls. Box B contains 1 red and 4 blue balls. A box is chosen at random, then a ball is drawn. Given that the ball is red, find the probability it came from Box A.</p>
+            <div class="solution-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div>$P(	ext{Red} \mid A) = rac{3}{5}$, $P(	ext{Red} \mid B) = rac{1}{5}$, $P(A) = P(B) = rac{1}{2}$.</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div>$P(	ext{Red}) = P(A) \cdot P(R \mid A) + P(B) \cdot P(R \mid B) = rac{1}{2} \cdot rac{3}{5} + rac{1}{2} \cdot rac{1}{5} = rac{3}{10} + rac{1}{10} = rac{4}{10} = rac{2}{5}$</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div>$P(A \mid 	ext{Red}) = \dfrac{P(A \cap 	ext{Red})}{P(	ext{Red})} = \dfrac{3/10}{2/5} = \dfrac{3}{10} 	imes \dfrac{5}{2} = oxed{\dfrac{3}{4}}$</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRACTICE PROBLEMS -->
+        <div class="practice-section">
+            <h3>Practice Problems</h3>
+
+            <div class="practice-q">
+                <p><span class="q-num">Q1.</span> A dataset has values 3, 7, 8, 12, 15, 17, 21, 25. Find the median, lower quartile $Q_1$, upper quartile $Q_3$, and IQR.</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>Ordered data (8 values): 3, 7, 8, 12, 15, 17, 21, 25.</p>
+                        <p>Median $= rac{12+15}{2} = 13.5$.</p>
+                        <p>Lower half: 3, 7, 8, 12 → $Q_1 = rac{7+8}{2} = 7.5$.</p>
+                        <p>Upper half: 15, 17, 21, 25 → $Q_3 = rac{17+21}{2} = 19$.</p>
+                        <p>IQR $= Q_3 - Q_1 = 19 - 7.5 = \mathbf{11.5}$.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-q">
+                <p><span class="q-num">Q2.</span> A player makes a free throw with probability 0.7. Find the probability of making exactly 6 out of 10 free throws. Also find the expected number and standard deviation.</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>$X \sim B(10, 0.7)$.</p>
+                        <p>$P(X=6) = inom{10}{6}(0.7)^6(0.3)^4 = 210 	imes 0.117649 	imes 0.0081 pprox \mathbf{0.200}$</p>
+                        <p>$E(X) = np = 10 	imes 0.7 = \mathbf{7}$</p>
+                        <p>$\sigma = \sqrt{np(1-p)} = \sqrt{10 	imes 0.7 	imes 0.3} = \sqrt{2.1} pprox \mathbf{1.45}$</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-q">
+                <p><span class="q-num">Q3.</span> Test scores are normally distributed with $\mu = 65$ and $\sigma = 8$. What percentage of students score between 50 and 80?</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>Standardise: $z_1 = rac{50-65}{8} = -1.875$ and $z_2 = rac{80-65}{8} = 1.875$.</p>
+                        <p>$P(50 < X < 80) = P(-1.875 < Z < 1.875) pprox 0.9394 - 0.0606 pprox \mathbf{93.9\%}$</p>
+                        <p>(Using GDC: normalcdf$(50, 80, 65, 8) pprox 0.939$.)</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-q">
+                <p><span class="q-num">Q4.</span> Two events $A$ and $B$ satisfy $P(A) = 0.4$, $P(B) = 0.5$, $P(A \cap B) = 0.2$. Are $A$ and $B$ independent? Find $P(A \mid B)$.</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>Check independence: $P(A) 	imes P(B) = 0.4 	imes 0.5 = 0.2 = P(A \cap B)$. Since this holds, <strong>$A$ and $B$ are independent</strong>.</p>
+                        <p>$P(A \mid B) = \dfrac{P(A \cap B)}{P(B)} = \dfrac{0.2}{0.5} = \mathbf{0.4}$ (equal to $P(A)$, confirming independence).</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 MathHub Global. IB Math AA &mdash; Topic 4: Statistics &amp; Probability</p>
+        <p><a href="/ib/" style="color:#0f6b5b;">Back to IB Math Index</a></p>
+    </div>
+
+    <script src="../assets/js/common.js"></script>
+</body>
+</html>

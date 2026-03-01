@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions — IB Math AA | MathHub</title>
+    <meta name="description" content="IB Math AA Topic 2: Functions. Domain, range, transformations, composite and inverse functions with worked examples and practice problems.">
+    <meta name="keywords" content="IB Math AA, functions, domain, range, transformations, composite functions, inverse functions, function families">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/blog/ib-aa-functions.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/blog/ib-aa-functions.html">
+    <meta property="og:title" content="Functions — IB Math AA | MathHub">
+    <meta property="og:description" content="IB Math AA Topic 2: Functions — domain, range, transformations, composite and inverse functions.">
+    <meta property="og:site_name" content="MathHub Global">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Functions — IB Math AA",
+        "description": "IB Math AA Topic 2: Functions covering domain, range, transformations, composite and inverse functions.",
+        "url": "https://mathhub.io/blog/ib-aa-functions.html",
+        "datePublished": "2026-03-01",
+        "dateModified": "2026-03-01",
+        "publisher": {"@type": "Organization", "name": "MathHub Global"},
+        "author": {"@type": "Organization", "name": "MathHub Global"},
+        "educationalLevel": "IB",
+        "learningResourceType": "Textbook Chapter"
+    }
+    </script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <!-- MathJax -->
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <style>
+        body { font-family: 'Georgia', serif; line-height: 1.8; color: #1e293b; background: #f8fafc; }
+        .page-header { background: linear-gradient(135deg, #1e3a5f, #0f6b5b); color: white; padding: 50px 20px; text-align: center; }
+        .page-header .breadcrumb { font-size: 0.85em; opacity: 0.8; margin-bottom: 12px; }
+        .page-header .breadcrumb a { color: white; text-decoration: none; }
+        .page-header h1 { font-size: 2.2em; margin: 0 0 10px; }
+        .page-header .subtitle { opacity: 0.9; font-size: 1.05em; }
+        .ib-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.8em; margin: 8px 4px 0; }
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px 60px; }
+        h2 { color: #1e3a5f; border-bottom: 2px solid #0f6b5b; padding-bottom: 8px; margin-top: 48px; }
+        h3 { color: #0f6b5b; margin-top: 32px; }
+        p { color: #334155; line-height: 1.8; margin-bottom: 16px; }
+        ul, ol { color: #334155; margin: 12px 0 20px 24px; }
+        li { margin-bottom: 8px; line-height: 1.7; }
+        .formula-box { background: #f0fdf4; border: 1px solid #86efac; border-left: 4px solid #0f6b5b; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+        .formula-box h4 { color: #0f6b5b; margin: 0 0 12px; font-size: 1em; text-transform: uppercase; letter-spacing: 0.05em; }
+        .worked-example { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 24px; margin: 24px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+        .worked-example .example-label { font-size: 0.8em; font-weight: 700; color: #0f6b5b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+        .worked-example h4 { color: #1e3a5f; margin: 0 0 16px; }
+        .solution-steps { margin-top: 16px; }
+        .step { display: flex; gap: 16px; margin-bottom: 14px; align-items: flex-start; }
+        .step-num { background: #0f6b5b; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85em; flex-shrink: 0; margin-top: 2px; }
+        .practice-section { background: #eff6ff; border-radius: 10px; padding: 24px; margin: 40px 0; }
+        .practice-section h3 { color: #1e3a5f; margin-top: 0; }
+        .practice-q { background: white; border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; }
+        .practice-q .q-num { font-weight: 700; color: #0f6b5b; }
+        details.solution-toggle { margin-top: 10px; }
+        details.solution-toggle summary { cursor: pointer; color: #0f6b5b; font-weight: 600; font-size: 0.9em; }
+        details.solution-toggle .sol-body { background: #f0fdf4; border-radius: 6px; padding: 14px; margin-top: 8px; }
+        .hl-note { background: #dbeafe; border-left: 4px solid #1e3a5f; border-radius: 6px; padding: 14px 18px; margin: 20px 0; font-size: 0.9em; }
+        .hl-note strong { color: #1e3a5f; }
+        .key-insight { background: #fef9c3; border-left: 4px solid #d97706; border-radius: 6px; padding: 14px 18px; margin: 20px 0; }
+        .transform-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.95em; }
+        .transform-table th { background: #1e3a5f; color: white; padding: 10px 14px; text-align: left; }
+        .transform-table td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        .transform-table tr:nth-child(even) { background: #f8fafc; }
+        .footer { text-align: center; padding: 30px; color: #64748b; border-top: 1px solid #e2e8f0; margin-top: 60px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="/ib/" class="active">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="breadcrumb">
+            <a href="/ib/">IB Math</a> &rsaquo; Functions
+        </div>
+        <h1>Functions</h1>
+        <p class="subtitle">Domain, Range, Transformations &amp; Inverse Functions</p>
+        <div>
+            <span class="ib-badge">Math AA SL/HL</span>
+            <span class="ib-badge">Topic 2</span>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <h2>1. Function Concepts</h2>
+
+        <p>A <strong>function</strong> $f: A 	o B$ assigns each element of the <strong>domain</strong> $A$ exactly one element of the <strong>codomain</strong> $B$. The set of all output values is the <strong>range</strong>.</p>
+
+        <ul>
+            <li><strong>One-to-one (injective):</strong> Different inputs give different outputs. The horizontal line test: any horizontal line meets the graph at most once.</li>
+            <li><strong>Onto (surjective):</strong> Every element of the codomain is achieved by at least one input.</li>
+            <li><strong>Bijective:</strong> Both one-to-one and onto — necessary for an inverse function to exist over the full codomain.</li>
+        </ul>
+
+        <div class="key-insight">
+            <strong>Function Notation:</strong> $f(x)$ means "the output of $f$ when the input is $x$". The domain must be specified if it is not the natural (largest possible) domain. For example, $f(x) = \sqrt{x}$ has natural domain $x \geq 0$.
+        </div>
+
+        <h2>2. Transformations of Functions</h2>
+
+        <p>Transformations map the graph of $y = f(x)$ to a new position or shape. The table below summarises the key transformations:</p>
+
+        <table class="transform-table">
+            <thead>
+                <tr><th>Transformation</th><th>New Function</th><th>Effect on Graph</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Vertical shift up by $k$</td><td>$f(x) + k$</td><td>Graph moves up $k$ units</td></tr>
+                <tr><td>Vertical shift down by $k$</td><td>$f(x) - k$</td><td>Graph moves down $k$ units</td></tr>
+                <tr><td>Horizontal shift left by $k$</td><td>$f(x + k)$</td><td>Graph moves left $k$ units</td></tr>
+                <tr><td>Horizontal shift right by $k$</td><td>$f(x - k)$</td><td>Graph moves right $k$ units</td></tr>
+                <tr><td>Vertical stretch by factor $a$</td><td>$a \cdot f(x)$</td><td>$y$-values multiplied by $a$</td></tr>
+                <tr><td>Horizontal compression by $a$</td><td>$f(ax)$</td><td>$x$-values divided by $a$</td></tr>
+                <tr><td>Reflection in $x$-axis</td><td>$-f(x)$</td><td>$y$-values negated</td></tr>
+                <tr><td>Reflection in $y$-axis</td><td>$f(-x)$</td><td>$x$-values negated</td></tr>
+            </tbody>
+        </table>
+
+        <div class="formula-box">
+            <h4>General Transformed Form</h4>
+            <p>$$y = a \cdot f(b(x - h)) + k$$</p>
+            <ul>
+                <li>$a$: vertical stretch/reflection (if $a < 0$, reflect in $x$-axis)</li>
+                <li>$b$: horizontal compression/reflection (if $b < 0$, reflect in $y$-axis)</li>
+                <li>$h$: horizontal shift right by $h$</li>
+                <li>$k$: vertical shift up by $k$</li>
+            </ul>
+        </div>
+
+        <h2>3. Composite &amp; Inverse Functions</h2>
+
+        <h3>Composite Functions</h3>
+        <p>The <strong>composite function</strong> $(f \circ g)(x) = f(g(x))$ applies $g$ first, then $f$. Note that $f \circ g 
+eq g \circ f$ in general.</p>
+        <p>The domain of $f \circ g$ is the set of $x$ in the domain of $g$ such that $g(x)$ is in the domain of $f$.</p>
+
+        <h3>Inverse Functions</h3>
+        <p>The <strong>inverse function</strong> $f^{-1}$ satisfies $f(f^{-1}(x)) = x$ and $f^{-1}(f(x)) = x$.</p>
+
+        <div class="formula-box">
+            <h4>Finding an Inverse Function</h4>
+            <ol>
+                <li>Write $y = f(x)$</li>
+                <li>Swap $x$ and $y$: write $x = f(y)$</li>
+                <li>Solve for $y$: this gives $y = f^{-1}(x)$</li>
+            </ol>
+            <p>The graph of $f^{-1}$ is the reflection of the graph of $f$ in the line $y = x$.</p>
+        </div>
+
+        <div class="key-insight">
+            <strong>Domain Restriction:</strong> If $f$ is not one-to-one on its natural domain, we must restrict the domain before finding an inverse. For example, $f(x) = x^2$ has no inverse on $\mathbb{R}$, but restricting to $x \geq 0$ makes it one-to-one, and $f^{-1}(x) = \sqrt{x}$.
+        </div>
+
+        <h2>4. Key Function Families</h2>
+
+        <p>You must recognise and sketch the following families of functions:</p>
+        <ul>
+            <li><strong>Linear:</strong> $f(x) = mx + c$ — straight line, gradient $m$, $y$-intercept $c$</li>
+            <li><strong>Quadratic:</strong> $f(x) = a(x-h)^2 + k$ — parabola, vertex at $(h, k)$</li>
+            <li><strong>Cubic:</strong> $f(x) = ax^3 + \cdots$ — S-shaped curve, one or three real roots</li>
+            <li><strong>Absolute value:</strong> $f(x) = |x|$ — V-shape, vertex at origin</li>
+            <li><strong>Reciprocal:</strong> $f(x) = rac{1}{x}$ — hyperbola with asymptotes at $x=0$ and $y=0$</li>
+            <li><strong>Exponential:</strong> $f(x) = a^x$ — always positive, horizontal asymptote $y=0$</li>
+            <li><strong>Logarithm:</strong> $f(x) = \log_a x$ — defined for $x > 0$, vertical asymptote $x=0$</li>
+        </ul>
+
+        <h2>5. Mathematical Modelling</h2>
+
+        <p>Choosing an appropriate function model for real-world data is a key IB skill.</p>
+        <ul>
+            <li><strong>Linear growth/decay</strong> → linear model $f(x) = mx + c$</li>
+            <li><strong>Exponential growth/decay</strong> → $f(x) = A \cdot b^x$ or $f(x) = Ae^{kx}$</li>
+            <li><strong>Periodic phenomena</strong> (tides, temperature) → sinusoidal model $f(x) = A\sin(Bx + C) + D$</li>
+            <li><strong>Bounded growth</strong> → logistic model (HL)</li>
+        </ul>
+
+        <!-- WORKED EXAMPLES -->
+        <h2>Worked Examples</h2>
+
+        <div class="worked-example">
+            <div class="example-label">Worked Example 1</div>
+            <h4>Transformations — Describing and Applying</h4>
+            <p>The graph of $y = f(x)$ is transformed to $y = -2f(x+3) + 1$. Describe the sequence of transformations.</p>
+            <div class="solution-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div><strong>Horizontal shift:</strong> $f(x) 	o f(x+3)$: translate left by 3 units.</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div><strong>Vertical stretch:</strong> $f(x+3) 	o 2f(x+3)$: stretch vertically by factor 2 (away from $x$-axis).</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div><strong>Reflection:</strong> $2f(x+3) 	o -2f(x+3)$: reflect in the $x$-axis.</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div><strong>Vertical shift:</strong> $-2f(x+3) 	o -2f(x+3)+1$: translate up by 1 unit.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="worked-example">
+            <div class="example-label">Worked Example 2</div>
+            <h4>Composite Functions — Finding Domain and Range</h4>
+            <p>Let $f(x) = x^2 + 1$ for $x \in \mathbb{R}$ and $g(x) = \sqrt{x-2}$ for $x \geq 2$. Find $(f \circ g)(x)$ and state its domain and range.</p>
+            <div class="solution-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div>$(f \circ g)(x) = f(g(x)) = f(\sqrt{x-2}) = (\sqrt{x-2})^2 + 1 = (x-2) + 1 = x - 1$</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div><strong>Domain:</strong> $g(x)$ requires $x \geq 2$, and the output $\sqrt{x-2} \geq 0$ is in the domain of $f$ (all reals). So domain is $x \geq 2$.</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div><strong>Range:</strong> When $x \geq 2$, $(f \circ g)(x) = x - 1 \geq 1$. So range is $[1, \infty)$.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="worked-example">
+            <div class="example-label">Worked Example 3</div>
+            <h4>Inverse Functions — Finding and Verifying</h4>
+            <p>Let $f(x) = \dfrac{2x+3}{x-1}$, $x 
+eq 1$. Find $f^{-1}(x)$ and verify that $f(f^{-1}(x)) = x$.</p>
+            <div class="solution-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div>Write $y = \dfrac{2x+3}{x-1}$. Swap $x$ and $y$: $x = \dfrac{2y+3}{y-1}$.</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div>Solve for $y$: $x(y-1) = 2y+3 \implies xy - x = 2y + 3 \implies y(x-2) = x+3 \implies y = \dfrac{x+3}{x-2}$</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div>So $f^{-1}(x) = \dfrac{x+3}{x-2}$, $x 
+eq 2$.</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div><strong>Verification:</strong> $f(f^{-1}(x)) = \dfrac{2 \cdot rac{x+3}{x-2} + 3}{rac{x+3}{x-2} - 1} = \dfrac{rac{2(x+3)+3(x-2)}{x-2}}{rac{(x+3)-(x-2)}{x-2}} = \dfrac{5x}{5} = x$ ✓</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRACTICE PROBLEMS -->
+        <div class="practice-section">
+            <h3>Practice Problems</h3>
+
+            <div class="practice-q">
+                <p><span class="q-num">Q1.</span> The function $f(x) = 3\sqrt{x-1}$ has domain $x \geq 1$. State the range of $f$ and find $f^{-1}(x)$, stating its domain.</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>Since $x \geq 1$, we have $\sqrt{x-1} \geq 0$, so $f(x) \geq 0$. Range of $f$: $[0, \infty)$.</p>
+                        <p>To find $f^{-1}$: let $y = 3\sqrt{x-1}$. Swap: $x = 3\sqrt{y-1} \implies rac{x}{3} = \sqrt{y-1} \implies rac{x^2}{9} = y - 1 \implies y = rac{x^2}{9} + 1$.</p>
+                        <p>$f^{-1}(x) = \dfrac{x^2}{9} + 1$, domain $x \geq 0$.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-q">
+                <p><span class="q-num">Q2.</span> Given $f(x) = 2x - 1$ and $g(x) = x^2 + 3$, find $(g \circ f)(x)$ and $(f \circ g)(x)$. Show that they are not equal.</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>$(g \circ f)(x) = g(2x-1) = (2x-1)^2 + 3 = 4x^2 - 4x + 1 + 3 = 4x^2 - 4x + 4$</p>
+                        <p>$(f \circ g)(x) = f(x^2+3) = 2(x^2+3) - 1 = 2x^2 + 5$</p>
+                        <p>Since $4x^2 - 4x + 4 
+eq 2x^2 + 5$ in general (e.g., at $x=1$: $4 
+eq 7$), they are not equal.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-q">
+                <p><span class="q-num">Q3.</span> The graph of $y = x^2$ is transformed to pass through the points $(1, 3)$ and $(-1, 3)$, and has vertex $(0, 0)$ shifted to vertex $(2, -1)$. Write the equation of the transformed graph.</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>The vertex form is $y = a(x-h)^2 + k$. Vertex at $(2,-1)$ gives $y = a(x-2)^2 - 1$.</p>
+                        <p>The shape should pass through nearby points. If we use $a = 1$: $y = (x-2)^2 - 1$. Check: at $x=3$, $y=0$; at $x=2$, $y=-1$ ✓.</p>
+                        <p>The equation is $oxed{y = (x-2)^2 - 1}$.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-q">
+                <p><span class="q-num">Q4.</span> A function is defined by $f(x) = e^x + 1$. Find $f^{-1}(x)$ and state its domain and range.</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>Let $y = e^x + 1$. Swap: $x = e^y + 1 \implies e^y = x - 1 \implies y = \ln(x-1)$.</p>
+                        <p>$f^{-1}(x) = \ln(x-1)$.</p>
+                        <p>Domain of $f^{-1}$: $x - 1 > 0 \implies x > 1$, i.e., $(1, \infty)$. Range of $f^{-1}$: all real numbers, $\mathbb{R}$.</p>
+                        <p>(These are the range and domain of $f$, respectively, as expected.)</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 MathHub Global. IB Math AA &mdash; Topic 2: Functions</p>
+        <p><a href="/ib/" style="color:#0f6b5b;">Back to IB Math Index</a></p>
+    </div>
+
+    <script src="../assets/js/common.js"></script>
+</body>
+</html>

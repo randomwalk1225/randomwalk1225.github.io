@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Further Functions — IB Math AI (HL) | MathHub</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <style>
+        body { font-family: 'Georgia', serif; line-height: 1.8; color: #1e293b; background: #f8fafc; }
+        .page-header { background: linear-gradient(135deg, #4c1d95, #7c3aed); color: white; padding: 50px 20px; text-align: center; }
+        .page-header h1 { font-size: 2.2em; margin: 0 0 10px; }
+        .ib-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.8em; margin: 8px 4px 0; }
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px 60px; }
+        h2 { color: #4c1d95; border-bottom: 2px solid #7c3aed; padding-bottom: 8px; margin-top: 48px; }
+        h3 { color: #7c3aed; margin-top: 32px; }
+        .formula-box { background: #f5f3ff; border: 1px solid #c4b5fd; border-left: 4px solid #7c3aed; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+        .formula-box h4 { color: #7c3aed; margin: 0 0 12px; font-size: 1em; text-transform: uppercase; letter-spacing: 0.05em; }
+        .worked-example { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 24px; margin: 24px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+        .worked-example .example-label { font-size: 0.8em; font-weight: 700; color: #7c3aed; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+        .worked-example h4 { color: #4c1d95; margin: 0 0 16px; }
+        .step { display: flex; gap: 16px; margin-bottom: 14px; }
+        .step-num { background: #7c3aed; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85em; flex-shrink: 0; }
+        .practice-section { background: #f5f3ff; border-radius: 10px; padding: 24px; margin: 40px 0; }
+        .practice-section h3 { color: #4c1d95; margin-top: 0; }
+        .practice-q { background: white; border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; }
+        details.solution-toggle summary { cursor: pointer; color: #7c3aed; font-weight: 600; font-size: 0.9em; margin-top: 8px; }
+        details.solution-toggle .sol-body { background: #f5f3ff; border-radius: 6px; padding: 14px; margin-top: 8px; }
+        .hl-tag { display: inline-block; background: #4c1d95; color: white; font-size: 0.7em; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-left: 6px; vertical-align: middle; }
+        .key-insight { background: #fef9c3; border-left: 4px solid #d97706; border-radius: 6px; padding: 14px 18px; margin: 20px 0; }
+        .footer { text-align: center; padding: 30px; color: #64748b; border-top: 1px solid #e2e8f0; margin-top: 60px; font-size: 0.9em; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th { background: #4c1d95; color: white; padding: 10px 14px; text-align: left; }
+        td { padding: 9px 14px; border-bottom: 1px solid #e2e8f0; }
+        tr:nth-child(even) td { background: #f8f4ff; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/">UK</a><a href="/ca/">CA</a>
+            <a href="/ib/" class="active">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>Further Functions <span class="hl-tag">HL</span></h1>
+        <p style="opacity:0.9;margin:8px 0 16px;">Smoothing, linearization, sinusoidal models, and recurrence relations</p>
+        <span class="ib-badge">Math AI HL</span>
+        <span class="ib-badge">Topic 2 Extension</span>
+    </div>
+
+    <div class="container">
+
+        <h2>1. Transformation of Curves and Data Fitting</h2>
+        <p>At HL, the study of functions extends beyond algebraic manipulation to fitting mathematical models to real-world data. Technology (GDC, GeoGebra, Desmos) is essential for this topic.</p>
+
+        <h3>Fitting Models to Data</h3>
+        <p>Given a scatter plot or dataset, we select an appropriate function type and use regression to find the best-fit parameters:</p>
+        <table>
+            <tr><th>Pattern in Data</th><th>Suggested Model</th><th>Form</th></tr>
+            <tr><td>Straight line trend</td><td>Linear</td><td>$y = mx + c$</td></tr>
+            <tr><td>Rapid growth/decay</td><td>Exponential</td><td>$y = ab^x$ or $y = ae^{kx}$</td></tr>
+            <tr><td>Power relationship</td><td>Power</td><td>$y = ax^n$</td></tr>
+            <tr><td>Oscillating / periodic</td><td>Sinusoidal</td><td>$y = A\sin(Bx+C)+D$</td></tr>
+            <tr><td>S-shaped growth curve</td><td>Logistic</td><td>$y = \frac{L}{1+e^{-k(x-x_0)}}$</td></tr>
+        </table>
+
+        <div class="key-insight">
+            <strong>GDC Tip:</strong> Use the regression functions on your GDC to find model parameters. Always check the $r^2$ value (coefficient of determination) — closer to 1 indicates a better fit. For IB exams, always state which regression model you used.
+        </div>
+
+        <h2>2. Smoothing Data — Moving Averages</h2>
+        <p>Real data is often noisy — it has random fluctuations that obscure the underlying trend. A <strong>moving average</strong> smooths the data by replacing each value with the average of neighboring values.</p>
+
+        <div class="formula-box">
+            <h4>Moving Average Formulas</h4>
+            <p><strong>3-point moving average</strong> (centred at point $i$):</p>
+            $$\bar{y}_i = \frac{y_{i-1} + y_i + y_{i+1}}{3}$$
+            <p><strong>5-point moving average</strong> (centred at point $i$):</p>
+            $$\bar{y}_i = \frac{y_{i-2} + y_{i-1} + y_i + y_{i+1} + y_{i+2}}{5}$$
+            <p><strong>Note:</strong> You lose data points at the ends — a 3-point MA of $n$ values gives $n-2$ smoothed values.</p>
+        </div>
+
+        <h3>Seasonal Variation and Trend Lines</h3>
+        <p>In time series data (e.g., monthly sales, quarterly temperatures), the overall direction is the <strong>trend</strong>. Periodic fluctuations (summer highs, winter lows) are <strong>seasonal variation</strong>.</p>
+        <ul>
+            <li>Use a moving average with period = number of seasons to eliminate seasonal variation</li>
+            <li>A <strong>4-point centred moving average</strong> is used for quarterly data (average of 4, then average those in pairs)</li>
+            <li>Fit a trend line to the smoothed data using linear regression</li>
+        </ul>
+
+        <div class="worked-example">
+            <div class="example-label">Worked Example 1</div>
+            <h4>3-Point Moving Average for Monthly Sales</h4>
+            <p>Monthly sales (units): Jan=120, Feb=95, Mar=140, Apr=110, May=155, Jun=130. Calculate the 3-point moving average.</p>
+
+            <div class="step">
+                <div class="step-num">1</div>
+                <div><strong>Apply formula</strong> centred at each middle value:
+                <ul>
+                    <li>Feb: $\frac{120+95+140}{3} = \frac{355}{3} \approx 118.3$</li>
+                    <li>Mar: $\frac{95+140+110}{3} = \frac{345}{3} = 115.0$</li>
+                    <li>Apr: $\frac{140+110+155}{3} = \frac{405}{3} = 135.0$</li>
+                    <li>May: $\frac{110+155+130}{3} = \frac{395}{3} \approx 131.7$</li>
+                </ul>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div><strong>Interpretation:</strong> The smoothed values (118.3, 115.0, 135.0, 131.7) show a gradual upward trend, despite the month-to-month fluctuations. Jan and Jun have no centred moving average (boundary effect).</div>
+            </div>
+        </div>
+
+        <h2>3. Linearization of Non-Linear Models</h2>
+        <p>An exponential model $y = ab^x$ is not linear, making it hard to fit by eye. We can <strong>linearize</strong> it by taking logarithms, transforming it into a linear relationship.</p>
+
+        <div class="formula-box">
+            <h4>Linearizing $y = ab^x$</h4>
+            <p>Take $\ln$ of both sides:</p>
+            $$\ln y = \ln a + x \ln b$$
+            <p>Let $Y = \ln y$, $c = \ln a$, $m = \ln b$. Then: $Y = c + mx$ (linear!)</p>
+            <ul>
+                <li>Plot $\ln y$ against $x$ — a straight line confirms exponential model</li>
+                <li>Gradient of line = $\ln b$, so $b = e^m$</li>
+                <li>$y$-intercept = $\ln a$, so $a = e^c$</li>
+            </ul>
+            <p><strong>For $y = ax^n$</strong>: take $\log$ of both sides: $\log y = \log a + n \log x$. Plot $\log y$ vs $\log x$ — gradient = $n$, intercept = $\log a$.</p>
+        </div>
+
+        <div class="worked-example">
+            <div class="example-label">Worked Example 2</div>
+            <h4>Linearizing Exponential Data</h4>
+            <p>A bacterial culture data: $t$ (hours) = 0, 1, 2, 3, 4 and count $N$ = 100, 165, 272, 449, 740. Test whether this fits $N = ab^t$ and find $a$ and $b$.</p>
+
+            <div class="step">
+                <div class="step-num">1</div>
+                <div><strong>Compute $\ln N$:</strong> $\ln 100 = 4.605$, $\ln 165 = 5.106$, $\ln 272 = 5.605$, $\ln 449 = 6.107$, $\ln 740 = 6.606$</div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div><strong>Check linearity:</strong> Differences in $\ln N$: $0.501, 0.499, 0.502, 0.499$ — nearly constant! This confirms an exponential model with gradient $m \approx 0.500$.</div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div><strong>Find parameters:</strong> $b = e^{0.500} \approx 1.649$. At $t=0$: $\ln N = 4.605$, so $a = e^{4.605} = 100$. Model: $N = 100 \times (1.649)^t$.</div>
+            </div>
+        </div>
+
+        <h2>4. Sinusoidal Models</h2>
+        <p>Many natural phenomena are periodic: temperature, tides, daylight hours, sound waves. The general sinusoidal model is:</p>
+
+        <div class="formula-box">
+            <h4>General Sinusoidal Model</h4>
+            $$y = A\sin(Bx + C) + D$$
+            <table>
+                <tr><th>Parameter</th><th>Meaning</th><th>How to Find</th></tr>
+                <tr><td>$A$</td><td>Amplitude (half the range)</td><td>$A = \frac{y_{\max} - y_{\min}}{2}$</td></tr>
+                <tr><td>$B$</td><td>Controls period</td><td>$B = \frac{2\pi}{\text{period}}$</td></tr>
+                <tr><td>$C$</td><td>Horizontal (phase) shift</td><td>From first maximum or zero</td></tr>
+                <tr><td>$D$</td><td>Vertical shift (midline)</td><td>$D = \frac{y_{\max} + y_{\min}}{2}$</td></tr>
+            </table>
+        </div>
+
+        <div class="worked-example">
+            <div class="example-label">Worked Example 3</div>
+            <h4>Fitting a Sinusoidal Model to Temperature Data</h4>
+            <p>Average monthly temperatures (°C) in a city: Jan=−3, Apr=8, Jul=22, Oct=10. Fit a sinusoidal model.</p>
+
+            <div class="step">
+                <div class="step-num">1</div>
+                <div><strong>Find $A$ and $D$:</strong> Max = 22 (July), Min = −3 (January).
+                $$A = \frac{22-(-3)}{2} = \frac{25}{2} = 12.5, \quad D = \frac{22+(-3)}{2} = \frac{19}{2} = 9.5$$
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div><strong>Find $B$:</strong> Period = 12 months. $B = \frac{2\pi}{12} = \frac{\pi}{6}$.</div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div><strong>Find $C$:</strong> Maximum occurs in July (month 7). For $\sin$, max at $Bx + C = \frac{\pi}{2}$:
+                $$\frac{\pi}{6}(7) + C = \frac{\pi}{2} \implies C = \frac{\pi}{2} - \frac{7\pi}{6} = -\frac{2\pi}{3}$$
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <div><strong>Model:</strong> $T = 12.5\sin\!\left(\frac{\pi}{6}x - \frac{2\pi}{3}\right) + 9.5$, where $x = 1$ is January.</div>
+            </div>
+        </div>
+
+        <h2>5. Piecewise Functions</h2>
+        <p>A <strong>piecewise-defined function</strong> uses different formulas for different parts of the domain.</p>
+
+        <div class="formula-box">
+            <h4>Common Piecewise Functions</h4>
+            <p><strong>Sign function:</strong>
+            $$\text{sgn}(x) = \begin{cases} -1 & x < 0 \\ 0 & x = 0 \\ 1 & x > 0 \end{cases}$$
+            </p>
+            <p><strong>Floor function (greatest integer function):</strong> $\lfloor x \rfloor$ = greatest integer $\leq x$</p>
+            <p>$\lfloor 3.7 \rfloor = 3$, $\lfloor -1.2 \rfloor = -2$</p>
+            <p><strong>Ceiling function:</strong> $\lceil x \rceil$ = smallest integer $\geq x$</p>
+        </div>
+
+        <h2>6. Recurrence Relations and Iteration</h2>
+        <p>A <strong>recurrence relation</strong> defines a sequence where each term is expressed in terms of previous terms.</p>
+
+        <div class="formula-box">
+            <h4>Types of Recurrence Relations</h4>
+            <p><strong>First-order linear:</strong> $u_{n+1} = au_n + b$ (arithmetic if $a=1$; geometric if $b=0$)</p>
+            <p><strong>General solution:</strong></p>
+            <ul>
+                <li>If $a \neq 1$: fixed point $u^* = \frac{b}{1-a}$, solution $u_n = (u_0 - u^*)a^n + u^*$</li>
+                <li>Stable if $|a| < 1$ (converges to fixed point); unstable if $|a| > 1$</li>
+            </ul>
+            <p><strong>Iteration (cobweb/staircase diagrams):</strong> Graphically trace $u_{n+1} = f(u_n)$ using $y = f(x)$ and $y = x$.</p>
+        </div>
+
+        <div class="practice-section">
+            <h3>Practice Problems</h3>
+
+            <div class="practice-q">
+                <p><strong>1.</strong> Quarterly profits (£000s): Q1=45, Q2=62, Q3=78, Q4=54, Q1=49, Q2=67, Q3=83. Calculate the 4-point centred moving average for Q2 and Q3 of year 1.</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p><strong>4-point MA:</strong> Average 4 consecutive values, then centre by averaging adjacent 4-point averages.</p>
+                        <p>4-pt MAs: $(45+62+78+54)/4 = 59.75$; $(62+78+54+49)/4 = 60.75$; $(78+54+49+67)/4 = 62.00$</p>
+                        <p><strong>Centred at Q2:</strong> $(59.75+60.75)/2 = 60.25$</p>
+                        <p><strong>Centred at Q3:</strong> $(60.75+62.00)/2 = 61.375$</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-q">
+                <p><strong>2.</strong> Data suggests $y = ax^n$. When plotted on a log-log graph, the line has gradient 2.5 and $y$-intercept 1.2. Find $a$ and $n$.</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>From $\log y = \log a + n \log x$: gradient $= n = 2.5$, $y$-intercept $= \log a = 1.2$.</p>
+                        <p>Therefore $a = 10^{1.2} \approx 15.85$ and $n = 2.5$.</p>
+                        <p>Model: $y \approx 15.85 x^{2.5}$</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-q">
+                <p><strong>3.</strong> A sinusoidal model has $y_{\max} = 14$ and $y_{\min} = 2$, with period 8. Write the model in the form $y = A\sin(Bx) + D$ (assuming max at $x=2$).</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>$A = (14-2)/2 = 6$, $D = (14+2)/2 = 8$, $B = 2\pi/8 = \pi/4$.</p>
+                        <p>Max at $x=2$: $\sin(\frac{\pi}{4}\cdot 2 + C) = 1 \Rightarrow \frac{\pi}{2} + C = \frac{\pi}{2} \Rightarrow C = 0$.</p>
+                        <p>$\mathbf{y = 6\sin\!\left(\frac{\pi}{4}x\right) + 8}$ (shift already satisfied if we use cosine: $y = 6\cos\!\left(\frac{\pi}{4}(x-2)\right)+8$)</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <div style="background:#4c1d95;color:white;border-radius:10px;padding:24px;text-align:center;margin-top:40px;">
+            <h3 style="margin:0 0 10px;color:white;">Continue Learning</h3>
+            <p style="opacity:0.9;margin-bottom:18px;">Explore other IB Math AI HL topics</p>
+            <a href="/ib/" style="display:inline-block;background:#7c3aed;color:white;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:700;margin:4px;">Back to IB Hub</a>
+            <a href="ib-ai-further-statistics.html" style="display:inline-block;background:rgba(255,255,255,0.15);color:white;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:700;margin:4px;">Further Statistics &rarr;</a>
+        </div>
+    </div>
+
+    <div class="footer"><p>&copy; 2026 MathHub Global. All rights reserved.</p></div>
+    <script src="../assets/js/common.js"></script>
+</body>
+</html>

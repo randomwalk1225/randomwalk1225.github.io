@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus (SL) — IB Math AA | MathHub</title>
+    <meta name="description" content="IB Math AA Topic 5 (SL): Calculus. Limits, differentiation rules, applications, integration, definite integrals, area, and kinematics with worked examples.">
+    <meta name="keywords" content="IB Math AA, calculus, differentiation, integration, limits, chain rule, product rule, quotient rule, kinematics, area under curve">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/blog/ib-aa-calculus-sl.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/blog/ib-aa-calculus-sl.html">
+    <meta property="og:title" content="Calculus (SL) — IB Math AA | MathHub">
+    <meta property="og:description" content="IB Math AA Topic 5 SL: Calculus — differentiation, integration, area and kinematics.">
+    <meta property="og:site_name" content="MathHub Global">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Calculus (SL) — IB Math AA",
+        "description": "IB Math AA Topic 5: Calculus at SL level covering limits, differentiation, integration, and applications.",
+        "url": "https://mathhub.io/blog/ib-aa-calculus-sl.html",
+        "datePublished": "2026-03-01",
+        "dateModified": "2026-03-01",
+        "publisher": {"@type": "Organization", "name": "MathHub Global"},
+        "author": {"@type": "Organization", "name": "MathHub Global"},
+        "educationalLevel": "IB",
+        "learningResourceType": "Textbook Chapter"
+    }
+    </script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <!-- MathJax -->
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <style>
+        body { font-family: 'Georgia', serif; line-height: 1.8; color: #1e293b; background: #f8fafc; }
+        .page-header { background: linear-gradient(135deg, #1e3a5f, #0f6b5b); color: white; padding: 50px 20px; text-align: center; }
+        .page-header .breadcrumb { font-size: 0.85em; opacity: 0.8; margin-bottom: 12px; }
+        .page-header .breadcrumb a { color: white; text-decoration: none; }
+        .page-header h1 { font-size: 2.2em; margin: 0 0 10px; }
+        .page-header .subtitle { opacity: 0.9; font-size: 1.05em; }
+        .ib-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.8em; margin: 8px 4px 0; }
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px 60px; }
+        h2 { color: #1e3a5f; border-bottom: 2px solid #0f6b5b; padding-bottom: 8px; margin-top: 48px; }
+        h3 { color: #0f6b5b; margin-top: 32px; }
+        p { color: #334155; line-height: 1.8; margin-bottom: 16px; }
+        ul, ol { color: #334155; margin: 12px 0 20px 24px; }
+        li { margin-bottom: 8px; line-height: 1.7; }
+        .formula-box { background: #f0fdf4; border: 1px solid #86efac; border-left: 4px solid #0f6b5b; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+        .formula-box h4 { color: #0f6b5b; margin: 0 0 12px; font-size: 1em; text-transform: uppercase; letter-spacing: 0.05em; }
+        .worked-example { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 24px; margin: 24px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+        .worked-example .example-label { font-size: 0.8em; font-weight: 700; color: #0f6b5b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+        .worked-example h4 { color: #1e3a5f; margin: 0 0 16px; }
+        .solution-steps { margin-top: 16px; }
+        .step { display: flex; gap: 16px; margin-bottom: 14px; align-items: flex-start; }
+        .step-num { background: #0f6b5b; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85em; flex-shrink: 0; margin-top: 2px; }
+        .practice-section { background: #eff6ff; border-radius: 10px; padding: 24px; margin: 40px 0; }
+        .practice-section h3 { color: #1e3a5f; margin-top: 0; }
+        .practice-q { background: white; border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; }
+        .practice-q .q-num { font-weight: 700; color: #0f6b5b; }
+        details.solution-toggle { margin-top: 10px; }
+        details.solution-toggle summary { cursor: pointer; color: #0f6b5b; font-weight: 600; font-size: 0.9em; }
+        details.solution-toggle .sol-body { background: #f0fdf4; border-radius: 6px; padding: 14px; margin-top: 8px; }
+        .hl-note { background: #dbeafe; border-left: 4px solid #1e3a5f; border-radius: 6px; padding: 14px 18px; margin: 20px 0; font-size: 0.9em; }
+        .hl-note strong { color: #1e3a5f; }
+        .key-insight { background: #fef9c3; border-left: 4px solid #d97706; border-radius: 6px; padding: 14px 18px; margin: 20px 0; }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 16px 0; }
+        @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+        .footer { text-align: center; padding: 30px; color: #64748b; border-top: 1px solid #e2e8f0; margin-top: 60px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="/ib/" class="active">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="breadcrumb">
+            <a href="/ib/">IB Math</a> &rsaquo; Calculus (SL)
+        </div>
+        <h1>Calculus</h1>
+        <p class="subtitle">Differentiation, Integration &amp; Applications</p>
+        <div>
+            <span class="ib-badge">Math AA SL/HL</span>
+            <span class="ib-badge">Topic 5</span>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <h2>1. Limits &amp; Continuity</h2>
+
+        <p>A <strong>limit</strong> describes the value a function approaches as the input approaches a particular point:</p>
+        <p>$$\lim_{x 	o a} f(x) = L$$</p>
+        <p>means $f(x)$ gets arbitrarily close to $L$ as $x$ approaches $a$ (but need not equal $L$ at $x = a$).</p>
+
+        <p>A function $f$ is <strong>continuous</strong> at $x = a$ if three conditions hold:</p>
+        <ol>
+            <li>$f(a)$ is defined</li>
+            <li>$\lim_{x 	o a} f(x)$ exists</li>
+            <li>$\lim_{x 	o a} f(x) = f(a)$</li>
+        </ol>
+
+        <div class="key-insight">
+            <strong>Practical limits:</strong> For most functions (polynomials, rationals, trig, exponential), simply substitute $x = a$. If you get $rac{0}{0}$, factor and cancel, or use L'Hôpital's rule (HL).
+        </div>
+
+        <h2>2. Differentiation Rules</h2>
+
+        <p>The <strong>derivative</strong> $f'(x)$ gives the instantaneous rate of change of $f$ at $x$, and equals the gradient of the tangent to $y = f(x)$ at that point.</p>
+
+        <div class="formula-box">
+            <h4>Standard Derivatives</h4>
+            <div class="two-col">
+                <div>
+                    <p>$\dfrac{d}{dx}[x^n] = nx^{n-1}$</p>
+                    <p>$\dfrac{d}{dx}[e^x] = e^x$</p>
+                    <p>$\dfrac{d}{dx}[\ln x] = \dfrac{1}{x}$</p>
+                </div>
+                <div>
+                    <p>$\dfrac{d}{dx}[\sin x] = \cos x$</p>
+                    <p>$\dfrac{d}{dx}[\cos x] = -\sin x$</p>
+                    <p>$\dfrac{d}{dx}[	an x] = \sec^2 x$</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="formula-box">
+            <h4>Differentiation Rules</h4>
+            <ul>
+                <li><strong>Sum/Difference:</strong> $(f \pm g)' = f' \pm g'$</li>
+                <li><strong>Product Rule:</strong> $(fg)' = f'g + fg'$</li>
+                <li><strong>Quotient Rule:</strong> $\left(\dfrac{f}{g}ight)' = \dfrac{f'g - fg'}{g^2}$</li>
+                <li><strong>Chain Rule:</strong> $\dfrac{d}{dx}[f(g(x))] = f'(g(x)) \cdot g'(x)$</li>
+            </ul>
+        </div>
+
+        <h2>3. Applications of Differentiation</h2>
+
+        <h3>Tangent and Normal Lines</h3>
+        <p>At the point $(a, f(a))$:</p>
+        <ul>
+            <li><strong>Tangent line gradient:</strong> $m_T = f'(a)$, equation: $y - f(a) = f'(a)(x - a)$</li>
+            <li><strong>Normal line gradient:</strong> $m_N = -\dfrac{1}{f'(a)}$ (perpendicular to tangent)</li>
+        </ul>
+
+        <h3>Increasing, Decreasing &amp; Stationary Points</h3>
+        <ul>
+            <li>$f'(x) > 0$: $f$ is increasing on that interval</li>
+            <li>$f'(x) < 0$: $f$ is decreasing on that interval</li>
+            <li>$f'(x) = 0$: stationary point (could be local max, local min, or inflection)</li>
+        </ul>
+
+        <div class="formula-box">
+            <h4>First Derivative Test for Local Extrema</h4>
+            <p>At a stationary point $x = c$ (where $f'(c) = 0$):</p>
+            <ul>
+                <li>If $f'$ changes from $+$ to $-$: <strong>local maximum</strong></li>
+                <li>If $f'$ changes from $-$ to $+$: <strong>local minimum</strong></li>
+                <li>If $f'$ does not change sign: <strong>point of inflection</strong></li>
+            </ul>
+        </div>
+
+        <h3>Points of Inflection &amp; Second Derivative</h3>
+        <p>A <strong>point of inflection</strong> is where concavity changes ($f''(x) = 0$ and changes sign).</p>
+        <p>Second derivative test: if $f'(c)=0$ and $f''(c) < 0$, then local max; if $f''(c) > 0$, then local min.</p>
+
+        <h2>4. Integration</h2>
+
+        <p>Integration is the reverse of differentiation. The <strong>indefinite integral</strong> includes an arbitrary constant $C$.</p>
+
+        <div class="formula-box">
+            <h4>Standard Integrals</h4>
+            <div class="two-col">
+                <div>
+                    <p>$\displaystyle\int x^n\,dx = \dfrac{x^{n+1}}{n+1} + C \quad (n 
+eq -1)$</p>
+                    <p>$\displaystyle\int e^x\,dx = e^x + C$</p>
+                </div>
+                <div>
+                    <p>$\displaystyle\int rac{1}{x}\,dx = \ln|x| + C$</p>
+                    <p>$\displaystyle\int \sin x\,dx = -\cos x + C$</p>
+                    <p>$\displaystyle\int \cos x\,dx = \sin x + C$</p>
+                </div>
+            </div>
+        </div>
+
+        <h3>Integration by Substitution</h3>
+        <p>For $\displaystyle\int f(g(x)) \cdot g'(x)\,dx$, let $u = g(x)$, then $du = g'(x)\,dx$:</p>
+        <p>$$\int f(g(x)) \cdot g'(x)\,dx = \int f(u)\,du$$</p>
+
+        <h2>5. Definite Integrals &amp; Area</h2>
+
+        <div class="formula-box">
+            <h4>Fundamental Theorem of Calculus</h4>
+            <p>$$\int_a^b f(x)\,dx = F(b) - F(a)$$</p>
+            <p>where $F$ is any antiderivative of $f$ (i.e., $F' = f$).</p>
+        </div>
+
+        <h3>Area Between Curves</h3>
+        <p>The area enclosed between $y = f(x)$ (upper) and $y = g(x)$ (lower), from $x = a$ to $x = b$:</p>
+        <p>$$A = \int_a^b [f(x) - g(x)]\,dx$$</p>
+        <p>If the curves intersect, find the intersection points first and split the integral as needed.</p>
+
+        <div class="key-insight">
+            <strong>Sign of the integral:</strong> $\int_a^b f(x)\,dx$ can be negative if $f(x) < 0$ on $[a,b]$. For area, always take the absolute value of each section, or use $\int_a^b |f(x)|\,dx$.
+        </div>
+
+        <h2>6. Kinematics</h2>
+
+        <p>Calculus connects the three kinematic quantities: displacement $s$, velocity $v$, and acceleration $a$.</p>
+
+        <div class="formula-box">
+            <h4>Kinematic Relationships</h4>
+            <p>$$v = rac{ds}{dt} = s'(t) \qquad a = rac{dv}{dt} = v'(t) = s''(t)$$</p>
+            <p>$$s = \int v\,dt \qquad v = \int a\,dt$$</p>
+            <ul>
+                <li>Particle at rest: $v = 0$</li>
+                <li>Particle changes direction: $v$ changes sign (and equals 0 at that instant)</li>
+                <li>Total distance $
+eq$ displacement when particle reverses direction</li>
+            </ul>
+        </div>
+
+        <!-- WORKED EXAMPLES -->
+        <h2>Worked Examples</h2>
+
+        <div class="worked-example">
+            <div class="example-label">Worked Example 1</div>
+            <h4>Finding Local Maximum and Minimum Values</h4>
+            <p>Find the local maxima and minima of $f(x) = 2x^3 - 9x^2 + 12x - 4$.</p>
+            <div class="solution-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div>Differentiate: $f'(x) = 6x^2 - 18x + 12 = 6(x^2 - 3x + 2) = 6(x-1)(x-2)$</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div>Set $f'(x) = 0$: $x = 1$ or $x = 2$ (stationary points).</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div>Sign of $f'(x)$: positive for $x < 1$, negative for $1 < x < 2$, positive for $x > 2$.<br>
+                    At $x=1$: $f'$ changes $+ 	o -$ → <strong>local maximum</strong>. $f(1) = 2-9+12-4 = 1$.<br>
+                    At $x=2$: $f'$ changes $- 	o +$ → <strong>local minimum</strong>. $f(2) = 16-36+24-4 = 0$.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="worked-example">
+            <div class="example-label">Worked Example 2</div>
+            <h4>Definite Integral — Area Under a Curve</h4>
+            <p>Find the area enclosed by $y = x^2 - 4$ and the $x$-axis.</p>
+            <div class="solution-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div>Find where the curve crosses the $x$-axis: $x^2 - 4 = 0 \implies x = \pm 2$.</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div>On $[-2, 2]$, $y = x^2 - 4 \leq 0$, so the area is given by $A = -\displaystyle\int_{-2}^{2}(x^2-4)\,dx$.</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div>$\displaystyle\int_{-2}^{2}(x^2-4)\,dx = \left[rac{x^3}{3} - 4xight]_{-2}^{2} = \left(rac{8}{3}-8ight) - \left(rac{-8}{3}+8ight) = rac{8}{3}-8+rac{8}{3}-8 = rac{16}{3} - 16 = -rac{32}{3}$</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div>Area $= -\!\left(-\dfrac{32}{3}ight) = oxed{\dfrac{32}{3}}$ square units.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="worked-example">
+            <div class="example-label">Worked Example 3</div>
+            <h4>Kinematics — Displacement, Velocity, and Total Distance</h4>
+            <p>A particle moves along a straight line with velocity $v(t) = t^2 - 5t + 6$ m/s, $t \geq 0$. (a) Find when the particle is at rest. (b) Find the total distance travelled in the first 4 seconds.</p>
+            <div class="solution-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div><strong>Part (a):</strong> At rest when $v = 0$: $t^2 - 5t + 6 = (t-2)(t-3) = 0 \implies t = 2$ s or $t = 3$ s.</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div>Check signs: $v > 0$ on $[0,2)$, $v < 0$ on $(2,3)$, $v > 0$ on $(3,4]$. Particle reverses at $t=2$ and $t=3$.</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div><strong>Part (b):</strong> Total distance $= \displaystyle\int_0^2 v\,dt + \left|\int_2^3 v\,dtight| + \int_3^4 v\,dt$</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div>$\displaystyle\int v\,dt = rac{t^3}{3} - rac{5t^2}{2} + 6t + C$.<br>
+                    $\int_0^2 v\,dt = \left(rac{8}{3}-10+12ight) - 0 = rac{8}{3}+2 = rac{14}{3}$<br>
+                    $\int_2^3 v\,dt = \left(9-rac{45}{2}+18ight) - \left(rac{8}{3}-10+12ight) = rac{9}{2} - rac{14}{3} = rac{27-28}{6} = -rac{1}{6}$<br>
+                    $\int_3^4 v\,dt = \left(rac{64}{3}-40+24ight) - rac{9}{2} = rac{64}{3}-16-rac{9}{2} = rac{128-96-27}{6} = rac{5}{6}$
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">5</div>
+                    <div>Total distance $= \dfrac{14}{3} + \dfrac{1}{6} + \dfrac{5}{6} = \dfrac{28}{6} + \dfrac{1}{6} + \dfrac{5}{6} = \dfrac{34}{6} = oxed{\dfrac{17}{3}}$ m $pprox 5.67$ m.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRACTICE PROBLEMS -->
+        <div class="practice-section">
+            <h3>Practice Problems</h3>
+
+            <div class="practice-q">
+                <p><span class="q-num">Q1.</span> Differentiate $f(x) = (3x^2 + 1)^4$ using the chain rule.</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>Let $u = 3x^2 + 1$, so $f = u^4$.</p>
+                        <p>$\dfrac{du}{dx} = 6x$ and $\dfrac{df}{du} = 4u^3$.</p>
+                        <p>$f'(x) = 4u^3 \cdot 6x = 4(3x^2+1)^3 \cdot 6x = \mathbf{24x(3x^2+1)^3}$</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-q">
+                <p><span class="q-num">Q2.</span> Find the equation of the tangent to $y = x^3 - 3x + 2$ at the point where $x = 2$.</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>At $x = 2$: $y = 8 - 6 + 2 = 4$. Point: $(2, 4)$.</p>
+                        <p>$y' = 3x^2 - 3$. At $x = 2$: $m = 3(4)-3 = 9$.</p>
+                        <p>Tangent: $y - 4 = 9(x - 2) \implies \mathbf{y = 9x - 14}$.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-q">
+                <p><span class="q-num">Q3.</span> Evaluate $\displaystyle\int_0^{\pi/2} (2\sin x + 3\cos x)\,dx$.</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>$\displaystyle\int_0^{\pi/2}(2\sin x + 3\cos x)\,dx = ig[-2\cos x + 3\sin xig]_0^{\pi/2}$</p>
+                        <p>$= ig(-2\cosrac{\pi}{2} + 3\sinrac{\pi}{2}ig) - ig(-2\cos 0 + 3\sin 0ig)$</p>
+                        <p>$= (0 + 3) - (-2 + 0) = 3 + 2 = \mathbf{5}$</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-q">
+                <p><span class="q-num">Q4.</span> The acceleration of a particle is $a(t) = 6t - 2$ m/s². The particle has velocity $v = 3$ m/s at $t = 0$. Find $v(t)$ and the displacement from $t = 0$ to $t = 3$.</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>$v(t) = \displaystyle\int a\,dt = 3t^2 - 2t + C$. Using $v(0) = 3$: $C = 3$. So $v(t) = 3t^2 - 2t + 3$.</p>
+                        <p>Displacement $= \displaystyle\int_0^3 v\,dt = ig[t^3 - t^2 + 3tig]_0^3 = (27 - 9 + 9) - 0 = \mathbf{27}$ m.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 MathHub Global. IB Math AA &mdash; Topic 5: Calculus (SL)</p>
+        <p><a href="/ib/" style="color:#0f6b5b;">Back to IB Math Index</a></p>
+    </div>
+
+    <script src="../assets/js/common.js"></script>
+</body>
+</html>

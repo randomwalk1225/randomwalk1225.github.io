@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Further Calculus — IB Math AI (HL) | MathHub</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <style>
+        body { font-family: 'Georgia', serif; line-height: 1.8; color: #1e293b; background: #f8fafc; }
+        .page-header { background: linear-gradient(135deg, #4c1d95, #7c3aed); color: white; padding: 50px 20px; text-align: center; }
+        .page-header h1 { font-size: 2.2em; margin: 0 0 10px; }
+        .ib-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.8em; margin: 8px 4px 0; }
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px 60px; }
+        h2 { color: #4c1d95; border-bottom: 2px solid #7c3aed; padding-bottom: 8px; margin-top: 48px; }
+        h3 { color: #7c3aed; margin-top: 32px; }
+        .formula-box { background: #f5f3ff; border: 1px solid #c4b5fd; border-left: 4px solid #7c3aed; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+        .formula-box h4 { color: #7c3aed; margin: 0 0 12px; font-size: 1em; text-transform: uppercase; letter-spacing: 0.05em; }
+        .worked-example { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 24px; margin: 24px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+        .worked-example .example-label { font-size: 0.8em; font-weight: 700; color: #7c3aed; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+        .worked-example h4 { color: #4c1d95; margin: 0 0 16px; }
+        .step { display: flex; gap: 16px; margin-bottom: 14px; }
+        .step-num { background: #7c3aed; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85em; flex-shrink: 0; }
+        .practice-section { background: #f5f3ff; border-radius: 10px; padding: 24px; margin: 40px 0; }
+        .practice-section h3 { color: #4c1d95; margin-top: 0; }
+        .practice-q { background: white; border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; }
+        details.solution-toggle summary { cursor: pointer; color: #7c3aed; font-weight: 600; font-size: 0.9em; margin-top: 8px; }
+        details.solution-toggle .sol-body { background: #f5f3ff; border-radius: 6px; padding: 14px; margin-top: 8px; }
+        .hl-tag { display: inline-block; background: #4c1d95; color: white; font-size: 0.7em; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-left: 6px; vertical-align: middle; }
+        .key-insight { background: #fef9c3; border-left: 4px solid #d97706; border-radius: 6px; padding: 14px 18px; margin: 20px 0; }
+        .footer { text-align: center; padding: 30px; color: #64748b; border-top: 1px solid #e2e8f0; margin-top: 60px; font-size: 0.9em; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th { background: #4c1d95; color: white; padding: 10px 14px; text-align: left; }
+        td { padding: 9px 14px; border-bottom: 1px solid #e2e8f0; text-align: center; }
+        th { text-align: center; }
+        td:first-child, th:first-child { text-align: left; }
+        tr:nth-child(even) td { background: #f8f4ff; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/">UK</a><a href="/ca/">CA</a>
+            <a href="/ib/" class="active">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>Further Calculus <span class="hl-tag">HL</span></h1>
+        <p style="opacity:0.9;margin:8px 0 16px;">Related rates, implicit differentiation, slope fields, Euler's method, and logistic growth</p>
+        <span class="ib-badge">Math AI HL</span>
+        <span class="ib-badge">Topic 5 Extension</span>
+    </div>
+
+    <div class="container">
+
+        <h2>1. Related Rates</h2>
+        <p>In <strong>related rates</strong> problems, two or more quantities are related by an equation, and all change with time. We use the <strong>chain rule</strong> to relate their rates of change.</p>
+
+        <div class="formula-box">
+            <h4>Related Rates — Strategy</h4>
+            <ol>
+                <li>Identify the quantities and their rates of change</li>
+                <li>Write an equation relating the quantities (geometric formula, etc.)</li>
+                <li>Differentiate both sides with respect to time $t$ (using chain rule)</li>
+                <li>Substitute known values and solve for the desired rate</li>
+            </ol>
+            <p><strong>Chain rule reminder:</strong> $\dfrac{dV}{dt} = \dfrac{dV}{dr} \cdot \dfrac{dr}{dt}$</p>
+        </div>
+
+        <div class="worked-example">
+            <div class="example-label">Worked Example 1</div>
+            <h4>Related Rates — Expanding Oil Spill</h4>
+            <p>An oil spill spreads in a circular shape. The radius is increasing at 0.5 m/min. Find the rate at which the area is increasing when the radius is 20 m.</p>
+
+            <div class="step">
+                <div class="step-num">1</div>
+                <div><strong>Set up:</strong> Area of circle: $A = \pi r^2$. Given: $\dfrac{dr}{dt} = 0.5$ m/min. Find: $\dfrac{dA}{dt}$ when $r = 20$.</div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div><strong>Differentiate with respect to $t$:</strong> $\dfrac{dA}{dt} = 2\pi r \cdot \dfrac{dr}{dt}$</div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div><strong>Substitute:</strong> $\dfrac{dA}{dt} = 2\pi (20)(0.5) = 20\pi \approx 62.8$ m$^2$/min.</div>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <div><strong>Conclusion:</strong> When the radius is 20 m, the area is increasing at approximately <strong>62.8 m² per minute</strong>.</div>
+            </div>
+        </div>
+
+        <h2>2. Implicit Differentiation</h2>
+        <p>When a relationship between $x$ and $y$ is given implicitly (e.g., $x^2 + y^2 = 25$), we cannot always write $y$ explicitly as a function of $x$. <strong>Implicit differentiation</strong> differentiates both sides with respect to $x$, treating $y$ as a function of $x$.</p>
+
+        <div class="formula-box">
+            <h4>Key Rule for Implicit Differentiation</h4>
+            <p>When differentiating a term involving $y$ with respect to $x$, use the chain rule:</p>
+            $$\frac{d}{dx}[f(y)] = f'(y) \cdot \frac{dy}{dx}$$
+            <p><strong>Examples:</strong></p>
+            <ul>
+                <li>$\dfrac{d}{dx}[y^2] = 2y\dfrac{dy}{dx}$</li>
+                <li>$\dfrac{d}{dx}[y^3] = 3y^2\dfrac{dy}{dx}$</li>
+                <li>$\dfrac{d}{dx}[\sin y] = \cos y \cdot \dfrac{dy}{dx}$</li>
+                <li>$\dfrac{d}{dx}[xy] = x\dfrac{dy}{dx} + y$ (product rule)</li>
+            </ul>
+        </div>
+
+        <div class="worked-example">
+            <div class="example-label">Worked Example 2</div>
+            <h4>Implicit Differentiation — Finding the Slope on a Curve</h4>
+            <p>Find $\dfrac{dy}{dx}$ for the curve $x^2 + 3xy + y^2 = 7$, and find the slope at the point $(1, 1)$.</p>
+
+            <div class="step">
+                <div class="step-num">1</div>
+                <div><strong>Differentiate both sides</strong> with respect to $x$:
+                $$2x + 3\left(y + x\frac{dy}{dx}\right) + 2y\frac{dy}{dx} = 0$$
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div><strong>Expand and collect $\dfrac{dy}{dx}$ terms:</strong>
+                $$2x + 3y + 3x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0$$
+                $$\frac{dy}{dx}(3x + 2y) = -2x - 3y$$
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div><strong>Solve:</strong> $\dfrac{dy}{dx} = \dfrac{-2x-3y}{3x+2y}$</div>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <div><strong>At $(1,1)$:</strong> $\dfrac{dy}{dx} = \dfrac{-2(1)-3(1)}{3(1)+2(1)} = \dfrac{-5}{5} = -1$. The tangent has slope $-1$.</div>
+            </div>
+        </div>
+
+        <h2>3. Slope Fields and Differential Equations</h2>
+        <p>A <strong>slope field</strong> (direction field) is a visualisation of a first-order differential equation $\dfrac{dy}{dx} = f(x,y)$. At each point $(x,y)$, a short line segment is drawn with slope $f(x,y)$.</p>
+
+        <ul>
+            <li>Solution curves of the DE follow the direction of the slope segments</li>
+            <li>Different initial conditions produce different solution curves (a <strong>family of solutions</strong>)</li>
+            <li>Equilibrium solutions appear as horizontal lines where $\dfrac{dy}{dx} = 0$</li>
+        </ul>
+
+        <div class="key-insight">
+            <strong>IB Exam Tip:</strong> You may be asked to match a slope field to a DE, sketch a solution curve given an initial condition, or describe the long-run behaviour of solutions. Focus on: where is the slope zero? Positive? Negative? Does it depend on $x$, $y$, or both?
+        </div>
+
+        <h2>4. Euler's Method</h2>
+        <p>When an exact solution to a DE is difficult or impossible, we use <strong>Euler's method</strong> to approximate the solution numerically.</p>
+
+        <div class="formula-box">
+            <h4>Euler's Method Formula</h4>
+            <p>Given $\dfrac{dy}{dx} = f(x,y)$ with initial condition $y(x_0) = y_0$ and step size $h$:</p>
+            $$y_{n+1} = y_n + h \cdot f(x_n, y_n), \quad x_{n+1} = x_n + h$$
+            <ul>
+                <li>Smaller step size $h$ gives better accuracy but requires more steps</li>
+                <li>Euler's method is a <strong>first-order</strong> approximation — error per step is $O(h^2)$</li>
+                <li>Always present results in a step-by-step table for IB exams</li>
+            </ul>
+        </div>
+
+        <div class="worked-example">
+            <div class="example-label">Worked Example 3</div>
+            <h4>Euler's Method — Numerical Approximation</h4>
+            <p>Use Euler's method with step size $h=0.5$ to approximate $y(1.5)$, given $\dfrac{dy}{dx} = x+y$ and $y(0) = 1$.</p>
+
+            <div class="step">
+                <div class="step-num">1</div>
+                <div><strong>Set up the table:</strong> $f(x,y) = x+y$, starting at $(x_0, y_0) = (0, 1)$, $h = 0.5$.</div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div>
+                <table>
+                    <tr><th>Step</th><th>$x_n$</th><th>$y_n$</th><th>$f(x_n,y_n) = x_n+y_n$</th><th>$y_{n+1} = y_n + 0.5f$</th></tr>
+                    <tr><td>0</td><td>0.0</td><td>1.000</td><td>0+1 = 1.000</td><td>1.000 + 0.5(1.000) = 1.500</td></tr>
+                    <tr><td>1</td><td>0.5</td><td>1.500</td><td>0.5+1.5 = 2.000</td><td>1.500 + 0.5(2.000) = 2.500</td></tr>
+                    <tr><td>2</td><td>1.0</td><td>2.500</td><td>1.0+2.5 = 3.500</td><td>2.500 + 0.5(3.500) = 4.250</td></tr>
+                    <tr><td>3</td><td>1.5</td><td>4.250</td><td>—</td><td>—</td></tr>
+                </table>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div><strong>Result:</strong> $y(1.5) \approx 4.250$. (The exact solution is $y = 2e^x - x - 1$, giving $y(1.5) = 2e^{1.5}-2.5 \approx 6.46$ — Euler's method underestimates here due to the large step size.)</div>
+            </div>
+        </div>
+
+        <h2>5. The Logistic Differential Equation</h2>
+        <p>The <strong>logistic model</strong> describes constrained population growth — growth slows as the population approaches a carrying capacity $L$.</p>
+
+        <div class="formula-box">
+            <h4>Logistic Growth</h4>
+            <p><strong>Differential equation:</strong></p>
+            $$\frac{dP}{dt} = kP\left(1 - \frac{P}{L}\right)$$
+            <p>where $k$ = intrinsic growth rate, $L$ = carrying capacity.</p>
+            <p><strong>Key features:</strong></p>
+            <ul>
+                <li>$P \ll L$: growth is approximately exponential ($\frac{dP}{dt} \approx kP$)</li>
+                <li>$P = L/2$: growth is fastest (inflection point of the logistic curve)</li>
+                <li>$P \to L$: growth slows to zero (stable equilibrium)</li>
+                <li>$P = 0$ and $P = L$ are equilibrium solutions</li>
+            </ul>
+            <p><strong>Solution by separation of variables:</strong></p>
+            $$P(t) = \frac{L}{1 + Ae^{-kt}}, \quad A = \frac{L - P_0}{P_0}$$
+        </div>
+
+        <div class="worked-example">
+            <div class="example-label">Worked Example 4</div>
+            <h4>Solving the Logistic DE by Separation</h4>
+            <p>Solve $\dfrac{dP}{dt} = 0.2P\!\left(1 - \dfrac{P}{500}\right)$ with $P(0) = 50$. Find $P(10)$.</p>
+
+            <div class="step">
+                <div class="step-num">1</div>
+                <div><strong>Identify parameters:</strong> $k = 0.2$, $L = 500$, $P_0 = 50$.</div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div><strong>Compute $A$:</strong> $A = \dfrac{L-P_0}{P_0} = \dfrac{500-50}{50} = \dfrac{450}{50} = 9$</div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div><strong>Write solution:</strong> $P(t) = \dfrac{500}{1 + 9e^{-0.2t}}$</div>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <div><strong>Find $P(10)$:</strong> $P(10) = \dfrac{500}{1+9e^{-2}} = \dfrac{500}{1+9(0.1353)} = \dfrac{500}{1+1.218} = \dfrac{500}{2.218} \approx 225$</div>
+            </div>
+        </div>
+
+        <h2>6. Volume of Revolution (Introduction)</h2>
+        <p>When the region under $y = f(x)$ from $x=a$ to $x=b$ is rotated $360°$ about the $x$-axis, the resulting solid has volume:</p>
+
+        <div class="formula-box">
+            <h4>Disk Method — Volume of Revolution</h4>
+            $$V = \pi \int_a^b [f(x)]^2\, dx$$
+            <p>Each cross-section perpendicular to the $x$-axis is a disk of radius $y = f(x)$ and thickness $dx$, contributing volume $\pi y^2 \, dx$.</p>
+            <p><strong>About the $y$-axis:</strong> $V = \pi \int_c^d [g(y)]^2\, dy$ where $x = g(y)$.</p>
+        </div>
+
+        <div class="practice-section">
+            <h3>Practice Problems</h3>
+
+            <div class="practice-q">
+                <p><strong>1.</strong> Water flows into a conical tank (vertex down) of height 4 m and radius 2 m at 0.5 m³/min. Find the rate at which the water level rises when the depth is 1 m. [Note: Volume of cone = $\frac{1}{3}\pi r^2 h$; at depth $h$, the radius of water surface = $h/2$.]</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>$r = h/2$, so $V = \frac{1}{3}\pi (h/2)^2 h = \frac{\pi h^3}{12}$.</p>
+                        <p>$\frac{dV}{dt} = \frac{\pi h^2}{4} \cdot \frac{dh}{dt}$</p>
+                        <p>At $h=1$: $0.5 = \frac{\pi(1)}{4} \cdot \frac{dh}{dt} \Rightarrow \frac{dh}{dt} = \frac{2}{\pi} \approx 0.637$ m/min.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-q">
+                <p><strong>2.</strong> Use Euler's method with $h = 0.2$ to estimate $y(0.6)$ given $\dfrac{dy}{dx} = 2x - y$ and $y(0) = 1$. Give answers to 4 decimal places.</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>$f(x,y) = 2x - y$:</p>
+                        <p>Step 0: $x=0$, $y=1$, $f=0-1=-1$, $y_1 = 1+0.2(-1) = 0.8000$</p>
+                        <p>Step 1: $x=0.2$, $y=0.8$, $f=0.4-0.8=-0.4$, $y_2 = 0.8+0.2(-0.4) = 0.7200$</p>
+                        <p>Step 2: $x=0.4$, $y=0.72$, $f=0.8-0.72=0.08$, $y_3 = 0.72+0.2(0.08) = 0.7360$</p>
+                        <p><strong>$y(0.6) \approx 0.7360$</strong></p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-q">
+                <p><strong>3.</strong> Find the volume of the solid formed when $y = \sqrt{x}$ for $0 \leq x \leq 4$ is rotated about the $x$-axis.</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>$V = \pi \int_0^4 (\sqrt{x})^2\, dx = \pi \int_0^4 x\, dx = \pi \left[\frac{x^2}{2}\right]_0^4 = \pi \cdot \frac{16}{2} = 8\pi \approx 25.1$ cubic units.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <div style="background:#4c1d95;color:white;border-radius:10px;padding:24px;text-align:center;margin-top:40px;">
+            <h3 style="margin:0 0 10px;color:white;">Continue Learning</h3>
+            <p style="opacity:0.9;margin-bottom:18px;">Explore other IB Math AI HL topics</p>
+            <a href="/ib/" style="display:inline-block;background:#7c3aed;color:white;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:700;margin:4px;">Back to IB Hub</a>
+            <a href="ib-ai-further-number.html" style="display:inline-block;background:rgba(255,255,255,0.15);color:white;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:700;margin:4px;">Graph Theory &rarr;</a>
+        </div>
+    </div>
+
+    <div class="footer"><p>&copy; 2026 MathHub Global. All rights reserved.</p></div>
+    <script src="../assets/js/common.js"></script>
+</body>
+</html>
