@@ -434,7 +434,7 @@ CTA 배너/팝업 → 문제은행 사이트 가입
 ### [BLOG-001] 섹션별 블로그 + YouTube 추천 기능
 
 **우선순위**: 중
-**상태**: 🟡 대기 중 (2026-03-02 등록)
+**상태**: ✅ 완료 (2026-03-02)
 
 #### 배경
 - 현재 `kr/blog/`만 실질적으로 운영 중 (수학 포스트 다수)
@@ -462,16 +462,16 @@ CTA 배너/팝업 → 문제은행 사이트 가입
    - 채널 카드 형태 (썸네일 이미지 + 채널명 + 한 줄 설명 + 링크)
 
 #### 작업 체크리스트
-- [ ] `ib/blog/index.html` 생성 (IB AA/AI/HL/SL 카테고리)
-- [ ] `us/blog/index.html` 내용 채우기 (AP/SAT/AMC 카테고리 + YouTube 섹션)
-- [ ] `uk/blog/index.html` 내용 채우기 (A-Level/IGCSE/MAT/TMUA + YouTube 섹션)
-- [ ] `ca/blog/index.html` YouTube 섹션 추가
-- [ ] 각 섹션 main index.html 내비게이션에 Blog 탭 추가
+- [x] `ib/blog/index.html` 생성 (IB AA/AI/HL/SL 카테고리)
+- [x] `us/blog/index.html` 내용 채우기 (AP/SAT/AMC 카테고리 + YouTube 섹션)
+- [x] `uk/blog/index.html` 내용 채우기 (A-Level/IGCSE/MAT/TMUA + YouTube 섹션)
+- [x] `ca/blog/index.html` YouTube 섹션 추가
+- [x] 각 섹션 main index.html 내비게이션에 Blog 탭 추가
   - `us/index.html`
   - `uk/index.html`
   - `ca/index.html`
   - `ib/index.html`
-- [ ] YouTube 카드 컴포넌트 스타일 CSS 작성
+- [x] YouTube 카드 컴포넌트 스타일 CSS 작성
 
 #### 재개 방법
 이 작업을 재개하려면: **"BLOG-001 시작해줘"** 라고 말하면 바로 이어서 진행.
