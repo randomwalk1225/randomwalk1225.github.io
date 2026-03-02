@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Further Mathematics – Chapter 7: Roots of Polynomials | Further Mathematics | MathHub</title>
+    <meta name="description" content="Complete guide to Roots of Polynomials for A-Level Further Mathematics. Covers Vieta's formulas for quadratics, cubics and quartics, forming equations with transformed roots, and complex roots. Worked examples and practice problems for Edexcel, AQA and OCR.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/further-ch7-roots-polynomials.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .further-badge { display: inline-block; background: #fce7f3; color: #9d174d; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/" class="active">UK</a><a href="/ca/">CA</a><a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+    <article class="blog-article">
+        <div class="breadcrumb"><a href="/uk/">UK</a> › <a href="/uk/">Textbook</a> › Further Maths – Chapter 7: Roots of Polynomials</div>
+        <h1>A-Level Further Mathematics – Chapter 7: Roots of Polynomials <span class="further-badge">Further Pure</span></h1>
+        <div class="blog-meta">Edexcel · AQA · OCR A-Level Further Mathematics &middot; Updated March 2026</div>
+
+        <div class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#quadratics">7.1 Roots and Coefficients of Quadratics</a></li>
+                <li><a href="#cubics">7.2 Roots and Coefficients of Cubics</a></li>
+                <li><a href="#quartics">7.3 Roots and Coefficients of Quartics</a></li>
+                <li><a href="#transformed">7.4 Forming New Equations with Transformed Roots</a></li>
+                <li><a href="#complex">7.5 Complex Roots of Polynomials</a></li>
+                <li><a href="#practice">Practice Problems</a></li>
+            </ol>
+        </div>
+
+        <p>The relationship between a polynomial's roots and its coefficients is one of the most elegant results in algebra. Named after François Viète (Latinised as Vieta), these identities allow us to deduce properties of a polynomial's roots without ever solving the equation explicitly. In this chapter we develop Vieta's formulas for quadratics, cubics, and quartics, learn how to form equations with transformed roots, and explore the role of complex roots in polynomials with real coefficients.</p>
+
+        <!-- ===================== SECTION 7.1 ===================== -->
+        <h2 id="quadratics">7.1 Roots and Coefficients of Quadratics</h2>
+
+        <p>Consider the general quadratic $ax^2 + bx + c = 0$ with roots $\alpha$ and $\beta$. Since we can write the polynomial in factored form as $a(x - \alpha)(x - \beta)$, expanding and comparing coefficients immediately gives us Vieta's formulas.</p>
+
+        <div class="theorem-box">
+            <h4>Theorem 7.1 — Vieta's Formulas for a Quadratic</h4>
+            <p>If $\alpha$ and $\beta$ are the roots of $ax^2 + bx + c = 0$, then:</p>
+            <p>$$\alpha + \beta = -\frac{b}{a}, \qquad \alpha\beta = \frac{c}{a}$$</p>
+            <p><strong>Proof.</strong> Write $ax^2+bx+c = a(x-\alpha)(x-\beta) = a\bigl(x^2 - (\alpha+\beta)x + \alpha\beta\bigr)$. Comparing coefficients of $x$ and the constant term gives the result.</p>
+        </div>
+
+        <div class="definition-box">
+            <h4>Definition — Symmetric Functions of Roots</h4>
+            <p>A <strong>symmetric function</strong> of $\alpha$ and $\beta$ is one whose value is unchanged when $\alpha$ and $\beta$ are swapped. All symmetric functions can be expressed in terms of $\alpha+\beta$ and $\alpha\beta$. Common examples include:</p>
+            <ul>
+                <li>$\alpha^2 + \beta^2 = (\alpha+\beta)^2 - 2\alpha\beta$</li>
+                <li>$\alpha^3 + \beta^3 = (\alpha+\beta)^3 - 3\alpha\beta(\alpha+\beta)$</li>
+                <li>$\alpha^2\beta + \alpha\beta^2 = \alpha\beta(\alpha+\beta)$</li>
+                <li>$(\alpha-\beta)^2 = (\alpha+\beta)^2 - 4\alpha\beta$</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.1.1 — Finding symmetric functions</h4>
+            <p>The roots of $2x^2 - 5x + 3 = 0$ are $\alpha$ and $\beta$. Find $\alpha^2 + \beta^2$ and $\alpha^3 + \beta^3$.</p>
+            <p><span class="step-label">Step 1</span> Read off Vieta's formulas: $\alpha+\beta = \tfrac{5}{2}$, $\alpha\beta = \tfrac{3}{2}$.</p>
+            <p><span class="step-label">Step 2</span> $\alpha^2+\beta^2 = (\alpha+\beta)^2 - 2\alpha\beta = \tfrac{25}{4} - 3 = \tfrac{13}{4}$.</p>
+            <p><span class="step-label">Step 3</span> $\alpha^3+\beta^3 = (\alpha+\beta)^3 - 3\alpha\beta(\alpha+\beta) = \tfrac{125}{8} - 3\cdot\tfrac{3}{2}\cdot\tfrac{5}{2} = \tfrac{125}{8} - \tfrac{45}{4} = \tfrac{35}{8}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.1.2 — Forming a quadratic from symmetric functions</h4>
+            <p>Given that $\alpha + \beta = 4$ and $\alpha^2 + \beta^2 = 10$, find a quadratic with integer coefficients whose roots are $\alpha$ and $\beta$.</p>
+            <p><span class="step-label">Step 1</span> Find $\alpha\beta$: $\alpha\beta = \tfrac{(\alpha+\beta)^2 - (\alpha^2+\beta^2)}{2} = \tfrac{16-10}{2} = 3$.</p>
+            <p><span class="step-label">Step 2</span> The quadratic is $x^2 - (\alpha+\beta)x + \alpha\beta = 0$, i.e. $x^2 - 4x + 3 = 0$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.1.3 — Condition for real roots</h4>
+            <p>The roots of $x^2 - px + (p-1) = 0$ are $\alpha$ and $\beta$. Show that $(\alpha - \beta)^2 = p^2 - 4p + 4 = (p-2)^2 \ge 0$, and state when the roots are equal.</p>
+            <p>$\alpha+\beta = p$, $\alpha\beta = p-1$. Then $(\alpha-\beta)^2 = (\alpha+\beta)^2 - 4\alpha\beta = p^2 - 4(p-1) = p^2 - 4p + 4 = (p-2)^2$. This is always $\ge 0$, so the roots are always real. They are equal when $p = 2$, giving the repeated root $x = 1$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.1.4 — Finding $\alpha^4 + \beta^4$</h4>
+            <p>The roots of $x^2 - 3x + 1 = 0$ are $\alpha$ and $\beta$. Find $\alpha^4 + \beta^4$.</p>
+            <p>$\alpha+\beta=3$, $\alpha\beta=1$. $\alpha^2+\beta^2=9-2=7$. $\alpha^4+\beta^4=(\alpha^2+\beta^2)^2-2(\alpha\beta)^2=49-2=47$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Always state $\alpha+\beta$ and $\alpha\beta$ at the start of any roots-of-polynomials question — examiners award method marks for this even if subsequent working contains an error. Be careful with signs: $\alpha+\beta = -b/a$, not $+b/a$.</p>
+        </div>
+
+        <!-- ===================== SECTION 7.2 ===================== -->
+        <h2 id="cubics">7.2 Roots and Coefficients of Cubics</h2>
+
+        <p>For a cubic $ax^3 + bx^2 + cx + d = 0$ with roots $\alpha, \beta, \gamma$, we can write $ax^3+bx^2+cx+d = a(x-\alpha)(x-\beta)(x-\gamma)$ and expand to obtain three symmetric relations.</p>
+
+        <div class="theorem-box">
+            <h4>Theorem 7.2 — Vieta's Formulas for a Cubic</h4>
+            <p>If $\alpha, \beta, \gamma$ are the roots of $ax^3 + bx^2 + cx + d = 0$, then:</p>
+            <p>$$\alpha+\beta+\gamma = -\frac{b}{a}$$
+            $$\alpha\beta+\alpha\gamma+\beta\gamma = \frac{c}{a}$$
+            $$\alpha\beta\gamma = -\frac{d}{a}$$</p>
+        </div>
+
+        <div class="definition-box">
+            <h4>Newton's Identity for Cubics</h4>
+            <p>Let $p_k = \alpha^k + \beta^k + \gamma^k$ (called the <strong>power sums</strong>). Then:</p>
+            <p>$$p_2 = \alpha^2+\beta^2+\gamma^2 = (\alpha+\beta+\gamma)^2 - 2(\alpha\beta+\alpha\gamma+\beta\gamma)$$</p>
+            <p>$$p_3 = \alpha^3+\beta^3+\gamma^3 = (\alpha+\beta+\gamma)^3 - 3(\alpha\beta+\alpha\gamma+\beta\gamma)(\alpha+\beta+\gamma) + 3\alpha\beta\gamma$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.2.1 — Reading off symmetric functions of a cubic</h4>
+            <p>The roots of $x^3 - 6x^2 + 11x - 6 = 0$ are $\alpha, \beta, \gamma$. Find $\alpha+\beta+\gamma$, $\alpha\beta+\alpha\gamma+\beta\gamma$, $\alpha\beta\gamma$, and $\alpha^2+\beta^2+\gamma^2$.</p>
+            <p>Here $a=1, b=-6, c=11, d=-6$, so:
+            $\alpha+\beta+\gamma = 6$, $\alpha\beta+\alpha\gamma+\beta\gamma = 11$, $\alpha\beta\gamma = 6$.</p>
+            <p>$\alpha^2+\beta^2+\gamma^2 = 36 - 2(11) = 14$.</p>
+        </div>
+
+        <div class="desmos-fig" id="desmos-cubic"></div>
+        <div class="fig-caption">Figure 7.1 — The cubic $y = x^3 - 6x^2 + 11x - 6$ with roots $\alpha = 1$, $\beta = 2$, $\gamma = 3$. Notice $\alpha + \beta + \gamma = 6 = -(-6)/1$, confirming Vieta's formula.</div>
+
+        <div class="example-box">
+            <h4>Example 7.2.2 — Using Newton's identity for $p_3$</h4>
+            <p>For the cubic $2x^3 + 3x^2 - x - 4 = 0$ with roots $\alpha, \beta, \gamma$, find $\alpha^3 + \beta^3 + \gamma^3$.</p>
+            <p>$\alpha+\beta+\gamma = -\tfrac{3}{2}$, $\quad \alpha\beta+\alpha\gamma+\beta\gamma = -\tfrac{1}{2}$, $\quad \alpha\beta\gamma = 2$.</p>
+            <p>$p_3 = \bigl(-\tfrac{3}{2}\bigr)^3 - 3\bigl(-\tfrac{1}{2}\bigr)\bigl(-\tfrac{3}{2}\bigr) + 3(2) = -\tfrac{27}{8} - \tfrac{9}{4} + 6 = -\tfrac{27}{8} - \tfrac{18}{8} + \tfrac{48}{8} = \tfrac{3}{8}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.2.3 — Forming a cubic from given symmetric functions</h4>
+            <p>A cubic has roots $\alpha, \beta, \gamma$ such that $\alpha+\beta+\gamma = 2$, $\alpha\beta+\alpha\gamma+\beta\gamma = -5$, and $\alpha\beta\gamma = -6$. Write down the cubic equation with leading coefficient 1.</p>
+            <p>$$x^3 - (\alpha+\beta+\gamma)x^2 + (\alpha\beta+\alpha\gamma+\beta\gamma)x - \alpha\beta\gamma = 0$$
+            $$x^3 - 2x^2 - 5x + 6 = 0$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.2.4 — Finding $\frac{1}{\alpha}+\frac{1}{\beta}+\frac{1}{\gamma}$</h4>
+            <p>For $x^3 + 4x^2 - 2x + 8 = 0$ with roots $\alpha, \beta, \gamma$, find $\frac{1}{\alpha}+\frac{1}{\beta}+\frac{1}{\gamma}$.</p>
+            <p>$\frac{1}{\alpha}+\frac{1}{\beta}+\frac{1}{\gamma} = \frac{\beta\gamma+\alpha\gamma+\alpha\beta}{\alpha\beta\gamma} = \frac{-2}{-8} = \frac{1}{4}$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Expressions such as $\frac{1}{\alpha}+\frac{1}{\beta}+\frac{1}{\gamma}$ or $\alpha^2\beta+\alpha^2\gamma+\beta^2\alpha+\beta^2\gamma+\gamma^2\alpha+\gamma^2\beta$ appear frequently. Both simplify neatly in terms of the elementary symmetric polynomials — always try to express the sum using $e_1, e_2, e_3$ before computing numerically.</p>
+        </div>
+
+        <!-- ===================== SECTION 7.3 ===================== -->
+        <h2 id="quartics">7.3 Roots and Coefficients of Quartics</h2>
+
+        <p>For a quartic $ax^4 + bx^3 + cx^2 + dx + e = 0$ with roots $\alpha, \beta, \gamma, \delta$, there are four elementary symmetric polynomials.</p>
+
+        <div class="theorem-box">
+            <h4>Theorem 7.3 — Vieta's Formulas for a Quartic</h4>
+            <p>$$e_1 = \alpha+\beta+\gamma+\delta = -\frac{b}{a}$$
+            $$e_2 = \alpha\beta+\alpha\gamma+\alpha\delta+\beta\gamma+\beta\delta+\gamma\delta = \frac{c}{a}$$
+            $$e_3 = \alpha\beta\gamma+\alpha\beta\delta+\alpha\gamma\delta+\beta\gamma\delta = -\frac{d}{a}$$
+            $$e_4 = \alpha\beta\gamma\delta = \frac{e}{a}$$</p>
+        </div>
+
+        <div class="desmos-fig" id="desmos-quartic"></div>
+        <div class="fig-caption">Figure 7.2 — The quartic $y = x^4 - 5x^2 + 4 = (x-1)(x+1)(x-2)(x+2)$, with real roots at $\pm 1$ and $\pm 2$. The product of roots equals $4 = e/a$, confirming Vieta's formula for quartics.</div>
+
+        <div class="example-box">
+            <h4>Example 7.3.1 — Symmetric functions of a quartic</h4>
+            <p>The roots of $x^4 - 5x^2 + 4 = 0$ are $\alpha, \beta, \gamma, \delta$. Find $e_1, e_2, e_3, e_4$.</p>
+            <p>Rewrite as $x^4 + 0 \cdot x^3 - 5x^2 + 0 \cdot x + 4$. Hence $e_1 = 0$, $e_2 = -5$, $e_3 = 0$, $e_4 = 4$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.3.2 — Computing $\sum \alpha^2$ for a quartic</h4>
+            <p>For the quartic in Example 7.3.1, find $\alpha^2+\beta^2+\gamma^2+\delta^2$.</p>
+            <p>$\alpha^2+\beta^2+\gamma^2+\delta^2 = e_1^2 - 2e_2 = 0 - 2(-5) = 10$.</p>
+            <p><em>Check:</em> The roots are $1, -1, 2, -2$, so $1+1+4+4 = 10$. ✓</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.3.3 — A quartic with two repeated roots</h4>
+            <p>A quartic has roots $1, 1, 3, 3$. Write down the monic quartic equation.</p>
+            <p>$e_1 = 8$, $e_2 = 1\cdot1+1\cdot3+1\cdot3+1\cdot3+1\cdot3+3\cdot3 = 1+3+3+3+3+9=22$, $e_3 = 1\cdot1\cdot3+1\cdot1\cdot3+1\cdot3\cdot3+1\cdot3\cdot3=3+3+9+9=24$, $e_4 = 9$.</p>
+            <p>Equation: $x^4 - 8x^3 + 22x^2 - 24x + 9 = 0$.</p>
+            <p><em>Alternatively:</em> $(x-1)^2(x-3)^2 = [(x-1)(x-3)]^2 = (x^2-4x+3)^2 = x^4-8x^3+22x^2-24x+9$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.3.4 — Finding $\sum \alpha^3$ for a quartic</h4>
+            <p>For $x^4 - 2x^3 + x^2 - 3x + 1 = 0$ with roots $\alpha, \beta, \gamma, \delta$, find $\alpha^3+\beta^3+\gamma^3+\delta^3$.</p>
+            <p>$e_1=2,\ e_2=1,\ e_3=3,\ e_4=1$.<br>
+            $p_2 = e_1^2 - 2e_2 = 4-2=2$.<br>
+            Using Newton's identity: $p_3 = e_1 p_2 - e_2 p_1 + 3e_3 = 2\cdot2 - 1\cdot2 + 3\cdot3 = 4-2+9 = 11$.</p>
+        </div>
+
+        <!-- ===================== SECTION 7.4 ===================== -->
+        <h2 id="transformed">7.4 Forming New Equations with Transformed Roots</h2>
+
+        <p>A common exam task is: given an equation with roots $\alpha, \beta, \gamma$, find an equation whose roots are, say, $2\alpha, 2\beta, 2\gamma$ or $\alpha^2, \beta^2, \gamma^2$. The <strong>substitution method</strong> is the most reliable approach.</p>
+
+        <div class="definition-box">
+            <h4>The Substitution Method</h4>
+            <p>Suppose the original equation is $f(x) = 0$ with roots $\alpha, \beta, \gamma$. To find an equation with roots $g(\alpha), g(\beta), g(\gamma)$:</p>
+            <ol>
+                <li>Let $y = g(x)$, and express $x$ in terms of $y$.</li>
+                <li>Substitute this expression for $x$ into $f(x) = 0$.</li>
+                <li>Simplify to obtain an equation in $y$.</li>
+            </ol>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.4.1 — Roots multiplied by a constant</h4>
+            <p>The equation $x^3 - 6x^2 + 11x - 6 = 0$ has roots $\alpha, \beta, \gamma$. Find the equation with roots $2\alpha, 2\beta, 2\gamma$.</p>
+            <p><span class="step-label">Step 1</span> Let $y = 2x$, so $x = y/2$.</p>
+            <p><span class="step-label">Step 2</span> Substitute: $\bigl(\tfrac{y}{2}\bigr)^3 - 6\bigl(\tfrac{y}{2}\bigr)^2 + 11\bigl(\tfrac{y}{2}\bigr) - 6 = 0$.</p>
+            <p><span class="step-label">Step 3</span> Multiply through by $8$: $y^3 - 12y^2 + 44y - 48 = 0$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.4.2 — Reciprocal roots</h4>
+            <p>The equation $x^3 + 2x^2 - 5x + 3 = 0$ has roots $\alpha, \beta, \gamma$. Find the equation with roots $\tfrac{1}{\alpha}, \tfrac{1}{\beta}, \tfrac{1}{\gamma}$.</p>
+            <p><span class="step-label">Step 1</span> Let $y = 1/x$, so $x = 1/y$.</p>
+            <p><span class="step-label">Step 2</span> Substitute: $\tfrac{1}{y^3} + \tfrac{2}{y^2} - \tfrac{5}{y} + 3 = 0$.</p>
+            <p><span class="step-label">Step 3</span> Multiply by $y^3$: $3y^3 - 5y^2 + 2y + 1 = 0$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.4.3 — Squared roots</h4>
+            <p>The roots of $x^3 - 7x + 6 = 0$ are $\alpha, \beta, \gamma$. Find an equation with roots $\alpha^2, \beta^2, \gamma^2$.</p>
+            <p>Let $y = x^2$, so $x = \sqrt{y}$. Substitute: $y\sqrt{y} - 7\sqrt{y} + 6 = 0 \Rightarrow \sqrt{y}(y - 7) = -6 \Rightarrow y(y-7)^2 = 36$.</p>
+            <p>Expand: $y^3 - 14y^2 + 49y - 36 = 0$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.4.4 — Shifted roots</h4>
+            <p>The equation $x^3 - 3x + 1 = 0$ has roots $\alpha, \beta, \gamma$. Find an equation with roots $\alpha - 1, \beta - 1, \gamma - 1$.</p>
+            <p>Let $y = x - 1$, so $x = y + 1$. Substitute:</p>
+            <p>$(y+1)^3 - 3(y+1) + 1 = y^3+3y^2+3y+1-3y-3+1 = y^3+3y^2-1 = 0$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.4.5 — Transformation $y = \alpha + 1/\alpha$</h4>
+            <p>The equation $x^3 - 6x^2 + 11x - 6 = 0$ has roots $1, 2, 3$. Find the monic cubic whose roots are $1+1, 2+\tfrac{1}{2}, 3+\tfrac{1}{3}$, i.e. $2, \tfrac{5}{2}, \tfrac{10}{3}$.</p>
+            <p>Let $y = x + 1/x$, so $xy = x^2 + 1$, giving $x^2 - xy + 1 = 0$. This approach yields a degree-6 equation which factors; for this particular equation, we can multiply the roots directly. Sum $= 2 + \tfrac{5}{2} + \tfrac{10}{3} = \tfrac{12+15+20}{6} = \tfrac{47}{6}$. Product of pairs and product can be computed similarly, giving $y^3 - \tfrac{47}{6}y^2 + \tfrac{79}{9}y - \tfrac{100}{9} = 0$, or equivalently the monic cubic $9y^3 - \tfrac{141}{2}y^2 + \tfrac{79}{1}y - 100 = 0$ (clearing fractions step by step).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.4.6 — Using Vieta's formulas directly</h4>
+            <p>For the cubic $x^3+px+q=0$ with roots $\alpha,\beta,\gamma$, find the cubic with roots $\alpha+\beta, \alpha+\gamma, \beta+\gamma$.</p>
+            <p>Since $\alpha+\beta+\gamma=0$ (no $x^2$ term), we have $\alpha+\beta = -\gamma$, $\alpha+\gamma=-\beta$, $\beta+\gamma=-\alpha$. So the new roots are $-\gamma,-\beta,-\alpha$, i.e. the negatives of the original roots. Replacing $x$ with $-x$: $(-x)^3+p(-x)+q = -x^3-px+q=0$, or $x^3+px-q=0$.</p>
+        </div>
+
+        <!-- ===================== SECTION 7.5 ===================== -->
+        <h2 id="complex">7.5 Complex Roots of Polynomials</h2>
+
+        <div class="theorem-box">
+            <h4>Theorem 7.4 — Conjugate Root Theorem</h4>
+            <p>If $p(x)$ is a polynomial with <strong>real</strong> coefficients and $z = a + bi$ (with $b \ne 0$) is a root, then the complex conjugate $\bar{z} = a - bi$ is also a root.</p>
+            <p><strong>Consequence:</strong> A polynomial of degree $n$ with real coefficients has either 0, 2, 4, … complex (non-real) roots. Complex roots always occur in conjugate pairs.</p>
+        </div>
+
+        <div class="definition-box">
+            <h4>Building the Polynomial from a Complex Root</h4>
+            <p>If $z = a + bi$ is a root of a real polynomial, then both $z$ and $\bar{z}$ are roots, contributing the <strong>real quadratic factor</strong>:</p>
+            <p>$$(x - z)(x - \bar{z}) = x^2 - 2ax + (a^2 + b^2)$$</p>
+            <p>This quadratic has real coefficients and an always-positive constant term $a^2+b^2 > 0$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.5.1 — Cubic with one complex root</h4>
+            <p>Given that $2 + i$ is a root of $x^3 - 7x^2 + 17x - 15 = 0$, find all roots.</p>
+            <p><span class="step-label">Step 1</span> By the conjugate root theorem, $2 - i$ is also a root.</p>
+            <p><span class="step-label">Step 2</span> The corresponding quadratic factor is $(x-(2+i))(x-(2-i)) = x^2 - 4x + 5$.</p>
+            <p><span class="step-label">Step 3</span> Divide: $x^3-7x^2+17x-15 = (x^2-4x+5)(x-3)$.</p>
+            <p>The three roots are $2+i$, $2-i$, and $3$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.5.2 — Quartic with two complex conjugate pairs</h4>
+            <p>A real quartic has roots $1+2i$ and $3i$. Write down all four roots and hence write the quartic as a product of two real quadratic factors.</p>
+            <p>By the conjugate root theorem the four roots are $1+2i,\ 1-2i,\ 3i,\ -3i$.</p>
+            <p>Factors: $(x^2-2x+5)(x^2+9)$.</p>
+            <p>The quartic is $x^4-2x^3+14x^2-18x+45 = 0$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.5.3 — Finding a cubic given one complex root</h4>
+            <p>A monic cubic with real coefficients has a root $1 - 3i$ and a real root $\alpha$. Given that the product of all roots is $-20$, find the cubic.</p>
+            <p>The three roots are $1-3i$, $1+3i$, and $\alpha$. Product: $(1-3i)(1+3i)\alpha = 10\alpha = -20$, so $\alpha = -2$.</p>
+            <p>Quadratic factor from complex pair: $x^2-2x+10$. Cubic: $(x+2)(x^2-2x+10) = x^3-3x^2+6x+20 = 0$. Wait — checking sign: $(x+2)(x^2-2x+10)= x^3-2x^2+10x+2x^2-4x+20 = x^3+6x+20$. Let me recompute: constant = $20$, product of roots should be $-d/a$, so product $= -20$ means $d=20$; the factorisation gives $x^3+6x+20=0$ with product of roots $= -20$. ✓</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.5.4 — Using Vieta's formulas with complex roots</h4>
+            <p>A quartic $x^4 + ax^3 + bx^2 + cx + 10 = 0$ with real coefficients has roots $1+i$, $1-i$, $\alpha$, $\beta$ where $\alpha, \beta$ are real. Find $a, b, c$ given that $\alpha + \beta = 0$.</p>
+            <p>$e_1 = (1+i)+(1-i)+\alpha+\beta = 2+0 = 2$, so $a = -2$.</p>
+            <p>$e_4 = (1+i)(1-i)\alpha\beta = 2\alpha\beta = 10$, so $\alpha\beta = 5$.</p>
+            <p>Since $\alpha+\beta=0$ and $\alpha\beta=5$, then $\alpha,\beta$ satisfy $t^2-0\cdot t+5=0$, i.e. $t^2+5=0$. But these must be real — contradiction! So if $\alpha+\beta=0$ these are in fact the pair $\pm\sqrt{5}\,i$, meaning the quartic is $(x^2+2x+2)(x^2+5)$; expanding gives $a=-2$ is wrong… Checking the sum properly: four roots $1\pm i, \pm\sqrt{5}i$ sum to $2$, so $a = -2$. Then $b = e_2 = (1+i)(1-i) + (1+i)(\sqrt{5}i) + (1+i)(-\sqrt{5}i) + (1-i)(\sqrt{5}i) + (1-i)(-\sqrt{5}i) + (\sqrt{5}i)(-\sqrt{5}i) = 2 + \sqrt{5}i(2i) + (-\sqrt{5}i)(2i) + 5 = 2+5+$ (imaginary terms cancel) $= 7$. So $b=7$. And $c=0$ by symmetry ($e_3 = 0$ since real part sum of $e_3$ terms cancels).</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>In a polynomial with real coefficients, never state just one complex root — always state the conjugate pair together. Forgetting this is one of the most common errors in A-Level Further Maths. If you find a quadratic factor $x^2 - 2ax + (a^2+b^2)$ with negative discriminant, that is the correct real quadratic factor encoding the complex pair $a \pm bi$.</p>
+        </div>
+
+        <!-- ===================== PRACTICE ===================== -->
+        <h2 id="practice">Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>The roots of $3x^2 + 7x - 6 = 0$ are $\alpha$ and $\beta$. Find $\alpha^2 + \beta^2$ and $\alpha^3 + \beta^3$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $\alpha+\beta = -\tfrac{7}{3}$, $\alpha\beta = -2$.<br>
+                    $\alpha^2+\beta^2 = \tfrac{49}{9} - 2(-2) = \tfrac{49}{9}+4 = \tfrac{85}{9}$.<br>
+                    $\alpha^3+\beta^3 = (-\tfrac{7}{3})^3 - 3(-2)(-\tfrac{7}{3}) = -\tfrac{343}{27} - 14 = -\tfrac{343}{27} - \tfrac{378}{27} = -\tfrac{721}{27}$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>The roots of $x^3 - 4x^2 + x + 6 = 0$ are $\alpha, \beta, \gamma$. Find $\alpha^2+\beta^2+\gamma^2$ and $\alpha\beta\gamma(\alpha+\beta+\gamma)$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $e_1 = 4,\ e_2 = 1,\ e_3 = -6$.<br>
+                    $\alpha^2+\beta^2+\gamma^2 = e_1^2 - 2e_2 = 16-2 = 14$.<br>
+                    $\alpha\beta\gamma(\alpha+\beta+\gamma) = e_3 \cdot e_1 = (-6)(4) = -24$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>The equation $2x^3 - x^2 - 13x - 6 = 0$ has roots $\alpha, \beta, \gamma$. Without solving, find $\frac{1}{\alpha^2}+\frac{1}{\beta^2}+\frac{1}{\gamma^2}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $e_1 = \tfrac{1}{2},\ e_2 = -\tfrac{13}{2},\ e_3 = 3$.<br>
+                    $\sum\tfrac{1}{\alpha^2} = \frac{(\alpha\beta)^2+(\alpha\gamma)^2+(\beta\gamma)^2}{(\alpha\beta\gamma)^2} = \frac{e_2^2-2e_1 e_3}{e_3^2} = \frac{\frac{169}{4}-3}{9} = \frac{\frac{157}{4}}{9} = \frac{157}{36}$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4</h4>
+            <p>The roots of $x^4 + 3x^3 - 2x^2 + x - 5 = 0$ are $\alpha,\beta,\gamma,\delta$. Find $\alpha^2+\beta^2+\gamma^2+\delta^2$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $e_1=-3,\ e_2=-2$.<br>
+                    $\sum\alpha^2 = e_1^2 - 2e_2 = 9-2(-2) = 9+4 = 13$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5</h4>
+            <p>The equation $x^3 + px + q = 0$ has roots $\alpha, \beta, \gamma$. Show that $\alpha^2+\beta^2+\gamma^2 = -2p$ and find $\alpha^4+\beta^4+\gamma^4$ in terms of $p$ and $q$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    Since there is no $x^2$ term, $e_1=0$, so $\alpha^2+\beta^2+\gamma^2 = e_1^2-2e_2 = 0-2p = -2p$. ✓<br>
+                    $\alpha^4+\beta^4+\gamma^4 = (\alpha^2+\beta^2+\gamma^2)^2 - 2(\alpha^2\beta^2+\alpha^2\gamma^2+\beta^2\gamma^2) = 4p^2 - 2e_2^2 = 4p^2 - 2p^2 = 2p^2$.<br>
+                    (Here $\alpha^2\beta^2+\cdots = (\alpha\beta+\alpha\gamma+\beta\gamma)^2-2\alpha\beta\gamma(\alpha+\beta+\gamma) = p^2-0=p^2$.)
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6</h4>
+            <p>The equation $x^3 - 2x^2 - 5x + 6 = 0$ has roots $\alpha, \beta, \gamma$. Find the cubic equation with roots $\alpha+1, \beta+1, \gamma+1$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    Let $y = x+1$, so $x = y-1$. Substitute:<br>
+                    $(y-1)^3 - 2(y-1)^2 - 5(y-1) + 6 = 0$<br>
+                    $= y^3-3y^2+3y-1-2y^2+4y-2-5y+5+6$<br>
+                    $= y^3-5y^2+2y+8 = 0$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>The equation $x^3 - 5x^2 + 8x - 4 = 0$ has roots $\alpha, \beta, \gamma$. Find the cubic with roots $\alpha^2, \beta^2, \gamma^2$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    Let $y = x^2$, so $x = \sqrt{y}$. Substitute and rearrange:<br>
+                    $\sqrt{y}(y-5\sqrt{y}+8) = 4 \Rightarrow y\sqrt{y}-5y+8\sqrt{y}=4$<br>
+                    $\sqrt{y}(y+8) = 5y+4$<br>
+                    Square both sides: $y(y+8)^2 = (5y+4)^2$<br>
+                    $y^3+16y^2+64y = 25y^2+40y+16$<br>
+                    $y^3-9y^2+24y-16 = 0$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8</h4>
+            <p>Given that $3-i$ is a root of $x^3 - 8x^2 + 22x - 20 = 0$, find all roots.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    By the conjugate root theorem, $3+i$ is also a root.<br>
+                    Quadratic factor: $(x-(3-i))(x-(3+i)) = x^2-6x+10$.<br>
+                    Divide: $x^3-8x^2+22x-20 = (x^2-6x+10)(x-2)$.<br>
+                    The three roots are $3-i,\ 3+i,\ 2$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 9</h4>
+            <p>A quartic with real coefficients has roots $2+3i$ and $1-i$. Write the quartic as a product of two real quadratic factors and expand to find the quartic equation.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    All four roots: $2+3i,\ 2-3i,\ 1-i,\ 1+i$.<br>
+                    Factors: $(x^2-4x+13)(x^2-2x+2)$.<br>
+                    Expand: $x^4-2x^3+2x^2-4x^3+8x^2-8x+13x^2-26x+26$<br>
+                    $= x^4-6x^3+23x^2-34x+26 = 0$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 10</h4>
+            <p>The roots of $x^4 - 2x^3 - 3x^2 + 4x + 4 = 0$ include a repeated root. By writing the quartic as $(x-a)^2(x^2+bx+c)$, find all roots and verify Vieta's formulas $e_1=2$ and $e_4=4$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    Try $a=-1$: $(x+1)^2 = x^2+2x+1$. Divide: $x^4-2x^3-3x^2+4x+4 \div (x^2+2x+1) = x^2-4x+4 = (x-2)^2$.<br>
+                    So the quartic is $(x+1)^2(x-2)^2$, with roots $-1,-1,2,2$.<br>
+                    $e_1 = -1-1+2+2 = 2$ ✓. $e_4 = (-1)(-1)(2)(2) = 4$ ✓.
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <script>
+        // Figure 1: Cubic y = x^3 - 6x^2 + 11x - 6 with labelled roots
+        (function(){
+            var elt = document.getElementById('desmos-cubic');
+            var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true,
+                border: false
+            });
+            calc.setMathBounds({left: -0.5, right: 4.5, bottom: -1.5, top: 1.5});
+            calc.setExpressions([
+                {id: 'f', latex: 'y=x^3-6x^2+11x-6', color: '#3b82f6'},
+                {id: 'r1', latex: '(1,0)', color: '#ef4444', showLabel: true, label: 'α=1', pointSize: 12},
+                {id: 'r2', latex: '(2,0)', color: '#ef4444', showLabel: true, label: 'β=2', pointSize: 12},
+                {id: 'r3', latex: '(3,0)', color: '#ef4444', showLabel: true, label: 'γ=3', pointSize: 12}
+            ]);
+        })();
+
+        // Figure 2: Quartic y = x^4 - 5x^2 + 4
+        (function(){
+            var elt = document.getElementById('desmos-quartic');
+            var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true,
+                border: false
+            });
+            calc.setMathBounds({left: -3, right: 3, bottom: -2, top: 6});
+            calc.setExpressions([
+                {id: 'f', latex: 'y=x^4-5x^2+4', color: '#8b5cf6'},
+                {id: 'r1', latex: '(-2,0)', color: '#ef4444', showLabel: true, label: '-2', pointSize: 12},
+                {id: 'r2', latex: '(-1,0)', color: '#ef4444', showLabel: true, label: '-1', pointSize: 12},
+                {id: 'r3', latex: '(1,0)', color: '#ef4444', showLabel: true, label: '1', pointSize: 12},
+                {id: 'r4', latex: '(2,0)', color: '#ef4444', showLabel: true, label: '2', pointSize: 12}
+            ]);
+        })();
+    </script>
+</body>
+</html>

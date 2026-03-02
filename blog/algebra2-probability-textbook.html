@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Algebra 2: Probability &amp; Statistics - Chapter 9 | MathHub</title>
+    <meta name="description" content="Algebra 2 Chapter 9 covering counting principles, permutations, combinations, probability basics, compound events, and binomial probability. Includes interactive Desmos graphs, worked examples, and practice problems with solutions.">
+    <meta name="keywords" content="algebra 2 probability, permutations, combinations, counting principle, binomial probability, Pascal's triangle, conditional probability, compound events, algebra 2 textbook, probability and statistics">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/blog/algebra2-probability-textbook.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/blog/algebra2-probability-textbook.html">
+    <meta property="og:title" content="Algebra 2: Probability &amp; Statistics - Chapter 9">
+    <meta property="og:description" content="Comprehensive Algebra 2 chapter on probability and statistics. Counting principles, permutations, combinations, compound events, and binomial probability with interactive Desmos graphs.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Algebra 2: Probability &amp; Statistics - Chapter 9">
+    <meta name="twitter:description" content="Learn probability and statistics with interactive graphs, worked examples, and practice problems.">
+
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Algebra 2: Probability & Statistics - Chapter 9",
+        "description": "Algebra 2 chapter covering counting principles, permutations, combinations, probability basics, compound events, and binomial probability with interactive Desmos graphs.",
+        "url": "https://mathhub.io/blog/algebra2-probability-textbook.html",
+        "datePublished": "2026-02-23",
+        "dateModified": "2026-02-23",
+        "publisher": {
+            "@type": "Organization",
+            "name": "MathHub Global"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "MathHub Global"
+        },
+        "educationalLevel": "Algebra 2",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Probability" },
+            { "@type": "Thing", "name": "Statistics" },
+            { "@type": "Thing", "name": "Combinatorics" },
+            { "@type": "Thing", "name": "Algebra 2" }
+        ]
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Desmos API -->
+    
+
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <style>
+        .blog-article {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 16px;
+        }
+        .blog-article h1 {
+            font-size: 2.2em;
+            color: #1e3a5f;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .blog-meta {
+            color: #64748b;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .blog-article h2 {
+            font-size: 1.5em;
+            color: #1e3a5f;
+            margin: 36px 0 16px;
+            padding-top: 12px;
+        }
+        .blog-article h3 {
+            font-size: 1.2em;
+            color: #334155;
+            margin: 24px 0 10px;
+        }
+        .blog-article p {
+            color: #334155;
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+        .blog-article ul, .blog-article ol {
+            margin: 12px 0 20px 24px;
+            color: #334155;
+        }
+        .blog-article li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+        .breadcrumb {
+            font-size: 0.85em;
+            color: #94a3b8;
+            margin-bottom: 16px;
+        }
+        .breadcrumb a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .definition-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2563eb;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .definition-box h4 {
+            color: #1d4ed8;
+            margin: 0 0 12px;
+            font-size: 1.05em;
+        }
+        .definition-box p {
+            color: #334155;
+            line-height: 1.8;
+        }
+        .theorem-box {
+            background: #fff3cd;
+            border-left: 4px solid #f59e0b;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .theorem-box h4 {
+            color: #b45309;
+            margin: 0 0 12px;
+            font-size: 1.05em;
+        }
+        .theorem-box p {
+            color: #334155;
+            line-height: 1.8;
+        }
+        .example-box {
+            background: #f0f9ff;
+            border-left: 4px solid #3b82f6;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .example-box h4 {
+            color: #1d4ed8;
+            margin: 0 0 12px;
+            font-size: 1.05em;
+        }
+        .example-box p, .example-box li {
+            color: #334155;
+            line-height: 1.8;
+        }
+        .tip-box {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .tip-box strong { color: #15803d; }
+        .tip-box p {
+            color: #334155;
+            line-height: 1.8;
+        }
+        .practice-problem {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 20px 24px;
+            margin: 16px 0;
+            border-radius: 8px;
+        }
+        .practice-problem h4 {
+            color: #1e3a5f;
+            margin: 0 0 10px;
+            font-size: 1em;
+        }
+        .practice-problem p {
+            margin-bottom: 12px;
+        }
+        details.solution {
+            margin-top: 12px;
+        }
+        details.solution summary {
+            cursor: pointer;
+            color: #3b82f6;
+            font-weight: 600;
+            font-size: 0.95em;
+            padding: 6px 0;
+            user-select: none;
+        }
+        details.solution summary:hover {
+            color: #1d4ed8;
+        }
+        .solution-content {
+            padding: 16px 20px;
+            background: #f0f7ff;
+            border-radius: 6px;
+            margin-top: 8px;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .solution-content p {
+            margin-bottom: 10px;
+        }
+        .toc {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px 28px;
+            margin: 24px 0 36px;
+        }
+        .toc h3 {
+            color: #1e3a5f;
+            margin: 0 0 12px;
+            font-size: 1.1em;
+        }
+        .toc ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .toc li {
+            margin-bottom: 6px;
+        }
+        .toc a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 48px 0 20px;
+            padding: 20px 0;
+            border-top: 2px solid #e2e8f0;
+        }
+        .chapter-nav a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+        .chapter-nav a:hover {
+            text-decoration: underline;
+        }
+        .chapter-nav .disabled {
+            color: #cbd5e1;
+            cursor: default;
+        }
+        .desmos-container {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 24px 0;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+        .desmos-container > div {
+            width: 100%;
+            height: 400px;
+        }
+        .desmos-caption {
+            padding: 12px 16px;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.9em;
+            color: #64748b;
+            text-align: center;
+        }
+        .pascal-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .pascal-table td {
+            padding: 8px 4px;
+            font-size: 0.95em;
+            color: #334155;
+        }
+        .pascal-table .highlight {
+            background: #e7f3ff;
+            font-weight: 700;
+            color: #1d4ed8;
+            border-radius: 4px;
+        }
+        .tree-diagram {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+            color: #334155;
+            white-space: pre;
+            overflow-x: auto;
+        }
+    </style>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/" class="active">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="/us/">US</a> &rsaquo; <a href="/blog">Blog</a> &rsaquo; Algebra 2: Chapter 9
+        </div>
+
+        <h1>Chapter 9: Probability &amp; Statistics</h1>
+        <div class="blog-meta">Algebra 2 &middot; Updated February 2026 &middot; 30 min read</div>
+
+        <p>Probability is the branch of mathematics that measures how likely an event is to occur. From predicting election outcomes and weather forecasts to calculating odds in games and assessing risk in business decisions, probability provides the mathematical framework for reasoning about uncertainty. In this chapter, we develop the foundational tools of counting, then apply them to compute probabilities for a wide variety of situations. We conclude by connecting the binomial theorem&mdash;a topic from algebra&mdash;to the binomial probability distribution, illustrating how algebraic structures have direct statistical applications.</p>
+
+        <nav class="toc">
+            <h3>Table of Contents</h3>
+            <ol>
+                <li><a href="#section-9-1">9.1 Counting Principles</a></li>
+                <li><a href="#section-9-2">9.2 Permutations</a></li>
+                <li><a href="#section-9-3">9.3 Combinations</a></li>
+                <li><a href="#section-9-4">9.4 Probability Basics</a></li>
+                <li><a href="#section-9-5">9.5 Compound Events</a></li>
+                <li><a href="#section-9-6">9.6 Binomial Theorem &amp; Probability</a></li>
+                <li><a href="#section-9-7">9.7 Practice Problems</a></li>
+            </ol>
+        </nav>
+
+        <!-- ==================== SECTION 9.1 ==================== -->
+        <h2 id="section-9-1">9.1 Counting Principles</h2>
+
+        <p>Before we can calculate probabilities, we need reliable methods for counting the number of possible outcomes. The most important tool is the <strong>Fundamental Counting Principle</strong>, which provides a systematic way to count the total number of outcomes when a process consists of multiple stages.</p>
+
+        <div class="theorem-box">
+            <h4>Fundamental Counting Principle</h4>
+            <p>If a procedure can be broken into $k$ successive stages, where stage 1 can be performed in $n_1$ ways, stage 2 in $n_2$ ways, and so on through stage $k$ in $n_k$ ways, then the total number of ways to perform the entire procedure is:</p>
+            <p>$$n_1 \times n_2 \times n_3 \times \cdots \times n_k$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 1: Outfit Choices</h4>
+            <p>A student has 4 shirts, 3 pairs of pants, and 2 pairs of shoes. How many different outfits can the student create?</p>
+            <p><strong>Solution:</strong> Each outfit requires choosing one item from each category. By the Fundamental Counting Principle:</p>
+            <p>$$4 \times 3 \times 2 = 24 \text{ outfits}$$</p>
+        </div>
+
+        <h3>Tree Diagrams</h3>
+
+        <p>A <strong>tree diagram</strong> is a visual tool that displays all possible outcomes of a multi-stage process. Each branch represents one possible choice at each stage, and the complete paths from root to leaves represent the full outcomes.</p>
+
+        <div class="example-box">
+            <h4>Example 2: Coin Flips</h4>
+            <p>List all possible outcomes when flipping a coin three times.</p>
+            <p><strong>Solution:</strong> We build a tree diagram. At each stage, the coin lands on Heads (H) or Tails (T).</p>
+<div class="tree-diagram">Flip 1      Flip 2      Flip 3      Outcome
+  H --------- H --------- H          HHH
+  |            |            T          HHT
+  |            T --------- H          HTH
+  |                         T          HTT
+  T --------- H --------- H          THH
+               |            T          THT
+               T --------- H          TTH
+                            T          TTT</div>
+            <p>There are $2 \times 2 \times 2 = 8$ total outcomes, confirming the Fundamental Counting Principle.</p>
+        </div>
+
+        <div class="tip-box">
+            <p><strong>Tip:</strong> Tree diagrams become impractical for large problems (e.g., 10 coin flips yield 1024 paths). Use them for small cases to build intuition, and rely on counting formulas for larger problems.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3: License Plates</h4>
+            <p>A license plate consists of 3 letters followed by 4 digits. How many distinct plates are possible if repetition is allowed?</p>
+            <p><strong>Solution:</strong> There are 26 choices for each letter position and 10 choices for each digit position:</p>
+            <p>$$26 \times 26 \times 26 \times 10 \times 10 \times 10 \times 10 = 26^3 \times 10^4 = 17{,}576 \times 10{,}000 = 175{,}760{,}000$$</p>
+        </div>
+
+        <!-- ==================== SECTION 9.2 ==================== -->
+        <h2 id="section-9-2">9.2 Permutations</h2>
+
+        <p>A <strong>permutation</strong> is an arrangement of objects where the <em>order matters</em>. Choosing a president, vice president, and treasurer from a group of 10 people is a permutation problem because the order of selection determines who gets which role.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Factorial</h4>
+            <p>For any positive integer $n$, the <strong>factorial</strong> of $n$ is defined as:</p>
+            <p>$$n! = n \times (n-1) \times (n-2) \times \cdots \times 2 \times 1$$</p>
+            <p>By convention, $0! = 1$.</p>
+        </div>
+
+        <p>Factorials grow extremely quickly: $5! = 120$, $10! = 3{,}628{,}800$, and $20!$ exceeds $2.4 \times 10^{18}$.</p>
+
+        <div class="theorem-box">
+            <h4>Permutation Formula</h4>
+            <p>The number of permutations of $r$ objects chosen from $n$ distinct objects is:</p>
+            <p>$$P(n, r) = \frac{n!}{(n-r)!}$$</p>
+            <p>This counts the number of ordered arrangements of $r$ items selected from a pool of $n$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4: Race Finishers</h4>
+            <p>In a race with 8 runners, how many ways can 1st, 2nd, and 3rd place be awarded?</p>
+            <p><strong>Solution:</strong> We need the number of permutations of 3 items from 8:</p>
+            <p>$$P(8, 3) = \frac{8!}{(8-3)!} = \frac{8!}{5!} = 8 \times 7 \times 6 = 336$$</p>
+        </div>
+
+        <h3>Permutations with Repetition</h3>
+
+        <p>When some objects in the arrangement are identical, we must account for the fact that rearranging identical items does not produce a distinguishable new arrangement.</p>
+
+        <div class="theorem-box">
+            <h4>Permutations with Repeated Elements</h4>
+            <p>The number of distinguishable permutations of $n$ objects, where there are $n_1$ identical objects of type 1, $n_2$ of type 2, ..., and $n_k$ of type $k$, is:</p>
+            <p>$$\frac{n!}{n_1! \cdot n_2! \cdot n_3! \cdots n_k!}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5: Arranging Letters</h4>
+            <p>How many distinguishable ways can the letters of MISSISSIPPI be arranged?</p>
+            <p><strong>Solution:</strong> The word has 11 letters: M (1), I (4), S (4), P (2).</p>
+            <p>$$\frac{11!}{1! \cdot 4! \cdot 4! \cdot 2!} = \frac{39{,}916{,}800}{1 \cdot 24 \cdot 24 \cdot 2} = \frac{39{,}916{,}800}{1{,}152} = 34{,}650$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6: Committee Officers</h4>
+            <p>From a club of 12 members, how many ways can a president, vice president, secretary, and treasurer be chosen?</p>
+            <p><strong>Solution:</strong> Each position is distinct, so order matters:</p>
+            <p>$$P(12, 4) = \frac{12!}{8!} = 12 \times 11 \times 10 \times 9 = 11{,}880$$</p>
+        </div>
+
+        <!-- ==================== SECTION 9.3 ==================== -->
+        <h2 id="section-9-3">9.3 Combinations</h2>
+
+        <p>A <strong>combination</strong> is a selection of objects where the <em>order does not matter</em>. Choosing 3 students from a class of 20 to form a committee (where all members have equal roles) is a combination problem. The key question to ask is: "Does rearranging the selection produce something different?" If no, use combinations.</p>
+
+        <div class="theorem-box">
+            <h4>Combination Formula</h4>
+            <p>The number of combinations of $r$ objects chosen from $n$ distinct objects is:</p>
+            <p>$$C(n, r) = \binom{n}{r} = \frac{n!}{r!(n-r)!}$$</p>
+            <p>The notation $\binom{n}{r}$ is read "$n$ choose $r$."</p>
+        </div>
+
+        <p>Notice the relationship between permutations and combinations: since every combination of $r$ objects can be arranged in $r!$ different ways, we have $P(n,r) = C(n,r) \times r!$, or equivalently $C(n,r) = P(n,r) / r!$.</p>
+
+        <div class="example-box">
+            <h4>Example 7: Choosing a Committee</h4>
+            <p>From a group of 10 people, how many ways can a 4-person committee be formed?</p>
+            <p><strong>Solution:</strong> Order does not matter (all committee members are equal):</p>
+            <p>$$\binom{10}{4} = \frac{10!}{4! \cdot 6!} = \frac{10 \times 9 \times 8 \times 7}{4 \times 3 \times 2 \times 1} = \frac{5{,}040}{24} = 210$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8: Lottery Numbers</h4>
+            <p>A lottery requires choosing 6 numbers from 1 to 49. How many possible tickets exist?</p>
+            <p><strong>Solution:</strong> The order in which numbers are drawn does not matter:</p>
+            <p>$$\binom{49}{6} = \frac{49!}{6! \cdot 43!} = \frac{49 \times 48 \times 47 \times 46 \times 45 \times 44}{720} = 13{,}983{,}816$$</p>
+            <p>This means the probability of winning with one ticket is approximately $1$ in $14$ million.</p>
+        </div>
+
+        <h3>Pascal's Triangle and Combinations</h3>
+
+        <p><strong>Pascal's Triangle</strong> is a triangular array of numbers where each entry is the sum of the two entries directly above it. The entries in row $n$ (counting from row 0) are exactly the values $\binom{n}{0}, \binom{n}{1}, \ldots, \binom{n}{n}$.</p>
+
+        <table class="pascal-table">
+            <tr><td colspan="9">Row 0:</td><td class="highlight">1</td><td colspan="9"></td></tr>
+            <tr><td colspan="8">Row 1:</td><td class="highlight">1</td><td></td><td class="highlight">1</td><td colspan="8"></td></tr>
+            <tr><td colspan="7">Row 2:</td><td class="highlight">1</td><td></td><td class="highlight">2</td><td></td><td class="highlight">1</td><td colspan="7"></td></tr>
+            <tr><td colspan="6">Row 3:</td><td class="highlight">1</td><td></td><td class="highlight">3</td><td></td><td class="highlight">3</td><td></td><td class="highlight">1</td><td colspan="6"></td></tr>
+            <tr><td colspan="5">Row 4:</td><td class="highlight">1</td><td></td><td class="highlight">4</td><td></td><td class="highlight">6</td><td></td><td class="highlight">4</td><td></td><td class="highlight">1</td><td colspan="5"></td></tr>
+            <tr><td colspan="4">Row 5:</td><td class="highlight">1</td><td></td><td class="highlight">5</td><td></td><td class="highlight">10</td><td></td><td class="highlight">10</td><td></td><td class="highlight">5</td><td></td><td class="highlight">1</td><td colspan="4"></td></tr>
+            <tr><td colspan="3">Row 6:</td><td class="highlight">1</td><td></td><td class="highlight">6</td><td></td><td class="highlight">15</td><td></td><td class="highlight">20</td><td></td><td class="highlight">15</td><td></td><td class="highlight">6</td><td></td><td class="highlight">1</td><td colspan="3"></td></tr>
+        </table>
+
+        <p>The identity underlying Pascal's Triangle is:</p>
+        <p>$$\binom{n}{r} = \binom{n-1}{r-1} + \binom{n-1}{r}$$</p>
+        <p>This recursive relationship, known as <strong>Pascal's Identity</strong>, states that choosing $r$ items from $n$ can be split into two cases: either a particular item is included (leaving $\binom{n-1}{r-1}$ ways to choose the rest) or it is excluded (leaving $\binom{n-1}{r}$ ways).</p>
+
+        <div class="tip-box">
+            <p><strong>Permutation vs. Combination:</strong> Ask yourself: "Does order matter?" If arranging officers (president, VP, etc.), order matters &mdash; use $P(n,r)$. If choosing a committee with equal roles, order does not matter &mdash; use $C(n,r)$.</p>
+        </div>
+
+        <!-- ==================== SECTION 9.4 ==================== -->
+        <h2 id="section-9-4">9.4 Probability Basics</h2>
+
+        <p>With counting tools established, we can now define probability rigorously. Probability assigns a numerical value between 0 and 1 (inclusive) to events, where 0 means the event is impossible and 1 means it is certain.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Sample Space and Events</h4>
+            <p>The <strong>sample space</strong> $S$ is the set of all possible outcomes of an experiment. An <strong>event</strong> $A$ is any subset of the sample space. The probability of event $A$ is:</p>
+            <p>$$P(A) = \frac{\text{number of favorable outcomes}}{\text{total number of outcomes}} = \frac{|A|}{|S|}$$</p>
+            <p>This formula applies when all outcomes in $S$ are equally likely.</p>
+        </div>
+
+        <p>Key properties that every probability function must satisfy:</p>
+        <ul>
+            <li>For any event $A$: $0 \leq P(A) \leq 1$</li>
+            <li>The certain event has probability 1: $P(S) = 1$</li>
+            <li>The impossible event has probability 0: $P(\emptyset) = 0$</li>
+        </ul>
+
+        <div class="theorem-box">
+            <h4>Complement Rule</h4>
+            <p>The <strong>complement</strong> of event $A$, written $A'$ (or $\bar{A}$ or $A^c$), is the event that $A$ does <em>not</em> occur. The complement rule states:</p>
+            <p>$$P(A') = 1 - P(A)$$</p>
+            <p>This is often the easiest way to calculate a probability when the complementary event is simpler to count.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9: Rolling a Die</h4>
+            <p>A fair six-sided die is rolled. Find the probability of rolling (a) a 4, (b) an even number, (c) a number greater than 4.</p>
+            <p><strong>Solution:</strong> The sample space is $S = \{1, 2, 3, 4, 5, 6\}$, with $|S| = 6$.</p>
+            <p>(a) $P(4) = \dfrac{1}{6}$</p>
+            <p>(b) Even numbers: $\{2, 4, 6\}$, so $P(\text{even}) = \dfrac{3}{6} = \dfrac{1}{2}$</p>
+            <p>(c) Greater than 4: $\{5, 6\}$, so $P(> 4) = \dfrac{2}{6} = \dfrac{1}{3}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10: Card Drawing</h4>
+            <p>A card is drawn from a standard 52-card deck. What is the probability of <em>not</em> drawing a heart?</p>
+            <p><strong>Solution:</strong> There are 13 hearts, so $P(\text{heart}) = \frac{13}{52} = \frac{1}{4}$. By the complement rule:</p>
+            <p>$$P(\text{not a heart}) = 1 - P(\text{heart}) = 1 - \frac{1}{4} = \frac{3}{4}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11: At Least One</h4>
+            <p>What is the probability of getting at least one head when flipping 3 fair coins?</p>
+            <p><strong>Solution:</strong> "At least one head" is the complement of "no heads" (all tails). From our tree diagram in Example 2, there are $2^3 = 8$ total outcomes and exactly 1 outcome with all tails (TTT).</p>
+            <p>$$P(\text{at least one head}) = 1 - P(\text{no heads}) = 1 - \frac{1}{8} = \frac{7}{8}$$</p>
+        </div>
+
+        <!-- ==================== SECTION 9.5 ==================== -->
+        <h2 id="section-9-5">9.5 Compound Events</h2>
+
+        <p>Many probability problems involve combining two or more events. Understanding how events relate to each other&mdash;whether they overlap, exclude each other, or depend on one another&mdash;is essential for computing compound probabilities.</p>
+
+        <h3>Union: "A or B"</h3>
+
+        <div class="theorem-box">
+            <h4>Addition Rule (General)</h4>
+            <p>For any two events $A$ and $B$:</p>
+            <p>$$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$</p>
+            <p>We subtract $P(A \cap B)$ to avoid double-counting outcomes that belong to both events.</p>
+        </div>
+
+        <div class="definition-box">
+            <h4>Definition: Mutually Exclusive Events</h4>
+            <p>Two events $A$ and $B$ are <strong>mutually exclusive</strong> (or <strong>disjoint</strong>) if they cannot both occur: $A \cap B = \emptyset$. In this case, the addition rule simplifies to:</p>
+            <p>$$P(A \cup B) = P(A) + P(B)$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12: Cards &mdash; Union</h4>
+            <p>A card is drawn from a standard deck. What is the probability of drawing a king or a heart?</p>
+            <p><strong>Solution:</strong> Let $A$ = king and $B$ = heart. These events overlap (the king of hearts is both).</p>
+            <p>$P(A) = \frac{4}{52}$, $P(B) = \frac{13}{52}$, $P(A \cap B) = \frac{1}{52}$</p>
+            <p>$$P(A \cup B) = \frac{4}{52} + \frac{13}{52} - \frac{1}{52} = \frac{16}{52} = \frac{4}{13}$$</p>
+        </div>
+
+        <h3>Intersection: "A and B"</h3>
+
+        <div class="definition-box">
+            <h4>Definition: Independent Events</h4>
+            <p>Two events $A$ and $B$ are <strong>independent</strong> if the occurrence of one does not affect the probability of the other. Mathematically, $A$ and $B$ are independent if and only if:</p>
+            <p>$$P(A \cap B) = P(A) \cdot P(B)$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 13: Independent Events</h4>
+            <p>A coin is flipped and a die is rolled. What is the probability of getting heads and a 5?</p>
+            <p><strong>Solution:</strong> The coin flip and die roll are independent events.</p>
+            <p>$$P(\text{H and 5}) = P(\text{H}) \cdot P(\text{5}) = \frac{1}{2} \times \frac{1}{6} = \frac{1}{12}$$</p>
+        </div>
+
+        <h3>Conditional Probability</h3>
+
+        <p>When events are <em>not</em> independent, the probability of one event may change based on whether another event has occurred. Conditional probability quantifies this dependence.</p>
+
+        <div class="theorem-box">
+            <h4>Conditional Probability Formula</h4>
+            <p>The probability of event $A$ given that event $B$ has occurred is:</p>
+            <p>$$P(A \mid B) = \frac{P(A \cap B)}{P(B)}, \quad P(B) \neq 0$$</p>
+            <p>Equivalently, the <strong>General Multiplication Rule</strong> states:</p>
+            <p>$$P(A \cap B) = P(B) \cdot P(A \mid B)$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 14: Drawing Without Replacement</h4>
+            <p>A bag contains 5 red and 3 blue marbles. Two marbles are drawn without replacement. What is the probability that both are red?</p>
+            <p><strong>Solution:</strong> Let $A$ = first marble is red and $B$ = second marble is red.</p>
+            <p>$P(A) = \dfrac{5}{8}$. After removing one red marble, there are 4 red marbles among 7 total: $P(B \mid A) = \dfrac{4}{7}$.</p>
+            <p>$$P(A \cap B) = P(A) \cdot P(B \mid A) = \frac{5}{8} \times \frac{4}{7} = \frac{20}{56} = \frac{5}{14}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 15: Conditional Probability from a Table</h4>
+            <p>In a class of 30 students, 18 play sports and 12 are on the honor roll. Of those who play sports, 8 are on the honor roll. If a student is selected at random and is known to play sports, what is the probability the student is on the honor roll?</p>
+            <p><strong>Solution:</strong> Let $S$ = plays sports, $H$ = honor roll. We need $P(H \mid S)$.</p>
+            <p>$$P(H \mid S) = \frac{P(H \cap S)}{P(S)} = \frac{8/30}{18/30} = \frac{8}{18} = \frac{4}{9}$$</p>
+        </div>
+
+        <div class="tip-box">
+            <p><strong>Independence Test:</strong> Events $A$ and $B$ are independent if $P(A \mid B) = P(A)$. In Example 15, $P(H) = 12/30 = 2/5$ while $P(H \mid S) = 4/9 \neq 2/5$, so playing sports and being on the honor roll are <em>not</em> independent in this class.</p>
+        </div>
+
+        <!-- ==================== SECTION 9.6 ==================== -->
+        <h2 id="section-9-6">9.6 Binomial Theorem &amp; Probability</h2>
+
+        <p>The Binomial Theorem from algebra and the binomial probability distribution from statistics are deeply connected. Both are built on the combination formula $\binom{n}{k}$, which is why the distribution is called "binomial."</p>
+
+        <h3>The Binomial Theorem</h3>
+
+        <div class="theorem-box">
+            <h4>Binomial Theorem</h4>
+            <p>For any real numbers $a$ and $b$ and any non-negative integer $n$:</p>
+            <p>$$(a + b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k = \binom{n}{0}a^n + \binom{n}{1}a^{n-1}b + \binom{n}{2}a^{n-2}b^2 + \cdots + \binom{n}{n}b^n$$</p>
+            <p>The coefficients $\binom{n}{k}$ are called <strong>binomial coefficients</strong> and correspond exactly to the entries in row $n$ of Pascal's Triangle.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 16: Expanding $(x + 2)^4$</h4>
+            <p><strong>Solution:</strong> Using the binomial theorem with $a = x$, $b = 2$, $n = 4$:</p>
+            <p>$$(x + 2)^4 = \binom{4}{0}x^4(2)^0 + \binom{4}{1}x^3(2)^1 + \binom{4}{2}x^2(2)^2 + \binom{4}{3}x^1(2)^3 + \binom{4}{4}x^0(2)^4$$</p>
+            <p>$$= 1 \cdot x^4 + 4 \cdot 2x^3 + 6 \cdot 4x^2 + 4 \cdot 8x + 1 \cdot 16$$</p>
+            <p>$$= x^4 + 8x^3 + 24x^2 + 32x + 16$$</p>
+        </div>
+
+        <h3>Binomial Probability Distribution</h3>
+
+        <p>A <strong>binomial experiment</strong> is a series of $n$ independent trials, each with exactly two outcomes (success or failure), where the probability of success $p$ is the same for every trial. The number of successes $X$ follows a binomial distribution.</p>
+
+        <div class="theorem-box">
+            <h4>Binomial Probability Formula</h4>
+            <p>If $X$ is the number of successes in $n$ independent trials, each with probability of success $p$ and probability of failure $q = 1 - p$, then:</p>
+            <p>$$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$$</p>
+            <p>for $k = 0, 1, 2, \ldots, n$.</p>
+        </div>
+
+        <p>Notice the connection: if we expand $(p + q)^n$ using the Binomial Theorem, the term $\binom{n}{k} p^k q^{n-k}$ gives the probability of exactly $k$ successes. Since $p + q = 1$, the sum of all terms equals $1^n = 1$, confirming that the probabilities form a valid distribution.</p>
+
+        <div class="example-box">
+            <h4>Example 17: Free Throw Shooting</h4>
+            <p>A basketball player makes 70% of her free throws. If she shoots 5 free throws, what is the probability that she makes exactly 3?</p>
+            <p><strong>Solution:</strong> Here $n = 5$, $k = 3$, $p = 0.7$, and $q = 0.3$.</p>
+            <p>$$P(X = 3) = \binom{5}{3}(0.7)^3(0.3)^2 = 10 \times 0.343 \times 0.09 = 10 \times 0.03087 = 0.3087$$</p>
+            <p>The probability is approximately $30.87\%$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 18: Quality Control</h4>
+            <p>A factory produces items with a 5% defect rate. In a random sample of 10 items, what is the probability that (a) exactly 1 is defective, (b) at most 1 is defective?</p>
+            <p><strong>Solution:</strong> Here $n = 10$ and $p = 0.05$ (probability of defect).</p>
+            <p>(a) $P(X = 1) = \binom{10}{1}(0.05)^1(0.95)^9 = 10 \times 0.05 \times 0.6302 \approx 0.3151$</p>
+            <p>(b) "At most 1" means $P(X = 0) + P(X = 1)$:</p>
+            <p>$P(X = 0) = \binom{10}{0}(0.05)^0(0.95)^{10} = 1 \times 1 \times 0.5987 \approx 0.5987$</p>
+            <p>$$P(X \leq 1) = 0.5987 + 0.3151 = 0.9138$$</p>
+            <p>There is about a 91.4% chance of finding at most 1 defective item.</p>
+        </div>
+
+        <h3>Interactive: Binomial Distribution</h3>
+
+        <p>Use the sliders below to adjust the number of trials $n$ and the probability of success $p$. Observe how the shape of the binomial distribution changes: as $p$ increases, the distribution shifts right; as $n$ increases, the distribution spreads and becomes more symmetric.</p>
+
+        <div class="desmos-container">
+            <div id="binomial-graph"></div>
+            <div class="desmos-caption">Binomial Distribution: Adjust $n$ (number of trials) and $p$ (probability of success) to see how $P(X = k)$ changes.</div>
+        </div>
+
+        <div class="tip-box">
+            <p><strong>Key Properties of the Binomial Distribution:</strong></p>
+            <p>Mean: $\mu = np$ &nbsp;&nbsp;&nbsp; Standard deviation: $\sigma = \sqrt{np(1-p)}$</p>
+            <p>For Example 17: $\mu = 5(0.7) = 3.5$ free throws made on average, with $\sigma = \sqrt{5(0.7)(0.3)} \approx 1.02$.</p>
+        </div>
+
+        <!-- ==================== SECTION 9.7 ==================== -->
+        <h2 id="section-9-7">9.7 Practice Problems</h2>
+
+        <p>Test your understanding with the following problems. Each covers a concept from this chapter. Try to solve each problem before revealing the solution.</p>
+
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>A restaurant offers 5 appetizers, 8 entrees, and 4 desserts. How many different three-course meals (one appetizer, one entree, one dessert) are possible?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>By the Fundamental Counting Principle:</p>
+                    <p>$$5 \times 8 \times 4 = 160 \text{ meals}$$</p>
+                    <p>$$\boxed{160}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>How many ways can 6 books be arranged on a shelf?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>This is a permutation of all 6 distinct objects:</p>
+                    <p>$$6! = 6 \times 5 \times 4 \times 3 \times 2 \times 1 = 720$$</p>
+                    <p>$$\boxed{720}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>How many distinguishable arrangements are there of the letters in BANANA?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>BANANA has 6 letters: B (1), A (3), N (2).</p>
+                    <p>$$\frac{6!}{1! \cdot 3! \cdot 2!} = \frac{720}{1 \cdot 6 \cdot 2} = \frac{720}{12} = 60$$</p>
+                    <p>$$\boxed{60}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4</h4>
+            <p>A committee of 5 is to be chosen from 9 men and 7 women. How many committees have exactly 3 men and 2 women?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Choose 3 men from 9 and 2 women from 7:</p>
+                    <p>$$\binom{9}{3} \times \binom{7}{2} = \frac{9!}{3! \cdot 6!} \times \frac{7!}{2! \cdot 5!} = 84 \times 21 = 1{,}764$$</p>
+                    <p>$$\boxed{1{,}764}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5</h4>
+            <p>Two dice are rolled. What is the probability that the sum is 7?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>The total sample space for two dice is $6 \times 6 = 36$ outcomes.</p>
+                    <p>Outcomes that sum to 7: $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$ &mdash; that is 6 outcomes.</p>
+                    <p>$$P(\text{sum} = 7) = \frac{6}{36} = \frac{1}{6}$$</p>
+                    <p>$$\boxed{\dfrac{1}{6}}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6</h4>
+            <p>A jar contains 4 red, 6 green, and 5 blue marbles. If one marble is drawn at random, what is the probability of drawing a red or blue marble?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Total marbles: $4 + 6 + 5 = 15$. Red and blue are mutually exclusive events.</p>
+                    <p>$$P(\text{red or blue}) = P(\text{red}) + P(\text{blue}) = \frac{4}{15} + \frac{5}{15} = \frac{9}{15} = \frac{3}{5}$$</p>
+                    <p>$$\boxed{\dfrac{3}{5}}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>A card is drawn from a standard deck. What is the probability it is a face card (J, Q, K) or a diamond?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Let $F$ = face card and $D$ = diamond. There are 12 face cards, 13 diamonds, and 3 face cards that are also diamonds (J, Q, K of diamonds).</p>
+                    <p>$$P(F \cup D) = P(F) + P(D) - P(F \cap D) = \frac{12}{52} + \frac{13}{52} - \frac{3}{52} = \frac{22}{52} = \frac{11}{26}$$</p>
+                    <p>$$\boxed{\dfrac{11}{26}}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8</h4>
+            <p>A bag has 8 white and 4 black balls. Two balls are drawn without replacement. What is the probability that both are white?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Using conditional probability (General Multiplication Rule):</p>
+                    <p>$$P(\text{both white}) = P(W_1) \cdot P(W_2 \mid W_1) = \frac{8}{12} \times \frac{7}{11} = \frac{56}{132} = \frac{14}{33}$$</p>
+                    <p><strong>Alternative (combinations):</strong></p>
+                    <p>$$P = \frac{\binom{8}{2}}{\binom{12}{2}} = \frac{28}{66} = \frac{14}{33}$$</p>
+                    <p>$$\boxed{\dfrac{14}{33}}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 9</h4>
+            <p>Expand $(2x - 3)^4$ using the Binomial Theorem.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Apply the Binomial Theorem with $a = 2x$, $b = -3$, $n = 4$:</p>
+                    <p>$$(2x - 3)^4 = \sum_{k=0}^{4}\binom{4}{k}(2x)^{4-k}(-3)^k$$</p>
+                    <p>$k=0$: $\binom{4}{0}(2x)^4(-3)^0 = 1 \cdot 16x^4 \cdot 1 = 16x^4$</p>
+                    <p>$k=1$: $\binom{4}{1}(2x)^3(-3)^1 = 4 \cdot 8x^3 \cdot (-3) = -96x^3$</p>
+                    <p>$k=2$: $\binom{4}{2}(2x)^2(-3)^2 = 6 \cdot 4x^2 \cdot 9 = 216x^2$</p>
+                    <p>$k=3$: $\binom{4}{3}(2x)^1(-3)^3 = 4 \cdot 2x \cdot (-27) = -216x$</p>
+                    <p>$k=4$: $\binom{4}{4}(2x)^0(-3)^4 = 1 \cdot 1 \cdot 81 = 81$</p>
+                    <p>$$\boxed{16x^4 - 96x^3 + 216x^2 - 216x + 81}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 10</h4>
+            <p>A multiple-choice test has 8 questions, each with 4 choices. If a student guesses on every question, what is the probability of getting exactly 5 correct?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>This is a binomial probability problem with $n = 8$, $k = 5$, $p = \frac{1}{4} = 0.25$.</p>
+                    <p>$$P(X = 5) = \binom{8}{5}(0.25)^5(0.75)^3$$</p>
+                    <p>$$= 56 \times (9.7656 \times 10^{-4}) \times 0.421875$$</p>
+                    <p>$$= 56 \times 4.1199 \times 10^{-4}$$</p>
+                    <p>$$\approx 0.02307$$</p>
+                    <p>The probability is approximately $2.3\%$.</p>
+                    <p>$$\boxed{\approx 0.0231}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 11</h4>
+            <p>In how many ways can a hand of 5 cards be dealt from a 52-card deck such that all 5 cards are of the same suit (a flush)?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>There are 4 suits. For each suit, choose 5 cards from the 13 available:</p>
+                    <p>$$4 \times \binom{13}{5} = 4 \times 1{,}287 = 5{,}148$$</p>
+                    <p>The probability of a flush is:</p>
+                    <p>$$P(\text{flush}) = \frac{5{,}148}{\binom{52}{5}} = \frac{5{,}148}{2{,}598{,}960} \approx 0.00198$$</p>
+                    <p>(Note: this count includes straight flushes and royal flushes.)</p>
+                    <p>$$\boxed{5{,}148 \text{ flush hands}}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 12</h4>
+            <p>A coin is biased so that $P(\text{heads}) = 0.6$. The coin is flipped 10 times. Find (a) the expected number of heads, (b) the standard deviation, and (c) $P(X = 7)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>(a) Expected value: $\mu = np = 10(0.6) = 6$</p>
+                    <p>(b) Standard deviation: $\sigma = \sqrt{np(1-p)} = \sqrt{10(0.6)(0.4)} = \sqrt{2.4} \approx 1.549$</p>
+                    <p>(c) Binomial probability:</p>
+                    <p>$$P(X = 7) = \binom{10}{7}(0.6)^7(0.4)^3 = 120 \times 0.0279936 \times 0.064 = 120 \times 0.001792 \approx 0.2150$$</p>
+                    <p>$$\boxed{\mu = 6, \quad \sigma \approx 1.549, \quad P(X=7) \approx 0.215}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Chapter Navigation -->
+        <div class="chapter-nav">
+            <a href="#">&larr; Chapter 8: Sequences &amp; Series</a>
+            <a href="#">Chapter 10: Matrices &amp; Systems &rarr;</a>
+        </div>
+    </article>
+
+    <div class="footer">
+        <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+    </div>
+
+    <!-- Desmos Graph Initialization -->
+    <script>
+        // Binomial Distribution Bar Chart
+        var binomialEl = document.getElementById('binomial-graph');
+        if (binomialEl) {
+            var calc = Desmos.GraphingCalculator(binomialEl, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: true,
+                xAxisLabel: 'k (number of successes)',
+                yAxisLabel: 'P(X = k)'
+            });
+
+            // Sliders for n and p
+            calc.setExpression({id: 'n', latex: 'n=8', sliderBounds: {min: 1, max: 20, step: 1}});
+            calc.setExpression({id: 'p', latex: 'p=0.5', sliderBounds: {min: 0.01, max: 0.99, step: 0.01}});
+
+            // Factorial helper using gamma-like product
+            // Desmos supports nCr natively
+            // Binomial PMF as a point list using polygon/bar approach
+            // We use a list comprehension to plot bars
+
+            // Plot individual P(X=k) points
+            calc.setExpression({
+                id: 'binom_points',
+                latex: 'y=\\operatorname{nCr}(n,x)\\cdot p^{x}\\cdot\\left(1-p\\right)^{n-x}',
+                color: '#2563eb'
+            });
+
+            // Use points with stems for bar chart effect
+            calc.setExpression({
+                id: 'binom_bars',
+                latex: '\\left(k,\\ \\operatorname{nCr}\\left(n,k\\right)\\cdot p^{k}\\cdot\\left(1-p\\right)^{\\left(n-k\\right)}\\right)',
+                color: '#2563eb',
+                pointStyle: Desmos.Styles.POINT,
+                pointSize: 12
+            });
+            calc.setExpression({id: 'k_list', latex: 'k=\\left[0,1,...,n\\right]'});
+
+            // Vertical lines from x-axis to each point (bar stems)
+            calc.setExpression({
+                id: 'stems',
+                latex: '\\left(k,\\ t\\cdot\\operatorname{nCr}\\left(n,k\\right)\\cdot p^{k}\\cdot\\left(1-p\\right)^{\\left(n-k\\right)}\\right)',
+                color: '#2563eb',
+                parametricDomain: {min: '0', max: '1'},
+                lineWidth: 3
+            });
+            calc.setExpression({id: 't_param', latex: 't=\\left[0,0.01,...,1\\right]'});
+
+            // Set viewport
+            calc.setMathBounds({left: -1, right: 21, bottom: -0.02, top: 0.5});
+
+            // Mean line
+            calc.setExpression({
+                id: 'mean_line',
+                latex: 'x=n\\cdot p',
+                color: '#dc2626',
+                lineStyle: Desmos.Styles.DASHED,
+                lineWidth: 1.5
+            });
+        }
+    </script>
+</body>
+</html>

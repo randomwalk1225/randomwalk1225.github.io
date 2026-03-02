@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number &amp; Algebra — IB Math AA | MathHub</title>
+    <meta name="description" content="IB Math AA Topic 1: Number and Algebra. Sequences, logarithms, binomial theorem, proof by induction, and partial fractions with worked examples.">
+    <meta name="keywords" content="IB Math AA, number algebra, arithmetic sequences, geometric sequences, binomial theorem, proof by induction, partial fractions, logarithms">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/blog/ib-aa-number-algebra-textbook.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/blog/ib-aa-number-algebra-textbook.html">
+    <meta property="og:title" content="Number &amp; Algebra — IB Math AA | MathHub">
+    <meta property="og:description" content="IB Math AA Topic 1: Sequences, logarithms, binomial theorem, proof by induction.">
+    <meta property="og:site_name" content="MathHub Global">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Number & Algebra — IB Math AA",
+        "description": "IB Math AA Topic 1: Number and Algebra covering sequences, logarithms, binomial theorem, and proof by induction.",
+        "url": "https://mathhub.io/blog/ib-aa-number-algebra-textbook.html",
+        "datePublished": "2026-03-01",
+        "dateModified": "2026-03-01",
+        "publisher": {"@type": "Organization", "name": "MathHub Global"},
+        "author": {"@type": "Organization", "name": "MathHub Global"},
+        "educationalLevel": "IB",
+        "learningResourceType": "Textbook Chapter"
+    }
+    </script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <!-- MathJax -->
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <style>
+        body { font-family: 'Georgia', serif; line-height: 1.8; color: #1e293b; background: #f8fafc; }
+        .page-header { background: linear-gradient(135deg, #1e3a5f, #0f6b5b); color: white; padding: 50px 20px; text-align: center; }
+        .page-header .breadcrumb { font-size: 0.85em; opacity: 0.8; margin-bottom: 12px; }
+        .page-header .breadcrumb a { color: white; text-decoration: none; }
+        .page-header h1 { font-size: 2.2em; margin: 0 0 10px; }
+        .page-header .subtitle { opacity: 0.9; font-size: 1.05em; }
+        .ib-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.8em; margin: 8px 4px 0; }
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px 60px; }
+        h2 { color: #1e3a5f; border-bottom: 2px solid #0f6b5b; padding-bottom: 8px; margin-top: 48px; }
+        h3 { color: #0f6b5b; margin-top: 32px; }
+        p { color: #334155; line-height: 1.8; margin-bottom: 16px; }
+        ul, ol { color: #334155; margin: 12px 0 20px 24px; }
+        li { margin-bottom: 8px; line-height: 1.7; }
+        .formula-box { background: #f0fdf4; border: 1px solid #86efac; border-left: 4px solid #0f6b5b; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+        .formula-box h4 { color: #0f6b5b; margin: 0 0 12px; font-size: 1em; text-transform: uppercase; letter-spacing: 0.05em; }
+        .worked-example { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 24px; margin: 24px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+        .worked-example .example-label { font-size: 0.8em; font-weight: 700; color: #0f6b5b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+        .worked-example h4 { color: #1e3a5f; margin: 0 0 16px; }
+        .solution-steps { margin-top: 16px; }
+        .step { display: flex; gap: 16px; margin-bottom: 14px; align-items: flex-start; }
+        .step-num { background: #0f6b5b; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85em; flex-shrink: 0; margin-top: 2px; }
+        .practice-section { background: #eff6ff; border-radius: 10px; padding: 24px; margin: 40px 0; }
+        .practice-section h3 { color: #1e3a5f; margin-top: 0; }
+        .practice-q { background: white; border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; }
+        .practice-q .q-num { font-weight: 700; color: #0f6b5b; }
+        details.solution-toggle { margin-top: 10px; }
+        details.solution-toggle summary { cursor: pointer; color: #0f6b5b; font-weight: 600; font-size: 0.9em; }
+        details.solution-toggle .sol-body { background: #f0fdf4; border-radius: 6px; padding: 14px; margin-top: 8px; }
+        .hl-note { background: #dbeafe; border-left: 4px solid #1e3a5f; border-radius: 6px; padding: 14px 18px; margin: 20px 0; font-size: 0.9em; }
+        .hl-note strong { color: #1e3a5f; }
+        .key-insight { background: #fef9c3; border-left: 4px solid #d97706; border-radius: 6px; padding: 14px 18px; margin: 20px 0; }
+        .footer { text-align: center; padding: 30px; color: #64748b; border-top: 1px solid #e2e8f0; margin-top: 60px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="/ib/" class="active">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="breadcrumb">
+            <a href="/ib/">IB Math</a> &rsaquo; Number &amp; Algebra
+        </div>
+        <h1>Number &amp; Algebra</h1>
+        <p class="subtitle">Sequences, Logarithms, Binomial Theorem &amp; Proof</p>
+        <div>
+            <span class="ib-badge">Math AA SL/HL</span>
+            <span class="ib-badge">Topic 1</span>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <h2>1. Arithmetic &amp; Geometric Sequences</h2>
+
+        <h3>Arithmetic Sequences</h3>
+        <p>An <strong>arithmetic sequence</strong> has a constant difference $d$ between consecutive terms. If the first term is $u_1$, the $n$-th term and sum of $n$ terms are:</p>
+
+        <div class="formula-box">
+            <h4>Arithmetic Sequence Formulas</h4>
+            <p>$$u_n = u_1 + (n-1)d$$</p>
+            <p>$$S_n = \frac{n}{2}(2u_1 + (n-1)d) = \frac{n}{2}(u_1 + u_n)$$</p>
+        </div>
+
+        <h3>Geometric Sequences</h3>
+        <p>A <strong>geometric sequence</strong> has a constant ratio $r$ between consecutive terms. The $n$-th term, sum of $n$ terms, and infinite sum (when $|r| < 1$) are:</p>
+
+        <div class="formula-box">
+            <h4>Geometric Sequence Formulas</h4>
+            <p>$$u_n = u_1 \cdot r^{n-1}$$</p>
+            <p>$$S_n = \frac{u_1(1 - r^n)}{1 - r}, \quad r \neq 1$$</p>
+            <p>$$S_\infty = \frac{u_1}{1 - r}, \quad |r| < 1$$</p>
+        </div>
+
+        <div class="key-insight">
+            <strong>Key Insight:</strong> The infinite sum $S_\infty$ only exists when $|r| < 1$. If $|r| \geq 1$, the series diverges (no finite sum).
+        </div>
+
+        <h2>2. Exponents &amp; Logarithms</h2>
+
+        <p>Logarithms are the inverse of exponential functions. The key identity is: $\log_a b = c \iff a^c = b$.</p>
+
+        <div class="formula-box">
+            <h4>Laws of Logarithms</h4>
+            <ul>
+                <li>$\log_a(xy) = \log_a x + \log_a y$</li>
+                <li>$\log_a\!\left(\dfrac{x}{y}\right) = \log_a x - \log_a y$</li>
+                <li>$\log_a(x^n) = n\log_a x$</li>
+                <li><strong>Change of base:</strong> $\log_a x = \dfrac{\ln x}{\ln a} = \dfrac{\log x}{\log a}$</li>
+            </ul>
+        </div>
+
+        <p>To solve exponential equations, take logarithms of both sides:</p>
+        <p>$$2^x = 5 \implies x\ln 2 = \ln 5 \implies x = \frac{\ln 5}{\ln 2} \approx 2.322$$</p>
+
+        <h2>3. Binomial Theorem</h2>
+
+        <p>The binomial theorem expands $(a + b)^n$ for positive integer $n$:</p>
+
+        <div class="formula-box">
+            <h4>Binomial Theorem</h4>
+            <p>$$(a+b)^n = \sum_{r=0}^{n} \binom{n}{r} a^{n-r}b^r$$</p>
+            <p>where $\displaystyle\binom{n}{r} = \frac{n!}{r!(n-r)!}$</p>
+        </div>
+
+        <p>The general term (the $(r+1)$-th term) is: $T_{r+1} = \binom{n}{r} a^{n-r} b^r$</p>
+
+        <p><strong>Pascal's Triangle</strong> gives the coefficients: row $n$ gives the coefficients for $(a+b)^n$.</p>
+
+        <h2>4. Proof by Mathematical Induction (HL)</h2>
+
+        <div class="hl-note">
+            <strong>HL Only:</strong> Proof by induction is assessed at Higher Level. SL students should understand sequences and series but do not need to write formal proofs.
+        </div>
+
+        <p>Proof by induction has two steps:</p>
+        <ol>
+            <li><strong>Base Case:</strong> Verify the statement is true for $n = 1$ (or the starting value).</li>
+            <li><strong>Inductive Step:</strong> Assume the statement is true for $n = k$ (inductive hypothesis), then prove it is true for $n = k+1$.</li>
+        </ol>
+
+        <div class="formula-box">
+            <h4>Classic Example: Sum of First n Integers</h4>
+            <p>Prove: $\displaystyle\sum_{i=1}^{n} i = \frac{n(n+1)}{2}$</p>
+            <p><strong>Base case ($n=1$):</strong> LHS $= 1$. RHS $= \frac{1 \cdot 2}{2} = 1$. ✓</p>
+            <p><strong>Inductive step:</strong> Assume true for $n = k$: $\sum_{i=1}^{k} i = \frac{k(k+1)}{2}$.</p>
+            <p>Then $\sum_{i=1}^{k+1} i = \frac{k(k+1)}{2} + (k+1) = \frac{k(k+1) + 2(k+1)}{2} = \frac{(k+1)(k+2)}{2}$. ✓</p>
+            <p>This is exactly the formula with $n = k+1$, so by induction the result holds for all $n \geq 1$.</p>
+        </div>
+
+        <h2>5. Partial Fractions (HL)</h2>
+
+        <div class="hl-note">
+            <strong>HL Only:</strong> Partial fraction decomposition is required for HL, particularly for integration.
+        </div>
+
+        <p>To decompose a rational function, write it as a sum of simpler fractions:</p>
+        <p>$$\frac{f(x)}{(x-a)(x-b)} = \frac{A}{x-a} + \frac{B}{x-b}$$</p>
+        <p>Multiply both sides by $(x-a)(x-b)$ and substitute $x = a$ and $x = b$ to find $A$ and $B$.</p>
+
+        <p><strong>Repeated factor:</strong> $\dfrac{f(x)}{(x-a)^2} = \dfrac{A}{x-a} + \dfrac{B}{(x-a)^2}$</p>
+
+        <!-- WORKED EXAMPLES -->
+        <h2>Worked Examples</h2>
+
+        <div class="worked-example">
+            <div class="example-label">Worked Example 1</div>
+            <h4>Geometric Series — Finding the Sum to Infinity</h4>
+            <p>A geometric sequence has first term $u_1 = 12$ and common ratio $r = \frac{1}{3}$. Find (a) the 5th term, (b) the sum of the first 6 terms, and (c) the sum to infinity.</p>
+            <div class="solution-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div><strong>Part (a): 5th term</strong><br>$u_5 = 12 \cdot \left(\frac{1}{3}\right)^4 = 12 \cdot \frac{1}{81} = \frac{12}{81} = \frac{4}{27}$</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div><strong>Part (b): Sum of 6 terms</strong><br>$S_6 = \frac{12(1 - (1/3)^6)}{1 - 1/3} = \frac{12(1 - 1/729)}{2/3} = 18\left(\frac{728}{729}\right) = \frac{13104}{729} = \frac{4368}{243} \approx 17.98$</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div><strong>Part (c): Sum to infinity</strong><br>Since $|r| = \frac{1}{3} < 1$: $S_\infty = \frac{12}{1 - 1/3} = \frac{12}{2/3} = 18$</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="worked-example">
+            <div class="example-label">Worked Example 2</div>
+            <h4>Binomial Theorem — Finding a Specific Term</h4>
+            <p>Find the term independent of $x$ in the expansion of $\left(2x - \dfrac{1}{x^2}\right)^6$.</p>
+            <div class="solution-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div>Write the general term: $T_{r+1} = \binom{6}{r}(2x)^{6-r}\left(-\frac{1}{x^2}\right)^r = \binom{6}{r} \cdot 2^{6-r} \cdot (-1)^r \cdot x^{6-r} \cdot x^{-2r}$</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div>Collect powers of $x$: $x^{6-r-2r} = x^{6-3r}$. For the term independent of $x$, set $6 - 3r = 0 \implies r = 2$.</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div>Substitute $r = 2$: $T_3 = \binom{6}{2} \cdot 2^4 \cdot (-1)^2 = 15 \cdot 16 \cdot 1 = \boxed{240}$</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="worked-example">
+            <div class="example-label">Worked Example 3</div>
+            <h4>Exponential Equation — Using Logarithms</h4>
+            <p>Solve $3^{2x+1} = 7^{x-1}$. Give your answer to 3 significant figures.</p>
+            <div class="solution-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div>Take $\ln$ of both sides: $(2x+1)\ln 3 = (x-1)\ln 7$</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div>Expand: $2x\ln 3 + \ln 3 = x\ln 7 - \ln 7$</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div>Collect $x$ terms: $x(2\ln 3 - \ln 7) = -\ln 7 - \ln 3$</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div>Solve: $x = \dfrac{-\ln 7 - \ln 3}{2\ln 3 - \ln 7} = \dfrac{-\ln 21}{2\ln 3 - \ln 7} \approx \dfrac{-3.045}{-0.249} \approx \boxed{12.2}$</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRACTICE PROBLEMS -->
+        <div class="practice-section">
+            <h3>Practice Problems</h3>
+
+            <div class="practice-q">
+                <p><span class="q-num">Q1.</span> An arithmetic sequence has $u_3 = 11$ and $u_8 = 26$. Find the first term and common difference. Hence find $S_{20}$.</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>From the two conditions: $u_1 + 2d = 11$ and $u_1 + 7d = 26$.</p>
+                        <p>Subtracting: $5d = 15 \implies d = 3$. Then $u_1 = 11 - 6 = 5$.</p>
+                        <p>$S_{20} = \frac{20}{2}(2(5) + 19(3)) = 10(10 + 57) = 10 \times 67 = \mathbf{670}$</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-q">
+                <p><span class="q-num">Q2.</span> The 2nd term of a geometric sequence is 6 and the 5th term is $\frac{6}{125}$. Find the common ratio and the sum to infinity.</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>$u_2 = u_1 r = 6$ and $u_5 = u_1 r^4 = \frac{6}{125}$.</p>
+                        <p>Dividing: $r^3 = \frac{6/125}{6} = \frac{1}{125} \implies r = \frac{1}{5}$.</p>
+                        <p>Then $u_1 = 6/r = 30$. Since $|r| = 1/5 < 1$: $S_\infty = \frac{30}{1 - 1/5} = \frac{30}{4/5} = \mathbf{37.5}$</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-q">
+                <p><span class="q-num">Q3.</span> Expand $(1 + 3x)^5$ up to and including the term in $x^3$.</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>Using the binomial theorem with $a=1$, $b=3x$, $n=5$:</p>
+                        <p>$T_1 = \binom{5}{0}(3x)^0 = 1$</p>
+                        <p>$T_2 = \binom{5}{1}(3x)^1 = 15x$</p>
+                        <p>$T_3 = \binom{5}{2}(3x)^2 = 10 \cdot 9x^2 = 90x^2$</p>
+                        <p>$T_4 = \binom{5}{3}(3x)^3 = 10 \cdot 27x^3 = 270x^3$</p>
+                        <p>$(1+3x)^5 \approx 1 + 15x + 90x^2 + 270x^3 + \cdots$</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-q">
+                <p><span class="q-num">Q4 (HL).</span> Decompose $\dfrac{5x+1}{(x+1)(x-2)}$ into partial fractions.</p>
+                <details class="solution-toggle">
+                    <summary>Show Solution</summary>
+                    <div class="sol-body">
+                        <p>Write $\frac{5x+1}{(x+1)(x-2)} = \frac{A}{x+1} + \frac{B}{x-2}$.</p>
+                        <p>Multiply through: $5x+1 = A(x-2) + B(x+1)$.</p>
+                        <p>Let $x = 2$: $11 = 3B \implies B = \frac{11}{3}$.</p>
+                        <p>Let $x = -1$: $-4 = -3A \implies A = \frac{4}{3}$.</p>
+                        <p>$$\frac{5x+1}{(x+1)(x-2)} = \frac{4/3}{x+1} + \frac{11/3}{x-2}$$</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 MathHub Global. IB Math AA &mdash; Topic 1: Number &amp; Algebra</p>
+        <p><a href="/ib/" style="color:#0f6b5b;">Back to IB Math Index</a></p>
+    </div>
+
+    <script src="../assets/js/common.js"></script>
+</body>
+</html>

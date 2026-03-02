@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Further Mathematics – Chapter 3: Matrices | Further Mathematics | MathHub</title>
+    <meta name="description" content="Complete A-Level Further Maths Chapter 3: Matrices. Covers matrix algebra, multiplication, determinants, inverses, solving simultaneous equations, and invariant points and lines for Edexcel, AQA, and OCR Further Mathematics.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/further-ch3-matrices.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/uk/textbook/further-ch3-matrices.html">
+    <meta property="og:title" content="A-Level Further Mathematics – Chapter 3: Matrices | MathHub">
+    <meta property="og:site_name" content="MathHub Global">
+    <link rel="alternate" hreflang="en-GB" href="https://mathhub.io/uk/textbook/further-ch3-matrices.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .further-badge { display: inline-block; background: #fce7f3; color: #9d174d; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+        .matrix-display { overflow-x: auto; margin: 12px 0; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/" class="active">UK</a><a href="/ca/">CA</a><a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+    <article class="blog-article">
+        <div class="breadcrumb"><a href="/uk/">UK</a> &rsaquo; <a href="/uk/">Textbook</a> &rsaquo; Further Maths – Chapter 3: Matrices</div>
+        <h1>A-Level Further Mathematics – Chapter 3: Matrices</h1>
+        <div class="blog-meta">Edexcel · AQA · OCR A-Level Further Mathematics &middot; Updated March 2026</div>
+
+        <p>Matrices are rectangular arrays of numbers that encode linear transformations, systems of equations, and a vast range of algebraic structures. In Further Mathematics, you will learn to multiply matrices, compute determinants, find inverses, and use these tools to solve simultaneous equations and analyse geometric transformations. The algebraic richness of matrices — they do not commute in general, they can fail to be invertible, and their determinants carry geometric meaning — makes them both challenging and rewarding to master.</p>
+
+        <div class="exam-note">
+            <h4>Specification Note</h4>
+            <p>All content in this chapter is <span class="further-badge">Further</span> level. The 2×2 material (Sections 3.1–3.4) appears on all Further Pure papers; the 3×3 material (Section 3.5) is required for Edexcel FP1 and is also examined by AQA and OCR. Simultaneous equations and invariant lines (Sections 3.6–3.7) are high-priority examination topics.</p>
+        </div>
+
+        <div class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#algebra">3.1 Matrix Algebra</a></li>
+                <li><a href="#mult">3.2 Matrix Multiplication</a></li>
+                <li><a href="#det2">3.3 Determinant of a 2×2 Matrix</a></li>
+                <li><a href="#inv2">3.4 Inverse of a 2×2 Matrix</a></li>
+                <li><a href="#det3">3.5 Determinant and Inverse of a 3×3 Matrix</a></li>
+                <li><a href="#simeq">3.6 Solving Simultaneous Equations</a></li>
+                <li><a href="#invariant">3.7 Invariant Points and Lines</a></li>
+                <li><a href="#practice">Practice Problems</a></li>
+            </ol>
+        </div>
+
+        <!-- ===================== SECTION 3.1 ===================== -->
+        <h2 id="algebra">3.1 Matrix Algebra <span class="further-badge">Further</span></h2>
+
+        <div class="definition-box">
+            <h4>Definition 3.1 — Matrix</h4>
+            <p>A <strong>matrix</strong> is a rectangular array of numbers. An $m \times n$ matrix has $m$ rows and $n$ columns; element $a_{ij}$ lies in row $i$ and column $j$:</p>
+            <p>$$A = \begin{pmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \cdots & a_{mn} \end{pmatrix}.$$</p>
+            <p>The <strong>zero matrix</strong> $\mathbf{0}$ has all entries equal to zero. The $n \times n$ <strong>identity matrix</strong> $I_n$ has $1$s on the main diagonal and $0$s elsewhere.</p>
+        </div>
+
+        <h3>Addition, Subtraction, Scalar Multiplication</h3>
+        <p>Two matrices may be added or subtracted only if they have the same order. Addition is performed entry-wise: $(A + B)_{ij} = a_{ij} + b_{ij}$. Scalar multiplication: $(\lambda A)_{ij} = \lambda a_{ij}$.</p>
+
+        <div class="example-box">
+            <h4>Example 3.1 — Addition and Scalar Multiplication</h4>
+            <p>Given $A = \begin{pmatrix}1 & 3\\-2 & 4\end{pmatrix}$ and $B = \begin{pmatrix}0 & -1\\5 & 2\end{pmatrix}$, find $2A - B$.</p>
+            <p>$2A = \begin{pmatrix}2 & 6\\-4 & 8\end{pmatrix}$, so $2A - B = \begin{pmatrix}2-0 & 6-(-1)\\-4-5 & 8-2\end{pmatrix} = \begin{pmatrix}2 & 7\\-9 & 6\end{pmatrix}$.</p>
+        </div>
+
+        <!-- ===================== SECTION 3.2 ===================== -->
+        <h2 id="mult">3.2 Matrix Multiplication <span class="further-badge">Further</span></h2>
+
+        <div class="definition-box">
+            <h4>Definition 3.2 — Matrix Multiplication</h4>
+            <p>The product $AB$ is defined if and only if the number of columns of $A$ equals the number of rows of $B$ (<strong>conformability condition</strong>). If $A$ is $m \times p$ and $B$ is $p \times n$, then $AB$ is $m \times n$ with:</p>
+            <p>$$(AB)_{ij} = \sum_{k=1}^{p} a_{ik}\, b_{kj}.$$</p>
+            <p>In words: the $(i,j)$ entry of $AB$ is the dot product of row $i$ of $A$ with column $j$ of $B$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Key Property — Non-Commutativity</h4>
+            <p>In general $AB \neq BA$. Always check the order of multiplication. However, matrix multiplication is associative: $(AB)C = A(BC)$, and $AI = IA = A$ for any matrix $A$ and identity matrix $I$ of appropriate size.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3.2 — 2×2 Matrix Product</h4>
+            <p>Compute $AB$ and $BA$ for $A = \begin{pmatrix}2 & 1\\3 & -1\end{pmatrix}$ and $B = \begin{pmatrix}1 & 4\\2 & 0\end{pmatrix}$.</p>
+            <p>$AB = \begin{pmatrix}2(1)+1(2) & 2(4)+1(0)\\3(1)+(-1)(2) & 3(4)+(-1)(0)\end{pmatrix} = \begin{pmatrix}4 & 8\\1 & 12\end{pmatrix}$.</p>
+            <p>$BA = \begin{pmatrix}1(2)+4(3) & 1(1)+4(-1)\\2(2)+0(3) & 2(1)+0(-1)\end{pmatrix} = \begin{pmatrix}14 & -3\\4 & 2\end{pmatrix}$.</p>
+            <p>Since $AB \neq BA$, multiplication is non-commutative in this case.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3.3 — Power of a Matrix</h4>
+            <p>Given $A = \begin{pmatrix}1 & 1\\0 & 2\end{pmatrix}$, find $A^3$.</p>
+            <p>$A^2 = \begin{pmatrix}1 & 1\\0 & 2\end{pmatrix}\begin{pmatrix}1 & 1\\0 & 2\end{pmatrix} = \begin{pmatrix}1 & 3\\0 & 4\end{pmatrix}$.</p>
+            <p>$A^3 = A^2 \cdot A = \begin{pmatrix}1 & 3\\0 & 4\end{pmatrix}\begin{pmatrix}1 & 1\\0 & 2\end{pmatrix} = \begin{pmatrix}1 & 7\\0 & 8\end{pmatrix}$.</p>
+        </div>
+
+        <!-- ===================== SECTION 3.3 ===================== -->
+        <h2 id="det2">3.3 Determinant of a 2×2 Matrix <span class="further-badge">Further</span></h2>
+
+        <div class="definition-box">
+            <h4>Definition 3.3 — Determinant of a 2×2 Matrix</h4>
+            <p>For $A = \begin{pmatrix}a & b\\c & d\end{pmatrix}$, the <strong>determinant</strong> is:</p>
+            <p>$$\det(A) = |A| = ad - bc.$$</p>
+            <p>A matrix is <strong>singular</strong> if $\det(A) = 0$, and <strong>non-singular</strong> if $\det(A) \neq 0$.</p>
+        </div>
+
+        <h3>Geometric Meaning</h3>
+        <p>The matrix $A$ represents a linear transformation of $\mathbb{R}^2$. The signed area of the image of the unit square under $A$ equals $\det(A)$. If $\det(A) < 0$, the transformation reverses orientation.</p>
+
+        <div class="theorem-box">
+            <h4>Theorem 3.1 — Multiplicativity of Determinant</h4>
+            <p>For any two $n \times n$ matrices $A$ and $B$: $\det(AB) = \det(A)\det(B)$.</p>
+            <p>Corollary: if $A$ is non-singular, $\det(A^{-1}) = 1/\det(A)$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3.4 — Checking for Singularity and det(AB)</h4>
+            <p>Let $A = \begin{pmatrix}3 & 1\\6 & 2\end{pmatrix}$ and $B = \begin{pmatrix}2 & -1\\3 & 4\end{pmatrix}$. Determine whether $A$ is singular, and find $\det(AB)$.</p>
+            <p>$\det(A) = 3(2) - 1(6) = 6 - 6 = 0$. So $A$ is singular.</p>
+            <p>$\det(B) = 2(4) - (-1)(3) = 8 + 3 = 11$.</p>
+            <p>$\det(AB) = \det(A)\det(B) = 0 \times 11 = 0$. The product $AB$ is also singular.</p>
+        </div>
+
+        <!-- ===================== SECTION 3.4 ===================== -->
+        <h2 id="inv2">3.4 Inverse of a 2×2 Matrix <span class="further-badge">Further</span></h2>
+
+        <div class="theorem-box">
+            <h4>Theorem 3.2 — Inverse of a 2×2 Matrix</h4>
+            <p>For a non-singular matrix $A = \begin{pmatrix}a & b\\c & d\end{pmatrix}$:</p>
+            <p>$$A^{-1} = \frac{1}{\det(A)}\begin{pmatrix}d & -b\\-c & a\end{pmatrix}.$$</p>
+            <p>The matrix $\begin{pmatrix}d & -b\\-c & a\end{pmatrix}$ is called the <strong>adjugate</strong> (or adjoint) of $A$.</p>
+            <p>For products: $(AB)^{-1} = B^{-1}A^{-1}$ (note the reversed order).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3.5 — Finding the Inverse</h4>
+            <p>Find $A^{-1}$ for $A = \begin{pmatrix}5 & 2\\3 & 1\end{pmatrix}$.</p>
+            <p>$\det(A) = 5(1) - 2(3) = 5 - 6 = -1$.</p>
+            <p>$A^{-1} = \dfrac{1}{-1}\begin{pmatrix}1 & -2\\-3 & 5\end{pmatrix} = \begin{pmatrix}-1 & 2\\3 & -5\end{pmatrix}$.</p>
+            <p><em>Verify</em>: $AA^{-1} = \begin{pmatrix}5 & 2\\3 & 1\end{pmatrix}\begin{pmatrix}-1 & 2\\3 & -5\end{pmatrix} = \begin{pmatrix}-5+6 & 10-10\\-3+3 & 6-5\end{pmatrix} = \begin{pmatrix}1 & 0\\0 & 1\end{pmatrix} = I$. ✓</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3.6 — Solving $AX = B$ Using the Inverse</h4>
+            <p>Solve for the matrix $X$ given $AX = B$ where $A = \begin{pmatrix}2 & 3\\1 & 2\end{pmatrix}$ and $B = \begin{pmatrix}7 & 0\\4 & 1\end{pmatrix}$.</p>
+            <p>$\det(A) = 4 - 3 = 1$, so $A^{-1} = \begin{pmatrix}2 & -3\\-1 & 2\end{pmatrix}$.</p>
+            <p>$X = A^{-1}B = \begin{pmatrix}2 & -3\\-1 & 2\end{pmatrix}\begin{pmatrix}7 & 0\\4 & 1\end{pmatrix} = \begin{pmatrix}14-12 & 0-3\\-7+8 & 0+2\end{pmatrix} = \begin{pmatrix}2 & -3\\1 & 2\end{pmatrix}$.</p>
+        </div>
+
+        <!-- ===================== SECTION 3.5 ===================== -->
+        <h2 id="det3">3.5 Determinant and Inverse of a 3×3 Matrix <span class="further-badge">Further</span></h2>
+
+        <h3>Cofactor Expansion</h3>
+        <p>The determinant of a $3 \times 3$ matrix is computed by expanding along any row or column using cofactors. Expanding along row 1:</p>
+        <p>$$\det(A) = a_{11}C_{11} + a_{12}C_{12} + a_{13}C_{13},$$</p>
+        <p>where the cofactor $C_{ij} = (-1)^{i+j} M_{ij}$ and $M_{ij}$ is the $2 \times 2$ minor obtained by deleting row $i$ and column $j$.</p>
+
+        <div class="definition-box">
+            <h4>Definition 3.4 — Minor and Cofactor</h4>
+            <p>The <strong>minor</strong> $M_{ij}$ of a matrix $A$ is the determinant of the submatrix formed by deleting row $i$ and column $j$. The <strong>cofactor</strong> is $C_{ij} = (-1)^{i+j}M_{ij}$. The sign pattern for a $3 \times 3$ matrix is:</p>
+            <p>$$\begin{pmatrix}+ & - & +\\- & + & -\\+ & - & +\end{pmatrix}.$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3.7 — 3×3 Determinant by Cofactor Expansion</h4>
+            <p>Compute $\det(A)$ for $A = \begin{pmatrix}1 & 2 & 3\\4 & 5 & 6\\7 & 8 & 0\end{pmatrix}$.</p>
+            <p>Expanding along row 1:</p>
+            <p>$\det(A) = 1 \cdot \det\begin{pmatrix}5 & 6\\8 & 0\end{pmatrix} - 2 \cdot \det\begin{pmatrix}4 & 6\\7 & 0\end{pmatrix} + 3 \cdot \det\begin{pmatrix}4 & 5\\7 & 8\end{pmatrix}$</p>
+            <p>$= 1(0 - 48) - 2(0 - 42) + 3(32 - 35)$</p>
+            <p>$= -48 + 84 - 9 = 27$.</p>
+        </div>
+
+        <h3>Inverse of a 3×3 Matrix via the Adjugate</h3>
+        <p>The inverse is found using the <strong>cofactor matrix</strong> (matrix of cofactors), then taking its transpose to form the <strong>adjugate matrix</strong>:</p>
+        <p>$$A^{-1} = \frac{1}{\det(A)}\,\mathrm{adj}(A), \qquad \mathrm{adj}(A) = \left(C_{ij}\right)^{\mathrm{T}}.$$</p>
+
+        <div class="example-box">
+            <h4>Example 3.8 — 3×3 Inverse</h4>
+            <p>Find the inverse of $A = \begin{pmatrix}2 & 1 & 0\\1 & 3 & 1\\0 & 1 & 2\end{pmatrix}$.</p>
+            <p><span class="step-label">Step 1</span> Compute $\det(A)$ by expansion along row 1:</p>
+            <p>$\det(A) = 2(3 \cdot 2 - 1 \cdot 1) - 1(1 \cdot 2 - 1 \cdot 0) + 0 = 2(5) - 1(2) = 10 - 2 = 8$.</p>
+            <p><span class="step-label">Step 2</span> Compute all nine cofactors:</p>
+            <ul>
+                <li>$C_{11} = +\det\begin{pmatrix}3&1\\1&2\end{pmatrix} = 5$</li>
+                <li>$C_{12} = -\det\begin{pmatrix}1&1\\0&2\end{pmatrix} = -(2-0) = -2$</li>
+                <li>$C_{13} = +\det\begin{pmatrix}1&3\\0&1\end{pmatrix} = 1$</li>
+                <li>$C_{21} = -\det\begin{pmatrix}1&0\\1&2\end{pmatrix} = -(2-0) = -2$</li>
+                <li>$C_{22} = +\det\begin{pmatrix}2&0\\0&2\end{pmatrix} = 4$</li>
+                <li>$C_{23} = -\det\begin{pmatrix}2&1\\0&1\end{pmatrix} = -(2-0) = -2$</li>
+                <li>$C_{31} = +\det\begin{pmatrix}1&0\\3&1\end{pmatrix} = 1$</li>
+                <li>$C_{32} = -\det\begin{pmatrix}2&0\\1&1\end{pmatrix} = -(2-0) = -2$</li>
+                <li>$C_{33} = +\det\begin{pmatrix}2&1\\1&3\end{pmatrix} = 5$</li>
+            </ul>
+            <p><span class="step-label">Step 3</span> Form the adjugate (transpose of cofactor matrix):</p>
+            <p>$\mathrm{adj}(A) = \begin{pmatrix}5 & -2 & 1\\-2 & 4 & -2\\1 & -2 & 5\end{pmatrix}^{\mathrm{T}} = \begin{pmatrix}5 & -2 & 1\\-2 & 4 & -2\\1 & -2 & 5\end{pmatrix}$.</p>
+            <p>(In this case the cofactor matrix is symmetric, so the adjugate equals the cofactor matrix.)</p>
+            <p><span class="step-label">Step 4</span> $A^{-1} = \dfrac{1}{8}\begin{pmatrix}5 & -2 & 1\\-2 & 4 & -2\\1 & -2 & 5\end{pmatrix}$.</p>
+        </div>
+
+        <!-- ===================== SECTION 3.6 ===================== -->
+        <h2 id="simeq">3.6 Solving Simultaneous Equations <span class="further-badge">Further</span></h2>
+
+        <p>A system of $n$ linear equations in $n$ unknowns may be written as $A\mathbf{x} = \mathbf{b}$. The nature of the solution set is determined by $\det(A)$:</p>
+
+        <div class="theorem-box">
+            <h4>Theorem 3.3 — Classification of Solutions</h4>
+            <ul>
+                <li><strong>Unique solution</strong>: $\det(A) \neq 0$ (non-singular). Then $\mathbf{x} = A^{-1}\mathbf{b}$.</li>
+                <li><strong>No solution</strong>: $\det(A) = 0$ and the system is <em>inconsistent</em> — the equations are contradictory.</li>
+                <li><strong>Infinitely many solutions</strong>: $\det(A) = 0$ and the system is <em>consistent but dependent</em> — at least one equation is redundant. The solution set forms a line (for 3×3 systems in $\mathbb{R}^3$) or the entire plane.</li>
+            </ul>
+        </div>
+
+        <p>For $2 \times 2$ systems, the geometric interpretation is: two lines in the plane either intersect at a unique point (unique solution), are parallel but distinct (no solution), or are the same line (infinitely many solutions).</p>
+
+        <p>For $3 \times 3$ systems, three planes in $\mathbb{R}^3$ may: meet at a unique point; form a triangular prism (no solution — parallel pairwise intersections); share a common line (infinitely many); or coincide on a plane.</p>
+
+        <div class="example-box">
+            <h4>Example 3.9 — Unique Solution via Inverse</h4>
+            <p>Solve the system $2x + y = 7$, $x + 3y = 11$ using matrices.</p>
+            <p>Matrix form: $\begin{pmatrix}2 & 1\\1 & 3\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix} = \begin{pmatrix}7\\11\end{pmatrix}$.</p>
+            <p>$\det(A) = 6 - 1 = 5$. $A^{-1} = \dfrac{1}{5}\begin{pmatrix}3 & -1\\-1 & 2\end{pmatrix}$.</p>
+            <p>$\begin{pmatrix}x\\y\end{pmatrix} = \dfrac{1}{5}\begin{pmatrix}3 & -1\\-1 & 2\end{pmatrix}\begin{pmatrix}7\\11\end{pmatrix} = \dfrac{1}{5}\begin{pmatrix}21-11\\-7+22\end{pmatrix} = \dfrac{1}{5}\begin{pmatrix}10\\15\end{pmatrix} = \begin{pmatrix}2\\3\end{pmatrix}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3.10 — Singular Case: Determining Consistency</h4>
+            <p>For what values of $k$ does the system $kx + 2y = 4$, $3x + 6y = 12$ have (a) no solution, (b) infinitely many solutions?</p>
+            <p>Write as $A\mathbf{x} = \mathbf{b}$ with $A = \begin{pmatrix}k & 2\\3 & 6\end{pmatrix}$.</p>
+            <p>$\det(A) = 6k - 6$. Setting $\det(A) = 0$: $k = 1$.</p>
+            <p>When $k = 1$: Row 1 is $x + 2y = 4$; Row 2 is $3x + 6y = 12 = 3(x + 2y) = 12$. These are identical, so the system is <em>consistent and dependent</em> — infinitely many solutions for $k = 1$.</p>
+            <p>There is no value of $k$ giving no solution here (the second equation is a multiple of the first for all $k = 1$, but the right-hand sides are also proportional). For $k \neq 1$, there is a unique solution.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3.11 — 3×3 System with Unique Solution</h4>
+            <p>Solve $x + 2y + z = 4$, $2x + y + z = 3$, $x + y + 2z = 5$.</p>
+            <p>$A = \begin{pmatrix}1&2&1\\2&1&1\\1&1&2\end{pmatrix}$, $\mathbf{b} = \begin{pmatrix}4\\3\\5\end{pmatrix}$.</p>
+            <p>$\det(A) = 1(2-1) - 2(4-1) + 1(2-1) = 1 - 6 + 1 = -4 \neq 0$, so there is a unique solution.</p>
+            <p>Using row reduction (or the inverse): subtracting Row 1 from Row 3: $0 + (-1)y + z = 1$. Subtracting 2×Row 1 from Row 2: $-3y - z = -5$. Adding these two derived equations: $-4y = -4$, so $y = 1$. Then $z = 1 + y = 2$, and $x = 4 - 2(1) - 2 = 0$.</p>
+            <p>Solution: $x = 0, y = 1, z = 2$.</p>
+        </div>
+
+        <div id="desmos1" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 3.1 — A parallelogram with vertices at $(0,0)$, $(2,0)$, $(1,3)$, $(3,3)$ (grey) and its image under the matrix $\begin{pmatrix}2&1\\0&3\end{pmatrix}$ (blue). The image has area $= |\det A| \times \text{original area} = 6 \times 2 = 12$ square units.</p>
+
+        <!-- ===================== SECTION 3.7 ===================== -->
+        <h2 id="invariant">3.7 Invariant Points and Lines <span class="further-badge">Further</span></h2>
+
+        <p>When a matrix $A$ represents a linear transformation, we ask: which points and lines are left unchanged by the transformation?</p>
+
+        <div class="definition-box">
+            <h4>Definition 3.5 — Invariant Point and Invariant Line</h4>
+            <ul>
+                <li>An <strong>invariant point</strong> is a point $\mathbf{x}$ such that $A\mathbf{x} = \mathbf{x}$, i.e. $(A - I)\mathbf{x} = \mathbf{0}$.</li>
+                <li>An <strong>invariant line</strong> is a line $\ell$ such that every point on $\ell$ maps to some (possibly different) point on $\ell$. The line itself is preserved as a set, but individual points on it may move.</li>
+                <li>A <strong>line of invariant points</strong> is a line in which every individual point is fixed: $A\mathbf{x} = \mathbf{x}$ for all $\mathbf{x}$ on the line.</li>
+            </ul>
+        </div>
+
+        <p>Every linear transformation fixes the origin (since $A\mathbf{0} = \mathbf{0}$). Non-trivial invariant points exist when $(A - I)$ is singular.</p>
+
+        <h3>Finding Invariant Points</h3>
+        <p>Solve $(A - I)\mathbf{x} = \mathbf{0}$. If $\det(A - I) = 0$, there are infinitely many invariant points forming a line (an eigenspace for eigenvalue 1).</p>
+
+        <div class="example-box">
+            <h4>Example 3.12 — Finding Invariant Points</h4>
+            <p>Find all invariant points under $A = \begin{pmatrix}3 & -2\\2 & -1\end{pmatrix}$.</p>
+            <p>$A - I = \begin{pmatrix}2 & -2\\2 & -2\end{pmatrix}$. $\det(A - I) = 2(-2) - (-2)(2) = -4 + 4 = 0$, so there is a line of invariant points.</p>
+            <p>$(A-I)\mathbf{x} = \mathbf{0}$: $2x - 2y = 0$, i.e. $x = y$. The line of invariant points is $y = x$.</p>
+        </div>
+
+        <h3>Finding Invariant Lines</h3>
+        <p>An invariant line $y = mx + c$ satisfies: if $(x, mx + c)$ is on the line, then $A\begin{pmatrix}x\\mx+c\end{pmatrix}$ also lies on a line of the same gradient $m$ (but possibly different intercept). This gives conditions on $m$ first, then on $c$.</p>
+
+        <div class="example-box">
+            <h4>Example 3.13 — Finding Invariant Lines</h4>
+            <p>Find all invariant lines of the form $y = mx$ through the origin for $A = \begin{pmatrix}2 & 1\\1 & 2\end{pmatrix}$.</p>
+            <p>A line $y = mx$ through the origin is invariant if $A\begin{pmatrix}1\\m\end{pmatrix}$ is proportional to $\begin{pmatrix}1\\m\end{pmatrix}$, i.e. $\begin{pmatrix}2+m\\1+2m\end{pmatrix} = \lambda\begin{pmatrix}1\\m\end{pmatrix}$ for some scalar $\lambda$.</p>
+            <p>From the first component: $\lambda = 2 + m$. Substituting into the second: $1 + 2m = m(2 + m) = 2m + m^2$, so $m^2 = 1$, giving $m = 1$ or $m = -1$.</p>
+            <p>Invariant lines through the origin: $y = x$ (with scale factor $\lambda = 3$) and $y = -x$ (with scale factor $\lambda = 1$).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3.14 — Invariant Lines Not Through the Origin</h4>
+            <p>Find all invariant lines of $A = \begin{pmatrix}1 & 2\\0 & 1\end{pmatrix}$ (a shear).</p>
+            <p>Apply $A$ to a general point $(x, mx + c)$ on $y = mx + c$:</p>
+            <p>$A\begin{pmatrix}x\\mx+c\end{pmatrix} = \begin{pmatrix}x + 2(mx+c)\\mx+c\end{pmatrix} = \begin{pmatrix}(1+2m)x + 2c\\mx+c\end{pmatrix}$.</p>
+            <p>For this to lie on $y = mx + c$, we need $mx + c = m\big((1+2m)x + 2c\big) + c$, i.e. $mx + c = m(1+2m)x + 2mc + c$.</p>
+            <p>Equating coefficients of $x$: $m = m(1 + 2m)$, so $2m^2 = 0$, giving $m = 0$.</p>
+            <p>Equating constants (with $m = 0$): $c = c$ (always true). So any horizontal line $y = c$ is an invariant line. This reflects the fact that a horizontal shear maps every horizontal line to itself.</p>
+        </div>
+
+        <div id="desmos2" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 3.2 — Three lines representing a consistent and dependent 3×3 system (all three planes sharing a common line, shown as three coplanar lines in the $xy$-plane), contrasted with an inconsistent arrangement where no common intersection exists.</p>
+
+        <div class="exam-note">
+            <h4>Exam Tip — Invariant Lines vs. Lines of Invariant Points</h4>
+            <p>These are distinct concepts. A <em>line of invariant points</em> requires every point on the line to be fixed. An <em>invariant line</em> only requires the line itself (as a set) to be preserved — individual points on it may move. Many questions on Further Pure papers ask specifically for invariant lines, so ensure your method correctly identifies which type is requested.</p>
+        </div>
+
+        <!-- ===================== PRACTICE ===================== -->
+        <h2 id="practice">Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1 — Matrix Addition</h4>
+            <p>Given $A = \begin{pmatrix}3 & -1\\2 & 5\end{pmatrix}$ and $B = \begin{pmatrix}-2 & 4\\1 & -3\end{pmatrix}$, find $3A + 2B$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$3A = \begin{pmatrix}9 & -3\\6 & 15\end{pmatrix}$, $2B = \begin{pmatrix}-4 & 8\\2 & -6\end{pmatrix}$.</p>
+                    <p>$3A + 2B = \begin{pmatrix}5 & 5\\8 & 9\end{pmatrix}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2 — Matrix Multiplication</h4>
+            <p>Given $C = \begin{pmatrix}1 & 0 & 2\\3 & 1 & 0\end{pmatrix}$ and $D = \begin{pmatrix}2 & 1\\0 & 3\\1 & -1\end{pmatrix}$, compute $CD$ and state its order.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$C$ is $2 \times 3$, $D$ is $3 \times 2$. $CD$ is $2 \times 2$.</p>
+                    <p>$CD = \begin{pmatrix}1(2)+0(0)+2(1) & 1(1)+0(3)+2(-1)\\3(2)+1(0)+0(1) & 3(1)+1(3)+0(-1)\end{pmatrix} = \begin{pmatrix}4 & -1\\6 & 6\end{pmatrix}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3 — Determinant and Singularity</h4>
+            <p>Find the value(s) of $k$ for which the matrix $\begin{pmatrix}k & 3\\2 & k-1\end{pmatrix}$ is singular.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$\det = k(k-1) - 6 = k^2 - k - 6 = (k-3)(k+2)$.</p>
+                    <p>Singular when $k = 3$ or $k = -2$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4 — 2×2 Inverse</h4>
+            <p>Find the inverse of $M = \begin{pmatrix}7 & 3\\4 & 2\end{pmatrix}$ and verify by computing $MM^{-1}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$\det(M) = 14 - 12 = 2$. $M^{-1} = \dfrac{1}{2}\begin{pmatrix}2 & -3\\-4 & 7\end{pmatrix} = \begin{pmatrix}1 & -3/2\\-2 & 7/2\end{pmatrix}$.</p>
+                    <p>$MM^{-1} = \begin{pmatrix}7&3\\4&2\end{pmatrix}\begin{pmatrix}1 & -3/2\\-2 & 7/2\end{pmatrix} = \begin{pmatrix}7-6 & -21/2+21/2\\4-4 & -6+7\end{pmatrix} = \begin{pmatrix}1&0\\0&1\end{pmatrix}$ ✓.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5 — 3×3 Determinant</h4>
+            <p>Compute $\det(B)$ for $B = \begin{pmatrix}2 & -1 & 3\\0 & 4 & -2\\1 & 0 & 5\end{pmatrix}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Expand along row 1:</p>
+                    <p>$= 2\det\begin{pmatrix}4&-2\\0&5\end{pmatrix} - (-1)\det\begin{pmatrix}0&-2\\1&5\end{pmatrix} + 3\det\begin{pmatrix}0&4\\1&0\end{pmatrix}$</p>
+                    <p>$= 2(20-0) + 1(0+2) + 3(0-4) = 40 + 2 - 12 = 30$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6 — Solving a 2×2 System</h4>
+            <p>Solve the system $3x - y = 5$, $x + 4y = 9$ using matrix methods.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$A = \begin{pmatrix}3 & -1\\1 & 4\end{pmatrix}$, $\det(A) = 12 + 1 = 13$.</p>
+                    <p>$A^{-1} = \dfrac{1}{13}\begin{pmatrix}4 & 1\\-1 & 3\end{pmatrix}$.</p>
+                    <p>$\begin{pmatrix}x\\y\end{pmatrix} = \dfrac{1}{13}\begin{pmatrix}4 & 1\\-1 & 3\end{pmatrix}\begin{pmatrix}5\\9\end{pmatrix} = \dfrac{1}{13}\begin{pmatrix}29\\22\end{pmatrix}$. So $x = \dfrac{29}{13}$, $y = \dfrac{22}{13}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7 — Singular 3×3 System</h4>
+            <p>Show that the system $x + y + z = 6$, $2x + y + 3z = 14$, $x + 2y = 4$ is consistent with infinitely many solutions and find the general solution.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Matrix $A = \begin{pmatrix}1&1&1\\2&1&3\\1&2&0\end{pmatrix}$.</p>
+                    <p>$\det(A) = 1(0-6) - 1(0-3) + 1(4-1) = -6 + 3 + 3 = 0$. Singular — so the system is either inconsistent or has infinitely many solutions.</p>
+                    <p>Row reduce the augmented matrix $[A|\mathbf{b}]$: $R_2 \leftarrow R_2 - 2R_1$, $R_3 \leftarrow R_3 - R_1$:</p>
+                    <p>$\begin{pmatrix}1&1&1&|&6\\0&-1&1&|&2\\0&1&-1&|&-2\end{pmatrix}$. Row 3 is $-1$ times Row 2, so the system is consistent with one free variable.</p>
+                    <p>Let $z = t$. From $R_2$: $y = t - 2$. From $R_1$: $x = 6 - y - z = 6 - (t-2) - t = 8 - 2t$.</p>
+                    <p>General solution: $x = 8 - 2t$, $y = t - 2$, $z = t$ for $t \in \mathbb{R}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8 — Invariant Points</h4>
+            <p>Find all invariant points of the transformation given by $T = \begin{pmatrix}5 & -4\\3 & -2\end{pmatrix}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Solve $(T - I)\mathbf{x} = \mathbf{0}$: $\begin{pmatrix}4&-4\\3&-3\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix} = \mathbf{0}$.</p>
+                    <p>$\det(T-I) = 4(-3) - (-4)(3) = -12 + 12 = 0$, so infinitely many solutions.</p>
+                    <p>Row 1: $4x - 4y = 0 \Rightarrow x = y$. Line of invariant points: $y = x$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 9 — Invariant Lines</h4>
+            <p>Find all invariant lines of the form $y = mx + c$ under $A = \begin{pmatrix}4 & 1\\2 & 3\end{pmatrix}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Apply $A$ to the general point $(x, mx+c)$:</p>
+                    <p>$\begin{pmatrix}4x + (mx+c)\\2x + 3(mx+c)\end{pmatrix} = \begin{pmatrix}(4+m)x + c\\(2+3m)x + 3c\end{pmatrix}$.</p>
+                    <p>For this to lie on $y = mx + c$: $y\text{-value} = m \times x\text{-value} + c$, i.e. $(2+3m)x + 3c = m(4+m)x + mc + c$.</p>
+                    <p>Coefficient of $x$: $2 + 3m = 4m + m^2$, so $m^2 + m - 2 = 0$, giving $(m+2)(m-1) = 0$, so $m = 1$ or $m = -2$.</p>
+                    <p>Constants: $3c = mc + c$, i.e. $c(2 - m) = 0$. For $m = 1$: $(2-1)c = 0 \Rightarrow c = 0$. For $m = -2$: $(2+2)c = 0 \Rightarrow c = 0$.</p>
+                    <p>Invariant lines: $y = x$ and $y = -2x$ (both through the origin).</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 10 — Area Scaling by Determinant</h4>
+            <p>A triangle with vertices at $(0,0)$, $(3,0)$, $(1,2)$ is transformed by the matrix $M = \begin{pmatrix}2 & 1\\-1 & 3\end{pmatrix}$. Find the area of the image triangle.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Original area $= \frac{1}{2}|3 \times 2 - 0 \times 1| = \frac{1}{2}(6) = 3$ square units (using the cross-product formula for the triangle with vertices at the origin).</p>
+                    <p>$\det(M) = 2(3) - 1(-1) = 6 + 1 = 7$.</p>
+                    <p>Area of image $= |\det(M)| \times$ original area $= 7 \times 3 = 21$ square units.</p>
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <script>
+    (function() {
+        // Figure 1: Parallelogram and image under [[2,1],[0,3]]
+        var elt1 = document.getElementById('desmos1');
+        var calc1 = Desmos.GraphingCalculator(elt1, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            xAxisLabel: 'x',
+            yAxisLabel: 'y'
+        });
+        calc1.setMathBounds({ left: -1, right: 12, bottom: -1, top: 12 });
+        calc1.setExpressions([
+            // Original parallelogram vertices: (0,0),(2,0),(1,3),(3,3)
+            // Using polygon notation
+            { id: 'orig', latex: 'polygon((0,0),(2,0),(3,3),(1,3))', color: '#94a3b8', fillOpacity: 0.2 },
+            { id: 'olabel', latex: '(1,1)', color: '#64748b', label: 'Original (area=6)', showLabel: true, pointOpacity: 0 },
+            // Image under [[2,1],[0,3]]: (0,0)->(0,0), (2,0)->(4,0), (1,3)->(5,9), (3,3)->(9,9)
+            { id: 'img', latex: 'polygon((0,0),(4,0),(9,9),(5,9))', color: '#3b82f6', fillOpacity: 0.25 },
+            { id: 'ilabel', latex: '(5,4)', color: '#1d4ed8', label: 'Image (area=36)', showLabel: true, pointOpacity: 0 },
+            { id: 'det', latex: '(4,1)', color: '#64748b', label: 'det A = 6; area scaled ×6', showLabel: true, pointOpacity: 0 }
+        ]);
+
+        // Figure 2: Consistent-dependent (three coincident lines) vs inconsistent system illustration
+        var elt2 = document.getElementById('desmos2');
+        var calc2 = Desmos.GraphingCalculator(elt2, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            xAxisLabel: 'x',
+            yAxisLabel: 'y'
+        });
+        calc2.setMathBounds({ left: -4, right: 8, bottom: -4, top: 8 });
+        calc2.setExpressions([
+            // Dependent system: three lines passing through (1,2)
+            { id: 'l1', latex: 'y=2x', color: '#3b82f6', label: 'line 1', showLabel: true },
+            { id: 'l2', latex: 'y=x+1', color: '#22c55e', label: 'line 2', showLabel: true },
+            { id: 'l3', latex: 'y=-x+3', color: '#8b5cf6', label: 'line 3', showLabel: true },
+            { id: 'common', latex: '(1,2)', color: '#ef4444', pointStyle: Desmos.Styles.POINT, label: 'common point (1,2)', showLabel: true },
+            // Inconsistent: two parallel lines (dashed)
+            { id: 'p1', latex: 'y=2x+5', color: '#f59e0b', lineStyle: Desmos.Styles.DASHED, label: 'parallel 1', showLabel: true },
+            { id: 'p2', latex: 'y=2x-2', color: '#f97316', lineStyle: Desmos.Styles.DASHED, label: 'parallel 2 (no intersection)', showLabel: true }
+        ]);
+    })();
+    </script>
+</body>
+</html>

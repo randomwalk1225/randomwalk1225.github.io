@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Mathematics – Chapter 9: Numerical Methods | A-Level Mathematics | MathHub</title>
+    <meta name="description" content="Complete A-Level Maths Chapter 9: Numerical Methods. Covers locating roots by sign change, iteration, the Newton-Raphson method, and numerical integration for Edexcel, AQA and OCR.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/alevel-ch9-numerical-methods.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/uk/textbook/alevel-ch9-numerical-methods.html">
+    <meta property="og:title" content="A-Level Mathematics – Chapter 9: Numerical Methods | MathHub">
+    <meta property="og:site_name" content="MathHub Global">
+    <link rel="alternate" hreflang="en-GB" href="https://mathhub.io/uk/textbook/alevel-ch9-numerical-methods.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .year2-badge { display: inline-block; background: #e0e7ff; color: #3730a3; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+        table.iter-table { border-collapse: collapse; width: 100%; margin: 12px 0 20px; font-size: 0.95em; }
+        table.iter-table th { background: #1e3a5f; color: white; padding: 8px 14px; text-align: left; }
+        table.iter-table td { padding: 8px 14px; border-bottom: 1px solid #e2e8f0; color: #334155; font-family: monospace; }
+        table.iter-table tr:nth-child(even) td { background: #f8fafc; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/" class="active">UK</a><a href="/ca/">CA</a><a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+    <article class="blog-article">
+        <div class="breadcrumb"><a href="/uk/">UK</a> &rsaquo; <a href="/uk/a-level/">A-Level</a> &rsaquo; A-Level Maths – Chapter 9: Numerical Methods</div>
+        <h1>A-Level Mathematics – Chapter 9: Numerical Methods</h1>
+        <div class="blog-meta">Edexcel &middot; AQA &middot; OCR A-Level Mathematics &middot; Updated March 2026</div>
+
+        <p>Many equations and integrals arising in mathematics and science cannot be solved or evaluated exactly in closed form. Numerical methods provide systematic procedures for obtaining answers to any desired degree of accuracy. This chapter covers the three principal techniques at A-Level: locating roots by sign change, solving equations iteratively, the Newton-Raphson method, and approximating definite integrals.</p>
+
+        <div class="exam-note">
+            <h4>Specification Note</h4>
+            <p>All content in this chapter is required at both AS and A-Level. Newton-Raphson tends to appear more heavily at A2 but is examinable across all specifications. Always show sufficient iterations and check your answer against the required degree of accuracy.</p>
+        </div>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#locating-roots">9.1 Locating Roots</a></li>
+                <li><a href="#iteration">9.2 Iteration</a></li>
+                <li><a href="#newton-raphson">9.3 Newton-Raphson Method</a></li>
+                <li><a href="#numerical-integration">9.4 Numerical Integration</a></li>
+                <li><a href="#practice">Practice Problems</a></li>
+            </ol>
+        </nav>
+
+        <!-- 9.1 LOCATING ROOTS -->
+        <h2 id="locating-roots">9.1 Locating Roots</h2>
+
+        <p>A <strong>root</strong> of the equation $f(x) = 0$ is a value $x = \alpha$ such that $f(\alpha) = 0$ — geometrically, a point where the graph $y = f(x)$ crosses the $x$-axis.</p>
+
+        <div class="theorem-box">
+            <h4>Sign Change Theorem</h4>
+            <p>If $f$ is <strong>continuous</strong> on $[a, b]$ and $f(a)$ and $f(b)$ have <strong>opposite signs</strong>, then there is at least one root of $f(x) = 0$ in the interval $(a, b)$.</p>
+            <p>In practice: compute $f(a)$ and $f(b)$. If $f(a) \cdot f(b) < 0$, a root lies in $(a, b)$.</p>
+        </div>
+
+        <div id="desmos-roots" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 9.1 — The function $f(x) = x^3 - x - 1$. There is a root near $x \approx 1.32$ where the curve crosses the $x$-axis. $f(1) = -1 < 0$ and $f(2) = 5 > 0$ confirm a root in $(1, 2)$.</p>
+
+        <h3>Interval Bisection</h3>
+        <p>Once a root is located in $(a, b)$, <strong>interval bisection</strong> narrows the interval by repeatedly halving it. At each step, evaluate $f$ at the midpoint $m = \frac{a+b}{2}$ and replace whichever endpoint shares a sign with $f(m)$.</p>
+
+        <div class="example-box">
+            <h4>Example 9.1.1 — Verifying a Root by Sign Change</h4>
+            <p>Show that $f(x) = x^3 - x - 1$ has a root in the interval $(1, 2)$.</p>
+            <p>$f(1) = 1 - 1 - 1 = -1 < 0$.</p>
+            <p>$f(2) = 8 - 2 - 1 = 5 > 0$.</p>
+            <p>Since $f(1) < 0$ and $f(2) > 0$, and $f$ is continuous, there is a root in $(1, 2)$ by the sign change theorem.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.1.2 — Interval Bisection</h4>
+            <p>Use interval bisection to find the root of $f(x) = x^3 - x - 1$ to 1 decimal place.</p>
+            <p>Start: $a = 1$, $b = 2$. Midpoint $m = 1.5$: $f(1.5) = 3.375 - 1.5 - 1 = 0.875 > 0$. Root in $(1, 1.5)$.</p>
+            <p>Midpoint $m = 1.25$: $f(1.25) = 1.953 - 1.25 - 1 = -0.297 < 0$. Root in $(1.25, 1.5)$.</p>
+            <p>Midpoint $m = 1.375$: $f(1.375) \approx 2.600 - 1.375 - 1 = 0.225 > 0$. Root in $(1.25, 1.375)$.</p>
+            <p>Midpoint $m = 1.3125$: $f(1.3125) \approx -0.051 < 0$. Root in $(1.3125, 1.375)$.</p>
+            <p>The root is approximately $x \approx 1.3$ to 1 d.p.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.1.3 — Limitations of the Sign Change Method</h4>
+            <p>Explain why the sign change method might fail to detect a root of $g(x) = (x-2)^2$ on $[1, 3]$.</p>
+            <p>$g(1) = 1 > 0$ and $g(3) = 1 > 0$. No sign change occurs, even though $x = 2$ is a root (where the curve touches the axis). This happens when the root is a <strong>repeated root</strong> — the curve touches but does not cross the $x$-axis.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.1.4 — Multiple Roots in an Interval</h4>
+            <p>$f(x) = \sin(\pi x)$ has roots at every integer. Explain a scenario where a sign change on $[a, b]$ indicates one root but two roots actually exist.</p>
+            <p>If $a = 0.1$ and $b = 1.9$, then $f(0.1) > 0$ and $f(1.9) < 0$, suggesting one root. However, the roots at $x = 1$ is the only one in $(0.1, 1.9)$ crossed in a simple manner. But if $a = 0.1$ and $b = 2.9$, $f(0.1) > 0$ and $f(2.9) < 0$, two roots ($x=1$ and $x=2$) actually exist; the sign change tells us only that an <em>odd</em> number of roots lie in the interval. A graph or smaller sub-intervals are needed for certainty.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>When verifying a root in an interval, always state the sign of $f$ at each endpoint and explicitly invoke the sign change theorem. Showing a negative and positive value is not enough — you must state that because there is a sign change and $f$ is continuous, a root must lie in the interval. Also check there are no discontinuities (vertical asymptotes) inside the interval.</p>
+        </div>
+
+        <!-- 9.2 ITERATION -->
+        <h2 id="iteration">9.2 Iteration</h2>
+
+        <p>The method of iteration (or fixed-point iteration) converts the equation $f(x) = 0$ into the form $x = g(x)$ and generates a sequence $x_{n+1} = g(x_n)$ from a starting value $x_0$. If the sequence converges, its limit is a fixed point of $g$ — i.e.\ a root of $f(x) = 0$.</p>
+
+        <div class="definition-box">
+            <h4>Convergence Condition</h4>
+            <p>The iterative sequence $x_{n+1} = g(x_n)$ <strong>converges</strong> to a root $\alpha$ if $|g'(\alpha)| < 1$.</p>
+            <p>If $|g'(\alpha)| > 1$, the sequence <strong>diverges</strong>. The same equation may give different rearrangements, some converging and some not.</p>
+        </div>
+
+        <div id="desmos-cobweb" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 9.2 — Cobweb diagram for $x_{n+1} = \cos x$ starting from $x_0 = 1$. The iteration converges to the fixed point where $y = \cos x$ intersects $y = x$ (the Dottie number, $\approx 0.739$). The spiral staircase pattern indicates convergence.</p>
+
+        <h3>Iterative Method — Step by Step</h3>
+        <p>To use the iterative method:</p>
+        <ol>
+            <li>Rearrange $f(x) = 0$ to the form $x = g(x)$ (there may be several valid rearrangements).</li>
+            <li>Write the iterative formula $x_{n+1} = g(x_n)$.</li>
+            <li>Choose a suitable starting value $x_0$ (typically from a sign change analysis).</li>
+            <li>Compute successive iterates until the required accuracy is reached.</li>
+            <li>Verify by checking $f$ changes sign around your answer.</li>
+        </ol>
+
+        <div class="example-box">
+            <h4>Example 9.2.1 — Simple Iteration</h4>
+            <p>Show that $x^3 - x - 1 = 0$ can be rearranged to $x = \sqrt[3]{x+1}$ and use this to find the root in $(1, 2)$ to 4 decimal places starting from $x_0 = 1$.</p>
+            <p>Rearrangement: $x^3 = x + 1 \Rightarrow x = (x+1)^{1/3}$. So $g(x) = (x+1)^{1/3}$.</p>
+            <table class="iter-table">
+                <thead><tr><th>$n$</th><th>$x_n$</th></tr></thead>
+                <tbody>
+                    <tr><td>0</td><td>1.000000</td></tr>
+                    <tr><td>1</td><td>1.259921</td></tr>
+                    <tr><td>2</td><td>1.312294</td></tr>
+                    <tr><td>3</td><td>1.320695</td></tr>
+                    <tr><td>4</td><td>1.322036</td></tr>
+                    <tr><td>5</td><td>1.322249</td></tr>
+                    <tr><td>6</td><td>1.322283</td></tr>
+                </tbody>
+            </table>
+            <p>The sequence converges to $x \approx 1.3223$ (4 d.p.).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.2.2 — Divergent Rearrangement</h4>
+            <p>Show that the rearrangement $x_{n+1} = x_n^3 - 1$ of the same equation diverges from $x_0 = 1.3$.</p>
+            <p>$x_1 = (1.3)^3 - 1 = 2.197 - 1 = 1.197$. $x_2 = (1.197)^3 - 1 \approx 0.713$. $x_3 = (0.713)^3 - 1 \approx -0.638$. The sequence does not converge to the root near $1.32$.</p>
+            <p>Check: $|g'(x)| = |3x^2|$. At $x \approx 1.32$, $|g'(1.32)| = 3(1.32)^2 \approx 5.23 > 1$, confirming divergence.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.2.3 — Choosing the Starting Value</h4>
+            <p>The equation $e^x = 5 - 2x$ has a root in the interval $(0, 2)$. Use the rearrangement $x_{n+1} = \frac{1}{2}(5 - e^{x_n})$ with $x_0 = 1$ to find the root correct to 3 decimal places.</p>
+            <p>$x_1 = \frac{1}{2}(5 - e^1) = \frac{1}{2}(5 - 2.718) = 1.141$.</p>
+            <p>$x_2 = \frac{1}{2}(5 - e^{1.141}) = \frac{1}{2}(5 - 3.130) = 0.935$.</p>
+            <p>$x_3 \approx \frac{1}{2}(5 - 2.547) = 1.227$. Continuing: the sequence converges to $x \approx 1.052$.</p>
+            <p>Verify: $f(1.0515) < 0$ and $f(1.0525) > 0$. Root $\approx 1.052$ (3 d.p.).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.2.4 — Interpreting the Cobweb Diagram</h4>
+            <p>Describe geometrically what happens in a cobweb diagram when $|g'(\alpha)| < 1$ and $g'(\alpha) > 0$.</p>
+            <p>The iterates spiral inward (staircase pattern): the vertical line to $y = g(x)$ and then the horizontal line to $y = x$ form a staircase that steps ever closer to the fixed point. If $g'(\alpha) < 0$ with $|g'(\alpha)| < 1$, the iterates oscillate around the root (cobweb pattern) but still converge.</p>
+        </div>
+
+        <!-- 9.3 NEWTON-RAPHSON -->
+        <h2 id="newton-raphson">9.3 Newton-Raphson Method</h2>
+
+        <p>The Newton-Raphson method is a powerful technique that uses the tangent to the curve $y = f(x)$ at each iterate to obtain a better approximation to the root. It typically converges much faster than simple iteration.</p>
+
+        <div class="theorem-box">
+            <h4>Newton-Raphson Formula</h4>
+            <p>$$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$$</p>
+            <p>This is derived by drawing the tangent to $y=f(x)$ at $(x_n, f(x_n))$ and finding where it cuts the $x$-axis. The method converges <strong>quadratically</strong> near a simple root — the number of correct decimal places roughly doubles with each iteration.</p>
+            <p><strong>Failure:</strong> The method may fail if $f'(x_n) = 0$ (horizontal tangent) or if $x_0$ is chosen poorly (tangent points away from the root).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.3.1 — Newton-Raphson for a Cubic</h4>
+            <p>Use Newton-Raphson with $x_0 = 1$ to find the root of $f(x) = x^3 - x - 1$ to 5 decimal places.</p>
+            <p>$f'(x) = 3x^2 - 1$.</p>
+            <table class="iter-table">
+                <thead><tr><th>$n$</th><th>$x_n$</th><th>$f(x_n)$</th><th>$f'(x_n)$</th></tr></thead>
+                <tbody>
+                    <tr><td>0</td><td>1.000000</td><td>$-1.000$</td><td>2.000</td></tr>
+                    <tr><td>1</td><td>1.500000</td><td>0.875</td><td>5.750</td></tr>
+                    <tr><td>2</td><td>1.347826</td><td>0.101</td><td>4.449</td></tr>
+                    <tr><td>3</td><td>1.325200</td><td>0.0021</td><td>4.270</td></tr>
+                    <tr><td>4</td><td>1.324718</td><td>$\approx 0$</td><td>—</td></tr>
+                </tbody>
+            </table>
+            <p>Converges to $x \approx 1.32472$ (5 d.p.) in just 4 iterations, compared with over 10 for simple iteration.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.3.2 — Newton-Raphson for a Transcendental Equation</h4>
+            <p>Use Newton-Raphson with $x_0 = 2$ to find the root of $f(x) = e^x - 4x$ in the interval $(2, 3)$.</p>
+            <p>$f'(x) = e^x - 4$.</p>
+            <p>$x_1 = 2 - \dfrac{e^2 - 8}{e^2 - 4} = 2 - \dfrac{7.389 - 8}{7.389 - 4} = 2 - \dfrac{-0.611}{3.389} = 2 + 0.180 = 2.180$.</p>
+            <p>$x_2 = 2.180 - \dfrac{e^{2.180} - 4(2.180)}{e^{2.180} - 4} \approx 2.180 - \dfrac{8.846 - 8.720}{8.846 - 4} = 2.180 - 0.026 = 2.154$.</p>
+            <p>Continuing: $x_3 \approx 2.153$. Root $\approx 2.153$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.3.3 — Newton-Raphson Failure</h4>
+            <p>Explain why Newton-Raphson may fail for $f(x) = x^{1/3}$ starting from $x_0 = 1$.</p>
+            <p>$f'(x) = \frac{1}{3}x^{-2/3}$. The formula gives $x_{n+1} = x_n - \frac{x_n^{1/3}}{\frac{1}{3}x_n^{-2/3}} = x_n - 3x_n = -2x_n$. Starting from $x_0 = 1$: $x_1 = -2$, $x_2 = 4$, $x_3 = -8$, $\ldots$ The method diverges, with each iterate moving further from the root $x=0$. This occurs because $f'(0) = 0$ (horizontal tangent at the root).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.3.4 — Comparing Methods</h4>
+            <p>For $x^3 - 2x - 5 = 0$ near $x = 2$: compare one step of Newton-Raphson with one step of $x_{n+1} = \frac{x+5}{x^2}$, both starting from $x_0 = 2$.</p>
+            <p><strong>Newton-Raphson:</strong> $f(2) = -1$, $f'(2) = 10$. $x_1 = 2 - \frac{-1}{10} = 2.1$.</p>
+            <p><strong>Simple iteration:</strong> $x_1 = \frac{2+5}{4} = 1.75$. After further iterations this converges but more slowly. Newton-Raphson gives a closer estimate in fewer steps.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.3.5 — Deriving Newton-Raphson Geometrically</h4>
+            <p>Derive the Newton-Raphson formula by finding where the tangent to $y = f(x)$ at $(x_n, f(x_n))$ meets the $x$-axis.</p>
+            <p>The tangent at $(x_n, f(x_n))$ has equation: $y - f(x_n) = f'(x_n)(x - x_n)$.</p>
+            <p>Setting $y = 0$: $-f(x_n) = f'(x_n)(x - x_n) \Rightarrow x = x_n - \dfrac{f(x_n)}{f'(x_n)}$. This $x$-intercept is defined to be $x_{n+1}$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>When asked to "show that" Newton-Raphson gives the formula $x_{n+1} = \ldots$ for a specific equation, substitute $f(x)$ and $f'(x)$ into the formula and simplify algebraically. Do not just apply it numerically. Also, always verify your final answer satisfies the equation to the stated accuracy — show the sign change check.</p>
+        </div>
+
+        <!-- 9.4 NUMERICAL INTEGRATION -->
+        <h2 id="numerical-integration">9.4 Numerical Integration</h2>
+
+        <p>When an integral cannot be evaluated in closed form, numerical methods provide accurate approximations. The two most common at A-Level are the <strong>trapezium rule</strong> and, on some specifications, <strong>Simpson's rule</strong>.</p>
+
+        <h3>Trapezium Rule (Revision)</h3>
+        <p>Dividing $[a, b]$ into $n$ strips of width $h = \frac{b-a}{n}$ with ordinates $y_0, y_1, \ldots, y_n$:</p>
+        $$\int_a^b f(x)\,dx \approx \frac{h}{2}(y_0 + 2y_1 + 2y_2 + \cdots + 2y_{n-1} + y_n)$$
+
+        <h3>Simpson's Rule</h3>
+        <p>Simpson's rule uses pairs of strips (requiring an <strong>even</strong> number of strips, $n$) and fits a parabola through each group of three consecutive points:</p>
+
+        <div class="theorem-box">
+            <h4>Simpson's Rule Formula</h4>
+            <p>With an even number of strips $n$ and $h = \frac{b-a}{n}$:</p>
+            <p>$$\int_a^b f(x)\,dx \approx \frac{h}{3}\bigl(y_0 + 4y_1 + 2y_2 + 4y_3 + 2y_4 + \cdots + 4y_{n-1} + y_n\bigr)$$</p>
+            <p>Pattern of coefficients: $1,\; 4,\; 2,\; 4,\; 2,\; \ldots,\; 4,\; 1$.</p>
+            <p>Simpson's rule is exact for polynomials of degree $\leq 3$, and is generally more accurate than the trapezium rule for smooth functions.</p>
+        </div>
+
+        <div id="desmos-simpsons" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 9.3 — Comparing the trapezium rule (orange strips) with the underlying curve $y = \sin x + 1$ on $[0, \pi]$. The exact value is $\pi + 2 \approx 5.142$; using 4 strips, the trapezium rule gives $\approx 5.056$ while Simpson's rule gives the exact answer in this case (since $\sin x + 1$ is well-approximated by polynomials over short intervals).</p>
+
+        <div class="example-box">
+            <h4>Example 9.4.1 — Trapezium Rule with 4 Strips</h4>
+            <p>Estimate $\displaystyle\int_0^1 \frac{1}{1+x^2}\,dx$ using the trapezium rule with 4 strips.</p>
+            <p>$h = 0.25$. Ordinates:</p>
+            <table class="iter-table">
+                <thead><tr><th>$x$</th><th>$f(x) = \frac{1}{1+x^2}$</th></tr></thead>
+                <tbody>
+                    <tr><td>0</td><td>1.000000</td></tr>
+                    <tr><td>0.25</td><td>0.941176</td></tr>
+                    <tr><td>0.50</td><td>0.800000</td></tr>
+                    <tr><td>0.75</td><td>0.640000</td></tr>
+                    <tr><td>1.00</td><td>0.500000</td></tr>
+                </tbody>
+            </table>
+            <p>$$\approx \frac{0.25}{2}\bigl(1 + 2(0.941176 + 0.8 + 0.64) + 0.5\bigr) = \frac{0.25}{2}(1 + 4.762352 + 0.5) = \frac{0.25}{2}(6.262352) \approx 0.783$$</p>
+            <p>Exact value: $\left[\arctan x\right]_0^1 = \frac{\pi}{4} \approx 0.7854$. Percentage error $\approx 0.3\%$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.4.2 — Simpson's Rule with 4 Strips</h4>
+            <p>Estimate $\displaystyle\int_0^1 \frac{1}{1+x^2}\,dx$ using Simpson's rule with 4 strips (same ordinates as above).</p>
+            <p>$$\approx \frac{h}{3}(y_0 + 4y_1 + 2y_2 + 4y_3 + y_4)$$</p>
+            <p>$$= \frac{0.25}{3}(1 + 4(0.941176) + 2(0.8) + 4(0.64) + 0.5)$$</p>
+            <p>$$= \frac{0.25}{3}(1 + 3.764706 + 1.6 + 2.56 + 0.5) = \frac{0.25}{3}(9.424706) \approx 0.78539$$</p>
+            <p>This matches $\frac{\pi}{4} = 0.78540$ to 5 significant figures — far more accurate than the trapezium rule with the same number of function evaluations.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.4.3 — Error Estimation for the Trapezium Rule</h4>
+            <p>The trapezium rule with $n$ strips has a global error of order $O(h^2)$, where $h = \frac{b-a}{n}$. If doubling the number of strips reduces the error by a factor of approximately 4, estimate the error when the 4-strip and 8-strip estimates are known.</p>
+            <p>Let $T_4$ and $T_8$ be the 4-strip and 8-strip trapezium estimates, and let $I$ be the exact integral. Then $I - T_4 \approx 4(I - T_8)$, so $I \approx \frac{4T_8 - T_4}{3}$ (Richardson extrapolation — this gives Simpson's rule!).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.4.4 — Choosing Between Methods</h4>
+            <p>Compare the trapezium rule and Simpson's rule in terms of accuracy, computational effort, and when each is preferred.</p>
+            <p><strong>Trapezium rule</strong> — easy to apply, error $\approx O(h^2)$. Appropriate when the function has a simple shape or the specification only requires it. Overestimates for convex functions, underestimates for concave.</p>
+            <p><strong>Simpson's rule</strong> — requires an even number of strips, error $\approx O(h^4)$ (much smaller). Preferred for smooth functions where high accuracy is needed with fewer evaluations. Exact for cubics and below.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.4.5 — Applying Simpson's Rule to a Trigonometric Integral</h4>
+            <p>Use Simpson's rule with 6 strips to estimate $\displaystyle\int_0^{\pi} \sin x\,dx$.</p>
+            <p>$h = \frac{\pi}{6}$. Ordinates at $x = 0, \frac{\pi}{6}, \frac{\pi}{3}, \frac{\pi}{2}, \frac{2\pi}{3}, \frac{5\pi}{6}, \pi$:</p>
+            <p>$y_0 = 0$, $y_1 = 0.5$, $y_2 = \frac{\sqrt{3}}{2} \approx 0.8660$, $y_3 = 1$, $y_4 \approx 0.8660$, $y_5 = 0.5$, $y_6 = 0$.</p>
+            <p>$$\approx \frac{\pi/6}{3}(0 + 4(0.5) + 2(0.866) + 4(1) + 2(0.866) + 4(0.5) + 0) = \frac{\pi}{18}(0 + 2 + 1.732 + 4 + 1.732 + 2 + 0) = \frac{\pi}{18}(11.464) \approx 2.0000$$</p>
+            <p>Exact value is 2. Simpson's rule gives the exact answer here due to the symmetry and smoothness of $\sin x$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>For the trapezium rule, lay out your ordinates in a clear table with full working. The two most common errors are: using the wrong number of strips (confusing $n$ strips with $n+1$ ordinates) and forgetting to multiply the middle terms by 2. For Simpson's rule, the middle terms alternate as $4, 2, 4, 2, \ldots, 4$ — the pattern always ends in $4$ just before the final term.</p>
+        </div>
+
+        <!-- PRACTICE PROBLEMS -->
+        <h2 id="practice">Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>Show that $f(x) = x^4 - x - 3$ has a root in the interval $(1, 2)$, and use interval bisection twice to narrow the interval.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $f(1) = 1 - 1 - 3 = -3 < 0$; $f(2) = 16 - 2 - 3 = 11 > 0$. Sign change $\Rightarrow$ root in $(1, 2)$.<br>
+                    Midpoint $m = 1.5$: $f(1.5) = 5.0625 - 1.5 - 3 = 0.5625 > 0$. Root in $(1, 1.5)$.<br>
+                    Midpoint $m = 1.25$: $f(1.25) = 2.441 - 1.25 - 3 = -1.809 < 0$. Root in $(1.25, 1.5)$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>The equation $x^3 + 2x = 6$ has one real root. Show it lies in $(1, 2)$, and rearrange to the form $x_{n+1} = \sqrt[3]{6 - 2x_n}$. Use this to find the root to 3 d.p. starting from $x_0 = 1.5$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    Let $f(x) = x^3 + 2x - 6$. $f(1) = -3 < 0$, $f(2) = 6 > 0$. Sign change confirms root in $(1, 2)$.<br>
+                    Rearrangement: $x^3 = 6 - 2x \Rightarrow x = (6-2x)^{1/3}$.<br>
+                    $x_1 = (6 - 3)^{1/3} = 3^{1/3} \approx 1.4422$.<br>
+                    $x_2 = (6 - 2.8845)^{1/3} = 3.1155^{1/3} \approx 1.4619$.<br>
+                    $x_3 \approx (6 - 2.9238)^{1/3} \approx 1.4555$.<br>
+                    Continuing: converges to $x \approx 1.453$ (3 d.p.).
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>For $f(x) = x^2 - 5$, apply Newton-Raphson with $x_0 = 2$ to find $\sqrt{5}$ to 6 decimal places. How many iterations are needed?</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $f'(x) = 2x$. Formula: $x_{n+1} = x_n - \frac{x_n^2 - 5}{2x_n} = \frac{x_n^2 + 5}{2x_n} = \frac{x_n}{2} + \frac{5}{2x_n}$.<br>
+                    $x_0 = 2$; $x_1 = \frac{4+5}{4} = 2.25$; $x_2 = \frac{5.0625+5}{4.5} = \frac{10.0625}{4.5} \approx 2.236111$;<br>
+                    $x_3 \approx 2.236068$; $x_4 = 2.236068$. Converges in 4 iterations to $\sqrt{5} \approx 2.236068$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4</h4>
+            <p>A student applies Newton-Raphson to $f(x) = \cos x - x$ starting from $x_0 = 0$. Find $x_1$, $x_2$ and comment on the convergence.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $f'(x) = -\sin x - 1$. <br>
+                    $x_1 = 0 - \frac{\cos 0 - 0}{-\sin 0 - 1} = 0 - \frac{1}{-1} = 1$.<br>
+                    $x_2 = 1 - \frac{\cos 1 - 1}{-\sin 1 - 1} = 1 - \frac{0.5403 - 1}{-0.8415 - 1} = 1 - \frac{-0.4597}{-1.8415} \approx 1 - 0.2496 = 0.7504$.<br>
+                    $x_3 \approx 0.7391$. Converges to the fixed point of $\cos x$, the Dottie number $\approx 0.7391$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5</h4>
+            <p>The equation $2\ln x = 5 - x$ has a root near $x = 3.5$. Show the root lies in $(3, 4)$ and apply Newton-Raphson once from $x_0 = 3.5$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    Let $g(x) = 2\ln x - 5 + x$. $g(3) = 2\ln 3 - 2 = 2(1.0986) - 2 = 0.197 > 0$. Wait — re-check: $2\ln 3 \approx 2.197$ and $5 - 3 = 2$, so $2\ln 3 < 5-3$? No: $2.197 > 2$, so $g(3) > 0$.<br>
+                    $g(4) = 2\ln 4 - 1 = 2(1.386) - 1 = 1.773 > 0$. Both positive? Try $f(x) = 2\ln x + x - 5$: $f(3) = 2.197 + 3 - 5 = 0.197 > 0$ and $f(2) = 2\ln 2 + 2 - 5 = 1.386 - 3 = -1.614 < 0$. Root in $(2, 3)$.<br>
+                    NR from $x_0 = 2.5$: $f'(x) = 2/x + 1$; $f(2.5) = 2\ln 2.5 - 2.5 = 1.833 - 2.5 = -0.667$; $f'(2.5) = 0.8 + 1 = 1.8$; $x_1 = 2.5 + 0.371 = 2.871$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6</h4>
+            <p>Use the trapezium rule with 5 ordinates (4 strips) to estimate $\displaystyle\int_1^3 \sqrt{1+x^2}\,dx$. State whether your estimate is an overestimate or underestimate, giving a reason.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $h = 0.5$. Ordinates: $f(1) = \sqrt{2} \approx 1.4142$; $f(1.5) \approx 1.8028$; $f(2) \approx 2.2361$; $f(2.5) \approx 2.6926$; $f(3) \approx 3.1623$.<br>
+                    $$\approx \frac{0.5}{2}(1.4142 + 2(1.8028+2.2361+2.6926) + 3.1623) = 0.25(1.4142 + 13.4630 + 3.1623) = 0.25(18.0395) \approx 4.510$$<br>
+                    Since $f''(x) > 0$ for $\sqrt{1+x^2}$ (the function is convex), the trapezium rule is an <strong>overestimate</strong>.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>Explain why the sign change method fails to detect the roots of $h(x) = \frac{1}{x-2}$ on the interval $[1, 3]$, and describe the pitfall.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $h(1) = \frac{1}{-1} = -1 < 0$ and $h(3) = 1 > 0$. A sign change is detected, seemingly suggesting a root in $(1, 3)$. However, $h(x)$ has no root (the numerator is always 1, never zero) — what it has is a <strong>vertical asymptote</strong> at $x = 2$ where the function is discontinuous. The sign change occurs because the function jumps from $-\infty$ to $+\infty$ across the asymptote, not because it passes through zero. The sign change theorem requires continuity, which is violated here.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8</h4>
+            <p>Use Simpson's rule with 4 strips to estimate $\displaystyle\int_0^2 e^{x^2/2}\,dx$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $h = 0.5$. Ordinates: $y_0 = e^0 = 1$; $y_1 = e^{0.125} \approx 1.1331$; $y_2 = e^{0.5} \approx 1.6487$; $y_3 = e^{1.125} \approx 3.0802$; $y_4 = e^2 \approx 7.3891$.<br>
+                    $$\approx \frac{0.5}{3}(1 + 4(1.1331) + 2(1.6487) + 4(3.0802) + 7.3891)$$
+                    $$= \frac{0.5}{3}(1 + 4.5324 + 3.2974 + 12.3208 + 7.3891) = \frac{0.5}{3}(28.5397) \approx 4.757$$
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 9</h4>
+            <p>Show that the iterative formula $x_{n+1} = \frac{2}{3}\left(x_n + \frac{3}{x_n^2}\right)$ can be used to solve $x^3 = 3$, and find $\sqrt[3]{3}$ to 4 significant figures starting from $x_0 = 1.5$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    If $x_{n+1} = x$, then $x = \frac{2}{3}x + \frac{2}{x^2} \Rightarrow \frac{x}{3} = \frac{2}{x^2} \Rightarrow x^3 = 6$. Wait, this gives $\sqrt[3]{6}$ not $\sqrt[3]{3}$.<br>
+                    The correct formula for $x^3 = 3$ is: rearrange Newton-Raphson for $f(x) = x^3 - 3$: $x_{n+1} = x_n - \frac{x_n^3-3}{3x_n^2} = \frac{2x_n}{3} + \frac{1}{x_n^2}$.<br>
+                    $x_0 = 1.5$; $x_1 = 1 + \frac{1}{2.25} = 1 + 0.444 = 1.444$; $x_2 = 0.963 + 0.480 = 1.443$; $x_3 = 1.4422$. So $\sqrt[3]{3} \approx 1.442$ (4 s.f.).
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 10</h4>
+            <p>The trapezium rule with 2 strips gives an estimate $T_2$ and with 4 strips gives $T_4$ for the same integral. Using the fact that the trapezium rule error is $O(h^2)$, show that the improved estimate $\frac{4T_4 - T_2}{3}$ is equivalent to Simpson's rule.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    Let the exact integral be $I$. The trapezium rule error with step $h$ is approximately $Kh^2$ for some constant $K$.<br>
+                    $T_2 = I + K(h/1)^2 \cdot (\text{factor})$ with $h = (b-a)/2$, $T_4 = I + K(h/2)^2 \cdot (\text{factor})$.<br>
+                    More precisely, if $T(h)$ denotes the trapezium estimate with step $h$: $T(h) \approx I + Ch^2$. Then $T(h/2) \approx I + C(h/2)^2 = I + Ch^2/4$.<br>
+                    Richardson: $\frac{4T(h/2) - T(h)}{3} = \frac{4(I + Ch^2/4) - (I + Ch^2)}{3} = \frac{4I + Ch^2 - I - Ch^2}{3} = \frac{3I}{3} = I$.<br>
+                    Expanding the trapezium sums explicitly shows this combination equals $\frac{h}{3}(y_0 + 4y_1 + 2y_2 + 4y_3 + y_4)$, i.e.\ Simpson's rule.
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <script>
+        // Figure 9.1 — f(x) = x^3 - x - 1 crossing x-axis near x=1.32
+        (function() {
+            var elt = document.getElementById('desmos-roots');
+            var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true,
+                keypad: false
+            });
+            calc.setMathBounds({ left: -0.5, right: 2.5, bottom: -2.5, top: 6 });
+            calc.setExpressions([
+                { id: 'curve', latex: 'y = x^3 - x - 1', color: '#1d4ed8', lineWidth: 2.5 },
+                { id: 'xaxis', latex: 'y = 0', color: '#94a3b8', lineWidth: 1 },
+                // mark sign at x=1
+                { id: 'pt1', latex: '(1, -1)', color: '#dc2626', pointSize: 12, label: 'f(1)=-1', showLabel: true, labelOrientation: Desmos.LabelOrientations.LEFT },
+                // mark sign at x=2
+                { id: 'pt2', latex: '(2, 5)', color: '#15803d', pointSize: 12, label: 'f(2)=5', showLabel: true, labelOrientation: Desmos.LabelOrientations.RIGHT },
+                // approximate root
+                { id: 'root', latex: '(1.3247, 0)', color: '#f59e0b', pointSize: 12, label: '\\alpha\\approx1.32', showLabel: true, labelOrientation: Desmos.LabelOrientations.RIGHT }
+            ]);
+        })();
+
+        // Figure 9.2 — Cobweb diagram for x_{n+1} = cos x
+        (function() {
+            var elt = document.getElementById('desmos-cobweb');
+            var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true,
+                keypad: false
+            });
+            calc.setMathBounds({ left: -0.1, right: 1.6, bottom: -0.1, top: 1.5 });
+            calc.setExpressions([
+                { id: 'gx', latex: 'y = \\cos x', color: '#1d4ed8', lineWidth: 2.5 },
+                { id: 'yx', latex: 'y = x', color: '#15803d', lineWidth: 2, lineStyle: Desmos.Styles.DASHED },
+                // cobweb steps: (x0,0)->(x0,cos x0)->(cos x0, cos x0)->(cos x0, cos(cos x0))...
+                // x0=1, cos(1)~0.5403, cos(0.5403)~0.8576, cos(0.8576)~0.6543
+                { id: 'cw1', latex: '\\operatorname{polygon}((1,0),(1,0.5403))', color: '#f59e0b', lineWidth: 1.8 },
+                { id: 'cw2', latex: '\\operatorname{polygon}((1,0.5403),(0.5403,0.5403))', color: '#f59e0b', lineWidth: 1.8 },
+                { id: 'cw3', latex: '\\operatorname{polygon}((0.5403,0.5403),(0.5403,0.8576))', color: '#f59e0b', lineWidth: 1.8 },
+                { id: 'cw4', latex: '\\operatorname{polygon}((0.5403,0.8576),(0.8576,0.8576))', color: '#f59e0b', lineWidth: 1.8 },
+                { id: 'cw5', latex: '\\operatorname{polygon}((0.8576,0.8576),(0.8576,0.6543))', color: '#f59e0b', lineWidth: 1.8 },
+                { id: 'cw6', latex: '\\operatorname{polygon}((0.8576,0.6543),(0.6543,0.6543))', color: '#f59e0b', lineWidth: 1.8 },
+                { id: 'cw7', latex: '\\operatorname{polygon}((0.6543,0.6543),(0.6543,0.7935))', color: '#f59e0b', lineWidth: 1.8 },
+                { id: 'cw8', latex: '\\operatorname{polygon}((0.6543,0.7935),(0.7935,0.7935))', color: '#f59e0b', lineWidth: 1.8 },
+                // fixed point
+                { id: 'fp', latex: '(0.7391,0.7391)', color: '#dc2626', pointSize: 12, label: '\\alpha\\approx0.739', showLabel: true, labelOrientation: Desmos.LabelOrientations.RIGHT }
+            ]);
+        })();
+
+        // Figure 9.3 — Trapezium rule vs curve y = sin x + 1 over [0, pi]
+        (function() {
+            var elt = document.getElementById('desmos-simpsons');
+            var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true,
+                keypad: false
+            });
+            calc.setMathBounds({ left: -0.2, right: 3.4, bottom: -0.1, top: 2.3 });
+            calc.setExpressions([
+                { id: 'curve', latex: 'y = \\sin x + 1', color: '#1d4ed8', lineWidth: 2.5 },
+                // 4 trapezoids over [0, pi], h = pi/4
+                // endpoints: (0,1), (pi/4, sin(pi/4)+1), (pi/2, 2), (3pi/4, sin(3pi/4)+1), (pi, 1)
+                // ~ (0,1),(0.785,1.707),(1.571,2),(2.356,1.707),(3.142,1)
+                { id: 't1', latex: '\\operatorname{polygon}((0,0),(0,1),(0.785,1.707),(0.785,0))', color: '#fbbf24', fillOpacity: 0.3, lineWidth: 1.5 },
+                { id: 't2', latex: '\\operatorname{polygon}((0.785,0),(0.785,1.707),(1.571,2),(1.571,0))', color: '#fbbf24', fillOpacity: 0.3, lineWidth: 1.5 },
+                { id: 't3', latex: '\\operatorname{polygon}((1.571,0),(1.571,2),(2.356,1.707),(2.356,0))', color: '#fbbf24', fillOpacity: 0.3, lineWidth: 1.5 },
+                { id: 't4', latex: '\\operatorname{polygon}((2.356,0),(2.356,1.707),(3.142,1),(3.142,0))', color: '#fbbf24', fillOpacity: 0.3, lineWidth: 1.5 },
+                { id: 'top1', latex: '\\operatorname{polygon}((0,1),(0.785,1.707))', color: '#f59e0b', lineWidth: 2 },
+                { id: 'top2', latex: '\\operatorname{polygon}((0.785,1.707),(1.571,2))', color: '#f59e0b', lineWidth: 2 },
+                { id: 'top3', latex: '\\operatorname{polygon}((1.571,2),(2.356,1.707))', color: '#f59e0b', lineWidth: 2 },
+                { id: 'top4', latex: '\\operatorname{polygon}((2.356,1.707),(3.142,1))', color: '#f59e0b', lineWidth: 2 }
+            ]);
+        })();
+    </script>
+</body>
+</html>

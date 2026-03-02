@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Further Mathematics – Chapter 4: Linear Transformations and Eigenvalues | Further Mathematics | MathHub</title>
+    <meta name="description" content="A-Level Further Mathematics Chapter 4: Linear Transformations and Eigenvalues. Covers matrices as linear transformations, standard 2D and 3D transformations, eigenvalues, eigenvectors, diagonalisation, and the Cayley-Hamilton theorem.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/further-ch4-linear-transformations.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .further-badge { display: inline-block; background: #fce7f3; color: #9d174d; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+        .matrix-display { font-family: 'Courier New', monospace; text-align: center; margin: 12px 0; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/" class="active">UK</a><a href="/ca/">CA</a><a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+    <article class="blog-article">
+        <div class="breadcrumb"><a href="/uk/">UK</a> › <a href="/uk/a-level/">A-Level Further Maths</a> › Chapter 4: Linear Transformations and Eigenvalues</div>
+        <h1>A-Level Further Mathematics – Chapter 4: Linear Transformations and Eigenvalues <span class="further-badge">Further Pure</span></h1>
+        <div class="blog-meta">Edexcel · AQA · OCR A-Level Further Mathematics &middot; Updated March 2026</div>
+
+        <div class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#s41">4.1 Matrices as Linear Transformations</a></li>
+                <li><a href="#s42">4.2 Standard 2D Transformations</a></li>
+                <li><a href="#s43">4.3 3D Transformations</a></li>
+                <li><a href="#s44">4.4 Eigenvalues and Eigenvectors</a></li>
+                <li><a href="#s45">4.5 Diagonalisation</a></li>
+                <li><a href="#s46">4.6 The Cayley-Hamilton Theorem</a></li>
+                <li><a href="#practice">Practice Problems</a></li>
+            </ol>
+        </div>
+
+        <p>Linear transformations connect the algebraic world of matrices to the geometric world of shapes, rotations, and stretches. This chapter develops the theory systematically: first by understanding what matrices <em>do</em> to the plane and three-dimensional space, then by identifying the special directions (eigenvectors) that matrices merely scale rather than rotate, and finally by exploiting those directions to simplify matrix computations enormously.</p>
+
+        <!-- ==================== SECTION 4.1 ==================== -->
+        <h2 id="s41">4.1 Matrices as Linear Transformations</h2>
+
+        <p>A <strong>linear transformation</strong> $T: \mathbb{R}^n \to \mathbb{R}^m$ is a function satisfying $T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$ and $T(k\mathbf{v}) = kT(\mathbf{v})$ for all vectors $\mathbf{u}, \mathbf{v}$ and scalars $k$. Every such transformation can be represented as multiplication by a matrix.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Matrix of a Linear Transformation</h4>
+            <p>If $T: \mathbb{R}^2 \to \mathbb{R}^2$ is a linear transformation, then there exists a unique $2 \times 2$ matrix $A$ such that $T(\mathbf{x}) = A\mathbf{x}$ for all $\mathbf{x} \in \mathbb{R}^2$. The columns of $A$ are the images of the standard basis vectors: $A = \bigl[T(\mathbf{e}_1) \mid T(\mathbf{e}_2)\bigr]$.</p>
+        </div>
+
+        <p>The <strong>unit square</strong> with vertices at $(0,0)$, $(1,0)$, $(0,1)$, $(1,1)$ is a useful diagnostic tool. Under the transformation $A$, these four vertices map to $(0,0)$, the first column of $A$, the second column of $A$, and the sum of both columns. The area of the image parallelogram equals $|\det(A)|$ times the original area.</p>
+
+        <div class="example-box">
+            <h4>Example 4.1.1 — Image of the unit square</h4>
+            <p>Let $A = \begin{pmatrix} 2 & 1 \\ 0 & 3 \end{pmatrix}$. Find the image of the unit square and the area scale factor.</p>
+            <p><span class="step-label">Step 1</span> Map the four vertices:</p>
+            <ul>
+                <li>$(0,0) \mapsto (0,0)$</li>
+                <li>$(1,0) \mapsto A\begin{pmatrix}1\\0\end{pmatrix} = \begin{pmatrix}2\\0\end{pmatrix}$</li>
+                <li>$(0,1) \mapsto A\begin{pmatrix}0\\1\end{pmatrix} = \begin{pmatrix}1\\3\end{pmatrix}$</li>
+                <li>$(1,1) \mapsto A\begin{pmatrix}1\\1\end{pmatrix} = \begin{pmatrix}3\\3\end{pmatrix}$</li>
+            </ul>
+            <p><span class="step-label">Step 2</span> The image is a parallelogram with vertices $(0,0)$, $(2,0)$, $(1,3)$, $(3,3)$.</p>
+            <p><span class="step-label">Step 3</span> Area scale factor $= |\det(A)| = |2 \times 3 - 1 \times 0| = 6$. The unit square has area 1, so the image has area 6. &#9646;</p>
+        </div>
+
+        <div id="desmos1" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 4.1 — The unit square (blue) and its image (red) under $A = \begin{pmatrix}2&1\\0&3\end{pmatrix}$. The area ratio equals $|\det A| = 6$.</p>
+
+        <div class="example-box">
+            <h4>Example 4.1.2 — Composition of transformations</h4>
+            <p>Transformation $T_1$ has matrix $A = \begin{pmatrix}0&-1\\1&0\end{pmatrix}$ (rotation by $90°$) and $T_2$ has matrix $B = \begin{pmatrix}2&0\\0&1\end{pmatrix}$ (horizontal stretch). Find the matrix of "$T_1$ followed by $T_2$".</p>
+            <p><span class="step-label">Key rule</span> The combined transformation is $BA$ (apply $A$ first, then $B$ acts on the result).</p>
+            $$BA = \begin{pmatrix}2&0\\0&1\end{pmatrix}\begin{pmatrix}0&-1\\1&0\end{pmatrix} = \begin{pmatrix}0&-2\\1&0\end{pmatrix}$$
+            <p>Note that $AB \neq BA$ in general — matrix multiplication is <em>not</em> commutative, and the order of composition is critical. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.1.3 — Identifying the transformation from its matrix</h4>
+            <p>Describe the geometric effect of $C = \begin{pmatrix}-1&0\\0&1\end{pmatrix}$.</p>
+            <p>The image of $(x, y)$ is $(-x, y)$. This reflects every point in the $y$-axis. The columns of $C$ confirm this: $\mathbf{e}_1 = (1,0)$ maps to $(-1,0)$ and $\mathbf{e}_2 = (0,1)$ is fixed. &#9646;</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip — Order of Matrix Multiplication</h4>
+            <p>In A-Level Further Maths, "apply $A$ then $B$" corresponds to the product $BA\mathbf{x}$. The rightmost matrix acts first. Marks are frequently lost by reversing the order. Always check by applying to $\mathbf{e}_1$ and $\mathbf{e}_2$.</p>
+        </div>
+
+        <!-- ==================== SECTION 4.2 ==================== -->
+        <h2 id="s42">4.2 Standard 2D Transformations</h2>
+
+        <p>The following matrices appear repeatedly in examinations. All should be derived from first principles rather than memorised blindly — the derivations are straightforward and show up as multi-mark questions.</p>
+
+        <div class="definition-box">
+            <h4>Standard 2D Transformation Matrices</h4>
+            <ul>
+                <li><strong>Rotation by $\theta$ anticlockwise about origin:</strong> $R_\theta = \begin{pmatrix}\cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{pmatrix}$</li>
+                <li><strong>Reflection in the line $y = x\tan\alpha$:</strong> $M_\alpha = \begin{pmatrix}\cos 2\alpha & \sin 2\alpha \\ \sin 2\alpha & -\cos 2\alpha\end{pmatrix}$</li>
+                <li><strong>Stretch parallel to $x$-axis by factor $a$:</strong> $S_x = \begin{pmatrix}a & 0 \\ 0 & 1\end{pmatrix}$</li>
+                <li><strong>Enlargement (isotropic stretch) by factor $k$:</strong> $kI = \begin{pmatrix}k & 0 \\ 0 & k\end{pmatrix}$</li>
+                <li><strong>Shear parallel to $x$-axis by factor $k$:</strong> $H_x = \begin{pmatrix}1 & k \\ 0 & 1\end{pmatrix}$</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.2.1 — Deriving the rotation matrix</h4>
+            <p>Derive $R_{90°}$, the matrix for anticlockwise rotation by $90°$.</p>
+            <p>$\mathbf{e}_1 = (1,0)$ rotates to $(0,1)$; $\mathbf{e}_2 = (0,1)$ rotates to $(-1,0)$.</p>
+            <p>Columns of $R_{90°}$ are these images: $R_{90°} = \begin{pmatrix}0 & -1 \\ 1 & 0\end{pmatrix}$.</p>
+            <p>Using the formula with $\theta = 90°$: $\cos 90° = 0$, $\sin 90° = 1$, giving $\begin{pmatrix}0&-1\\1&0\end{pmatrix}$. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.2.2 — Reflection in $y = x$</h4>
+            <p>The line $y = x$ corresponds to angle $\alpha = 45°$ (since $\tan 45° = 1$). The reflection matrix is:</p>
+            $$M_{45°} = \begin{pmatrix}\cos 90° & \sin 90° \\ \sin 90° & -\cos 90°\end{pmatrix} = \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}$$
+            <p>Check: $(3, 5) \mapsto (5, 3)$. Correct — reflection in $y = x$ swaps coordinates. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.2.3 — Combined transformation</h4>
+            <p>Find the single matrix for: reflect in the $x$-axis, then rotate anticlockwise by $60°$.</p>
+            <p>Reflection in the $x$-axis: $\alpha = 0°$, so $M_0 = \begin{pmatrix}1&0\\0&-1\end{pmatrix}$.</p>
+            <p>Rotation by $60°$: $R_{60°} = \begin{pmatrix}1/2 & -\sqrt{3}/2 \\ \sqrt{3}/2 & 1/2\end{pmatrix}$.</p>
+            <p>Combined (rotation after reflection): $R_{60°}M_0 = \begin{pmatrix}1/2 & -\sqrt{3}/2 \\ \sqrt{3}/2 & 1/2\end{pmatrix}\begin{pmatrix}1&0\\0&-1\end{pmatrix} = \begin{pmatrix}1/2 & \sqrt{3}/2 \\ \sqrt{3}/2 & -1/2\end{pmatrix}$. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.2.4 — Shear transformation</h4>
+            <p>The matrix $H = \begin{pmatrix}1 & 3 \\ 0 & 1\end{pmatrix}$ represents a shear. Find the image of the triangle with vertices $(0,0)$, $(2,0)$, $(1,2)$.</p>
+            <p>$(0,0) \mapsto (0,0)$; $(2,0) \mapsto (2,0)$; $(1,2) \mapsto (1 + 6, 2) = (7, 2)$.</p>
+            <p>Note: $\det(H) = 1$, so area is preserved. The triangle with base 2 and height 2 has area 2 both before and after the shear. &#9646;</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip — Determinant and Area</h4>
+            <p>For any $2\times2$ transformation matrix $A$, the area scale factor is $|\det A|$. If $\det A = 0$, the transformation is singular and maps the entire plane onto a line (or point), so area becomes zero. Always compute $\det A$ when asked about area.</p>
+        </div>
+
+        <!-- ==================== SECTION 4.3 ==================== -->
+        <h2 id="s43">4.3 3D Transformations</h2>
+
+        <p>The extension to three dimensions follows the same column-of-images principle. The standard rotations about each coordinate axis are central to this topic.</p>
+
+        <div class="definition-box">
+            <h4>Standard 3D Rotation Matrices (right-hand rule, anticlockwise when viewed along positive axis toward origin)</h4>
+            <ul>
+                <li>Rotation by $\theta$ about the $x$-axis: $R_x(\theta) = \begin{pmatrix}1&0&0\\0&\cos\theta&-\sin\theta\\0&\sin\theta&\cos\theta\end{pmatrix}$</li>
+                <li>Rotation by $\theta$ about the $y$-axis: $R_y(\theta) = \begin{pmatrix}\cos\theta&0&\sin\theta\\0&1&0\\-\sin\theta&0&\cos\theta\end{pmatrix}$</li>
+                <li>Rotation by $\theta$ about the $z$-axis: $R_z(\theta) = \begin{pmatrix}\cos\theta&-\sin\theta&0\\\sin\theta&\cos\theta&0\\0&0&1\end{pmatrix}$</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.3.1 — Rotation about the $z$-axis</h4>
+            <p>Find the image of the point $P(1, 0, 2)$ under rotation by $90°$ anticlockwise about the $z$-axis.</p>
+            $$R_z(90°)\begin{pmatrix}1\\0\\2\end{pmatrix} = \begin{pmatrix}0&-1&0\\1&0&0\\0&0&1\end{pmatrix}\begin{pmatrix}1\\0\\2\end{pmatrix} = \begin{pmatrix}0\\1\\2\end{pmatrix}$$
+            <p>The $z$-coordinate is unchanged (the axis of rotation), while $(x,y) = (1,0)$ rotates to $(0,1)$. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.3.2 — Reflection in the $xy$-plane</h4>
+            <p>The reflection in the $xy$-plane sends $(x, y, z) \mapsto (x, y, -z)$. Write down its matrix.</p>
+            <p>Applying to the standard basis: $\mathbf{e}_1 \mapsto \mathbf{e}_1$, $\mathbf{e}_2 \mapsto \mathbf{e}_2$, $\mathbf{e}_3 \mapsto -\mathbf{e}_3$.</p>
+            $$M_{xy} = \begin{pmatrix}1&0&0\\0&1&0\\0&0&-1\end{pmatrix}$$
+            <p>Note $\det(M_{xy}) = -1$, consistent with a reflection being orientation-reversing. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.3.3 — Volume scale factor</h4>
+            <p>A general $3\times3$ matrix $A$ scales volumes by $|\det A|$. For $A = \begin{pmatrix}2&0&0\\0&3&0\\0&0&5\end{pmatrix}$, a unit cube maps to a cuboid of volume $2 \times 3 \times 5 = 30$, confirming $\det A = 30$. &#9646;</p>
+        </div>
+
+        <!-- ==================== SECTION 4.4 ==================== -->
+        <h2 id="s44">4.4 Eigenvalues and Eigenvectors</h2>
+
+        <p>For most vectors, multiplication by a matrix $A$ changes both the <em>direction</em> and <em>magnitude</em>. An <strong>eigenvector</strong> is a non-zero vector for which multiplication by $A$ only changes the <em>magnitude</em> (and possibly reverses direction). The scale factor is the corresponding <strong>eigenvalue</strong>.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Eigenvalue and Eigenvector</h4>
+            <p>Let $A$ be an $n\times n$ matrix. A scalar $\lambda$ is an <strong>eigenvalue</strong> of $A$ if there exists a non-zero vector $\mathbf{v}$ such that:</p>
+            $$A\mathbf{v} = \lambda\mathbf{v}$$
+            <p>The vector $\mathbf{v}$ is the corresponding <strong>eigenvector</strong>. The set of all eigenvectors corresponding to $\lambda$ (together with the zero vector) forms the <strong>eigenspace</strong> for $\lambda$.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Theorem: Characteristic Equation</h4>
+            <p>The eigenvalues of $A$ are the solutions of the <strong>characteristic equation</strong>:</p>
+            $$\det(A - \lambda I) = 0$$
+            <p>For a $2\times2$ matrix, this gives a quadratic; for a $3\times3$ matrix, a cubic. The characteristic polynomial of a $2\times2$ matrix $\begin{pmatrix}a&b\\c&d\end{pmatrix}$ is $\lambda^2 - (a+d)\lambda + (ad-bc) = \lambda^2 - \operatorname{tr}(A)\lambda + \det(A)$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.4.1 — Eigenvalues of a $2\times2$ matrix</h4>
+            <p>Find the eigenvalues of $A = \begin{pmatrix}3&1\\0&2\end{pmatrix}$.</p>
+            <p><span class="step-label">Step 1</span> Form $\det(A - \lambda I) = 0$:</p>
+            $$\det\begin{pmatrix}3-\lambda & 1 \\ 0 & 2-\lambda\end{pmatrix} = (3-\lambda)(2-\lambda) - 0 = 0$$
+            <p><span class="step-label">Step 2</span> Solve: $(3-\lambda)(2-\lambda) = 0$, so $\lambda = 3$ or $\lambda = 2$. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.4.2 — Eigenvectors of a $2\times2$ matrix</h4>
+            <p>For $A = \begin{pmatrix}3&1\\0&2\end{pmatrix}$, find the eigenvectors.</p>
+            <p><span class="step-label">For $\lambda = 3$:</span> Solve $(A - 3I)\mathbf{v} = \mathbf{0}$:</p>
+            $$\begin{pmatrix}0&1\\0&-1\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix} \implies y = 0$$
+            <p>Eigenvector: $\mathbf{v}_1 = \begin{pmatrix}1\\0\end{pmatrix}$ (any non-zero multiple).</p>
+            <p><span class="step-label">For $\lambda = 2$:</span> Solve $(A - 2I)\mathbf{v} = \mathbf{0}$:</p>
+            $$\begin{pmatrix}1&1\\0&0\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix} = \begin{pmatrix}0\\0\end{pmatrix} \implies x = -y$$
+            <p>Eigenvector: $\mathbf{v}_2 = \begin{pmatrix}1\\-1\end{pmatrix}$. &#9646;</p>
+        </div>
+
+        <div id="desmos2" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 4.2 — Eigenvectors of $A = \begin{pmatrix}3&1\\0&2\end{pmatrix}$: the red arrow (along the $x$-axis) is scaled by $\lambda=3$; the blue arrow is scaled by $\lambda=2$.</p>
+
+        <div class="example-box">
+            <h4>Example 4.4.3 — Eigenvalues of a $3\times3$ matrix</h4>
+            <p>Find the eigenvalues of $B = \begin{pmatrix}2&0&0\\1&3&0\\0&2&4\end{pmatrix}$ (lower triangular).</p>
+            <p>For any triangular matrix, the eigenvalues are the entries on the main diagonal. Therefore $\lambda = 2, 3, 4$.</p>
+            <p><span class="step-label">Verification:</span> $\det(B - \lambda I) = (2-\lambda)(3-\lambda)(4-\lambda)$ since the matrix remains lower triangular after subtracting $\lambda I$. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.4.4 — Repeated eigenvalue</h4>
+            <p>Find all eigenvalues and eigenvectors of $C = \begin{pmatrix}5&-4\\1&1\end{pmatrix}$.</p>
+            <p>$\det(C - \lambda I) = (5-\lambda)(1-\lambda) + 4 = \lambda^2 - 6\lambda + 9 = (\lambda - 3)^2 = 0$.</p>
+            <p>Repeated eigenvalue $\lambda = 3$. Solve $(C - 3I)\mathbf{v} = \mathbf{0}$:</p>
+            $$\begin{pmatrix}2&-4\\1&-2\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix} = \mathbf{0} \implies x = 2y$$
+            <p>Only one linearly independent eigenvector: $\mathbf{v} = \begin{pmatrix}2\\1\end{pmatrix}$. This matrix is <em>not</em> diagonalisable over $\mathbb{R}$. &#9646;</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip — Eigenvectors are Directions, not Points</h4>
+            <p>Any non-zero scalar multiple of an eigenvector is also an eigenvector for the same eigenvalue. In exam questions you may write any convenient multiple, but check: the eigenvector must be non-zero, and you must show the working that leads to the eigenspace equation.</p>
+        </div>
+
+        <!-- ==================== SECTION 4.5 ==================== -->
+        <h2 id="s45">4.5 Diagonalisation</h2>
+
+        <p>If a matrix $A$ has $n$ linearly independent eigenvectors, it can be <strong>diagonalised</strong>: written as $A = PDP^{-1}$, where $D$ is diagonal (eigenvalues on the diagonal) and $P$ has the corresponding eigenvectors as columns. Diagonalisation makes it trivial to compute powers of $A$.</p>
+
+        <div class="theorem-box">
+            <h4>Theorem: Diagonalisation</h4>
+            <p>Suppose $n \times n$ matrix $A$ has eigenvalues $\lambda_1, \ldots, \lambda_n$ with corresponding linearly independent eigenvectors $\mathbf{v}_1, \ldots, \mathbf{v}_n$. Let $P = [\mathbf{v}_1 \mid \cdots \mid \mathbf{v}_n]$ and $D = \operatorname{diag}(\lambda_1, \ldots, \lambda_n)$. Then:</p>
+            $$A = PDP^{-1} \qquad \text{and} \qquad A^n = PD^nP^{-1}$$
+            <p>where $D^n = \operatorname{diag}(\lambda_1^n, \ldots, \lambda_n^n)$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.5.1 — Diagonalising a $2\times2$ matrix</h4>
+            <p>Diagonalise $A = \begin{pmatrix}3&1\\0&2\end{pmatrix}$ (eigenvalues $\lambda_1 = 3$, $\lambda_2 = 2$; eigenvectors $\mathbf{v}_1 = \begin{pmatrix}1\\0\end{pmatrix}$, $\mathbf{v}_2 = \begin{pmatrix}1\\-1\end{pmatrix}$).</p>
+            <p>Form $P = \begin{pmatrix}1&1\\0&-1\end{pmatrix}$, $D = \begin{pmatrix}3&0\\0&2\end{pmatrix}$.</p>
+            <p>Find $P^{-1}$: $\det P = -1$, so $P^{-1} = \frac{1}{-1}\begin{pmatrix}-1&-1\\0&1\end{pmatrix} = \begin{pmatrix}1&1\\0&-1\end{pmatrix}$.</p>
+            <p>Verify: $PDP^{-1} = \begin{pmatrix}1&1\\0&-1\end{pmatrix}\begin{pmatrix}3&0\\0&2\end{pmatrix}\begin{pmatrix}1&1\\0&-1\end{pmatrix} = \begin{pmatrix}3&1\\0&2\end{pmatrix} = A$. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.5.2 — Computing $A^{10}$ by diagonalisation</h4>
+            <p>Using the diagonalisation above, compute $A^{10}$.</p>
+            $$A^{10} = PD^{10}P^{-1} = \begin{pmatrix}1&1\\0&-1\end{pmatrix}\begin{pmatrix}3^{10}&0\\0&2^{10}\end{pmatrix}\begin{pmatrix}1&1\\0&-1\end{pmatrix}$$
+            $$= \begin{pmatrix}3^{10}&2^{10}\\0&-2^{10}\end{pmatrix}\begin{pmatrix}1&1\\0&-1\end{pmatrix} = \begin{pmatrix}3^{10}&3^{10}-2^{10}\\0&2^{10}\end{pmatrix}$$
+            <p>Numerically: $3^{10} = 59049$, $2^{10} = 1024$, so $A^{10} = \begin{pmatrix}59049 & 58025 \\ 0 & 1024\end{pmatrix}$. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.5.3 — Conditions for diagonalisability</h4>
+            <p>A matrix is diagonalisable over $\mathbb{R}$ if and only if it has $n$ linearly independent real eigenvectors. Key cases:</p>
+            <ul>
+                <li>If all $n$ eigenvalues are distinct, the matrix is automatically diagonalisable.</li>
+                <li>If eigenvalue $\lambda$ has algebraic multiplicity $m$ (appears $m$ times in characteristic equation), it must also have geometric multiplicity $m$ (dimension of eigenspace = $m$) for diagonalisability.</li>
+                <li>Rotation matrices (with $\theta \neq 0°, 180°$) have complex eigenvalues and are not diagonalisable over $\mathbb{R}$.</li>
+            </ul>
+        </div>
+
+        <!-- ==================== SECTION 4.6 ==================== -->
+        <h2 id="s46">4.6 The Cayley-Hamilton Theorem</h2>
+
+        <div class="theorem-box">
+            <h4>Theorem: Cayley-Hamilton</h4>
+            <p>Every square matrix satisfies its own characteristic equation. That is, if $p(\lambda) = \det(A - \lambda I)$ is the characteristic polynomial of $A$, then $p(A) = O$ (the zero matrix).</p>
+            <p><strong>For a $2\times2$ matrix</strong> with characteristic equation $\lambda^2 - (\operatorname{tr} A)\lambda + \det A = 0$:</p>
+            $$A^2 - (\operatorname{tr} A)A + (\det A)I = O$$
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.6.1 — Verification of Cayley-Hamilton</h4>
+            <p>Verify Cayley-Hamilton for $A = \begin{pmatrix}3&1\\0&2\end{pmatrix}$.</p>
+            <p>Characteristic equation: $\lambda^2 - 5\lambda + 6 = 0$ (since $\operatorname{tr} A = 5$, $\det A = 6$).</p>
+            <p>Compute $A^2 = \begin{pmatrix}3&1\\0&2\end{pmatrix}\begin{pmatrix}3&1\\0&2\end{pmatrix} = \begin{pmatrix}9&5\\0&4\end{pmatrix}$.</p>
+            <p>Check: $A^2 - 5A + 6I = \begin{pmatrix}9&5\\0&4\end{pmatrix} - \begin{pmatrix}15&5\\0&10\end{pmatrix} + \begin{pmatrix}6&0\\0&6\end{pmatrix} = \begin{pmatrix}0&0\\0&0\end{pmatrix}$. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.6.2 — Using Cayley-Hamilton to find $A^{-1}$</h4>
+            <p>For $A = \begin{pmatrix}4&1\\2&3\end{pmatrix}$, find $A^{-1}$ using Cayley-Hamilton.</p>
+            <p>$\det A = 12 - 2 = 10$, $\operatorname{tr} A = 7$. Characteristic equation: $A^2 - 7A + 10I = O$.</p>
+            <p>Rearranging: $A(A - 7I) = -10I$, so $A\cdot\frac{-(A-7I)}{10} = I$.</p>
+            $$A^{-1} = \frac{7I - A}{10} = \frac{1}{10}\begin{pmatrix}3&-1\\-2&4\end{pmatrix}$$
+            <p>This is simply the standard formula $A^{-1} = \frac{1}{\det A}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}$, confirmed by Cayley-Hamilton. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.6.3 — Reducing higher matrix powers</h4>
+            <p>Use Cayley-Hamilton to express $A^4$ in terms of $A$ and $I$, where $A^2 = 7A - 10I$.</p>
+            $$A^3 = A \cdot A^2 = A(7A - 10I) = 7A^2 - 10A = 7(7A-10I) - 10A = 39A - 70I$$
+            $$A^4 = A \cdot A^3 = A(39A - 70I) = 39A^2 - 70A = 39(7A-10I) - 70A = 203A - 390I$$
+            <p>This technique reduces any polynomial in $A$ to a linear combination of $A$ and $I$. &#9646;</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip — Cayley-Hamilton Shortcuts</h4>
+            <p>The Cayley-Hamilton theorem is tested in two ways: (1) verify it holds for a given matrix, and (2) use it to express $A^n$, $A^{-1}$, or a polynomial in $A$ more simply. Always start by writing the characteristic equation, then substitute $A$ for $\lambda$ and $O$ for zero.</p>
+        </div>
+
+        <!-- ==================== PRACTICE PROBLEMS ==================== -->
+        <h2 id="practice">Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>The matrix $A = \begin{pmatrix}1 & -1 \\ 1 & 1\end{pmatrix}$ represents a transformation of the plane. Describe the transformation geometrically and find the area scale factor.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$\mathbf{e}_1 = (1,0) \mapsto (1,1)$ and $\mathbf{e}_2 = (0,1) \mapsto (-1,1)$. The angle that $(1,1)$ makes with the $x$-axis is $45°$, and its magnitude is $\sqrt{2}$. So $A$ represents an anticlockwise rotation by $45°$ combined with an enlargement by scale factor $\sqrt{2}$.</p>
+                    <p>Area scale factor $= |\det A| = |1 \cdot 1 - (-1) \cdot 1| = 2$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>Find the matrix that represents reflection in the line $y = x\tan 30°$ (i.e., the line at $30°$ to the positive $x$-axis).</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Using $M_\alpha = \begin{pmatrix}\cos 2\alpha & \sin 2\alpha \\ \sin 2\alpha & -\cos 2\alpha\end{pmatrix}$ with $\alpha = 30°$:</p>
+                    $$M_{30°} = \begin{pmatrix}\cos 60° & \sin 60° \\ \sin 60° & -\cos 60°\end{pmatrix} = \begin{pmatrix}1/2 & \sqrt{3}/2 \\ \sqrt{3}/2 & -1/2\end{pmatrix}$$
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>Find the eigenvalues and eigenvectors of $B = \begin{pmatrix}5 & 2 \\ 2 & 5\end{pmatrix}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Characteristic equation: $(5-\lambda)^2 - 4 = 0 \Rightarrow \lambda^2 - 10\lambda + 21 = 0 \Rightarrow (\lambda-7)(\lambda-3) = 0$.</p>
+                    <p>Eigenvalues: $\lambda = 7$ and $\lambda = 3$.</p>
+                    <p>For $\lambda = 7$: $(B - 7I)\mathbf{v} = \mathbf{0} \Rightarrow \begin{pmatrix}-2&2\\2&-2\end{pmatrix}\mathbf{v} = \mathbf{0} \Rightarrow x = y$. Eigenvector: $\begin{pmatrix}1\\1\end{pmatrix}$.</p>
+                    <p>For $\lambda = 3$: $(B - 3I)\mathbf{v} = \mathbf{0} \Rightarrow \begin{pmatrix}2&2\\2&2\end{pmatrix}\mathbf{v} = \mathbf{0} \Rightarrow x = -y$. Eigenvector: $\begin{pmatrix}1\\-1\end{pmatrix}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4</h4>
+            <p>Diagonalise the matrix $B = \begin{pmatrix}5&2\\2&5\end{pmatrix}$ from Problem 3, and hence find $B^6$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$P = \begin{pmatrix}1&1\\1&-1\end{pmatrix}$, $D = \begin{pmatrix}7&0\\0&3\end{pmatrix}$, $P^{-1} = \frac{1}{-2}\begin{pmatrix}-1&-1\\-1&1\end{pmatrix} = \frac{1}{2}\begin{pmatrix}1&1\\1&-1\end{pmatrix}$.</p>
+                    <p>$B^6 = PD^6P^{-1} = \begin{pmatrix}1&1\\1&-1\end{pmatrix}\begin{pmatrix}7^6&0\\0&3^6\end{pmatrix}\cdot\frac{1}{2}\begin{pmatrix}1&1\\1&-1\end{pmatrix}$.</p>
+                    <p>$7^6 = 117649$, $3^6 = 729$. Result: $B^6 = \frac{1}{2}\begin{pmatrix}117649+729 & 117649-729 \\ 117649-729 & 117649+729\end{pmatrix} = \begin{pmatrix}59189 & 58460 \\ 58460 & 59189\end{pmatrix}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5</h4>
+            <p>Find the eigenvalues of $C = \begin{pmatrix}1&0&0\\0&2&3\\0&3&2\end{pmatrix}$ and state whether $C$ is diagonalisable.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>The characteristic equation: expand along the first row. $\det(C - \lambda I) = (1-\lambda)\det\begin{pmatrix}2-\lambda&3\\3&2-\lambda\end{pmatrix} = (1-\lambda)[(2-\lambda)^2 - 9]$.</p>
+                    <p>$(2-\lambda)^2 - 9 = 0 \Rightarrow 2 - \lambda = \pm 3 \Rightarrow \lambda = -1$ or $\lambda = 5$.</p>
+                    <p>So eigenvalues are $\lambda = 1, -1, 5$ — three distinct real eigenvalues. $C$ is diagonalisable.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6</h4>
+            <p>Verify the Cayley-Hamilton theorem for $A = \begin{pmatrix}2 & 3 \\ 1 & 4\end{pmatrix}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$\operatorname{tr} A = 6$, $\det A = 8 - 3 = 5$. Characteristic equation: $\lambda^2 - 6\lambda + 5 = 0$.</p>
+                    <p>$A^2 = \begin{pmatrix}2&3\\1&4\end{pmatrix}\begin{pmatrix}2&3\\1&4\end{pmatrix} = \begin{pmatrix}7&18\\6&19\end{pmatrix}$.</p>
+                    <p>$A^2 - 6A + 5I = \begin{pmatrix}7&18\\6&19\end{pmatrix} - \begin{pmatrix}12&18\\6&24\end{pmatrix} + \begin{pmatrix}5&0\\0&5\end{pmatrix} = \begin{pmatrix}0&0\\0&0\end{pmatrix}$. &#10003;</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>Use Cayley-Hamilton to find $A^{-1}$ for $A = \begin{pmatrix}3 & 5 \\ 1 & 2\end{pmatrix}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$\operatorname{tr} A = 5$, $\det A = 6 - 5 = 1$. Characteristic equation: $A^2 - 5A + I = O$.</p>
+                    <p>So $A(A - 5I) = -I$, giving $A^{-1} = 5I - A = \begin{pmatrix}5&0\\0&5\end{pmatrix} - \begin{pmatrix}3&5\\1&2\end{pmatrix} = \begin{pmatrix}2&-5\\-1&3\end{pmatrix}$.</p>
+                    <p>Check: $AA^{-1} = \begin{pmatrix}3&5\\1&2\end{pmatrix}\begin{pmatrix}2&-5\\-1&3\end{pmatrix} = \begin{pmatrix}1&0\\0&1\end{pmatrix}$. &#10003;</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8</h4>
+            <p>The transformation $T$ has matrix $A = \begin{pmatrix}0&-1&0\\1&0&0\\0&0&1\end{pmatrix}$. Describe $T$ geometrically and find $A^4$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$A$ is a rotation by $90°$ anticlockwise about the $z$-axis (compare with $R_z(90°)$).</p>
+                    <p>$A^2$ is rotation by $180°$, $A^3$ by $270°$, and $A^4$ by $360°$ = identity. So $A^4 = I$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 9</h4>
+            <p>A matrix $A$ has eigenvalues $2$ and $5$ with eigenvectors $\begin{pmatrix}3\\1\end{pmatrix}$ and $\begin{pmatrix}1\\1\end{pmatrix}$ respectively. Write down $A$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$P = \begin{pmatrix}3&1\\1&1\end{pmatrix}$, $D = \begin{pmatrix}2&0\\0&5\end{pmatrix}$. $\det P = 2$, $P^{-1} = \frac{1}{2}\begin{pmatrix}1&-1\\-1&3\end{pmatrix}$.</p>
+                    <p>$A = PDP^{-1} = \begin{pmatrix}3&1\\1&1\end{pmatrix}\begin{pmatrix}2&0\\0&5\end{pmatrix}\cdot\frac{1}{2}\begin{pmatrix}1&-1\\-1&3\end{pmatrix} = \begin{pmatrix}6&5\\2&5\end{pmatrix}\cdot\frac{1}{2}\begin{pmatrix}1&-1\\-1&3\end{pmatrix}$.</p>
+                    <p>$= \frac{1}{2}\begin{pmatrix}1&9\\-3&7\end{pmatrix} = \begin{pmatrix}1/2 & 9/2 \\ -3/2 & 7/2\end{pmatrix}$.</p>
+                    <p>Or equivalently: $A = \frac{1}{2}\begin{pmatrix}1&9\\-3&7\end{pmatrix}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 10</h4>
+            <p>The shear matrix $H = \begin{pmatrix}1&k\\0&1\end{pmatrix}$ has a repeated eigenvalue. Find it, and explain why $H$ is not diagonalisable for $k \neq 0$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$\det(H - \lambda I) = (1-\lambda)^2 = 0$, so the only eigenvalue is $\lambda = 1$ with algebraic multiplicity 2.</p>
+                    <p>$(H - I)\mathbf{v} = \begin{pmatrix}0&k\\0&0\end{pmatrix}\mathbf{v} = \mathbf{0}$. For $k \neq 0$, this forces $y = 0$, so all eigenvectors are multiples of $\begin{pmatrix}1\\0\end{pmatrix}$. The eigenspace has dimension 1 (geometric multiplicity 1), which is less than the algebraic multiplicity 2. Hence $H$ is not diagonalisable over $\mathbb{R}$ when $k \neq 0$.</p>
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <script>
+    // Figure 1: unit square transformed by [[2,1],[0,3]]
+    (function() {
+        var elt = document.getElementById('desmos1');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            keypad: false
+        });
+        calc.setMathBounds({ left: -0.5, right: 4, bottom: -0.5, top: 4 });
+        calc.setExpressions([
+            // original unit square (blue)
+            { id: 'orig', latex: 'polygon((0,0),(1,0),(1,1),(0,1))', color: '#3b82f6', fillOpacity: 0.2, lineWidth: 2, label: 'Unit square' },
+            // image parallelogram (red): vertices (0,0),(2,0),(3,3),(1,3)
+            { id: 'img', latex: 'polygon((0,0),(2,0),(3,3),(1,3))', color: '#ef4444', fillOpacity: 0.15, lineWidth: 2, label: 'Image' },
+            // label area = 6
+            { id: 'lbl', latex: '(2.5,1.2)', label: 'Area = 6', color: '#ef4444', showLabel: true, pointOpacity: 0 }
+        ]);
+    })();
+
+    // Figure 2: eigenvectors of [[3,1],[0,2]]
+    (function() {
+        var elt = document.getElementById('desmos2');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            keypad: false
+        });
+        calc.setMathBounds({ left: -3, right: 5, bottom: -3, top: 4 });
+        calc.setExpressions([
+            // Eigenvector 1 for lambda=3: direction (1,0) — red arrow along x-axis
+            { id: 'ev1', latex: 'polygon((0,0),(3,0))', color: '#ef4444', lineWidth: 3, label: 'λ=3, v=(1,0)' },
+            { id: 'ev1tip', latex: '(3,0)', color: '#ef4444', label: 'λ = 3', showLabel: true, labelSize: 'small' },
+            // Eigenvector 2 for lambda=2: direction (1,-1) — blue arrow
+            { id: 'ev2', latex: 'polygon((0,0),(2,-2))', color: '#3b82f6', lineWidth: 3, label: 'λ=2, v=(1,-1)' },
+            { id: 'ev2tip', latex: '(2,-2)', color: '#3b82f6', label: 'λ = 2', showLabel: true, labelSize: 'small' },
+            // origin dot
+            { id: 'orig', latex: '(0,0)', color: '#1e3a5f', label: 'O', showLabel: true, labelSize: 'small' }
+        ]);
+    })();
+    </script>
+</body>
+</html>

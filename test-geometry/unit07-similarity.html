@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 7 — Similarity — Geometry | MathHub</title>
+    <meta name="description" content="Learn about similar polygons, dilations, AA/SSS/SAS similarity theorems, indirect measurement, and the Triangle Proportionality Theorem with worked examples.">
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 820px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.1em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #64748b; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .definition-box { background: #e7f3ff; border-left: 4px solid #3b82f6; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .definition-box h4 { color: #1e40af; margin-bottom: 10px; font-size: 1.05em; }
+        .theorem-box { background: #fff8e7; border-left: 4px solid #f59e0b; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .theorem-box h4 { color: #92400e; margin-bottom: 10px; font-size: 1.05em; }
+        .example-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .example-box h4 { color: #0369a1; margin-bottom: 10px; font-size: 1.05em; }
+        .tip-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .tip-box h4 { color: #166534; margin-bottom: 10px; }
+        .warning-box { background: #fff1f2; border-left: 4px solid #f43f5e; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .warning-box h4 { color: #be123c; margin-bottom: 10px; }
+        .practice-box { background: #fdf4ff; border-left: 4px solid #a855f7; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .practice-box h4 { color: #7e22ce; margin-bottom: 10px; }
+        .figure-wrap { display: flex; justify-content: center; align-items: flex-start; gap: 28px; margin: 24px 0; flex-wrap: wrap; }
+        .figure-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); overflow: hidden; }
+        .figure-card figcaption { font-size: 0.85em; color: #64748b; margin-top: 10px; max-width: 240px; }
+        .figure-label { font-weight: 700; font-size: 1em; color: #1e3a5f; margin-bottom: 8px; }
+        .unit-nav { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 20px; border-top: 1px solid #e2e8f0; }
+        .unit-nav a { color: #3b82f6; text-decoration: none; font-size: .9em; }
+    </style>
+</head>
+<body>
+<header class="site-header"></header>
+<script src="../../assets/js/common.js"></script>
+<article class="blog-article">
+
+    <div class="breadcrumb">
+        <a href="/test-geometry/index.html">Geometry</a> › Unit 7
+    </div>
+
+    <h1>Unit 7 — Similarity</h1>
+    <div class="blog-meta">Grade 9–10 · Geometry · Topics: Ratios, Similar Polygons, Dilations, Similarity Theorems, Proportionality</div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <h2>7.1 Ratios and Proportions</h2>
+
+    <div class="definition-box">
+        <h4>Definition — Ratio and Proportion</h4>
+        <p>A <strong>ratio</strong> is a comparison of two quantities by division, written as $\dfrac{a}{b}$ or $a : b$ (where $b \ne 0$).</p>
+        <p>A <strong>proportion</strong> is a statement that two ratios are equal:</p>
+        $$\frac{a}{b} = \frac{c}{d}$$
+        <p><strong>Cross-multiplication property:</strong> If $\dfrac{a}{b} = \dfrac{c}{d}$, then $ad = bc$. This is the standard method for solving proportions.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 7.1 — Solving a Proportion</h4>
+        <p>Solve: $\dfrac{x}{5} = \dfrac{12}{20}$</p>
+        <p><strong>Solution:</strong> Cross-multiply:</p>
+        $$20x = 5 \cdot 12 = 60$$
+        $$x = \frac{60}{20} = \boxed{3}$$
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <h2>7.2 Similar Polygons</h2>
+
+    <div class="definition-box">
+        <h4>Definition — Similar Polygons</h4>
+        <p>Two polygons are <strong>similar</strong> (symbol: $\sim$) if and only if:</p>
+        <ol>
+            <li>All pairs of <strong>corresponding angles are congruent</strong>, AND</li>
+            <li>All pairs of <strong>corresponding sides are proportional</strong>.</li>
+        </ol>
+        <p>We write $\triangle ABC \sim \triangle DEF$ to indicate the correspondence $A \leftrightarrow D$, $B \leftrightarrow E$, $C \leftrightarrow F$.</p>
+    </div>
+
+    <div class="definition-box">
+        <h4>Definition — Scale Factor</h4>
+        <p>The <strong>scale factor</strong> of two similar figures is the ratio of any pair of corresponding side lengths:</p>
+        $$k = \frac{\text{side of image}}{\text{corresponding side of pre-image}}$$
+    </div>
+
+    <div class="theorem-box">
+        <h4>Theorem — Perimeters and Areas of Similar Figures</h4>
+        <p>If two similar figures have scale factor $k$, then:</p>
+        <ul>
+            <li>Their <strong>perimeters</strong> have ratio $k : 1$ (linear scale).</li>
+            <li>Their <strong>areas</strong> have ratio $k^2 : 1$ (square of the scale factor).</li>
+        </ul>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 7.2 — Using Scale Factor for Perimeter</h4>
+        <p>$\triangle ABC \sim \triangle DEF$ with scale factor $3 : 2$. If the perimeter of $\triangle ABC$ is 30, find the perimeter of $\triangle DEF$.</p>
+        <p><strong>Solution:</strong> Perimeters share the same ratio as the scale factor:</p>
+        $$\frac{\text{Perimeter of } \triangle ABC}{\text{Perimeter of } \triangle DEF} = \frac{3}{2}$$
+        $$\frac{30}{\text{Perimeter of } \triangle DEF} = \frac{3}{2}$$
+        $$\text{Perimeter of } \triangle DEF = \frac{30 \times 2}{3} = \boxed{20}$$
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <h2>7.3 Dilations</h2>
+
+    <div class="definition-box">
+        <h4>Definition — Dilation</h4>
+        <p>A <strong>dilation</strong> with center $O$ and <strong>scale factor</strong> $k$ maps every point $P$ to a point $P'$ such that $OP' = k \cdot OP$, with $P'$ on ray $\overrightarrow{OP}$.</p>
+        <p><strong>Coordinate rule about the origin:</strong></p>
+        $$(x,\, y) \;\to\; (kx,\; ky)$$
+        <ul>
+            <li>$k > 1$: <strong>enlargement</strong> (image is larger).</li>
+            <li>$0 < k < 1$: <strong>reduction</strong> (image is smaller).</li>
+            <li>$k = 1$: <strong>identity</strong> (no change).</li>
+        </ul>
+        <p>A dilation is <em>not</em> a rigid motion (unless $k = 1$), but it does preserve <strong>angle measures</strong> and produces a similar figure.</p>
+    </div>
+
+    <div class="figure-wrap">
+        <figure class="figure-card">
+            <div class="figure-label">Figure 7.3 — Dilation with center O, scale factor k = 2</div>
+            <svg width="330" height="270" viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+                <!-- Origin O at (30, 150) -->
+                <!-- Pre-image triangle: A(70,120) B(90,120) C(80,95) -->
+                <!-- Image (k=2 from O): A'=(30+2*(70-30), 150+2*(120-150))=(110,90) -->
+                <!--                    B'=(30+2*(90-30), 150+2*(120-150))=(150,90) -->
+                <!--                    C'=(30+2*(80-30), 150+2*(95-150))=(130,40) -->
+                <!-- Rays from O through vertices -->
+                <line x1="30" y1="150" x2="150" y2="90" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
+                <line x1="30" y1="150" x2="110" y2="90" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
+                <line x1="30" y1="150" x2="130" y2="40" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
+                <!-- Image triangle (larger, outer) -->
+                <polygon points="110,90 150,90 130,40" fill="#fff8e7" stroke="#f59e0b" stroke-width="2"/>
+                <!-- Pre-image triangle (smaller, inner) -->
+                <polygon points="70,120 90,120 80,95" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+                <!-- Center O -->
+                <circle cx="30" cy="150" r="3" fill="#334155"/>
+                <text x="18" y="163" font-size="12" font-family="serif" font-style="italic" fill="#334155">O</text>
+                <!-- Labels pre-image -->
+                <text x="60" y="133" font-size="11" font-family="serif" font-style="italic" fill="#1e40af">A</text>
+                <text x="91" y="133" font-size="11" font-family="serif" font-style="italic" fill="#1e40af">B</text>
+                <text x="78" y="91" font-size="11" font-family="serif" font-style="italic" fill="#1e40af">C</text>
+                <!-- Labels image -->
+                <text x="95" y="86" font-size="11" font-family="serif" font-style="italic" fill="#92400e">A'</text>
+                <text x="152" y="86" font-size="11" font-family="serif" font-style="italic" fill="#92400e">B'</text>
+                <text x="128" y="36" font-size="11" font-family="serif" font-style="italic" fill="#92400e">C'</text>
+                <!-- k=2 label -->
+                <text x="145" y="115" font-size="11" font-family="sans-serif" fill="#166534">k = 2</text>
+            </svg>
+            <figcaption>The image (orange) is twice the size of the pre-image (blue). Rays from center O pass through corresponding vertices.</figcaption>
+        </figure>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 7.3 — Applying a Dilation</h4>
+        <p>Dilate $A(2, 3)$ by scale factor $k = \dfrac{1}{2}$ about the origin.</p>
+        <p><strong>Rule:</strong> $(x,y) \to \left(\tfrac{1}{2}x,\; \tfrac{1}{2}y\right)$</p>
+        $$A(2,3) \;\to\; A'\!\left(1,\; 1.5\right)$$
+        <p>The image is a <em>reduction</em> — it is half the distance from the origin.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <h2>7.4 Proving Triangles Similar</h2>
+
+    <div class="theorem-box">
+        <h4>Theorem — AA Similarity (Angle-Angle)</h4>
+        <p>If <strong>two angles</strong> of one triangle are congruent to <strong>two angles</strong> of another triangle, then the triangles are similar.</p>
+        <p>Since the angle sum is always $180°$, congruent pairs of two angles guarantee the third angles are also congruent.</p>
+    </div>
+
+    <div class="theorem-box">
+        <h4>Theorem — SSS Similarity (Side-Side-Side)</h4>
+        <p>If <strong>all three pairs of corresponding sides</strong> of two triangles are proportional, then the triangles are similar.</p>
+        $$\frac{AB}{DE} = \frac{BC}{EF} = \frac{CA}{FD} \implies \triangle ABC \sim \triangle DEF$$
+    </div>
+
+    <div class="theorem-box">
+        <h4>Theorem — SAS Similarity (Side-Angle-Side)</h4>
+        <p>If <strong>two pairs of corresponding sides are proportional</strong> and the <strong>included angles are congruent</strong>, then the triangles are similar.</p>
+        $$\frac{AB}{DE} = \frac{AC}{DF} \text{ and } \angle A \cong \angle D \implies \triangle ABC \sim \triangle DEF$$
+    </div>
+
+    <div class="warning-box">
+        <h4>Common Mistake — SSA Does NOT Work</h4>
+        <p><strong>SSA (two sides proportional + a non-included angle congruent) does NOT guarantee similarity.</strong> Just as SSA fails for triangle congruence, it also fails for similarity. Always verify you have AA, SSS, or SAS before concluding two triangles are similar.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <h2>7.5 Using Similar Triangles</h2>
+
+    <div class="example-box">
+        <h4>Example 7.5a — Indirect Measurement (Shadow Method)</h4>
+        <p>A 6-foot pole casts a 4-foot shadow at the same time that a tree casts a 20-foot shadow. Find the height $h$ of the tree.</p>
+        <p><strong>Setup:</strong> The pole and its shadow form a triangle similar to the tree and its shadow (same sun angle → AA).</p>
+        $$\frac{6}{4} = \frac{h}{20}$$
+        $$4h = 120 \implies h = \boxed{30 \text{ ft}}$$
+    </div>
+
+    <div class="example-box">
+        <h4>Example 7.5b — Parallel Line Inside a Triangle</h4>
+        <p>In $\triangle ABC$, $\overline{DE} \parallel \overline{BC}$ with $D$ on $\overline{AB}$ and $E$ on $\overline{AC}$. Given $AD = 3$, $DB = 5$, $AE = 4$, find $EC$.</p>
+        <p><strong>Solution:</strong> By the Triangle Proportionality Theorem:</p>
+        $$\frac{AD}{DB} = \frac{AE}{EC}$$
+        $$\frac{3}{5} = \frac{4}{EC}$$
+        $$EC = \frac{4 \times 5}{3} = \boxed{\frac{20}{3}}$$
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <h2>7.6 Triangle Proportionality Theorem</h2>
+
+    <div class="theorem-box">
+        <h4>Theorem — Triangle Proportionality Theorem</h4>
+        <p>If a line is <strong>parallel to one side</strong> of a triangle and intersects the other two sides, then it divides those two sides <strong>proportionally</strong>.</p>
+        <p>If $\overline{DE} \parallel \overline{BC}$ in $\triangle ABC$ (with $D$ on $\overline{AB}$, $E$ on $\overline{AC}$), then:</p>
+        $$\frac{AD}{DB} = \frac{AE}{EC}$$
+    </div>
+
+    <div class="theorem-box">
+        <h4>Theorem — Converse of Triangle Proportionality Theorem</h4>
+        <p>If a line divides two sides of a triangle <strong>proportionally</strong>, then it is <strong>parallel</strong> to the third side.</p>
+        <p>If $\dfrac{AD}{DB} = \dfrac{AE}{EC}$, then $\overline{DE} \parallel \overline{BC}$.</p>
+    </div>
+
+    <div class="tip-box">
+        <h4>Tip — Whole-Side vs. Partial-Side Ratios</h4>
+        <p>The Proportionality Theorem uses partial sides (e.g., $AD : DB$). You can also set up a proportion using whole sides:</p>
+        $$\frac{AD}{AB} = \frac{AE}{AC}$$
+        <p>Both forms are equivalent. Use whichever is more convenient for the given information.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <h2>Practice Problems</h2>
+
+    <div class="practice-box">
+        <h4>Unit 7 Practice — 12 Problems</h4>
+        <ol>
+            <li>Solve the proportion: $\dfrac{3}{x} = \dfrac{9}{15}$.</li>
+            <li>Solve the proportion: $\dfrac{x+1}{4} = \dfrac{6}{8}$.</li>
+            <li>$\triangle ABC \sim \triangle XYZ$ with $AB = 6$, $XY = 9$. Find the scale factor from $\triangle ABC$ to $\triangle XYZ$.</li>
+            <li>Two similar rectangles have scale factor $5:2$. If the area of the larger rectangle is 125 cm², find the area of the smaller one.</li>
+            <li>Dilate $B(6, -4)$ by scale factor $k = 3$ about the origin. Give the image coordinates.</li>
+            <li>Dilate $C(-8, 4)$ by scale factor $k = \frac{1}{4}$ about the origin. Give the image coordinates.</li>
+            <li>Are $\triangle PQR$ and $\triangle STU$ similar if $\angle P = 50°$, $\angle Q = 70°$, $\angle S = 50°$, $\angle T = 70°$? Which theorem applies?</li>
+            <li>$\triangle ABC$ has sides 4, 6, 8. $\triangle DEF$ has sides 6, 9, 12. Are they similar? Which theorem applies?</li>
+            <li>A flagpole casts a 15-ft shadow. At the same time, a 5-ft person casts a 3-ft shadow. Find the height of the flagpole.</li>
+            <li>In $\triangle MNP$, line $\overline{QR} \parallel \overline{NP}$ with $Q$ on $\overline{MN}$, $R$ on $\overline{MP}$. If $MQ = 4$, $QN = 6$, $MR = 5$, find $RP$.</li>
+            <li>In $\triangle ABC$, $D$ is on $\overline{AB}$ and $E$ is on $\overline{AC}$ with $AD = 5$, $AB = 15$, $AE = 4$, $AC = 12$. Is $\overline{DE} \parallel \overline{BC}$? Explain.</li>
+            <li>$\triangle ABC \sim \triangle DEF$ with scale factor $2:5$. If the perimeter of $\triangle DEF$ is 40, find the perimeter of $\triangle ABC$.</li>
+        </ol>
+    </div>
+
+    <div class="unit-nav">
+        <a href="/test-geometry/unit06-transformations.html">← Previous Unit</a>
+        <a href="/test-geometry/index.html">All Units</a>
+        <a href="/test-geometry/pythagoras-en.html">Next Unit →</a>
+    </div>
+</article>
+<footer style="text-align:center;padding:24px 20px;color:#94a3b8;font-size:.85em;border-top:1px solid #e2e8f0;margin-top:40px">
+    Geometry · MathHub · Grade 9–10
+</footer>
+</body>
+</html>

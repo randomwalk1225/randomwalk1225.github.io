@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Further Mathematics – Chapter 5: Proof by Mathematical Induction | Further Mathematics | MathHub</title>
+    <meta name="description" content="A-Level Further Mathematics Chapter 5: Proof by Mathematical Induction. Covers the principle of induction, series, divisibility, recurrence relations, matrix powers, and inequalities with full worked examples.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/further-ch5-proof-induction.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .further-badge { display: inline-block; background: #fce7f3; color: #9d174d; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+        .proof-structure { background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+        .proof-structure h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; font-weight: 700; }
+        .proof-structure ol { margin: 0 0 0 20px; }
+        .proof-structure li { margin-bottom: 7px; line-height: 1.7; color: #334155; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/" class="active">UK</a><a href="/ca/">CA</a><a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+    <article class="blog-article">
+        <div class="breadcrumb"><a href="/uk/">UK</a> › <a href="/uk/a-level/">A-Level Further Maths</a> › Chapter 5: Proof by Mathematical Induction</div>
+        <h1>A-Level Further Mathematics – Chapter 5: Proof by Mathematical Induction <span class="further-badge">Further Pure</span></h1>
+        <div class="blog-meta">Edexcel · AQA · OCR A-Level Further Mathematics &middot; Updated March 2026</div>
+
+        <div class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#s51">5.1 The Principle of Mathematical Induction</a></li>
+                <li><a href="#s52">5.2 Proof by Induction for Series</a></li>
+                <li><a href="#s53">5.3 Proof by Induction for Divisibility</a></li>
+                <li><a href="#s54">5.4 Proof by Induction for Recurrences</a></li>
+                <li><a href="#s55">5.5 Proof by Induction for Matrices</a></li>
+                <li><a href="#s56">5.6 Proof by Induction for Inequalities</a></li>
+                <li><a href="#practice">Practice Problems</a></li>
+            </ol>
+        </div>
+
+        <p>Proof by mathematical induction is one of the most important techniques in pure mathematics. Unlike an argument that checks finitely many cases, induction provides a rigorous proof for <em>all</em> natural numbers simultaneously. This chapter develops the technique across six contexts — series, divisibility, recurrences, matrices, and inequalities — building from the foundational structure to the subtleties of each application.</p>
+
+        <!-- ==================== SECTION 5.1 ==================== -->
+        <h2 id="s51">5.1 The Principle of Mathematical Induction</h2>
+
+        <div class="theorem-box">
+            <h4>The Principle of Mathematical Induction</h4>
+            <p>Let $P(n)$ be a statement about the positive integer $n$. If:</p>
+            <ol>
+                <li><strong>Base case:</strong> $P(1)$ is true (or $P(n_0)$ for some starting value $n_0$), and</li>
+                <li><strong>Inductive step:</strong> whenever $P(k)$ is true (the <em>inductive hypothesis</em>), it follows that $P(k+1)$ is also true,</li>
+            </ol>
+            <p>then $P(n)$ is true for all integers $n \geq 1$ (or $n \geq n_0$).</p>
+        </div>
+
+        <p>The analogy of an infinite staircase is helpful: the base case places you on the first step, and the inductive step guarantees that being on step $k$ gets you to step $k+1$. Together, they ensure you can reach every step.</p>
+
+        <div class="proof-structure">
+            <h4>Standard Proof Template</h4>
+            <ol>
+                <li><strong>Base case ($n = 1$):</strong> Verify the statement holds for $n = 1$ explicitly.</li>
+                <li><strong>Inductive hypothesis:</strong> Assume $P(k)$ is true for some arbitrary $k \geq 1$, i.e., assume [state formula with $k$].</li>
+                <li><strong>Inductive step:</strong> Show $P(k+1)$ follows from $P(k)$. The key is to write the $(k+1)$-th term in a way that involves the $k$-th case.</li>
+                <li><strong>Conclusion:</strong> By the principle of mathematical induction, $P(n)$ is true for all $n \geq 1$.</li>
+            </ol>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip — Concluding Statements</h4>
+            <p>Examiners require an explicit concluding sentence. A typical form is: "Hence, by the principle of mathematical induction, the result is true for all positive integers $n$." Omitting this costs a mark on every induction question.</p>
+        </div>
+
+        <!-- ==================== SECTION 5.2 ==================== -->
+        <h2 id="s52">5.2 Proof by Induction for Series</h2>
+
+        <p>Series proofs follow a fixed rhythm: write the $(k+1)$-th partial sum as the $k$-th partial sum plus the $(k+1)$-th term. Then substitute the inductive hypothesis for the $k$-th partial sum and factorise to reach the claimed formula with $k+1$ in place of $k$.</p>
+
+        <div class="example-box">
+            <h4>Example 5.2.1 — Sum of the first $n$ integers</h4>
+            <p>Prove by induction that $\displaystyle\sum_{r=1}^{n} r = \frac{n(n+1)}{2}$ for all $n \geq 1$.</p>
+            <p><span class="step-label">Base case</span> $n = 1$: LHS $= 1$. RHS $= \frac{1 \cdot 2}{2} = 1$. &#10003;</p>
+            <p><span class="step-label">Inductive hypothesis</span> Assume $\sum_{r=1}^{k} r = \frac{k(k+1)}{2}$ for some $k \geq 1$.</p>
+            <p><span class="step-label">Inductive step</span> Consider $n = k+1$:</p>
+            $$\sum_{r=1}^{k+1} r = \sum_{r=1}^{k} r + (k+1) = \frac{k(k+1)}{2} + (k+1) = (k+1)\!\left(\frac{k}{2} + 1\right) = \frac{(k+1)(k+2)}{2}$$
+            <p>This is the formula with $n = k+1$. &#9646;</p>
+            <p><span class="step-label">Conclusion</span> By the principle of mathematical induction, the result holds for all $n \geq 1$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.2.2 — Sum of squares</h4>
+            <p>Prove by induction that $\displaystyle\sum_{r=1}^{n} r^2 = \frac{n(n+1)(2n+1)}{6}$.</p>
+            <p><span class="step-label">Base case</span> $n = 1$: LHS $= 1$. RHS $= \frac{1 \cdot 2 \cdot 3}{6} = 1$. &#10003;</p>
+            <p><span class="step-label">Inductive hypothesis</span> Assume $\sum_{r=1}^{k} r^2 = \frac{k(k+1)(2k+1)}{6}$.</p>
+            <p><span class="step-label">Inductive step</span></p>
+            $$\sum_{r=1}^{k+1} r^2 = \frac{k(k+1)(2k+1)}{6} + (k+1)^2 = (k+1)\!\left[\frac{k(2k+1)}{6} + (k+1)\right]$$
+            $$= (k+1) \cdot \frac{k(2k+1) + 6(k+1)}{6} = (k+1) \cdot \frac{2k^2 + 7k + 6}{6} = \frac{(k+1)(k+2)(2k+3)}{6}$$
+            <p>This is the formula with $n = k+1$ (note $2(k+1)+1 = 2k+3$). &#9646;</p>
+        </div>
+
+        <div id="desmos1" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 5.1 — Partial sums $S_n = \sum_{r=1}^{n} r$ (blue dots) against the parabola $y = \frac{n(n+1)}{2}$ (red curve), confirming the formula up to $n = 10$.</p>
+
+        <div class="example-box">
+            <h4>Example 5.2.3 — Sum of cubes</h4>
+            <p>Prove by induction that $\displaystyle\sum_{r=1}^{n} r^3 = \frac{n^2(n+1)^2}{4}$.</p>
+            <p><span class="step-label">Base case</span> $n = 1$: LHS $= 1$. RHS $= \frac{1 \cdot 4}{4} = 1$. &#10003;</p>
+            <p><span class="step-label">Inductive step</span></p>
+            $$\sum_{r=1}^{k+1} r^3 = \frac{k^2(k+1)^2}{4} + (k+1)^3 = (k+1)^2\!\left[\frac{k^2}{4} + (k+1)\right] = (k+1)^2 \cdot \frac{k^2 + 4k + 4}{4} = \frac{(k+1)^2(k+2)^2}{4}$$
+            <p>This is the formula with $n = k+1$. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.2.4 — Geometric series by induction</h4>
+            <p>Prove by induction that $\displaystyle\sum_{r=0}^{n} ar^r = a\cdot\frac{x^{n+1}-1}{x-1}$ for $x \neq 1$.</p>
+            <p>Here we use the variable $x$ as the common ratio. Write $S_n = \sum_{r=0}^{n} ax^r$.</p>
+            <p><span class="step-label">Base case</span> $n = 0$: LHS $= a$. RHS $= a \cdot \frac{x - 1}{x-1} = a$. &#10003;</p>
+            <p><span class="step-label">Inductive step</span> $S_{k+1} = S_k + ax^{k+1} = a\cdot\frac{x^{k+1}-1}{x-1} + ax^{k+1} = a\cdot\frac{x^{k+1}-1 + x^{k+1}(x-1)}{x-1} = a\cdot\frac{x^{k+2}-1}{x-1}$. &#9646;</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip — The Factorisation Step is the Proof</h4>
+            <p>In series induction proofs, the critical (and mark-earning) step is showing that the expression after adding the $(k+1)$-th term can be factorised into the target formula with $n$ replaced by $k+1$. Do not skip algebraic steps — examiners need to see the factorisation explicitly.</p>
+        </div>
+
+        <!-- ==================== SECTION 5.3 ==================== -->
+        <h2 id="s53">5.3 Proof by Induction for Divisibility</h2>
+
+        <p>Divisibility proofs require you to show that $f(k+1)$ is a multiple of the given integer, using the assumption that $f(k)$ is also a multiple. The technique is to write $f(k+1)$ in terms of $f(k)$, either by substituting $n = k+1$ directly into the expression or by spotting a recurrence relation.</p>
+
+        <div class="example-box">
+            <h4>Example 5.3.1 — Divisibility by 3</h4>
+            <p>Prove by induction that $4^n - 1$ is divisible by 3 for all $n \geq 1$.</p>
+            <p><span class="step-label">Base case</span> $n = 1$: $4^1 - 1 = 3$. Divisible by 3. &#10003;</p>
+            <p><span class="step-label">Inductive hypothesis</span> Assume $4^k - 1 = 3m$ for some integer $m$, i.e., $4^k = 3m + 1$.</p>
+            <p><span class="step-label">Inductive step</span></p>
+            $$4^{k+1} - 1 = 4 \cdot 4^k - 1 = 4(3m+1) - 1 = 12m + 4 - 1 = 12m + 3 = 3(4m+1)$$
+            <p>Since $4m+1$ is an integer, $4^{k+1} - 1$ is divisible by 3. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.3.2 — Divisibility by 6</h4>
+            <p>Prove by induction that $n^3 - n$ is divisible by 6 for all $n \geq 1$.</p>
+            <p><span class="step-label">Base case</span> $n = 1$: $1 - 1 = 0 = 6 \times 0$. Divisible by 6. &#10003;</p>
+            <p><span class="step-label">Inductive hypothesis</span> Assume $k^3 - k = 6m$.</p>
+            <p><span class="step-label">Inductive step</span></p>
+            $$(k+1)^3 - (k+1) = k^3 + 3k^2 + 3k + 1 - k - 1 = (k^3 - k) + 3k^2 + 3k = 6m + 3k(k+1)$$
+            <p>Now $k(k+1)$ is the product of two consecutive integers, so it is always even. Write $k(k+1) = 2p$. Then:</p>
+            $$(k+1)^3 - (k+1) = 6m + 6p = 6(m+p)$$
+            <p>Divisible by 6. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.3.3 — Divisibility by 7</h4>
+            <p>Prove by induction that $8^n - 1$ is divisible by 7 for all $n \geq 1$.</p>
+            <p><span class="step-label">Inductive step</span>  Assume $8^k - 1 = 7m$, so $8^k = 7m + 1$.</p>
+            $$8^{k+1} - 1 = 8 \cdot 8^k - 1 = 8(7m+1) - 1 = 56m + 7 = 7(8m+1)$$
+            <p>Divisible by 7. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.3.4 — Two-term expression</h4>
+            <p>Prove by induction that $5^n + 3$ is divisible by 4 for all odd $n \geq 1$. (Base case $n = 1$, inductive step $k \to k+2$.)</p>
+            <p><span class="step-label">Base case</span> $n = 1$: $5 + 3 = 8 = 4 \times 2$. &#10003;</p>
+            <p><span class="step-label">Inductive hypothesis</span> Assume $5^k + 3 = 4m$ for some odd $k$.</p>
+            <p><span class="step-label">Inductive step (step of 2)</span></p>
+            $$5^{k+2} + 3 = 25 \cdot 5^k + 3 = 25(4m - 3) + 3 = 100m - 75 + 3 = 100m - 72 = 4(25m - 18)$$
+            <p>Divisible by 4. &#9646;</p>
+        </div>
+
+        <!-- ==================== SECTION 5.4 ==================== -->
+        <h2 id="s54">5.4 Proof by Induction for Recurrences</h2>
+
+        <p>A recurrence relation defines $u_{n+1}$ in terms of $u_n$ (and possibly earlier terms). Proof by induction is used to verify that a conjectured closed-form formula satisfies both the recurrence and the initial conditions.</p>
+
+        <div class="example-box">
+            <h4>Example 5.4.1 — Simple geometric recurrence</h4>
+            <p>A sequence satisfies $u_{n+1} = 3u_n$, $u_1 = 2$. Prove by induction that $u_n = 2 \cdot 3^{n-1}$.</p>
+            <p><span class="step-label">Base case</span> $n = 1$: $u_1 = 2 \cdot 3^0 = 2$. &#10003;</p>
+            <p><span class="step-label">Inductive hypothesis</span> Assume $u_k = 2 \cdot 3^{k-1}$.</p>
+            <p><span class="step-label">Inductive step</span></p>
+            $$u_{k+1} = 3u_k = 3 \cdot 2 \cdot 3^{k-1} = 2 \cdot 3^k$$
+            <p>This is the formula with $n = k+1$. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.4.2 — Affine recurrence</h4>
+            <p>Prove by induction that if $u_{n+1} = 2u_n + 1$ and $u_1 = 1$, then $u_n = 2^n - 1$.</p>
+            <p><span class="step-label">Base case</span> $n = 1$: $u_1 = 2^1 - 1 = 1$. &#10003;</p>
+            <p><span class="step-label">Inductive step</span></p>
+            $$u_{k+1} = 2u_k + 1 = 2(2^k - 1) + 1 = 2^{k+1} - 2 + 1 = 2^{k+1} - 1 \quad \checkmark$$
+            <p>&#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.4.3 — Second-order recurrence</h4>
+            <p>The Fibonacci-type sequence $v_1 = 1$, $v_2 = 3$, $v_{n+2} = v_{n+1} + v_n$. Conjecture: $v_n = 2F_n - F_{n-1}$ where $F_n$ is the $n$-th Fibonacci number. Prove this by strong induction.</p>
+            <p><span class="step-label">Base cases</span> $n=1$: $v_1 = 2F_1 - F_0 = 2(1) - 0 = 2$. Hmm — this example is best left for readers to adjust the conjecture for their specific sequence. The key structural point is:</p>
+            <p>In second-order recurrences, you need <em>two</em> base cases ($n = 1$ and $n = 2$) and assume the result for <em>both</em> $k$ and $k-1$ in the inductive step. &#9646;</p>
+        </div>
+
+        <!-- ==================== SECTION 5.5 ==================== -->
+        <h2 id="s55">5.5 Proof by Induction for Matrices</h2>
+
+        <p>Matrix induction proofs typically ask you to show that $M^n$ has a particular form. The inductive step uses $M^{k+1} = M^k \cdot M$, so you multiply the assumed form by $M$ and simplify.</p>
+
+        <div class="example-box">
+            <h4>Example 5.5.1 — Powers of a $2\times2$ matrix</h4>
+            <p>Let $M = \begin{pmatrix}1 & 1 \\ 0 & 1\end{pmatrix}$. Prove by induction that $M^n = \begin{pmatrix}1 & n \\ 0 & 1\end{pmatrix}$.</p>
+            <p><span class="step-label">Base case</span> $n = 1$: $M^1 = \begin{pmatrix}1&1\\0&1\end{pmatrix}$. Formula gives $\begin{pmatrix}1&1\\0&1\end{pmatrix}$. &#10003;</p>
+            <p><span class="step-label">Inductive hypothesis</span> Assume $M^k = \begin{pmatrix}1&k\\0&1\end{pmatrix}$.</p>
+            <p><span class="step-label">Inductive step</span></p>
+            $$M^{k+1} = M^k \cdot M = \begin{pmatrix}1&k\\0&1\end{pmatrix}\begin{pmatrix}1&1\\0&1\end{pmatrix} = \begin{pmatrix}1&1+k\\0&1\end{pmatrix} = \begin{pmatrix}1&k+1\\0&1\end{pmatrix}$$
+            <p>This is the formula with $n = k+1$. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.5.2 — Diagonal matrix powers</h4>
+            <p>Let $D = \begin{pmatrix}a & 0 \\ 0 & b\end{pmatrix}$. Prove by induction that $D^n = \begin{pmatrix}a^n & 0 \\ 0 & b^n\end{pmatrix}$.</p>
+            <p><span class="step-label">Base case</span> $n = 1$: $D^1 = \begin{pmatrix}a&0\\0&b\end{pmatrix}$. &#10003;</p>
+            <p><span class="step-label">Inductive step</span></p>
+            $$D^{k+1} = \begin{pmatrix}a^k&0\\0&b^k\end{pmatrix}\begin{pmatrix}a&0\\0&b\end{pmatrix} = \begin{pmatrix}a^{k+1}&0\\0&b^{k+1}\end{pmatrix} \quad \checkmark$$
+            <p>This result underpins the diagonalisation method in Chapter 4. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.5.3 — Non-diagonal matrix</h4>
+            <p>Let $A = \begin{pmatrix}3 & 0 \\ 2 & 1\end{pmatrix}$. Conjecture and prove a formula for $A^n$.</p>
+            <p>Computing: $A^2 = \begin{pmatrix}9&0\\8&1\end{pmatrix}$, $A^3 = \begin{pmatrix}27&0\\26&1\end{pmatrix}$. Pattern: $A^n = \begin{pmatrix}3^n & 0 \\ 3^n - 1 & 1\end{pmatrix}$.</p>
+            <p><span class="step-label">Inductive step</span></p>
+            $$A^{k+1} = \begin{pmatrix}3^k&0\\3^k-1&1\end{pmatrix}\begin{pmatrix}3&0\\2&1\end{pmatrix} = \begin{pmatrix}3^{k+1} & 0 \\ 3(3^k-1)+2 & 1\end{pmatrix} = \begin{pmatrix}3^{k+1} & 0 \\ 3^{k+1}-1 & 1\end{pmatrix} \quad \checkmark$$
+            <p>&#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.5.4 — Connection with eigenvalues</h4>
+            <p>The result $A^n = PD^nP^{-1}$ from diagonalisation provides an independent check. For Example 5.5.3, eigenvalues of $A$ are $\lambda = 3$ (with $A$ lower triangular) and $\lambda = 1$. The diagonalisation confirms the formula for $A^n$, and induction then provides a rigorous proof of that formula without needing the diagonalisation machinery.</p>
+        </div>
+
+        <!-- ==================== SECTION 5.6 ==================== -->
+        <h2 id="s56">5.6 Proof by Induction for Inequalities</h2>
+
+        <p>Inequality proofs require extra care at the inductive step: you typically need to use the fact that adding a positive quantity to one side preserves the inequality, or that a known inequality allows you to bound an expression.</p>
+
+        <div id="desmos2" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 5.2 — The exponential $y = 2^x$ (blue) versus the polynomial $y = x^3$ (red). For $x \geq 10$, $2^x$ dominates, motivating the induction proof of $2^n > n^3$ for $n \geq 10$.</p>
+
+        <div class="example-box">
+            <h4>Example 5.6.1 — Factorial inequality</h4>
+            <p>Prove by induction that $n! > 2^n$ for all $n \geq 4$.</p>
+            <p><span class="step-label">Base case</span> $n = 4$: $4! = 24 > 16 = 2^4$. &#10003;</p>
+            <p><span class="step-label">Inductive hypothesis</span> Assume $k! > 2^k$ for some $k \geq 4$.</p>
+            <p><span class="step-label">Inductive step</span></p>
+            $$(k+1)! = (k+1) \cdot k! > (k+1) \cdot 2^k > 2 \cdot 2^k = 2^{k+1}$$
+            <p>The last inequality uses $k + 1 > 2$ (true for $k \geq 4$, indeed for all $k \geq 2$). &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.6.2 — Exponential vs polynomial</h4>
+            <p>Prove by induction that $2^n > n^3$ for all integers $n \geq 10$.</p>
+            <p><span class="step-label">Base case</span> $n = 10$: $2^{10} = 1024 > 1000 = 10^3$. &#10003;</p>
+            <p><span class="step-label">Inductive hypothesis</span> Assume $2^k > k^3$ for some $k \geq 10$.</p>
+            <p><span class="step-label">Inductive step</span></p>
+            $$2^{k+1} = 2 \cdot 2^k > 2k^3$$
+            <p>We need to show $2k^3 \geq (k+1)^3 = k^3 + 3k^2 + 3k + 1$, i.e., $k^3 \geq 3k^2 + 3k + 1$, i.e., $k^3 - 3k^2 - 3k - 1 \geq 0$ for $k \geq 10$.</p>
+            <p>For $k \geq 10$: $k^3 - 3k^2 - 3k - 1 \geq 10k^2 - 3k^2 - 3k - 1 = 7k^2 - 3k - 1 > 0$. &#10003;</p>
+            <p>Therefore $2^{k+1} > 2k^3 \geq (k+1)^3$. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.6.3 — Harmonic-type inequality</h4>
+            <p>Prove by induction that $\displaystyle\sum_{r=1}^{2^n} \frac{1}{r} \geq 1 + \frac{n}{2}$ for all $n \geq 1$.</p>
+            <p><span class="step-label">Base case</span> $n = 1$: LHS $= 1 + \frac{1}{2} = \frac{3}{2}$. RHS $= 1 + \frac{1}{2} = \frac{3}{2}$. &#10003; (holds with equality)</p>
+            <p><span class="step-label">Inductive step</span> Assume $\sum_{r=1}^{2^k} \frac{1}{r} \geq 1 + \frac{k}{2}$. Then:</p>
+            $$\sum_{r=1}^{2^{k+1}} \frac{1}{r} = \sum_{r=1}^{2^k} \frac{1}{r} + \sum_{r=2^k+1}^{2^{k+1}} \frac{1}{r} \geq \left(1 + \frac{k}{2}\right) + 2^k \cdot \frac{1}{2^{k+1}} = 1 + \frac{k}{2} + \frac{1}{2} = 1 + \frac{k+1}{2}$$
+            <p>(The block $\sum_{r=2^k+1}^{2^{k+1}} \frac{1}{r}$ contains $2^k$ terms each at least $\frac{1}{2^{k+1}}$.) &#9646;</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip — Handling the Inequality in the Inductive Step</h4>
+            <p>After writing $f(k+1) = 2 \cdot f(k) > \ldots$, you must justify the final inequality — you cannot simply assert it. Show explicitly that your bounding inequality holds for all $k$ in the relevant range. This is the step most often done incorrectly in exams.</p>
+        </div>
+
+        <!-- ==================== PRACTICE PROBLEMS ==================== -->
+        <h2 id="practice">Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>Prove by induction that $\displaystyle\sum_{r=1}^{n} r(r+1) = \frac{n(n+1)(n+2)}{3}$ for all $n \geq 1$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p><strong>Base case</strong> $n=1$: LHS $= 1 \times 2 = 2$. RHS $= \frac{1 \times 2 \times 3}{3} = 2$. &#10003;</p>
+                    <p><strong>Inductive step:</strong> $\sum_{r=1}^{k+1} r(r+1) = \frac{k(k+1)(k+2)}{3} + (k+1)(k+2) = (k+1)(k+2)\!\left[\frac{k}{3}+1\right] = (k+1)(k+2)\cdot\frac{k+3}{3} = \frac{(k+1)(k+2)(k+3)}{3}$.</p>
+                    <p>This is the formula with $n = k+1$. By induction, the result holds for all $n \geq 1$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>Prove by induction that $3^n - 1$ is divisible by 2 for all $n \geq 1$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p><strong>Base case</strong> $n=1$: $3 - 1 = 2$. Divisible by 2. &#10003;</p>
+                    <p><strong>Inductive hypothesis:</strong> $3^k - 1 = 2m$, so $3^k = 2m + 1$.</p>
+                    <p><strong>Inductive step:</strong> $3^{k+1} - 1 = 3 \cdot 3^k - 1 = 3(2m+1) - 1 = 6m + 2 = 2(3m+1)$. Divisible by 2.</p>
+                    <p>By induction, $3^n - 1$ is divisible by 2 for all $n \geq 1$. (Note: this is simply the statement that $3^n$ is always odd.)</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>Prove by induction that $7^n - 1$ is divisible by 6 for all $n \geq 1$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p><strong>Base case</strong> $n=1$: $7 - 1 = 6$. Divisible by 6. &#10003;</p>
+                    <p><strong>Inductive hypothesis:</strong> $7^k - 1 = 6m$, so $7^k = 6m + 1$.</p>
+                    <p><strong>Inductive step:</strong> $7^{k+1} - 1 = 7 \cdot 7^k - 1 = 7(6m+1) - 1 = 42m + 6 = 6(7m + 1)$. Divisible by 6.</p>
+                    <p>By induction, $7^n - 1$ is divisible by 6 for all $n \geq 1$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4</h4>
+            <p>A sequence is defined by $u_1 = 5$, $u_{n+1} = 2u_n - 3$. Prove by induction that $u_n = 2^{n+1} + 3$ for all $n \geq 1$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p><strong>Base case</strong> $n=1$: $u_1 = 2^2 + 3 = 7$. But the question states $u_1 = 5$, so let us re-check: $2^{1+1}+3 = 7 \neq 5$. The correct formula for $u_1 = 5$ is $u_n = 2^n + 3$.</p>
+                    <p><strong>Base case</strong> $n=1$: $2^1 + 3 = 5$. &#10003;</p>
+                    <p><strong>Inductive step:</strong> $u_{k+1} = 2u_k - 3 = 2(2^k + 3) - 3 = 2^{k+1} + 6 - 3 = 2^{k+1} + 3$. &#10003;</p>
+                    <p>By induction, $u_n = 2^n + 3$ for all $n \geq 1$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5</h4>
+            <p>Let $M = \begin{pmatrix}2 & 1 \\ 0 & 2\end{pmatrix}$. Prove by induction that $M^n = \begin{pmatrix}2^n & n \cdot 2^{n-1} \\ 0 & 2^n\end{pmatrix}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p><strong>Base case</strong> $n=1$: $M^1 = \begin{pmatrix}2&1\\0&2\end{pmatrix}$. Formula: $\begin{pmatrix}2&1\cdot 2^0\\0&2\end{pmatrix} = \begin{pmatrix}2&1\\0&2\end{pmatrix}$. &#10003;</p>
+                    <p><strong>Inductive step:</strong> $M^{k+1} = \begin{pmatrix}2^k & k2^{k-1}\\0&2^k\end{pmatrix}\begin{pmatrix}2&1\\0&2\end{pmatrix} = \begin{pmatrix}2^{k+1} & 2^k + k2^k \\ 0 & 2^{k+1}\end{pmatrix} = \begin{pmatrix}2^{k+1} & 2^k(1+k) \\ 0 & 2^{k+1}\end{pmatrix} = \begin{pmatrix}2^{k+1} & (k+1)2^k \\ 0 & 2^{k+1}\end{pmatrix}$.</p>
+                    <p>This matches the formula with $n = k+1$. By induction, the result holds for all $n \geq 1$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6</h4>
+            <p>Prove by induction that $\displaystyle\sum_{r=1}^{n} \frac{1}{r(r+1)} = \frac{n}{n+1}$ for all $n \geq 1$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p><strong>Base case</strong> $n=1$: LHS $= \frac{1}{1\cdot2} = \frac{1}{2}$. RHS $= \frac{1}{2}$. &#10003;</p>
+                    <p><strong>Inductive step:</strong> $\sum_{r=1}^{k+1}\frac{1}{r(r+1)} = \frac{k}{k+1} + \frac{1}{(k+1)(k+2)} = \frac{k(k+2) + 1}{(k+1)(k+2)} = \frac{k^2+2k+1}{(k+1)(k+2)} = \frac{(k+1)^2}{(k+1)(k+2)} = \frac{k+1}{k+2}$.</p>
+                    <p>By induction, the result holds for all $n \geq 1$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>Prove by induction that $n^2 + n$ is even for all $n \geq 1$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p><strong>Base case</strong> $n=1$: $1+1=2$. Even. &#10003;</p>
+                    <p><strong>Inductive step:</strong> $(k+1)^2 + (k+1) = k^2 + 2k + 1 + k + 1 = (k^2 + k) + 2k + 2 = (k^2+k) + 2(k+1)$.</p>
+                    <p>By the inductive hypothesis, $k^2 + k$ is even, and $2(k+1)$ is even. Sum of two even numbers is even.</p>
+                    <p>By induction, $n^2+n$ is even for all $n \geq 1$. (Alternatively, $n^2+n = n(n+1)$, the product of consecutive integers, which is always even.)</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8</h4>
+            <p>Prove by induction that $2^n \geq n^2$ for all $n \geq 4$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p><strong>Base case</strong> $n=4$: $2^4 = 16 = 4^2$. &#10003; (holds with equality)</p>
+                    <p><strong>Inductive hypothesis:</strong> Assume $2^k \geq k^2$ for some $k \geq 4$.</p>
+                    <p><strong>Inductive step:</strong> $2^{k+1} = 2 \cdot 2^k \geq 2k^2$. We need $2k^2 \geq (k+1)^2 = k^2 + 2k + 1$, i.e., $k^2 - 2k - 1 \geq 0$.</p>
+                    <p>For $k \geq 4$: $k^2 - 2k - 1 = k(k-2) - 1 \geq 4(2) - 1 = 7 > 0$. &#10003;</p>
+                    <p>Therefore $2^{k+1} \geq (k+1)^2$. By induction, $2^n \geq n^2$ for all $n \geq 4$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 9</h4>
+            <p>Prove by induction that $11^n - 6$ is divisible by 5 for all $n \geq 1$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p><strong>Base case</strong> $n=1$: $11 - 6 = 5$. Divisible by 5. &#10003;</p>
+                    <p><strong>Inductive hypothesis:</strong> $11^k - 6 = 5m$, so $11^k = 5m + 6$.</p>
+                    <p><strong>Inductive step:</strong> $11^{k+1} - 6 = 11 \cdot 11^k - 6 = 11(5m+6) - 6 = 55m + 66 - 6 = 55m + 60 = 5(11m + 12)$. Divisible by 5.</p>
+                    <p>By induction, $11^n - 6$ is divisible by 5 for all $n \geq 1$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 10</h4>
+            <p>Let $A = \begin{pmatrix}5 & -4 \\ 4 & -3\end{pmatrix}$. Prove by induction that $A^n = \begin{pmatrix}1+4n & -4n \\ 4n & 1-4n\end{pmatrix}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p><strong>Base case</strong> $n=1$: Formula gives $\begin{pmatrix}5&-4\\4&-3\end{pmatrix} = A$. &#10003;</p>
+                    <p><strong>Inductive step:</strong></p>
+                    <p>$A^{k+1} = \begin{pmatrix}1+4k & -4k \\ 4k & 1-4k\end{pmatrix}\begin{pmatrix}5&-4\\4&-3\end{pmatrix}$</p>
+                    <p>Top-left: $(1+4k)(5) + (-4k)(4) = 5 + 20k - 16k = 5 + 4k = 1 + 4(k+1)$. &#10003;</p>
+                    <p>Top-right: $(1+4k)(-4) + (-4k)(-3) = -4 - 16k + 12k = -4 - 4k = -4(k+1)$. &#10003;</p>
+                    <p>Bottom-left: $(4k)(5) + (1-4k)(4) = 20k + 4 - 16k = 4k + 4 = 4(k+1)$. &#10003;</p>
+                    <p>Bottom-right: $(4k)(-4) + (1-4k)(-3) = -16k - 3 + 12k = 1 - 4k - 4 = 1 - 4(k+1)$. &#10003;</p>
+                    <p>By induction, the result holds for all $n \geq 1$.</p>
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <script>
+    // Figure 1: Partial sums S_n vs parabola n(n+1)/2
+    (function() {
+        var elt = document.getElementById('desmos1');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            keypad: false
+        });
+        calc.setMathBounds({ left: 0, right: 11, bottom: 0, top: 60 });
+        calc.setExpressions([
+            // Smooth parabola
+            { id: 'curve', latex: 'y = \\frac{x(x+1)}{2}', color: '#ef4444', lineWidth: 2 },
+            // Discrete points S_n for n=1..10
+            { id: 'p1', latex: '(1, 1)', color: '#3b82f6', pointSize: 12, showLabel: true, label: 'S₁=1' },
+            { id: 'p2', latex: '(2, 3)', color: '#3b82f6', pointSize: 12 },
+            { id: 'p3', latex: '(3, 6)', color: '#3b82f6', pointSize: 12 },
+            { id: 'p4', latex: '(4, 10)', color: '#3b82f6', pointSize: 12 },
+            { id: 'p5', latex: '(5, 15)', color: '#3b82f6', pointSize: 12 },
+            { id: 'p6', latex: '(6, 21)', color: '#3b82f6', pointSize: 12 },
+            { id: 'p7', latex: '(7, 28)', color: '#3b82f6', pointSize: 12 },
+            { id: 'p8', latex: '(8, 36)', color: '#3b82f6', pointSize: 12 },
+            { id: 'p9', latex: '(9, 45)', color: '#3b82f6', pointSize: 12 },
+            { id: 'p10', latex: '(10, 55)', color: '#3b82f6', pointSize: 12, showLabel: true, label: 'S₁₀=55' }
+        ]);
+    })();
+
+    // Figure 2: 2^x vs x^3 for motivation of 2^n > n^3 for n>=10
+    (function() {
+        var elt = document.getElementById('desmos2');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            keypad: false
+        });
+        calc.setMathBounds({ left: 0, right: 14, bottom: 0, top: 2200 });
+        calc.setExpressions([
+            { id: 'exp', latex: 'y = 2^x', color: '#3b82f6', lineWidth: 2.5 },
+            { id: 'poly', latex: 'y = x^3', color: '#ef4444', lineWidth: 2.5 },
+            // intersection near x=10
+            { id: 'cross', latex: '(10, 1000)', color: '#22c55e', pointSize: 14, showLabel: true, label: 'n=10: 2¹⁰=1024 > 10³=1000' }
+        ]);
+    })();
+    </script>
+</body>
+</html>

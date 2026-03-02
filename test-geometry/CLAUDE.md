@@ -43,8 +43,17 @@
 
 | ID | Time | T | Title | Read |
 |----|------|---|-------|------|
-| #10249 | 4:27 PM | 🔴 | Fixed SAS triangle coordinate calculation syntax for GeoGebra compatibility | ~372 |
-| #10245 | 3:40 PM | 🔴 | SAS triangle visibility fixed on initial page load | ~279 |
-| #10237 | 3:20 PM | 🔄 | GeoGebra Interactive Applets Initialization Refactored | ~375 |
 | #10227 | 3:05 PM | 🟣 | Triangle Congruence Educational Page Created with SVG Figures | ~569 |
+
+### Feb 28, 2026
+
+| ID | Time | T | Title | Read |
+|----|------|---|-------|------|
+| #10407 | 10:34 PM | 🟣 | Created geometry curriculum index page with 13-unit structure | ~497 |
+
+### Mar 1, 2026
+
+| ID | Time | T | Title | Read |
+|----|------|---|-------|------|
+| #10462 | 3:25 PM | 🔄 | Scaled SVG diagram dimensions by 1.5x across geometry unit files | ~502 |
 </claude-mem-context>

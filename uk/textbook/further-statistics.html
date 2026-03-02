@@ -67,10 +67,11 @@
         };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 
     <link rel="stylesheet" href="../../assets/css/common.css">
     <style>
-        .blog-article { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
         .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
         .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
         .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; }
@@ -112,6 +113,8 @@
         th, td { border: 1px solid #e2e8f0; padding: 8px 12px; text-align: center; color: #334155; }
         th { background: #f0f7ff; font-weight: 600; color: #1e3a5f; }
         tr:nth-child(even) { background: #f8fafc; }
+        .desmos-fig { width: 100%; height: 260px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 20px 0 8px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; margin: 4px 0 24px; font-style: italic; }
     </style>
 </head>
 <body>
@@ -221,6 +224,31 @@
             <p>$$E(X) = \lambda, \qquad \text{Var}(X) = \lambda$$</p>
             <p><strong>Key property:</strong> If $X \sim \text{Po}(\lambda)$ and $Y \sim \text{Po}(\mu)$ are independent, then $X + Y \sim \text{Po}(\lambda + \mu)$.</p>
         </div>
+
+        <div id="fig-fstat1" class="desmos-fig"></div>
+        <p class="fig-caption">FSTAT·1 &mdash; Poisson PMF $P(X=x) = \tfrac{e^{-\lambda}\lambda^x}{x!}$ for $\lambda=1$ (red) and $\lambda=3$ (blue). As $\lambda$ increases the distribution spreads right, with $E(X) = \lambda$ and $\text{Var}(X) = \lambda$.</p>
+        <script>(function(){
+            var OPT = {keypad:false, expressions:false, settingsMenu:false, zoomButtons:false, lockViewport:true, showGrid:false, showXAxis:true, showYAxis:true};
+            var c = Desmos.GraphingCalculator(document.getElementById('fig-fstat1'), OPT);
+            c.setMathBounds({left:-0.5, right:10.5, bottom:-0.02, top:0.43});
+            function fac(n){return n<=1?1:n*fac(n-1);}
+            function poi(lam,x){return Math.exp(-lam)*Math.pow(lam,x)/fac(x);}
+            // λ=1 bars (red, slightly left of integer)
+            [0,1,2,3,4,5,6].forEach(function(x){
+                var p=poi(1,x).toFixed(4);
+                c.setExpression({id:'a'+x, latex:'('+(x-0.14)+',0)\\to('+(x-0.14)+','+p+')', color:'#dc2626', lineWidth:9});
+            });
+            // λ=3 bars (blue, slightly right of integer)
+            [0,1,2,3,4,5,6,7,8,9].forEach(function(x){
+                var p=poi(3,x).toFixed(4);
+                c.setExpression({id:'b'+x, latex:'('+(x+0.14)+',0)\\to('+(x+0.14)+','+p+')', color:'#2563eb', lineWidth:9});
+            });
+            // Legend labels
+            c.setExpression({id:'ll1', latex:'(1,0.38)', label:'λ = 1', showLabel:true, color:'#dc2626', pointSize:0, pointOpacity:0});
+            c.setExpression({id:'ll3', latex:'(5.5,0.26)', label:'λ = 3', showLabel:true, color:'#2563eb', pointSize:0, pointOpacity:0});
+            // x-axis tick labels
+            for(var i=0;i<=10;i++){c.setExpression({id:'t'+i, latex:'('+i+',0)', label:''+i, showLabel:true, color:'#64748b', pointSize:3});}
+        })();</script>
 
         <p><strong>Poisson approximation to Binomial:</strong> If $X \sim B(n, p)$ with $n$ large and $p$ small (typically $n > 50$, $p < 0.1$), then $X \approx \text{Po}(\lambda)$ where $\lambda = np$.</p>
 

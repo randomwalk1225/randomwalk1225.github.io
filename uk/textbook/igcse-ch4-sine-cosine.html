@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IGCSE Maths Ch 4: Sine Rule and Cosine Rule | MathHub</title>
+    <meta name="description" content="IGCSE Mathematics Chapter 4: Sine Rule and Cosine Rule for non-right-angled triangles. Ambiguous case, area formula, and decision flowchart. Cambridge 0580 Extended and Edexcel 4MA1.">
+    <meta name="keywords" content="sine rule IGCSE, cosine rule IGCSE, non-right angled triangle, area formula half ab sinC, ambiguous case, Cambridge 0580 Extended, Edexcel 4MA1">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/igcse-ch4-sine-cosine.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/uk/textbook/igcse-ch4-sine-cosine.html">
+    <meta property="og:title" content="IGCSE Maths Ch 4: Sine Rule and Cosine Rule | MathHub">
+    <meta property="og:description" content="Full IGCSE chapter on the Sine Rule and Cosine Rule: finding sides and angles in non-right-angled triangles with worked examples and exercises.">
+    <meta property="og:site_name" content="MathHub Global">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "IGCSE Mathematics Chapter 4: Sine Rule and Cosine Rule",
+        "description": "Sine Rule, Cosine Rule, area formula, and ambiguous case for IGCSE Extended Mathematics.",
+        "url": "https://mathhub.io/uk/textbook/igcse-ch4-sine-cosine.html",
+        "datePublished": "2026-03-02",
+        "dateModified": "2026-03-02",
+        "isPartOf": { "@type": "Course", "name": "IGCSE Mathematics: Geometry & Trigonometry" },
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "IGCSE"
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 40px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ul, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        .practice-problem p { margin-bottom: 10px; }
+        details.solution { margin-top: 12px; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        details.solution summary:hover { color: #1d4ed8; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .solution-content p { margin-bottom: 10px; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .ext-label { display: inline-block; background: #ede9fe; color: #6d28d9; font-size: 0.78em; font-weight: 700; padding: 1px 8px; border-radius: 4px; margin-left: 6px; vertical-align: middle; }
+        .desmos-wrap { margin: 24px 0; position: relative; }
+        .fig-label { display: inline-block; background: #1e3a5f; color: #fff; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px 4px 0 0; margin-bottom: 0; font-family: monospace; letter-spacing: 0.05em; }
+        .fig-caption { font-size: 0.88em; color: #64748b; text-align: center; margin-top: 8px; font-style: italic; }
+        .flowchart { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+        .flowchart h4 { color: #0369a1; margin: 0 0 12px; font-size: 1.05em; }
+        .flowchart p { margin-bottom: 8px; color: #334155; }
+        .chapter-nav { display: flex; justify-content: space-between; margin: 40px 0 0; padding-top: 24px; border-top: 1px solid #e2e8f0; gap: 12px; }
+        .chapter-nav a { color: #3b82f6; text-decoration: none; font-size: 0.9em; }
+        .chapter-nav a:hover { text-decoration: underline; }
+        .chapter-nav .next { margin-left: auto; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/">US</a>
+            <a href="/uk/" class="active">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="/uk/">UK</a> &rsaquo;
+            <a href="igcse-geometry-trigonometry.html">IGCSE Geometry &amp; Trig</a> &rsaquo;
+            Chapter 4
+        </div>
+
+        <h1>Chapter 4: Sine Rule &amp; Cosine Rule</h1>
+        <div class="blog-meta">IGCSE Mathematics &middot; Cambridge 0580 &amp; Edexcel 4MA1 &middot; Extended Tier &middot; Updated March 2026</div>
+
+        <p>SOHCAHTOA only works in right-angled triangles. For any other triangle — whether it has all acute angles or an obtuse angle — we need two new tools: the <strong>Sine Rule</strong> and the <strong>Cosine Rule</strong>. Together they allow us to find any unknown side or angle in any triangle, given sufficient information.</p>
+
+        <div class="exam-note">
+            <h4>Exam Board Coverage</h4>
+            <p>This entire chapter is assessed at <strong>Extended tier only</strong> for both Cambridge IGCSE (0580) and Edexcel IGCSE (4MA1). The formulae are provided on the formula sheet in the Cambridge exam but not in the Edexcel exam — check your board's specification.</p>
+        </div>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#sec-4-1">4.1 Labelling Non-Right-Angled Triangles</a></li>
+                <li><a href="#sec-4-2">4.2 Sine Rule — Finding a Side</a></li>
+                <li><a href="#sec-4-3">4.3 Sine Rule — Finding an Angle</a></li>
+                <li><a href="#sec-4-4">4.4 The Ambiguous Case (SSA)</a></li>
+                <li><a href="#sec-4-5">4.5 Cosine Rule — Finding a Side</a></li>
+                <li><a href="#sec-4-6">4.6 Cosine Rule — Finding an Angle</a></li>
+                <li><a href="#sec-4-7">4.7 Area of a Triangle: $\tfrac{1}{2}ab\sin C$</a></li>
+                <li><a href="#sec-4-8">4.8 Choosing the Right Rule</a></li>
+                <li><a href="#sec-exercises">Exercises</a></li>
+                <li><a href="#sec-exam-tips">Exam Tips</a></li>
+            </ol>
+        </nav>
+
+        <!-- ═══════════════════════════════════════ -->
+        <h2 id="sec-4-1">4.1 Labelling Non-Right-Angled Triangles</h2>
+
+        <p>For the Sine Rule and Cosine Rule to work, the triangle must be labelled with a consistent convention: <strong>lower-case letters for sides</strong> and the <strong>corresponding upper-case letter for the opposite angle</strong>.</p>
+
+        <div class="definition-box">
+            <h4>Labelling Convention</h4>
+            <ul>
+                <li>Side $a$ is opposite angle $A$</li>
+                <li>Side $b$ is opposite angle $B$</li>
+                <li>Side $c$ is opposite angle $C$</li>
+            </ul>
+            <p>Always re-label the triangle at the start of each question so the convention is clear.</p>
+        </div>
+
+        <!-- GEOM·4: General triangle -->
+        <div class="desmos-wrap">
+            <span class="fig-label">GEOM·4</span>
+            <div id="geom4" style="width:100%; max-width:500px; height:380px; border:1px solid #e2e8f0; border-radius:0 6px 6px 6px;"></div>
+        </div>
+        <p class="fig-caption">Triangle $ABC$ with sides $a$, $b$, $c$ opposite to angles $A$, $B$, $C$ respectively.</p>
+
+        <script>
+        (function(){
+            var elt = document.getElementById('geom4');
+            var c = Desmos.GraphingCalculator(elt, {
+                expressions: false, settingsMenu: false, zoomButtons: false,
+                lockViewport: true, border: false, showGrid: false,
+                showXAxis: false, showYAxis: false
+            });
+            c.setMathBounds({left: -0.5, right: 8.5, bottom: -0.5, top: 6.5});
+
+            // Triangle: A=(1,0.5), B=(7,0.5), C=(4.5,5.5)
+            c.setExpression({id:'tri', latex:'\\polygon((1,0.5),(7,0.5),(4.5,5.5))', color:'#1e3a5f', lineWidth:2.5, fillOpacity:0.05});
+
+            // Side labels (midpoints)
+            // a = BC, midpoint (5.75, 3.0) — opposite A
+            c.setExpression({id:'la', latex:'(6.2, 2.8)', label:'a', showLabel:true, color:'#dc2626', pointOpacity:0, pointSize:0, labelSize:Desmos.LabelSizes.LARGE});
+            // b = AC, midpoint (2.75, 3.0) — opposite B
+            c.setExpression({id:'lb', latex:'(2.2, 2.8)', label:'b', showLabel:true, color:'#16a34a', pointOpacity:0, pointSize:0, labelSize:Desmos.LabelSizes.LARGE});
+            // c = AB, midpoint (4, 0.5) — opposite C
+            c.setExpression({id:'lc', latex:'(4, -0.1)', label:'c', showLabel:true, color:'#7c3aed', pointOpacity:0, pointSize:0, labelSize:Desmos.LabelSizes.LARGE});
+
+            // Vertex labels
+            c.setExpression({id:'vA', latex:'(0.5, 0.2)', label:'A', showLabel:true, color:'#1e3a5f', pointOpacity:0, pointSize:0});
+            c.setExpression({id:'vB', latex:'(7.1, 0.2)', label:'B', showLabel:true, color:'#1e3a5f', pointOpacity:0, pointSize:0});
+            c.setExpression({id:'vC', latex:'(4.5, 5.9)', label:'C', showLabel:true, color:'#1e3a5f', pointOpacity:0, pointSize:0});
+
+            // Angle arcs (small arcs at each vertex)
+            // Angle at A=(1,0.5): between AB (dir→right) and AC
+            var angA = Math.atan2(5.5-0.5, 4.5-1); // ≈ 0.927 rad
+            c.setExpression({id:'arcA', latex:'(1+0.55\\cos(t),0.5+0.55\\sin(t))', domain:{min:0, max:angA}, color:'#dc2626', lineWidth:1.5});
+            // Angle at B=(7,0.5): between BA (dir←) and BC
+            var angBstart = Math.PI; // 180°
+            var angBend = Math.PI + Math.atan2(5.5-0.5, 4.5-7); // 180° + atan2(5,-2.5)
+            c.setExpression({id:'arcB', latex:'(7+0.55\\cos(t),0.5+0.55\\sin(t))', domain:{min:angBstart, max:angBend}, color:'#16a34a', lineWidth:1.5});
+            // Angle at C: between CA and CB
+            var dirCA = Math.atan2(0.5-5.5, 1-4.5);   // atan2(-5,-3.5)
+            var dirCB = Math.atan2(0.5-5.5, 7-4.5);   // atan2(-5,2.5)
+            c.setExpression({id:'arcC', latex:'(4.5+0.55\\cos(t),5.5+0.55\\sin(t))', domain:{min:dirCB, max:dirCA}, color:'#7c3aed', lineWidth:1.5});
+        })();
+        </script>
+
+        <!-- ═══════════════════════════════════════ -->
+        <h2 id="sec-4-2">4.2 Sine Rule — Finding a Side</h2>
+
+        <p>The Sine Rule links each side to its opposite angle. It is used when you know an angle and its opposite side (giving you a complete ratio), plus one more piece of information.</p>
+
+        <div class="theorem-box">
+            <h4>Sine Rule</h4>
+            <p>$$\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}$$</p>
+            <p>To find a side: put the unknown side in the numerator of the first fraction and a known side-angle pair in the second.</p>
+        </div>
+
+        <div class="definition-box">
+            <h4>When to Use the Sine Rule to Find a Side</h4>
+            <p>You need: <strong>one complete side-angle pair</strong> (e.g., $a$ and $A$) plus the angle opposite the unknown side (e.g., $B$ to find $b$).</p>
+            <p>Given information pattern: <strong>AAS</strong> (Angle–Angle–Side) or <strong>ASA</strong></p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.1 — Sine Rule to find a side</h4>
+            <p>In triangle $ABC$: $A = 48°$, $B = 65°$, $a = 9\,\text{cm}$. Find side $b$. Give your answer to 3 s.f.</p>
+            <p><span class="step-label">Step 1</span> Write the Sine Rule with $b$ and $a$:</p>
+            <p>$$\frac{b}{\sin B} = \frac{a}{\sin A}$$</p>
+            <p><span class="step-label">Step 2</span> Substitute: $\dfrac{b}{\sin 65°} = \dfrac{9}{\sin 48°}$</p>
+            <p><span class="step-label">Step 3</span> $b = \dfrac{9 \sin 65°}{\sin 48°} = \dfrac{9 \times 0.9063}{0.7431} \approx \mathbf{10.97\ldots \approx 11.0\,\text{cm}}$</p>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <h2 id="sec-4-3">4.3 Sine Rule — Finding an Angle</h2>
+
+        <p>Rearrange the Sine Rule so the unknown angle's sine is in the numerator. This form is sometimes written as:</p>
+
+        <div class="theorem-box">
+            <h4>Sine Rule (Angle Form)</h4>
+            <p>$$\frac{\sin A}{a} = \frac{\sin B}{b} = \frac{\sin C}{c}$$</p>
+            <p>To find an angle: put the unknown $\sin$ in the first fraction, then use a known pair.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.2 — Sine Rule to find an angle</h4>
+            <p>In triangle $PQR$: $p = 12\,\text{cm}$, $q = 9\,\text{cm}$, $P = 72°$. Find angle $Q$.</p>
+            <p><span class="step-label">Step 1</span> $\dfrac{\sin Q}{q} = \dfrac{\sin P}{p}$</p>
+            <p><span class="step-label">Step 2</span> $\dfrac{\sin Q}{9} = \dfrac{\sin 72°}{12}$</p>
+            <p><span class="step-label">Step 3</span> $\sin Q = \dfrac{9 \sin 72°}{12} = \dfrac{9 \times 0.9511}{12} \approx 0.7133$</p>
+            <p><span class="step-label">Step 4</span> $Q = \sin^{-1}(0.7133) \approx \mathbf{45.5°}$</p>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <h2 id="sec-4-4">4.4 The Ambiguous Case (SSA)</h2>
+
+        <p>The ambiguous case arises when two sides and a non-included angle (SSA) are given. There may be <strong>two valid triangles</strong>, <strong>one triangle</strong>, or <strong>no triangle</strong>.</p>
+
+        <div class="definition-box">
+            <h4>When the Ambiguous Case Arises</h4>
+            <p>Suppose you know sides $a$, $b$ and angle $A$ (where $A$ is opposite $a$).</p>
+            <ul>
+                <li>If $A \geq 90°$: at most one solution (obtuse angle at $A$ cannot also have obtuse $B$).</li>
+                <li>If $A < 90°$ and $a < b \sin A$: <strong>no triangle</strong> exists.</li>
+                <li>If $A < 90°$ and $a = b \sin A$: exactly <strong>one right-angled</strong> triangle.</li>
+                <li>If $A < 90°$ and $b \sin A < a < b$: <strong>two triangles</strong> exist (angles $B$ and $180° - B$ both work).</li>
+                <li>If $A < 90°$ and $a \geq b$: exactly <strong>one triangle</strong>.</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.3 — Ambiguous case with two solutions</h4>
+            <p>In triangle $ABC$: $a = 10\,\text{cm}$, $b = 14\,\text{cm}$, $A = 40°$. Find all possible values of angle $B$.</p>
+            <p><span class="step-label">Step 1</span> $\dfrac{\sin B}{14} = \dfrac{\sin 40°}{10}$</p>
+            <p><span class="step-label">Step 2</span> $\sin B = \dfrac{14 \sin 40°}{10} = \dfrac{14 \times 0.6428}{10} \approx 0.8999$</p>
+            <p><span class="step-label">Step 3</span> First solution: $B_1 = \sin^{-1}(0.8999) \approx 64.1°$</p>
+            <p><span class="step-label">Step 4</span> Second solution: $B_2 = 180° - 64.1° = 115.9°$</p>
+            <p><span class="step-label">Check</span> For $B_2 = 115.9°$: $A + B_2 = 40° + 115.9° = 155.9° < 180°$ ✓ — both solutions are valid.</p>
+            <p><strong>So $B \approx 64.1°$ or $B \approx 115.9°$</strong>.</p>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <h2 id="sec-4-5">4.5 Cosine Rule — Finding a Side</h2>
+
+        <p>The Cosine Rule relates all three sides and one angle. It is used when no complete side-angle pair is available — typically when two sides and the <em>included</em> angle are given (SAS), or all three sides are known (SSS).</p>
+
+        <div class="theorem-box">
+            <h4>Cosine Rule (Finding a Side)</h4>
+            <p>$$a^2 = b^2 + c^2 - 2bc\cos A$$</p>
+            <p>Similarly: $b^2 = a^2 + c^2 - 2ac\cos B$ and $c^2 = a^2 + b^2 - 2ab\cos C$</p>
+            <p><em>Memory aid: "Square the two sides, add, subtract twice their product times the cosine of the included angle."</em></p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.4 — Cosine Rule to find a side (SAS)</h4>
+            <p>In triangle $ABC$: $b = 8\,\text{cm}$, $c = 11\,\text{cm}$, $A = 60°$. Find side $a$.</p>
+            <p><span class="step-label">Step 1</span> $a^2 = b^2 + c^2 - 2bc\cos A = 8^2 + 11^2 - 2(8)(11)\cos 60°$</p>
+            <p><span class="step-label">Step 2</span> $= 64 + 121 - 176 \times 0.5 = 185 - 88 = 97$</p>
+            <p><span class="step-label">Step 3</span> $a = \sqrt{97} \approx \mathbf{9.85\,\text{cm}}$ (3 s.f.)</p>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <h2 id="sec-4-6">4.6 Cosine Rule — Finding an Angle</h2>
+
+        <p>Rearrange $a^2 = b^2 + c^2 - 2bc\cos A$ to make $\cos A$ the subject.</p>
+
+        <div class="theorem-box">
+            <h4>Cosine Rule (Finding an Angle)</h4>
+            <p>$$\cos A = \frac{b^2 + c^2 - a^2}{2bc}$$</p>
+            <p>Used when all three sides are known (SSS). Find the largest angle first (opposite the longest side) to check for obtuse angles.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.5 — Cosine Rule to find an angle (SSS)</h4>
+            <p>A triangle has sides $a = 7\,\text{cm}$, $b = 9\,\text{cm}$, $c = 5\,\text{cm}$. Find angle $A$ to 1 d.p.</p>
+            <p><span class="step-label">Step 1</span> $\cos A = \dfrac{b^2 + c^2 - a^2}{2bc} = \dfrac{81 + 25 - 49}{2 \times 9 \times 5} = \dfrac{57}{90} = 0.6\overline{3}$</p>
+            <p><span class="step-label">Step 2</span> $A = \cos^{-1}(0.6\overline{3}) \approx \mathbf{50.7°}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.6 — Cosine Rule with obtuse angle</h4>
+            <p>A triangle has sides $5\,\text{cm}$, $6\,\text{cm}$, $9\,\text{cm}$. Find the largest angle.</p>
+            <p><span class="step-label">Step 1</span> Largest angle is opposite the longest side $a = 9$. Let $b = 5$, $c = 6$.</p>
+            <p><span class="step-label">Step 2</span> $\cos A = \dfrac{25 + 36 - 81}{2 \times 5 \times 6} = \dfrac{-20}{60} = -\dfrac{1}{3}$</p>
+            <p><span class="step-label">Step 3</span> $A = \cos^{-1}\!\left(-\tfrac{1}{3}\right) \approx \mathbf{109.5°}$</p>
+            <p><em>A negative cosine value confirms the angle is obtuse ($> 90°$).</em></p>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <h2 id="sec-4-7">4.7 Area of a Triangle: $\frac{1}{2}ab\sin C$</h2>
+
+        <p>The standard area formula $\frac{1}{2} \times \text{base} \times \text{height}$ requires a perpendicular height, which may not be given. When two sides and the <em>included</em> angle are known, use this formula instead.</p>
+
+        <div class="theorem-box">
+            <h4>Area Formula</h4>
+            <p>$$\text{Area} = \tfrac{1}{2}ab\sin C$$</p>
+            <p>where $a$ and $b$ are two sides and $C$ is the angle <em>between</em> them.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.7 — Area using the sine formula</h4>
+            <p>Triangle $PQR$ has $p = 7\,\text{cm}$, $q = 10\,\text{cm}$ and included angle $R = 115°$. Find the area to 3 s.f.</p>
+            <p><span class="step-label">Step 1</span> The angle between sides $p$ and $q$ is $R = 115°$.</p>
+            <p><span class="step-label">Step 2</span> Area $= \tfrac{1}{2} \times 7 \times 10 \times \sin 115°$</p>
+            <p><span class="step-label">Step 3</span> $= 35 \times 0.9063\ldots \approx \mathbf{31.7\,\text{cm}^2}$</p>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <h2 id="sec-4-8">4.8 Choosing the Right Rule</h2>
+
+        <div class="flowchart">
+            <h4>Decision Flowchart</h4>
+            <p><strong>Start:</strong> What information do you have?</p>
+            <p>&#x2503;</p>
+            <p><strong>Right-angled triangle?</strong> → Yes → Use <strong>SOHCAHTOA</strong> (or Pythagoras)</p>
+            <p>&#x2503; No</p>
+            <p><strong>Do you have a complete side-angle pair</strong> (e.g., $a$ and $A$)?</p>
+            <p>&#x2503; Yes → Use <strong>Sine Rule</strong></p>
+            <p>&#x2503; No (SAS or SSS)</p>
+            <p>→ Use <strong>Cosine Rule</strong></p>
+        </div>
+
+        <div class="definition-box">
+            <h4>Summary Table</h4>
+            <ul>
+                <li><strong>AAS or ASA</strong> (angle, angle, one side) → Sine Rule for a side; find third angle by subtraction first if needed</li>
+                <li><strong>SSA</strong> (two sides, non-included angle) → Sine Rule for an angle; check for ambiguous case</li>
+                <li><strong>SAS</strong> (two sides, included angle) → Cosine Rule for a side, then Sine Rule for remaining angles</li>
+                <li><strong>SSS</strong> (three sides) → Cosine Rule for an angle, then Sine Rule for the rest</li>
+                <li><strong>SAS (area)</strong> → $\tfrac{1}{2}ab\sin C$</li>
+            </ul>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <h2 id="sec-exercises">Exercises</h2>
+
+        <p>All angles to 1 decimal place; all lengths to 3 significant figures unless otherwise stated.</p>
+
+        <div class="practice-problem">
+            <h4>Exercise 4.1</h4>
+            <p>In triangle $ABC$: $A = 55°$, $C = 70°$, $c = 15\,\text{cm}$. Find side $a$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\dfrac{a}{\sin 55°} = \dfrac{15}{\sin 70°}$</p>
+                    <p>$a = \dfrac{15\sin 55°}{\sin 70°} = \dfrac{15 \times 0.8192}{0.9397} \approx \mathbf{13.1\,\text{cm}}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Exercise 4.2</h4>
+            <p>In triangle $PQR$: $p = 8\,\text{cm}$, $r = 11\,\text{cm}$, $P = 35°$. Find angle $R$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\dfrac{\sin R}{11} = \dfrac{\sin 35°}{8}$</p>
+                    <p>$\sin R = \dfrac{11\sin 35°}{8} \approx \dfrac{11\times0.5736}{8} \approx 0.7885$</p>
+                    <p>$R = \sin^{-1}(0.7885) \approx \mathbf{52.0°}$</p>
+                    <p>(Check: $35° + 52° = 87° < 180°$ ✓. Second solution $180°-52°=128°$ gives $35°+128°=163° < 180°$ — also valid, so state both.)</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Exercise 4.3</h4>
+            <p>In triangle $ABC$: $a = 6\,\text{cm}$, $c = 9\,\text{cm}$, $B = 75°$. Find side $b$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$b^2 = 6^2 + 9^2 - 2(6)(9)\cos 75° = 36 + 81 - 108\times0.2588 = 117 - 27.95 = 89.05$</p>
+                    <p>$b = \sqrt{89.05} \approx \mathbf{9.44\,\text{cm}}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Exercise 4.4</h4>
+            <p>A triangle has sides $6\,\text{cm}$, $8\,\text{cm}$, $10\,\text{cm}$. Find the largest angle.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Largest angle opposite $a=10$: $\cos A = \dfrac{36+64-100}{2\times6\times8} = \dfrac{0}{96} = 0$</p>
+                    <p>$A = \cos^{-1}(0) = \mathbf{90°}$ (confirms it is a 6-8-10 right-angled triangle)</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Exercise 4.5</h4>
+            <p>Find the area of a triangle with sides $12\,\text{cm}$ and $15\,\text{cm}$ and included angle $50°$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Area $= \tfrac{1}{2}\times12\times15\times\sin50° = 90\times0.7660 \approx \mathbf{68.9\,\text{cm}^2}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Exercise 4.6</h4>
+            <p>In triangle $XYZ$: $x = 5\,\text{cm}$, $y = 7\,\text{cm}$, $X = 40°$. Find both possible values of angle $Y$, if they exist.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\sin Y = \dfrac{7\sin40°}{5} = \dfrac{7\times0.6428}{5} \approx 0.9000$</p>
+                    <p>$Y_1 = \sin^{-1}(0.9) \approx 64.2°$; check: $40°+64.2° < 180°$ ✓</p>
+                    <p>$Y_2 = 180°-64.2° = 115.8°$; check: $40°+115.8° < 180°$ ✓</p>
+                    <p><strong>Two valid triangles: $Y \approx 64.2°$ or $Y \approx 115.8°$</strong></p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Exercise 4.7</h4>
+            <p>Two ships leave a port. Ship A travels $18\,\text{km}$ on a bearing of $050°$ and Ship B travels $24\,\text{km}$ on a bearing of $110°$. Find the distance between them to 3 s.f.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Angle between the two bearings at the port: $110° - 50° = 60°$.</p>
+                    <p>By the Cosine Rule: $d^2 = 18^2 + 24^2 - 2(18)(24)\cos60° = 324 + 576 - 864\times0.5 = 900 - 432 = 468$</p>
+                    <p>$d = \sqrt{468} \approx \mathbf{21.6\,\text{km}}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Exercise 4.8</h4>
+            <p>Find the area of a triangle with sides $4\,\text{cm}$, $7\,\text{cm}$, $9\,\text{cm}$, by first finding an angle using the Cosine Rule.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Find angle opposite the longest side $a=9$: $\cos A = \dfrac{16+49-81}{56} = \dfrac{-16}{56} \approx -0.2857$, so $A \approx 106.6°$</p>
+                    <p>Area $= \tfrac{1}{2}\times4\times7\times\sin106.6° \approx 14\times0.9579 \approx \mathbf{13.4\,\text{cm}^2}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Exercise 4.9</h4>
+            <p>In triangle $ABC$: $b = 13\,\text{cm}$, $c = 13\,\text{cm}$, $A = 50°$. Find the area and then side $a$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Area $= \tfrac{1}{2}\times13\times13\times\sin50° = \tfrac{169}{2}\times0.7660 \approx \mathbf{64.7\,\text{cm}^2}$</p>
+                    <p>$a^2 = 13^2+13^2-2(13)(13)\cos50° = 338 - 338\times0.6428 = 338 - 217.3 = 120.7$</p>
+                    <p>$a \approx \mathbf{10.99 \approx 11.0\,\text{cm}}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Exercise 4.10</h4>
+            <p>A triangle has area $30\,\text{cm}^2$, two sides of $10\,\text{cm}$ and $8\,\text{cm}$. Find the possible values of the angle between those sides.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$30 = \tfrac{1}{2}\times10\times8\times\sin\theta = 40\sin\theta$</p>
+                    <p>$\sin\theta = \dfrac{30}{40} = 0.75$</p>
+                    <p>$\theta_1 = \sin^{-1}(0.75) \approx 48.6°$ or $\theta_2 = 180°-48.6° = \mathbf{131.4°}$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <h2 id="sec-exam-tips">Exam Tips</h2>
+
+        <div class="exam-note">
+            <h4>Tip 1 — Write the formula first, then substitute</h4>
+            <p>Always write the Sine or Cosine Rule in its general form before substituting values. Examiners award a method mark for the correct formula, even if you make an arithmetic error later.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Tip 2 — Identify SSS/SAS vs AAS/SSA before you start</h4>
+            <p>Sine Rule needs a complete pair ($a$ and $A$). If you only have sides (or two sides and an included angle), you need the Cosine Rule. Choosing the wrong rule wastes time and marks.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Tip 3 — Check the ambiguous case explicitly</h4>
+            <p>If SSA is given with an acute angle, always check whether $180° - B$ is also valid by testing $A + B_2 < 180°$. Exam questions that award two marks for two answers will penalise you if you only give one.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Tip 4 — Negative cosine means obtuse angle</h4>
+            <p>If your Cosine Rule calculation gives a negative value for $\cos A$, $A$ is obtuse ($>90°$). Make sure your calculator gives an answer between $90°$ and $180°$ — it will do so automatically when $\cos^{-1}$ is applied to a negative number.</p>
+        </div>
+
+        <div class="chapter-nav">
+            <a href="igcse-ch3-sohcahtoa.html">&larr; Chapter 3: Right-Angled Trigonometry</a>
+            <a href="igcse-ch5-circle-theorems.html" class="next">Chapter 5: Circle Theorems &rarr;</a>
+        </div>
+
+    </article>
+
+    <div class="footer">
+        <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+    </div>
+
+    <script src="../../assets/js/common.js"></script>
+</body>
+</html>

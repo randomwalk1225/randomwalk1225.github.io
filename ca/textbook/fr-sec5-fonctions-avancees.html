@@ -52,6 +52,7 @@
         };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 
     <link rel="stylesheet" href="../../assets/css/common.css">
     <style>
@@ -91,6 +92,10 @@
         .graph-container{text-align:center;margin:24px 0;}
         .graph-container svg{max-width:100%;}
         .graph-caption{font-size:0.9em;color:#64748b;margin-top:8px;font-style:italic;}
+        .desmos-wrap { margin: 24px 0; background: #f8fafc; border-radius: 12px; padding: 16px; border: 1px solid #e2e8f0; }
+        .desmos-caption { font-size: 0.88em; color: #475569; margin-bottom: 8px; font-style: italic; }
+        .fig-code { display: inline-block; background: #f1f5f9; color: #64748b; font-style: normal; font-weight: 700; font-size: 0.78em; padding: 1px 7px; border-radius: 4px; margin-right: 8px; font-family: 'Courier New', monospace; letter-spacing: 0.5px; border: 1px solid #e2e8f0; }
+        .fig-label { text-align: center; font-style: italic; color: #475569; font-size: 0.88em; margin: 6px 0 18px; }
         .chapter-nav{display:flex;justify-content:space-between;margin-top:50px;padding-top:20px;border-top:1px solid #e2e8f0;}
         .chapter-nav a{color:#1d4ed8;text-decoration:none;font-weight:500;}
         .chapter-nav a:hover{text-decoration:underline;}
@@ -177,55 +182,11 @@
             <div class="step"><span class="step-num">4.</span> Translation verticale de $k$ unités.</div>
         </div>
 
-        <!-- SVG : parabole de base vs transformée -->
-        <div class="graph-container">
-            <svg viewBox="0 0 360 260" width="360" height="260" aria-label="Parabole de base y=x² en bleu et transformée y=2(x-1)²+1 en rouge">
-                <!-- Axes -->
-                <line x1="20" y1="130" x2="340" y2="130" stroke="#94a3b8" stroke-width="1.5"/>
-                <line x1="180" y1="10" x2="180" y2="250" stroke="#94a3b8" stroke-width="1.5"/>
-                <!-- Graduations x -->
-                <text x="220" y="145" font-size="11" fill="#64748b">2</text>
-                <text x="258" y="145" font-size="11" fill="#64748b">4</text>
-                <text x="136" y="145" font-size="11" fill="#64748b">-2</text>
-                <text x="96" y="145" font-size="11" fill="#64748b">-4</text>
-                <!-- Graduations y -->
-                <text x="185" y="92" font-size="11" fill="#64748b">4</text>
-                <text x="185" y="52" font-size="11" fill="#64748b">8</text>
-                <!-- y=x² en bleu : points (-4,16), (-3,9), (-2,4), (-1,1), (0,0), (1,1), (2,4), (3,9), (4,16) -->
-                <!-- Scale: 1 unit = 20px, origin at (180,130) -->
-                <polyline
-                    points="100,14 120,50 140,90 160,110 180,130 200,110 220,90 240,50 260,14"
-                    fill="none" stroke="#1d4ed8" stroke-width="2.2"/>
-                <text x="265" y="18" font-size="12" fill="#1d4ed8">$y=x^2$</text>
-                <!-- g(x)=2(x-1)²+1 : x=1 → y=1 (pixel: 200,128), x=0 → y=3 (180,124), x=2 → y=3 (220,124), x=-1 → y=9 (160,108), x=3 → y=9 (240,108), x=-2 → y=19, x=4 → y=19 -->
-                <!-- pixel y = 130 - 20*val -->
-                <!-- x=-2: 2*9+1=19 → y_px=130-20*19=-250 (off) -->
-                <!-- show x=-1 to x=3 -->
-                <!-- x=-1: 2*4+1=9 → y_px=130-20*9=130-180=-50 (off chart) -->
-                <!-- Use scale 10px/unit for g to keep visible -->
-                <!-- Actually use scale: x_px = 180 + 20*(x-1), y_px = 130 - 10*(2(x-1)^2+1) -->
-                <!-- x=-2: x_px=180+20*(-3)=120, u=-3, y_px=130-10*(18+1)=130-190=-60 off -->
-                <!-- Restrict to visible: x in [-0.5, 2.5] approx -->
-                <!-- Use smaller scale for g: 15px/unit vertical, 20px/unit horiz -->
-                <!-- g vertex at (1,1): pixel (200, 115) approx, using vert scale 8px per unit relative to 130 -->
-                <!-- Let's just do it: y_px = 128 - 8*(2*(x-1)^2 + 1), x_px = 180 + 20*x -->
-                <!-- x=-1: u=-2, g=9, y_px=128-72=56, x_px=160 -->
-                <!-- x=0: u=-1, g=3, y_px=128-24=104, x_px=180 -->
-                <!-- x=1: u=0, g=1, y_px=128-8=120, x_px=200 -->
-                <!-- x=2: u=1, g=3, y_px=128-24=104, x_px=220 -->
-                <!-- x=3: u=2, g=9, y_px=128-72=56, x_px=240 -->
-                <!-- x=4: u=3, g=19, y_px=128-152=-24 off -->
-                <polyline
-                    points="160,56 180,104 200,120 220,104 240,56"
-                    fill="none" stroke="#ef4444" stroke-width="2.2" stroke-dasharray="6,3"/>
-                <text x="242" y="50" font-size="12" fill="#ef4444">$y=2(x{-}1)^2{+}1$</text>
-                <!-- Vertex marker -->
-                <circle cx="200" cy="120" r="4" fill="#ef4444"/>
-                <text x="203" y="118" font-size="10" fill="#ef4444">S(1,1)</text>
-                <circle cx="180" cy="130" r="4" fill="#1d4ed8"/>
-            </svg>
-            <div class="graph-caption">Figure 1 — Parabole de base $y = x^2$ (bleu) et transformée $y = 2(x-1)^2 + 1$ (rouge pointillé). Le sommet se déplace en $(1, 1)$.</div>
+        <!-- Desmos : parabole de base vs transformée -->
+        <div class="desmos-wrap">
+            <div id="graph-transform" style="width:100%;height:420px;border-radius:8px;"></div>
         </div>
+        <p class="fig-label"><span class="fig-code">FONC·1</span>Figure 1 — Parabole de base $y = x^2$ (bleu) et transformée $y = a(x-h)^2 + k$ (rouge). Ajustez a, h, k avec les curseurs.</p>
 
         <h3>Exemples guidés</h3>
 
@@ -324,42 +285,11 @@
             </div>
         </div>
 
-        <!-- SVG : V-shape -->
-        <div class="graph-container">
-            <svg viewBox="0 0 320 220" width="320" height="220" aria-label="Graphique de la fonction valeur absolue y=|x|">
-                <!-- Axes -->
-                <line x1="20" y1="110" x2="300" y2="110" stroke="#94a3b8" stroke-width="1.5"/>
-                <line x1="160" y1="10" x2="160" y2="210" stroke="#94a3b8" stroke-width="1.5"/>
-                <!-- Arrows -->
-                <polygon points="300,110 290,106 290,114" fill="#94a3b8"/>
-                <polygon points="160,10 156,20 164,20" fill="#94a3b8"/>
-                <!-- Grad x -->
-                <text x="196" y="124" font-size="11" fill="#64748b">2</text>
-                <text x="232" y="124" font-size="11" fill="#64748b">4</text>
-                <text x="118" y="124" font-size="11" fill="#64748b">-2</text>
-                <text x="80" y="124" font-size="11" fill="#64748b">-4</text>
-                <!-- Grad y -->
-                <text x="165" y="72" font-size="11" fill="#64748b">4</text>
-                <text x="165" y="32" font-size="11" fill="#64748b">8</text>
-                <!-- y=|x| : V shape. Scale 20px/unit. Origin (160,110) -->
-                <!-- x=-5: y_px=110-20*5=10. x=0: (160,110). x=5: (260,10). -->
-                <polyline
-                    points="40,170 80,130 120,90 160,110 200,70 240,30 280,170"
-                    fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
-                <!-- Correct V shape: x=-5..5 -->
-                <!-- x_px=160+20x, y_px=110-20|x| -->
-                <!-- x=-5: (60,10), x=-4:(80,30), x=-3:(100,50), x=-2:(120,70), x=-1:(140,90), x=0:(160,110), x=1:(180,90), x=2:(200,70), x=3:(220,50), x=4:(240,30), x=5:(260,10) -->
-                <polyline
-                    points="60,10 80,30 100,50 120,70 140,90 160,110 180,90 200,70 220,50 240,30 260,10"
-                    fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
-                <!-- Vertex -->
-                <circle cx="160" cy="110" r="5" fill="#1d4ed8"/>
-                <text x="166" y="128" font-size="12" fill="#1d4ed8" font-weight="bold">O</text>
-                <!-- Label -->
-                <text x="245" y="25" font-size="13" fill="#1d4ed8" font-style="italic">y = |x|</text>
-            </svg>
-            <div class="graph-caption">Figure 2 — Graphique de $y = |x|$ : forme en V, symétrique par rapport à l'axe des $y$.</div>
+        <!-- Desmos : valeur absolue -->
+        <div class="desmos-wrap">
+            <div id="graph-abs" style="width:100%;height:420px;border-radius:8px;"></div>
         </div>
+        <p class="fig-label"><span class="fig-code">FONC·2</span>Figure 2 — Ajustez a, h, k pour explorer $g(x) = a|x - h| + k$. La courbe pointillée grise montre $y = |x|$.</p>
 
         <div class="theorem-box">
             <h4>&#x2728; Résolution d'équations et d'inéquations</h4>
@@ -482,47 +412,11 @@
             </div>
         </div>
 
-        <!-- SVG : y=2^x et y=(1/2)^x -->
-        <div class="graph-container">
-            <svg viewBox="0 0 360 240" width="360" height="240" aria-label="Graphiques de y=2^x et y=(1/2)^x">
-                <!-- Axes -->
-                <line x1="20" y1="180" x2="340" y2="180" stroke="#94a3b8" stroke-width="1.5"/>
-                <line x1="180" y1="10" x2="180" y2="220" stroke="#94a3b8" stroke-width="1.5"/>
-                <polygon points="340,180 330,176 330,184" fill="#94a3b8"/>
-                <polygon points="180,10 176,20 184,20" fill="#94a3b8"/>
-                <!-- Labels -->
-                <text x="342" y="184" font-size="11" fill="#64748b">x</text>
-                <text x="184" y="15" font-size="11" fill="#64748b">y</text>
-                <!-- Grad x: 20px/unit -->
-                <text x="196" y="194" font-size="10" fill="#64748b">1</text>
-                <text x="216" y="194" font-size="10" fill="#64748b">2</text>
-                <text x="236" y="194" font-size="10" fill="#64748b">3</text>
-                <text x="256" y="194" font-size="10" fill="#64748b">4</text>
-                <text x="155" y="194" font-size="10" fill="#64748b">-1</text>
-                <text x="135" y="194" font-size="10" fill="#64748b">-2</text>
-                <!-- y=2^x : scale vert 10px/unit, x_px=180+20x, y_px=180-10*2^x -->
-                <!-- x=-4: y=0.0625→y_px≈179.4, x=-3:0.125→178.75, x=-2:0.25→177.5, x=-1:0.5→175 -->
-                <!-- x=0:1→170, x=1:2→160, x=2:4→140, x=3:8→100, x=4:16→20 -->
-                <!-- x_px: -4→100, -3→120, -2→140, -1→160, 0→180, 1→200, 2→220, 3→240, 4→260 -->
-                <polyline
-                    points="100,179 120,179 140,178 160,175 180,170 200,160 220,140 240,100 260,20"
-                    fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
-                <text x="262" y="18" font-size="12" fill="#1d4ed8">$y = 2^x$</text>
-                <!-- y=(1/2)^x = 2^(-x) : x=-4:16→20, x=-3:8→100, x=-2:4→140, x=-1:2→160 -->
-                <!-- x=0:1→170, x=1:0.5→175, x=2:0.25→178, x=3:0.125→179, x=4:0.0625→179.4 -->
-                <polyline
-                    points="100,20 120,100 140,140 160,160 180,170 200,175 220,178 240,179 260,179"
-                    fill="none" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="7,3"/>
-                <text x="96" y="18" font-size="12" fill="#ef4444">$y = (1/2)^x$</text>
-                <!-- Asymptote y=0 → y_px=180 -->
-                <line x1="20" y1="180" x2="340" y2="180" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,4"/>
-                <text x="22" y="178" font-size="10" fill="#f59e0b">asymptote $y=0$</text>
-                <!-- Point (0,1): y_px=170 -->
-                <circle cx="180" cy="170" r="4" fill="#475569"/>
-                <text x="184" y="168" font-size="10" fill="#475569">(0,1)</text>
-            </svg>
-            <div class="graph-caption">Figure 3 — $y = 2^x$ (bleu, croissante) et $y = \left(\frac{1}{2}\right)^x$ (rouge pointillé, décroissante). Asymptote horizontale : $y = 0$ (jaune).</div>
+        <!-- Desmos : fonction exponentielle -->
+        <div class="desmos-wrap">
+            <div id="graph-exp" style="width:100%;height:420px;border-radius:8px;"></div>
         </div>
+        <p class="fig-label"><span class="fig-code">FONC·3</span>Figure 3 — Ajustez a et b pour explorer $f(x) = a \cdot b^x$. Observez la croissance ($b > 1$) et la décroissance ($0 &lt; b &lt; 1$).</p>
 
         <div class="theorem-box">
             <h4>&#x1F4B0; Applications importantes</h4>
@@ -641,8 +535,12 @@
             </table>
         </div>
 
-        <!-- SVG : y=log₂x et y=2^x comme inverses -->
-        <div class="graph-container">
+        <!-- Desmos : fonction logarithmique -->
+        <div class="desmos-wrap">
+            <div id="graph-log" style="width:100%;height:420px;border-radius:8px;"></div>
+        </div>
+        <p class="fig-label"><span class="fig-code">FONC·4</span>Figure 4 — $y = 2^x$ (bleu) et $y = \log_2 x$ (rouge pointillé) sont des fonctions inverses, symétriques par rapport à $y = x$. Ajustez la base $b$ avec le curseur.</p>
+        <div class="graph-container" style="display:none"><!-- SVG original supprimé -->
             <svg viewBox="0 0 360 260" width="360" height="260" aria-label="Graphiques de y=2^x et y=log base 2 de x comme fonctions inverses">
                 <!-- Axes -->
                 <line x1="10" y1="200" x2="350" y2="200" stroke="#94a3b8" stroke-width="1.5"/>
@@ -1119,5 +1017,52 @@
     </div>
 
     <script src="../../assets/js/common.js"></script>
+    <script>
+        // Desmos — Figure 1 : Transformations de paraboles
+        var calcTransform = Desmos.GraphingCalculator(document.getElementById('graph-transform'), {
+            expressions: false, settingsMenu: false, zoomButtons: false, keypad: false
+        });
+        calcTransform.setMathBounds({left: -5, right: 5, bottom: -4, top: 12});
+        calcTransform.setExpression({id: 'a', latex: 'a=2', sliderBounds: {min: -3, max: 3, step: 0.1}});
+        calcTransform.setExpression({id: 'h', latex: 'h=1', sliderBounds: {min: -4, max: 4, step: 0.5}});
+        calcTransform.setExpression({id: 'k', latex: 'k=1', sliderBounds: {min: -5, max: 5, step: 0.5}});
+        calcTransform.setExpression({id: 'base', latex: 'y=x^{2}', color: '#1d4ed8', lineStyle: Desmos.Styles.SOLID});
+        calcTransform.setExpression({id: 'transf', latex: 'y=a(x-h)^{2}+k', color: '#ef4444', lineStyle: Desmos.Styles.DASHED});
+        calcTransform.setExpression({id: 'vtx', latex: '(h,k)', showLabel: true, label: 'S(h,k)', color: '#ef4444'});
+
+        // Desmos — Figure 2 : Valeur absolue
+        var calcAbs = Desmos.GraphingCalculator(document.getElementById('graph-abs'), {
+            expressions: false, settingsMenu: false, zoomButtons: false, keypad: false
+        });
+        calcAbs.setMathBounds({left: -8, right: 8, bottom: -5, top: 10});
+        calcAbs.setExpression({id: 'aa', latex: 'a=1', sliderBounds: {min: -3, max: 3, step: 0.1}});
+        calcAbs.setExpression({id: 'hh', latex: 'h=0', sliderBounds: {min: -5, max: 5, step: 0.5}});
+        calcAbs.setExpression({id: 'kk', latex: 'k=0', sliderBounds: {min: -5, max: 5, step: 0.5}});
+        calcAbs.setExpression({id: 'base_abs', latex: 'y=\\left|x\\right|', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED});
+        calcAbs.setExpression({id: 'f_abs', latex: 'y=a\\left|x-h\\right|+k', color: '#1d4ed8'});
+        calcAbs.setExpression({id: 'abs_vtx', latex: '(h,k)', showLabel: true, label: 'sommet (h,k)', color: '#1d4ed8'});
+
+        // Desmos — Figure 3 : Fonction exponentielle
+        var calcExp = Desmos.GraphingCalculator(document.getElementById('graph-exp'), {
+            expressions: false, settingsMenu: false, zoomButtons: false, keypad: false
+        });
+        calcExp.setMathBounds({left: -4, right: 4, bottom: -2, top: 10});
+        calcExp.setExpression({id: 'ea', latex: 'a=1', sliderBounds: {min: -3, max: 3, step: 0.1}});
+        calcExp.setExpression({id: 'eb', latex: 'b=2', sliderBounds: {min: 0.1, max: 5, step: 0.1}});
+        calcExp.setExpression({id: 'f_exp', latex: 'y=a\\cdot b^{x}', color: '#2563eb'});
+        calcExp.setExpression({id: 'asym_exp', latex: 'y=0', color: '#f59e0b', lineStyle: Desmos.Styles.DASHED});
+        calcExp.setExpression({id: 'pt_exp', latex: '(0,a)', showLabel: true, label: '(0, a)', color: '#2563eb'});
+
+        // Desmos — Figure 4 : Fonction logarithmique (inverse de l'exponentielle)
+        var calcLog = Desmos.GraphingCalculator(document.getElementById('graph-log'), {
+            expressions: false, settingsMenu: false, zoomButtons: false, keypad: false
+        });
+        calcLog.setMathBounds({left: -3, right: 8, bottom: -4, top: 4});
+        calcLog.setExpression({id: 'lb', latex: 'b=2', sliderBounds: {min: 1.1, max: 5, step: 0.1}});
+        calcLog.setExpression({id: 'f_bx', latex: 'y=b^{x}', color: '#1d4ed8'});
+        calcLog.setExpression({id: 'f_log', latex: 'y=\\frac{\\ln x}{\\ln b}', color: '#ef4444', lineStyle: Desmos.Styles.DASHED});
+        calcLog.setExpression({id: 'refl', latex: 'y=x', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED});
+        calcLog.setExpression({id: 'asym_log', latex: 'x=0', color: '#f59e0b', lineStyle: Desmos.Styles.DASHED});
+    </script>
 </body>
 </html>

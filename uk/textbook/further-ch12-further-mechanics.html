@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Further Mathematics – Chapter 12: Further Mechanics | Further Mathematics | MathHub</title>
+    <meta name="description" content="Complete guide to Further Mechanics for A-Level Further Mathematics. Covers momentum and impulse, oblique collisions, circular motion, simple harmonic motion and damped oscillations. Edexcel, AQA, OCR.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/further-ch12-further-mechanics.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .further-badge { display: inline-block; background: #fce7f3; color: #9d174d; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/" class="active">UK</a><a href="/ca/">CA</a><a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+    <article class="blog-article">
+        <div class="breadcrumb"><a href="/uk/">UK</a> › <a href="/uk/">Textbook</a> › Further Maths – Chapter 12: Further Mechanics</div>
+        <h1>A-Level Further Mathematics – Chapter 12: Further Mechanics <span class="further-badge">Further Mechanics</span></h1>
+        <div class="blog-meta">Edexcel · AQA · OCR A-Level Further Mathematics &middot; Updated March 2026</div>
+
+        <div class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#momentum">12.1 Momentum and Impulse</a></li>
+                <li><a href="#oblique">12.2 Oblique Collisions</a></li>
+                <li><a href="#circular-h">12.3 Circular Motion (Horizontal)</a></li>
+                <li><a href="#circular-v">12.4 Circular Motion (Vertical)</a></li>
+                <li><a href="#shm">12.5 Simple Harmonic Motion</a></li>
+                <li><a href="#damped">12.6 Damped Oscillations</a></li>
+                <li><a href="#practice">Practice Problems</a></li>
+            </ol>
+        </div>
+
+        <!-- ─── SECTION 12.1 ─── -->
+        <h2 id="momentum">12.1 Momentum and Impulse</h2>
+
+        <div class="definition-box">
+            <h4>Definitions — Momentum and Impulse</h4>
+            <p><strong>Linear momentum:</strong> $\mathbf{p} = m\mathbf{v}$ (kg m s$^{-1}$).</p>
+            <p><strong>Impulse:</strong> $\mathbf{J} = \mathbf{F}\Delta t = m\mathbf{v} - m\mathbf{u}$ (N s = kg m s$^{-1}$). The impulse–momentum theorem states that the impulse of a force equals the change in momentum.</p>
+            <p><strong>Conservation of momentum:</strong> In the absence of external forces, the total momentum of a system is constant:
+            $$m_1 u_1 + m_2 u_2 = m_1 v_1 + m_2 v_2$$</p>
+        </div>
+
+        <div class="definition-box">
+            <h4>Newton's Law of Restitution</h4>
+            <p>For a direct collision between two bodies, the <strong>coefficient of restitution</strong> $e$ is defined by:</p>
+            <p>$$e = \frac{\text{speed of separation}}{\text{speed of approach}} = \frac{v_2 - v_1}{u_1 - u_2}$$</p>
+            <p>where velocities are measured in the same positive direction. $0 \leq e \leq 1$: $e = 0$ is perfectly inelastic (bodies coalesce); $e = 1$ is perfectly elastic (kinetic energy conserved).</p>
+        </div>
+
+        <div id="desmos-fig1" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 12.1 — Before-and-after diagram for a 1D collision. Ball A (blue, $m_1 = 2$ kg) travelling at $u_1 = 5$ m s$^{-1}$ collides with Ball B (red, $m_2 = 3$ kg) at rest. With $e = 0.6$, the arrows show the post-collision velocities $v_1$ and $v_2$.</p>
+
+        <div class="example-box">
+            <h4>Example 12.1.1 — Direct Collision, Finding Post-Collision Velocities</h4>
+            <p>Ball A (2 kg) moves at 5 m s$^{-1}$ and collides directly with ball B (3 kg) at rest. Given $e = 0.6$, find the velocities after impact.</p>
+            <p><span class="step-label">CLM</span> $2(5) + 3(0) = 2v_1 + 3v_2 \Rightarrow 2v_1 + 3v_2 = 10$. &nbsp;&nbsp;&nbsp;&nbsp;(1)</p>
+            <p><span class="step-label">NLR</span> $v_2 - v_1 = 0.6(5 - 0) = 3$, so $v_2 = v_1 + 3$. &nbsp;&nbsp;&nbsp;&nbsp;(2)</p>
+            <p><span class="step-label">Solve</span> Substituting (2) into (1): $2v_1 + 3(v_1 + 3) = 10 \Rightarrow 5v_1 = 1 \Rightarrow v_1 = 0.2$ m s$^{-1}$.<br>
+            $v_2 = 3.2$ m s$^{-1}$. Both move in the original direction of A.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.1.2 — Perfectly Inelastic Collision</h4>
+            <p>Two railway trucks, masses 4 kg and 6 kg, moving at 3 m s$^{-1}$ and 1 m s$^{-1}$ in the same direction, coalesce on impact. Find the common velocity and energy lost.</p>
+            <p>CLM: $4(3) + 6(1) = 10v \Rightarrow v = 1.8$ m s$^{-1}$.</p>
+            <p>KE before: $\tfrac{1}{2}(4)(9) + \tfrac{1}{2}(6)(1) = 18 + 3 = 21$ J.</p>
+            <p>KE after: $\tfrac{1}{2}(10)(1.8)^2 = 16.2$ J.</p>
+            <p>Energy lost: $21 - 16.2 = 4.8$ J.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.1.3 — Successive Collisions</h4>
+            <p>Three identical balls A, B, C of mass $m$ are at rest in a line. Ball A is given velocity $u$. A hits B ($e = 0.5$), then B hits C ($e = 0.5$). Find all final velocities.</p>
+            <p><strong>A–B collision:</strong> CLM: $mu = mv_A + mv_B \Rightarrow v_A + v_B = u$.<br>
+            NLR: $v_B - v_A = 0.5u$. Solving: $v_A = 0.25u$, $v_B = 0.75u$.</p>
+            <p><strong>B–C collision:</strong> CLM: $0.75u = v_B' + v_C'$.<br>
+            NLR: $v_C' - v_B' = 0.5(0.75u) = 0.375u$. Solving: $v_B' = 0.1875u$, $v_C' = 0.5625u$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.1.4 — Impulse from a Variable Force</h4>
+            <p>A force $F = 6t$ N acts on a 2 kg particle from $t = 0$ to $t = 3$ s. The particle starts from rest. Find the final velocity.</p>
+            <p>Impulse $J = \displaystyle\int_0^3 6t\,dt = \left[3t^2\right]_0^3 = 27$ N s.</p>
+            <p>$J = mv - mu \Rightarrow 27 = 2v - 0 \Rightarrow v = 13.5$ m s$^{-1}$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Always define a positive direction at the start. NLR gives speed of separation / speed of approach — check both quantities are measured in the <em>same</em> positive direction (so use the formula $v_2 - v_1 = e(u_1 - u_2)$ consistently). A negative post-collision velocity means the body has reversed direction.</p>
+        </div>
+
+        <!-- ─── SECTION 12.2 ─── -->
+        <h2 id="oblique">12.2 Oblique Collisions</h2>
+
+        <p>When a smooth sphere or particle strikes a smooth plane or another sphere at an angle, we resolve velocities parallel and perpendicular to the surface (or line of centres for sphere–sphere).</p>
+
+        <div class="theorem-box">
+            <h4>Oblique Impact with a Smooth Plane</h4>
+            <p>For a particle striking a smooth plane:</p>
+            <ul>
+                <li><strong>Parallel to plane:</strong> No impulse, so the velocity component parallel to the plane is <em>unchanged</em>.</li>
+                <li><strong>Perpendicular to plane:</strong> Newton's law of restitution applies: $v_\perp = e\,u_\perp$ (speed of rebound perpendicular = $e \times$ speed of approach perpendicular).</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.2.1 — Oblique Bounce off a Wall</h4>
+            <p>A ball hits a smooth vertical wall at 8 m s$^{-1}$ at 30° to the wall. Given $e = 0.75$, find the speed and direction of rebound.</p>
+            <p>Parallel component (unchanged): $v_\parallel = 8\cos 30° = 4\sqrt{3}$ m s$^{-1}$.</p>
+            <p>Perpendicular component (towards wall): $u_\perp = 8\sin 30° = 4$ m s$^{-1}$.<br>
+            $v_\perp = 0.75 \times 4 = 3$ m s$^{-1}$ (away from wall).</p>
+            <p>Speed: $\sqrt{(4\sqrt{3})^2 + 3^2} = \sqrt{48 + 9} = \sqrt{57} \approx 7.55$ m s$^{-1}$.</p>
+            <p>Angle to wall: $\tan\theta = v_\perp / v_\parallel = 3/(4\sqrt{3}) \Rightarrow \theta \approx 23.4°$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.2.2 — Sphere–Sphere Oblique Collision</h4>
+            <p>Two equal spheres collide. Sphere A moves at velocity $u$ at 60° to the line of centres; sphere B is at rest. With $e = 0.5$, find the velocities after impact.</p>
+            <p><span class="step-label">Line of centres</span> Component of A: $u\cos 60° = u/2$. Apply CLM and NLR along line of centres:<br>
+            CLM: $m(u/2) = mv_A' + mv_B' \Rightarrow v_A' + v_B' = u/2$.<br>
+            NLR: $v_B' - v_A' = 0.5(u/2) = u/4$.<br>
+            Solving: $v_B' = 3u/8$, $v_A' = u/8$ (both along line of centres).</p>
+            <p><span class="step-label">Perp. to line of centres</span> No impulse along this direction, so A retains $u\sin 60° = u\sqrt{3}/2$; B has zero in this direction.</p>
+            <p>Final speed of A: $\sqrt{(u/8)^2 + (u\sqrt{3}/2)^2} = u\sqrt{1/64 + 3/4} = u\sqrt{49/64} = 7u/8$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.2.3 — Range of Possible Deflections</h4>
+            <p>A ball strikes a smooth floor at angle $\alpha$ to the horizontal with speed $V$. Coefficient of restitution $e$. Show the angle of rebound $\beta$ satisfies $\tan\beta = e\tan\alpha$.</p>
+            <p>Parallel: $V\cos\alpha$ unchanged. Perpendicular (vertical): $eV\sin\alpha$.<br>
+            $\tan\beta = \dfrac{eV\sin\alpha}{V\cos\alpha} = e\tan\alpha$. &nbsp; Since $e < 1$, we have $\beta < \alpha$ — the ball rebounds at a shallower angle.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>In oblique sphere–sphere collisions, the impulse acts <em>only</em> along the line of centres (since the spheres are smooth). Always begin by resolving into components along and perpendicular to the line of centres, and apply CLM and NLR only along the line of centres.</p>
+        </div>
+
+        <!-- ─── SECTION 12.3 ─── -->
+        <h2 id="circular-h">12.3 Circular Motion (Horizontal)</h2>
+
+        <div class="definition-box">
+            <h4>Key Quantities in Circular Motion</h4>
+            <ul>
+                <li><strong>Angular velocity:</strong> $\omega = \dfrac{d\theta}{dt}$ (rad s$^{-1}$). Linear speed $v = r\omega$.</li>
+                <li><strong>Centripetal acceleration:</strong> directed towards the centre, magnitude $a = \dfrac{v^2}{r} = r\omega^2$.</li>
+                <li><strong>Centripetal force:</strong> $F = \dfrac{mv^2}{r} = mr\omega^2$ (the net force directed inward).</li>
+                <li><strong>Period:</strong> $T = \dfrac{2\pi}{\omega} = \dfrac{2\pi r}{v}$.</li>
+            </ul>
+        </div>
+
+        <div id="desmos-fig2" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 12.2 — A particle moving in a horizontal circle of radius $r = 2$ (blue path). The centripetal acceleration vector (red arrow) always points towards the centre $O$, perpendicular to the velocity (green arrow).</p>
+
+        <div class="example-box">
+            <h4>Example 12.3.1 — Particle on a String (Horizontal Circle)</h4>
+            <p>A particle of mass 0.5 kg is attached to a string of length 1.2 m and moves in a horizontal circle at 4 rad s$^{-1}$ on a smooth table. Find the tension in the string.</p>
+            <p>$T = mr\omega^2 = 0.5 \times 1.2 \times 16 = 9.6$ N.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.3.2 — Conical Pendulum</h4>
+            <p>A particle of mass $m$ is attached to a string of length $l$ and moves in a horizontal circle, the string making angle $\theta$ with the vertical. Find the period of revolution.</p>
+            <p>Vertically: $T\cos\theta = mg \Rightarrow T = mg/\cos\theta$.</p>
+            <p>Horizontally (centripetal): $T\sin\theta = mr\omega^2$ where $r = l\sin\theta$.<br>
+            $\dfrac{mg\sin\theta}{\cos\theta} = ml\sin\theta\,\omega^2 \Rightarrow \omega^2 = \dfrac{g}{l\cos\theta}$.</p>
+            <p>Period: $T_{\text{period}} = \dfrac{2\pi}{\omega} = 2\pi\sqrt{\dfrac{l\cos\theta}{g}}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.3.3 — Car on a Banked Track</h4>
+            <p>A road is banked at angle $\theta$ to the horizontal. A car of mass $m$ travels at speed $v$ around a horizontal circle of radius $r$. For motion without friction, find $\tan\theta$.</p>
+            <p>Normal reaction $N$ acts perpendicular to the banked surface.<br>
+            Vertically: $N\cos\theta = mg$.<br>
+            Horizontally (centripetal): $N\sin\theta = \dfrac{mv^2}{r}$.<br>
+            Dividing: $\tan\theta = \dfrac{v^2}{rg}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.3.4 — Maximum Speed on Banked Track with Friction</h4>
+            <p>A banked road ($\theta = 15°$) has coefficient of friction $\mu = 0.3$. The circle has radius 200 m. Find the maximum speed before slipping.</p>
+            <p>At maximum speed, friction acts down the slope (inward and downward along the bank).<br>
+            Vertically: $N\cos\theta - F\sin\theta = mg$ where $F = \mu N$.<br>
+            $N(\cos\theta - \mu\sin\theta) = mg \Rightarrow N = \dfrac{mg}{\cos\theta - \mu\sin\theta}$.</p>
+            <p>Horizontally: $N\sin\theta + F\cos\theta = \dfrac{mv^2}{r}$.<br>
+            $N(\sin\theta + \mu\cos\theta) = \dfrac{mv^2}{r} \Rightarrow v^2 = rg\cdot\dfrac{\tan\theta + \mu}{1 - \mu\tan\theta}$.</p>
+            <p>$v^2 = 200 \times 9.8 \times \dfrac{\tan 15° + 0.3}{1 - 0.3\tan 15°} \approx 200 \times 9.8 \times \dfrac{0.268 + 0.3}{1 - 0.0804} \approx 200 \times 9.8 \times 0.617 \approx 1209$.<br>
+            $v \approx 34.8$ m s$^{-1}$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Centripetal force is not a separate force — it is the <em>net</em> inward force. Do not add it to your force diagram. Instead, apply Newton's second law in the radial direction: $\sum F_{\text{radial}} = \dfrac{mv^2}{r}$.</p>
+        </div>
+
+        <!-- ─── SECTION 12.4 ─── -->
+        <h2 id="circular-v">12.4 Circular Motion (Vertical)</h2>
+
+        <p>For circular motion in a vertical plane, the speed varies with height. We use energy conservation alongside Newton's second law in the radial direction.</p>
+
+        <div class="theorem-box">
+            <h4>Energy Method for Vertical Circles</h4>
+            <p>Taking the bottom of the circle as the reference level (height $= 0$), a particle at angle $\theta$ from the bottom is at height $r(1 - \cos\theta)$. By conservation of energy:</p>
+            <p>$$\tfrac{1}{2}mv^2 = \tfrac{1}{2}mv_{\text{bottom}}^2 - mgr(1 - \cos\theta)$$</p>
+            <p>$$v^2 = v_{\text{bottom}}^2 - 2gr(1-\cos\theta)$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.4.1 — Particle on a String (Vertical Circle)</h4>
+            <p>A particle on a string of length 1 m is given speed $v_0$ at the bottom. Find the minimum $v_0$ for the string to remain taut throughout a complete vertical circle.</p>
+            <p>At the top, the centripetal force condition requires $T + mg = \dfrac{mv_{\text{top}}^2}{r}$. For minimum (taut) condition, $T = 0$:<br>
+            $mg = \dfrac{mv_{\text{top}}^2}{r} \Rightarrow v_{\text{top}}^2 = gr$.</p>
+            <p>Energy: $v_0^2 = v_{\text{top}}^2 + 4gr = gr + 4gr = 5gr$.<br>
+            Minimum $v_0 = \sqrt{5gr} = \sqrt{5 \times 9.8 \times 1} \approx 7.0$ m s$^{-1}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.4.2 — Particle on a Rod (Can Push)</h4>
+            <p>A particle on a rod (rigid, so $T$ can be negative) completes vertical circles. At the top, what is the minimum speed?</p>
+            <p>For a rod, the reaction can act either inward or outward. The minimum speed at the top is $v_{\text{top}} = 0$ (the particle can be momentarily stationary at the top). Energy: $v_0^2 = 4gr$, so $v_0 = 2\sqrt{gr}$. This is a lower minimum than for a string.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.4.3 — Particle Inside a Smooth Sphere</h4>
+            <p>A particle slides inside a smooth sphere of radius $r$. It starts with speed $v_0$ at the bottom. Find the angle at which it leaves the surface.</p>
+            <p>The particle leaves the surface when the normal reaction $N = 0$.<br>
+            Radially: $mg\cos\theta - N = \dfrac{mv^2}{r}$. At $N = 0$: $g\cos\theta = v^2/r$.<br>
+            Energy: $v^2 = v_0^2 - 2gr(1 - \cos\theta)$.<br>
+            Substituting: $g\cos\theta = \dfrac{v_0^2}{r} - 2g + 2g\cos\theta \Rightarrow \cos\theta = \dfrac{v_0^2/r - 2g}{-g} = \dfrac{2g - v_0^2/r}{g} = 2 - \dfrac{v_0^2}{gr}$.<br>
+            (Valid only when $|\cos\theta| \leq 1$.)</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.4.4 — Finding Speed at Given Height</h4>
+            <p>A ball on a string of length 2 m is released from rest with the string horizontal. Find the speed and tension at the lowest point.</p>
+            <p>Height drop: $h = r = 2$ m. Energy: $v^2 = 2gr = 2 \times 9.8 \times 2 = 39.2 \Rightarrow v \approx 6.26$ m s$^{-1}$.</p>
+            <p>At the bottom: $T - mg = \dfrac{mv^2}{r} \Rightarrow T = m\left(g + \dfrac{v^2}{r}\right) = m(9.8 + 19.6) = 29.4m$ N.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>For string problems, the critical condition is $T \geq 0$ (string cannot push). For rod problems, $T$ can be negative (rod can push or pull). State which case you are using, and check the sign of $T$ in your solution.</p>
+        </div>
+
+        <!-- ─── SECTION 12.5 ─── -->
+        <h2 id="shm">12.5 Simple Harmonic Motion</h2>
+
+        <div class="definition-box">
+            <h4>Definition — Simple Harmonic Motion (SHM)</h4>
+            <p>A particle undergoes <strong>Simple Harmonic Motion</strong> if its acceleration is directed towards a fixed centre and proportional to its displacement from that centre:</p>
+            <p>$$\ddot{x} = -\omega^2 x$$</p>
+            <p>where $\omega > 0$ is the <strong>angular frequency</strong> (rad s$^{-1}$). This is equivalent to the ODE $\ddot{x} + \omega^2 x = 0$.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Key Results for SHM</h4>
+            <p><strong>General solution:</strong> $x = A\cos(\omega t + \phi)$, where $A$ is the <strong>amplitude</strong> and $\phi$ is the phase angle.</p>
+            <p><strong>Velocity formula:</strong> $v^2 = \omega^2(A^2 - x^2)$, or equivalently $v = \dot{x} = -A\omega\sin(\omega t + \phi)$.</p>
+            <p><strong>Period:</strong> $T = \dfrac{2\pi}{\omega}$.</p>
+            <p><strong>Maximum speed:</strong> $v_{\max} = A\omega$ (at $x = 0$, the equilibrium position).</p>
+            <p><strong>Maximum acceleration:</strong> $a_{\max} = A\omega^2$ (at $x = \pm A$, the extremes).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.5.1 — Particle on a Spring</h4>
+            <p>A particle of mass 0.2 kg is attached to a spring of natural length 0.5 m and stiffness $k = 50$ N m$^{-1}$, hanging vertically. Find the period of oscillation and amplitude if released from a point 0.1 m below the equilibrium.</p>
+            <p>$\omega^2 = k/m = 50/0.2 = 250 \Rightarrow \omega = 5\sqrt{10}$ rad s$^{-1}$.</p>
+            <p>Period: $T = \dfrac{2\pi}{5\sqrt{10}} = \dfrac{2\pi}{15.81} \approx 0.397$ s.</p>
+            <p>Amplitude: $A = 0.1$ m (released from rest, so amplitude equals initial displacement from equilibrium).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.5.2 — Finding Speed at a Given Displacement</h4>
+            <p>A particle executes SHM with amplitude 3 cm and period 2 s. Find the speed when the displacement is 2 cm.</p>
+            <p>$\omega = 2\pi/T = \pi$ rad s$^{-1}$.</p>
+            <p>$v^2 = \omega^2(A^2 - x^2) = \pi^2(9 - 4) = 5\pi^2 \Rightarrow v = \pi\sqrt{5} \approx 7.03$ cm s$^{-1}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.5.3 — Simple Pendulum</h4>
+            <p>A simple pendulum of length $l = 1$ m undergoes small oscillations. Find the period and confirm the motion is approximately SHM.</p>
+            <p>For small angle $\theta$: $\ddot{\theta} \approx -\dfrac{g}{l}\theta$, so $\omega^2 = g/l = 9.8$, $\omega = \sqrt{9.8}$.</p>
+            <p>$T = 2\pi\sqrt{l/g} = 2\pi\sqrt{1/9.8} \approx 2.007$ s.</p>
+            <p>The acceleration is proportional to $-\theta$ (and hence $-x$ for small angles), confirming SHM.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.5.4 — Time to Reach a Given Displacement</h4>
+            <p>A particle starts at the centre of its SHM (equilibrium, $x = 0$) moving in the positive direction. $A = 4$ cm, $\omega = 2$ rad s$^{-1}$. Find the first time $t$ when $x = 3$ cm.</p>
+            <p>$x = A\sin\omega t = 4\sin 2t$ (since it starts at $x = 0$ moving positively).</p>
+            <p>$3 = 4\sin 2t \Rightarrow \sin 2t = 0.75 \Rightarrow 2t = \arcsin(0.75) \approx 0.8481 \Rightarrow t \approx 0.424$ s.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.5.5 — Elastic String and SHM</h4>
+            <p>A particle of mass $m$ hangs from an elastic string with natural length $l_0$ and modulus of elasticity $\lambda$. At equilibrium, the extension is $e_0 = mgl_0/\lambda$. If displaced a further distance $x$ downward and released, show the motion is SHM.</p>
+            <p>Net force $= \lambda(e_0 + x)/l_0 - mg = \lambda e_0/l_0 + \lambda x/l_0 - mg$. Since $\lambda e_0/l_0 = mg$ (equilibrium condition):<br>
+            Net force $= \lambda x/l_0$ upward, so $m\ddot{x} = -\dfrac{\lambda}{l_0}x$, giving $\omega^2 = \dfrac{\lambda}{ml_0}$. This is SHM.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.5.6 — SHM from First Principles: Horizontal Spring</h4>
+            <p>A particle of mass $m$ on a smooth horizontal surface is attached to a spring of natural length $l_0$ and stiffness $k$. Prove the motion is SHM and state the period.</p>
+            <p>Let $x$ be the displacement from the natural length position. Hooke's law gives restoring force $F = -kx$ (restoring towards $x = 0$).</p>
+            <p>Newton's second law: $m\ddot{x} = -kx \Rightarrow \ddot{x} = -\dfrac{k}{m}x$.</p>
+            <p>This has the form $\ddot{x} = -\omega^2 x$ with $\omega^2 = k/m$, confirming SHM.</p>
+            <p>Period: $T = \dfrac{2\pi}{\omega} = 2\pi\sqrt{\dfrac{m}{k}}$. Amplitude: determined by initial conditions.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>General Solution Forms for SHM</h4>
+            <p>The solution $\ddot{x} + \omega^2 x = 0$ may be written in three equivalent forms depending on initial conditions:</p>
+            <ul>
+                <li>$x = A\cos\omega t + B\sin\omega t$ &nbsp;(when $x(0)$ and $\dot{x}(0)$ are known)</li>
+                <li>$x = R\cos(\omega t + \phi)$ &nbsp;(amplitude-phase form, $R = \sqrt{A^2+B^2}$, $\tan\phi = -B/A$)</li>
+                <li>$x = R\sin(\omega t + \psi)$ &nbsp;(useful when motion starts from equilibrium)</li>
+            </ul>
+            <p>All three are equivalent; choose the form that best fits the given initial conditions to minimise algebra.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>The key formula $v^2 = \omega^2(A^2 - x^2)$ is derived from energy methods. At the extremes $x = \pm A$, $v = 0$; at the centre $x = 0$, $v = A\omega$ (maximum). Memorise both results.</p>
+        </div>
+
+        <!-- ─── SECTION 12.6 ─── -->
+        <h2 id="damped">12.6 Damped Oscillations</h2>
+
+        <p>Real oscillating systems experience damping — a resistive force proportional to velocity. The equation of motion becomes:</p>
+        <p>$$m\ddot{x} + k\dot{x} + cx = 0$$</p>
+        <p>or, in standard form, $\ddot{x} + 2\gamma\dot{x} + \omega_0^2 x = 0$, where $\gamma = k/(2m)$ is the damping coefficient and $\omega_0^2 = c/m$. This is precisely the homogeneous second-order ODE from Chapter 10.</p>
+
+        <div class="theorem-box">
+            <h4>Three Cases of Damped Oscillation</h4>
+            <p>The discriminant of the auxiliary equation $m^2 + 2\gamma m + \omega_0^2 = 0$ determines the behaviour:</p>
+            <ul>
+                <li><strong>Underdamped ($\gamma < \omega_0$):</strong> Complex roots $-\gamma \pm i\sqrt{\omega_0^2 - \gamma^2}$. Solution: $x = e^{-\gamma t}(A\cos\omega_d t + B\sin\omega_d t)$ where $\omega_d = \sqrt{\omega_0^2 - \gamma^2}$ is the <em>damped frequency</em>. Oscillates with exponentially decaying amplitude.</li>
+                <li><strong>Critically damped ($\gamma = \omega_0$):</strong> Repeated root $-\gamma$. Solution: $x = (A + Bt)e^{-\gamma t}$. Returns to equilibrium as quickly as possible without oscillating.</li>
+                <li><strong>Overdamped ($\gamma > \omega_0$):</strong> Two distinct negative real roots. Solution: $x = Ae^{m_1 t} + Be^{m_2 t}$. Returns to equilibrium slowly without oscillating.</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.6.1 — Identifying the Damping Case</h4>
+            <p>A mass-spring-damper system has $m = 1$ kg, $k = 4$ N s m$^{-1}$ (damping), $c = 13$ N m$^{-1}$ (stiffness). Classify and solve.</p>
+            <p>Equation: $\ddot{x} + 4\dot{x} + 13x = 0$. Auxiliary: $m^2 + 4m + 13 = 0 \Rightarrow m = -2 \pm 3i$.</p>
+            <p>$\gamma = 2 < \omega_0 = \sqrt{13} \approx 3.61$ — <strong>underdamped</strong>.</p>
+            <p>$x = e^{-2t}(A\cos 3t + B\sin 3t)$. Physical interpretation: the system oscillates with angular frequency 3 rad s$^{-1}$ while amplitude decays as $e^{-2t}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.6.2 — Critical Damping</h4>
+            <p>For $m = 1$ kg and $c = 9$ N m$^{-1}$, find the damping constant $k$ that gives critical damping. Solve with $x(0) = 1$ m, $\dot{x}(0) = 0$.</p>
+            <p>$\ddot{x} + (k/m)\dot{x} + (c/m)x = 0 \Rightarrow \ddot{x} + k\dot{x} + 9x = 0$.<br>
+            Critical damping: $\gamma^2 = \omega_0^2 \Rightarrow (k/2)^2 = 9 \Rightarrow k = 6$ N s m$^{-1}$.<br>
+            Equation: $\ddot{x} + 6\dot{x} + 9x = 0$, repeated root $m = -3$. $x = (A + Bt)e^{-3t}$.<br>
+            ICs: $A = 1$; $\dot{x}(0) = B - 3A = 0 \Rightarrow B = 3$. $x = (1 + 3t)e^{-3t}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.6.3 — Physical Interpretation</h4>
+            <p>Explain why critical damping is desirable in applications such as car shock absorbers.</p>
+            <p>Underdamped systems oscillate — uncomfortable and potentially damaging. Overdamped systems return to equilibrium too slowly — the car body would not recover quickly after a bump. Critical damping provides the fastest return to equilibrium without oscillating, giving the smoothest ride.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.6.4 — Forced Oscillations and Resonance</h4>
+            <p>Adding a periodic driving force $F_0\cos\Omega t$ gives: $\ddot{x} + 2\gamma\dot{x} + \omega_0^2 x = (F_0/m)\cos\Omega t$. The particular integral is found by the trial function method. When $\Omega \approx \omega_0$ (forcing frequency near natural frequency), the amplitude of the PI becomes very large — this is <strong>resonance</strong>. In the undamped case ($\gamma = 0$) with $\Omega = \omega_0$, resonance causes the amplitude to grow without bound.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.6.5 — Overdamped System</h4>
+            <p>Solve $\ddot{x} + 5\dot{x} + 4x = 0$ with $x(0) = 3$, $\dot{x}(0) = 0$. Describe the motion.</p>
+            <p>Auxiliary: $m^2 + 5m + 4 = (m+1)(m+4) = 0$, roots $m = -1, -4$. <strong>Overdamped</strong> (both roots real and negative).</p>
+            <p>$x = Ae^{-t} + Be^{-4t}$. $x(0) = A + B = 3$.</p>
+            <p>$\dot{x}(0) = -A - 4B = 0 \Rightarrow A = -4B$. Substituting: $-4B + B = 3 \Rightarrow B = -1$, $A = 4$.</p>
+            <p>$$x = 4e^{-t} - e^{-4t}$$</p>
+            <p>The particle returns from $x = 3$ to equilibrium ($x = 0$) monotonically — no oscillation. The slower-decaying term $4e^{-t}$ dominates for large $t$.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Summary — Connections Between Chapters 10, 12</h4>
+            <p>The equations of mechanical oscillation and second-order ODEs are identical in structure:</p>
+            <ul>
+                <li><strong>SHM:</strong> $m\ddot{x} + kx = 0$ $\leftrightarrow$ auxiliary equation $m^2 + \omega^2 = 0$ (pure imaginary roots, Case 3 with $\alpha = 0$).</li>
+                <li><strong>Underdamped:</strong> $m\ddot{x} + k\dot{x} + cx = 0$, $k^2 < 4mc$ $\leftrightarrow$ complex roots (Case 3, $\alpha < 0$). Decaying oscillation.</li>
+                <li><strong>Critically damped:</strong> $k^2 = 4mc$ $\leftrightarrow$ repeated real roots (Case 2). Fastest non-oscillatory return.</li>
+                <li><strong>Overdamped:</strong> $k^2 > 4mc$ $\leftrightarrow$ two distinct negative real roots (Case 1). Slow return without oscillation.</li>
+                <li><strong>Forced oscillation:</strong> $m\ddot{x} + k\dot{x} + cx = F_0\cos\Omega t$ — non-homogeneous ODE; use CF + PI.</li>
+            </ul>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>The three damping cases correspond directly to the three cases of the auxiliary equation in Chapter 10. If asked to "sketch the motion", draw the solution curve: (i) underdamped — decaying oscillation; (ii) critically damped — smooth exponential-like return; (iii) overdamped — slower exponential return, no oscillation.</p>
+        </div>
+
+        <!-- ─── PRACTICE PROBLEMS ─── -->
+        <h2 id="practice">Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>Ball A (3 kg) moves at 6 m s$^{-1}$ and collides directly with ball B (2 kg) moving at 1 m s$^{-1}$ in the same direction. Given $e = 0.5$, find the velocities after impact and the energy lost.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>CLM: $3(6) + 2(1) = 3v_1 + 2v_2 \Rightarrow 3v_1 + 2v_2 = 20$.</p>
+                    <p>NLR: $v_2 - v_1 = 0.5(6-1) = 2.5$, so $v_2 = v_1 + 2.5$.</p>
+                    <p>$3v_1 + 2v_1 + 5 = 20 \Rightarrow v_1 = 3$ m s$^{-1}$, $v_2 = 5.5$ m s$^{-1}$.</p>
+                    <p>KE before: $\tfrac{1}{2}(3)(36) + \tfrac{1}{2}(2)(1) = 54 + 1 = 55$ J. After: $\tfrac{1}{2}(3)(9) + \tfrac{1}{2}(2)(30.25) = 13.5 + 30.25 = 43.75$ J. Energy lost: $11.25$ J.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>A particle of mass 0.3 kg moves in a horizontal circle of radius 0.8 m on a smooth table, attached to a string. The particle completes 5 revolutions per second. Find the tension.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$\omega = 2\pi \times 5 = 10\pi$ rad s$^{-1}$.</p>
+                    <p>$T = mr\omega^2 = 0.3 \times 0.8 \times (10\pi)^2 = 0.24 \times 100\pi^2 = 24\pi^2 \approx 236.9$ N.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>A conical pendulum has string length 0.6 m. Find the angle the string makes with the vertical when the period of revolution is 1.2 s.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$T = 2\pi\sqrt{l\cos\theta/g} \Rightarrow 1.2 = 2\pi\sqrt{0.6\cos\theta/9.8}$.</p>
+                    <p>$\sqrt{0.6\cos\theta/9.8} = \dfrac{1.2}{2\pi} \approx 0.1909$.</p>
+                    <p>$0.6\cos\theta/9.8 = 0.03644 \Rightarrow \cos\theta = \dfrac{0.03644 \times 9.8}{0.6} \approx 0.595 \Rightarrow \theta \approx 53.5°$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4</h4>
+            <p>A particle on a string of length 1.5 m is given speed $u$ at the bottom of a vertical circle. Find the minimum $u$ for the string to remain taut at the top.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Minimum condition at top: $T = 0 \Rightarrow v_{\text{top}}^2 = gr = 9.8 \times 1.5 = 14.7$ m$^2$ s$^{-2}$.</p>
+                    <p>Energy: $u^2 = v_{\text{top}}^2 + 4gr = 14.7 + 4(9.8)(1.5) = 14.7 + 58.8 = 73.5$.</p>
+                    <p>$u = \sqrt{73.5} \approx 8.57$ m s$^{-1}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5</h4>
+            <p>A particle executes SHM with equation $\ddot{x} + 16x = 0$. Given $x = 3$ cm and $\dot{x} = 8$ cm s$^{-1}$ at $t = 0$, find the amplitude and period.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$\omega = 4$ rad s$^{-1}$. Amplitude: $A^2 = x_0^2 + (\dot{x}_0/\omega)^2 = 9 + (8/4)^2 = 9 + 4 = 13 \Rightarrow A = \sqrt{13}$ cm.</p>
+                    <p>Period: $T = 2\pi/4 = \pi/2 \approx 1.571$ s.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6</h4>
+            <p>A particle in SHM has amplitude 5 cm and $\omega = 3$ rad s$^{-1}$. Find the speed when $x = 4$ cm, and the maximum acceleration.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$v^2 = \omega^2(A^2 - x^2) = 9(25 - 16) = 81 \Rightarrow v = 9$ cm s$^{-1}$.</p>
+                    <p>Max acceleration: $a_{\max} = A\omega^2 = 5 \times 9 = 45$ cm s$^{-2}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>A ball hits a smooth horizontal floor at 10 m s$^{-1}$ at 40° to the floor. Given $e = 0.8$, find the speed and direction after impact.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Parallel: $v_\parallel = 10\cos 40° \approx 7.660$ m s$^{-1}$ (unchanged).</p>
+                    <p>Perpendicular: $v_\perp = 0.8 \times 10\sin 40° = 0.8 \times 6.428 = 5.143$ m s$^{-1}$.</p>
+                    <p>Speed: $\sqrt{7.660^2 + 5.143^2} = \sqrt{58.68 + 26.45} = \sqrt{85.13} \approx 9.23$ m s$^{-1}$.</p>
+                    <p>Angle to floor: $\arctan(5.143/7.660) \approx 33.8°$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8</h4>
+            <p>Classify the motion described by $\ddot{x} + 6\dot{x} + 9x = 0$ and solve with $x(0) = 2$, $\dot{x}(0) = -1$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Auxiliary: $(m+3)^2 = 0$, repeated root $m = -3$ — <strong>critically damped</strong>.</p>
+                    <p>$x = (A + Bt)e^{-3t}$. $x(0) = A = 2$.</p>
+                    <p>$\dot{x} = (B - 3A - 3Bt)e^{-3t}$. $\dot{x}(0) = B - 3(2) = -1 \Rightarrow B = 5$.</p>
+                    <p>$$x = (2 + 5t)e^{-3t}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 9</h4>
+            <p>Two particles A (mass 4 kg, velocity 3 m s$^{-1}$) and B (mass 2 kg, velocity $-1$ m s$^{-1}$, i.e.\ moving in the opposite direction) collide directly with $e = 0.4$. Determine whether they move in the same direction after impact.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>CLM: $4(3) + 2(-1) = 4v_A + 2v_B \Rightarrow 4v_A + 2v_B = 10 \Rightarrow 2v_A + v_B = 5$.</p>
+                    <p>NLR: Speed of approach $= 3 - (-1) = 4$ m s$^{-1}$. $v_B - v_A = 0.4 \times 4 = 1.6$.</p>
+                    <p>From CLM: $v_B = 5 - 2v_A$. Substituting: $5 - 2v_A - v_A = 1.6 \Rightarrow 3v_A = 3.4 \Rightarrow v_A \approx 1.133$ m s$^{-1}$.</p>
+                    <p>$v_B = 5 - 2(1.133) = 2.733$ m s$^{-1}$. Both positive — both move in the original positive direction.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 10</h4>
+            <p>A particle undergoes SHM with $A = 6$ cm and $T = 4$ s. It starts at the positive extreme. Find (a) the displacement at $t = 1$ s, (b) the time when the speed first equals half its maximum value.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$\omega = 2\pi/4 = \pi/2$ rad s$^{-1}$. Starting at positive extreme: $x = 6\cos(\pi t/2)$ cm.</p>
+                    <p>(a) $x(1) = 6\cos(\pi/2) = 0$ cm.</p>
+                    <p>(b) Maximum speed: $v_{\max} = A\omega = 6 \times \pi/2 = 3\pi$ cm s$^{-1}$. Half max: $3\pi/2$.</p>
+                    <p>$v^2 = \omega^2(A^2 - x^2) = (9\pi^2/4)$. So $(\pi/2)^2(36 - x^2) = (3\pi/2)^2 \Rightarrow 36 - x^2 = 9 \Rightarrow x = 3\sqrt{3}$ cm.</p>
+                    <p>$6\cos(\pi t/2) = 3\sqrt{3} \Rightarrow \cos(\pi t/2) = \sqrt{3}/2 \Rightarrow \pi t/2 = \pi/6 \Rightarrow t = 1/3$ s.</p>
+                </div>
+            </details>
+        </div>
+    </article>
+
+    <script>
+    (function() {
+        // Figure 1: Before/after collision diagram
+        var elt1 = document.getElementById('desmos-fig1');
+        var calc1 = Desmos.GraphingCalculator(elt1, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            border: false
+        });
+        calc1.setMathBounds({ left: -1, right: 10, bottom: -1.5, top: 3.5 });
+        // Two balls represented as circles, with velocity arrows
+        calc1.setExpressions([
+            // Ball A (before) — blue circle at x=2
+            { id: 'ballA', latex: '(x-2)^2 + (y-2)^2 = 0.25', color: '#3b82f6', lineWidth: 2 },
+            { id: 'labelA1', latex: '(2, 2)', color: '#3b82f6', label: 'A (2 kg)', showLabel: true },
+            // Ball B (before) — red circle at x=5.5
+            { id: 'ballB', latex: '(x-5.5)^2 + (y-2)^2 = 0.25', color: '#ef4444', lineWidth: 2 },
+            { id: 'labelB1', latex: '(5.5, 2)', color: '#ef4444', label: 'B (3 kg) at rest', showLabel: true },
+            // Velocity arrow for A before (u=5 → scaled to length 1.5)
+            { id: 'arrA', latex: 'y = 2 \\left\\{2.5 \\le x \\le 4\\right\\}', color: '#3b82f6', lineWidth: 2.5 },
+            { id: 'uLabel', latex: '(3.2, 2.35)', color: '#3b82f6', label: 'u₁=5 m/s', showLabel: true },
+            // After collision — velocities v1=0.2, v2=3.2 (scaled)
+            { id: 'v1arr', latex: 'y = 0.5 \\left\\{2.5 \\le x \\le 2.6\\right\\}', color: '#1d4ed8', lineWidth: 2.5 },
+            { id: 'v2arr', latex: 'y = 0.5 \\left\\{5.5 \\le x \\le 7.5\\right\\}', color: '#dc2626', lineWidth: 2.5 },
+            { id: 'v1Lab', latex: '(2.55, 0.85)', color: '#1d4ed8', label: 'v₁=0.2 m/s', showLabel: true },
+            { id: 'v2Lab', latex: '(6.5, 0.85)', color: '#dc2626', label: 'v₂=3.2 m/s', showLabel: true },
+            // Dividing line "BEFORE / AFTER"
+            { id: 'div', latex: 'x = 0.5 \\left\\{-0.5 \\le y \\le 3.5\\right\\}', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED }
+        ]);
+
+        // Figure 2: Circular motion — circle path with centripetal and velocity arrows
+        var elt2 = document.getElementById('desmos-fig2');
+        var calc2 = Desmos.GraphingCalculator(elt2, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            border: false
+        });
+        calc2.setMathBounds({ left: -3.5, right: 3.5, bottom: -3.5, top: 3.5 });
+        calc2.setExpressions([
+            // Circle of radius 2
+            { id: 'circle', latex: 'x^2 + y^2 = 4', color: '#3b82f6', lineWidth: 2 },
+            // Centre
+            { id: 'centre', latex: '(0, 0)', color: '#1e3a5f', label: 'O (centre)', showLabel: true, pointSize: 10 },
+            // Particle at 45° position: (√2, √2)
+            { id: 'particle', latex: '(\\sqrt{2}, \\sqrt{2})', color: '#3b82f6', label: 'P', showLabel: true, pointSize: 12 },
+            // Centripetal acceleration arrow (from P towards O, red)
+            { id: 'centarr', latex: 'y = x \\left\\{0.3 \\le x \\le \\sqrt{2}\\right\\}', color: '#ef4444', lineWidth: 2.5 },
+            { id: 'centLabel', latex: '(0.5, 0.8)', color: '#ef4444', label: 'centripetal accel.', showLabel: true },
+            // Velocity arrow (tangent to circle at 45°, direction perpendicular = (-1,1)/√2, green)
+            { id: 'velarr', latex: 'y = -x + 2\\sqrt{2} \\left\\{\\sqrt{2} \\le x \\le \\sqrt{2}+1\\right\\}', color: '#22c55e', lineWidth: 2.5 },
+            { id: 'velLabel', latex: '(\\sqrt{2}+0.7, \\sqrt{2}-0.5)', color: '#22c55e', label: 'velocity', showLabel: true }
+        ]);
+    })();
+    </script>
+</body>
+</html>

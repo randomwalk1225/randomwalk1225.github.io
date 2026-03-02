@@ -52,13 +52,14 @@
         };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 
     <link rel="stylesheet" href="../../assets/css/common.css">
     <style>
         .blog-article {
-            max-width: 800px;
+            max-width: 960px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 40px 16px;
             font-family: Arial, sans-serif;
             font-size: 1.02em;
             line-height: 1.8;
@@ -134,6 +135,11 @@
         .graph-container { text-align: center; margin: 24px 0; }
         .graph-container svg { max-width: 100%; }
         .graph-caption { font-size: 0.9em; color: #64748b; margin-top: 8px; font-style: italic; }
+
+        .desmos-wrap { margin: 24px 0; background: #f8fafc; border-radius: 12px; padding: 16px; border: 1px solid #e2e8f0; }
+        .desmos-caption { font-size: 0.88em; color: #475569; margin-bottom: 8px; font-style: italic; }
+        .fig-code { display: inline-block; background: #f1f5f9; color: #64748b; font-style: normal; font-weight: 700; font-size: 0.78em; padding: 1px 7px; border-radius: 4px; margin-right: 8px; font-family: 'Courier New', monospace; letter-spacing: 0.5px; border: 1px solid #e2e8f0; }
+        .fig-label { text-align: center; font-style: italic; color: #475569; font-size: 0.88em; margin: 6px 0 18px; }
 
         .compare-grid {
             display: grid;
@@ -636,50 +642,11 @@
             </div>
         </div>
 
-        <div class="graph-container">
-            <svg viewBox="-20 -20 280 240" width="300" height="260" aria-label="Système de deux droites se croisant en (3,7)">
-                <!-- Axes -->
-                <line x1="-10" y1="160" x2="260" y2="160" stroke="#94a3b8" stroke-width="1.5"/>
-                <line x1="40" y1="-10" x2="40" y2="215" stroke="#94a3b8" stroke-width="1.5"/>
-                <text x="252" y="175" font-size="11" fill="#94a3b8">x</text>
-                <text x="44" y="-3" font-size="11" fill="#94a3b8">y</text>
-                <!-- Tick marks (20px per unit) -->
-                <!-- x=1..10, origin at (40,160) -->
-                <line x1="60" y1="156" x2="60" y2="164" stroke="#94a3b8" stroke-width="1"/>
-                <text x="57" y="176" font-size="10" fill="#64748b">1</text>
-                <line x1="100" y1="156" x2="100" y2="164" stroke="#94a3b8" stroke-width="1"/>
-                <text x="97" y="176" font-size="10" fill="#64748b">3</text>
-                <line x1="140" y1="156" x2="140" y2="164" stroke="#94a3b8" stroke-width="1"/>
-                <text x="137" y="176" font-size="10" fill="#64748b">5</text>
-                <line x1="180" y1="156" x2="180" y2="164" stroke="#94a3b8" stroke-width="1"/>
-                <text x="177" y="176" font-size="10" fill="#64748b">7</text>
-                <!-- y ticks -->
-                <line x1="36" y1="120" x2="44" y2="120" stroke="#94a3b8" stroke-width="1"/>
-                <text x="20" y="124" font-size="10" fill="#64748b">2</text>
-                <line x1="36" y1="80" x2="44" y2="80" stroke="#94a3b8" stroke-width="1"/>
-                <text x="20" y="84" font-size="10" fill="#64748b">4</text>
-                <line x1="36" y1="20" x2="44" y2="20" stroke="#94a3b8" stroke-width="1"/>
-                <text x="20" y="24" font-size="10" fill="#64748b">7</text>
-                <!-- y=2x+1 : at x=0 → y=1 (svg: 40,140); at x=5 → y=11 (svg: 140, -60) -->
-                <!-- scale: svg_x = 40 + x*20, svg_y = 160 - y*20 -->
-                <!-- x=0: (40, 140); x=1: (60, 120); x=3: (100, 60 ← off) -->
-                <!-- Actually x=3,y=7 → (100, 20) -->
-                <!-- Use x=0 to x=3.5 for y=2x+1: x=0→(40,140); x=3.5→(110, -20 off) -->
-                <line x1="40" y1="140" x2="120" y2="-40" stroke="#1d4ed8" stroke-width="2" opacity="0.8"/>
-                <!-- 3x+y=16 → y=16-3x: x=0→y=16 (40, -160 off); x=3→y=7 (100,20); x=5→y=1 (140,140) -->
-                <line x1="60" y1="100" x2="190" y2="130" stroke="#e11d48" stroke-width="2" opacity="0.8"/>
-                <!-- Actually 3x+y=16 → y=16-3x: need correct points -->
-                <!-- x=2 → y=10 → svg(80, -40 off); x=3 → y=7 → svg(100,20); x=5 → y=1 → svg(140,140) -->
-                <line x1="100" y1="20" x2="200" y2="200" stroke="#e11d48" stroke-width="2" opacity="0.8"/>
-                <!-- Intersection (3,7) → svg(100, 20) -->
-                <circle cx="100" cy="20" r="5" fill="#7c3aed"/>
-                <text x="106" y="16" font-size="11" fill="#7c3aed" font-weight="bold">(3, 7)</text>
-                <!-- Labels -->
-                <text x="45" y="125" font-size="11" fill="#1d4ed8" transform="rotate(-63.4 45 125)">y=2x+1</text>
-                <text x="148" y="155" font-size="11" fill="#e11d48">3x+y=16</text>
-            </svg>
-            <p class="graph-caption">Les deux droites se croisent au point solution $(3,\,7)$</p>
+        <div class="desmos-wrap">
+            <p class="desmos-caption">Système d'équations : ajustez les curseurs pour chaque droite et observez le point d'intersection (solution du système).</p>
+            <div id="graph-system" style="width:100%;height:420px;border-radius:8px;"></div>
         </div>
+        <p class="fig-label"><span class="fig-code">ALGE·1</span>Figure 1 — Système de deux droites : le point d'intersection est la solution du système.</p>
 
         <div class="tip-box">
             <h4>&#x1F4A1; Interprétation graphique</h4>
@@ -750,7 +717,7 @@
                 <!-- Arrow tip for ray -->
                 <polygon points="275,20 265,14 265,26" fill="#1d4ed8" opacity="0.5"/>
             </svg>
-            <p class="graph-caption">Solution de $x \geq -4$ sur une droite numérique (cercle plein = inclus)</p>
+            <p class="fig-label"><span class="fig-code">ALGE·2</span>Figure 2 — Solution de $x \geq -4$ sur une droite numérique (cercle plein = inclus).</p>
         </div>
 
         <div class="example-box">
@@ -872,5 +839,24 @@
     <footer style="text-align:center; padding:30px 20px; color:#64748b; font-size:0.88em; border-top:1px solid #e2e8f0; margin-top:40px;">
         &copy; 2026 MathHub Global &mdash; Contenu éducatif gratuit pour le secondaire québécois.
     </footer>
+    <script>
+        // Desmos — Système de deux droites (substitution)
+        // Droite 1 : y = m1*x + b1   (exemple : y = 2x + 1)
+        // Droite 2 : y = m2*x + b2   (exemple : y = -3x + 16, i.e. 3x+y=16)
+        var calcSystem = Desmos.GraphingCalculator(document.getElementById('graph-system'), {
+            expressions: false, settingsMenu: false, zoomButtons: false, keypad: false
+        });
+        calcSystem.setMathBounds({left: -2, right: 8, bottom: -3, top: 12});
+        calcSystem.setExpression({id: 'm1', latex: 'm_1=2', sliderBounds: {min: -5, max: 5, step: 0.5}});
+        calcSystem.setExpression({id: 'b1', latex: 'b_1=1', sliderBounds: {min: -10, max: 10, step: 0.5}});
+        calcSystem.setExpression({id: 'm2', latex: 'm_2=-3', sliderBounds: {min: -5, max: 5, step: 0.5}});
+        calcSystem.setExpression({id: 'b2', latex: 'b_2=16', sliderBounds: {min: -10, max: 20, step: 0.5}});
+        calcSystem.setExpression({id: 'line1', latex: 'y=m_1 x+b_1', color: '#1d4ed8'});
+        calcSystem.setExpression({id: 'line2', latex: 'y=m_2 x+b_2', color: '#e11d48'});
+        // x d'intersection : m1*x+b1 = m2*x+b2  =>  x = (b2-b1)/(m1-m2)
+        calcSystem.setExpression({id: 'xi', latex: 'x_i=\\frac{b_2-b_1}{m_1-m_2}'});
+        calcSystem.setExpression({id: 'yi', latex: 'y_i=m_1 x_i+b_1'});
+        calcSystem.setExpression({id: 'pt_int', latex: '(x_i, y_i)', color: '#7c3aed', showLabel: true, label: 'intersection'});
+    </script>
 </body>
 </html>

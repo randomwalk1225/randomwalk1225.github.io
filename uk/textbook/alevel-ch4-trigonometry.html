@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Mathematics – Chapter 4: Trigonometry | A-Level Mathematics | MathHub</title>
+    <meta name="description" content="Complete A-Level Maths Chapter 4: Trigonometry. Covers SOHCAHTOA, exact values, identities, solving equations, radians, arc length, sector area, small angle approximations, compound and double angle formulae, harmonic form, and reciprocal/inverse trig functions.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/alevel-ch4-trigonometry.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/uk/textbook/alevel-ch4-trigonometry.html">
+    <meta property="og:title" content="A-Level Mathematics – Chapter 4: Trigonometry | MathHub">
+    <meta property="og:site_name" content="MathHub Global">
+    <link rel="alternate" hreflang="en-GB" href="https://mathhub.io/uk/textbook/alevel-ch4-trigonometry.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .year2-badge { display: inline-block; background: #e0e7ff; color: #3730a3; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; }
+        th, td { border: 1px solid #e2e8f0; padding: 10px 14px; text-align: center; color: #334155; }
+        th { background: #f0f7ff; color: #1e3a5f; font-weight: 700; }
+        tr:nth-child(even) { background: #f8fafc; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/" class="active">UK</a><a href="/ca/">CA</a><a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+    <article class="blog-article">
+        <div class="breadcrumb"><a href="/uk/">UK</a> &rsaquo; <a href="/uk/">Textbook</a> &rsaquo; A-Level Maths – Chapter 4: Trigonometry</div>
+        <h1>A-Level Mathematics – Chapter 4: Trigonometry</h1>
+        <div class="blog-meta">Edexcel · AQA · OCR A-Level Mathematics &middot; Updated March 2026</div>
+
+        <p>Trigonometry is one of the most substantial chapters in A-Level Mathematics, appearing in both pure mathematics and mechanics. This chapter builds from GCSE foundations through exact values and identities, then extends to radians and arc length, and finally to the Year 2 topics of compound angles, the harmonic form, and reciprocal/inverse functions.</p>
+
+        <div class="exam-note">
+            <h4>Specification Note</h4>
+            <p>Content labelled <span class="year2-badge">Year 2</span> is A2-level only. All other content applies to both AS and full A-Level.</p>
+        </div>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#trig-ratios">Trigonometric Ratios and Exact Values</a></li>
+                <li><a href="#trig-identities">Trigonometric Identities</a></li>
+                <li><a href="#solving-equations">Solving Trigonometric Equations</a></li>
+                <li><a href="#radians">Radians, Arc Length and Sector Area</a></li>
+                <li><a href="#compound-double">Compound and Double Angle Formulae</a> <span class="year2-badge">Year 2</span></li>
+                <li><a href="#harmonic">The Harmonic Form</a> <span class="year2-badge">Year 2</span></li>
+                <li><a href="#reciprocal-inverse">Reciprocal and Inverse Trig Functions</a> <span class="year2-badge">Year 2</span></li>
+                <li><a href="#practice">Practice Problems</a></li>
+            </ol>
+        </nav>
+
+        <!-- SECTION 1 -->
+        <h2 id="trig-ratios">1. Trigonometric Ratios and Exact Values</h2>
+
+        <h3>SOHCAHTOA</h3>
+        <p>For a right-angled triangle with angle $\theta$, hypotenuse $H$, opposite side $O$, and adjacent side $A$:</p>
+        $$\sin\theta = \frac{O}{H}, \qquad \cos\theta = \frac{A}{H}, \qquad \tan\theta = \frac{O}{A}$$
+
+        <h3>Exact Values</h3>
+        <p>You must know these exact values without a calculator:</p>
+        <table>
+            <tr><th>Angle</th><th>$0°$</th><th>$30°$</th><th>$45°$</th><th>$60°$</th><th>$90°$</th></tr>
+            <tr><td>$\sin\theta$</td><td>$0$</td><td>$\tfrac{1}{2}$</td><td>$\tfrac{\sqrt{2}}{2}$</td><td>$\tfrac{\sqrt{3}}{2}$</td><td>$1$</td></tr>
+            <tr><td>$\cos\theta$</td><td>$1$</td><td>$\tfrac{\sqrt{3}}{2}$</td><td>$\tfrac{\sqrt{2}}{2}$</td><td>$\tfrac{1}{2}$</td><td>$0$</td></tr>
+            <tr><td>$\tan\theta$</td><td>$0$</td><td>$\tfrac{1}{\sqrt{3}}$</td><td>$1$</td><td>$\sqrt{3}$</td><td>undefined</td></tr>
+        </table>
+
+        <h3>Graphs of sin, cos, and tan</h3>
+        <p>The three trigonometric functions have the following key features:</p>
+        <ul>
+            <li>$y = \sin x$: period $360°$, amplitude $1$, passes through $(0,0)$, $(90°,1)$, $(180°,0)$, $(270°,-1)$.</li>
+            <li>$y = \cos x$: period $360°$, amplitude $1$, passes through $(0,1)$, $(90°,0)$, $(180°,-1)$, $(270°,0)$.</li>
+            <li>$y = \tan x$: period $180°$, no amplitude, vertical asymptotes at $x = 90° + 180°n$ for integer $n$.</li>
+        </ul>
+
+        <div id="desmos-trig-graphs" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 4.1 — Graphs of $y = \sin x$ (blue), $y = \cos x$ (green), and $y = \tan x$ (red) for $x \in [-360°, 360°]$.</p>
+
+        <div class="example-box">
+            <h4>Worked Example 4.1 — Using Exact Values</h4>
+            <p>Without a calculator, find the exact value of $\sin 30° \times \tan 60°$.</p>
+            <p><span class="step-label">Step 1</span> Write down the exact values: $\sin 30° = \tfrac{1}{2}$ and $\tan 60° = \sqrt{3}$.</p>
+            <p><span class="step-label">Step 2</span> Multiply: $\tfrac{1}{2} \times \sqrt{3} = \dfrac{\sqrt{3}}{2}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 4.2 — Sketch a Transformed Graph</h4>
+            <p>Describe how $y = 3\sin(2x) + 1$ differs from $y = \sin x$.</p>
+            <p><span class="step-label">Step 1</span> The factor $3$ stretches the graph vertically by scale factor $3$ (amplitude becomes $3$).</p>
+            <p><span class="step-label">Step 2</span> The factor $2$ inside the argument compresses the graph horizontally by factor $\tfrac{1}{2}$, giving period $\tfrac{360°}{2} = 180°$.</p>
+            <p><span class="step-label">Step 3</span> The $+1$ translates the graph $1$ unit upwards, so the range becomes $[-2, 4]$.</p>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 4.1</h4>
+            <p>Without a calculator, evaluate $\cos^2 45° + \sin^2 60°$. Give your answer in simplified surd form.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    $\cos^2 45° = \left(\dfrac{\sqrt{2}}{2}\right)^2 = \dfrac{2}{4} = \dfrac{1}{2}$<br><br>
+                    $\sin^2 60° = \left(\dfrac{\sqrt{3}}{2}\right)^2 = \dfrac{3}{4}$<br><br>
+                    $\cos^2 45° + \sin^2 60° = \dfrac{1}{2} + \dfrac{3}{4} = \dfrac{2}{4} + \dfrac{3}{4} = \dfrac{5}{4}$
+                </div>
+            </details>
+        </div>
+
+        <!-- SECTION 2 -->
+        <h2 id="trig-identities">2. Trigonometric Identities</h2>
+
+        <div class="theorem-box">
+            <h4>Fundamental Pythagorean Identity</h4>
+            <p>For all values of $\theta$:</p>
+            <p>$$\sin^2\theta + \cos^2\theta = 1$$</p>
+            <p>Dividing through by $\cos^2\theta$ gives: $\tan^2\theta + 1 = \sec^2\theta$ &nbsp;<span class="year2-badge">Year 2</span></p>
+            <p>Dividing through by $\sin^2\theta$ gives: $1 + \cot^2\theta = \csc^2\theta$ &nbsp;<span class="year2-badge">Year 2</span></p>
+        </div>
+
+        <div class="definition-box">
+            <h4>Quotient Identity</h4>
+            <p>$$\tan\theta = \frac{\sin\theta}{\cos\theta}$$</p>
+            <p>This follows directly from the definitions of sin, cos, and tan in terms of a right-angled triangle.</p>
+        </div>
+
+        <h3>Simplifying Expressions</h3>
+        <p>Use the identities to rewrite expressions in simpler or equivalent forms. The most common strategy is to express everything in terms of $\sin$ and $\cos$, then apply the Pythagorean identity.</p>
+
+        <div class="example-box">
+            <h4>Worked Example 4.3 — Simplifying</h4>
+            <p>Simplify $\dfrac{1 - \cos^2\theta}{\sin\theta}$.</p>
+            <p><span class="step-label">Step 1</span> Use $\sin^2\theta + \cos^2\theta = 1$, so $1 - \cos^2\theta = \sin^2\theta$.</p>
+            <p><span class="step-label">Step 2</span> Substitute: $\dfrac{\sin^2\theta}{\sin\theta} = \sin\theta$.</p>
+        </div>
+
+        <h3>Proving Identities</h3>
+        <p>To prove an identity, work on <strong>one side only</strong> (usually the more complex side) and transform it until it equals the other side. Never cross-multiply or assume the identity is true.</p>
+
+        <div class="example-box">
+            <h4>Worked Example 4.4 — Proving an Identity</h4>
+            <p>Prove that $\dfrac{\sin\theta}{1 - \cos\theta} - \dfrac{1 + \cos\theta}{\sin\theta} = 0$.</p>
+            <p><span class="step-label">Step 1</span> Write the left-hand side with a common denominator: $\sin\theta(1-\cos\theta)$.</p>
+            <p><span class="step-label">Step 2</span> Numerator becomes $\sin^2\theta - (1-\cos\theta)(1+\cos\theta) = \sin^2\theta - (1 - \cos^2\theta)$.</p>
+            <p><span class="step-label">Step 3</span> Since $1 - \cos^2\theta = \sin^2\theta$, the numerator becomes $\sin^2\theta - \sin^2\theta = 0$.</p>
+            <p><span class="step-label">Step 4</span> Therefore the left-hand side equals $0$ = right-hand side. QED.</p>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 4.2</h4>
+            <p>Prove that $(\sin\theta + \cos\theta)^2 = 1 + 2\sin\theta\cos\theta$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    Expand the left-hand side:<br><br>
+                    $(\sin\theta + \cos\theta)^2 = \sin^2\theta + 2\sin\theta\cos\theta + \cos^2\theta$<br><br>
+                    Using $\sin^2\theta + \cos^2\theta = 1$:<br><br>
+                    $= 1 + 2\sin\theta\cos\theta$ = right-hand side. QED.
+                </div>
+            </details>
+        </div>
+
+        <!-- SECTION 3 -->
+        <h2 id="solving-equations">3. Solving Trigonometric Equations</h2>
+
+        <h3>The CAST Diagram</h3>
+        <p>The CAST diagram helps identify all angles in $[0°, 360°]$ with a given trig value:</p>
+        <ul>
+            <li><strong>C</strong>osine is positive in the 4th quadrant ($270°$–$360°$).</li>
+            <li><strong>A</strong>ll are positive in the 1st quadrant ($0°$–$90°$).</li>
+            <li><strong>S</strong>ine is positive in the 2nd quadrant ($90°$–$180°$).</li>
+            <li><strong>T</strong>angent is positive in the 3rd quadrant ($180°$–$270°$).</li>
+        </ul>
+
+        <h3>General Solutions</h3>
+        <p>For equations valid for all $\theta \in \mathbb{R}$:</p>
+        <ul>
+            <li>$\sin\theta = k$: principal value $\alpha = \arcsin k$; general solution $\theta = \alpha + 360°n$ or $\theta = (180° - \alpha) + 360°n$.</li>
+            <li>$\cos\theta = k$: principal value $\alpha = \arccos k$; general solution $\theta = \pm\alpha + 360°n$.</li>
+            <li>$\tan\theta = k$: principal value $\alpha = \arctan k$; general solution $\theta = \alpha + 180°n$.</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Worked Example 4.5 — Solving $\sin\theta = k$</h4>
+            <p>Solve $\sin\theta = \tfrac{\sqrt{3}}{2}$ for $0° \leq \theta \leq 360°$.</p>
+            <p><span class="step-label">Step 1</span> Find the principal value: $\theta = \arcsin\!\left(\tfrac{\sqrt{3}}{2}\right) = 60°$.</p>
+            <p><span class="step-label">Step 2</span> Sine is positive in the 1st and 2nd quadrants, so the second solution is $180° - 60° = 120°$.</p>
+            <p><span class="step-label">Answer</span> $\theta = 60°$ or $\theta = 120°$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 4.6 — Equation with Transformation</h4>
+            <p>Solve $2\cos(2\theta - 30°) = \sqrt{2}$ for $0° \leq \theta \leq 360°$.</p>
+            <p><span class="step-label">Step 1</span> Rearrange: $\cos(2\theta - 30°) = \dfrac{\sqrt{2}}{2}$.</p>
+            <p><span class="step-label">Step 2</span> Let $u = 2\theta - 30°$. The range for $u$ is $-30° \leq u \leq 690°$.</p>
+            <p><span class="step-label">Step 3</span> Principal value: $u = \arccos\!\left(\tfrac{\sqrt{2}}{2}\right) = 45°$. Cosine is also positive in the 4th quadrant: $u = 360° - 45° = 315°$. Adding $360°$: $u = 45° + 360° = 405°$ and $u = 315° + 360° = 675°$.</p>
+            <p><span class="step-label">Step 4</span> Solve for $\theta$: $2\theta - 30° \in \{45°, 315°, 405°, 675°\}$, so $2\theta \in \{75°, 345°, 435°, 705°\}$, thus $\theta \in \{37.5°, 172.5°, 217.5°, 352.5°\}$.</p>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 4.3</h4>
+            <p>Solve $\tan\theta = -1$ for $0° \leq \theta \leq 360°$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    Principal value: $\arctan(-1) = -45°$, which is equivalent to $135°$ in $[0°, 360°]$.<br><br>
+                    Tangent has period $180°$, so the second solution is $135° + 180° = 315°$.<br><br>
+                    $\theta = 135°$ or $\theta = 315°$.
+                </div>
+            </details>
+        </div>
+
+        <!-- SECTION 4 -->
+        <h2 id="radians">4. Radians, Arc Length and Sector Area</h2>
+
+        <div class="definition-box">
+            <h4>Definition: Radian</h4>
+            <p>One <strong>radian</strong> is the angle subtended at the centre of a circle by an arc equal in length to the radius. Thus $2\pi$ radians $= 360°$, giving:</p>
+            <p>$$1 \text{ rad} = \frac{180°}{\pi} \approx 57.3°, \qquad 1° = \frac{\pi}{180} \text{ rad}$$</p>
+        </div>
+
+        <h3>Key Conversions</h3>
+        <table>
+            <tr><th>Degrees</th><th>$0°$</th><th>$30°$</th><th>$45°$</th><th>$60°$</th><th>$90°$</th><th>$180°$</th><th>$270°$</th><th>$360°$</th></tr>
+            <tr><td>Radians</td><td>$0$</td><td>$\tfrac{\pi}{6}$</td><td>$\tfrac{\pi}{4}$</td><td>$\tfrac{\pi}{3}$</td><td>$\tfrac{\pi}{2}$</td><td>$\pi$</td><td>$\tfrac{3\pi}{2}$</td><td>$2\pi$</td></tr>
+        </table>
+
+        <div class="theorem-box">
+            <h4>Arc Length and Sector Area</h4>
+            <p>For a sector of a circle with radius $r$ and central angle $\theta$ <strong>in radians</strong>:</p>
+            <p>$$\text{Arc length:} \quad s = r\theta$$</p>
+            <p>$$\text{Sector area:} \quad A = \tfrac{1}{2}r^2\theta$$</p>
+        </div>
+
+        <h3>Small Angle Approximations</h3>
+        <p>When $\theta$ is small and measured in radians:</p>
+        $$\sin\theta \approx \theta, \qquad \cos\theta \approx 1 - \frac{\theta^2}{2}, \qquad \tan\theta \approx \theta$$
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Small angle approximations are only valid when $\theta$ is measured in <strong>radians</strong>. Always state this assumption in your working.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 4.7 — Arc Length and Sector Area</h4>
+            <p>A sector has radius $8$ cm and central angle $\tfrac{5\pi}{6}$ radians. Find the arc length and sector area.</p>
+            <p><span class="step-label">Step 1</span> Arc length: $s = r\theta = 8 \times \tfrac{5\pi}{6} = \dfrac{40\pi}{6} = \dfrac{20\pi}{3} \approx 20.9$ cm.</p>
+            <p><span class="step-label">Step 2</span> Sector area: $A = \tfrac{1}{2}r^2\theta = \tfrac{1}{2} \times 64 \times \tfrac{5\pi}{6} = \dfrac{320\pi}{12} = \dfrac{80\pi}{3} \approx 83.8$ cm².</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 4.8 — Small Angle Approximation</h4>
+            <p>Using small angle approximations, simplify $\dfrac{\sin 3\theta}{1 - \cos 2\theta}$ for small $\theta$.</p>
+            <p><span class="step-label">Step 1</span> Approximate: $\sin 3\theta \approx 3\theta$ and $\cos 2\theta \approx 1 - \tfrac{(2\theta)^2}{2} = 1 - 2\theta^2$.</p>
+            <p><span class="step-label">Step 2</span> Substitute: $\dfrac{3\theta}{1 - (1 - 2\theta^2)} = \dfrac{3\theta}{2\theta^2} = \dfrac{3}{2\theta}$.</p>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 4.4</h4>
+            <p>A sector of a circle has arc length $12$ cm and area $36$ cm². Find the radius and the angle in radians.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    From $s = r\theta$: $\theta = \dfrac{12}{r}$.<br><br>
+                    Substitute into $A = \tfrac{1}{2}r^2\theta$:<br>
+                    $36 = \tfrac{1}{2}r^2 \cdot \dfrac{12}{r} = 6r$, so $r = 6$ cm.<br><br>
+                    Then $\theta = \dfrac{12}{6} = 2$ radians.
+                </div>
+            </details>
+        </div>
+
+        <!-- SECTION 5 -->
+        <h2 id="compound-double">5. Compound and Double Angle Formulae <span class="year2-badge">Year 2</span></h2>
+
+        <div class="theorem-box">
+            <h4>Compound Angle Formulae</h4>
+            <p>$$\sin(A \pm B) = \sin A \cos B \pm \cos A \sin B$$</p>
+            <p>$$\cos(A \pm B) = \cos A \cos B \mp \sin A \sin B$$</p>
+            <p>$$\tan(A \pm B) = \frac{\tan A \pm \tan B}{1 \mp \tan A \tan B}$$</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Double Angle Formulae</h4>
+            <p>Setting $B = A$ in the compound angle formulae:</p>
+            <p>$$\sin 2A = 2\sin A \cos A$$</p>
+            <p>$$\cos 2A = \cos^2 A - \sin^2 A = 2\cos^2 A - 1 = 1 - 2\sin^2 A$$</p>
+            <p>$$\tan 2A = \frac{2\tan A}{1 - \tan^2 A}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 4.9 — Exact Value using Compound Angles</h4>
+            <p>Find the exact value of $\cos 75°$.</p>
+            <p><span class="step-label">Step 1</span> Write $75° = 45° + 30°$.</p>
+            <p><span class="step-label">Step 2</span> Apply $\cos(A+B) = \cos A \cos B - \sin A \sin B$:</p>
+            <p>$\cos 75° = \cos 45°\cos 30° - \sin 45°\sin 30° = \dfrac{\sqrt{2}}{2}\cdot\dfrac{\sqrt{3}}{2} - \dfrac{\sqrt{2}}{2}\cdot\dfrac{1}{2}$</p>
+            <p>$= \dfrac{\sqrt{6}}{4} - \dfrac{\sqrt{2}}{4} = \dfrac{\sqrt{6} - \sqrt{2}}{4}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 4.10 — Using Double Angle Formula</h4>
+            <p>Given $\sin\theta = \tfrac{3}{5}$ and $\theta$ is acute, find $\cos 2\theta$.</p>
+            <p><span class="step-label">Step 1</span> Find $\cos\theta$: using $\sin^2\theta + \cos^2\theta = 1$, $\cos\theta = \tfrac{4}{5}$ (positive since acute).</p>
+            <p><span class="step-label">Step 2</span> Apply $\cos 2\theta = 1 - 2\sin^2\theta = 1 - 2 \times \tfrac{9}{25} = 1 - \tfrac{18}{25} = \dfrac{7}{25}$.</p>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 4.5</h4>
+            <p>Show that $\cos 2\theta \equiv 1 - 2\sin^2\theta$ by expanding $\cos(\theta + \theta)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    $\cos 2\theta = \cos(\theta + \theta) = \cos\theta\cos\theta - \sin\theta\sin\theta = \cos^2\theta - \sin^2\theta$<br><br>
+                    Using $\cos^2\theta = 1 - \sin^2\theta$:<br>
+                    $= (1 - \sin^2\theta) - \sin^2\theta = 1 - 2\sin^2\theta$. QED.
+                </div>
+            </details>
+        </div>
+
+        <!-- SECTION 6 -->
+        <h2 id="harmonic">6. The Harmonic Form <span class="year2-badge">Year 2</span></h2>
+
+        <p>Any expression of the form $a\sin\theta + b\cos\theta$ can be written as a single sinusoidal function. This is particularly useful for finding maxima and minima, and for solving equations.</p>
+
+        <div class="theorem-box">
+            <h4>Harmonic Form Theorem</h4>
+            <p>$$a\sin\theta + b\cos\theta \equiv R\sin(\theta + \alpha)$$</p>
+            <p>where $R = \sqrt{a^2 + b^2}$ and $\tan\alpha = \dfrac{b}{a}$ (with $a > 0$).</p>
+            <p>Alternatively: $a\sin\theta + b\cos\theta \equiv R\cos(\theta - \beta)$ where $\tan\beta = \dfrac{a}{b}$.</p>
+        </div>
+
+        <div id="desmos-harmonic" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 4.2 — The harmonic form $R\sin(x+\alpha)$ shown alongside $a\sin x + b\cos x$; both are identical curves.</p>
+
+        <div class="example-box">
+            <h4>Worked Example 4.11 — Converting to Harmonic Form</h4>
+            <p>Write $3\sin\theta + 4\cos\theta$ in the form $R\sin(\theta + \alpha)$, where $R > 0$ and $0 < \alpha < 90°$.</p>
+            <p><span class="step-label">Step 1</span> Find $R$: $R = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5$.</p>
+            <p><span class="step-label">Step 2</span> Find $\alpha$: $\tan\alpha = \dfrac{4}{3}$, so $\alpha = \arctan\!\left(\tfrac{4}{3}\right) \approx 53.1°$.</p>
+            <p><span class="step-label">Step 3</span> Write: $3\sin\theta + 4\cos\theta = 5\sin(\theta + 53.1°)$.</p>
+            <p><span class="step-label">Check</span> Maximum value is $R = 5$, occurring when $\theta + \alpha = 90°$, i.e. $\theta \approx 36.9°$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 4.12 — Solving with Harmonic Form</h4>
+            <p>Solve $3\sin\theta + 4\cos\theta = 2$ for $0° \leq \theta \leq 360°$.</p>
+            <p><span class="step-label">Step 1</span> From Example 4.11: $5\sin(\theta + 53.1°) = 2$, so $\sin(\theta + 53.1°) = 0.4$.</p>
+            <p><span class="step-label">Step 2</span> Let $u = \theta + 53.1°$; range is $53.1° \leq u \leq 413.1°$.</p>
+            <p><span class="step-label">Step 3</span> $u = \arcsin(0.4) \approx 23.6°$. This is outside the range. Second solution: $u = 180° - 23.6° = 156.4°$. Also $u = 23.6° + 360° = 383.6°$.</p>
+            <p><span class="step-label">Step 4</span> $\theta = 156.4° - 53.1° = 103.3°$ and $\theta = 383.6° - 53.1° = 330.5°$.</p>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 4.6</h4>
+            <p>Write $\sin\theta - \sqrt{3}\cos\theta$ in the form $R\sin(\theta - \alpha)$, stating $R$ and $\alpha$ exactly.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    $R\sin(\theta - \alpha) = R\sin\theta\cos\alpha - R\cos\theta\sin\alpha$<br><br>
+                    Comparing: $R\cos\alpha = 1$ and $R\sin\alpha = \sqrt{3}$.<br><br>
+                    $R = \sqrt{1^2 + (\sqrt{3})^2} = \sqrt{1 + 3} = 2$.<br><br>
+                    $\tan\alpha = \dfrac{\sqrt{3}}{1} = \sqrt{3}$, so $\alpha = 60°$.<br><br>
+                    Therefore: $\sin\theta - \sqrt{3}\cos\theta = 2\sin(\theta - 60°)$.
+                </div>
+            </details>
+        </div>
+
+        <!-- SECTION 7 -->
+        <h2 id="reciprocal-inverse">7. Reciprocal and Inverse Trig Functions <span class="year2-badge">Year 2</span></h2>
+
+        <div class="definition-box">
+            <h4>Reciprocal Trigonometric Functions</h4>
+            <p>$$\sec\theta = \frac{1}{\cos\theta}, \qquad \csc\theta = \frac{1}{\sin\theta}, \qquad \cot\theta = \frac{1}{\tan\theta} = \frac{\cos\theta}{\sin\theta}$$</p>
+            <p>Note: $\sec\theta$ is undefined when $\cos\theta = 0$; $\csc\theta$ is undefined when $\sin\theta = 0$.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Further Pythagorean Identities</h4>
+            <p>Dividing $\sin^2\theta + \cos^2\theta = 1$ by $\cos^2\theta$:</p>
+            <p>$$\tan^2\theta + 1 = \sec^2\theta \quad \Longleftrightarrow \quad \sec^2\theta - \tan^2\theta = 1$$</p>
+            <p>Dividing $\sin^2\theta + \cos^2\theta = 1$ by $\sin^2\theta$:</p>
+            <p>$$1 + \cot^2\theta = \csc^2\theta \quad \Longleftrightarrow \quad \csc^2\theta - \cot^2\theta = 1$$</p>
+        </div>
+
+        <h3>Inverse Trigonometric Functions</h3>
+        <p>The inverse functions undo the trig operation but require restricted domains to be well-defined:</p>
+        <ul>
+            <li>$y = \arcsin x$: domain $[-1, 1]$, range $\left[-\tfrac{\pi}{2}, \tfrac{\pi}{2}\right]$.</li>
+            <li>$y = \arccos x$: domain $[-1, 1]$, range $[0, \pi]$.</li>
+            <li>$y = \arctan x$: domain $\mathbb{R}$, range $\left(-\tfrac{\pi}{2}, \tfrac{\pi}{2}\right)$.</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Worked Example 4.13 — Using the sec Identity</h4>
+            <p>Solve $\sec^2\theta - \tan\theta = 1$ for $0 \leq \theta \leq 2\pi$.</p>
+            <p><span class="step-label">Step 1</span> Replace $\sec^2\theta$ using $\sec^2\theta = 1 + \tan^2\theta$:</p>
+            <p>$1 + \tan^2\theta - \tan\theta = 1$, i.e. $\tan^2\theta - \tan\theta = 0$.</p>
+            <p><span class="step-label">Step 2</span> Factorise: $\tan\theta(\tan\theta - 1) = 0$, so $\tan\theta = 0$ or $\tan\theta = 1$.</p>
+            <p><span class="step-label">Step 3</span> For $\tan\theta = 0$: $\theta = 0, \pi, 2\pi$. For $\tan\theta = 1$: $\theta = \tfrac{\pi}{4}, \tfrac{5\pi}{4}$.</p>
+            <p><span class="step-label">Answer</span> $\theta = 0, \tfrac{\pi}{4}, \pi, \tfrac{5\pi}{4}, 2\pi$.</p>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 4.7</h4>
+            <p>Find the exact value of $\arcsin\!\left(\sin\tfrac{5\pi}{6}\right)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    $\sin\dfrac{5\pi}{6} = \sin\!\left(\pi - \dfrac{\pi}{6}\right) = \sin\dfrac{\pi}{6} = \dfrac{1}{2}$.<br><br>
+                    The range of $\arcsin$ is $\left[-\dfrac{\pi}{2}, \dfrac{\pi}{2}\right]$, so:<br><br>
+                    $\arcsin\!\left(\dfrac{1}{2}\right) = \dfrac{\pi}{6}$.
+                </div>
+            </details>
+        </div>
+
+        <!-- SECTION 8 -->
+        <h2 id="practice">8. Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Question 1</h4>
+            <p>Find the exact value of $\sin^2 30° + \tan 45° - \cos 60°$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    $\sin^2 30° = \left(\tfrac{1}{2}\right)^2 = \tfrac{1}{4}$, $\tan 45° = 1$, $\cos 60° = \tfrac{1}{2}$.<br><br>
+                    $\tfrac{1}{4} + 1 - \tfrac{1}{2} = \tfrac{1}{4} + \tfrac{4}{4} - \tfrac{2}{4} = \dfrac{3}{4}$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 2</h4>
+            <p>Prove that $\dfrac{\cos^2\theta - \sin^2\theta}{\cos^2\theta + \sin\theta\cos\theta} \equiv 1 - \tan\theta$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    Left-hand side: $\dfrac{(\cos\theta - \sin\theta)(\cos\theta + \sin\theta)}{\cos\theta(\cos\theta + \sin\theta)} = \dfrac{\cos\theta - \sin\theta}{\cos\theta} = 1 - \dfrac{\sin\theta}{\cos\theta} = 1 - \tan\theta$. QED.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 3</h4>
+            <p>Solve $2\sin^2\theta - \sin\theta - 1 = 0$ for $0° \leq \theta \leq 360°$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    Factorise: $(2\sin\theta + 1)(\sin\theta - 1) = 0$.<br><br>
+                    $\sin\theta = -\tfrac{1}{2}$: $\theta = 210°$ or $\theta = 330°$.<br>
+                    $\sin\theta = 1$: $\theta = 90°$.<br><br>
+                    $\theta = 90°, 210°, 330°$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 4</h4>
+            <p>A sector OAB has radius $10$ cm and area $65$ cm². Find the arc length AB and the perimeter of the sector.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    $A = \tfrac{1}{2}r^2\theta \Rightarrow 65 = \tfrac{1}{2}(100)\theta \Rightarrow \theta = 1.3$ rad.<br><br>
+                    Arc length: $s = r\theta = 10 \times 1.3 = 13$ cm.<br><br>
+                    Perimeter = arc + 2 radii $= 13 + 10 + 10 = 33$ cm.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 5</h4>
+            <p>Find the exact value of $\sin 15°$ using $\sin(45° - 30°)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    $\sin 15° = \sin 45°\cos 30° - \cos 45°\sin 30°$<br><br>
+                    $= \dfrac{\sqrt{2}}{2} \cdot \dfrac{\sqrt{3}}{2} - \dfrac{\sqrt{2}}{2} \cdot \dfrac{1}{2} = \dfrac{\sqrt{6}}{4} - \dfrac{\sqrt{2}}{4} = \dfrac{\sqrt{6} - \sqrt{2}}{4}$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 6</h4>
+            <p>Given $\cos\theta = -\tfrac{5}{13}$ and $\theta$ is obtuse, find $\sin 2\theta$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    Since $\theta$ is obtuse, $\sin\theta > 0$. Using $\sin^2\theta + \cos^2\theta = 1$:<br>
+                    $\sin\theta = \sqrt{1 - \tfrac{25}{169}} = \sqrt{\tfrac{144}{169}} = \tfrac{12}{13}$.<br><br>
+                    $\sin 2\theta = 2\sin\theta\cos\theta = 2 \cdot \tfrac{12}{13} \cdot \left(-\tfrac{5}{13}\right) = -\dfrac{120}{169}$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 7</h4>
+            <p>Write $5\cos\theta + 12\sin\theta$ in the form $R\cos(\theta - \alpha)$, where $R > 0$ and $0° < \alpha < 90°$. Hence state the maximum value and the value of $\theta$ at which it occurs.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    $R = \sqrt{5^2 + 12^2} = \sqrt{25 + 144} = 13$.<br><br>
+                    $R\cos(\theta - \alpha) = R\cos\theta\cos\alpha + R\sin\theta\sin\alpha$, so $R\cos\alpha = 5$ and $R\sin\alpha = 12$.<br>
+                    $\tan\alpha = \tfrac{12}{5}$, so $\alpha = \arctan(2.4) \approx 67.4°$.<br><br>
+                    Maximum value is $13$, occurring when $\theta - \alpha = 0$, i.e. $\theta \approx 67.4°$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 8</h4>
+            <p>Solve $\csc^2\theta - \cot\theta - 3 = 0$ for $0 \leq \theta \leq 2\pi$. Give answers to 3 significant figures.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    Use $\csc^2\theta = 1 + \cot^2\theta$:<br>
+                    $1 + \cot^2\theta - \cot\theta - 3 = 0 \Rightarrow \cot^2\theta - \cot\theta - 2 = 0$.<br><br>
+                    Factorise: $(\cot\theta - 2)(\cot\theta + 1) = 0$.<br>
+                    $\cot\theta = 2 \Rightarrow \tan\theta = \tfrac{1}{2}$: $\theta = 0.464$ rad or $\theta = \pi + 0.464 = 3.61$ rad.<br>
+                    $\cot\theta = -1 \Rightarrow \tan\theta = -1$: $\theta = \pi - \tfrac{\pi}{4} = \tfrac{3\pi}{4} \approx 2.36$ rad or $\theta = 2\pi - \tfrac{\pi}{4} = \tfrac{7\pi}{4} \approx 5.50$ rad.<br><br>
+                    $\theta \approx 0.464, 2.36, 3.61, 5.50$ rad.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 9</h4>
+            <p>Using small angle approximations, show that $\dfrac{\sin\theta\tan\theta}{1 - \cos\theta} \approx 2$ for small $\theta$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    For small $\theta$: $\sin\theta \approx \theta$, $\tan\theta \approx \theta$, $\cos\theta \approx 1 - \tfrac{\theta^2}{2}$.<br><br>
+                    Numerator: $\sin\theta\tan\theta \approx \theta \cdot \theta = \theta^2$.<br>
+                    Denominator: $1 - \cos\theta \approx 1 - \left(1 - \tfrac{\theta^2}{2}\right) = \tfrac{\theta^2}{2}$.<br><br>
+                    $\dfrac{\theta^2}{\theta^2/2} = 2$. QED.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 10</h4>
+            <p>Find the exact value of $\arctan(\tan\tfrac{7\pi}{6})$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    $\tan\dfrac{7\pi}{6} = \tan\!\left(\pi + \dfrac{\pi}{6}\right) = \tan\dfrac{\pi}{6} = \dfrac{1}{\sqrt{3}}$.<br><br>
+                    The range of $\arctan$ is $\left(-\dfrac{\pi}{2}, \dfrac{\pi}{2}\right)$, so:<br><br>
+                    $\arctan\!\left(\dfrac{1}{\sqrt{3}}\right) = \dfrac{\pi}{6}$.
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <script>
+    (function() {
+        // Figure 1: sin, cos, tan graphs in degrees
+        var el1 = document.getElementById('desmos-trig-graphs');
+        if (el1) {
+            var calc1 = Desmos.GraphingCalculator(el1, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true
+            });
+            calc1.setMathBounds({ left: -370, right: 370, bottom: -3, top: 3 });
+            calc1.setExpressions([
+                { id: 'sinx', latex: 'y=\\sin(x\\cdot\\pi/180)', color: '#3b82f6', lineWidth: 2.5 },
+                { id: 'cosx', latex: 'y=\\cos(x\\cdot\\pi/180)', color: '#22c55e', lineWidth: 2.5 },
+                { id: 'tanx', latex: 'y=\\tan(x\\cdot\\pi/180)', color: '#ef4444', lineWidth: 2 }
+            ]);
+        }
+
+        // Figure 2: Harmonic form demonstration
+        var el2 = document.getElementById('desmos-harmonic');
+        if (el2) {
+            var calc2 = Desmos.GraphingCalculator(el2, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true
+            });
+            calc2.setMathBounds({ left: -1, right: 7, bottom: -6, top: 6 });
+            calc2.setExpressions([
+                { id: 'combined', latex: 'y=3\\sin(x)+4\\cos(x)', color: '#64748b', lineWidth: 2, lineStyle: 'DASHED' },
+                { id: 'harmonic', latex: 'y=5\\sin(x+0.9273)', color: '#8b5cf6', lineWidth: 3 },
+                { id: 'maxline', latex: 'y=5', color: '#f59e0b', lineWidth: 1.5, lineStyle: 'DASHED' },
+                { id: 'minline', latex: 'y=-5', color: '#f59e0b', lineWidth: 1.5, lineStyle: 'DASHED' }
+            ]);
+        }
+    })();
+    </script>
+</body>
+</html>

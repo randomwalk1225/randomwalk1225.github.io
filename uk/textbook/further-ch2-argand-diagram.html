@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Further Mathematics – Chapter 2: Argand Diagram and Loci | Further Mathematics | MathHub</title>
+    <meta name="description" content="Complete A-Level Further Maths Chapter 2: Argand Diagram and Loci. Covers geometric addition, modulus-distance interpretation, circle loci, half-line loci, perpendicular bisectors, regions, and complex transformations for Edexcel, AQA, and OCR.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/further-ch2-argand-diagram.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/uk/textbook/further-ch2-argand-diagram.html">
+    <meta property="og:title" content="A-Level Further Mathematics – Chapter 2: Argand Diagram and Loci | MathHub">
+    <meta property="og:site_name" content="MathHub Global">
+    <link rel="alternate" hreflang="en-GB" href="https://mathhub.io/uk/textbook/further-ch2-argand-diagram.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .further-badge { display: inline-block; background: #fce7f3; color: #9d174d; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/" class="active">UK</a><a href="/ca/">CA</a><a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+    <article class="blog-article">
+        <div class="breadcrumb"><a href="/uk/">UK</a> &rsaquo; <a href="/uk/">Textbook</a> &rsaquo; Further Maths – Chapter 2: Argand Diagram and Loci</div>
+        <h1>A-Level Further Mathematics – Chapter 2: Argand Diagram and Loci</h1>
+        <div class="blog-meta">Edexcel · AQA · OCR A-Level Further Mathematics &middot; Updated March 2026</div>
+
+        <p>The Argand diagram gives complex numbers a geometric home. Once we represent $z = a + b\mathrm{i}$ as the point $(a, b)$ in the plane, the algebra of complex numbers takes on vivid geometric meaning: addition becomes vector addition, the modulus becomes Euclidean distance, the argument becomes a directed angle, and multiplication becomes a simultaneous scaling and rotation. This chapter develops those geometric ideas into the theory of <em>loci</em> — curves and regions traced out by complex numbers satisfying algebraic conditions — and concludes with an introduction to complex plane transformations.</p>
+
+        <div class="exam-note">
+            <h4>Specification Note</h4>
+            <p>All content in this chapter is <span class="further-badge">Further</span> level and is assessed in the Further Pure 1 component. Questions on loci appear in nearly every paper; practise sketching as well as finding Cartesian equations.</p>
+        </div>
+
+        <div class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#argand">2.1 The Argand Diagram</a></li>
+                <li><a href="#geom-modarg">2.2 Geometric Interpretation of Modulus and Argument</a></li>
+                <li><a href="#circle-loci">2.3 Loci of the Form |z − a| = r</a></li>
+                <li><a href="#halfline-loci">2.4 Loci of the Form arg(z − a) = θ</a></li>
+                <li><a href="#perp-bis">2.5 Loci of the Form |z − a| = |z − b|</a></li>
+                <li><a href="#regions">2.6 Regions and Intersections</a></li>
+                <li><a href="#transforms">2.7 Transformations in the Complex Plane</a></li>
+                <li><a href="#practice">Practice Problems</a></li>
+            </ol>
+        </div>
+
+        <!-- ===================== SECTION 2.1 ===================== -->
+        <h2 id="argand">2.1 The Argand Diagram <span class="further-badge">Further</span></h2>
+
+        <div class="definition-box">
+            <h4>Definition 2.1 — Argand Diagram</h4>
+            <p>The <strong>Argand diagram</strong> (or complex plane) represents the complex number $z = a + b\mathrm{i}$ as the point $(a, b)$ in the Cartesian plane, where the horizontal axis is the <strong>real axis</strong> and the vertical axis is the <strong>imaginary axis</strong>.</p>
+            <p>Complex numbers may also be represented as <strong>position vectors</strong> $\overrightarrow{OZ}$, in which case addition corresponds to the parallelogram law of vector addition.</p>
+        </div>
+
+        <h3>Geometric Addition and Subtraction</h3>
+        <p>If $z_1$ and $z_2$ are represented by vectors $\mathbf{v}_1$ and $\mathbf{v}_2$ from the origin, then $z_1 + z_2$ is represented by $\mathbf{v}_1 + \mathbf{v}_2$ (the diagonal of the parallelogram). The difference $z_1 - z_2$ is represented by the vector from $z_2$ to $z_1$.</p>
+
+        <h3>Conjugate Symmetry</h3>
+        <p>The conjugate $\bar{z} = a - b\mathrm{i}$ is the reflection of $z$ in the real axis. This observation makes it immediate that real polynomials have conjugate-symmetric root sets (as established in Chapter 1).</p>
+
+        <div class="example-box">
+            <h4>Example 2.1 — Plotting and Adding</h4>
+            <p>Plot $z_1 = 2 + 3\mathrm{i}$ and $z_2 = -1 + \mathrm{i}$ on an Argand diagram and show geometrically that $z_1 + z_2 = 1 + 4\mathrm{i}$.</p>
+            <p>Plot the points $(2, 3)$ and $(-1, 1)$. The parallelogram with one diagonal from the origin to $(2,3)$ and another from the origin to $(-1,1)$ has its fourth vertex at $(2 + (-1),\; 3 + 1) = (1, 4)$, confirming $z_1 + z_2 = 1 + 4\mathrm{i}$.</p>
+        </div>
+
+        <!-- ===================== SECTION 2.2 ===================== -->
+        <h2 id="geom-modarg">2.2 Geometric Interpretation of Modulus and Argument <span class="further-badge">Further</span></h2>
+
+        <div class="theorem-box">
+            <h4>Theorem 2.1 — Distance and Angle Interpretations</h4>
+            <ul>
+                <li>$|z_1 - z_2|$ equals the <strong>Euclidean distance</strong> between the points representing $z_1$ and $z_2$ in the Argand diagram.</li>
+                <li>$\arg(z - z_0)$ equals the angle that the line segment from $z_0$ to $z$ makes with the positive real direction.</li>
+                <li>Multiplying $z$ by $\mathrm{i}$ rotates it by $\frac{\pi}{2}$ anticlockwise about the origin (since $\arg(\mathrm{i}) = \frac{\pi}{2}$).</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2.2 — Distance Between Two Complex Numbers</h4>
+            <p>Find the distance between $z_1 = 3 + \mathrm{i}$ and $z_2 = -1 + 4\mathrm{i}$.</p>
+            <p>$|z_1 - z_2| = |(3+\mathrm{i}) - (-1+4\mathrm{i})| = |4 - 3\mathrm{i}| = \sqrt{16 + 9} = \sqrt{25} = 5.$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2.3 — Rotation by $\mathrm{i}$</h4>
+            <p>Describe geometrically the effect of multiplying $z = 3 + \mathrm{i}$ by $\mathrm{i}$.</p>
+            <p>$\mathrm{i}(3 + \mathrm{i}) = 3\mathrm{i} + \mathrm{i}^2 = -1 + 3\mathrm{i}$.</p>
+            <p>The point $(3, 1)$ has been rotated anticlockwise by $90°$ about the origin to $(-1, 3)$. Verify: $|z| = \sqrt{10}$ and $|\mathrm{i}z| = \sqrt{1+9} = \sqrt{10}$; the modulus is preserved.</p>
+        </div>
+
+        <!-- ===================== SECTION 2.3 ===================== -->
+        <h2 id="circle-loci">2.3 Loci of the Form $|z - a| = r$ <span class="further-badge">Further</span></h2>
+
+        <p>The condition $|z - a| = r$ (where $a \in \mathbb{C}$ and $r > 0$ is real) says that the distance from the point $z$ to the fixed point $a$ is constantly equal to $r$. This is precisely the definition of a circle.</p>
+
+        <div class="theorem-box">
+            <h4>Theorem 2.2 — Circle Locus</h4>
+            <p>The locus $|z - a| = r$, where $a = p + q\mathrm{i}$ and $r > 0$, is the circle with centre $(p, q)$ and radius $r$ in the Argand diagram. Its Cartesian equation is $(x - p)^2 + (y - q)^2 = r^2$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2.4 — Circle: Cartesian Equation</h4>
+            <p>Sketch the locus $|z - (3 + 2\mathrm{i})| = 4$ and find its Cartesian equation.</p>
+            <p><span class="step-label">Step 1</span> The centre is at $(3, 2)$ and the radius is $4$.</p>
+            <p><span class="step-label">Step 2</span> Write $z = x + y\mathrm{i}$: $|z - 3 - 2\mathrm{i}| = |(x-3) + (y-2)\mathrm{i}| = \sqrt{(x-3)^2 + (y-2)^2} = 4$.</p>
+            <p><span class="step-label">Step 3</span> Cartesian equation: $(x-3)^2 + (y-2)^2 = 16$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2.5 — Converting Cartesian Equation to Complex Form</h4>
+            <p>Express the circle $x^2 + y^2 - 6x + 4y - 3 = 0$ in the form $|z - a| = r$.</p>
+            <p><span class="step-label">Step 1</span> Complete the square: $(x-3)^2 - 9 + (y+2)^2 - 4 - 3 = 0$, so $(x-3)^2 + (y+2)^2 = 16$.</p>
+            <p><span class="step-label">Step 2</span> Centre $(3, -2)$ corresponds to $a = 3 - 2\mathrm{i}$, radius $r = 4$.</p>
+            <p><span class="step-label">Step 3</span> Complex form: $|z - (3 - 2\mathrm{i})| = 4$.</p>
+        </div>
+
+        <div id="desmos1" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 2.1 — The circle $|z - (2+\mathrm{i})| = 3$ drawn in the Argand diagram. The centre $2 + \mathrm{i}$ is marked in red and the radius of $3$ units is shown.</p>
+
+        <!-- ===================== SECTION 2.4 ===================== -->
+        <h2 id="halfline-loci">2.4 Loci of the Form $\arg(z - a) = \theta$ <span class="further-badge">Further</span></h2>
+
+        <p>The condition $\arg(z - a) = \theta$ fixes the direction of the vector from $a$ to $z$. This traces out a half-line (ray) starting at $a$ (but <em>not</em> including $a$ itself, since $\arg(0)$ is undefined) making angle $\theta$ with the positive real direction.</p>
+
+        <div class="definition-box">
+            <h4>Definition 2.2 — Half-Line Locus</h4>
+            <p>The locus $\arg(z - a) = \theta$, where $a = p + q\mathrm{i}$ and $\theta \in (-\pi, \pi]$, is the half-line starting at (but excluding) the point $(p, q)$ and making angle $\theta$ with the positive real direction.</p>
+            <p>Its Cartesian equation is $y - q = \tan\theta\,(x - p)$ with the constraint that $(x, y)$ lies in the correct half-plane (the direction from $(p,q)$ must match $\theta$).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2.6 — Half-Line: Cartesian Equation</h4>
+            <p>Find the Cartesian equation of the locus $\arg(z - (1 + 2\mathrm{i})) = \dfrac{\pi}{4}$ and state any restrictions.</p>
+            <p><span class="step-label">Step 1</span> The half-line starts at $(1, 2)$ and makes angle $\pi/4$ with the positive real direction.</p>
+            <p><span class="step-label">Step 2</span> Gradient: $\tan(\pi/4) = 1$. Line equation: $y - 2 = 1 \cdot (x - 1)$, i.e. $y = x + 1$.</p>
+            <p><span class="step-label">Step 3</span> Restriction: since $\theta = \pi/4$ is in the first quadrant relative to the centre, we need $x > 1$ (and $y > 2$).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2.7 — Half-Line in the Third Quadrant</h4>
+            <p>Sketch and find the Cartesian equation of $\arg(z - 3) = -\dfrac{3\pi}{4}$.</p>
+            <p>The half-line starts at $(3, 0)$ and makes angle $-3\pi/4$ with the positive real direction. Since $-3\pi/4$ points down-left, the half-line extends into the third quadrant relative to the fixed point.</p>
+            <p>Gradient: $\tan(-3\pi/4) = \tan(\pi/4) = 1$ (since $\tan$ has period $\pi$). So $y - 0 = 1 \cdot (x - 3)$, i.e. $y = x - 3$, with $x < 3$.</p>
+        </div>
+
+        <!-- ===================== SECTION 2.5 ===================== -->
+        <h2 id="perp-bis">2.5 Loci of the Form $|z - a| = |z - b|$ <span class="further-badge">Further</span></h2>
+
+        <p>The condition $|z - a| = |z - b|$ says that $z$ is equidistant from the fixed points $a$ and $b$. In Euclidean geometry, the set of all points equidistant from two given points is the perpendicular bisector of the segment joining them.</p>
+
+        <div class="theorem-box">
+            <h4>Theorem 2.3 — Perpendicular Bisector Locus</h4>
+            <p>The locus $|z - a| = |z - b|$, where $a, b \in \mathbb{C}$ and $a \neq b$, is the perpendicular bisector of the line segment joining the points $a$ and $b$ in the Argand diagram.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2.8 — Perpendicular Bisector</h4>
+            <p>Find the Cartesian equation of the locus $|z - (1 + \mathrm{i})| = |z - (5 - \mathrm{i})|$.</p>
+            <p><span class="step-label">Step 1</span> Write $z = x + y\mathrm{i}$. Then:
+            $$\sqrt{(x-1)^2 + (y-1)^2} = \sqrt{(x-5)^2 + (y+1)^2}.$$</p>
+            <p><span class="step-label">Step 2</span> Square both sides:
+            $(x-1)^2 + (y-1)^2 = (x-5)^2 + (y+1)^2$.</p>
+            <p><span class="step-label">Step 3</span> Expand:
+            $x^2 - 2x + 1 + y^2 - 2y + 1 = x^2 - 10x + 25 + y^2 + 2y + 1$.</p>
+            <p><span class="step-label">Step 4</span> Simplify: $-2x - 2y + 2 = -10x + 2y + 26$, so $8x - 4y = 24$, giving $2x - y = 6$.</p>
+            <p><em>Check</em>: The midpoint of $(1,1)$ and $(5,-1)$ is $(3, 0)$; substituting: $2(3) - 0 = 6$ ✓. The gradient of the segment is $(-1-1)/(5-1) = -\frac{1}{2}$; the perpendicular gradient is $2$, and $y = 2x - 6$ has gradient $2$ ✓.</p>
+        </div>
+
+        <div id="desmos2" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 2.2 — The circle $|z - (2+\mathrm{i})| = 3$ (blue), the half-line $\arg(z - (1+2\mathrm{i})) = \pi/4$ (green ray), and the perpendicular bisector of $(0,0)$ and $(4,2)$ (red dashed), illustrated together in the Argand diagram.</p>
+
+        <!-- ===================== SECTION 2.6 ===================== -->
+        <h2 id="regions">2.6 Regions and Intersections <span class="further-badge">Further</span></h2>
+
+        <p>Inequalities involving $|z - a|$, $\arg(z - a)$, or combinations of these define <strong>regions</strong> in the Argand diagram. Exam questions frequently ask for a sketch of a shaded region, for the Cartesian inequalities defining it, or for the algebraic coordinates of intersection points.</p>
+
+        <div class="definition-box">
+            <h4>Definition 2.3 — Regions</h4>
+            <ul>
+                <li>$|z - a| \leq r$: the closed disc of radius $r$ centred at $a$ (interior plus boundary circle).</li>
+                <li>$|z - a| \geq r$: the exterior of the disc plus boundary.</li>
+                <li>$\alpha \leq \arg(z - a) \leq \beta$: the sector between the half-lines at angles $\alpha$ and $\beta$ from $a$.</li>
+                <li>$|z - a| \leq |z - b|$: the half-plane on the $a$-side of the perpendicular bisector of $ab$.</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2.9 — Describing a Region</h4>
+            <p>Sketch and describe in words the region $R$ satisfying both $|z - 2| \leq 3$ and $0 \leq \arg(z) \leq \dfrac{\pi}{2}$.</p>
+            <p>The first condition is the disc centred at $(2, 0)$ with radius $3$: it covers the range $-1 \leq x \leq 5$.</p>
+            <p>The second condition is the first quadrant (including the positive real and imaginary axes).</p>
+            <p>The region $R$ is the part of the disc that lies in the first quadrant — a sector-like shape bounded by an arc of the circle and portions of the coordinate axes.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2.10 — Finding an Intersection Point</h4>
+            <p>The loci $|z - 2| = |z - 4\mathrm{i}|$ and $|z| = 5$ intersect. Find all intersection points.</p>
+            <p><span class="step-label">Step 1</span> The perpendicular bisector of $(2, 0)$ and $(0, 4)$: write $z = x + y\mathrm{i}$, then $(x-2)^2 + y^2 = x^2 + (y-4)^2$, giving $-4x + 4 = -8y + 16$, so $4x - 8y = -12$, i.e. $x - 2y = -3$, or $x = 2y - 3$.</p>
+            <p><span class="step-label">Step 2</span> Substitute into $|z| = 5$, i.e. $x^2 + y^2 = 25$: $(2y-3)^2 + y^2 = 25$, so $4y^2 - 12y + 9 + y^2 = 25$, giving $5y^2 - 12y - 16 = 0$.</p>
+            <p><span class="step-label">Step 3</span> Discriminant: $144 + 320 = 464$. $y = \dfrac{12 \pm \sqrt{464}}{10} = \dfrac{12 \pm 4\sqrt{29}}{10} = \dfrac{6 \pm 2\sqrt{29}}{5}$.</p>
+            <p>Corresponding $x = 2y - 3 = \dfrac{-3 \pm 4\sqrt{29}}{5}$. The two intersection points are $z = \dfrac{-3 + 4\sqrt{29}}{5} + \dfrac{6 + 2\sqrt{29}}{5}\mathrm{i}$ and $z = \dfrac{-3 - 4\sqrt{29}}{5} + \dfrac{6 - 2\sqrt{29}}{5}\mathrm{i}$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip — Sketching Regions</h4>
+            <p>Always label: (i) the centre and radius for circle loci; (ii) the starting point and angle for half-lines; (iii) the midpoint and gradient for perpendicular bisectors. Indicate the boundary clearly (solid line for $\leq$, dashed for $<$) and shade the correct region. Losing marks for missing labels is avoidable.</p>
+        </div>
+
+        <!-- ===================== SECTION 2.7 ===================== -->
+        <h2 id="transforms">2.7 Transformations in the Complex Plane <span class="further-badge">Further</span></h2>
+
+        <p>A complex transformation is a function $w = f(z)$ mapping the complex plane (the $z$-plane) to another copy of the complex plane (the $w$-plane). The image of a curve or region under $f$ can be found by substituting $z = f^{-1}(w)$ and simplifying.</p>
+
+        <h3>Translation: $w = z + c$</h3>
+        <p>Every point is shifted by the vector $c \in \mathbb{C}$. The image of the circle $|z - a| = r$ under $w = z + c$ is the circle $|w - (a + c)| = r$.</p>
+
+        <h3>Scaling and Rotation: $w = kz$, $k \in \mathbb{C}$</h3>
+        <p>Multiplication by $k = |k|e^{\mathrm{i}\alpha}$ scales distances from the origin by $|k|$ and rotates by $\alpha = \arg(k)$. Circles centred at the origin map to circles centred at the origin; circles not centred at the origin generally map to circles of different radius and centre.</p>
+
+        <h3>Conjugate Reflection: $w = \bar{z}$</h3>
+        <p>This reflects every point in the real axis. A circle $|z - a| = r$ maps to $|w - \bar{a}| = r$.</p>
+
+        <div class="example-box">
+            <h4>Example 2.11 — Image of a Circle Under Translation</h4>
+            <p>Find the image of $|z - 3| = 2$ under the transformation $w = z + \mathrm{i}$.</p>
+            <p>Write $z = w - \mathrm{i}$. Substitute: $|w - \mathrm{i} - 3| = 2$, i.e. $|w - (3 + \mathrm{i})| = 2$.</p>
+            <p>The image is the circle centred at $3 + \mathrm{i}$ with radius $2$ — the original circle translated by $\mathrm{i}$ (one unit upwards).</p>
+        </div>
+
+        <h3>The Transformation $w = 1/z$</h3>
+        <p>The reciprocal transformation maps $z = re^{\mathrm{i}\theta}$ to $w = \frac{1}{r}e^{-\mathrm{i}\theta}$: it inverts the modulus and negates the argument. Circles and lines (which may be regarded as circles of infinite radius) generally map to circles or lines.</p>
+
+        <div class="example-box">
+            <h4>Example 2.12 — Image Under $w = 1/z$</h4>
+            <p>Find the image of the line $\operatorname{Re}(z) = 2$ (i.e. $x = 2$) under $w = 1/z$.</p>
+            <p><span class="step-label">Step 1</span> Write $z = x + y\mathrm{i}$ and $w = u + v\mathrm{i}$. Then $z = 1/w$, so $x + y\mathrm{i} = \dfrac{u - v\mathrm{i}}{u^2 + v^2}$.</p>
+            <p><span class="step-label">Step 2</span> Real part of $z$: $x = \dfrac{u}{u^2 + v^2} = 2$, giving $u = 2(u^2 + v^2)$.</p>
+            <p><span class="step-label">Step 3</span> Rearrange: $2u^2 - u + 2v^2 = 0$, i.e. $u^2 - \frac{1}{2}u + v^2 = 0$, so $\left(u - \frac{1}{4}\right)^2 + v^2 = \frac{1}{16}$.</p>
+            <p>The image is a circle in the $w$-plane centred at $\frac{1}{4}$ (on the real axis) with radius $\frac{1}{4}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2.13 — Image of a Half-Line Under Rotation</h4>
+            <p>Find the image of the half-line $\arg(z) = \dfrac{\pi}{3}$ under the transformation $w = 2\mathrm{i}z$.</p>
+            <p>Write $z = w/(2\mathrm{i})$. Then $\arg(z) = \arg(w) - \arg(2\mathrm{i}) = \arg(w) - \pi/2$.</p>
+            <p>Setting this equal to $\pi/3$: $\arg(w) = \pi/3 + \pi/2 = 5\pi/6$.</p>
+            <p>The image is the half-line $\arg(w) = 5\pi/6$ (pointing into the second quadrant of the $w$-plane). The modulus is scaled by $|2\mathrm{i}| = 2$, so the half-line extends to all $|w|$ values.</p>
+        </div>
+
+        <!-- ===================== PRACTICE ===================== -->
+        <h2 id="practice">Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1 — Distance</h4>
+            <p>Find the distance between $z_1 = -2 + 5\mathrm{i}$ and $z_2 = 4 - 3\mathrm{i}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$|z_1 - z_2| = |(-2-4) + (5-(-3))\mathrm{i}| = |-6 + 8\mathrm{i}| = \sqrt{36 + 64} = \sqrt{100} = 10$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2 — Circle Locus</h4>
+            <p>Sketch the locus $|z + 3 - \mathrm{i}| = 5$. State the centre and radius, and find the Cartesian equation.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Write as $|z - (-3 + \mathrm{i})| = 5$. Centre $(-3, 1)$, radius $5$.</p>
+                    <p>Cartesian equation: $(x + 3)^2 + (y - 1)^2 = 25$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3 — Half-Line Locus</h4>
+            <p>Find the Cartesian equation of $\arg(z - 2 - 3\mathrm{i}) = \dfrac{2\pi}{3}$, stating the domain restriction.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Starting point $(2, 3)$, angle $2\pi/3$. Gradient $= \tan(2\pi/3) = -\sqrt{3}$.</p>
+                    <p>Line: $y - 3 = -\sqrt{3}(x - 2)$, i.e. $y = -\sqrt{3}\,x + 2\sqrt{3} + 3$.</p>
+                    <p>The direction $2\pi/3$ points into the second quadrant relative to $(2,3)$, so the restriction is $x < 2$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4 — Perpendicular Bisector</h4>
+            <p>Find the Cartesian equation of the locus $|z - 4| = |z + 2\mathrm{i}|$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$(x-4)^2 + y^2 = x^2 + (y+2)^2$.</p>
+                    <p>$x^2 - 8x + 16 + y^2 = x^2 + y^2 + 4y + 4$.</p>
+                    <p>$-8x + 16 = 4y + 4$, so $-8x - 4y = -12$, giving $2x + y = 3$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5 — Region Description</h4>
+            <p>Describe and sketch the region satisfying $|z - \mathrm{i}| \leq 2$ and $\operatorname{Re}(z) \geq 0$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$|z - \mathrm{i}| \leq 2$ is the closed disc centred at $(0, 1)$ with radius $2$.</p>
+                    <p>$\operatorname{Re}(z) \geq 0$ is the right half-plane including the imaginary axis.</p>
+                    <p>The region is the right semicircle: the part of the disc with $x \geq 0$. It is bounded by the arc of the circle in the right half-plane and by the chord of the circle on the imaginary axis (from $(0, -1)$ to $(0, 3)$).</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6 — Intersection of Loci</h4>
+            <p>Find the points of intersection of $|z - 3\mathrm{i}| = 5$ and $|z| = |z - 6|$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>The second locus is the perpendicular bisector of $0$ and $6$ (i.e. $0$ and $6+0\mathrm{i}$): $x^2 + y^2 = (x-6)^2 + y^2$, giving $x^2 = x^2 - 12x + 36$, so $x = 3$.</p>
+                    <p>Substitute $x = 3$ into $|z - 3\mathrm{i}| = 5$: $(3)^2 + (y-3)^2 = 25$, so $(y-3)^2 = 16$, giving $y = 7$ or $y = -1$.</p>
+                    <p>Intersection points: $z = 3 + 7\mathrm{i}$ and $z = 3 - \mathrm{i}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7 — Rotation by i</h4>
+            <p>The point $z = 1 + 2\mathrm{i}$ is multiplied successively by $\mathrm{i}$ four times. List the four results and describe the geometric effect.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$z_1 = \mathrm{i}(1+2\mathrm{i}) = \mathrm{i} - 2 = -2 + \mathrm{i}$.</p>
+                    <p>$z_2 = \mathrm{i}(-2+\mathrm{i}) = -2\mathrm{i} - 1 = -1 - 2\mathrm{i}$.</p>
+                    <p>$z_3 = \mathrm{i}(-1-2\mathrm{i}) = -\mathrm{i} + 2 = 2 - \mathrm{i}$.</p>
+                    <p>$z_4 = \mathrm{i}(2-\mathrm{i}) = 2\mathrm{i} + 1 = 1 + 2\mathrm{i} = z$.</p>
+                    <p>Each multiplication rotates the point by $90°$ anticlockwise about the origin; after four such rotations, we return to $z$. The four points form a square.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8 — Image Under Translation</h4>
+            <p>Find the image of the circle $|z - 1| = 3$ under the transformation $w = z - 2 + 4\mathrm{i}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$z = w + 2 - 4\mathrm{i}$. Substitute: $|w + 2 - 4\mathrm{i} - 1| = 3$, i.e. $|w + 1 - 4\mathrm{i}| = 3$, or $|w - (-1 + 4\mathrm{i})| = 3$.</p>
+                    <p>The image is the circle centred at $-1 + 4\mathrm{i}$ with radius $3$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 9 — Image Under $w = 1/z$</h4>
+            <p>Find the image of the circle $|z| = 2$ under the transformation $w = 1/z$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Write $z = 1/w$. Then $|1/w| = 2$, i.e. $1/|w| = 2$, giving $|w| = 1/2$.</p>
+                    <p>The image is the circle $|w| = 1/2$, centred at the origin with radius $1/2$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 10 — Composite Locus</h4>
+            <p>Sketch the set of points $z$ satisfying $|z - 2| \leq |z + 2|$ and $\arg(z - \mathrm{i}) \leq \dfrac{\pi}{4}$. State the boundary of each constraint in Cartesian form.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p><strong>Constraint 1:</strong> $|z - 2| \leq |z + 2|$ is the half-plane on the side of $+2$ of the perpendicular bisector of $-2$ and $2$. The bisector is $x = 0$ (the imaginary axis). So the region is $x \leq 0$ (the left half-plane, including the boundary $x = 0$).</p>
+                    <p><strong>Constraint 2:</strong> $\arg(z - \mathrm{i}) \leq \pi/4$ means the argument of $z - \mathrm{i}$ is at most $\pi/4$. This gives the region lying on or below (in terms of argument) the half-line $y - 1 = x - 0$, i.e. $y = x + 1$ for $x \geq 0$. Combined with the first constraint ($x \leq 0$), the boundary from Constraint 2 does not intersect the region from Constraint 1 except at $(0, 1)$.</p>
+                    <p>The combined region is: the entire left half-plane $x \leq 0$, together with points in the right half-plane satisfying $\arg(z - \mathrm{i}) \leq \pi/4$.</p>
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <script>
+    (function() {
+        // Figure 1: Circle |z - (2+i)| = 3
+        var elt1 = document.getElementById('desmos1');
+        var calc1 = Desmos.GraphingCalculator(elt1, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            xAxisLabel: 'Re',
+            yAxisLabel: 'Im'
+        });
+        calc1.setMathBounds({ left: -2.5, right: 6.5, bottom: -3, top: 5 });
+        calc1.setExpressions([
+            { id: 'circle', latex: '(x-2)^2+(y-1)^2=9', color: '#3b82f6' },
+            { id: 'centre', latex: '(2,1)', color: '#ef4444', pointStyle: Desmos.Styles.POINT, label: 'centre: 2+i', showLabel: true },
+            { id: 'rad', latex: '\\left(x,y\\right)=\\left(2+3t,1\\right)', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED, parametricDomain: { min: 0, max: 1 }, label: 'r=3', showLabel: true }
+        ]);
+
+        // Figure 2: circle + half-line + perpendicular bisector
+        var elt2 = document.getElementById('desmos2');
+        var calc2 = Desmos.GraphingCalculator(elt2, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            xAxisLabel: 'Re',
+            yAxisLabel: 'Im'
+        });
+        calc2.setMathBounds({ left: -3, right: 7, bottom: -2, top: 8 });
+        calc2.setExpressions([
+            { id: 'circle2', latex: '(x-2)^2+(y-1)^2=9', color: '#3b82f6' },
+            { id: 'halfline', latex: 'y=x+1\\left\\{x\\ge1\\right\\}', color: '#22c55e' },
+            { id: 'halfpt', latex: '(1,2)', color: '#22c55e', pointStyle: Desmos.Styles.POINT, label: 'arg start: 1+2i', showLabel: true },
+            { id: 'perpbis', latex: '2x-y=6', color: '#ef4444', lineStyle: Desmos.Styles.DASHED },
+            { id: 'pb1', latex: '(0,0)', color: '#ef4444', pointStyle: Desmos.Styles.POINT, label: 'a=0', showLabel: true },
+            { id: 'pb2', latex: '(4,2)', color: '#ef4444', pointStyle: Desmos.Styles.POINT, label: 'b=4+2i', showLabel: true }
+        ]);
+    })();
+    </script>
+</body>
+</html>

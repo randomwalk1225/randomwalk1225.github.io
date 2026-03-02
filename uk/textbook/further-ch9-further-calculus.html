@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Further Mathematics – Chapter 9: Further Calculus | Further Mathematics | MathHub</title>
+    <meta name="description" content="Complete guide to Further Calculus for A-Level Further Mathematics. Covers improper integrals, inverse trigonometric integrals, hyperbolic functions, inverse hyperbolic functions, arc length, surface area, and reduction formulae. Edexcel, AQA and OCR.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/further-ch9-further-calculus.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .further-badge { display: inline-block; background: #fce7f3; color: #9d174d; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+        th, td { border: 1px solid #e2e8f0; padding: 10px 14px; text-align: left; color: #334155; }
+        th { background: #f1f5f9; color: #1e3a5f; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/" class="active">UK</a><a href="/ca/">CA</a><a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+    <article class="blog-article">
+        <div class="breadcrumb"><a href="/uk/">UK</a> › <a href="/uk/">Textbook</a> › Further Maths – Chapter 9: Further Calculus</div>
+        <h1>A-Level Further Mathematics – Chapter 9: Further Calculus <span class="further-badge">Further Pure</span></h1>
+        <div class="blog-meta">Edexcel · AQA · OCR A-Level Further Mathematics &middot; Updated March 2026</div>
+
+        <div class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#improper">9.1 Improper Integrals</a></li>
+                <li><a href="#invtrig">9.2 Inverse Trigonometric Integrals</a></li>
+                <li><a href="#hyperbolic">9.3 Hyperbolic Functions</a></li>
+                <li><a href="#invhyp">9.4 Inverse Hyperbolic Functions</a></li>
+                <li><a href="#arclength">9.5 Arc Length and Surface Area</a></li>
+                <li><a href="#reduction">9.6 Reduction Formulae</a></li>
+                <li><a href="#practice">Practice Problems</a></li>
+            </ol>
+        </div>
+
+        <p>This chapter extends the integration techniques from A-Level Mathematics into genuinely new territory. We begin by relaxing the assumption that integrands are bounded and intervals are finite, giving us <strong>improper integrals</strong> with their subtle convergence questions. We then introduce two rich families of functions — inverse trigonometric and hyperbolic functions — that arise naturally as antiderivatives of algebraic expressions. Finally, we apply integration to compute geometric quantities (arc length and surface area) and develop <strong>reduction formulae</strong> that elegantly connect integrals with different indices.</p>
+
+        <!-- ===================== SECTION 9.1 ===================== -->
+        <h2 id="improper">9.1 Improper Integrals</h2>
+
+        <div class="definition-box">
+            <h4>Definition — Improper Integrals</h4>
+            <p>An integral is <strong>improper</strong> if:</p>
+            <ul>
+                <li>One or both limits of integration are infinite, or</li>
+                <li>The integrand has a vertical asymptote (blow-up) within or at the boundary of the interval.</li>
+            </ul>
+            <p>We define improper integrals as limits of proper integrals:</p>
+            <p>$$\int_a^{\infty} f(x)\,dx = \lim_{R\to\infty}\int_a^{R}f(x)\,dx$$</p>
+            <p>$$\int_a^{b}f(x)\,dx = \lim_{\varepsilon\to 0^+}\int_{a+\varepsilon}^{b}f(x)\,dx \quad \text{if } f \text{ blows up at } x=a$$</p>
+            <p>If the limit exists and is finite, the integral <strong>converges</strong>; otherwise it <strong>diverges</strong>.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Theorem 9.1 — The $p$-Integral Test</h4>
+            <p>$$\int_1^{\infty}\frac{1}{x^p}\,dx \text{ converges if and only if } p > 1$$</p>
+            <p>When it converges: $\displaystyle\int_1^{\infty}\frac{1}{x^p}\,dx = \frac{1}{p-1}$.</p>
+            <p><strong>Proof.</strong> For $p\ne1$: $\int_1^R x^{-p}\,dx = \Bigl[\frac{x^{1-p}}{1-p}\Bigr]_1^R = \frac{R^{1-p}-1}{1-p}$. If $p>1$ then $1-p<0$ and $R^{1-p}\to0$, giving $\frac{1}{p-1}$. If $p<1$ then $R^{1-p}\to\infty$, diverging. For $p=1$: $\int_1^R\frac{1}{x}\,dx = \ln R\to\infty$, also divergent.</p>
+        </div>
+
+        <div class="desmos-fig" id="desmos-improper"></div>
+        <div class="fig-caption">Figure 9.2 — The improper integral $\displaystyle\int_1^{\infty}\frac{1}{x^2}\,dx$. The shaded region has finite area equal to 1, demonstrating convergence. Compare with $1/x$ (green), whose unbounded shaded area shows divergence.</div>
+
+        <div class="example-box">
+            <h4>Example 9.1.1 — A convergent improper integral</h4>
+            <p>Evaluate $\displaystyle\int_1^{\infty}\frac{1}{x^2}\,dx$.</p>
+            <p>$\int_1^R x^{-2}\,dx = \Bigl[-x^{-1}\Bigr]_1^R = -\frac{1}{R}+1$. As $R\to\infty$: $\int_1^{\infty}\frac{1}{x^2}\,dx = 1$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.1.2 — A divergent improper integral</h4>
+            <p>Show that $\displaystyle\int_1^{\infty}\frac{1}{\sqrt{x}}\,dx$ diverges.</p>
+            <p>$\int_1^R x^{-1/2}\,dx = \Bigl[2x^{1/2}\Bigr]_1^R = 2\sqrt{R}-2 \to \infty$ as $R\to\infty$. The integral diverges.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.1.3 — Blow-up at the lower limit</h4>
+            <p>Evaluate $\displaystyle\int_0^1\frac{1}{\sqrt{x}}\,dx$.</p>
+            <p>$\int_\varepsilon^1 x^{-1/2}\,dx = \Bigl[2\sqrt{x}\Bigr]_\varepsilon^1 = 2 - 2\sqrt{\varepsilon}\to 2$ as $\varepsilon\to0^+$. The integral converges to $2$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.1.4 — Integral of $e^{-x}$</h4>
+            <p>Evaluate $\displaystyle\int_0^{\infty}e^{-x}\,dx$ and $\displaystyle\int_0^{\infty}xe^{-x}\,dx$.</p>
+            <p>$\int_0^R e^{-x}\,dx = 1-e^{-R}\to 1$.</p>
+            <p>$\int_0^R xe^{-x}\,dx = \Bigl[-xe^{-x}-e^{-x}\Bigr]_0^R = -(R+1)e^{-R}+1\to 1$ (since $Re^{-R}\to0$).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.1.5 — Deciding convergence by comparison</h4>
+            <p>Without evaluating, determine whether $\displaystyle\int_1^{\infty}\frac{\sin^2 x}{x^2}\,dx$ converges.</p>
+            <p>Since $0 \le \sin^2 x \le 1$, we have $0 \le \frac{\sin^2 x}{x^2} \le \frac{1}{x^2}$. Since $\int_1^{\infty}\frac{1}{x^2}\,dx = 1$ converges, by comparison the given integral also converges.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Always replace the infinite limit (or the blow-up point) with a parameter and take the limit at the end — do not simply "substitute $\infty$" into the antiderivative. Examiners specifically penalise the omission of the limit notation, even if the final answer is correct.</p>
+        </div>
+
+        <!-- ===================== SECTION 9.2 ===================== -->
+        <h2 id="invtrig">9.2 Inverse Trigonometric Integrals</h2>
+
+        <div class="theorem-box">
+            <h4>Theorem 9.2 — Standard Inverse Trigonometric Integrals</h4>
+            <p>$$\int\frac{1}{\sqrt{1-x^2}}\,dx = \arcsin x + C$$</p>
+            <p>$$\int\frac{1}{1+x^2}\,dx = \arctan x + C$$</p>
+            <p><strong>General forms with parameter $a > 0$:</strong></p>
+            <p>$$\int\frac{1}{\sqrt{a^2-x^2}}\,dx = \arcsin\!\left(\frac{x}{a}\right) + C$$</p>
+            <p>$$\int\frac{1}{a^2+x^2}\,dx = \frac{1}{a}\arctan\!\left(\frac{x}{a}\right) + C$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.2.1 — Basic arctan integral</h4>
+            <p>Evaluate $\displaystyle\int_0^{\sqrt{3}}\frac{1}{1+x^2}\,dx$.</p>
+            <p>$\Bigl[\arctan x\Bigr]_0^{\sqrt{3}} = \arctan\sqrt{3} - \arctan 0 = \frac{\pi}{3} - 0 = \frac{\pi}{3}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.2.2 — General arctan form</h4>
+            <p>Evaluate $\displaystyle\int_0^{2}\frac{1}{4+x^2}\,dx$.</p>
+            <p>$a=2$: $\int_0^2\frac{1}{4+x^2}\,dx = \frac{1}{2}\Bigl[\arctan\frac{x}{2}\Bigr]_0^2 = \frac{1}{2}\Bigl(\arctan 1 - 0\Bigr) = \frac{1}{2}\cdot\frac{\pi}{4} = \frac{\pi}{8}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.2.3 — Completing the square first</h4>
+            <p>Evaluate $\displaystyle\int\frac{1}{x^2+4x+13}\,dx$.</p>
+            <p>Complete the square: $x^2+4x+13=(x+2)^2+9$.</p>
+            <p>$\int\frac{1}{(x+2)^2+9}\,dx = \frac{1}{3}\arctan\!\left(\frac{x+2}{3}\right)+C$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.2.4 — Arcsin form</h4>
+            <p>Evaluate $\displaystyle\int_0^{1}\frac{3}{\sqrt{9-x^2}}\,dx$.</p>
+            <p>$\int_0^1\frac{3}{\sqrt{9-x^2}}\,dx = 3\Bigl[\arcsin\frac{x}{3}\Bigr]_0^1 = 3\arcsin\frac{1}{3}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.2.5 — Linear substitution needed</h4>
+            <p>Evaluate $\displaystyle\int\frac{1}{\sqrt{4-9x^2}}\,dx$.</p>
+            <p>Write as $\frac{1}{2\sqrt{1-(3x/2)^2}}$. Let $u=\tfrac{3x}{2}$, $du=\tfrac{3}{2}dx$.</p>
+            <p>$\int\frac{1}{\sqrt{4-9x^2}}\,dx = \frac{1}{3}\arcsin\!\left(\frac{3x}{2}\right)+C$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.2.6 — Improper arctan integral</h4>
+            <p>Show that $\displaystyle\int_0^{\infty}\frac{1}{1+x^2}\,dx = \frac{\pi}{2}$.</p>
+            <p>$\int_0^R\frac{1}{1+x^2}\,dx = \arctan R - 0 = \arctan R \to \frac{\pi}{2}$ as $R\to\infty$. ✓</p>
+        </div>
+
+        <!-- ===================== SECTION 9.3 ===================== -->
+        <h2 id="hyperbolic">9.3 Hyperbolic Functions</h2>
+
+        <div class="definition-box">
+            <h4>Definition — Hyperbolic Functions</h4>
+            <p>$$\sinh x = \frac{e^x - e^{-x}}{2}, \qquad \cosh x = \frac{e^x + e^{-x}}{2}, \qquad \tanh x = \frac{\sinh x}{\cosh x} = \frac{e^x-e^{-x}}{e^x+e^{-x}}$$</p>
+            <p>Further functions: $\text{cosech}\,x = \frac{1}{\sinh x}$, $\text{sech}\,x = \frac{1}{\cosh x}$, $\coth x = \frac{\cosh x}{\sinh x}$.</p>
+        </div>
+
+        <div class="desmos-fig" id="desmos-hyperbolic"></div>
+        <div class="fig-caption">Figure 9.1 — The hyperbolic functions $y = \sinh x$ (blue), $y = \cosh x$ (green) and $y = \tanh x$ (red) plotted together. Note $\cosh x \ge 1$ always, and $\tanh x$ has horizontal asymptotes at $y = \pm 1$.</div>
+
+        <div class="theorem-box">
+            <h4>Theorem 9.3 — Fundamental Identities and Derivatives</h4>
+            <p><strong>Key identity (Osborn's rule analogue):</strong> $\cosh^2 x - \sinh^2 x = 1$.</p>
+            <p>Further identities: $1 - \tanh^2 x = \text{sech}^2 x$; $\coth^2 x - 1 = \text{cosech}^2 x$.</p>
+            <p><strong>Derivatives:</strong></p>
+            <table>
+                <tr><th>$f(x)$</th><th>$f'(x)$</th></tr>
+                <tr><td>$\sinh x$</td><td>$\cosh x$</td></tr>
+                <tr><td>$\cosh x$</td><td>$\sinh x$</td></tr>
+                <tr><td>$\tanh x$</td><td>$\text{sech}^2 x$</td></tr>
+            </table>
+            <p><strong>Note:</strong> Unlike circular functions, $\frac{d}{dx}\cosh x = +\sinh x$ (not minus).</p>
+        </div>
+
+        <div class="definition-box">
+            <h4>Double Angle and Addition Formulae for Hyperbolic Functions</h4>
+            <p>By Osborn's rule (replace circular with hyperbolic and negate any product of two $\sinh$ terms):</p>
+            <ul>
+                <li>$\sinh(A+B) = \sinh A\cosh B + \cosh A\sinh B$</li>
+                <li>$\cosh(A+B) = \cosh A\cosh B + \sinh A\sinh B$ (note: $+$, not $-$)</li>
+                <li>$\sinh 2x = 2\sinh x\cosh x$</li>
+                <li>$\cosh 2x = \cosh^2 x + \sinh^2 x = 2\cosh^2 x - 1 = 1 + 2\sinh^2 x$</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.3.1 — Proving the fundamental identity</h4>
+            <p>Prove that $\cosh^2 x - \sinh^2 x = 1$ directly from the exponential definitions.</p>
+            <p>$\cosh^2 x - \sinh^2 x = \left(\frac{e^x+e^{-x}}{2}\right)^2 - \left(\frac{e^x-e^{-x}}{2}\right)^2$</p>
+            <p>$= \frac{(e^x+e^{-x})^2-(e^x-e^{-x})^2}{4} = \frac{4e^x e^{-x}}{4} = \frac{4}{4} = 1$. ✓</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.3.2 — Integrating hyperbolic functions</h4>
+            <p>Find $\displaystyle\int_0^{\ln 2}\sinh x\,dx$ and $\displaystyle\int_0^1\tanh x\,dx$.</p>
+            <p>$\int_0^{\ln 2}\sinh x\,dx = \Bigl[\cosh x\Bigr]_0^{\ln 2} = \cosh(\ln 2)-1$.</p>
+            <p>$\cosh(\ln 2) = \frac{e^{\ln 2}+e^{-\ln 2}}{2} = \frac{2+\tfrac{1}{2}}{2} = \frac{5}{4}$. So the integral equals $\frac{5}{4}-1 = \frac{1}{4}$.</p>
+            <p>$\int_0^1\tanh x\,dx = \int_0^1\frac{\sinh x}{\cosh x}\,dx = \Bigl[\ln\cosh x\Bigr]_0^1 = \ln\cosh 1$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.3.3 — Solving a hyperbolic equation</h4>
+            <p>Solve $5\cosh x - 4\sinh x = 8$, giving your answer in exact logarithmic form.</p>
+            <p>Substitute definitions: $5\cdot\frac{e^x+e^{-x}}{2} - 4\cdot\frac{e^x-e^{-x}}{2} = 8$, giving $\frac{e^x+9e^{-x}}{2}=8$, so $e^x+9e^{-x}=16$.</p>
+            <p>Multiply by $e^x$: $e^{2x}-16e^x+9=0$. Let $u=e^x$: $u^2-16u+9=0$, $u=\frac{16\pm\sqrt{220}}{2}=8\pm\sqrt{55}$.</p>
+            <p>Since $u=e^x>0$, both solutions are positive: $x = \ln(8+\sqrt{55})$ or $x=\ln(8-\sqrt{55})$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Osborn's rule is a quick memory aid: to convert a circular trigonometric identity into the corresponding hyperbolic identity, replace every occurrence of a product $\sin A\sin B$ (or $\sin^2$) with $-\sinh A\sinh B$ (or $-\sinh^2$). Every other function maps directly to its hyperbolic counterpart.</p>
+        </div>
+
+        <!-- ===================== SECTION 9.4 ===================== -->
+        <h2 id="invhyp">9.4 Inverse Hyperbolic Functions</h2>
+
+        <div class="theorem-box">
+            <h4>Theorem 9.4 — Logarithmic Forms of Inverse Hyperbolic Functions</h4>
+            <p>$$\text{arcsinh}\,x = \ln\!\left(x + \sqrt{x^2+1}\right), \quad x \in \mathbb{R}$$</p>
+            <p>$$\text{arccosh}\,x = \ln\!\left(x + \sqrt{x^2-1}\right), \quad x \ge 1$$</p>
+            <p>$$\text{arctanh}\,x = \frac{1}{2}\ln\!\left(\frac{1+x}{1-x}\right), \quad |x|<1$$</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Theorem 9.5 — Inverse Hyperbolic Integrals</h4>
+            <p>$$\int\frac{1}{\sqrt{x^2+a^2}}\,dx = \text{arcsinh}\!\left(\frac{x}{a}\right)+C = \ln\!\left(x+\sqrt{x^2+a^2}\right)+C$$</p>
+            <p>$$\int\frac{1}{\sqrt{x^2-a^2}}\,dx = \text{arccosh}\!\left(\frac{x}{a}\right)+C = \ln\!\left(x+\sqrt{x^2-a^2}\right)+C \quad (x>a)$$</p>
+            <p>$$\int\frac{1}{a^2-x^2}\,dx = \frac{1}{a}\text{arctanh}\!\left(\frac{x}{a}\right)+C = \frac{1}{2a}\ln\!\left(\frac{a+x}{a-x}\right)+C \quad (|x|<a)$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.4.1 — Proving the arcsinh logarithmic form</h4>
+            <p>Show that $\text{arcsinh}\,x = \ln(x+\sqrt{x^2+1})$.</p>
+            <p>Let $y = \text{arcsinh}\,x$, so $x = \sinh y = \frac{e^y-e^{-y}}{2}$. Then $2x = e^y - e^{-y}$, so $e^{2y}-2xe^y-1=0$.</p>
+            <p>By the quadratic formula: $e^y = \frac{2x\pm\sqrt{4x^2+4}}{2} = x\pm\sqrt{x^2+1}$. Since $e^y>0$, we take the $+$ sign: $e^y = x+\sqrt{x^2+1}$, so $y = \ln(x+\sqrt{x^2+1})$. ✓</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.4.2 — Standard arcsinh integral</h4>
+            <p>Evaluate $\displaystyle\int_0^{3}\frac{1}{\sqrt{x^2+9}}\,dx$, giving your answer in exact form.</p>
+            <p>$a=3$: $\Bigl[\text{arcsinh}\!\left(\tfrac{x}{3}\right)\Bigr]_0^3 = \text{arcsinh}(1)-0 = \ln(1+\sqrt{2})$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.4.3 — Completing the square before integrating</h4>
+            <p>Evaluate $\displaystyle\int\frac{1}{\sqrt{x^2-6x+10}}\,dx$.</p>
+            <p>Complete the square: $x^2-6x+10 = (x-3)^2+1$.</p>
+            <p>$\int\frac{1}{\sqrt{(x-3)^2+1}}\,dx = \text{arcsinh}(x-3)+C = \ln\!\left(x-3+\sqrt{(x-3)^2+1}\right)+C$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.4.4 — Arccosh integral</h4>
+            <p>Evaluate $\displaystyle\int_2^5\frac{1}{\sqrt{x^2-1}}\,dx$.</p>
+            <p>$a=1$: $\Bigl[\text{arccosh}\,x\Bigr]_2^5 = \ln(5+\sqrt{24})-\ln(2+\sqrt{3}) = \ln(5+2\sqrt{6})-\ln(2+\sqrt{3})$.</p>
+        </div>
+
+        <!-- ===================== SECTION 9.5 ===================== -->
+        <h2 id="arclength">9.5 Arc Length and Surface Area</h2>
+
+        <div class="theorem-box">
+            <h4>Theorem 9.6 — Arc Length Formulae</h4>
+            <p><strong>Cartesian:</strong> For $y=f(x)$ from $x=a$ to $x=b$:</p>
+            <p>$$L = \int_a^b\sqrt{1+\left(\frac{dy}{dx}\right)^2}\,dx$$</p>
+            <p><strong>Parametric:</strong> For $x=x(t)$, $y=y(t)$ from $t=t_1$ to $t=t_2$:</p>
+            <p>$$L = \int_{t_1}^{t_2}\sqrt{\left(\frac{dx}{dt}\right)^2+\left(\frac{dy}{dt}\right)^2}\,dt$$</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Theorem 9.7 — Surface Area of Revolution</h4>
+            <p>When the curve $y=f(x)$, $a\le x\le b$, is rotated through $2\pi$ about the $x$-axis, the surface area generated is:</p>
+            <p>$$S = 2\pi\int_a^b y\sqrt{1+\left(\frac{dy}{dx}\right)^2}\,dx$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.5.1 — Arc length of a parabola</h4>
+            <p>Find the arc length of $y = \frac{x^2}{2}$ from $x=0$ to $x=1$.</p>
+            <p>$\frac{dy}{dx} = x$. $L = \int_0^1\sqrt{1+x^2}\,dx$.</p>
+            <p>Using the standard result with $a=1$: $\int\sqrt{1+x^2}\,dx = \tfrac{x\sqrt{1+x^2}}{2}+\tfrac{1}{2}\text{arcsinh}\,x + C$.</p>
+            <p>$L = \Bigl[\tfrac{x\sqrt{1+x^2}}{2}+\tfrac{1}{2}\ln(x+\sqrt{1+x^2})\Bigr]_0^1 = \frac{\sqrt{2}}{2}+\frac{\ln(1+\sqrt{2})}{2}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.5.2 — Parametric arc length: the cycloid</h4>
+            <p>For the cycloid $x = t - \sin t$, $y = 1 - \cos t$, find the arc length for one arch $0\le t\le 2\pi$.</p>
+            <p>$\frac{dx}{dt} = 1-\cos t$, $\frac{dy}{dt} = \sin t$.</p>
+            <p>$\left(\frac{dx}{dt}\right)^2+\left(\frac{dy}{dt}\right)^2 = (1-\cos t)^2+\sin^2 t = 1-2\cos t+\cos^2 t+\sin^2 t = 2-2\cos t = 4\sin^2\!\tfrac{t}{2}$.</p>
+            <p>$L = \int_0^{2\pi}2\left|\sin\frac{t}{2}\right|\,dt = 2\int_0^{2\pi}\sin\frac{t}{2}\,dt = 2\Bigl[-2\cos\frac{t}{2}\Bigr]_0^{2\pi} = 2[2+2] = 8$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.5.3 — Surface area of a sphere</h4>
+            <p>Derive the formula $S = 4\pi r^2$ by rotating a semicircle $y = \sqrt{r^2-x^2}$ about the $x$-axis.</p>
+            <p>$\frac{dy}{dx} = \frac{-x}{\sqrt{r^2-x^2}}$. $1+\left(\frac{dy}{dx}\right)^2 = 1+\frac{x^2}{r^2-x^2} = \frac{r^2}{r^2-x^2}$.</p>
+            <p>$S = 2\pi\int_{-r}^{r}\sqrt{r^2-x^2}\cdot\frac{r}{\sqrt{r^2-x^2}}\,dx = 2\pi\int_{-r}^{r}r\,dx = 2\pi r\cdot 2r = 4\pi r^2$. ✓</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.5.4 — Surface area of a cone</h4>
+            <p>Find the curved surface area generated when $y = \tfrac{x}{2}$, $0\le x\le 4$, is rotated about the $x$-axis.</p>
+            <p>$\frac{dy}{dx} = \tfrac{1}{2}$. $\sqrt{1+\tfrac{1}{4}} = \frac{\sqrt{5}}{2}$.</p>
+            <p>$S = 2\pi\int_0^4\frac{x}{2}\cdot\frac{\sqrt{5}}{2}\,dx = \frac{\pi\sqrt{5}}{2}\int_0^4 x\,dx = \frac{\pi\sqrt{5}}{2}\cdot 8 = 4\pi\sqrt{5}$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Arc length and surface area integrals often simplify because $1+(dy/dx)^2$ is a perfect square. Always look for this simplification before attempting a more complicated integration technique. Check that you have the correct formula: arc length does not include the $2\pi y$ factor; surface area does.</p>
+        </div>
+
+        <!-- ===================== SECTION 9.6 ===================== -->
+        <h2 id="reduction">9.6 Reduction Formulae</h2>
+
+        <div class="definition-box">
+            <h4>Definition — Reduction Formula</h4>
+            <p>A <strong>reduction formula</strong> expresses $I_n = \int f_n(x)\,dx$ in terms of $I_{n-1}$ or $I_{n-2}$ (or another $I_k$ with $k < n$), allowing us to compute $I_n$ for any $n$ by repeated application.</p>
+            <p>The standard technique is integration by parts, setting up the result in terms of a lower-index integral.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.6.1 — Reduction formula for $\int \sin^n x\,dx$</h4>
+            <p>Let $I_n = \int_0^{\pi/2}\sin^n x\,dx$. Derive the reduction formula $I_n = \frac{n-1}{n}I_{n-2}$.</p>
+            <p><span class="step-label">Step 1</span> Write $\sin^n x = \sin^{n-1}x\cdot\sin x$ and integrate by parts: let $u=\sin^{n-1}x$, $dv=\sin x\,dx$.</p>
+            <p>$du=(n-1)\sin^{n-2}x\cos x\,dx$, $v=-\cos x$.</p>
+            <p><span class="step-label">Step 2</span> $I_n = \Bigl[-\sin^{n-1}x\cos x\Bigr]_0^{\pi/2} + (n-1)\int_0^{\pi/2}\sin^{n-2}x\cos^2 x\,dx$.</p>
+            <p>The boundary term vanishes at both limits. Replace $\cos^2 x = 1-\sin^2 x$:</p>
+            <p><span class="step-label">Step 3</span> $I_n = (n-1)I_{n-2}-(n-1)I_n$. Hence $nI_n = (n-1)I_{n-2}$, so $\boxed{I_n = \frac{n-1}{n}I_{n-2}}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.6.2 — Evaluating $I_5$ and $I_6$ using the reduction formula</h4>
+            <p>Find $\displaystyle\int_0^{\pi/2}\sin^5 x\,dx$ and $\displaystyle\int_0^{\pi/2}\sin^6 x\,dx$.</p>
+            <p>Base cases: $I_0 = \frac{\pi}{2}$, $I_1 = 1$.</p>
+            <p>$I_5 = \frac{4}{5}I_3 = \frac{4}{5}\cdot\frac{2}{3}I_1 = \frac{4}{5}\cdot\frac{2}{3}\cdot 1 = \frac{8}{15}$.</p>
+            <p>$I_6 = \frac{5}{6}I_4 = \frac{5}{6}\cdot\frac{3}{4}I_2 = \frac{5}{6}\cdot\frac{3}{4}\cdot\frac{1}{2}I_0 = \frac{5}{6}\cdot\frac{3}{4}\cdot\frac{1}{2}\cdot\frac{\pi}{2} = \frac{5\pi}{32}$.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Theorem 9.8 — Wallis's Formula</h4>
+            <p>From the reduction formula $I_n = \frac{n-1}{n}I_{n-2}$ with $I_n = \int_0^{\pi/2}\sin^n x\,dx$:</p>
+            <p>$$\frac{\pi}{2} = \lim_{n\to\infty}\frac{(2n)!!}{(2n-1)!!}\cdot\frac{1}{\sqrt{n}} \quad \text{equivalently: } \frac{\pi}{2} = \frac{2}{1}\cdot\frac{2}{3}\cdot\frac{4}{3}\cdot\frac{4}{5}\cdot\frac{6}{5}\cdot\frac{6}{7}\cdots$$</p>
+            <p>This is Wallis's product for $\pi$, derived entirely from the reduction formula.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.6.3 — Reduction formula for $\int x^n e^x\,dx$</h4>
+            <p>Let $I_n = \int x^n e^x\,dx$. Show that $I_n = x^n e^x - nI_{n-1}$.</p>
+            <p>Integrate by parts: $u = x^n$, $dv = e^x\,dx$. Then $du = nx^{n-1}\,dx$, $v = e^x$.</p>
+            <p>$I_n = x^n e^x - n\int x^{n-1}e^x\,dx = x^n e^x - nI_{n-1}$. ✓</p>
+            <p>For example: $I_2 = x^2 e^x - 2I_1 = x^2 e^x - 2(xe^x-e^x) + C = (x^2-2x+2)e^x + C$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.6.4 — Reduction formula for $\int \sec^n x\,dx$</h4>
+            <p>Let $I_n = \int\sec^n x\,dx$. By writing $\sec^n x = \sec^{n-2}x\cdot\sec^2 x$ and integrating by parts, show that $I_n = \frac{\sec^{n-2}x\tan x}{n-1}+\frac{n-2}{n-1}I_{n-2}$.</p>
+            <p>Let $u=\sec^{n-2}x$, $dv=\sec^2 x\,dx$. Then $du=(n-2)\sec^{n-2}x\tan x\,dx$, $v=\tan x$.</p>
+            <p>$I_n = \sec^{n-2}x\tan x - (n-2)\int\sec^{n-2}x\tan^2 x\,dx$.</p>
+            <p>Replace $\tan^2 x = \sec^2 x-1$: $(n-1)I_n = \sec^{n-2}x\tan x + (n-2)I_{n-2}$. Divide by $(n-1)$. ✓</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.6.5 — Definite integral via reduction</h4>
+            <p>Let $I_n = \int_0^1 x^n e^{-x}\,dx$. Show that $I_n = -e^{-1} + nI_{n-1}$ and use this to find $I_3$.</p>
+            <p>Parts: $u=x^n$, $dv=e^{-x}\,dx$, $v=-e^{-x}$.</p>
+            <p>$I_n = \Bigl[-x^n e^{-x}\Bigr]_0^1+n\int_0^1 x^{n-1}e^{-x}\,dx = -e^{-1}+nI_{n-1}$. ✓</p>
+            <p>$I_0 = 1-e^{-1}$. $I_1 = -e^{-1}+I_0 = 1-2e^{-1}$. $I_2 = -e^{-1}+2I_1 = 2-5e^{-1}$. $I_3 = -e^{-1}+3I_2 = 6-16e^{-1}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.6.6 — Reduction for $\int \cos^n x\,dx$</h4>
+            <p>Show that the same reduction formula applies: $\int_0^{\pi/2}\cos^n x\,dx = \frac{n-1}{n}\int_0^{\pi/2}\cos^{n-2}x\,dx$. Hence find $\int_0^{\pi/2}\cos^4 x\,dx$.</p>
+            <p>By symmetry (substitute $x\mapsto\frac{\pi}{2}-x$), $\int_0^{\pi/2}\cos^n x\,dx = \int_0^{\pi/2}\sin^n x\,dx = I_n$. The same reduction formula holds.</p>
+            <p>$\int_0^{\pi/2}\cos^4 x\,dx = I_4 = \frac{3}{4}\cdot\frac{1}{2}\cdot\frac{\pi}{2} = \frac{3\pi}{16}$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>When deriving a reduction formula, the key step is recognising which function to take as $u$ and which as $dv$ in integration by parts. For $\int\sin^n x\,dx$, always split off <em>one</em> power of $\sin x$ for $dv$. After integration by parts, use the Pythagorean identity to replace $\cos^2 x$ (or $\sin^2 x$), then collect the $I_n$ terms on the left-hand side. Show all these steps clearly — they are worth method marks.</p>
+        </div>
+
+        <!-- ===================== PRACTICE ===================== -->
+        <h2 id="practice">Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>Determine whether each of the following integrals converges or diverges. For convergent integrals, find the exact value.</p>
+            <p>(a) $\displaystyle\int_1^{\infty}\frac{1}{x^3}\,dx$ &emsp; (b) $\displaystyle\int_0^{\infty}e^{-3x}\,dx$ &emsp; (c) $\displaystyle\int_1^{\infty}\frac{1}{\sqrt[3]{x}}\,dx$</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    (a) $p=3>1$, converges: $\frac{1}{p-1}=\frac{1}{2}$.<br>
+                    (b) $\int_0^R e^{-3x}\,dx = \frac{1}{3}(1-e^{-3R})\to\frac{1}{3}$. Converges to $\frac{1}{3}$.<br>
+                    (c) $p=\frac{1}{3}<1$, diverges.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>Evaluate $\displaystyle\int_0^{\infty}\frac{x}{(1+x^2)^2}\,dx$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    Let $u=1+x^2$, $du=2x\,dx$. When $x=0$, $u=1$; as $x\to\infty$, $u\to\infty$.<br>
+                    $\frac{1}{2}\int_1^{\infty}u^{-2}\,du = \frac{1}{2}\Bigl[-u^{-1}\Bigr]_1^{\infty} = \frac{1}{2}(0+1) = \frac{1}{2}$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>Find $\displaystyle\int\frac{5}{x^2+2x+10}\,dx$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    Complete the square: $x^2+2x+10=(x+1)^2+9$. With $a=3$:<br>
+                    $5\cdot\frac{1}{3}\arctan\frac{x+1}{3}+C = \frac{5}{3}\arctan\frac{x+1}{3}+C$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4</h4>
+            <p>Prove from first principles that $\dfrac{d}{dx}\text{arcsinh}\,x = \dfrac{1}{\sqrt{x^2+1}}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    Let $y=\text{arcsinh}\,x$, so $x=\sinh y$. Differentiating implicitly: $1=\cosh y\cdot\frac{dy}{dx}$, so $\frac{dy}{dx}=\frac{1}{\cosh y}$.<br>
+                    Using $\cosh^2 y-\sinh^2 y=1$: $\cosh y=\sqrt{1+\sinh^2 y}=\sqrt{1+x^2}$ (taking positive root since $\cosh>0$).<br>
+                    Therefore $\frac{d}{dx}\text{arcsinh}\,x=\frac{1}{\sqrt{x^2+1}}$. ✓
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5</h4>
+            <p>Evaluate $\displaystyle\int_0^2\frac{1}{\sqrt{x^2+4}}\,dx$, giving your answer in exact logarithmic form.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $a=2$: $\Bigl[\ln(x+\sqrt{x^2+4})\Bigr]_0^2=\ln(2+\sqrt{8})-\ln(0+\sqrt{4})=\ln(2+2\sqrt{2})-\ln 2=\ln(1+\sqrt{2})$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6</h4>
+            <p>Find the arc length of the curve $y = \cosh x$ from $x = 0$ to $x = 1$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $\frac{dy}{dx}=\sinh x$. $1+\sinh^2 x=\cosh^2 x$. $\sqrt{\cosh^2 x}=\cosh x$.<br>
+                    $L=\int_0^1\cosh x\,dx=[\sinh x]_0^1=\sinh 1=\frac{e-e^{-1}}{2}$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>Show that $\cosh 2x = 1 + 2\sinh^2 x$ and use this to evaluate $\displaystyle\int_0^{\ln 3}\sinh^2 x\,dx$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $\cosh 2x=\frac{e^{2x}+e^{-2x}}{2}$ and $1+2\sinh^2 x=1+2\cdot\frac{(e^x-e^{-x})^2}{4}=1+\frac{e^{2x}-2+e^{-2x}}{2}=\frac{e^{2x}+e^{-2x}}{2}$. ✓<br>
+                    $\int_0^{\ln 3}\sinh^2 x\,dx=\int_0^{\ln 3}\frac{\cosh 2x-1}{2}\,dx=\frac{1}{2}\Bigl[\frac{\sinh 2x}{2}-x\Bigr]_0^{\ln 3}$.<br>
+                    $\sinh(2\ln 3)=\sinh\ln 9=\frac{9-\frac{1}{9}}{2}=\frac{80}{18}=\frac{40}{9}$.<br>
+                    $=\frac{1}{2}\Bigl(\frac{40}{18}-\ln 3\Bigr)=\frac{20}{9}-\frac{\ln 3}{2}$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8</h4>
+            <p>Find the surface area of revolution when $y = \sqrt{x}$, $1\le x\le 4$, is rotated through $2\pi$ about the $x$-axis.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $\frac{dy}{dx}=\frac{1}{2\sqrt{x}}$. $1+\frac{1}{4x}=\frac{4x+1}{4x}$.<br>
+                    $S=2\pi\int_1^4\sqrt{x}\cdot\frac{\sqrt{4x+1}}{2\sqrt{x}}\,dx=\pi\int_1^4\sqrt{4x+1}\,dx$.<br>
+                    $=\pi\Bigl[\frac{(4x+1)^{3/2}}{6}\Bigr]_1^4=\frac{\pi}{6}(17^{3/2}-5^{3/2})=\frac{\pi}{6}(17\sqrt{17}-5\sqrt{5})$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 9</h4>
+            <p>Let $I_n = \int_0^{\pi/4}\tan^n x\,dx$ for $n\ge 2$. Show that $I_n + I_{n-2} = \dfrac{1}{n-1}$, and hence find $I_4$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $I_n+I_{n-2}=\int_0^{\pi/4}(\tan^n x+\tan^{n-2}x)\,dx=\int_0^{\pi/4}\tan^{n-2}x\sec^2 x\,dx$.<br>
+                    $=\Bigl[\frac{\tan^{n-1}x}{n-1}\Bigr]_0^{\pi/4}=\frac{1}{n-1}$. ✓<br>
+                    $I_2=\int_0^{\pi/4}\tan^2 x\,dx=[\tan x-x]_0^{\pi/4}=1-\frac{\pi}{4}$.<br>
+                    $I_4+I_2=\frac{1}{3}$, so $I_4=\frac{1}{3}-1+\frac{\pi}{4}=\frac{\pi}{4}-\frac{2}{3}$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 10</h4>
+            <p>Let $I_n = \int_0^1 x^n\sqrt{1-x}\,dx$. Show that $I_n = \frac{2n}{2n+3}I_{n-1}$ and hence find $I_3$ in exact form.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    Parts: $u=x^n$, $dv=\sqrt{1-x}\,dx$, so $du=nx^{n-1}\,dx$, $v=-\frac{2}{3}(1-x)^{3/2}$.<br>
+                    $I_n=\Bigl[-\frac{2x^n(1-x)^{3/2}}{3}\Bigr]_0^1+\frac{2n}{3}\int_0^1 x^{n-1}(1-x)^{3/2}\,dx$.<br>
+                    Boundary term is $0$. Now use the same technique on $\int x^{n-1}(1-x)^{3/2}$: write $(1-x)^{3/2}=(1-x)\sqrt{1-x}$ and expand:<br>
+                    $\int_0^1 x^{n-1}(1-x)^{3/2}\,dx=\int_0^1 x^{n-1}(1-x)\sqrt{1-x}\,dx=I_{n-1}-I_n$... actually use the Beta function observation or simply note:<br>
+                    $I_n=\frac{2n}{3}(I_{n-1}-I_n)$, giving $I_n(1+\frac{2n}{3})=\frac{2n}{3}I_{n-1}$, so $I_n=\frac{2n}{2n+3}I_{n-1}$. ✓<br>
+                    $I_0=\int_0^1\sqrt{1-x}\,dx=\frac{2}{3}$. $I_1=\frac{2}{5}I_0=\frac{4}{15}$. $I_2=\frac{4}{7}I_1=\frac{16}{105}$. $I_3=\frac{6}{9}I_2=\frac{2}{3}\cdot\frac{16}{105}=\frac{32}{315}$.
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <script>
+        // Figure 1: Hyperbolic functions sinh, cosh, tanh
+        (function(){
+            var elt = document.getElementById('desmos-hyperbolic');
+            var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true,
+                border: false
+            });
+            calc.setMathBounds({left: -3, right: 3, bottom: -4, top: 6});
+            calc.setExpressions([
+                {id: 'sinh', latex: 'y=\\frac{e^x-e^{-x}}{2}', color: '#3b82f6', lineWidth: 2.5},
+                {id: 'cosh', latex: 'y=\\frac{e^x+e^{-x}}{2}', color: '#22c55e', lineWidth: 2.5},
+                {id: 'tanh', latex: 'y=\\frac{e^x-e^{-x}}{e^x+e^{-x}}', color: '#ef4444', lineWidth: 2.5},
+                {id: 'a1', latex: 'y=1', color: '#ef4444', lineStyle: 'DASHED', lineWidth: 1},
+                {id: 'a2', latex: 'y=-1', color: '#ef4444', lineStyle: 'DASHED', lineWidth: 1}
+            ]);
+        })();
+
+        // Figure 2: Improper integral 1/x^2 with convergence illustration
+        (function(){
+            var elt = document.getElementById('desmos-improper');
+            var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true,
+                border: false
+            });
+            calc.setMathBounds({left: -0.2, right: 5, bottom: -0.2, top: 2});
+            calc.setExpressions([
+                {id: 'shade2', latex: '0\\le y\\le\\frac{1}{x^2}\\left\\{x\\ge1\\right\\}', color: '#3b82f6', fillOpacity: '0.25'},
+                {id: 'f2', latex: 'y=\\frac{1}{x^2}\\left\\{x\\ge1\\right\\}', color: '#3b82f6', lineWidth: 2.5},
+                {id: 'shade1', latex: '0\\le y\\le\\frac{1}{x}\\left\\{x\\ge1\\right\\}', color: '#22c55e', fillOpacity: '0.10'},
+                {id: 'f1', latex: 'y=\\frac{1}{x}\\left\\{x\\ge1\\right\\}', color: '#22c55e', lineWidth: 2, lineStyle: 'DASHED'}
+            ]);
+        })();
+    </script>
+</body>
+</html>

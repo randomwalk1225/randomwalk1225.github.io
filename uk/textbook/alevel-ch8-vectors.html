@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Mathematics – Chapter 8: Vectors | A-Level Mathematics | MathHub</title>
+    <meta name="description" content="Complete A-Level Maths Chapter 8: Vectors. Covers 2D and 3D vectors, magnitude, unit vectors, dot product, equations of lines, and distances for Edexcel, AQA and OCR.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/alevel-ch8-vectors.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/uk/textbook/alevel-ch8-vectors.html">
+    <meta property="og:title" content="A-Level Mathematics – Chapter 8: Vectors | MathHub">
+    <meta property="og:site_name" content="MathHub Global">
+    <link rel="alternate" hreflang="en-GB" href="https://mathhub.io/uk/textbook/alevel-ch8-vectors.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .year2-badge { display: inline-block; background: #e0e7ff; color: #3730a3; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/" class="active">UK</a><a href="/ca/">CA</a><a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+    <article class="blog-article">
+        <div class="breadcrumb"><a href="/uk/">UK</a> &rsaquo; <a href="/uk/a-level/">A-Level</a> &rsaquo; A-Level Maths – Chapter 8: Vectors</div>
+        <h1>A-Level Mathematics – Chapter 8: Vectors</h1>
+        <div class="blog-meta">Edexcel &middot; AQA &middot; OCR A-Level Mathematics &middot; Updated March 2026</div>
+
+        <p>Vectors provide a rigorous framework for describing quantities that have both magnitude and direction — displacements, velocities, forces, and more. In Pure Mathematics, vectors are used to describe lines and to prove geometric results elegantly. This chapter introduces vectors from first principles, extends them to three dimensions, and develops the essential techniques of the dot product and equations of lines.</p>
+
+        <div class="exam-note">
+            <h4>Specification Note</h4>
+            <p>Vectors in 2D and 3D, the scalar product, and equations of lines are required for both AS and full A-Level on most specifications. The distance-from-point-to-line technique is primarily developed at A2 depth but may appear in AS questions indirectly.</p>
+        </div>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#vectors-2d">8.1 Vectors in 2D</a></li>
+                <li><a href="#vectors-3d">8.2 Vectors in 3D</a></li>
+                <li><a href="#dot-product">8.3 Scalar (Dot) Product</a></li>
+                <li><a href="#lines">8.4 Equations of Lines</a></li>
+                <li><a href="#distances">8.5 Points, Lines and Distances</a></li>
+                <li><a href="#practice">Practice Problems</a></li>
+            </ol>
+        </nav>
+
+        <!-- 8.1 VECTORS IN 2D -->
+        <h2 id="vectors-2d">8.1 Vectors in 2D</h2>
+
+        <h3>Notation and Representation</h3>
+        <p>A vector is a quantity with both magnitude and direction. In two dimensions, vectors can be written in several equivalent ways:</p>
+        <ul>
+            <li><strong>Column vector:</strong> $\mathbf{a} = \begin{pmatrix} 3 \\ -2 \end{pmatrix}$</li>
+            <li><strong>Component form:</strong> $\mathbf{a} = 3\mathbf{i} - 2\mathbf{j}$, where $\mathbf{i} = \begin{pmatrix}1\\0\end{pmatrix}$ and $\mathbf{j} = \begin{pmatrix}0\\1\end{pmatrix}$</li>
+            <li><strong>Bold notation:</strong> $\mathbf{a}$ (in print) or $\underline{a}$ (in handwriting)</li>
+        </ul>
+
+        <div class="definition-box">
+            <h4>Key Definitions</h4>
+            <p><strong>Magnitude</strong> of $\mathbf{a} = \begin{pmatrix}a_1\\a_2\end{pmatrix}$: $|\mathbf{a}| = \sqrt{a_1^2 + a_2^2}$.</p>
+            <p><strong>Unit vector</strong> in the direction of $\mathbf{a}$: $\hat{\mathbf{a}} = \dfrac{\mathbf{a}}{|\mathbf{a}|}$, so $|\hat{\mathbf{a}}| = 1$.</p>
+            <p><strong>Position vector</strong> of point $P$ with coordinates $(x, y)$: $\overrightarrow{OP} = \begin{pmatrix}x\\y\end{pmatrix}$.</p>
+            <p><strong>Displacement vector</strong> from $A$ to $B$: $\overrightarrow{AB} = \mathbf{b} - \mathbf{a}$, where $\mathbf{a}$, $\mathbf{b}$ are the position vectors of $A$ and $B$ respectively.</p>
+        </div>
+
+        <h3>Vector Addition and Scalar Multiplication</h3>
+        <p>Vectors add component-wise: $\begin{pmatrix}a_1\\a_2\end{pmatrix} + \begin{pmatrix}b_1\\b_2\end{pmatrix} = \begin{pmatrix}a_1+b_1\\a_2+b_2\end{pmatrix}$.</p>
+        <p>Scalar multiplication scales the magnitude: $k\begin{pmatrix}a_1\\a_2\end{pmatrix} = \begin{pmatrix}ka_1\\ka_2\end{pmatrix}$. A negative $k$ reverses the direction.</p>
+        <p><strong>Parallel vectors:</strong> $\mathbf{a} \parallel \mathbf{b}$ if and only if $\mathbf{a} = k\mathbf{b}$ for some scalar $k$.</p>
+
+        <div id="desmos-vec2d" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 8.1 — Vector addition in 2D. Vectors $\mathbf{a} = \begin{pmatrix}3\\1\end{pmatrix}$ (blue) and $\mathbf{b} = \begin{pmatrix}1\\2\end{pmatrix}$ (green) combine to give $\mathbf{a}+\mathbf{b} = \begin{pmatrix}4\\3\end{pmatrix}$ (red) via the triangle law. The parallelogram construction is shown with dashed lines.</p>
+
+        <div class="example-box">
+            <h4>Example 8.1.1 — Magnitude and Unit Vector</h4>
+            <p>Given $\mathbf{v} = 3\mathbf{i} + 4\mathbf{j}$, find $|\mathbf{v}|$ and the unit vector $\hat{\mathbf{v}}$.</p>
+            <p>$|\mathbf{v}| = \sqrt{3^2 + 4^2} = \sqrt{25} = 5$.</p>
+            <p>$\hat{\mathbf{v}} = \dfrac{1}{5}\begin{pmatrix}3\\4\end{pmatrix} = \begin{pmatrix}0.6\\0.8\end{pmatrix}$. Verify: $|\hat{\mathbf{v}}| = \sqrt{0.36 + 0.64} = 1$. &#10003;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.1.2 — Displacement Vector and Midpoint</h4>
+            <p>Points $A$ and $B$ have position vectors $\mathbf{a} = \begin{pmatrix}2\\-1\end{pmatrix}$ and $\mathbf{b} = \begin{pmatrix}6\\3\end{pmatrix}$.</p>
+            <p>(a) Find $\overrightarrow{AB}$.&emsp;(b) Find the position vector of the midpoint $M$ of $AB$.</p>
+            <p>(a) $\overrightarrow{AB} = \mathbf{b} - \mathbf{a} = \begin{pmatrix}6-2\\3-(-1)\end{pmatrix} = \begin{pmatrix}4\\4\end{pmatrix}$.</p>
+            <p>(b) $\overrightarrow{OM} = \dfrac{\mathbf{a}+\mathbf{b}}{2} = \dfrac{1}{2}\begin{pmatrix}8\\2\end{pmatrix} = \begin{pmatrix}4\\1\end{pmatrix}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.1.3 — Parallel Vectors</h4>
+            <p>Show that $\mathbf{p} = \begin{pmatrix}6\\-4\end{pmatrix}$ and $\mathbf{q} = \begin{pmatrix}-9\\6\end{pmatrix}$ are parallel.</p>
+            <p>If $\mathbf{p} = k\mathbf{q}$, then $6 = -9k$ gives $k = -\frac{2}{3}$, and $-4 = 6k$ gives $k = -\frac{2}{3}$. Both components give the same $k$, so $\mathbf{p} \parallel \mathbf{q}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.1.4 — Vector Proof of a Geometric Result</h4>
+            <p>$ABCD$ is a parallelogram. $M$ is the midpoint of $AC$. Show that $M$ is also the midpoint of $BD$.</p>
+            <p>Let position vectors of $A$, $B$, $C$, $D$ be $\mathbf{a}$, $\mathbf{b}$, $\mathbf{c}$, $\mathbf{d}$. Parallelogram condition: $\overrightarrow{AB} = \overrightarrow{DC}$, so $\mathbf{b}-\mathbf{a} = \mathbf{c}-\mathbf{d}$, giving $\mathbf{b}+\mathbf{d} = \mathbf{a}+\mathbf{c}$.</p>
+            <p>Midpoint of $AC$: $\frac{\mathbf{a}+\mathbf{c}}{2}$. Midpoint of $BD$: $\frac{\mathbf{b}+\mathbf{d}}{2}$. These are equal since $\mathbf{a}+\mathbf{c} = \mathbf{b}+\mathbf{d}$. Hence $M$ is the midpoint of both diagonals.</p>
+        </div>
+
+        <!-- 8.2 VECTORS IN 3D -->
+        <h2 id="vectors-3d">8.2 Vectors in 3D</h2>
+
+        <p>All 2D vector concepts extend naturally to three dimensions by introducing a third unit vector $\mathbf{k} = \begin{pmatrix}0\\0\\1\end{pmatrix}$ along the $z$-axis. A general 3D vector is written $\mathbf{a} = a_1\mathbf{i} + a_2\mathbf{j} + a_3\mathbf{k} = \begin{pmatrix}a_1\\a_2\\a_3\end{pmatrix}$.</p>
+
+        <div class="definition-box">
+            <h4>3D Magnitude and Distance</h4>
+            <p>For $\mathbf{a} = \begin{pmatrix}a_1\\a_2\\a_3\end{pmatrix}$: $\quad|\mathbf{a}| = \sqrt{a_1^2 + a_2^2 + a_3^2}$.</p>
+            <p>Distance between points $A(x_1, y_1, z_1)$ and $B(x_2, y_2, z_2)$:</p>
+            <p>$$|AB| = |\overrightarrow{AB}| = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2 + (z_2-z_1)^2}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.2.1 — Magnitude in 3D</h4>
+            <p>Find the magnitude of $\mathbf{v} = 2\mathbf{i} - 3\mathbf{j} + 6\mathbf{k}$.</p>
+            <p>$|\mathbf{v}| = \sqrt{2^2 + (-3)^2 + 6^2} = \sqrt{4 + 9 + 36} = \sqrt{49} = 7$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.2.2 — Distance Between Two Points</h4>
+            <p>Find the distance between $A(1, 2, -3)$ and $B(4, -1, 1)$.</p>
+            <p>$\overrightarrow{AB} = \begin{pmatrix}3\\-3\\4\end{pmatrix}$, $\quad |AB| = \sqrt{9 + 9 + 16} = \sqrt{34}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.2.3 — Unit Vector in 3D</h4>
+            <p>Find the unit vector in the direction of $\mathbf{a} = \begin{pmatrix}1\\-2\\2\end{pmatrix}$.</p>
+            <p>$|\mathbf{a}| = \sqrt{1+4+4} = 3$, so $\hat{\mathbf{a}} = \dfrac{1}{3}\begin{pmatrix}1\\-2\\2\end{pmatrix} = \begin{pmatrix}1/3\\-2/3\\2/3\end{pmatrix}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.2.4 — Section Formula (Internal Division)</h4>
+            <p>$P$ divides segment $AB$ internally in the ratio $2:3$, where $A$ has position vector $\begin{pmatrix}1\\0\\4\end{pmatrix}$ and $B$ has position vector $\begin{pmatrix}6\\5\\-1\end{pmatrix}$. Find the position vector of $P$.</p>
+            <p>$\overrightarrow{OP} = \mathbf{a} + \dfrac{2}{5}\overrightarrow{AB} = \begin{pmatrix}1\\0\\4\end{pmatrix} + \dfrac{2}{5}\begin{pmatrix}5\\5\\-5\end{pmatrix} = \begin{pmatrix}1\\0\\4\end{pmatrix} + \begin{pmatrix}2\\2\\-2\end{pmatrix} = \begin{pmatrix}3\\2\\2\end{pmatrix}$.</p>
+        </div>
+
+        <!-- 8.3 SCALAR PRODUCT -->
+        <h2 id="dot-product">8.3 Scalar (Dot) Product</h2>
+
+        <p>The scalar product (also called the dot product) takes two vectors and returns a scalar. It has both an algebraic definition that is easy to compute and a geometric definition that connects directly to the angle between the vectors.</p>
+
+        <div class="theorem-box">
+            <h4>Scalar Product — Two Equivalent Definitions</h4>
+            <p><strong>Algebraic:</strong> For $\mathbf{a} = \begin{pmatrix}a_1\\a_2\\a_3\end{pmatrix}$ and $\mathbf{b} = \begin{pmatrix}b_1\\b_2\\b_3\end{pmatrix}$:</p>
+            <p>$$\mathbf{a} \cdot \mathbf{b} = a_1 b_1 + a_2 b_2 + a_3 b_3$$</p>
+            <p><strong>Geometric:</strong> $\mathbf{a} \cdot \mathbf{b} = |\mathbf{a}|\,|\mathbf{b}|\cos\theta$, where $\theta$ is the angle between the vectors ($0 \leq \theta \leq \pi$).</p>
+            <p><strong>Perpendicularity test:</strong> $\mathbf{a} \perp \mathbf{b} \iff \mathbf{a} \cdot \mathbf{b} = 0$ (for non-zero vectors).</p>
+            <p>Note: the scalar product is commutative ($\mathbf{a}\cdot\mathbf{b} = \mathbf{b}\cdot\mathbf{a}$) and distributive ($\mathbf{a}\cdot(\mathbf{b}+\mathbf{c}) = \mathbf{a}\cdot\mathbf{b} + \mathbf{a}\cdot\mathbf{c}$).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.3.1 — Computing the Scalar Product</h4>
+            <p>Find $\mathbf{a} \cdot \mathbf{b}$ where $\mathbf{a} = \begin{pmatrix}2\\-1\\3\end{pmatrix}$ and $\mathbf{b} = \begin{pmatrix}4\\5\\-2\end{pmatrix}$.</p>
+            <p>$\mathbf{a} \cdot \mathbf{b} = 2(4) + (-1)(5) + 3(-2) = 8 - 5 - 6 = -3$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.3.2 — Perpendicular Vectors</h4>
+            <p>Show that $\mathbf{p} = \begin{pmatrix}1\\2\\2\end{pmatrix}$ and $\mathbf{q} = \begin{pmatrix}2\\1\\-\frac{4}{2}\end{pmatrix} = \begin{pmatrix}2\\1\\-2\end{pmatrix}$ are perpendicular.</p>
+            <p>$\mathbf{p}\cdot\mathbf{q} = 1(2) + 2(1) + 2(-2) = 2 + 2 - 4 = 0$. Since the dot product is zero, $\mathbf{p} \perp \mathbf{q}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.3.3 — Angle Between Two Vectors</h4>
+            <p>Find the angle between $\mathbf{a} = \begin{pmatrix}3\\0\\4\end{pmatrix}$ and $\mathbf{b} = \begin{pmatrix}1\\1\\0\end{pmatrix}$, giving your answer to one decimal place.</p>
+            <p>$\mathbf{a}\cdot\mathbf{b} = 3$, $\quad |\mathbf{a}| = \sqrt{9+0+16} = 5$, $\quad |\mathbf{b}| = \sqrt{1+1+0} = \sqrt{2}$.</p>
+            <p>$\cos\theta = \dfrac{3}{5\sqrt{2}} \Rightarrow \theta = \arccos\!\left(\dfrac{3}{5\sqrt{2}}\right) \approx 64.9°$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.3.4 — Finding an Unknown Component</h4>
+            <p>$\mathbf{a} = \begin{pmatrix}k\\3\\-1\end{pmatrix}$ and $\mathbf{b} = \begin{pmatrix}2\\k\\4\end{pmatrix}$ are perpendicular. Find $k$.</p>
+            <p>$\mathbf{a}\cdot\mathbf{b} = 0 \Rightarrow 2k + 3k - 4 = 0 \Rightarrow 5k = 4 \Rightarrow k = \dfrac{4}{5}$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>When using $\cos\theta = \frac{\mathbf{a}\cdot\mathbf{b}}{|\mathbf{a}||\mathbf{b}|}$ to find the angle between two lines (not vectors), always take the acute angle: if $\cos\theta$ is negative, compute $180° - \theta$ instead. Direction vectors pointing in opposite senses represent the same line, so the angle between lines is always between $0°$ and $90°$.</p>
+        </div>
+
+        <!-- 8.4 EQUATIONS OF LINES -->
+        <h2 id="lines">8.4 Equations of Lines</h2>
+
+        <p>Any straight line in space is completely determined by a point on the line and a direction. The vector equation captures this idea directly and is far more versatile than the Cartesian form in three dimensions.</p>
+
+        <div class="definition-box">
+            <h4>Three Forms of the Equation of a Line</h4>
+            <p><strong>Vector form:</strong> $\mathbf{r} = \mathbf{a} + \lambda\mathbf{b}$, where $\mathbf{a}$ is the position vector of any point on the line, $\mathbf{b}$ is the direction vector, and $\lambda \in \mathbb{R}$ is a scalar parameter.</p>
+            <p><strong>Parametric form:</strong> $x = a_1 + \lambda b_1$,&ensp; $y = a_2 + \lambda b_2$,&ensp; $z = a_3 + \lambda b_3$.</p>
+            <p><strong>Cartesian (symmetric) form:</strong> $\dfrac{x - a_1}{b_1} = \dfrac{y - a_2}{b_2} = \dfrac{z - a_3}{b_3}$ (provided all $b_i \neq 0$).</p>
+        </div>
+
+        <div id="desmos-line" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 8.2 — The line through $A(1, 2)$ and $B(4, 4)$ in 2D. Direction vector $\overrightarrow{AB} = \begin{pmatrix}3\\2\end{pmatrix}$; vector equation $\mathbf{r} = \begin{pmatrix}1\\2\end{pmatrix} + \lambda\begin{pmatrix}3\\2\end{pmatrix}$. As $\lambda$ varies, the point traces the entire line.</p>
+
+        <div class="example-box">
+            <h4>Example 8.4.1 — Equation of a Line Through Two Points</h4>
+            <p>Find the vector equation of the line through $A(2, -1, 3)$ and $B(5, 0, 1)$.</p>
+            <p>Direction vector: $\overrightarrow{AB} = \begin{pmatrix}5-2\\0-(-1)\\1-3\end{pmatrix} = \begin{pmatrix}3\\1\\-2\end{pmatrix}$.</p>
+            <p>Vector equation: $\mathbf{r} = \begin{pmatrix}2\\-1\\3\end{pmatrix} + \lambda\begin{pmatrix}3\\1\\-2\end{pmatrix}$ (or equivalently using $B$ as the base point).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.4.2 — Converting to Cartesian Form</h4>
+            <p>Convert $\mathbf{r} = \begin{pmatrix}1\\4\\-2\end{pmatrix} + \lambda\begin{pmatrix}2\\-1\\3\end{pmatrix}$ to Cartesian form.</p>
+            <p>Parametric equations: $x = 1 + 2\lambda$, $y = 4 - \lambda$, $z = -2 + 3\lambda$. Solve each for $\lambda$:</p>
+            <p>$$\frac{x-1}{2} = \frac{y-4}{-1} = \frac{z+2}{3}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.4.3 — Parallel Lines</h4>
+            <p>Determine whether $L_1: \mathbf{r} = \begin{pmatrix}1\\2\\0\end{pmatrix} + \lambda\begin{pmatrix}2\\-1\\4\end{pmatrix}$ and $L_2: \mathbf{r} = \begin{pmatrix}0\\5\\1\end{pmatrix} + \mu\begin{pmatrix}-4\\2\\-8\end{pmatrix}$ are parallel and distinct.</p>
+            <p>$\begin{pmatrix}-4\\2\\-8\end{pmatrix} = -2\begin{pmatrix}2\\-1\\4\end{pmatrix}$, so the direction vectors are scalar multiples: $L_1 \parallel L_2$.</p>
+            <p>To confirm they are distinct, check whether $\overrightarrow{AB} = \begin{pmatrix}0-1\\5-2\\1-0\end{pmatrix} = \begin{pmatrix}-1\\3\\1\end{pmatrix}$ is a multiple of $\begin{pmatrix}2\\-1\\4\end{pmatrix}$. Ratios $-1/2$, $-3$, $1/4$ are not equal, so the lines are <strong>distinct parallel lines</strong>.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.4.4 — Angle Between Two Lines</h4>
+            <p>Find the acute angle between lines with direction vectors $\mathbf{d}_1 = \begin{pmatrix}1\\2\\-1\end{pmatrix}$ and $\mathbf{d}_2 = \begin{pmatrix}2\\0\\1\end{pmatrix}$.</p>
+            <p>$\mathbf{d}_1\cdot\mathbf{d}_2 = 2 + 0 - 1 = 1$, $\quad |\mathbf{d}_1| = \sqrt{1+4+1} = \sqrt{6}$, $\quad |\mathbf{d}_2| = \sqrt{4+0+1} = \sqrt{5}$.</p>
+            <p>$\cos\theta = \dfrac{|1|}{\sqrt{6}\cdot\sqrt{5}} = \dfrac{1}{\sqrt{30}}$ (modulus taken for acute angle). $\quad \theta = \arccos\!\left(\dfrac{1}{\sqrt{30}}\right) \approx 79.5°$.</p>
+        </div>
+
+        <!-- 8.5 POINTS, LINES AND DISTANCES -->
+        <h2 id="distances">8.5 Points, Lines and Distances</h2>
+
+        <p>This section addresses three closely related questions: whether a point lies on a given line, whether two lines intersect, and how to find the shortest distance from a point to a line.</p>
+
+        <h3>Testing Whether a Point Lies on a Line</h3>
+        <p>To test whether the point $P$ (position vector $\mathbf{p}$) lies on $\mathbf{r} = \mathbf{a} + \lambda\mathbf{b}$, write down the three component equations and check whether a single consistent value of $\lambda$ satisfies all three simultaneously.</p>
+
+        <div class="example-box">
+            <h4>Example 8.5.1 — Does a Point Lie on a Line?</h4>
+            <p>Does $P = (7, 1, -3)$ lie on the line $\mathbf{r} = \begin{pmatrix}1\\3\\1\end{pmatrix} + \lambda\begin{pmatrix}2\\-1\\-2\end{pmatrix}$?</p>
+            <p>$x$-component: $7 = 1 + 2\lambda \Rightarrow \lambda = 3$.</p>
+            <p>$y$-component: $1 = 3 + 3(-1) = 0 \neq 1$. Inconsistent. Therefore $P$ does <strong>not</strong> lie on the line.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.5.2 — Intersection of Two Lines (or Skew)</h4>
+            <p>Determine whether lines $L_1: \mathbf{r} = \begin{pmatrix}2\\1\\0\end{pmatrix}+\lambda\begin{pmatrix}1\\1\\1\end{pmatrix}$ and $L_2: \mathbf{r} = \begin{pmatrix}4\\2\\-1\end{pmatrix}+\mu\begin{pmatrix}-1\\0\\1\end{pmatrix}$ intersect.</p>
+            <p>Set equal component-by-component: $2+\lambda = 4-\mu$&nbsp;(i), $1+\lambda = 2$&nbsp;(ii), $\lambda = -1+\mu$&nbsp;(iii).</p>
+            <p>From (ii): $\lambda = 1$. From (iii): $\mu = 2$. Check (i): LHS $= 3$, RHS $= 4 - 2 = 2$. Inconsistent. The lines are <strong>skew</strong> (non-intersecting and non-parallel in 3D).</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Distance from a Point to a Line</h4>
+            <p>To find the shortest distance from point $P$ (position vector $\mathbf{p}$) to line $\mathbf{r} = \mathbf{a} + \lambda\mathbf{b}$:</p>
+            <ol>
+                <li>Write a general point $Q = \mathbf{a} + \lambda\mathbf{b}$ on the line.</li>
+                <li>Form $\overrightarrow{QP} = \mathbf{p} - \mathbf{a} - \lambda\mathbf{b}$.</li>
+                <li>Apply the perpendicularity condition $\overrightarrow{QP} \cdot \mathbf{b} = 0$ and solve for $\lambda$.</li>
+                <li>Substitute $\lambda$ back to find $Q$, then compute $|QP|$.</li>
+            </ol>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.5.3 — Distance from a Point to a Line</h4>
+            <p>Find the shortest distance from $P(5, 3, 2)$ to the line $\mathbf{r} = \begin{pmatrix}1\\1\\0\end{pmatrix} + \lambda\begin{pmatrix}2\\1\\2\end{pmatrix}$.</p>
+            <p><span class="step-label">Step 1</span> General point: $Q = (1+2\lambda,\; 1+\lambda,\; 2\lambda)$.</p>
+            <p><span class="step-label">Step 2</span> $\overrightarrow{QP} = \begin{pmatrix}4-2\lambda\\2-\lambda\\2-2\lambda\end{pmatrix}$.</p>
+            <p><span class="step-label">Step 3</span> Perpendicularity: $\overrightarrow{QP}\cdot\begin{pmatrix}2\\1\\2\end{pmatrix} = 0$:</p>
+            <p>$2(4-2\lambda) + (2-\lambda) + 2(2-2\lambda) = 8 - 4\lambda + 2 - \lambda + 4 - 4\lambda = 14 - 9\lambda = 0 \Rightarrow \lambda = \dfrac{14}{9}$.</p>
+            <p><span class="step-label">Step 4</span> $\overrightarrow{QP} = \dfrac{1}{9}\begin{pmatrix}4\cdot9 - 2\cdot14\\2\cdot9 - 14\\2\cdot9 - 2\cdot14\end{pmatrix} = \dfrac{1}{9}\begin{pmatrix}8\\4\\-10\end{pmatrix}$.</p>
+            <p>Distance $= \dfrac{1}{9}\sqrt{64 + 16 + 100} = \dfrac{\sqrt{180}}{9} = \dfrac{6\sqrt{5}}{9} = \dfrac{2\sqrt{5}}{3}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.5.4 — Foot of the Perpendicular</h4>
+            <p>Find the coordinates of the foot of the perpendicular from $A(3, 0, 5)$ to the line $\mathbf{r} = \begin{pmatrix}0\\2\\1\end{pmatrix} + \lambda\begin{pmatrix}1\\0\\2\end{pmatrix}$.</p>
+            <p>General point $F = (\lambda,\; 2,\; 1+2\lambda)$. $\overrightarrow{FA} = (3-\lambda,\; -2,\; 4-2\lambda)$.</p>
+            <p>Perpendicularity: $(3-\lambda)\cdot1 + (-2)\cdot0 + (4-2\lambda)\cdot2 = 0 \Rightarrow 3-\lambda + 8-4\lambda = 0 \Rightarrow 11 = 5\lambda \Rightarrow \lambda = \dfrac{11}{5}$.</p>
+            <p>Foot: $F = \left(\dfrac{11}{5},\; 2,\; 1 + \dfrac{22}{5}\right) = \left(\dfrac{11}{5},\; 2,\; \dfrac{27}{5}\right)$.</p>
+        </div>
+
+        <!-- PRACTICE PROBLEMS -->
+        <h2 id="practice">Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>Given $\mathbf{a} = 2\mathbf{i} - \mathbf{j} + 3\mathbf{k}$ and $\mathbf{b} = -\mathbf{i} + 4\mathbf{j} + 2\mathbf{k}$, find: (a) $|\mathbf{a}|$; (b) $2\mathbf{a} - \mathbf{b}$; (c) a unit vector in the direction of $\mathbf{a} + \mathbf{b}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    (a) $|\mathbf{a}| = \sqrt{4+1+9} = \sqrt{14}$.<br>
+                    (b) $2\mathbf{a} - \mathbf{b} = \begin{pmatrix}4-(-1)\\-2-4\\6-2\end{pmatrix} = \begin{pmatrix}5\\-6\\4\end{pmatrix}$.<br>
+                    (c) $\mathbf{a}+\mathbf{b} = \begin{pmatrix}1\\3\\5\end{pmatrix}$, $|\mathbf{a}+\mathbf{b}| = \sqrt{1+9+25} = \sqrt{35}$. Unit vector $= \dfrac{1}{\sqrt{35}}\begin{pmatrix}1\\3\\5\end{pmatrix}$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>$A$, $B$, $C$ have position vectors $\begin{pmatrix}1\\2\\-1\end{pmatrix}$, $\begin{pmatrix}3\\0\\1\end{pmatrix}$, $\begin{pmatrix}5\\-2\\3\end{pmatrix}$ respectively. Show that $A$, $B$, $C$ are collinear.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $\overrightarrow{AB} = \begin{pmatrix}2\\-2\\2\end{pmatrix}$, $\overrightarrow{BC} = \begin{pmatrix}2\\-2\\2\end{pmatrix}$.
+                    Since $\overrightarrow{BC} = \overrightarrow{AB}$ and the vectors share point $B$, the three points are collinear. (In fact $C$ is such that $\overrightarrow{AC} = 2\overrightarrow{AB}$.)
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>Find the angle between $\mathbf{a} = \begin{pmatrix}2\\1\\-2\end{pmatrix}$ and $\mathbf{b} = \begin{pmatrix}1\\-2\\2\end{pmatrix}$ to the nearest degree.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $\mathbf{a}\cdot\mathbf{b} = 2(1) + 1(-2) + (-2)(2) = 2 - 2 - 4 = -4$.<br>
+                    $|\mathbf{a}| = \sqrt{4+1+4} = 3$, $|\mathbf{b}| = \sqrt{1+4+4} = 3$.<br>
+                    $\cos\theta = \dfrac{-4}{9} \Rightarrow \theta = \arccos\!\left(-\dfrac{4}{9}\right) \approx 116°$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4</h4>
+            <p>Find the value(s) of $t$ such that $\mathbf{p} = \begin{pmatrix}t\\1\\2\end{pmatrix}$ and $\mathbf{q} = \begin{pmatrix}2\\t\\-1\end{pmatrix}$ are perpendicular.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $\mathbf{p}\cdot\mathbf{q} = 0 \Rightarrow 2t + t - 2 = 0 \Rightarrow 3t = 2 \Rightarrow t = \dfrac{2}{3}$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5</h4>
+            <p>Write the vector equation of the line through $P(3, -2, 1)$ with direction $\mathbf{d} = 2\mathbf{i} + \mathbf{j} - 3\mathbf{k}$, and express it in Cartesian form.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    Vector form: $\mathbf{r} = \begin{pmatrix}3\\-2\\1\end{pmatrix} + \lambda\begin{pmatrix}2\\1\\-3\end{pmatrix}$.<br>
+                    Cartesian form: $\dfrac{x-3}{2} = \dfrac{y+2}{1} = \dfrac{z-1}{-3}$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6</h4>
+            <p>Find the position vector of the intersection of $L_1: \mathbf{r} = \begin{pmatrix}1\\0\\2\end{pmatrix} + \lambda\begin{pmatrix}2\\1\\-1\end{pmatrix}$ and $L_2: \mathbf{r} = \begin{pmatrix}3\\2\\0\end{pmatrix} + \mu\begin{pmatrix}0\\-1\\1\end{pmatrix}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    Equate components: $1+2\lambda = 3$ &nbsp;(i); $\lambda = 2-\mu$ &nbsp;(ii); $2-\lambda = \mu$ &nbsp;(iii).<br>
+                    From (i): $\lambda = 1$. From (iii): $\mu = 1$. Check (ii): $1 = 2-1 = 1$. Consistent.<br>
+                    Intersection point: $\begin{pmatrix}1+2\\0+1\\2-1\end{pmatrix} = \begin{pmatrix}3\\1\\1\end{pmatrix}$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>Find the shortest distance from $B(4, 2, 0)$ to the line $\mathbf{r} = \lambda\begin{pmatrix}1\\1\\0\end{pmatrix}$ (passing through the origin).</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    General point $Q = (\lambda, \lambda, 0)$. $\overrightarrow{QB} = (4-\lambda,\; 2-\lambda,\; 0)$.<br>
+                    Perpendicularity: $(4-\lambda) + (2-\lambda) = 0 \Rightarrow 6 = 2\lambda \Rightarrow \lambda = 3$.<br>
+                    $\overrightarrow{QB} = \begin{pmatrix}1\\-1\\0\end{pmatrix}$. Distance $= \sqrt{1+1} = \sqrt{2}$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8</h4>
+            <p>Points $A$ and $B$ have position vectors $3\mathbf{i} + 2\mathbf{j}$ and $7\mathbf{i} - 2\mathbf{j}$ respectively. Point $C$ divides $AB$ externally in the ratio $3:1$. Find the position vector of $C$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    External division ratio $3:1$: $\overrightarrow{OC} = \dfrac{3\mathbf{b} - 1\cdot\mathbf{a}}{3-1} = \dfrac{3(7\mathbf{i}-2\mathbf{j}) - (3\mathbf{i}+2\mathbf{j})}{2} = \dfrac{(21-3)\mathbf{i} + (-6-2)\mathbf{j}}{2} = 9\mathbf{i} - 4\mathbf{j}$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 9</h4>
+            <p>Show that lines $L_1: \mathbf{r} = \begin{pmatrix}1\\2\\3\end{pmatrix} + \lambda\begin{pmatrix}1\\-1\\2\end{pmatrix}$ and $L_2: \mathbf{r} = \begin{pmatrix}2\\1\\0\end{pmatrix} + \mu\begin{pmatrix}2\\1\\1\end{pmatrix}$ are skew.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    Not parallel: $\begin{pmatrix}1\\-1\\2\end{pmatrix}$ is not a scalar multiple of $\begin{pmatrix}2\\1\\1\end{pmatrix}$ (ratios $\frac{1}{2}$, $-1$, $2$ differ).<br>
+                    Try intersection: $1+\lambda = 2+2\mu$&nbsp;(i), $2-\lambda = 1+\mu$&nbsp;(ii), $3+2\lambda = \mu$&nbsp;(iii).<br>
+                    From (ii): $\lambda = 1-\mu$. Into (iii): $3+2(1-\mu) = \mu \Rightarrow 5 = 3\mu \Rightarrow \mu = \frac{5}{3}$, $\lambda = -\frac{2}{3}$.<br>
+                    Check (i): $1 + (-\frac{2}{3}) = \frac{1}{3}$ but $2 + \frac{10}{3} = \frac{16}{3}$. Inconsistent. Lines are skew.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 10</h4>
+            <p>Vectors $\mathbf{a}$ and $\mathbf{b}$ satisfy $|\mathbf{a}| = 3$, $|\mathbf{b}| = 5$ and $\mathbf{a}\cdot\mathbf{b} = 12$. Find $|\mathbf{a} + \mathbf{b}|$ and the angle between $\mathbf{a}$ and $\mathbf{b}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $|\mathbf{a}+\mathbf{b}|^2 = |\mathbf{a}|^2 + 2(\mathbf{a}\cdot\mathbf{b}) + |\mathbf{b}|^2 = 9 + 24 + 25 = 58$. So $|\mathbf{a}+\mathbf{b}| = \sqrt{58}$.<br>
+                    $\cos\theta = \dfrac{12}{3 \times 5} = \dfrac{12}{15} = 0.8 \Rightarrow \theta = \arccos(0.8) \approx 36.9°$.
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <script>
+        // Figure 8.1 — Vector addition in 2D
+        (function() {
+            var elt = document.getElementById('desmos-vec2d');
+            var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true,
+                keypad: false
+            });
+            calc.setMathBounds({ left: -0.5, right: 5.5, bottom: -0.5, top: 4.5 });
+            calc.setExpressions([
+                // vector a from origin to (3,1)
+                { id: 'va', latex: '\\operatorname{polygon}((0,0),(3,1))', color: '#1d4ed8', lineWidth: 2.5 },
+                // vector b from origin to (1,2)
+                { id: 'vb', latex: '\\operatorname{polygon}((0,0),(1,2))', color: '#15803d', lineWidth: 2.5 },
+                // resultant a+b from origin to (4,3)
+                { id: 'vsum', latex: '\\operatorname{polygon}((0,0),(4,3))', color: '#dc2626', lineWidth: 2.5 },
+                // parallelogram completion sides (dashed)
+                { id: 'ps1', latex: '\\operatorname{polygon}((3,1),(4,3))', color: '#94a3b8', lineWidth: 1.5, lineStyle: Desmos.Styles.DASHED },
+                { id: 'ps2', latex: '\\operatorname{polygon}((1,2),(4,3))', color: '#94a3b8', lineWidth: 1.5, lineStyle: Desmos.Styles.DASHED },
+                // endpoint labels
+                { id: 'ptO', latex: '(0,0)', label: 'O', showLabel: true, pointSize: 8, color: '#1e3a5f', labelOrientation: Desmos.LabelOrientations.LEFT },
+                { id: 'ptA', latex: '(3,1)', label: '\\mathbf{a}=(3,1)', showLabel: true, pointSize: 8, color: '#1d4ed8', labelOrientation: Desmos.LabelOrientations.RIGHT },
+                { id: 'ptB', latex: '(1,2)', label: '\\mathbf{b}=(1,2)', showLabel: true, pointSize: 8, color: '#15803d', labelOrientation: Desmos.LabelOrientations.LEFT },
+                { id: 'ptS', latex: '(4,3)', label: '\\mathbf{a}+\\mathbf{b}=(4,3)', showLabel: true, pointSize: 8, color: '#dc2626', labelOrientation: Desmos.LabelOrientations.RIGHT }
+            ]);
+        })();
+
+        // Figure 8.2 — Line through A(1,2) and B(4,4) in 2D
+        (function() {
+            var elt = document.getElementById('desmos-line');
+            var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true,
+                keypad: false
+            });
+            calc.setMathBounds({ left: -1, right: 7, bottom: 0, top: 6 });
+            calc.setExpressions([
+                // the line y = (2/3)(x-1) + 2 = (2x+4)/3
+                { id: 'theline', latex: 'y = \\frac{2}{3}(x-1)+2', color: '#1d4ed8', lineWidth: 2.5 },
+                // points A and B
+                { id: 'ptA', latex: '(1,2)', color: '#dc2626', pointSize: 12, label: 'A(1, 2)', showLabel: true, labelOrientation: Desmos.LabelOrientations.LEFT },
+                { id: 'ptB', latex: '(4,4)', color: '#dc2626', pointSize: 12, label: 'B(4, 4)', showLabel: true, labelOrientation: Desmos.LabelOrientations.RIGHT },
+                // direction vector arrow from A to B
+                { id: 'dirvec', latex: '\\operatorname{polygon}((1,2),(4,4))', color: '#f59e0b', lineWidth: 2.5 }
+            ]);
+        })();
+    </script>
+</body>
+</html>

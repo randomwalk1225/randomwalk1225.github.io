@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Mathematics – Chapter 12: Mechanics | A-Level Mathematics | MathHub</title>
+    <meta name="description" content="Complete A-Level Maths Chapter 12: Mechanics. Covers kinematics, variable acceleration, Newton's laws, projectile motion, friction, and moments for Edexcel, AQA, and OCR.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/alevel-ch12-mechanics.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/uk/textbook/alevel-ch12-mechanics.html">
+    <meta property="og:title" content="A-Level Mathematics – Chapter 12: Mechanics | MathHub">
+    <meta property="og:site_name" content="MathHub Global">
+    <link rel="alternate" hreflang="en-GB" href="https://mathhub.io/uk/textbook/alevel-ch12-mechanics.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .year2-badge { display: inline-block; background: #e0e7ff; color: #3730a3; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+        .suvat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin: 16px 0; }
+        .suvat-card { background: #f0f7ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 10px 16px; text-align: center; color: #1e40af; font-size: 1.05em; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/" class="active">UK</a><a href="/ca/">CA</a><a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+    <article class="blog-article">
+        <div class="breadcrumb"><a href="/uk/">UK</a> &rsaquo; <a href="/uk/a-level/">A-Level Maths</a> &rsaquo; Chapter 12: Mechanics</div>
+        <h1>A-Level Mathematics – Chapter 12: Mechanics</h1>
+        <div class="blog-meta">Edexcel · AQA · OCR &nbsp;&middot;&nbsp; A-Level Mathematics &nbsp;&middot;&nbsp; Updated March 2026</div>
+
+        <p>Mechanics applies the tools of calculus and algebra to model the motion of objects and the forces acting upon them. This chapter covers kinematics (the description of motion), Newton's laws (the cause of motion), and extends to projectile motion, friction, and the turning effect of forces at A2 level.</p>
+
+        <div class="exam-note">
+            <h4>Specification Note</h4>
+            <p>Content labelled <span class="year2-badge">Year 2</span> is A2-level only. In all mechanics problems, take $g = 9.8\ \text{m s}^{-2}$ unless stated otherwise. Edexcel and AQA use SI units throughout.</p>
+        </div>
+
+        <div class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#s12-1">12.1 Kinematics — SUVAT Equations</a></li>
+                <li><a href="#s12-2">12.2 Variable Acceleration</a></li>
+                <li><a href="#s12-3">12.3 Newton's Laws of Motion</a></li>
+                <li><a href="#s12-4">12.4 Projectile Motion</a> <span class="year2-badge">Year 2</span></li>
+                <li><a href="#s12-5">12.5 Friction</a></li>
+                <li><a href="#s12-6">12.6 Moments</a> <span class="year2-badge">Year 2</span></li>
+                <li><a href="#s12-practice">Practice Problems</a></li>
+            </ol>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="s12-1">12.1 Kinematics — SUVAT Equations</h2>
+
+        <div class="definition-box">
+            <h4>Kinematic Quantities</h4>
+            <ul>
+                <li><strong>Displacement $s$</strong> (metres, m) — distance from a fixed reference point in a specified direction</li>
+                <li><strong>Velocity $v$</strong> (m s$^{-1}$) — rate of change of displacement; $v = \dfrac{ds}{dt}$</li>
+                <li><strong>Acceleration $a$</strong> (m s$^{-2}$) — rate of change of velocity; $a = \dfrac{dv}{dt}$</li>
+                <li><strong>Speed</strong> — magnitude of velocity (scalar, always $\ge 0$)</li>
+                <li>Displacement, velocity, and acceleration are <em>vectors</em> (they have both magnitude and direction)</li>
+            </ul>
+        </div>
+
+        <p>For motion with <strong>constant acceleration</strong>, the five SUVAT equations relate the quantities $s$, $u$ (initial velocity), $v$ (final velocity), $a$, and $t$.</p>
+
+        <div class="suvat-grid">
+            <div class="suvat-card">$v = u + at$</div>
+            <div class="suvat-card">$s = ut + \tfrac{1}{2}at^2$</div>
+            <div class="suvat-card">$s = vt - \tfrac{1}{2}at^2$</div>
+            <div class="suvat-card">$v^2 = u^2 + 2as$</div>
+            <div class="suvat-card">$s = \tfrac{1}{2}(u+v)t$</div>
+        </div>
+
+        <div id="desmos-kinematics" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 12.1 — Displacement–time graph (blue) and velocity–time graph (red) for a particle starting at rest with constant acceleration $a = 2\ \text{m s}^{-2}$. The gradient of the $s$–$t$ curve equals $v$; the gradient of the $v$–$t$ line equals $a$.</p>
+
+        <div class="example-box">
+            <h4>Example 12.1.1 — A car accelerates from rest to 30 m s$^{-1}$ in 12 s. Find (a) the acceleration and (b) the distance travelled.</h4>
+            <p>$u = 0$, $v = 30$, $t = 12$, $a = ?$, $s = ?$</p>
+            <p>(a) $v = u + at \Rightarrow 30 = 0 + 12a \Rightarrow a = 2.5\ \text{m s}^{-2}$</p>
+            <p>(b) $s = \frac{1}{2}(u+v)t = \frac{1}{2}(0+30)(12) = 180\ \text{m}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.1.2 — A ball is thrown vertically upward at 14.7 m s$^{-1}$. Find the maximum height and the time to return to the starting point.</h4>
+            <p>Take upward as positive: $u = 14.7$, $a = -9.8$, $v = 0$ at maximum height.</p>
+            <p><strong>Maximum height:</strong> $v^2 = u^2 + 2as \Rightarrow 0 = (14.7)^2 - 2(9.8)s \Rightarrow s = \dfrac{216.09}{19.6} = 11.025\ \text{m}$</p>
+            <p><strong>Return time:</strong> $s = 0$ (returns to start): $0 = 14.7t - \frac{1}{2}(9.8)t^2 \Rightarrow t(14.7 - 4.9t) = 0 \Rightarrow t = 3\ \text{s}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.1.3 — A train travelling at 50 m s$^{-1}$ decelerates uniformly to rest in 200 m. Find the deceleration.</h4>
+            <p>$u = 50$, $v = 0$, $s = 200$, $a = ?$</p>
+            <p>$v^2 = u^2 + 2as \Rightarrow 0 = 2500 + 2a(200) \Rightarrow a = \dfrac{-2500}{400} = -6.25\ \text{m s}^{-2}$</p>
+            <p>The deceleration is $6.25\ \text{m s}^{-2}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.1.4 — A particle passes a point A with velocity 3 m s$^{-1}$ and acceleration 2 m s$^{-2}$. Find the velocity and displacement when $t = 4$ s.</h4>
+            <p>$v = u + at = 3 + 2(4) = 11\ \text{m s}^{-1}$</p>
+            <p>$s = ut + \tfrac{1}{2}at^2 = 3(4) + \tfrac{1}{2}(2)(16) = 12 + 16 = 28\ \text{m}$</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Always define your positive direction clearly and be consistent. A common error is mixing signs when an object reverses direction. Write down all five quantities $s, u, v, a, t$ and identify which three are known before selecting the appropriate SUVAT equation.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="s12-2">12.2 Variable Acceleration</h2>
+
+        <p>When acceleration is not constant, SUVAT equations no longer apply. Instead, we use calculus.</p>
+
+        <div class="definition-box">
+            <h4>Calculus Relationships</h4>
+            <p>$$v = \frac{ds}{dt} \quad\Longleftrightarrow\quad s = \int v \,dt$$
+            $$a = \frac{dv}{dt} = \frac{d^2s}{dt^2} \quad\Longleftrightarrow\quad v = \int a \,dt$$
+            Distance travelled (not displacement) from $t = t_1$ to $t = t_2$ requires integrating $|v|$, splitting at any zeros of $v$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.2.1 — A particle has displacement $s = t^3 - 6t^2 + 9t$ metres. Find the velocity and acceleration at $t = 2$ s.</h4>
+            <p>$v = \dfrac{ds}{dt} = 3t^2 - 12t + 9$</p>
+            <p>At $t = 2$: $v = 3(4) - 12(2) + 9 = 12 - 24 + 9 = -3\ \text{m s}^{-1}$ (moving in negative direction)</p>
+            <p>$a = \dfrac{dv}{dt} = 6t - 12$</p>
+            <p>At $t = 2$: $a = 6(2) - 12 = 0\ \text{m s}^{-2}$ (zero acceleration at this instant)</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.2.2 — A particle starts from rest at the origin. Its acceleration is $a = 4t - 2$ m s$^{-2}$. Find $v$ and $s$ as functions of $t$.</h4>
+            <p>$v = \int (4t - 2)\,dt = 2t^2 - 2t + C$</p>
+            <p>At $t = 0$, $v = 0$: $C = 0$. So $v = 2t^2 - 2t$.</p>
+            <p>$s = \int (2t^2 - 2t)\,dt = \frac{2}{3}t^3 - t^2 + D$</p>
+            <p>At $t = 0$, $s = 0$: $D = 0$. So $s = \frac{2}{3}t^3 - t^2$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.2.3 — For Example 12.2.1, find the total distance travelled between $t = 0$ and $t = 3$ s.</h4>
+            <p>$v = 3t^2 - 12t + 9 = 3(t-1)(t-3)$. Zeros at $t = 1$ and $t = 3$.</p>
+            <p>$s(0) = 0$, $s(1) = 1 - 6 + 9 = 4$, $s(3) = 27 - 54 + 27 = 0$.</p>
+            <p>From $t=0$ to $t=1$: displacement $= +4$ m (distance $= 4$ m).</p>
+            <p>From $t=1$ to $t=3$: displacement $= 0 - 4 = -4$ m (distance $= 4$ m).</p>
+            <p>Total distance $= 4 + 4 = 8\ \text{m}$. (Net displacement $= 0$ m.)</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="s12-3">12.3 Newton's Laws of Motion</h2>
+
+        <div class="theorem-box">
+            <h4>Newton's Three Laws</h4>
+            <ul>
+                <li><strong>First Law:</strong> A body remains at rest, or continues to move with constant velocity, unless acted upon by a resultant external force.</li>
+                <li><strong>Second Law:</strong> The resultant force acting on a body equals the rate of change of momentum. For constant mass: $\mathbf{F} = m\mathbf{a}$ (resultant force in newtons = mass in kg $\times$ acceleration in m s$^{-2}$).</li>
+                <li><strong>Third Law:</strong> For every action there is an equal and opposite reaction. If body A exerts a force on body B, body B exerts an equal and opposite force on body A.</li>
+            </ul>
+        </div>
+
+        <div class="definition-box">
+            <h4>Free-Body Diagrams</h4>
+            <p>A free-body diagram (FBD) shows all forces acting on a single body as arrows from the centre of the body. Common forces include: weight $W = mg$ (downward), normal reaction $R$ (perpendicular to surface), tension $T$ (along strings/ropes), and friction $F$ (opposing motion, along surface).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.3.1 — A particle of mass 5 kg is pulled along a smooth horizontal surface by a horizontal force of 20 N. Find its acceleration.</h4>
+            <p>Applying $F = ma$ horizontally: $20 = 5 \times a \Rightarrow a = 4\ \text{m s}^{-2}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.3.2 — A box of mass 8 kg slides down a smooth inclined plane at 30° to the horizontal. Find the acceleration.</h4>
+            <p>Resolving along the plane (taking down the slope as positive):</p>
+            <p>$F_{\text{net}} = mg\sin 30° = 8 \times 9.8 \times 0.5 = 39.2\ \text{N}$</p>
+            <p>$a = \dfrac{F}{m} = \dfrac{39.2}{8} = 4.9\ \text{m s}^{-2}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.3.3 — Connected particles: two masses on an Atwood's machine.</h4>
+            <p>Masses $m_1 = 3$ kg and $m_2 = 5$ kg are connected by a light inextensible string over a smooth pulley. Find the acceleration and tension.</p>
+            <p>For $m_2$ (heavier, going down): $m_2 g - T = m_2 a \Rightarrow 5(9.8) - T = 5a$ &nbsp; (1)</p>
+            <p>For $m_1$ (lighter, going up): $T - m_1 g = m_1 a \Rightarrow T - 3(9.8) = 3a$ &nbsp; (2)</p>
+            <p>Adding (1) and (2): $(5-3)(9.8) = 8a \Rightarrow a = \dfrac{19.6}{8} = 2.45\ \text{m s}^{-2}$</p>
+            <p>From (2): $T = 3(9.8) + 3(2.45) = 29.4 + 7.35 = 36.75\ \text{N}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.3.4 — A particle of mass 4 kg is in equilibrium on a rough incline at 20° under a force $P$ parallel to the surface. Find $P$ if friction acts up the slope.</h4>
+            <p>Resolving along slope (down positive): $mg\sin 20° - P - F = 0$</p>
+            <p>Resolving perpendicular: $R = mg\cos 20°$</p>
+            <p>With given friction $F$, $P = mg\sin 20° - F = 4(9.8)\sin 20° - F \approx 13.41 - F$.</p>
+            <p>(Exact value of $F$ requires the coefficient of friction; see Section 12.5.)</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>For connected particles, write a separate equation of motion for each body. Use the same symbol for acceleration $a$ throughout (since the string is inextensible, both bodies have the same magnitude of acceleration). Tensions are internal forces and cancel when you add equations.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="s12-4">12.4 Projectile Motion <span class="year2-badge">Year 2</span></h2>
+
+        <p>A <em>projectile</em> is a particle launched with an initial velocity and moving freely under gravity alone (air resistance neglected). The horizontal and vertical motions are independent.</p>
+
+        <div class="definition-box">
+            <h4>Projectile Equations</h4>
+            <p>For a projectile launched from the origin with speed $U$ at angle $\alpha$ to the horizontal:</p>
+            <ul>
+                <li><strong>Horizontal:</strong> constant velocity $u_x = U\cos\alpha$, so $x = Ut\cos\alpha$</li>
+                <li><strong>Vertical:</strong> initial velocity $u_y = U\sin\alpha$, acceleration $-g$, so $y = Ut\sin\alpha - \tfrac{1}{2}gt^2$</li>
+                <li><strong>Time of flight:</strong> $T = \dfrac{2U\sin\alpha}{g}$ (when $y = 0$ again)</li>
+                <li><strong>Maximum height:</strong> $H = \dfrac{U^2\sin^2\!\alpha}{2g}$</li>
+                <li><strong>Horizontal range:</strong> $R = \dfrac{U^2\sin 2\alpha}{g}$ (maximum at $\alpha = 45°$)</li>
+            </ul>
+        </div>
+
+        <div id="desmos-projectile" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 12.2 — Parabolic trajectories for a projectile launched at $U = 20$ m s$^{-1}$ at angles 30° (blue), 45° (red), and 60° (green). All three land at the same range if $\alpha$ and $90° - \alpha$ are complementary.</p>
+
+        <div class="example-box">
+            <h4>Example 12.4.1 — A ball is kicked at 15 m s$^{-1}$ at 40° above the horizontal. Find the maximum height and horizontal range.</h4>
+            <p>$u_x = 15\cos 40° \approx 11.49\ \text{m s}^{-1}$; $u_y = 15\sin 40° \approx 9.64\ \text{m s}^{-1}$</p>
+            <p><strong>Maximum height:</strong> $H = \dfrac{u_y^2}{2g} = \dfrac{(9.64)^2}{2 \times 9.8} = \dfrac{92.93}{19.6} \approx 4.74\ \text{m}$</p>
+            <p><strong>Time of flight:</strong> $T = \dfrac{2 \times 9.64}{9.8} \approx 1.968\ \text{s}$</p>
+            <p><strong>Range:</strong> $R = u_x \times T = 11.49 \times 1.968 \approx 22.6\ \text{m}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.4.2 — A stone is thrown horizontally at 12 m s$^{-1}$ from the top of a cliff 45 m high. Find when it hits the ground and how far from the base of the cliff.</h4>
+            <p>Vertical (taking downward as positive, origin at launch): $y = \tfrac{1}{2}gt^2$</p>
+            <p>When $y = 45$: $45 = \tfrac{1}{2}(9.8)t^2 \Rightarrow t^2 = \dfrac{90}{9.8} \approx 9.184 \Rightarrow t \approx 3.03\ \text{s}$</p>
+            <p>Horizontal distance: $x = 12 \times 3.03 \approx 36.4\ \text{m}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.4.3 — At what angle should a particle be projected at 20 m s$^{-1}$ to achieve a range of 30 m?</h4>
+            <p>$R = \dfrac{U^2 \sin 2\alpha}{g} \Rightarrow 30 = \dfrac{400\sin 2\alpha}{9.8} \Rightarrow \sin 2\alpha = \dfrac{30 \times 9.8}{400} = 0.735$</p>
+            <p>$2\alpha = \arcsin(0.735) \approx 47.3°$ or $132.7°$, giving $\alpha \approx 23.7°$ or $66.3°$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.4.4 — Find the Cartesian equation of the trajectory for a projectile launched at speed $U$ and angle $\alpha$.</h4>
+            <p>From $x = Ut\cos\alpha$: $t = \dfrac{x}{U\cos\alpha}$. Substitute into $y = Ut\sin\alpha - \tfrac{1}{2}gt^2$:</p>
+            <p>$$y = x\tan\alpha - \frac{gx^2}{2U^2\cos^2\!\alpha}$$</p>
+            <p>This is a downward-opening parabola in $x$, confirming the characteristic trajectory shape.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="s12-5">12.5 Friction</h2>
+
+        <div class="definition-box">
+            <h4>Laws of Friction (Coulomb's Model)</h4>
+            <p>For a body resting on or sliding along a rough surface:</p>
+            <ul>
+                <li>Friction force $F$ acts parallel to the surface, opposing relative motion (or impending motion).</li>
+                <li><strong>Limiting equilibrium:</strong> $F = \mu R$ (the maximum possible friction), where $R$ is the normal reaction and $\mu$ is the <em>coefficient of friction</em> ($\mu \ge 0$).</li>
+                <li>For non-limiting cases: $F \le \mu R$ (friction takes whatever value is needed for equilibrium, up to the maximum).</li>
+                <li>When sliding (kinetic friction): $F = \mu R$ throughout the motion.</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.5.1 — A block of mass 6 kg is dragged along a rough horizontal floor by a horizontal force of 30 N at constant velocity. Find $\mu$.</h4>
+            <p>Constant velocity means zero resultant force. Resolving vertically: $R = mg = 6 \times 9.8 = 58.8\ \text{N}$.</p>
+            <p>Resolving horizontally: $30 - F = 0 \Rightarrow F = 30\ \text{N}$.</p>
+            <p>At limiting friction: $F = \mu R \Rightarrow \mu = \dfrac{30}{58.8} \approx 0.510$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.5.2 — A 10 kg block on a rough incline at 30°, with $\mu = 0.4$, is pushed up the slope by a force $P$ parallel to the surface. Find $P$.</h4>
+            <p>Resolving perpendicular to slope: $R = mg\cos 30° = 10(9.8)(0.866) = 84.87\ \text{N}$</p>
+            <p>Friction (opposing upward motion, so acts down): $F = \mu R = 0.4 \times 84.87 = 33.95\ \text{N}$</p>
+            <p>Resolving along slope (up positive): $P - mg\sin 30° - F = ma = 0$ (constant velocity assumed)</p>
+            <p>$P = 10(9.8)(0.5) + 33.95 = 49 + 33.95 = 82.95\ \text{N}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.5.3 — A particle of mass 3 kg is released from rest on a rough slope at 35°, with $\mu = 0.25$. Find the acceleration.</h4>
+            <p>$R = 3(9.8)\cos 35° = 24.10\ \text{N}$</p>
+            <p>$F = \mu R = 0.25 \times 24.10 = 6.025\ \text{N}$ (acting up the slope, opposing downward motion)</p>
+            <p>$ma = mg\sin 35° - F = 3(9.8)(0.574) - 6.025 = 16.87 - 6.025 = 10.84\ \text{N}$</p>
+            <p>$a = \dfrac{10.84}{3} \approx 3.61\ \text{m s}^{-2}$ down the slope.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.5.4 — Find the range of values of $P$ for which a 5 kg block remains in equilibrium on a rough incline at 20° ($\mu = 0.3$). Force $P$ acts parallel to the slope.</h4>
+            <p>$R = 5(9.8)\cos 20° = 46.02\ \text{N}$; $\mu R = 0.3 \times 46.02 = 13.81\ \text{N}$; $mg\sin 20° = 16.76\ \text{N}$</p>
+            <p>For equilibrium without slipping: friction must balance any surplus or deficit.</p>
+            <p><strong>Minimum $P$</strong> (block tends to slide down, friction acts up): $P + \mu R = mg\sin 20° \Rightarrow P = 16.76 - 13.81 = 2.95\ \text{N}$</p>
+            <p><strong>Maximum $P$</strong> (block tends to slide up, friction acts down): $P = mg\sin 20° + \mu R = 16.76 + 13.81 = 30.57\ \text{N}$</p>
+            <p>So $2.95 \le P \le 30.57\ \text{N}$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Always state the direction of friction before resolving. Friction opposes the direction of motion (or impending motion). When an object is in limiting equilibrium, $F = \mu R$. When it is not limiting, write $F \le \mu R$ and find $F$ from the equilibrium equations.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="s12-6">12.6 Moments <span class="year2-badge">Year 2</span></h2>
+
+        <div class="definition-box">
+            <h4>Definition — Moment of a Force</h4>
+            <p>The <em>moment</em> (or torque) of a force $F$ about a point O is:
+            $$M = F \times d$$
+            where $d$ is the <em>perpendicular</em> distance from O to the line of action of the force. Moments are measured in newton-metres (N m). A clockwise moment is conventionally negative (or labelled CW); anticlockwise is positive (ACW).</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Principle of Moments</h4>
+            <p>For a rigid body in equilibrium, the sum of all clockwise moments about any point equals the sum of all anticlockwise moments about that point. Equivalently: the sum of all moments about any point is zero.</p>
+            <p>Combined with the condition that the vector sum of all forces is also zero (translational equilibrium), these two conditions fully describe static equilibrium.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.6.1 — A uniform beam AB of length 4 m and mass 12 kg rests horizontally on supports at A and at C, where C is 1 m from B. Find the reactions at A and C.</h4>
+            <p>Weight of beam acts at the midpoint M (2 m from A). Let reactions be $R_A$ and $R_C$.</p>
+            <p><span class="step-label">Moments about A</span> (to eliminate $R_A$):</p>
+            <p>$R_C \times 3 = mg \times 2 \Rightarrow 3R_C = 12(9.8)(2) = 235.2 \Rightarrow R_C = 78.4\ \text{N}$</p>
+            <p><span class="step-label">Vertical equilibrium</span>: $R_A + R_C = mg \Rightarrow R_A = 12(9.8) - 78.4 = 117.6 - 78.4 = 39.2\ \text{N}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.6.2 — A non-uniform rod AB of length 6 m and mass 20 kg is supported at its ends. The reaction at A is 3 times the reaction at B. Find the distance of the centre of mass from A.</h4>
+            <p>Let $R_B = R$ and $R_A = 3R$. Vertical equilibrium: $3R + R = 20g \Rightarrow R = 5g\ \text{N}$.</p>
+            <p>Taking moments about A: $R_B \times 6 = mg \times d$ where $d$ is the distance of CM from A.</p>
+            <p>$5g \times 6 = 20g \times d \Rightarrow d = \dfrac{30}{20} = 1.5\ \text{m from A}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.6.3 — A ladder of mass 15 kg and length 5 m leans against a smooth vertical wall at 70° to the horizontal. The ground is rough ($\mu = 0.4$). Does the ladder slip?</h4>
+            <p>Weight acts at midpoint. Normal reaction from wall $R_W$ (horizontal, at top). Reaction from ground $R_G$ (vertical, at base). Friction $F$ at base (horizontal, away from wall).</p>
+            <p>Horizontal equilibrium: $F = R_W$. Vertical: $R_G = mg = 15(9.8) = 147\ \text{N}$.</p>
+            <p>Moments about base: $R_W \times 5\sin 70° = mg \times \frac{5}{2}\cos 70°$</p>
+            <p>$R_W = \dfrac{mg\cos 70°}{2\sin 70°} = \dfrac{147 \times 0.342}{2 \times 0.940} = \dfrac{50.27}{1.879} \approx 26.75\ \text{N}$</p>
+            <p>Max friction $= \mu R_G = 0.4 \times 147 = 58.8\ \text{N}$. Required friction $= 26.75\ \text{N} &lt; 58.8\ \text{N}$. Ladder does not slip.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 12.6.4 — A uniform plank AB of mass 8 kg and length 3 m can rotate about a hinge at A. A mass of 5 kg hangs from B. Find the force needed at C (1 m from A) perpendicular to the plank to hold it horizontal.</h4>
+            <p>Taking moments about A:</p>
+            <p>$F \times 1 = 8(9.8) \times 1.5 + 5(9.8) \times 3 = 117.6 + 147 = 264.6$</p>
+            <p>$F = 264.6\ \text{N}$</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Always take moments about a point through which an unknown force acts — this removes that unknown from the moments equation, simplifying the algebra. For uniform beams, the weight acts at the exact midpoint. For non-uniform rods, the position of the centre of mass must be found from the given information.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="s12-practice">Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>A particle starts from rest and accelerates uniformly at $3\ \text{m s}^{-2}$ for 8 s. Find the final velocity and the distance travelled.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$v = u + at = 0 + 3(8) = 24\ \text{m s}^{-1}$</p>
+                    <p>$s = ut + \frac{1}{2}at^2 = 0 + \frac{1}{2}(3)(64) = 96\ \text{m}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>A particle has velocity $v = 6t^2 - 4t\ \text{m s}^{-1}$. Find (a) the acceleration when $t = 3$ s, (b) the displacement from $t = 0$ to $t = 2$ s (starting at the origin).</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>(a) $a = \dfrac{dv}{dt} = 12t - 4$. At $t = 3$: $a = 36 - 4 = 32\ \text{m s}^{-2}$.</p>
+                    <p>(b) $s = \int_0^2 (6t^2 - 4t)\,dt = \left[2t^3 - 2t^2\right]_0^2 = 2(8) - 2(4) = 16 - 8 = 8\ \text{m}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>Two boxes of mass 4 kg and 7 kg are connected by a light string over a smooth pulley. The system is released from rest. Find the acceleration and the tension.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Heavier (7 kg) goes down: $7g - T = 7a$; lighter (4 kg) goes up: $T - 4g = 4a$.</p>
+                    <p>Adding: $3g = 11a \Rightarrow a = \dfrac{3 \times 9.8}{11} \approx 2.673\ \text{m s}^{-2}$.</p>
+                    <p>$T = 4g + 4a = 4(9.8) + 4(2.673) = 39.2 + 10.69 = 49.9\ \text{N}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4</h4>
+            <p>A ball is projected horizontally at 8 m s$^{-1}$ from a height of 20 m. Find (a) the time to hit the ground, (b) the horizontal distance travelled, (c) the speed at impact.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>(a) $20 = \frac{1}{2}(9.8)t^2 \Rightarrow t = \sqrt{\frac{40}{9.8}} \approx 2.020\ \text{s}$</p>
+                    <p>(b) $x = 8 \times 2.020 \approx 16.2\ \text{m}$</p>
+                    <p>(c) $v_x = 8\ \text{m s}^{-1}$; $v_y = gt = 9.8 \times 2.020 \approx 19.8\ \text{m s}^{-1}$; speed $= \sqrt{8^2 + 19.8^2} = \sqrt{64 + 392} \approx 21.4\ \text{m s}^{-1}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5</h4>
+            <p>A block of mass 5 kg lies on a rough horizontal surface ($\mu = 0.35$). A horizontal force of 25 N is applied. Find (a) whether the block moves, (b) if it does move, its acceleration.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$R = mg = 5(9.8) = 49\ \text{N}$; maximum static friction $= \mu R = 0.35 \times 49 = 17.15\ \text{N}$.</p>
+                    <p>(a) Applied force 25 N $>$ 17.15 N, so the block moves.</p>
+                    <p>(b) Kinetic friction $= 17.15\ \text{N}$; $F_{\text{net}} = 25 - 17.15 = 7.85\ \text{N}$; $a = \dfrac{7.85}{5} = 1.57\ \text{m s}^{-2}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6</h4>
+            <p>A uniform beam of mass 24 kg and length 8 m is supported at both ends. A load of 40 kg is placed 3 m from the left end. Find the reactions at each end.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Weight of beam: $24g$ at 4 m from left. Load: $40g$ at 3 m from left.</p>
+                    <p>Moments about left end: $R_R \times 8 = 24g \times 4 + 40g \times 3 = 96g + 120g = 216g$. $R_R = 27g = 264.6\ \text{N}$.</p>
+                    <p>$R_L = (24 + 40)g - R_R = 64g - 27g = 37g = 362.6\ \text{N}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>A projectile is launched at $25\ \text{m s}^{-1}$ at $30°$ above the horizontal. Find (a) the time of flight, (b) the maximum height, (c) the horizontal range.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$u_x = 25\cos 30° = 21.65\ \text{m s}^{-1}$; $u_y = 25\sin 30° = 12.5\ \text{m s}^{-1}$</p>
+                    <p>(a) $T = \dfrac{2u_y}{g} = \dfrac{2 \times 12.5}{9.8} \approx 2.551\ \text{s}$</p>
+                    <p>(b) $H = \dfrac{u_y^2}{2g} = \dfrac{156.25}{19.6} \approx 7.97\ \text{m}$</p>
+                    <p>(c) $R = u_x \times T = 21.65 \times 2.551 \approx 55.2\ \text{m}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8</h4>
+            <p>A particle of mass 2 kg is on a rough incline at 25° ($\mu = 0.3$). A force $P$ acts up the slope. Find the value of $P$ for the particle to move up with acceleration $1.5\ \text{m s}^{-2}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$R = 2(9.8)\cos 25° = 17.76\ \text{N}$; $F = \mu R = 0.3 \times 17.76 = 5.33\ \text{N}$ (down slope, opposing upward motion).</p>
+                    <p>$P - mg\sin 25° - F = ma$</p>
+                    <p>$P = 2(9.8)\sin 25° + 5.33 + 2(1.5) = 8.285 + 5.33 + 3 = 16.6\ \text{N}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 9</h4>
+            <p>A particle has displacement $s = 2t^3 - 9t^2 + 12t$ metres (from a fixed origin). Find (a) the times when the particle is at rest, (b) the total distance travelled in the first 3 s.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$v = 6t^2 - 18t + 12 = 6(t-1)(t-2)$. Rest at $t = 1$ s and $t = 2$ s.</p>
+                    <p>$s(0) = 0$; $s(1) = 2 - 9 + 12 = 5$; $s(2) = 16 - 36 + 24 = 4$; $s(3) = 54 - 81 + 36 = 9$.</p>
+                    <p>Distances: 0 to 1: $|5-0| = 5$; 1 to 2: $|4-5| = 1$; 2 to 3: $|9-4| = 5$. Total $= 11\ \text{m}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 10</h4>
+            <p>A non-uniform rod AB of length 5 m and mass 10 kg is supported by strings at A and B. The tension at A is twice the tension at B. Find the distance of the centre of mass from A.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Let $T_B = T$, $T_A = 2T$. Vertical equilibrium: $3T = 10g \Rightarrow T = \dfrac{10g}{3}\ \text{N}$.</p>
+                    <p>Moments about A: $T_B \times 5 = mg \times d$ where $d$ is distance of CM from A.</p>
+                    <p>$\dfrac{10g}{3} \times 5 = 10g \times d \Rightarrow d = \dfrac{50}{30} = \dfrac{5}{3} \approx 1.67\ \text{m from A}$.</p>
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <script>
+    // Figure 12.1 — Displacement-time and velocity-time graphs for a=2
+    (function() {
+        var elt = document.getElementById('desmos-kinematics');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true
+        });
+        calc.setMathBounds({ left: -0.5, right: 6, bottom: -5, top: 40 });
+        calc.setExpressions([
+            { id: 'st', latex: 'y = t^2', color: '#3b82f6', lineWidth: 2.5 },
+            { id: 'vt', latex: 'y = 2t', color: '#ef4444', lineWidth: 2 }
+        ]);
+    })();
+
+    // Figure 12.2 — Projectile trajectories at 30, 45, 60 degrees, U=20
+    (function() {
+        var elt = document.getElementById('desmos-projectile');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true
+        });
+        calc.setMathBounds({ left: -2, right: 44, bottom: -2, top: 14 });
+        // Trajectory equation: y = x tan(a) - g x^2 / (2 U^2 cos^2(a)), U=20, g=9.8
+        // 30 deg: tan=0.5774, cos^2=0.75, coeff = 9.8/(2*400*0.75)=9.8/600=0.01633
+        calc.setExpressions([
+            { id: 't30', latex: 'y = 0.5774x - 0.01633x^2 \\left\\{y \\ge 0\\right\\}', color: '#3b82f6', lineWidth: 2 },
+            // 45 deg: tan=1, cos^2=0.5, coeff=9.8/400=0.0245
+            { id: 't45', latex: 'y = x - 0.0245x^2 \\left\\{y \\ge 0\\right\\}', color: '#ef4444', lineWidth: 2 },
+            // 60 deg: tan=1.7321, cos^2=0.25, coeff=9.8/(2*400*0.25)=0.049
+            { id: 't60', latex: 'y = 1.7321x - 0.049x^2 \\left\\{y \\ge 0\\right\\}', color: '#22c55e', lineWidth: 2 }
+        ]);
+    })();
+    </script>
+</body>
+</html>

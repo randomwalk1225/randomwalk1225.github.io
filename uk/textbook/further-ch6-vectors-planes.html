@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Further Mathematics – Chapter 6: Further Vectors and Planes | Further Mathematics | MathHub</title>
+    <meta name="description" content="A-Level Further Mathematics Chapter 6: Further Vectors and Planes. Covers the vector product, equations of planes, converting between forms, angles and distances, intersections of lines and planes, and geometric proofs.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/further-ch6-vectors-planes.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .further-badge { display: inline-block; background: #fce7f3; color: #9d174d; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+        .formula-card { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 16px 20px; margin: 14px 0; }
+        .formula-card strong { color: #1e3a5f; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/" class="active">UK</a><a href="/ca/">CA</a><a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+    <article class="blog-article">
+        <div class="breadcrumb"><a href="/uk/">UK</a> › <a href="/uk/a-level/">A-Level Further Maths</a> › Chapter 6: Further Vectors and Planes</div>
+        <h1>A-Level Further Mathematics – Chapter 6: Further Vectors and Planes <span class="further-badge">Further Pure</span></h1>
+        <div class="blog-meta">Edexcel · AQA · OCR A-Level Further Mathematics &middot; Updated March 2026</div>
+
+        <div class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#s61">6.1 Vector Product (Cross Product)</a></li>
+                <li><a href="#s62">6.2 Equations of a Plane</a></li>
+                <li><a href="#s63">6.3 Converting Between Forms</a></li>
+                <li><a href="#s64">6.4 Angles and Distances</a></li>
+                <li><a href="#s65">6.5 Intersection of Lines and Planes</a></li>
+                <li><a href="#s66">6.6 Geometric Proofs with Vectors</a></li>
+                <li><a href="#practice">Practice Problems</a></li>
+            </ol>
+        </div>
+
+        <p>This chapter extends the vector geometry of A-Level Mathematics to three dimensions, introducing the powerful vector product and the full theory of planes. The geometric intuition built here — thinking in terms of normal vectors, perpendicular distances, and parametric descriptions — underpins large areas of further mathematics and mathematical physics.</p>
+
+        <!-- ==================== SECTION 6.1 ==================== -->
+        <h2 id="s61">6.1 Vector Product (Cross Product)</h2>
+
+        <div class="definition-box">
+            <h4>Definition: Vector Product</h4>
+            <p>The <strong>vector product</strong> (or <strong>cross product</strong>) of two vectors $\mathbf{a}$ and $\mathbf{b}$ in $\mathbb{R}^3$ is the vector:</p>
+            $$\mathbf{a} \times \mathbf{b} = |\mathbf{a}||\mathbf{b}|\sin\theta\,\hat{\mathbf{n}}$$
+            <p>where $\theta$ is the angle between $\mathbf{a}$ and $\mathbf{b}$ ($0 \leq \theta \leq \pi$) and $\hat{\mathbf{n}}$ is the unit vector perpendicular to both $\mathbf{a}$ and $\mathbf{b}$ in the direction given by the <strong>right-hand rule</strong>.</p>
+            <p>In component form, if $\mathbf{a} = \begin{pmatrix}a_1\\a_2\\a_3\end{pmatrix}$ and $\mathbf{b} = \begin{pmatrix}b_1\\b_2\\b_3\end{pmatrix}$:</p>
+            $$\mathbf{a} \times \mathbf{b} = \begin{pmatrix}a_2 b_3 - a_3 b_2 \\ a_3 b_1 - a_1 b_3 \\ a_1 b_2 - a_2 b_1\end{pmatrix}$$
+        </div>
+
+        <p>Key properties of the vector product:</p>
+        <ul>
+            <li><strong>Anti-commutativity:</strong> $\mathbf{a} \times \mathbf{b} = -(\mathbf{b} \times \mathbf{a})$</li>
+            <li><strong>Parallel vectors:</strong> $\mathbf{a} \times \mathbf{b} = \mathbf{0}$ if and only if $\mathbf{a}$ and $\mathbf{b}$ are parallel (including $\mathbf{a} = \mathbf{0}$ or $\mathbf{b} = \mathbf{0}$)</li>
+            <li><strong>Area of parallelogram:</strong> $|\mathbf{a} \times \mathbf{b}| = |\mathbf{a}||\mathbf{b}|\sin\theta$ = area of parallelogram with sides $\mathbf{a}$ and $\mathbf{b}$</li>
+            <li><strong>Area of triangle:</strong> $\frac{1}{2}|\mathbf{a} \times \mathbf{b}|$</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Example 6.1.1 — Computing a vector product</h4>
+            <p>Find $\mathbf{a} \times \mathbf{b}$ where $\mathbf{a} = \begin{pmatrix}2\\1\\3\end{pmatrix}$ and $\mathbf{b} = \begin{pmatrix}1\\0\\-1\end{pmatrix}$.</p>
+            $$\mathbf{a} \times \mathbf{b} = \begin{pmatrix}(1)(-1) - (3)(0) \\ (3)(1) - (2)(-1) \\ (2)(0) - (1)(1)\end{pmatrix} = \begin{pmatrix}-1 - 0 \\ 3 + 2 \\ 0 - 1\end{pmatrix} = \begin{pmatrix}-1 \\ 5 \\ -1\end{pmatrix}$$
+            <p>Verify perpendicularity: $\mathbf{a} \cdot (\mathbf{a} \times \mathbf{b}) = 2(-1) + 1(5) + 3(-1) = -2+5-3 = 0$. &#10003; &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.1.2 — Area of a triangle using the vector product</h4>
+            <p>Find the area of the triangle with vertices $A(1,0,2)$, $B(3,1,0)$, $C(2,-1,1)$.</p>
+            <p>$\overrightarrow{AB} = \begin{pmatrix}2\\1\\-2\end{pmatrix}$, $\overrightarrow{AC} = \begin{pmatrix}1\\-1\\-1\end{pmatrix}$.</p>
+            $$\overrightarrow{AB} \times \overrightarrow{AC} = \begin{pmatrix}(1)(-1)-(-2)(-1) \\ (-2)(1)-(2)(-1) \\ (2)(-1)-(1)(1)\end{pmatrix} = \begin{pmatrix}-1-2 \\ -2+2 \\ -2-1\end{pmatrix} = \begin{pmatrix}-3\\0\\-3\end{pmatrix}$$
+            $$\text{Area} = \tfrac{1}{2}|\overrightarrow{AB} \times \overrightarrow{AC}| = \tfrac{1}{2}\sqrt{9+0+9} = \tfrac{1}{2}\sqrt{18} = \tfrac{3\sqrt{2}}{2}$$
+            <p>&#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.1.3 — Testing for parallel vectors</h4>
+            <p>Determine whether $\mathbf{p} = \begin{pmatrix}2\\-4\\6\end{pmatrix}$ and $\mathbf{q} = \begin{pmatrix}-1\\2\\-3\end{pmatrix}$ are parallel.</p>
+            <p>$\mathbf{q} = -\frac{1}{2}\mathbf{p}$, so they are parallel. We can confirm: $\mathbf{p} \times \mathbf{q} = \begin{pmatrix}(-4)(-3)-(6)(2)\\(6)(-1)-(2)(-3)\\(2)(2)-(-4)(-1)\end{pmatrix} = \begin{pmatrix}12-12\\-6+6\\4-4\end{pmatrix} = \begin{pmatrix}0\\0\\0\end{pmatrix}$. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.1.4 — Anti-commutativity</h4>
+            <p>Using $\mathbf{a} = \begin{pmatrix}2\\1\\3\end{pmatrix}$ and $\mathbf{b} = \begin{pmatrix}1\\0\\-1\end{pmatrix}$ from Example 6.1.1:</p>
+            $$\mathbf{b} \times \mathbf{a} = \begin{pmatrix}(0)(3)-(−1)(1)\\(−1)(2)−(1)(3)\\(1)(1)−(0)(2)\end{pmatrix} = \begin{pmatrix}1\\-5\\1\end{pmatrix} = -(\mathbf{a} \times \mathbf{b})$$
+            <p>This confirms $\mathbf{b} \times \mathbf{a} = -(\mathbf{a} \times \mathbf{b})$. The direction of the cross product depends on the order of the factors. &#9646;</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip — The Determinant Mnemonic</h4>
+            <p>The component formula is best remembered as the expansion of a $3\times3$ determinant along the first row:</p>
+            $$\mathbf{a} \times \mathbf{b} = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\a_1&a_2&a_3\\b_1&b_2&b_3\end{vmatrix}$$
+            <p>Expand: $\mathbf{i}(a_2b_3 - a_3b_2) - \mathbf{j}(a_1b_3 - a_3b_1) + \mathbf{k}(a_1b_2 - a_2b_1)$. Note the minus sign on the $\mathbf{j}$ component.</p>
+        </div>
+
+        <!-- ==================== SECTION 6.2 ==================== -->
+        <h2 id="s62">6.2 Equations of a Plane</h2>
+
+        <p>A plane in $\mathbb{R}^3$ is determined by a point on it and a direction perpendicular to it (the <strong>normal vector</strong>), or equivalently by a point and two non-parallel direction vectors lying in the plane.</p>
+
+        <div class="definition-box">
+            <h4>Three Forms of the Equation of a Plane</h4>
+            <p><strong>1. Vector form:</strong> $\mathbf{r} = \mathbf{a} + s\mathbf{b} + t\mathbf{c}$, where $\mathbf{a}$ is a position vector of a point on the plane and $\mathbf{b}$, $\mathbf{c}$ are non-parallel direction vectors in the plane. $s, t \in \mathbb{R}$.</p>
+            <p><strong>2. Scalar product form (normal form):</strong> $\mathbf{r} \cdot \mathbf{n} = d$, where $\mathbf{n}$ is a normal vector and $d = \mathbf{a} \cdot \mathbf{n}$ for any point $\mathbf{a}$ on the plane.</p>
+            <p><strong>3. Cartesian form:</strong> $ax + by + cz = d$, where $\mathbf{n} = \begin{pmatrix}a\\b\\c\end{pmatrix}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.2.1 — Writing the normal form from a point and normal</h4>
+            <p>Find the equation of the plane with normal $\mathbf{n} = \begin{pmatrix}2\\1\\-1\end{pmatrix}$ passing through the point $A(3, 0, 1)$.</p>
+            <p>$d = \mathbf{a} \cdot \mathbf{n} = (3)(2) + (0)(1) + (1)(-1) = 6 - 1 = 5$.</p>
+            <p><strong>Scalar product form:</strong> $\mathbf{r} \cdot \begin{pmatrix}2\\1\\-1\end{pmatrix} = 5$.</p>
+            <p><strong>Cartesian form:</strong> $2x + y - z = 5$. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.2.2 — Writing the vector form</h4>
+            <p>A plane contains the points $P(1,0,0)$, $Q(0,2,0)$, $R(0,0,3)$. Write the vector equation of the plane.</p>
+            <p>$\overrightarrow{PQ} = \begin{pmatrix}-1\\2\\0\end{pmatrix}$, $\overrightarrow{PR} = \begin{pmatrix}-1\\0\\3\end{pmatrix}$.</p>
+            <p>$\mathbf{r} = \begin{pmatrix}1\\0\\0\end{pmatrix} + s\begin{pmatrix}-1\\2\\0\end{pmatrix} + t\begin{pmatrix}-1\\0\\3\end{pmatrix}$, $s, t \in \mathbb{R}$. &#9646;</p>
+        </div>
+
+        <div id="desmos1" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 6.1 — A 2D cross-section view of the plane $2x + y - z = 5$. The normal vector $\mathbf{n} = (2, 1, -1)$ is indicated. The plane passes through $(3,0,1)$, $(0,5,0)$, and $(2.5,0,0)$ in various coordinate planes.</p>
+
+        <!-- ==================== SECTION 6.3 ==================== -->
+        <h2 id="s63">6.3 Converting Between Forms</h2>
+
+        <p>The conversion between vector form and Cartesian form uses the cross product to find the normal from two direction vectors, then the normal form and finally the Cartesian form.</p>
+
+        <div class="example-box">
+            <h4>Example 6.3.1 — Vector form to Cartesian form</h4>
+            <p>Convert $\mathbf{r} = \begin{pmatrix}1\\0\\0\end{pmatrix} + s\begin{pmatrix}-1\\2\\0\end{pmatrix} + t\begin{pmatrix}-1\\0\\3\end{pmatrix}$ to Cartesian form.</p>
+            <p><span class="step-label">Step 1</span> Find the normal $\mathbf{n} = \mathbf{b} \times \mathbf{c}$:</p>
+            $$\mathbf{n} = \begin{pmatrix}-1\\2\\0\end{pmatrix} \times \begin{pmatrix}-1\\0\\3\end{pmatrix} = \begin{pmatrix}(2)(3)-(0)(0)\\(0)(-1)-(-1)(3)\\(-1)(0)-(2)(-1)\end{pmatrix} = \begin{pmatrix}6\\3\\2\end{pmatrix}$$
+            <p><span class="step-label">Step 2</span> Find $d = \mathbf{a} \cdot \mathbf{n} = (1)(6) + (0)(3) + (0)(2) = 6$.</p>
+            <p><span class="step-label">Step 3</span> Cartesian form: $6x + 3y + 2z = 6$. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.3.2 — Cartesian form to vector form</h4>
+            <p>Write $3x - y + 2z = 7$ in vector form.</p>
+            <p><span class="step-label">Step 1</span> Find a point on the plane by setting two variables to zero. $y = z = 0$: $3x = 7$, $x = 7/3$. Point: $\mathbf{a} = \begin{pmatrix}7/3\\0\\0\end{pmatrix}$.</p>
+            <p><span class="step-label">Step 2</span> Find two direction vectors lying in the plane. Any vector $\mathbf{b}$ satisfying $\mathbf{n} \cdot \mathbf{b} = 0$, i.e., $3b_1 - b_2 + 2b_3 = 0$.</p>
+            <p>Choose $b_3 = 0$: $\mathbf{b} = \begin{pmatrix}1\\3\\0\end{pmatrix}$. Choose $b_1 = 0$: $\mathbf{c} = \begin{pmatrix}0\\2\\1\end{pmatrix}$.</p>
+            <p>$\mathbf{r} = \begin{pmatrix}7/3\\0\\0\end{pmatrix} + s\begin{pmatrix}1\\3\\0\end{pmatrix} + t\begin{pmatrix}0\\2\\1\end{pmatrix}$. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.3.3 — Normal from three points</h4>
+            <p>Find the Cartesian equation of the plane through $A(2,1,0)$, $B(1,0,3)$, $C(0,2,1)$.</p>
+            <p>$\overrightarrow{AB} = \begin{pmatrix}-1\\-1\\3\end{pmatrix}$, $\overrightarrow{AC} = \begin{pmatrix}-2\\1\\1\end{pmatrix}$.</p>
+            $$\mathbf{n} = \overrightarrow{AB} \times \overrightarrow{AC} = \begin{pmatrix}(-1)(1)-(3)(1)\\(3)(-2)-(-1)(1)\\(-1)(1)-(-1)(-2)\end{pmatrix} = \begin{pmatrix}-4\\-5\\-3\end{pmatrix}$$
+            <p>Use point $A$: $d = (-4)(2) + (-5)(1) + (-3)(0) = -13$. So $-4x - 5y - 3z = -13$, i.e., $4x + 5y + 3z = 13$. &#9646;</p>
+        </div>
+
+        <!-- ==================== SECTION 6.4 ==================== -->
+        <h2 id="s64">6.4 Angles and Distances</h2>
+
+        <div class="formula-card">
+            <strong>Key Formulae for Angles and Distances</strong>
+            <ul style="margin-top: 10px;">
+                <li><strong>Angle between two planes</strong> with normals $\mathbf{n}_1$ and $\mathbf{n}_2$: $\cos\theta = \dfrac{|\mathbf{n}_1 \cdot \mathbf{n}_2|}{|\mathbf{n}_1||\mathbf{n}_2|}$</li>
+                <li><strong>Angle between a line</strong> (direction $\mathbf{d}$) <strong>and a plane</strong> (normal $\mathbf{n}$): $\sin\phi = \dfrac{|\mathbf{d} \cdot \mathbf{n}|}{|\mathbf{d}||\mathbf{n}|}$</li>
+                <li><strong>Distance from point $P$ to plane</strong> $\mathbf{r} \cdot \mathbf{n} = d$ (with $|\mathbf{n}| = 1$): $\text{dist} = |\mathbf{p} \cdot \mathbf{n} - d|$</li>
+                <li><strong>Distance from point $P(\mathbf{p})$ to plane</strong> $ax+by+cz = d$: $\text{dist} = \dfrac{|ap_1 + bp_2 + cp_3 - d|}{\sqrt{a^2+b^2+c^2}}$</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.4.1 — Angle between two planes</h4>
+            <p>Find the acute angle between the planes $2x + y - 2z = 3$ and $x - 2y + 2z = 1$.</p>
+            <p>$\mathbf{n}_1 = \begin{pmatrix}2\\1\\-2\end{pmatrix}$, $|\mathbf{n}_1| = 3$; $\mathbf{n}_2 = \begin{pmatrix}1\\-2\\2\end{pmatrix}$, $|\mathbf{n}_2| = 3$.</p>
+            $$\cos\theta = \frac{|\mathbf{n}_1 \cdot \mathbf{n}_2|}{|\mathbf{n}_1||\mathbf{n}_2|} = \frac{|2 - 2 - 4|}{9} = \frac{4}{9}$$
+            <p>$\theta = \arccos\!\left(\frac{4}{9}\right) \approx 63.6°$. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.4.2 — Distance from a point to a plane</h4>
+            <p>Find the perpendicular distance from $P(4, 1, -2)$ to the plane $2x + y - z = 5$.</p>
+            $$\text{dist} = \frac{|2(4) + 1(1) - 1(-2) - 5|}{\sqrt{4 + 1 + 1}} = \frac{|8 + 1 + 2 - 5|}{\sqrt{6}} = \frac{6}{\sqrt{6}} = \sqrt{6}$$
+            <p>&#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.4.3 — Angle between a line and a plane</h4>
+            <p>Find the angle between the line $\mathbf{r} = \begin{pmatrix}1\\2\\0\end{pmatrix} + t\begin{pmatrix}1\\1\\2\end{pmatrix}$ and the plane $x + 2y - z = 4$.</p>
+            <p>$\mathbf{d} = \begin{pmatrix}1\\1\\2\end{pmatrix}$, $|\mathbf{d}| = \sqrt{6}$; $\mathbf{n} = \begin{pmatrix}1\\2\\-1\end{pmatrix}$, $|\mathbf{n}| = \sqrt{6}$.</p>
+            $$\sin\phi = \frac{|\mathbf{d} \cdot \mathbf{n}|}{|\mathbf{d}||\mathbf{n}|} = \frac{|1 + 2 - 2|}{\sqrt{6}\cdot\sqrt{6}} = \frac{1}{6}$$
+            <p>$\phi = \arcsin\!\left(\frac{1}{6}\right) \approx 9.6°$. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.4.4 — Distance between parallel planes</h4>
+            <p>Find the distance between the parallel planes $3x + 4z = 10$ and $3x + 4z = -15$.</p>
+            <p>Pick any point on the first plane, e.g., $P(10/3, 0, 0)$. Find its distance to the second plane:</p>
+            $$\text{dist} = \frac{|3(10/3) + 4(0) - (-15)|}{\sqrt{9 + 16}} = \frac{|10 + 15|}{5} = \frac{25}{5} = 5$$
+            <p>&#9646;</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip — Angle Between Line and Plane vs Two Lines</h4>
+            <p>The angle between two lines uses $\cos\theta = |\mathbf{d}_1 \cdot \mathbf{d}_2|/(|\mathbf{d}_1||\mathbf{d}_2|)$. The angle between a line and a plane uses $\sin\phi$ (because the angle is measured from the plane, not from the normal). Do not mix these up — this is one of the most common errors in vector geometry questions.</p>
+        </div>
+
+        <!-- ==================== SECTION 6.5 ==================== -->
+        <h2 id="s65">6.5 Intersection of Lines and Planes</h2>
+
+        <p>There are three cases to consider: a line meeting a plane, two planes meeting in a line, and three planes meeting at a point, a line, or not at all.</p>
+
+        <div class="example-box">
+            <h4>Example 6.5.1 — Line meets a plane (unique intersection)</h4>
+            <p>Find where the line $\mathbf{r} = \begin{pmatrix}1\\2\\1\end{pmatrix} + t\begin{pmatrix}2\\-1\\3\end{pmatrix}$ meets the plane $x + 2y - z = 7$.</p>
+            <p><span class="step-label">Step 1</span> Substitute the parametric form into the plane equation:</p>
+            $$(1+2t) + 2(2-t) - (1+3t) = 7$$
+            $$1 + 2t + 4 - 2t - 1 - 3t = 7 \implies 4 - 3t = 7 \implies t = -1$$
+            <p><span class="step-label">Step 2</span> Find the point: $\mathbf{r} = \begin{pmatrix}1\\2\\1\end{pmatrix} + (-1)\begin{pmatrix}2\\-1\\3\end{pmatrix} = \begin{pmatrix}-1\\3\\-2\end{pmatrix}$.</p>
+            <p>Check: $(-1) + 2(3) - (-2) = -1 + 6 + 2 = 7$. &#10003; &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.5.2 — Line parallel to (or within) a plane</h4>
+            <p>Determine whether the line $\mathbf{r} = \begin{pmatrix}0\\1\\0\end{pmatrix} + t\begin{pmatrix}1\\0\\1\end{pmatrix}$ is parallel to, or lies in, the plane $x - z = 2$.</p>
+            <p>Check if the direction vector is perpendicular to $\mathbf{n} = \begin{pmatrix}1\\0\\-1\end{pmatrix}$:</p>
+            <p>$\mathbf{d} \cdot \mathbf{n} = 1(1) + 0(0) + 1(-1) = 0$. So the line is parallel to (or within) the plane.</p>
+            <p>Check if the base point $(0,1,0)$ satisfies the plane: $0 - 0 = 0 \neq 2$. So the line is parallel to the plane and does not lie in it. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.5.3 — Intersection of two planes (a line)</h4>
+            <p>Find the line of intersection of the planes $\Pi_1: x + y + z = 6$ and $\Pi_2: 2x - y + z = 3$.</p>
+            <p><span class="step-label">Step 1</span> Direction vector of the intersection line: $\mathbf{d} = \mathbf{n}_1 \times \mathbf{n}_2$.</p>
+            $$\mathbf{d} = \begin{pmatrix}1\\1\\1\end{pmatrix} \times \begin{pmatrix}2\\-1\\1\end{pmatrix} = \begin{pmatrix}(1)(1)-(1)(-1)\\(1)(2)-(1)(1)\\(1)(-1)-(1)(2)\end{pmatrix} = \begin{pmatrix}2\\1\\-3\end{pmatrix}$$
+            <p><span class="step-label">Step 2</span> Find a point on both planes. Set $z = 0$: $x + y = 6$ and $2x - y = 3$. Adding: $3x = 9$, $x = 3$, $y = 3$.</p>
+            <p>Line: $\mathbf{r} = \begin{pmatrix}3\\3\\0\end{pmatrix} + t\begin{pmatrix}2\\1\\-3\end{pmatrix}$. &#9646;</p>
+        </div>
+
+        <div id="desmos2" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 6.2 — The intersection of two planes projected onto the $xy$-plane. The red line shows the $xy$-trace of $\Pi_1: x+y+z=6$ (setting $z=0$: $x+y=6$) and the blue line the trace of $\Pi_2: 2x-y+z=3$ (setting $z=0$: $2x-y=3$). Their intersection at $(3,3)$ is the base point of the intersection line.</p>
+
+        <div class="example-box">
+            <h4>Example 6.5.4 — Three planes: unique point</h4>
+            <p>Find the point common to the three planes $x+y+z=6$, $x-y+2z=5$, $2x+y-z=1$.</p>
+            <p>Solve the system. Adding equations 1 and 2: $2x + 3z = 11$. Equations 1 and 3: $3x + 2y = 7$. From eq 1 and 2 again, subtract: $2y - z = 1$, so $z = 2y - 1$. Substitute into $2x + 3z = 11$: $2x + 6y - 3 = 11$, $2x + 6y = 14$, $x + 3y = 7$.</p>
+            <p>Combined with $3x + 2y = 7$: from first, $x = 7 - 3y$; substitute: $3(7-3y) + 2y = 7 \Rightarrow 21 - 7y = 7 \Rightarrow y = 2$. Then $x = 1$, $z = 2(2)-1 = 3$. Point: $(1,2,3)$. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.5.5 — Three planes: checking consistency</h4>
+            <p>Show that the planes $x+2y+z=4$, $2x+4y+2z=10$, $x+y+z=3$ are inconsistent (no common point).</p>
+            <p>Plane 2 is $2 \times$ Plane 1 only if the RHS also doubles: $2 \times 4 = 8 \neq 10$. So planes 1 and 2 are parallel and distinct. No point lies on both, hence the three planes have no common solution. &#9646;</p>
+        </div>
+
+        <!-- ==================== SECTION 6.6 ==================== -->
+        <h2 id="s66">6.6 Geometric Proofs with Vectors</h2>
+
+        <p>Vectors provide elegant proofs of geometric theorems. The key tools are: the section formula, expressing vectors in terms of a basis, the scalar product for perpendicularity, and the cross product for collinearity checks (parallel vectors).</p>
+
+        <div class="theorem-box">
+            <h4>Key Results for Vector Proofs</h4>
+            <ul>
+                <li><strong>Collinearity:</strong> Points $A$, $B$, $C$ are collinear if $\overrightarrow{AB} = \lambda\overrightarrow{AC}$ for some scalar $\lambda$.</li>
+                <li><strong>Section formula:</strong> If $P$ divides $AB$ in ratio $m:n$, then $\overrightarrow{OP} = \dfrac{n\,\overrightarrow{OA} + m\,\overrightarrow{OB}}{m+n}$.</li>
+                <li><strong>Midpoint:</strong> $M = \dfrac{1}{2}(\mathbf{a} + \mathbf{b})$.</li>
+                <li><strong>Perpendicularity:</strong> $\mathbf{a} \perp \mathbf{b} \Leftrightarrow \mathbf{a} \cdot \mathbf{b} = 0$.</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.6.1 — Proving the midpoint theorem</h4>
+            <p>Prove that the line joining the midpoints of two sides of a triangle is parallel to the third side and half its length.</p>
+            <p>Let the triangle have vertices at $O$, $A$, $B$. Let $M$ be the midpoint of $OA$ and $N$ the midpoint of $OB$.</p>
+            $$\overrightarrow{OM} = \tfrac{1}{2}\mathbf{a}, \quad \overrightarrow{ON} = \tfrac{1}{2}\mathbf{b}$$
+            $$\overrightarrow{MN} = \overrightarrow{ON} - \overrightarrow{OM} = \tfrac{1}{2}\mathbf{b} - \tfrac{1}{2}\mathbf{a} = \tfrac{1}{2}(\mathbf{b} - \mathbf{a}) = \tfrac{1}{2}\overrightarrow{AB}$$
+            <p>$\overrightarrow{MN}$ is a scalar multiple of $\overrightarrow{AB}$, so $MN \parallel AB$. Also $|\overrightarrow{MN}| = \frac{1}{2}|\overrightarrow{AB}|$. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.6.2 — Proving concurrency of medians</h4>
+            <p>Show that the medians of a triangle meet at the centroid $G = \frac{1}{3}(\mathbf{a} + \mathbf{b} + \mathbf{c})$ (where $O$ is the origin and $A$, $B$, $C$ have position vectors $\mathbf{a}$, $\mathbf{b}$, $\mathbf{c}$).</p>
+            <p>The median from $A$ to the midpoint $M_{BC} = \frac{1}{2}(\mathbf{b}+\mathbf{c})$ can be parameterised as:</p>
+            $$\mathbf{r} = \mathbf{a} + t\left(\tfrac{\mathbf{b}+\mathbf{c}}{2} - \mathbf{a}\right) = (1-t)\mathbf{a} + \tfrac{t}{2}\mathbf{b} + \tfrac{t}{2}\mathbf{c}$$
+            <p>At $t = 2/3$: $\mathbf{r} = \frac{1}{3}\mathbf{a} + \frac{1}{3}\mathbf{b} + \frac{1}{3}\mathbf{c} = \frac{1}{3}(\mathbf{a}+\mathbf{b}+\mathbf{c})$.</p>
+            <p>By symmetry of this expression in $\mathbf{a}$, $\mathbf{b}$, $\mathbf{c}$, the same point lies on all three medians. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.6.3 — Perpendicularity proof</h4>
+            <p>Prove that the diagonals of a rhombus are perpendicular.</p>
+            <p>Let a rhombus have adjacent sides $\mathbf{a}$ and $\mathbf{b}$ from the same vertex, with $|\mathbf{a}| = |\mathbf{b}|$. The diagonals are $\mathbf{a} + \mathbf{b}$ and $\mathbf{a} - \mathbf{b}$.</p>
+            $$(\mathbf{a}+\mathbf{b}) \cdot (\mathbf{a}-\mathbf{b}) = |\mathbf{a}|^2 - |\mathbf{b}|^2 = 0 \quad (\text{since } |\mathbf{a}| = |\mathbf{b}|)$$
+            <p>The diagonals are perpendicular. &#9646;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.6.4 — Ratio result</h4>
+            <p>Point $P$ lies on $AB$ such that $AP:PB = 2:3$. Express $\overrightarrow{OP}$ in terms of $\mathbf{a}$ and $\mathbf{b}$, and find $\overrightarrow{CP}$ in terms of $\mathbf{a}$, $\mathbf{b}$, $\mathbf{c}$.</p>
+            <p>$\overrightarrow{OP} = \frac{3\mathbf{a} + 2\mathbf{b}}{5}$ (section formula, ratio $2:3$ from $A$).</p>
+            <p>$\overrightarrow{CP} = \overrightarrow{OP} - \overrightarrow{OC} = \frac{3\mathbf{a} + 2\mathbf{b}}{5} - \mathbf{c} = \frac{3\mathbf{a} + 2\mathbf{b} - 5\mathbf{c}}{5}$. &#9646;</p>
+        </div>
+
+        <!-- ==================== PRACTICE PROBLEMS ==================== -->
+        <h2 id="practice">Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>Calculate $\mathbf{a} \times \mathbf{b}$ where $\mathbf{a} = \begin{pmatrix}3\\-1\\2\end{pmatrix}$ and $\mathbf{b} = \begin{pmatrix}1\\4\\-1\end{pmatrix}$. Verify that the result is perpendicular to both $\mathbf{a}$ and $\mathbf{b}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $$\mathbf{a} \times \mathbf{b} = \begin{pmatrix}(-1)(-1)-(2)(4)\\(2)(1)-(3)(-1)\\(3)(4)-(-1)(1)\end{pmatrix} = \begin{pmatrix}1-8\\2+3\\12+1\end{pmatrix} = \begin{pmatrix}-7\\5\\13\end{pmatrix}$$
+                    <p>Check: $\mathbf{a} \cdot (\mathbf{a}\times\mathbf{b}) = 3(-7) + (-1)(5) + 2(13) = -21 - 5 + 26 = 0$. &#10003;</p>
+                    <p>$\mathbf{b} \cdot (\mathbf{a}\times\mathbf{b}) = 1(-7) + 4(5) + (-1)(13) = -7 + 20 - 13 = 0$. &#10003;</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>Find the area of the parallelogram with sides $\mathbf{a} = \begin{pmatrix}1\\0\\3\end{pmatrix}$ and $\mathbf{b} = \begin{pmatrix}2\\1\\-1\end{pmatrix}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $$\mathbf{a} \times \mathbf{b} = \begin{pmatrix}(0)(-1)-(3)(1)\\(3)(2)-(1)(-1)\\(1)(1)-(0)(2)\end{pmatrix} = \begin{pmatrix}-3\\7\\1\end{pmatrix}$$
+                    <p>Area $= |\mathbf{a} \times \mathbf{b}| = \sqrt{9 + 49 + 1} = \sqrt{59}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>Find the Cartesian equation of the plane passing through $A(1,2,3)$, $B(0,1,1)$, and $C(2,0,1)$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$\overrightarrow{AB} = \begin{pmatrix}-1\\-1\\-2\end{pmatrix}$, $\overrightarrow{AC} = \begin{pmatrix}1\\-2\\-2\end{pmatrix}$.</p>
+                    $$\mathbf{n} = \overrightarrow{AB} \times \overrightarrow{AC} = \begin{pmatrix}(-1)(-2)-(-2)(-2)\\(-2)(1)-(-1)(-2)\\(-1)(-2)-(-1)(1)\end{pmatrix} = \begin{pmatrix}2-4\\-2-2\\2+1\end{pmatrix} = \begin{pmatrix}-2\\-4\\3\end{pmatrix}$$
+                    <p>$d = (-2)(1) + (-4)(2) + (3)(3) = -2 - 8 + 9 = -1$.</p>
+                    <p>Equation: $-2x - 4y + 3z = -1$, or $2x + 4y - 3z = 1$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4</h4>
+            <p>Find the acute angle between the planes $x + 2y + 2z = 5$ and $2x - y + 2z = 3$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$\mathbf{n}_1 = (1,2,2)$, $|\mathbf{n}_1| = 3$; $\mathbf{n}_2 = (2,-1,2)$, $|\mathbf{n}_2| = 3$.</p>
+                    $$\cos\theta = \frac{|\mathbf{n}_1 \cdot \mathbf{n}_2|}{9} = \frac{|2 - 2 + 4|}{9} = \frac{4}{9}$$
+                    <p>$\theta = \arccos(4/9) \approx 63.6°$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5</h4>
+            <p>Find the perpendicular distance from the point $Q(1,0,3)$ to the plane $4x - y + 8z = 5$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $$\text{dist} = \frac{|4(1) - 0 + 8(3) - 5|}{\sqrt{16+1+64}} = \frac{|4 + 24 - 5|}{\sqrt{81}} = \frac{23}{9}$$
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6</h4>
+            <p>Find the point where the line $\mathbf{r} = \begin{pmatrix}2\\0\\1\end{pmatrix} + t\begin{pmatrix}1\\2\\-1\end{pmatrix}$ meets the plane $3x + y - 2z = 7$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Substituting: $3(2+t) + (2t) - 2(1-t) = 7 \Rightarrow 6 + 3t + 2t - 2 + 2t = 7 \Rightarrow 4 + 7t = 7 \Rightarrow t = 3/7$.</p>
+                    <p>Point: $\mathbf{r} = \begin{pmatrix}2+3/7\\6/7\\1-3/7\end{pmatrix} = \begin{pmatrix}17/7\\6/7\\4/7\end{pmatrix}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>Find the line of intersection of the planes $x + y - z = 2$ and $x - y + 2z = 1$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Direction: $\mathbf{d} = \mathbf{n}_1 \times \mathbf{n}_2 = \begin{pmatrix}1\\1\\-1\end{pmatrix} \times \begin{pmatrix}1\\-1\\2\end{pmatrix} = \begin{pmatrix}(1)(2)-(-1)(-1)\\(-1)(1)-(1)(2)\\(1)(-1)-(1)(1)\end{pmatrix} = \begin{pmatrix}1\\-3\\-2\end{pmatrix}$.</p>
+                    <p>Point (set $z=0$): $x+y=2$, $x-y=1 \Rightarrow x=3/2, y=1/2$.</p>
+                    <p>Line: $\mathbf{r} = \begin{pmatrix}3/2\\1/2\\0\end{pmatrix} + t\begin{pmatrix}1\\-3\\-2\end{pmatrix}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8</h4>
+            <p>Prove, using vectors, that the diagonals of a parallelogram bisect each other.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Let the parallelogram have vertices $O$, $A$ (position vector $\mathbf{a}$), $B$ (position vector $\mathbf{b}$), $C = A + B$ (position vector $\mathbf{a}+\mathbf{b}$).</p>
+                    <p>Midpoint of diagonal $OC$: $\frac{1}{2}(\mathbf{0} + \mathbf{a}+\mathbf{b}) = \frac{\mathbf{a}+\mathbf{b}}{2}$.</p>
+                    <p>Midpoint of diagonal $AB$: $\frac{1}{2}(\mathbf{a} + \mathbf{b}) = \frac{\mathbf{a}+\mathbf{b}}{2}$.</p>
+                    <p>The midpoints coincide, so the diagonals bisect each other.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 9</h4>
+            <p>Find the distance between the parallel planes $2x - y + 2z = 6$ and $2x - y + 2z = 12$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>A point on the first plane: set $y=z=0$, $x=3$, giving $(3,0,0)$.</p>
+                    <p>Distance to second plane: $\dfrac{|2(3) - 0 + 0 - 12|}{\sqrt{4+1+4}} = \dfrac{|6-12|}{3} = \dfrac{6}{3} = 2$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 10</h4>
+            <p>Point $P$ divides $\overrightarrow{AB}$ such that $AP:PB = 1:2$. Given $A$ has position vector $\begin{pmatrix}4\\1\\-1\end{pmatrix}$ and $B$ has position vector $\begin{pmatrix}1\\4\\2\end{pmatrix}$, find the position vector of $P$ and the distance $|OP|$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Section formula (ratio $1:2$ from $A$): $\overrightarrow{OP} = \dfrac{2\mathbf{a} + 1\mathbf{b}}{3} = \dfrac{1}{3}\left[\begin{pmatrix}8\\2\\-2\end{pmatrix}+\begin{pmatrix}1\\4\\2\end{pmatrix}\right] = \dfrac{1}{3}\begin{pmatrix}9\\6\\0\end{pmatrix} = \begin{pmatrix}3\\2\\0\end{pmatrix}$.</p>
+                    <p>$|OP| = \sqrt{9+4+0} = \sqrt{13}$.</p>
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <script>
+    // Figure 1: 2D illustration of plane 2x + y = 5 (z=0 cross-section), plus a "normal vector" arrow
+    (function() {
+        var elt = document.getElementById('desmos1');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            keypad: false
+        });
+        calc.setMathBounds({ left: -1, right: 6, bottom: -2, top: 6 });
+        calc.setExpressions([
+            // Plane trace: 2x + y = 5 (the z=0 trace of 2x+y-z=5)
+            { id: 'plane_trace', latex: 'y = 5 - 2x', color: '#3b82f6', lineWidth: 2.5, label: '2x+y=5 (z=0 trace)' },
+            // Point on plane: (3,0)
+            { id: 'pt', latex: '(3, -1)', color: '#1e3a5f', pointSize: 12, showLabel: true, label: 'A(3,0,1)' },
+            // Normal vector direction (2,1) from point (3,-1) -- schematic
+            { id: 'norm_start', latex: '(1.5, 2)', color: '#ef4444', pointSize: 8 },
+            { id: 'norm_end',   latex: '(2.5, 3)', color: '#ef4444', pointSize: 8 },
+            { id: 'norm_seg',   latex: 'polygon((1.5, 2),(2.5, 3))', color: '#ef4444', lineWidth: 3, label: 'n=(2,1,-1)' },
+            // label
+            { id: 'lbl', latex: '(2.9, 3.1)', color: '#ef4444', showLabel: true, label: 'normal n', pointOpacity: 0 }
+        ]);
+    })();
+
+    // Figure 2: xy-plane traces of Pi1 (x+y=6) and Pi2 (2x-y=3), showing intersection at (3,3)
+    (function() {
+        var elt = document.getElementById('desmos2');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            keypad: false
+        });
+        calc.setMathBounds({ left: -1, right: 8, bottom: -2, top: 8 });
+        calc.setExpressions([
+            // Pi1 trace: x+y=6 => y=6-x
+            { id: 'pi1', latex: 'y = 6 - x', color: '#ef4444', lineWidth: 2.5 },
+            // Pi2 trace: 2x-y=3 => y=2x-3
+            { id: 'pi2', latex: 'y = 2x - 3', color: '#3b82f6', lineWidth: 2.5 },
+            // Intersection point
+            { id: 'inter', latex: '(3, 3)', color: '#22c55e', pointSize: 14, showLabel: true, label: 'base pt (3,3,0)' },
+            // Labels
+            { id: 'lbl1', latex: '(0.5, 5.2)', color: '#ef4444', showLabel: true, label: 'Π₁: x+y=6', pointOpacity: 0 },
+            { id: 'lbl2', latex: '(4.5, 5.8)', color: '#3b82f6', showLabel: true, label: 'Π₂: 2x−y=3', pointOpacity: 0 }
+        ]);
+    })();
+    </script>
+</body>
+</html>

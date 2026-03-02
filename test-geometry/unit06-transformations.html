@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 6 — Transformations and Congruence — Geometry | MathHub</title>
+    <meta name="description" content="Master translations, reflections, rotations, and compositions of transformations. Understand congruence through rigid motions with coordinate rules and worked examples.">
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 820px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.1em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #64748b; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .definition-box { background: #e7f3ff; border-left: 4px solid #3b82f6; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .definition-box h4 { color: #1e40af; margin-bottom: 10px; font-size: 1.05em; }
+        .theorem-box { background: #fff8e7; border-left: 4px solid #f59e0b; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .theorem-box h4 { color: #92400e; margin-bottom: 10px; font-size: 1.05em; }
+        .example-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .example-box h4 { color: #0369a1; margin-bottom: 10px; font-size: 1.05em; }
+        .tip-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .tip-box h4 { color: #166534; margin-bottom: 10px; }
+        .warning-box { background: #fff1f2; border-left: 4px solid #f43f5e; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .warning-box h4 { color: #be123c; margin-bottom: 10px; }
+        .practice-box { background: #fdf4ff; border-left: 4px solid #a855f7; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .practice-box h4 { color: #7e22ce; margin-bottom: 10px; }
+        .figure-wrap { display: flex; justify-content: center; align-items: flex-start; gap: 28px; margin: 24px 0; flex-wrap: wrap; }
+        .figure-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); overflow: hidden; }
+        .figure-card figcaption { font-size: 0.85em; color: #64748b; margin-top: 10px; max-width: 220px; }
+        .figure-label { font-weight: 700; font-size: 1em; color: #1e3a5f; margin-bottom: 8px; }
+        .unit-nav { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 20px; border-top: 1px solid #e2e8f0; }
+        .unit-nav a { color: #3b82f6; text-decoration: none; font-size: .9em; }
+        .rule-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.95em; }
+        .rule-table th { background: #1e3a5f; color: #fff; padding: 8px 14px; text-align: left; }
+        .rule-table td { padding: 8px 14px; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        .rule-table tr:nth-child(even) td { background: #f8fafc; }
+    </style>
+</head>
+<body>
+<header class="site-header"></header>
+<script src="../../assets/js/common.js"></script>
+<article class="blog-article">
+
+    <div class="breadcrumb">
+        <a href="/test-geometry/index.html">Geometry</a> › Unit 6
+    </div>
+
+    <h1>Unit 6 — Transformations and Congruence</h1>
+    <div class="blog-meta">Grade 9–10 · Geometry · Topics: Translations, Reflections, Rotations, Compositions, Congruence</div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <h2>6.1 Introduction to Transformations</h2>
+
+    <div class="definition-box">
+        <h4>Definition — Transformation</h4>
+        <p>A <strong>transformation</strong> is a function that maps each point of a figure (the <em>pre-image</em>) to a new point in the plane (the <em>image</em>).</p>
+        <p>A <strong>rigid motion</strong> (or <em>isometry</em>) is a transformation that preserves both <strong>size and shape</strong> — that is, side lengths and angle measures are unchanged. The three basic rigid motions are translations, reflections, and rotations.</p>
+    </div>
+
+    <p>Notation: if point $A$ maps to its image, we write $A \to A'$ (read "$A$ prime"). For a triangle: $\triangle ABC \to \triangle A'B'C'$.</p>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <h2>6.2 Translations</h2>
+
+    <div class="definition-box">
+        <h4>Definition — Translation</h4>
+        <p>A <strong>translation</strong> slides every point of a figure the <em>same distance</em> in the <em>same direction</em>. The direction and distance are described by a <strong>translation vector</strong> $\langle a,\, b \rangle$.</p>
+        <p><strong>Coordinate rule:</strong></p>
+        $$(x,\, y) \;\to\; (x + a,\; y + b)$$
+    </div>
+
+    <div class="figure-wrap">
+        <figure class="figure-card">
+            <div class="figure-label">Figure 6.2 — Translation by vector ⟨−2, 3⟩</div>
+            <svg width="360" height="270" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+                <!-- Grid lines (light) -->
+                <line x1="20" y1="0" x2="20" y2="180" stroke="#e2e8f0" stroke-width="1"/>
+                <line x1="60" y1="0" x2="60" y2="180" stroke="#e2e8f0" stroke-width="1"/>
+                <line x1="100" y1="0" x2="100" y2="180" stroke="#e2e8f0" stroke-width="1"/>
+                <line x1="140" y1="0" x2="140" y2="180" stroke="#e2e8f0" stroke-width="1"/>
+                <line x1="180" y1="0" x2="180" y2="180" stroke="#e2e8f0" stroke-width="1"/>
+                <line x1="220" y1="0" x2="220" y2="180" stroke="#e2e8f0" stroke-width="1"/>
+                <line x1="0" y1="30" x2="240" y2="30" stroke="#e2e8f0" stroke-width="1"/>
+                <line x1="0" y1="70" x2="240" y2="70" stroke="#e2e8f0" stroke-width="1"/>
+                <line x1="0" y1="110" x2="240" y2="110" stroke="#e2e8f0" stroke-width="1"/>
+                <line x1="0" y1="150" x2="240" y2="150" stroke="#e2e8f0" stroke-width="1"/>
+                <!-- Pre-image triangle A(140,110) B(200,110) C(180,150) -->
+                <polygon points="140,110 200,110 180,150" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+                <text x="133" y="107" font-size="12" font-family="serif" font-style="italic" fill="#1e40af">A</text>
+                <text x="202" y="107" font-size="12" font-family="serif" font-style="italic" fill="#1e40af">B</text>
+                <text x="177" y="162" font-size="12" font-family="serif" font-style="italic" fill="#1e40af">C</text>
+                <!-- Image triangle: translate by (-2,3) in grid units (each unit = 40px) → (-80px, +120px) -->
+                <!-- A'=(60,230)→off screen, let's use smaller scale: grid unit=40px → (-80,120) -->
+                <!-- Better: visual shift right and down to show translation in an obvious way -->
+                <!-- Let's translate by visual shift: pre-image upper-right, image lower-left -->
+                <!-- Image triangle A'(60,50) B'(120,50) C'(100,90) — visually offset -->
+                <polygon points="60,50 120,50 100,90" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5,3"/>
+                <text x="48" y="46" font-size="12" font-family="serif" font-style="italic" fill="#92400e">A'</text>
+                <text x="122" y="46" font-size="12" font-family="serif" font-style="italic" fill="#92400e">B'</text>
+                <text x="98" y="102" font-size="12" font-family="serif" font-style="italic" fill="#92400e">C'</text>
+                <!-- Vector arrow from A to A' -->
+                <defs>
+                    <marker id="arrowT" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                        <path d="M0,0 L0,6 L8,3 z" fill="#22c55e"/>
+                    </marker>
+                </defs>
+                <line x1="140" y1="110" x2="63" y2="53" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrowT)"/>
+                <text x="85" y="88" font-size="10" font-family="sans-serif" fill="#166534">vector</text>
+                <!-- Labels -->
+                <text x="130" y="128" font-size="10" font-family="sans-serif" fill="#1e40af">pre-image</text>
+                <text x="55" y="68" font-size="10" font-family="sans-serif" fill="#92400e">image</text>
+            </svg>
+            <figcaption>Every vertex shifts the same direction by the same vector. Shape and size are preserved.</figcaption>
+        </figure>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 6.2 — Applying a Translation</h4>
+        <p>Translate $\triangle ABC$ with $A(1,2)$, $B(3,4)$, $C(5,1)$ by vector $\langle -2,\, 3 \rangle$.</p>
+        <p><strong>Rule:</strong> $(x,y) \to (x - 2,\; y + 3)$</p>
+        <ul>
+            <li>$A(1,2) \to A'(1-2,\; 2+3) = A'(-1, 5)$</li>
+            <li>$B(3,4) \to B'(3-2,\; 4+3) = B'(1, 7)$</li>
+            <li>$C(5,1) \to C'(5-2,\; 1+3) = C'(3, 4)$</li>
+        </ul>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <h2>6.3 Reflections</h2>
+
+    <div class="definition-box">
+        <h4>Definition — Reflection</h4>
+        <p>A <strong>reflection</strong> flips a figure over a line called the <strong>line of reflection</strong>. Each point maps to a point on the opposite side of the line, the same perpendicular distance from it.</p>
+
+        <table class="rule-table">
+            <tr>
+                <th>Line of Reflection</th>
+                <th>Coordinate Rule</th>
+            </tr>
+            <tr><td>$x$-axis</td><td>$(x,y) \to (x,\,-y)$</td></tr>
+            <tr><td>$y$-axis</td><td>$(x,y) \to (-x,\,y)$</td></tr>
+            <tr><td>$y = x$</td><td>$(x,y) \to (y,\,x)$</td></tr>
+            <tr><td>$y = -x$</td><td>$(x,y) \to (-y,\,-x)$</td></tr>
+        </table>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 6.3 — Applying Reflections</h4>
+        <p>Reflect $A(3, -2)$ over the $x$-axis, then over the $y$-axis.</p>
+        <ul>
+            <li><strong>Over $x$-axis:</strong> $(x,y) \to (x,-y)$, so $A(3,-2) \to A'(3, 2)$.</li>
+            <li><strong>Over $y$-axis:</strong> $(x,y) \to (-x,y)$, so $A(3,-2) \to A'(-3, -2)$.</li>
+        </ul>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <h2>6.4 Rotations</h2>
+
+    <div class="definition-box">
+        <h4>Definition — Rotation</h4>
+        <p>A <strong>rotation</strong> turns a figure around a fixed point called the <strong>center of rotation</strong> by a given angle. Angles are measured <em>counterclockwise (CCW)</em> unless stated otherwise.</p>
+
+        <p><strong>Coordinate rules about the origin:</strong></p>
+        <table class="rule-table">
+            <tr>
+                <th>Rotation</th>
+                <th>Rule</th>
+            </tr>
+            <tr><td>90° CCW</td><td>$(x,y) \to (-y,\,x)$</td></tr>
+            <tr><td>180°</td><td>$(x,y) \to (-x,\,-y)$</td></tr>
+            <tr><td>270° CCW (= 90° CW)</td><td>$(x,y) \to (y,\,-x)$</td></tr>
+            <tr><td>360°</td><td>$(x,y) \to (x,\,y)$ (identity)</td></tr>
+        </table>
+    </div>
+
+    <div class="figure-wrap">
+        <figure class="figure-card">
+            <div class="figure-label">Figure 6.4 — 90° CCW Rotation about Origin</div>
+            <svg width="300" height="300" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Axes -->
+                <line x1="10" y1="100" x2="190" y2="100" stroke="#94a3b8" stroke-width="1.2"/>
+                <line x1="100" y1="10" x2="100" y2="190" stroke="#94a3b8" stroke-width="1.2"/>
+                <text x="185" y="96" font-size="11" fill="#94a3b8">x</text>
+                <text x="103" y="18" font-size="11" fill="#94a3b8">y</text>
+                <!-- Grid -->
+                <line x1="140" y1="10" x2="140" y2="190" stroke="#f1f5f9" stroke-width="1"/>
+                <line x1="60" y1="10" x2="60" y2="190" stroke="#f1f5f9" stroke-width="1"/>
+                <line x1="10" y1="60" x2="190" y2="60" stroke="#f1f5f9" stroke-width="1"/>
+                <line x1="10" y1="140" x2="190" y2="140" stroke="#f1f5f9" stroke-width="1"/>
+                <!-- Pre-image triangle: vertices at (40px=1u) scale: 1 unit = 40px, origin at (100,100) -->
+                <!-- A(1,1)→(140,60), B(3,1)→(220,60)→clip, B(2,1)=(180,60), C(1,2)=(140,20) -->
+                <!-- Use: A(1,0)=(140,100), B(3,0)=(220→clip), use small: A(1,0)=(140,100), B(2,0)=(180,100), C(1,-1)=(140,140) -->
+                <!-- Pre-image: A(140,100) B(180,100) C(140,140) -->
+                <polygon points="140,100 180,100 140,140" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+                <text x="142" y="96" font-size="11" font-family="serif" font-style="italic" fill="#1e40af">A</text>
+                <text x="182" y="96" font-size="11" font-family="serif" font-style="italic" fill="#1e40af">B</text>
+                <text x="128" y="153" font-size="11" font-family="serif" font-style="italic" fill="#1e40af">C</text>
+                <!-- 90° CCW: (x,y)→(−y,x). A(1,0)→(0,1)=(100,60), B(2,0)→(0,2)=(100,20), C(1,−1)→(1,1)=(140,60) -->
+                <!-- in pixel coords: A'→(100,60), B'→(100,20), C'→(140,60) -->
+                <polygon points="100,60 100,20 140,60" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5,3"/>
+                <text x="84" y="57" font-size="11" font-family="serif" font-style="italic" fill="#92400e">A'</text>
+                <text x="84" y="20" font-size="11" font-family="serif" font-style="italic" fill="#92400e">B'</text>
+                <text x="142" y="57" font-size="11" font-family="serif" font-style="italic" fill="#92400e">C'</text>
+                <!-- Arc showing rotation -->
+                <defs>
+                    <marker id="arrowR" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                        <path d="M0,0 L0,6 L8,3 z" fill="#a855f7"/>
+                    </marker>
+                </defs>
+                <path d="M 140,100 A 40,40 0 0,0 100,60" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrowR)"/>
+                <text x="126" y="76" font-size="10" fill="#7e22ce">90°</text>
+            </svg>
+            <figcaption>Pre-image (blue) rotated 90° CCW about the origin gives the image (orange dashed).</figcaption>
+        </figure>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 6.4 — Applying a Rotation</h4>
+        <p>Rotate $B(4, 1)$ by $90°$ counterclockwise about the origin.</p>
+        <p><strong>Rule for 90° CCW:</strong> $(x, y) \to (-y, x)$</p>
+        $$B(4, 1) \to B'(-1, 4)$$
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <h2>6.5 Compositions of Transformations</h2>
+
+    <div class="definition-box">
+        <h4>Definition — Composition and Glide Reflection</h4>
+        <p>A <strong>composition of transformations</strong> applies two or more transformations in sequence. The output of the first becomes the input of the second.</p>
+        <p>A <strong>glide reflection</strong> is the composition of a <em>translation</em> followed by a <em>reflection over a line parallel to the translation direction</em>.</p>
+    </div>
+
+    <div class="tip-box">
+        <h4>Key Composition Results</h4>
+        <ul>
+            <li><strong>Two reflections over parallel lines</strong> → equivalent to a <em>translation</em> (distance = twice the distance between the lines, direction perpendicular to them).</li>
+            <li><strong>Two reflections over intersecting lines</strong> → equivalent to a <em>rotation</em> (angle = twice the angle between the lines, center at the intersection point).</li>
+        </ul>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <h2>6.6 Congruence via Transformations</h2>
+
+    <div class="theorem-box">
+        <h4>Theorem — Congruence and Rigid Motions</h4>
+        <p>Two figures are <strong>congruent</strong> if and only if one can be mapped to the other by a sequence of <em>rigid motions</em> (translations, reflections, and/or rotations).</p>
+        <p>This gives a precise meaning to congruence: same shape <em>and</em> same size, in any orientation or position.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 6.6 — Describing a Rigid Motion</h4>
+        <p>$\triangle ABC$ has vertices $A(0,0)$, $B(4,0)$, $C(2,3)$. $\triangle DEF$ has vertices $D(0,0)$, $E(-4,0)$, $F(-2,3)$.</p>
+        <p><strong>Describe the rigid motion.</strong></p>
+        <p>Notice each $x$-coordinate negates while $y$ stays the same: $(x,y) \to (-x,y)$. This is a <strong>reflection over the $y$-axis</strong>. Therefore $\triangle ABC \cong \triangle DEF$.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <h2>Practice Problems</h2>
+
+    <div class="practice-box">
+        <h4>Unit 6 Practice — 10 Problems</h4>
+        <ol>
+            <li>Translate $P(3, -5)$ by vector $\langle 4, -2 \rangle$. Give the coordinates of $P'$.</li>
+            <li>Translate $\triangle ABC$ with $A(-1,0)$, $B(2,1)$, $C(0,3)$ by $\langle 3, -4 \rangle$. List all image coordinates.</li>
+            <li>Reflect $Q(5, 2)$ over the $x$-axis.</li>
+            <li>Reflect $R(-3, 4)$ over the line $y = x$.</li>
+            <li>Reflect $S(6, -1)$ over the $y$-axis, then over the $x$-axis. What single transformation is equivalent?</li>
+            <li>Rotate $T(0, 5)$ by $90°$ CCW about the origin.</li>
+            <li>Rotate $U(-2, 3)$ by $180°$ about the origin.</li>
+            <li>Rotate $V(4, -4)$ by $270°$ CCW about the origin.</li>
+            <li>A figure is reflected over the line $x = 1$, then over the line $x = 5$. Describe the equivalent single transformation.</li>
+            <li>Are two figures that are related by a rotation congruent? Justify your answer.</li>
+        </ol>
+    </div>
+
+    <div class="unit-nav">
+        <a href="/test-geometry/unit05-triangle-relationships.html">← Previous Unit</a>
+        <a href="/test-geometry/index.html">All Units</a>
+        <a href="/test-geometry/unit07-similarity.html">Next Unit →</a>
+    </div>
+</article>
+<footer style="text-align:center;padding:24px 20px;color:#94a3b8;font-size:.85em;border-top:1px solid #e2e8f0;margin-top:40px">
+    Geometry · MathHub · Grade 9–10
+</footer>
+</body>
+</html>

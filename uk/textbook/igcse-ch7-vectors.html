@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IGCSE Maths Ch 7: Vectors | MathHub</title>
+    <meta name="description" content="IGCSE Mathematics Chapter 7: Vectors. Vector notation, addition and subtraction, scalar multiplication, magnitude, unit vectors, position vectors, and geometric proofs. Cambridge 0580 and Edexcel 4MA1.">
+    <meta name="keywords" content="vectors IGCSE, vector addition subtraction, scalar multiplication, position vectors, magnitude unit vector, geometric proof vectors, Cambridge 0580 Extended">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/igcse-ch7-vectors.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/uk/textbook/igcse-ch7-vectors.html">
+    <meta property="og:title" content="IGCSE Maths Ch 7: Vectors | MathHub">
+    <meta property="og:description" content="Full IGCSE Vectors chapter: notation, operations, magnitude, position vectors, parallel vectors, collinearity, and geometric proofs.">
+    <meta property="og:site_name" content="MathHub Global">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "IGCSE Mathematics Chapter 7: Vectors",
+        "description": "Vectors for IGCSE Mathematics: notation, arithmetic, magnitude, position vectors, and geometric proofs.",
+        "url": "https://mathhub.io/uk/textbook/igcse-ch7-vectors.html",
+        "datePublished": "2026-03-02",
+        "dateModified": "2026-03-02",
+        "isPartOf": { "@type": "Course", "name": "IGCSE Mathematics: Geometry & Trigonometry" },
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "IGCSE"
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 40px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ul, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        .practice-problem p { margin-bottom: 10px; }
+        details.solution { margin-top: 12px; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        details.solution summary:hover { color: #1d4ed8; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .solution-content p { margin-bottom: 10px; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .ext-label { display: inline-block; background: #ede9fe; color: #6d28d9; font-size: 0.78em; font-weight: 700; padding: 1px 8px; border-radius: 4px; margin-left: 6px; vertical-align: middle; }
+        .desmos-wrap { margin: 24px 0; position: relative; }
+        .fig-label { display: inline-block; background: #1e3a5f; color: #fff; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px 4px 0 0; margin-bottom: 0; font-family: monospace; letter-spacing: 0.05em; }
+        .fig-caption { font-size: 0.88em; color: #64748b; text-align: center; margin-top: 8px; font-style: italic; }
+        .chapter-nav { display: flex; justify-content: space-between; margin: 40px 0 0; padding-top: 24px; border-top: 1px solid #e2e8f0; gap: 12px; }
+        .chapter-nav a { color: #3b82f6; text-decoration: none; font-size: 0.9em; }
+        .chapter-nav a:hover { text-decoration: underline; }
+        .chapter-nav .next { margin-left: auto; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/">US</a>
+            <a href="/uk/" class="active">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="/uk/">UK</a> &rsaquo;
+            <a href="igcse-geometry-trigonometry.html">IGCSE Geometry &amp; Trig</a> &rsaquo;
+            Chapter 7
+        </div>
+
+        <h1>Chapter 7: Vectors</h1>
+        <div class="blog-meta">IGCSE Mathematics &middot; Cambridge 0580 &amp; Edexcel 4MA1 &middot; Foundation &amp; Extended &middot; Updated March 2026</div>
+
+        <p>A <strong>vector</strong> is a quantity that has both a <em>magnitude</em> (size) and a <em>direction</em>. Vectors are used to describe displacements, forces, and velocities. In IGCSE mathematics the focus is on geometric vectors: how to represent and calculate them, and how to use them to prove geometric facts about shapes.</p>
+
+        <div class="exam-note">
+            <h4>Exam Board Coverage</h4>
+            <p>Vector arithmetic (Sections 7.1–7.5) is examined at both <strong>Foundation</strong> and <strong>Extended</strong> tier. Section 7.6 (Parallel Vectors and Collinearity) and Section 7.7 (Geometric Proofs) are primarily <strong>Extended</strong> tier topics and involve the most complex exam questions.</p>
+        </div>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#sec-7-1">7.1 What is a Vector?</a></li>
+                <li><a href="#sec-7-2">7.2 Adding and Subtracting Vectors</a></li>
+                <li><a href="#sec-7-3">7.3 Scalar Multiplication</a></li>
+                <li><a href="#sec-7-4">7.4 Magnitude and Unit Vectors</a></li>
+                <li><a href="#sec-7-5">7.5 Position Vectors</a></li>
+                <li><a href="#sec-7-6">7.6 Parallel Vectors and Collinear Points</a></li>
+                <li><a href="#sec-7-7">7.7 Geometric Proofs with Vectors</a></li>
+                <li><a href="#sec-exercises">Exercises</a></li>
+                <li><a href="#sec-exam-tips">Exam Tips</a></li>
+            </ol>
+        </nav>
+
+        <!-- ═══════════════════════════════════════ -->
+        <h2 id="sec-7-1">7.1 What is a Vector?</h2>
+
+        <div class="definition-box">
+            <h4>Vector Notation</h4>
+            <ul>
+                <li><strong>Column vector:</strong> $\mathbf{a} = \dbinom{x}{y}$ where $x$ is the horizontal component and $y$ is the vertical component.</li>
+                <li><strong>Bold letter:</strong> $\mathbf{a}$ (in printed text); underlined in handwriting: $\underline{a}$.</li>
+                <li><strong>Arrow notation:</strong> $\overrightarrow{AB}$ denotes the vector from point $A$ to point $B$.</li>
+                <li><strong>Negative vector:</strong> $-\mathbf{a} = \overrightarrow{BA}$ has the same magnitude as $\mathbf{a}$ but the opposite direction.</li>
+            </ul>
+        </div>
+
+        <!-- GEOM·6: Vector addition diagram -->
+        <div class="desmos-wrap">
+            <span class="fig-label">GEOM·6</span>
+            <div id="geom6" style="width:100%; max-width:460px; height:360px; margin:0 auto; border:1px solid #e2e8f0; border-radius:0 6px 6px 6px; display:block;"></div>
+        </div>
+        <p class="fig-caption">Triangle law of vector addition: $\overrightarrow{OA} + \overrightarrow{AB} = \overrightarrow{OB}$</p>
+
+        <script>
+        (function(){
+            var elt = document.getElementById('geom6');
+            var c = Desmos.GraphingCalculator(elt, {
+                expressions: false, settingsMenu: false, zoomButtons: false,
+                lockViewport: true, border: false, showGrid: false,
+                showXAxis: false, showYAxis: false
+            });
+            c.setMathBounds({left: -0.5, right: 6.5, bottom: -0.5, top: 5});
+
+            // Vectors: O=(0,1), A=(4,2), B=(5,4)
+            // OA = (4,1), AB = (1,2), OB = (5,3)
+            // Arrowhead tip offset ~0.3
+
+            // Vector OA (blue): O to A, shorten by arrowhead
+            c.setExpression({id:'oa_line', latex:'\\polygon((0,1),(3.72,1.93))', color:'#2563eb', lineWidth:2.5});
+            // Arrowhead at A=(4,2): direction angle = atan2(1,4) ~ 14°
+            // tip=(4,2), L=0.3, W=0.13
+            c.setExpression({id:'oa_head', latex:'\\polygon((4,2),(3.68,2.06),(3.74,1.80))', color:'#2563eb', fillOpacity:1});
+
+            // Vector AB (red): A to B, shorten
+            c.setExpression({id:'ab_line', latex:'\\polygon((4,2),(4.91,3.72))', color:'#dc2626', lineWidth:2.5});
+            // Arrowhead at B=(5,4): direction = atan2(2,1) ~ 63°
+            c.setExpression({id:'ab_head', latex:'\\polygon((5,4),(4.78,3.76),(5.04,3.68))', color:'#dc2626', fillOpacity:1});
+
+            // Vector OB (green dashed): O to B
+            c.setExpression({id:'ob_line', latex:'\\polygon((0,1),(4.79,3.82))', color:'#16a34a', lineWidth:2, lineStyle:Desmos.Styles.DASHED});
+            // Arrowhead at B=(5,4): direction = atan2(3,5) ~ 31°
+            c.setExpression({id:'ob_head', latex:'\\polygon((5,4),(4.70,3.92),(4.86,3.71))', color:'#16a34a', fillOpacity:1});
+
+            // Point labels
+            c.setExpression({id:'lO', latex:'(-0.2,0.8)', label:'O', showLabel:true, color:'#1e3a5f', pointOpacity:0, pointSize:0});
+            c.setExpression({id:'lA', latex:'(4.1,1.7)', label:'A', showLabel:true, color:'#1e3a5f', pointOpacity:0, pointSize:0});
+            c.setExpression({id:'lB', latex:'(5.2,4.1)', label:'B', showLabel:true, color:'#1e3a5f', pointOpacity:0, pointSize:0});
+
+            // Vector labels (midpoints)
+            c.setExpression({id:'lva', latex:'(1.8,1.1)', label:'a', showLabel:true, color:'#2563eb', pointOpacity:0, pointSize:0, labelSize:Desmos.LabelSizes.LARGE});
+            c.setExpression({id:'lvb', latex:'(4.3,3.2)', label:'b', showLabel:true, color:'#dc2626', pointOpacity:0, pointSize:0, labelSize:Desmos.LabelSizes.LARGE});
+            c.setExpression({id:'lvab', latex:'(2.2,2.8)', label:'a+b', showLabel:true, color:'#16a34a', pointOpacity:0, pointSize:0});
+        })();
+        </script>
+
+        <!-- ═══════════════════════════════════════ -->
+        <h2 id="sec-7-2">7.2 Adding and Subtracting Vectors</h2>
+
+        <div class="theorem-box">
+            <h4>Vector Addition — Triangle Law</h4>
+            <p>To add vectors geometrically, place the tail of the second vector at the head of the first. The resultant goes from the tail of the first to the head of the second.</p>
+            <p>$$\mathbf{a} + \mathbf{b} = \dbinom{a_1+b_1}{a_2+b_2}$$</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Vector Subtraction</h4>
+            <p>$$\mathbf{a} - \mathbf{b} = \mathbf{a} + (-\mathbf{b}) = \dbinom{a_1-b_1}{a_2-b_2}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.1 — Adding column vectors</h4>
+            <p>$\mathbf{a} = \dbinom{3}{-1}$ and $\mathbf{b} = \dbinom{-2}{4}$. Find $\mathbf{a} + \mathbf{b}$ and $\mathbf{a} - \mathbf{b}$.</p>
+            <p>$\mathbf{a} + \mathbf{b} = \dbinom{3+(-2)}{-1+4} = \dbinom{1}{3}$</p>
+            <p>$\mathbf{a} - \mathbf{b} = \dbinom{3-(-2)}{-1-4} = \dbinom{5}{-5}$</p>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <h2 id="sec-7-3">7.3 Scalar Multiplication</h2>
+
+        <p>Multiplying a vector by a scalar (a number) changes its magnitude but not its direction (unless the scalar is negative, which reverses the direction).</p>
+
+        <div class="theorem-box">
+            <h4>Scalar Multiple</h4>
+            <p>$$k\mathbf{a} = k\dbinom{a_1}{a_2} = \dbinom{ka_1}{ka_2}$$</p>
+            <ul>
+                <li>$k > 0$: same direction, magnitude multiplied by $k$.</li>
+                <li>$k < 0$: opposite direction, magnitude multiplied by $|k|$.</li>
+                <li>$k = 0$: the zero vector $\mathbf{0} = \dbinom{0}{0}$.</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.2 — Scalar multiplication</h4>
+            <p>If $\mathbf{p} = \dbinom{2}{-3}$, find $3\mathbf{p}$ and $-2\mathbf{p}$.</p>
+            <p>$3\mathbf{p} = \dbinom{6}{-9}$ &nbsp;&nbsp; $-2\mathbf{p} = \dbinom{-4}{6}$</p>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <h2 id="sec-7-4">7.4 Magnitude and Unit Vectors</h2>
+
+        <div class="theorem-box">
+            <h4>Magnitude of a Vector</h4>
+            <p>The magnitude (length) of $\mathbf{a} = \dbinom{a_1}{a_2}$ is:</p>
+            <p>$$|\mathbf{a}| = \sqrt{a_1^2 + a_2^2}$$</p>
+            <p>This is simply Pythagoras' Theorem applied to the components.</p>
+        </div>
+
+        <div class="definition-box">
+            <h4>Unit Vector</h4>
+            <p>A <strong>unit vector</strong> has magnitude $1$. The unit vector in the direction of $\mathbf{a}$ is:</p>
+            <p>$$\hat{\mathbf{a}} = \frac{\mathbf{a}}{|\mathbf{a}|}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.3 — Magnitude and unit vector</h4>
+            <p>Find the magnitude of $\mathbf{v} = \dbinom{3}{4}$, and find the unit vector in its direction.</p>
+            <p>$|\mathbf{v}| = \sqrt{3^2 + 4^2} = \sqrt{9+16} = \sqrt{25} = 5$</p>
+            <p>$\hat{\mathbf{v}} = \dfrac{1}{5}\dbinom{3}{4} = \dbinom{0.6}{0.8}$</p>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <h2 id="sec-7-5">7.5 Position Vectors</h2>
+
+        <p>The <strong>position vector</strong> of a point $A$ is the vector $\overrightarrow{OA}$ from the origin $O$ to $A$. If $A = (a_1, a_2)$ then $\overrightarrow{OA} = \dbinom{a_1}{a_2}$.</p>
+
+        <div class="theorem-box">
+            <h4>Vector Between Two Points</h4>
+            <p>$$\overrightarrow{AB} = \overrightarrow{OB} - \overrightarrow{OA} = \mathbf{b} - \mathbf{a}$$</p>
+            <p>where $\mathbf{a} = \overrightarrow{OA}$ and $\mathbf{b} = \overrightarrow{OB}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.4 — Vector between two points</h4>
+            <p>$A = (2, 5)$ and $B = (7, 1)$. Find $\overrightarrow{AB}$ and $\overrightarrow{BA}$.</p>
+            <p>$\overrightarrow{AB} = \mathbf{b} - \mathbf{a} = \dbinom{7}{1} - \dbinom{2}{5} = \dbinom{5}{-4}$</p>
+            <p>$\overrightarrow{BA} = -\overrightarrow{AB} = \dbinom{-5}{4}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.5 — Midpoint using position vectors</h4>
+            <p>$\overrightarrow{OA} = \mathbf{a}$ and $\overrightarrow{OB} = \mathbf{b}$. $M$ is the midpoint of $AB$. Find $\overrightarrow{OM}$.</p>
+            <p>$\overrightarrow{OM} = \overrightarrow{OA} + \tfrac{1}{2}\overrightarrow{AB} = \mathbf{a} + \tfrac{1}{2}(\mathbf{b} - \mathbf{a}) = \tfrac{1}{2}(\mathbf{a} + \mathbf{b})$</p>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <h2 id="sec-7-6">7.6 Parallel Vectors and Collinear Points <span class="ext-label">Extended</span></h2>
+
+        <div class="theorem-box">
+            <h4>Parallel Vectors</h4>
+            <p>Two vectors are <strong>parallel</strong> if and only if one is a scalar multiple of the other: $\mathbf{a} \parallel \mathbf{b}$ iff $\mathbf{a} = k\mathbf{b}$ for some non-zero scalar $k$.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Collinear Points</h4>
+            <p>Three points $A$, $B$, $C$ are <strong>collinear</strong> (lie on the same straight line) if and only if $\overrightarrow{AB}$ is parallel to $\overrightarrow{AC}$ (they share the point $A$ and their directions are parallel, so all three points lie on one line).</p>
+            <p><strong>Method:</strong> show $\overrightarrow{AC} = k\,\overrightarrow{AB}$ for some scalar $k$. The shared point $A$ confirms collinearity.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.6 — Proving collinearity</h4>
+            <p>$A$, $B$, $C$ have position vectors $\mathbf{a}=\dbinom{1}{2}$, $\mathbf{b}=\dbinom{3}{5}$, $\mathbf{c}=\dbinom{7}{11}$. Show that $A$, $B$, $C$ are collinear.</p>
+            <p><span class="step-label">Step 1</span> $\overrightarrow{AB} = \mathbf{b}-\mathbf{a} = \dbinom{2}{3}$</p>
+            <p><span class="step-label">Step 2</span> $\overrightarrow{AC} = \mathbf{c}-\mathbf{a} = \dbinom{6}{9} = 3\dbinom{2}{3} = 3\,\overrightarrow{AB}$</p>
+            <p><span class="step-label">Conclusion</span> $\overrightarrow{AC} = 3\,\overrightarrow{AB}$, so $\overrightarrow{AC}$ is parallel to $\overrightarrow{AB}$. Since $A$ is common to both, $A$, $B$, $C$ are collinear. $\square$</p>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <h2 id="sec-7-7">7.7 Geometric Proofs with Vectors <span class="ext-label">Extended</span></h2>
+
+        <p>Vector proofs use vector algebra to establish geometric properties — such as that a point lies on a line, or that a quadrilateral is a parallelogram. The key skill is expressing every vector in terms of a small set of base vectors.</p>
+
+        <div class="definition-box">
+            <h4>Strategy for Vector Proofs</h4>
+            <ol>
+                <li>Define two base vectors (usually $\overrightarrow{OA} = \mathbf{a}$ and $\overrightarrow{OB} = \mathbf{b}$).</li>
+                <li>Express every other vector in terms of $\mathbf{a}$ and $\mathbf{b}$ by following paths around the diagram.</li>
+                <li>To prove lines are parallel: show one vector is a scalar multiple of another.</li>
+                <li>To prove a point divides a segment in a given ratio: substitute the ratio into the position vector formula.</li>
+            </ol>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.7 — Midpoint proof</h4>
+            <p>$OABC$ is a parallelogram with $\overrightarrow{OA} = \mathbf{a}$ and $\overrightarrow{OC} = \mathbf{c}$. $M$ is the midpoint of $AB$. Show that $\overrightarrow{OM} = \mathbf{a} + \tfrac{1}{2}\mathbf{c}$.</p>
+            <p><span class="step-label">Step 1</span> In parallelogram: $\overrightarrow{AB} = \overrightarrow{OC} = \mathbf{c}$ (opposite sides).</p>
+            <p><span class="step-label">Step 2</span> $\overrightarrow{OM} = \overrightarrow{OA} + \overrightarrow{AM} = \mathbf{a} + \tfrac{1}{2}\overrightarrow{AB} = \mathbf{a} + \tfrac{1}{2}\mathbf{c}$ $\square$</p>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <h2 id="sec-exercises">Exercises</h2>
+
+        <div class="practice-problem">
+            <h4>Exercise 7.1</h4>
+            <p>$\mathbf{a} = \dbinom{5}{-2}$ and $\mathbf{b} = \dbinom{-1}{4}$. Find: (i) $\mathbf{a} + \mathbf{b}$, (ii) $\mathbf{a} - \mathbf{b}$, (iii) $3\mathbf{a}$, (iv) $2\mathbf{a} - 3\mathbf{b}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>(i) $\dbinom{4}{2}$ &nbsp; (ii) $\dbinom{6}{-6}$ &nbsp; (iii) $\dbinom{15}{-6}$ &nbsp; (iv) $\dbinom{13}{-16}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Exercise 7.2</h4>
+            <p>Find the magnitude of $\mathbf{v} = \dbinom{5}{12}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$|\mathbf{v}| = \sqrt{25+144} = \sqrt{169} = \mathbf{13}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Exercise 7.3</h4>
+            <p>Find the unit vector in the direction of $\mathbf{w} = \dbinom{1}{2}$, giving components in surd form.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$|\mathbf{w}| = \sqrt{1+4} = \sqrt{5}$</p>
+                    <p>$\hat{\mathbf{w}} = \dfrac{1}{\sqrt{5}}\dbinom{1}{2} = \dbinom{1/\sqrt{5}}{2/\sqrt{5}} = \dbinom{\sqrt{5}/5}{2\sqrt{5}/5}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Exercise 7.4</h4>
+            <p>$A = (2, 7)$ and $B = (6, -1)$. Find $\overrightarrow{AB}$ and $|\overrightarrow{AB}|$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\overrightarrow{AB} = \dbinom{6-2}{-1-7} = \dbinom{4}{-8}$</p>
+                    <p>$|\overrightarrow{AB}| = \sqrt{16+64} = \sqrt{80} = 4\sqrt{5}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Exercise 7.5</h4>
+            <p>$\overrightarrow{OA} = \mathbf{a}$ and $\overrightarrow{OB} = \mathbf{b}$. $M$ is the midpoint of $OA$ and $N$ is the midpoint of $OB$. Express $\overrightarrow{MN}$ in terms of $\mathbf{a}$ and $\mathbf{b}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\overrightarrow{OM} = \tfrac{1}{2}\mathbf{a}$, $\overrightarrow{ON} = \tfrac{1}{2}\mathbf{b}$</p>
+                    <p>$\overrightarrow{MN} = \overrightarrow{ON} - \overrightarrow{OM} = \tfrac{1}{2}\mathbf{b} - \tfrac{1}{2}\mathbf{a} = \tfrac{1}{2}(\mathbf{b}-\mathbf{a})$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Exercise 7.6</h4>
+            <p>Are the vectors $\dbinom{3}{-2}$ and $\dbinom{-9}{6}$ parallel? Justify your answer.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\dbinom{-9}{6} = -3\dbinom{3}{-2}$. Since one is a scalar multiple of the other, <strong>yes, they are parallel</strong>.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Exercise 7.7 <span class="ext-label">Extended</span></h4>
+            <p>Points $P$, $Q$, $R$ have position vectors $\dbinom{1}{3}$, $\dbinom{3}{7}$, $\dbinom{9}{19}$ respectively. Show that $P$, $Q$, $R$ are collinear.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\overrightarrow{PQ} = \dbinom{2}{4}$; $\overrightarrow{PR} = \dbinom{8}{16} = 4\dbinom{2}{4} = 4\,\overrightarrow{PQ}$</p>
+                    <p>$\overrightarrow{PR}$ is parallel to $\overrightarrow{PQ}$ with common point $P$, so $P$, $Q$, $R$ are collinear. $\square$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Exercise 7.8 <span class="ext-label">Extended</span></h4>
+            <p>$\overrightarrow{OA} = \mathbf{a}$ and $\overrightarrow{OB} = \mathbf{b}$. $P$ divides $AB$ in the ratio $1:2$. Express $\overrightarrow{OP}$ in terms of $\mathbf{a}$ and $\mathbf{b}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\overrightarrow{AP} = \tfrac{1}{3}\overrightarrow{AB} = \tfrac{1}{3}(\mathbf{b}-\mathbf{a})$</p>
+                    <p>$\overrightarrow{OP} = \overrightarrow{OA} + \overrightarrow{AP} = \mathbf{a} + \tfrac{1}{3}(\mathbf{b}-\mathbf{a}) = \tfrac{2}{3}\mathbf{a} + \tfrac{1}{3}\mathbf{b}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Exercise 7.9 <span class="ext-label">Extended</span></h4>
+            <p>$ABCD$ is a quadrilateral. $\overrightarrow{AB} = \mathbf{p}$ and $\overrightarrow{DC} = \mathbf{p}$. What can you deduce about $ABCD$?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\overrightarrow{AB} = \overrightarrow{DC}$: equal vectors means $AB \parallel DC$ and $AB = DC$ (same length, same direction). Therefore $ABCD$ is a <strong>parallelogram</strong>.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Exercise 7.10 <span class="ext-label">Extended</span></h4>
+            <p>$O$ is the origin. $\overrightarrow{OA} = \mathbf{a}$, $\overrightarrow{OB} = \mathbf{b}$. $M$ is the midpoint of $AB$. Show that $\overrightarrow{OM} = \tfrac{1}{2}(\mathbf{a}+\mathbf{b})$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\overrightarrow{AB} = \mathbf{b} - \mathbf{a}$. $\overrightarrow{OM} = \overrightarrow{OA} + \overrightarrow{AM} = \mathbf{a} + \tfrac{1}{2}(\mathbf{b}-\mathbf{a}) = \tfrac{1}{2}\mathbf{a} + \tfrac{1}{2}\mathbf{b} = \tfrac{1}{2}(\mathbf{a}+\mathbf{b})$ $\square$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <h2 id="sec-exam-tips">Exam Tips</h2>
+
+        <div class="exam-note">
+            <h4>Tip 1 — Write $\overrightarrow{OA}$ not just $A$ for position vectors</h4>
+            <p>Always use arrow notation or bold notation consistently. In handwriting, underline bold vectors: $\underline{a}$. Confusing position vectors with coordinates costs marks.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Tip 2 — Use a path when finding a vector</h4>
+            <p>To find $\overrightarrow{AC}$, if you cannot go directly, go via another point: $\overrightarrow{AC} = \overrightarrow{AB} + \overrightarrow{BC}$. Choose the path that uses known vectors.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Tip 3 — Proving collinearity: two conditions needed</h4>
+            <p>You must show (1) the two vectors are parallel (one is a scalar multiple of the other) AND (2) they share a common point. Without the shared point, the lines could be parallel but different.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Tip 4 — Check your final vector makes geometric sense</h4>
+            <p>If you are asked for a vector in a triangle and your answer has a fraction, check it: midpoints give halves, thirds-of-the-way give thirds. A common error is sign errors when reversing a vector direction.</p>
+        </div>
+
+        <div class="chapter-nav">
+            <a href="igcse-ch6-transformations.html">&larr; Chapter 6: Transformations</a>
+            <a href="igcse-ch8-constructions.html" class="next">Chapter 8: Constructions and Loci &rarr;</a>
+        </div>
+
+    </article>
+
+    <div class="footer">
+        <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+    </div>
+
+    <script src="../../assets/js/common.js"></script>
+</body>
+</html>

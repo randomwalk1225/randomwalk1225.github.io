@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 13 — Coordinate Geometry — Geometry | MathHub</title>
+    <meta name="description" content="Apply algebra to geometry using the distance formula, midpoint formula, slope, coordinate proofs, and the equation of a circle.">
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 820px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.1em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #64748b; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .definition-box { background: #e7f3ff; border-left: 4px solid #3b82f6; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .definition-box h4 { color: #1e40af; margin-bottom: 10px; font-size: 1.05em; }
+        .theorem-box { background: #fff8e7; border-left: 4px solid #f59e0b; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .theorem-box h4 { color: #92400e; margin-bottom: 10px; font-size: 1.05em; }
+        .example-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .example-box h4 { color: #0369a1; margin-bottom: 10px; font-size: 1.05em; }
+        .tip-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .tip-box h4 { color: #166534; margin-bottom: 10px; }
+        .warning-box { background: #fff1f2; border-left: 4px solid #f43f5e; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .warning-box h4 { color: #be123c; margin-bottom: 10px; }
+        .practice-box { background: #fdf4ff; border-left: 4px solid #a855f7; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .practice-box h4 { color: #7e22ce; margin-bottom: 10px; }
+        .figure-wrap { display: flex; justify-content: center; align-items: flex-start; gap: 28px; margin: 24px 0; flex-wrap: wrap; }
+        .figure-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); overflow: hidden; }
+        .figure-card figcaption { font-size: 0.85em; color: #64748b; margin-top: 10px; max-width: 220px; }
+        .figure-label { font-weight: 700; font-size: 1em; color: #1e3a5f; margin-bottom: 8px; }
+        .unit-nav { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 20px; border-top: 1px solid #e2e8f0; }
+        .unit-nav a { color: #3b82f6; text-decoration: none; font-size: .9em; }
+        .formula-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+        .formula-table th { background: #f1f5f9; color: #1e3a5f; padding: 10px 14px; text-align: left; border: 1px solid #e2e8f0; }
+        .formula-table td { padding: 10px 14px; border: 1px solid #e2e8f0; color: #334155; vertical-align: middle; }
+        .formula-table tr:nth-child(even) td { background: #f8fafc; }
+    </style>
+</head>
+<body>
+<header class="site-header"></header>
+<script src="../../assets/js/common.js"></script>
+<article class="blog-article">
+
+    <div class="breadcrumb">
+        <a href="/test-geometry/index.html">Geometry</a> › Unit 13
+    </div>
+
+    <h1>Unit 13 — Coordinate Geometry</h1>
+    <div class="blog-meta">Grade 9–10 · Geometry · MathHub</div>
+
+    <!-- 13.1 Distance Formula -->
+    <h2>13.1 The Distance Formula</h2>
+
+    <div class="theorem-box">
+        <h4>Theorem — Distance Formula</h4>
+        <p>The distance between two points $(x_1, y_1)$ and $(x_2, y_2)$ in the coordinate plane is:</p>
+        $$d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$
+        <p><em>Derivation:</em> Draw a right triangle with the segment as the hypotenuse. The horizontal leg has length $|x_2 - x_1|$ and the vertical leg has length $|y_2 - y_1|$. Applying the Pythagorean Theorem gives the distance formula.</p>
+    </div>
+
+    <div class="figure-wrap">
+        <div class="figure-card">
+            <div class="figure-label">Distance Formula Diagram</div>
+            <svg width="330" height="300" viewBox="0 0 220 200" aria-label="Coordinate plane with points A(1,2) and B(5,5) and right triangle showing Deltax=4, Deltay=3, d=5">
+                <!-- Axes -->
+                <line x1="20" y1="175" x2="215" y2="175" stroke="#94a3b8" stroke-width="1.5"/>
+                <line x1="20" y1="175" x2="20" y2="10" stroke="#94a3b8" stroke-width="1.5"/>
+                <!-- Arrow heads -->
+                <polygon points="211,171 219,175 211,179" fill="#94a3b8"/>
+                <polygon points="16,10 20,2 24,10" fill="#94a3b8"/>
+                <!-- Axis labels -->
+                <text x="216" y="179" font-size="11" fill="#64748b">x</text>
+                <text x="13" y="9" font-size="11" fill="#64748b">y</text>
+                <!-- scale: origin(20,175), 1 unit = 34px x, 30px y -->
+                <!-- A(1,2): (20+34, 175-60)=(54,115) -->
+                <!-- B(5,5): (20+170, 175-150)=(190,25) -->
+                <!-- C(right angle): (190,115) -->
+                <!-- Hypotenuse A to B -->
+                <line x1="54" y1="115" x2="190" y2="25" stroke="#1e40af" stroke-width="2.5"/>
+                <!-- Horizontal leg A to C -->
+                <line x1="54" y1="115" x2="190" y2="115" stroke="#22c55e" stroke-width="2" stroke-dasharray="6,3"/>
+                <!-- Vertical leg C to B -->
+                <line x1="190" y1="115" x2="190" y2="25" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6,3"/>
+                <!-- Right angle mark at C -->
+                <rect x="181" y="106" width="9" height="9" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+                <!-- Points -->
+                <circle cx="54" cy="115" r="5" fill="#3b82f6"/>
+                <circle cx="190" cy="25" r="5" fill="#3b82f6"/>
+                <!-- Point labels -->
+                <text x="30" y="113" font-size="12" fill="#1e3a5f" font-weight="bold">A(1,2)</text>
+                <text x="192" y="22" font-size="12" fill="#1e3a5f" font-weight="bold">B(5,5)</text>
+                <!-- Leg labels -->
+                <text x="108" y="132" font-size="11" fill="#166534">&#916;x = 4</text>
+                <text x="194" y="76" font-size="11" fill="#92400e">&#916;y = 3</text>
+                <!-- d label on hypotenuse -->
+                <text x="106" y="62" font-size="12" fill="#1e40af" font-style="italic">d = 5</text>
+            </svg>
+            <figcaption>Right triangle formed by A(1,2) and B(5,5). The legs are &Delta;x = 4 and &Delta;y = 3, giving hypotenuse d = 5.</figcaption>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Example — Distance Between Two Points</h4>
+        <p>Find the distance between $A(-1, 3)$ and $B(5, -5)$.</p>
+        <p>$d = \sqrt{(5-(-1))^2 + (-5-3)^2}$</p>
+        <p>$d = \sqrt{6^2 + (-8)^2} = \sqrt{36 + 64} = \sqrt{100} = \mathbf{10}$</p>
+    </div>
+
+    <!-- 13.2 Midpoint Formula -->
+    <h2>13.2 The Midpoint Formula</h2>
+
+    <div class="theorem-box">
+        <h4>Theorem — Midpoint Formula</h4>
+        <p>The midpoint $M$ of the segment connecting $(x_1, y_1)$ and $(x_2, y_2)$ is:</p>
+        $$M = \left(\frac{x_1 + x_2}{2},\; \frac{y_1 + y_2}{2}\right)$$
+        <p>The midpoint is the average of the $x$-coordinates and the average of the $y$-coordinates.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 1 — Finding the Midpoint</h4>
+        <p>Find the midpoint of $A(2, -4)$ and $B(8, 6)$.</p>
+        <p>$M = \left(\dfrac{2+8}{2},\; \dfrac{-4+6}{2}\right) = \left(\dfrac{10}{2},\; \dfrac{2}{2}\right) = \mathbf{(5, 1)}$</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 2 — Finding an Endpoint from the Midpoint</h4>
+        <p>$M(3, 7)$ is the midpoint of $\overline{AB}$ where $A = (1, 5)$. Find $B$.</p>
+        <p>$3 = \dfrac{1 + x_B}{2} \Rightarrow 6 = 1 + x_B \Rightarrow x_B = 5$</p>
+        <p>$7 = \dfrac{5 + y_B}{2} \Rightarrow 14 = 5 + y_B \Rightarrow y_B = 9$</p>
+        <p>$B = \mathbf{(5, 9)}$</p>
+    </div>
+
+    <!-- 13.3 Slope -->
+    <h2>13.3 Slope</h2>
+
+    <div class="theorem-box">
+        <h4>Theorem — Slope of a Line</h4>
+        <p>The <strong>slope</strong> of the line through $(x_1, y_1)$ and $(x_2, y_2)$ is:</p>
+        $$m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{\Delta y}{\Delta x} = \frac{\text{rise}}{\text{run}}$$
+        <ul>
+            <li>Horizontal line: slope $= 0$</li>
+            <li>Vertical line: slope $=$ undefined</li>
+        </ul>
+    </div>
+
+    <div class="theorem-box">
+        <h4>Theorem — Parallel and Perpendicular Slopes</h4>
+        <ul>
+            <li><strong>Parallel lines</strong> have equal slopes: $m_1 = m_2$.</li>
+            <li><strong>Perpendicular lines</strong> have slopes that are negative reciprocals: $m_1 \cdot m_2 = -1$, i.e., $m_2 = -\dfrac{1}{m_1}$.</li>
+        </ul>
+    </div>
+
+    <div class="example-box">
+        <h4>Example — Parallel Lines</h4>
+        <p>Are $AB$ and $CD$ parallel? $A(0,0)$, $B(3,6)$, $C(1,2)$, $D(4,8)$.</p>
+        <p>Slope of $AB = \dfrac{6-0}{3-0} = 2$</p>
+        <p>Slope of $CD = \dfrac{8-2}{4-1} = \dfrac{6}{3} = 2$</p>
+        <p>Since the slopes are equal, $AB \parallel CD$. <strong>Yes, they are parallel.</strong></p>
+    </div>
+
+    <!-- 13.4 Coordinate Proofs -->
+    <h2>13.4 Coordinate Proofs</h2>
+
+    <div class="tip-box">
+        <h4>Strategy — Setting Up Coordinate Proofs</h4>
+        <p>Place geometric figures strategically on the coordinate plane to simplify calculations:</p>
+        <ul>
+            <li>Put a right angle at the origin and one side along the positive $x$-axis.</li>
+            <li>Use variables like $a$, $b$, $c$ for general side lengths to keep the proof general.</li>
+            <li>Center symmetric figures at the origin (coordinates come in $\pm$ pairs).</li>
+            <li>After placing the figure, use the distance, midpoint, or slope formula to prove the property.</li>
+        </ul>
+    </div>
+
+    <div class="example-box">
+        <h4>Example — Diagonals of a Rectangle Bisect Each Other</h4>
+        <p><strong>Prove:</strong> The diagonals of a rectangle bisect each other.</p>
+        <p><strong>Setup:</strong> Place rectangle $OABC$ with $O(0,0)$, $A(a,0)$, $B(a,b)$, $C(0,b)$.</p>
+        <p><strong>Midpoint of diagonal $\overline{OB}$:</strong> from $(0,0)$ to $(a,b)$.</p>
+        <p>$M_1 = \left(\dfrac{0+a}{2},\; \dfrac{0+b}{2}\right) = \left(\dfrac{a}{2},\; \dfrac{b}{2}\right)$</p>
+        <p><strong>Midpoint of diagonal $\overline{AC}$:</strong> from $(a,0)$ to $(0,b)$.</p>
+        <p>$M_2 = \left(\dfrac{a+0}{2},\; \dfrac{0+b}{2}\right) = \left(\dfrac{a}{2},\; \dfrac{b}{2}\right)$</p>
+        <p>$M_1 = M_2$, so both diagonals share the same midpoint. Therefore the diagonals bisect each other. $\blacksquare$</p>
+    </div>
+
+    <!-- 13.5 Equations of Circles -->
+    <h2>13.5 Equations of Circles</h2>
+
+    <div class="theorem-box">
+        <h4>Standard Form — Equation of a Circle</h4>
+        <p>A circle with center $(h, k)$ and radius $r$:</p>
+        $$(x - h)^2 + (y - k)^2 = r^2$$
+        <p>Expanding gives the <strong>general form</strong>: $x^2 + y^2 + Dx + Ey + F = 0$. To convert back to standard form, complete the square in both $x$ and $y$.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 1 — Equation from Center and a Point on the Circle</h4>
+        <p>Find the equation of the circle with center $(-2, 4)$ passing through $(1, 4)$.</p>
+        <p>$r = \sqrt{(1-(-2))^2 + (4-4)^2} = \sqrt{9 + 0} = 3$</p>
+        <p>$(x - (-2))^2 + (y - 4)^2 = 3^2$</p>
+        $$\boxed{(x+2)^2 + (y-4)^2 = 9}$$
+    </div>
+
+    <div class="example-box">
+        <h4>Example 2 — Completing the Square</h4>
+        <p>Find the center and radius: $x^2 + y^2 + 4x - 8y + 4 = 0$.</p>
+        <p>Rearrange and complete the square:</p>
+        <p>$(x^2 + 4x + 4) + (y^2 - 8y + 16) = -4 + 4 + 16$</p>
+        <p>$(x + 2)^2 + (y - 4)^2 = 16$</p>
+        <p><strong>Center:</strong> $(-2,\; 4)$, <strong>Radius:</strong> $r = \sqrt{16} = 4$</p>
+    </div>
+
+    <!-- Practice -->
+    <h2>Practice Problems</h2>
+
+    <div class="practice-box">
+        <h4>Unit 13 Practice — 12 Problems</h4>
+        <ol>
+            <li>Find the distance between $P(3, 1)$ and $Q(7, 4)$.</li>
+            <li>Find the distance between $M(-2, -3)$ and $N(4, 5)$. Round to the nearest tenth.</li>
+            <li>Find the midpoint of $A(-4, 6)$ and $B(10, -2)$.</li>
+            <li>The midpoint of $\overline{CD}$ is $(2, -1)$ and $C = (5, 3)$. Find $D$.</li>
+            <li>Find the slope of the line through $(-3, 7)$ and $(5, -1)$.</li>
+            <li>Line $\ell_1$ has slope $\dfrac{3}{4}$. Line $\ell_2$ is perpendicular to $\ell_1$. Find the slope of $\ell_2$.</li>
+            <li>Show that the quadrilateral with vertices $A(0,0)$, $B(4,0)$, $C(5,3)$, $D(1,3)$ is a parallelogram using slopes.</li>
+            <li>Show that $A(1,1)$, $B(4,1)$, $C(4,5)$ form a right triangle using slopes, then find the hypotenuse length.</li>
+            <li>A segment has midpoint $(0, 0)$ and one endpoint $(-3, 5)$. Find the other endpoint.</li>
+            <li>Write the equation of the circle with center $(5, -3)$ and radius $7$.</li>
+            <li>Find the center and radius: $x^2 + y^2 - 10x + 6y + 9 = 0$.</li>
+            <li>Two points on a circle are $A(1, 7)$ and $B(7, 7)$. If the center lies on the $x$-axis, find the center and radius.</li>
+        </ol>
+    </div>
+
+    <div class="unit-nav">
+        <a href="/test-geometry/unit12-volume.html">← Previous Unit</a>
+        <a href="/test-geometry/index.html">All Units</a>
+        <a href="/test-geometry/index.html">Next Unit →</a>
+    </div>
+
+</article>
+<footer style="text-align:center;padding:24px 20px;color:#94a3b8;font-size:.85em;border-top:1px solid #e2e8f0;margin-top:40px">
+    Geometry · MathHub · Grade 9–10
+</footer>
+</body>
+</html>

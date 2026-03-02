@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGCSE Mathematics – Chapter 7: Vectors and Transformations | Cambridge &amp; Edexcel IGCSE | MathHub</title>
+    <meta name="description" content="Complete IGCSE Maths guide to vectors and transformations: translations, reflections, rotations, enlargements, combined transformations, and vector geometry for Cambridge 0580 and Edexcel 4MA1.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/igcse-ch7-vectors-transformations.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/uk/textbook/igcse-ch7-vectors-transformations.html">
+    <meta property="og:title" content="IGCSE Mathematics: Vectors and Transformations | MathHub">
+    <meta property="og:site_name" content="MathHub Global">
+    <link rel="alternate" hreflang="en-GB" href="https://mathhub.io/uk/textbook/igcse-ch7-vectors-transformations.html">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .extended-badge { display: inline-block; background: #fde68a; color: #92400e; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/">US</a>
+            <a href="/uk/" class="active">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="/uk/">UK</a> &rsaquo; <a href="/uk/">Textbook</a> &rsaquo; IGCSE Maths Chapter 7
+        </div>
+        <h1>IGCSE Mathematics: Vectors and Transformations</h1>
+        <div class="blog-meta">Cambridge IGCSE 0580 &amp; Edexcel 4MA1 &middot; Updated March 2026</div>
+
+        <p>This chapter covers all aspects of geometric transformations — translations, reflections, rotations, and enlargements — as well as an introduction to vector notation and vector geometry. Transformations describe how shapes move or change in the coordinate plane, and vectors provide the algebraic language to describe direction and magnitude precisely.</p>
+
+        <div class="exam-note">
+            <h4>Specification Note</h4>
+            <p>Content labelled <span class="extended-badge">Extended</span> is required for Extended tier (Cambridge) or Higher tier (Edexcel) only.</p>
+        </div>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#translations">Translations</a></li>
+                <li><a href="#reflections">Reflections</a></li>
+                <li><a href="#rotations">Rotations</a></li>
+                <li><a href="#enlargements">Enlargements</a></li>
+                <li><a href="#combined">Combined Transformations</a></li>
+                <li><a href="#vectors">Vectors <span class="extended-badge">Extended</span></a></li>
+            </ol>
+        </nav>
+
+        <!-- ============================================================ -->
+        <h2 id="translations">1. Translations</h2>
+
+        <p>A <strong>translation</strong> moves every point of a shape by the same distance in the same direction. The shape does not rotate, reflect, or change size — it simply slides to a new position. Translations are described using a <strong>column vector</strong>.</p>
+
+        <div class="definition-box">
+            <h4>Column Vector</h4>
+            <p>A column vector $\begin{pmatrix} a \\ b \end{pmatrix}$ means: move $a$ units in the $x$-direction (positive = right, negative = left) and $b$ units in the $y$-direction (positive = up, negative = down).</p>
+        </div>
+
+        <h3>Properties of Translations</h3>
+        <ul>
+            <li>The object and its image are <strong>congruent</strong> (same shape and size).</li>
+            <li>Corresponding sides of the object and image are parallel.</li>
+            <li>No point is fixed (no invariant points, unless the vector is $\begin{pmatrix}0\\0\end{pmatrix}$).</li>
+            <li>The translation that maps the image back to the object is $\begin{pmatrix}-a\\-b\end{pmatrix}$.</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Example 1 — Translating a triangle</h4>
+            <p>Triangle $ABC$ has vertices $A(1, 2)$, $B(3, 2)$, and $C(2, 4)$. Translate the triangle by $\begin{pmatrix}3 \\ -1\end{pmatrix}$.</p>
+            <p><span class="step-label">Step 1</span> Add the column vector to each vertex:</p>
+            <p>$A' = (1+3,\ 2+(-1)) = (4, 1)$</p>
+            <p>$B' = (3+3,\ 2+(-1)) = (6, 1)$</p>
+            <p>$C' = (2+3,\ 4+(-1)) = (5, 3)$</p>
+            <p><span class="step-label">Step 2</span> Plot $A'(4,1)$, $B'(6,1)$, $C'(5,3)$ and join them to form triangle $A'B'C'$.</p>
+            <p>The image $A'B'C'$ is congruent to $ABC$, moved 3 right and 1 down.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2 — Describing a translation</h4>
+            <p>Shape $P$ has a vertex at $(5, 6)$. The image $P'$ has the corresponding vertex at $(2, 9)$. Describe the translation.</p>
+            <p><span class="step-label">Step 1</span> Find the change in each coordinate:</p>
+            <p>$x$-change: $2 - 5 = -3$</p>
+            <p>$y$-change: $9 - 6 = +3$</p>
+            <p><span class="step-label">Step 2</span> Write as a column vector: Translation is $\begin{pmatrix}-3 \\ 3\end{pmatrix}$.</p>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 1a</h4>
+            <p>Quadrilateral $PQRS$ has vertices $P(0,0)$, $Q(2,0)$, $R(2,3)$, $S(0,3)$. Find the image vertices after a translation by $\begin{pmatrix}-1 \\ 4\end{pmatrix}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Add $\begin{pmatrix}-1\\4\end{pmatrix}$ to each vertex:</p>
+                    <p>$P' = (0-1,\ 0+4) = (-1, 4)$</p>
+                    <p>$Q' = (2-1,\ 0+4) = (1, 4)$</p>
+                    <p>$R' = (2-1,\ 3+4) = (1, 7)$</p>
+                    <p>$S' = (0-1,\ 3+4) = (-1, 7)$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 1b</h4>
+            <p>A triangle has a vertex at $(4, -2)$. After a translation, that vertex is at $(-1, 5)$. Write the translation vector.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$x$-change: $-1 - 4 = -5$</p>
+                    <p>$y$-change: $5 - (-2) = 7$</p>
+                    <p>Translation: $\begin{pmatrix}-5 \\ 7\end{pmatrix}$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="reflections">2. Reflections</h2>
+
+        <p>A <strong>reflection</strong> creates a mirror image of a shape across a <strong>mirror line</strong>. Each point and its image are equidistant from the mirror line, and the line joining them is perpendicular to the mirror line.</p>
+
+        <div class="definition-box">
+            <h4>Properties of Reflections</h4>
+            <ul>
+                <li>Object and image are <strong>congruent</strong>.</li>
+                <li>Points on the mirror line are <strong>invariant</strong> (they do not move).</li>
+                <li>The object and image are on opposite sides of the mirror line.</li>
+                <li>Orientation is <strong>reversed</strong> (left and right are swapped).</li>
+            </ul>
+        </div>
+
+        <h3>Key Mirror Lines</h3>
+        <ul>
+            <li><strong>$x$-axis</strong> ($y = 0$): $(x, y) \to (x, -y)$</li>
+            <li><strong>$y$-axis</strong> ($x = 0$): $(x, y) \to (-x, y)$</li>
+            <li><strong>$y = x$</strong>: $(x, y) \to (y, x)$</li>
+            <li><strong>$y = -x$</strong>: $(x, y) \to (-y, -x)$</li>
+            <li><strong>$x = a$</strong> (vertical line): $(x, y) \to (2a - x, y)$</li>
+            <li><strong>$y = b$</strong> (horizontal line): $(x, y) \to (x, 2b - y)$</li>
+        </ul>
+
+        <div id="desmos-reflection" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 7.1 — Triangle $ABC$ (blue) and its reflection in the $y$-axis (red). Each point is the same distance from the mirror line on the opposite side.</p>
+
+        <div class="example-box">
+            <h4>Example 3 — Reflecting in $y = x$</h4>
+            <p>Reflect triangle with vertices $A(1, 3)$, $B(4, 3)$, $C(4, 6)$ in the line $y = x$.</p>
+            <p><span class="step-label">Step 1</span> Apply the rule $(x, y) \to (y, x)$:</p>
+            <p>$A(1, 3) \to A'(3, 1)$</p>
+            <p>$B(4, 3) \to B'(3, 4)$</p>
+            <p>$C(4, 6) \to C'(6, 4)$</p>
+            <p><span class="step-label">Step 2</span> Plot and join $A'$, $B'$, $C'$. Verify by checking each image point is the same distance from $y = x$ as the original, on the opposite side.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4 — Describing a reflection</h4>
+            <p>Shape $P$ has a vertex at $(3, 5)$ and its image $P'$ has the corresponding vertex at $(3, -1)$. Identify the mirror line.</p>
+            <p><span class="step-label">Step 1</span> The $x$-coordinate is unchanged, so the mirror line is horizontal.</p>
+            <p><span class="step-label">Step 2</span> The midpoint of $(3, 5)$ and $(3, -1)$ gives the mirror line's $y$-value:</p>
+            <p>Midpoint $y$-value $= \dfrac{5 + (-1)}{2} = \dfrac{4}{2} = 2$</p>
+            <p>Mirror line: $y = 2$</p>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 2a</h4>
+            <p>Reflect the point $(-3, 4)$ in (i) the $x$-axis, (ii) the line $y = -x$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>(i) Reflection in $x$-axis: $(x,y) \to (x,-y)$, so $(-3, 4) \to (-3, -4)$.</p>
+                    <p>(ii) Reflection in $y = -x$: $(x,y) \to (-y,-x)$, so $(-3, 4) \to (-4, 3)$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 2b</h4>
+            <p>A vertex of shape $Q$ is at $(6, 2)$. After reflection, its image is at $(-2, 2)$. Write the equation of the mirror line.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>The $y$-coordinate is unchanged, so the mirror line is vertical.</p>
+                    <p>Midpoint $x$-value $= \dfrac{6 + (-2)}{2} = \dfrac{4}{2} = 2$</p>
+                    <p>Mirror line: $x = 2$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="rotations">3. Rotations</h2>
+
+        <p>A <strong>rotation</strong> turns a shape through an angle about a fixed point called the <strong>centre of rotation</strong>. Angles are measured anticlockwise unless stated otherwise. To describe a rotation fully, state: the centre, the angle, and the direction.</p>
+
+        <div class="definition-box">
+            <h4>Properties of Rotations</h4>
+            <ul>
+                <li>Object and image are <strong>congruent</strong>.</li>
+                <li>The <strong>centre of rotation</strong> is the only invariant point.</li>
+                <li>Every point on the object moves through the same angle.</li>
+                <li>Orientation is <strong>preserved</strong> (same sense as a reflection reversal does not apply).</li>
+            </ul>
+        </div>
+
+        <h3>Common Rotations About the Origin</h3>
+        <ul>
+            <li><strong>90° anticlockwise:</strong> $(x, y) \to (-y, x)$</li>
+            <li><strong>90° clockwise:</strong> $(x, y) \to (y, -x)$</li>
+            <li><strong>180° (either direction):</strong> $(x, y) \to (-x, -y)$</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Example 5 — Rotating 90° anticlockwise about the origin</h4>
+            <p>Triangle $DEF$ has vertices $D(2, 1)$, $E(5, 1)$, $F(5, 4)$. Rotate it 90° anticlockwise about the origin.</p>
+            <p><span class="step-label">Step 1</span> Apply $(x, y) \to (-y, x)$:</p>
+            <p>$D(2, 1) \to D'(-1, 2)$</p>
+            <p>$E(5, 1) \to E'(-1, 5)$</p>
+            <p>$F(5, 4) \to F'(-4, 5)$</p>
+            <p><span class="step-label">Step 2</span> Plot and join $D'$, $E'$, $F'$. Check that each point is the same distance from the origin as the corresponding original point.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6 — Finding the centre of rotation</h4>
+            <p>Triangle $P$ with vertex at $(4, 0)$ is mapped to $P'$ with vertex at $(0, 4)$. A second vertex of $P$ is at $(4, 2)$, mapped to $(−2, 4)$ in $P'$. Find the centre and angle of rotation.</p>
+            <p><span class="step-label">Step 1</span> Draw the perpendicular bisector of the segment from $(4,0)$ to $(0,4)$. Midpoint = $(2,2)$; gradient of segment = $\dfrac{4-0}{0-4}=-1$; perpendicular gradient = $1$. Bisector: $y - 2 = 1(x - 2) \Rightarrow y = x$.</p>
+            <p><span class="step-label">Step 2</span> Draw the perpendicular bisector of the segment from $(4,2)$ to $(-2,4)$. Midpoint = $(1,3)$; gradient = $\dfrac{4-2}{-2-4}=-\tfrac{1}{3}$; perpendicular gradient = $3$. Bisector: $y - 3 = 3(x-1) \Rightarrow y = 3x$.</p>
+            <p><span class="step-label">Step 3</span> Solve $y = x$ and $y = 3x$: $x = 3x \Rightarrow x = 0$, $y = 0$. Centre = $(0,0)$.</p>
+            <p><span class="step-label">Step 4</span> Check the angle: $(4,0) \to (0,4)$ is a 90° anticlockwise rotation about the origin. ✓</p>
+            <p><strong>Answer:</strong> Rotation of 90° anticlockwise about the origin.</p>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 3a</h4>
+            <p>Point $G(3, 5)$ is rotated 180° about the origin. Write the coordinates of $G'$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$(x,y) \to (-x,-y)$, so $G(3,5) \to G'(-3,-5)$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 3b</h4>
+            <p>Rotate the triangle with vertices $(1, 0)$, $(3, 0)$, $(3, 2)$ by 90° clockwise about the origin. State the image vertices.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Apply $(x,y) \to (y,-x)$:</p>
+                    <p>$(1,0) \to (0,-1)$</p>
+                    <p>$(3,0) \to (0,-3)$</p>
+                    <p>$(3,2) \to (2,-3)$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="enlargements">4. Enlargements</h2>
+
+        <p>An <strong>enlargement</strong> changes the size of a shape. All lengths are multiplied by the <strong>scale factor</strong> $k$, and all angles remain the same. The fixed point from which the shape is enlarged is the <strong>centre of enlargement</strong>.</p>
+
+        <div class="definition-box">
+            <h4>Properties of Enlargements</h4>
+            <ul>
+                <li>Object and image are <strong>similar</strong> (same shape, different size unless $k = 1$).</li>
+                <li>All lengths are multiplied by $|k|$.</li>
+                <li>Area is multiplied by $k^2$.</li>
+                <li>If $k > 1$: image is larger than object, same orientation.</li>
+                <li>If $0 < k < 1$: image is smaller than object (reduction), same orientation.</li>
+                <li>If $k < 0$: image is on the opposite side of the centre, also rotated 180°.</li>
+            </ul>
+        </div>
+
+        <h3>Finding Image Coordinates from a Centre of Enlargement</h3>
+        <p>For centre $C = (c_x, c_y)$ and scale factor $k$:</p>
+        $$\text{Image point} = C + k \times (\text{object point} - C)$$
+
+        <div class="example-box">
+            <h4>Example 7 — Enlargement with positive scale factor</h4>
+            <p>Enlarge triangle $A(1,1)$, $B(3,1)$, $C(3,4)$ by scale factor $2$ from centre $(1,1)$.</p>
+            <p><span class="step-label">Step 1</span> The centre is $A(1,1)$. Since $A$ is the centre, $A$ maps to itself: $A' = (1,1)$.</p>
+            <p><span class="step-label">Step 2</span> For $B(3,1)$: vector from centre = $(3-1, 1-1) = (2,0)$. Multiply by $2$: $(4,0)$. Add to centre: $(1+4, 1+0) = (5, 1)$. So $B' = (5,1)$.</p>
+            <p><span class="step-label">Step 3</span> For $C(3,4)$: vector from centre = $(2,3)$. Multiply by $2$: $(4,6)$. Add to centre: $(5, 7)$. So $C' = (5,7)$.</p>
+            <p>Verify: $AB = 2$, $A'B' = 4$ ✓; $BC = 3$, $B'C' = 6$ ✓.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8 — Fractional and negative scale factors</h4>
+            <p>(a) Enlarge square with vertices $(2,2)$, $(6,2)$, $(6,6)$, $(2,6)$ by scale factor $\tfrac{1}{2}$ from centre $(0,0)$.</p>
+            <p><span class="step-label">Step 1</span> Multiply each coordinate by $\tfrac{1}{2}$:</p>
+            <p>$(2,2) \to (1,1)$; $(6,2) \to (3,1)$; $(6,6) \to (3,3)$; $(2,6) \to (1,3)$</p>
+            <p>The image is a smaller square of side $2$ (half of $4$).</p>
+            <p>(b) Enlarge point $P(4, 2)$ by scale factor $-2$ from centre $C(1,1)$.</p>
+            <p><span class="step-label">Step 1</span> Vector from $C$ to $P$: $(4-1, 2-1) = (3, 1)$.</p>
+            <p><span class="step-label">Step 2</span> Multiply by $-2$: $(-6, -2)$.</p>
+            <p><span class="step-label">Step 3</span> Add to $C$: $(1-6, 1-2) = (-5, -1)$. So $P' = (-5, -1)$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9 — Describing an enlargement</h4>
+            <p>Rectangle $R$ has vertices $(4, 2)$, $(10, 2)$, $(10, 5)$, $(4, 5)$. Its image $R'$ has vertices $(2, 1)$, $(5, 1)$, $(5, 2.5)$, $(2, 2.5)$. Describe the enlargement fully.</p>
+            <p><span class="step-label">Step 1</span> Scale factor: $\dfrac{\text{image length}}{\text{object length}} = \dfrac{3}{6} = \dfrac{1}{2}$</p>
+            <p><span class="step-label">Step 2</span> Find the centre by drawing lines through corresponding vertices and finding their intersection. Line through $(4,2)$ and $(2,1)$: gradient $= \dfrac{1-2}{2-4} = \tfrac{1}{2}$; equation $y-2 = \tfrac{1}{2}(x-4) \Rightarrow y = \tfrac{1}{2}x$. This passes through the origin $(0,0)$.</p>
+            <p><strong>Answer:</strong> Enlargement, scale factor $\tfrac{1}{2}$, centre $(0,0)$.</p>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 4a</h4>
+            <p>Triangle $LMN$ has vertices $L(0,0)$, $M(4,0)$, $N(0,3)$. Enlarge it by scale factor $3$ from centre $(0,0)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Multiply each coordinate by $3$:</p>
+                    <p>$L' = (0,0)$; $M' = (12,0)$; $N' = (0,9)$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 4b</h4>
+            <p>Shape $S$ has a vertex at $(6, 4)$. After enlargement with centre $(2, 2)$ and scale factor $-1$, find the image of this vertex.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Vector from centre to point: $(6-2, 4-2) = (4, 2)$.</p>
+                    <p>Multiply by $-1$: $(-4, -2)$.</p>
+                    <p>Add to centre: $(2-4, 2-2) = (-2, 0)$.</p>
+                    <p>Image vertex: $(-2, 0)$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="combined">5. Combined Transformations</h2>
+
+        <p>When two transformations are applied in succession, the result may be equivalent to a single transformation. To describe the combined effect, apply the first transformation, then apply the second to the result.</p>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Always apply transformations in the order stated. "Transformation $A$ followed by transformation $B$" means apply $A$ first, then $B$ to the resulting image.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10 — Two reflections</h4>
+            <p>Triangle $T$ has vertices $(1,1)$, $(3,1)$, $(3,4)$. Apply reflection in the $y$-axis followed by reflection in the $x$-axis. Describe the single equivalent transformation.</p>
+            <p><span class="step-label">Step 1</span> Reflect in the $y$-axis: $(x,y) \to (-x,y)$</p>
+            <p>$(1,1) \to (-1,1)$; $(3,1) \to (-3,1)$; $(3,4) \to (-3,4)$</p>
+            <p><span class="step-label">Step 2</span> Reflect that image in the $x$-axis: $(x,y) \to (x,-y)$</p>
+            <p>$(-1,1) \to (-1,-1)$; $(-3,1) \to (-3,-1)$; $(-3,4) \to (-3,-4)$</p>
+            <p><span class="step-label">Step 3</span> Compare with original: $(1,1) \to (-1,-1)$, which is $(x,y) \to (-x,-y)$.</p>
+            <p><strong>Single equivalent transformation:</strong> Rotation of 180° about the origin.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11 — Rotation followed by translation</h4>
+            <p>Point $P(3, 1)$. Apply rotation of 90° anticlockwise about the origin, then translation by $\begin{pmatrix}2\\-3\end{pmatrix}$.</p>
+            <p><span class="step-label">Step 1</span> Rotate: $(3,1) \to (-1, 3)$</p>
+            <p><span class="step-label">Step 2</span> Translate: $(-1+2, 3-3) = (1, 0)$</p>
+            <p>Final image of $P$ is $(1, 0)$.</p>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 5a</h4>
+            <p>Triangle $W$ has vertices $(1,0)$, $(3,0)$, $(3,2)$. Apply reflection in $y = x$, then rotation of 90° clockwise about the origin. Write the final image vertices and identify the single equivalent transformation.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>Step 1 — Reflect in $y = x$:</strong> $(x,y) \to (y,x)$</p>
+                    <p>$(1,0) \to (0,1)$; $(3,0) \to (0,3)$; $(3,2) \to (2,3)$</p>
+                    <p><strong>Step 2 — Rotate 90° clockwise:</strong> $(x,y) \to (y,-x)$</p>
+                    <p>$(0,1) \to (1,0)$; $(0,3) \to (3,0)$; $(2,3) \to (3,-2)$</p>
+                    <p><strong>Compare original to final image:</strong></p>
+                    <p>$(1,0) \to (1,0)$; $(3,0) \to (3,0)$; $(3,2) \to (3,-2)$</p>
+                    <p>This maps $(x,y) \to (x,-y)$: <strong>Reflection in the $x$-axis.</strong></p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="vectors">6. Vectors <span class="extended-badge">Extended</span></h2>
+
+        <p>A <strong>vector</strong> has both <strong>magnitude</strong> (size) and <strong>direction</strong>. Vectors are used to describe displacements, velocities, and forces. Unlike a scalar (which has magnitude only), a vector also tells you which way.</p>
+
+        <div class="definition-box">
+            <h4>Vector Notation</h4>
+            <ul>
+                <li>Column vector: $\mathbf{a} = \begin{pmatrix}3\\-2\end{pmatrix}$ — move $3$ right and $2$ down.</li>
+                <li>Bold notation: $\mathbf{a}$, $\mathbf{b}$, $\mathbf{p}$ (used in print).</li>
+                <li>Underline notation: $\underline{a}$, $\underline{b}$ (used in handwriting).</li>
+                <li>Arrow notation: $\overrightarrow{AB}$ — vector from $A$ to $B$.</li>
+            </ul>
+        </div>
+
+        <h3>Magnitude of a Vector</h3>
+        <p>The magnitude (or modulus) of vector $\mathbf{a} = \begin{pmatrix}x\\y\end{pmatrix}$ is:</p>
+        $$|\mathbf{a}| = \sqrt{x^2 + y^2}$$
+
+        <h3>Adding and Subtracting Vectors</h3>
+        <p>Add or subtract vectors component by component:</p>
+        $$\begin{pmatrix}a\\b\end{pmatrix} + \begin{pmatrix}c\\d\end{pmatrix} = \begin{pmatrix}a+c\\b+d\end{pmatrix}$$
+        $$\begin{pmatrix}a\\b\end{pmatrix} - \begin{pmatrix}c\\d\end{pmatrix} = \begin{pmatrix}a-c\\b-d\end{pmatrix}$$
+
+        <h3>Multiplying a Vector by a Scalar</h3>
+        $$k \begin{pmatrix}a\\b\end{pmatrix} = \begin{pmatrix}ka\\kb\end{pmatrix}$$
+        <p>Multiplying by a scalar changes the magnitude but not the direction (if $k > 0$). If $k < 0$, the direction is reversed.</p>
+
+        <div id="desmos-vectors" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 7.2 — Vector addition: $\mathbf{a} + \mathbf{b} = \mathbf{c}$. The vector $\mathbf{c}$ (shown in green) is the diagonal of the parallelogram formed by $\mathbf{a}$ and $\mathbf{b}$.</p>
+
+        <div class="example-box">
+            <h4>Example 12 — Vector arithmetic</h4>
+            <p>Given $\mathbf{a} = \begin{pmatrix}3\\-1\end{pmatrix}$ and $\mathbf{b} = \begin{pmatrix}-2\\4\end{pmatrix}$, find:</p>
+            <p>(a) $\mathbf{a} + \mathbf{b}$, (b) $\mathbf{a} - \mathbf{b}$, (c) $3\mathbf{a} - 2\mathbf{b}$, (d) $|\mathbf{a}|$</p>
+            <p>(a) $\mathbf{a} + \mathbf{b} = \begin{pmatrix}3+(-2)\\-1+4\end{pmatrix} = \begin{pmatrix}1\\3\end{pmatrix}$</p>
+            <p>(b) $\mathbf{a} - \mathbf{b} = \begin{pmatrix}3-(-2)\\-1-4\end{pmatrix} = \begin{pmatrix}5\\-5\end{pmatrix}$</p>
+            <p>(c) $3\mathbf{a} - 2\mathbf{b} = 3\begin{pmatrix}3\\-1\end{pmatrix} - 2\begin{pmatrix}-2\\4\end{pmatrix} = \begin{pmatrix}9\\-3\end{pmatrix} - \begin{pmatrix}-4\\8\end{pmatrix} = \begin{pmatrix}13\\-11\end{pmatrix}$</p>
+            <p>(d) $|\mathbf{a}| = \sqrt{3^2 + (-1)^2} = \sqrt{9+1} = \sqrt{10}$</p>
+        </div>
+
+        <h3>Position Vectors</h3>
+        <p>The <strong>position vector</strong> of point $A$ is $\overrightarrow{OA}$, where $O$ is the origin. If $A = (a_1, a_2)$, then $\overrightarrow{OA} = \begin{pmatrix}a_1\\a_2\end{pmatrix}$.</p>
+        <p>The vector from $A$ to $B$ is:</p>
+        $$\overrightarrow{AB} = \overrightarrow{OB} - \overrightarrow{OA} = \mathbf{b} - \mathbf{a}$$
+
+        <h3>Vector Geometry</h3>
+
+        <div class="theorem-box">
+            <h4>Parallel Vectors</h4>
+            <p>Two vectors are parallel if one is a scalar multiple of the other: $\mathbf{u} \parallel \mathbf{v}$ if $\mathbf{u} = k\mathbf{v}$ for some scalar $k$.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Collinear Points</h4>
+            <p>Points $A$, $B$, $C$ are collinear if $\overrightarrow{AB} = k \cdot \overrightarrow{AC}$ for some scalar $k$. This means $\overrightarrow{AB}$ and $\overrightarrow{AC}$ are parallel and share the point $A$.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Midpoint using Position Vectors</h4>
+            <p>The midpoint $M$ of $AB$ has position vector: $\overrightarrow{OM} = \dfrac{\mathbf{a} + \mathbf{b}}{2}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 13 — Vector geometry proof</h4>
+            <p>$OABC$ is a parallelogram. $\overrightarrow{OA} = \mathbf{a}$ and $\overrightarrow{OC} = \mathbf{c}$. $M$ is the midpoint of $AC$ and $N$ is the midpoint of $OB$. Prove that $M = N$ (i.e., the diagonals bisect each other).</p>
+            <p><span class="step-label">Step 1</span> Since $OABC$ is a parallelogram, $\overrightarrow{OB} = \mathbf{a} + \mathbf{c}$.</p>
+            <p><span class="step-label">Step 2</span> Position vector of $A$: $\mathbf{a}$. Position vector of $C$: $\mathbf{c}$. Midpoint $M$ of $AC$:</p>
+            $$\overrightarrow{OM} = \frac{\mathbf{a} + \mathbf{c}}{2}$$
+            <p><span class="step-label">Step 3</span> $N$ is the midpoint of $OB$. $\overrightarrow{OB} = \mathbf{a}+\mathbf{c}$, so:</p>
+            $$\overrightarrow{ON} = \frac{(\mathbf{a}+\mathbf{c})}{2}$$
+            <p><span class="step-label">Step 4</span> $\overrightarrow{OM} = \overrightarrow{ON} = \dfrac{\mathbf{a}+\mathbf{c}}{2}$, so $M$ and $N$ are the same point. The diagonals bisect each other. $\square$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 14 — Proving collinearity</h4>
+            <p>$O$, $A$, $B$ are points with position vectors $\mathbf{0}$, $\mathbf{a}$, $2\mathbf{a}$ respectively. Show that $O$, $A$, $B$ are collinear.</p>
+            <p><span class="step-label">Step 1</span> $\overrightarrow{OA} = \mathbf{a}$</p>
+            <p><span class="step-label">Step 2</span> $\overrightarrow{OB} = 2\mathbf{a} = 2 \cdot \overrightarrow{OA}$</p>
+            <p><span class="step-label">Step 3</span> Since $\overrightarrow{OB} = 2\overrightarrow{OA}$, the vectors are parallel and share point $O$, so $O$, $A$, $B$ lie on the same straight line. They are collinear. $\square$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 15 — Ratio along a line segment</h4>
+            <p>$A$ has position vector $\mathbf{a}$ and $B$ has position vector $\mathbf{b}$. Point $P$ divides $AB$ in the ratio $2:1$. Find the position vector of $P$.</p>
+            <p><span class="step-label">Step 1</span> $\overrightarrow{AP} = \dfrac{2}{3}\overrightarrow{AB} = \dfrac{2}{3}(\mathbf{b} - \mathbf{a})$</p>
+            <p><span class="step-label">Step 2</span> Position vector of $P$: $\overrightarrow{OP} = \mathbf{a} + \dfrac{2}{3}(\mathbf{b}-\mathbf{a}) = \mathbf{a} + \dfrac{2\mathbf{b}}{3} - \dfrac{2\mathbf{a}}{3} = \dfrac{\mathbf{a}}{3} + \dfrac{2\mathbf{b}}{3}$</p>
+            $$\overrightarrow{OP} = \frac{\mathbf{a} + 2\mathbf{b}}{3}$$
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 6a</h4>
+            <p>Given $\mathbf{p} = \begin{pmatrix}5\\2\end{pmatrix}$ and $\mathbf{q} = \begin{pmatrix}-1\\3\end{pmatrix}$, find: (i) $\mathbf{p} + \mathbf{q}$, (ii) $2\mathbf{p} - \mathbf{q}$, (iii) $|\mathbf{q}|$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>(i) $\mathbf{p} + \mathbf{q} = \begin{pmatrix}5+(-1)\\2+3\end{pmatrix} = \begin{pmatrix}4\\5\end{pmatrix}$</p>
+                    <p>(ii) $2\mathbf{p} - \mathbf{q} = \begin{pmatrix}10\\4\end{pmatrix} - \begin{pmatrix}-1\\3\end{pmatrix} = \begin{pmatrix}11\\1\end{pmatrix}$</p>
+                    <p>(iii) $|\mathbf{q}| = \sqrt{(-1)^2 + 3^2} = \sqrt{1+9} = \sqrt{10}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 6b</h4>
+            <p>$O$ is the origin. $A$ has position vector $\begin{pmatrix}4\\2\end{pmatrix}$ and $B$ has position vector $\begin{pmatrix}10\\5\end{pmatrix}$. Show that $O$, $A$, $B$ are collinear.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\overrightarrow{OA} = \begin{pmatrix}4\\2\end{pmatrix}$ and $\overrightarrow{OB} = \begin{pmatrix}10\\5\end{pmatrix}$.</p>
+                    <p>Check: $\begin{pmatrix}10\\5\end{pmatrix} = \dfrac{5}{2}\begin{pmatrix}4\\2\end{pmatrix}$. ✓</p>
+                    <p>Since $\overrightarrow{OB} = \dfrac{5}{2}\overrightarrow{OA}$, the vectors are parallel and share point $O$.</p>
+                    <p>Therefore $O$, $A$, $B$ are collinear.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 6c</h4>
+            <p>$OABC$ is a quadrilateral where $\overrightarrow{OA} = \mathbf{a}$ and $\overrightarrow{OC} = \mathbf{c}$. $M$ is the midpoint of $OB$ and $N$ is the midpoint of $AC$. Given that $\overrightarrow{AB} = \mathbf{c}$, find the position vector of $M$ and $N$ in terms of $\mathbf{a}$ and $\mathbf{c}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\overrightarrow{OB} = \overrightarrow{OA} + \overrightarrow{AB} = \mathbf{a} + \mathbf{c}$</p>
+                    <p>Position vector of $M$ (midpoint of $OB$): $\dfrac{\mathbf{a} + \mathbf{c}}{2}$</p>
+                    <p>Position vector of $C$: $\mathbf{c}$. Midpoint $N$ of $AC$:</p>
+                    <p>$\overrightarrow{ON} = \dfrac{\mathbf{a} + \mathbf{c}}{2}$</p>
+                    <p>Since $M$ and $N$ have the same position vector, $M = N$. The diagonals $OB$ and $AC$ bisect each other, so $OABC$ is a parallelogram.</p>
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <script>
+        // Desmos Figure 1 — Reflection in the y-axis
+        (function() {
+            var elt = document.getElementById('desmos-reflection');
+            var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true
+            });
+            calc.setMathBounds({ left: -7, right: 7, bottom: -1, top: 8 });
+            calc.setExpressions([
+                // Mirror line
+                { id: 'mirror', latex: 'x=0', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED },
+                // Original triangle (blue)
+                { id: 'tri1', latex: 'polygon((1,1),(4,1),(4,5))', color: '#3b82f6', fillOpacity: 0.15 },
+                { id: 'la', latex: '(1,1)', label: 'A(1,1)', showLabel: true, color: '#1d4ed8', pointStyle: Desmos.Styles.POINT },
+                { id: 'lb', latex: '(4,1)', label: 'B(4,1)', showLabel: true, color: '#1d4ed8', pointStyle: Desmos.Styles.POINT },
+                { id: 'lc', latex: '(4,5)', label: 'C(4,5)', showLabel: true, color: '#1d4ed8', pointStyle: Desmos.Styles.POINT },
+                // Image triangle (red) — reflected in y-axis
+                { id: 'tri2', latex: 'polygon((-1,1),(-4,1),(-4,5))', color: '#ef4444', fillOpacity: 0.15 },
+                { id: 'la2', latex: "(-1,1)", label: "A'(-1,1)", showLabel: true, color: '#dc2626', pointStyle: Desmos.Styles.POINT },
+                { id: 'lb2', latex: "(-4,1)", label: "B'(-4,1)", showLabel: true, color: '#dc2626', pointStyle: Desmos.Styles.POINT },
+                { id: 'lc2', latex: "(-4,5)", label: "C'(-4,5)", showLabel: true, color: '#dc2626', pointStyle: Desmos.Styles.POINT }
+            ]);
+        })();
+
+        // Desmos Figure 2 — Vector addition a + b = c
+        (function() {
+            var elt = document.getElementById('desmos-vectors');
+            var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true
+            });
+            calc.setMathBounds({ left: -1, right: 8, bottom: -1, top: 6 });
+            calc.setExpressions([
+                // vector a: from (0,0) to (4,1) — blue
+                { id: 'va', latex: 'polygon((0,0),(4,1))', color: '#3b82f6' },
+                { id: 'va_label', latex: '(2, 0.3)', label: 'a', showLabel: true, color: '#1d4ed8', pointOpacity: 0 },
+                // vector b: from (4,1) to (6,4) — orange
+                { id: 'vb', latex: 'polygon((4,1),(6,4))', color: '#f97316' },
+                { id: 'vb_label', latex: '(5.3, 2.3)', label: 'b', showLabel: true, color: '#c2410c', pointOpacity: 0 },
+                // vector c = a+b: from (0,0) to (6,4) — green
+                { id: 'vc', latex: 'polygon((0,0),(6,4))', color: '#22c55e' },
+                { id: 'vc_label', latex: '(2.8, 2.4)', label: 'c = a + b', showLabel: true, color: '#15803d', pointOpacity: 0 },
+                // dashed parallelogram completion
+                { id: 'par1', latex: 'polygon((0,0),(2,3))', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED },
+                { id: 'par2', latex: 'polygon((2,3),(6,4))', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED },
+                // points
+                { id: 'p0', latex: '(0,0)', label: 'O', showLabel: true, color: '#334155' },
+                { id: 'p1', latex: '(4,1)', showLabel: false, color: '#334155' },
+                { id: 'p2', latex: '(6,4)', label: 'C', showLabel: true, color: '#15803d' }
+            ]);
+        })();
+    </script>
+</body>
+</html>

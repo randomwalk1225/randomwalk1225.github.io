@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Precalculus: Exponential &amp; Logarithmic Functions - Chapter 4 | MathHub</title>
+    <meta name="description" content="Precalculus Chapter 4: Exponential and logarithmic functions. Learn properties, graphing, solving equations, and real-world applications with interactive Desmos graphs and worked examples.">
+    <meta name="keywords" content="precalculus, exponential functions, logarithmic functions, logarithm properties, exponential equations, compound interest, half-life, natural log, change of base, Desmos">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/blog/precalculus-exponential-log-textbook.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/blog/precalculus-exponential-log-textbook.html">
+    <meta property="og:title" content="Precalculus: Exponential &amp; Logarithmic Functions - Chapter 4">
+    <meta property="og:description" content="Comprehensive chapter on exponential and logarithmic functions for Precalculus. Interactive graphs, worked examples, and practice problems with solutions.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Precalculus: Exponential &amp; Logarithmic Functions - Chapter 4">
+    <meta name="twitter:description" content="Learn exponential and logarithmic functions with interactive Desmos graphs, worked examples, and practice problems.">
+
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Precalculus: Exponential & Logarithmic Functions - Chapter 4",
+        "description": "Precalculus Chapter 4: Exponential and logarithmic functions. Learn properties, graphing, solving equations, and real-world applications with interactive Desmos graphs and worked examples.",
+        "url": "https://mathhub.io/blog/precalculus-exponential-log-textbook.html",
+        "datePublished": "2026-02-23",
+        "dateModified": "2026-02-23",
+        "publisher": {
+            "@type": "Organization",
+            "name": "MathHub Global"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "MathHub Global"
+        },
+        "educationalLevel": "Precalculus",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Exponential Functions" },
+            { "@type": "Thing", "name": "Logarithmic Functions" },
+            { "@type": "Thing", "name": "Precalculus" }
+        ]
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Desmos API -->
+    
+
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <style>
+        .blog-article {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 16px;
+        }
+        .blog-article h1 {
+            font-size: 2.2em;
+            color: #1e3a5f;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .blog-meta {
+            color: #64748b;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .blog-article h2 {
+            font-size: 1.5em;
+            color: #1e3a5f;
+            margin: 36px 0 16px;
+            padding-top: 12px;
+        }
+        .blog-article h3 {
+            font-size: 1.2em;
+            color: #334155;
+            margin: 24px 0 10px;
+        }
+        .blog-article p {
+            color: #334155;
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+        .blog-article ul, .blog-article ol {
+            margin: 12px 0 20px 24px;
+            color: #334155;
+        }
+        .blog-article li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+        .breadcrumb {
+            font-size: 0.85em;
+            color: #94a3b8;
+            margin-bottom: 16px;
+        }
+        .breadcrumb a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .example-box {
+            background: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .example-box h4 {
+            color: #1d4ed8;
+            margin: 0 0 12px;
+            font-size: 1.05em;
+        }
+        .example-box p, .example-box li {
+            color: #334155;
+            line-height: 1.8;
+        }
+        .definition-box {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .definition-box h4 {
+            color: #15803d;
+            margin: 0 0 12px;
+            font-size: 1.05em;
+        }
+        .definition-box p {
+            color: #334155;
+            line-height: 1.8;
+        }
+        .theorem-box {
+            background: #faf5ff;
+            border-left: 4px solid #8b5cf6;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .theorem-box h4 {
+            color: #6d28d9;
+            margin: 0 0 12px;
+            font-size: 1.05em;
+        }
+        .theorem-box p {
+            color: #334155;
+            line-height: 1.8;
+        }
+        .practice-problem {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 20px 24px;
+            margin: 16px 0;
+            border-radius: 8px;
+        }
+        .practice-problem h4 {
+            color: #1e3a5f;
+            margin: 0 0 10px;
+            font-size: 1em;
+        }
+        .practice-problem p {
+            margin-bottom: 12px;
+        }
+        details.solution {
+            margin-top: 12px;
+        }
+        details.solution summary {
+            cursor: pointer;
+            color: #3b82f6;
+            font-weight: 600;
+            font-size: 0.95em;
+            padding: 6px 0;
+            user-select: none;
+        }
+        details.solution summary:hover {
+            color: #1d4ed8;
+        }
+        .solution-content {
+            padding: 16px 20px;
+            background: #f0f7ff;
+            border-radius: 6px;
+            margin-top: 8px;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .solution-content p {
+            margin-bottom: 10px;
+        }
+        .toc {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px 28px;
+            margin: 24px 0 36px;
+        }
+        .toc h3 {
+            color: #1e3a5f;
+            margin: 0 0 12px;
+            font-size: 1.1em;
+        }
+        .toc ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .toc li {
+            margin-bottom: 6px;
+        }
+        .toc a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 48px 0 20px;
+            padding: 20px 0;
+            border-top: 2px solid #e2e8f0;
+        }
+        .chapter-nav a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+        .chapter-nav a:hover {
+            text-decoration: underline;
+        }
+        .chapter-nav .disabled {
+            color: #cbd5e1;
+            cursor: default;
+        }
+        .step-label {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            font-size: 0.8em;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 4px;
+            margin-right: 6px;
+        }
+        .desmos-container {
+            width: 100%;
+            height: 400px;
+            margin: 20px 0;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .desmos-caption {
+            text-align: center;
+            font-size: 0.88em;
+            color: #64748b;
+            margin-top: -12px;
+            margin-bottom: 20px;
+        }
+        .warning-box {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .warning-box strong {
+            color: #b45309;
+        }
+        .warning-box p {
+            color: #334155;
+            line-height: 1.8;
+        }
+    </style>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/" class="active">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="/us/">US</a> &rsaquo; <a href="/blog">Blog</a> &rsaquo; Chapter 4: Exponential &amp; Logarithmic Functions
+        </div>
+
+        <h1>Chapter 4: Exponential and Logarithmic Functions</h1>
+        <div class="blog-meta">Precalculus &middot; Updated February 2026 &middot; 25 min read</div>
+
+        <p>Exponential and logarithmic functions are among the most important in all of mathematics. They model phenomena that grow or decay at rates proportional to their current value: population growth, radioactive decay, compound interest, sound intensity, and earthquake magnitude. In this chapter, we build up from the definition of exponential functions, introduce logarithms as their inverses, develop the algebraic properties that make logarithms so powerful, and then apply everything to solve real-world problems.</p>
+
+        <nav class="toc">
+            <h3>Chapter Contents</h3>
+            <ol>
+                <li><a href="#section-4-1">Exponential Functions</a></li>
+                <li><a href="#section-4-2">Logarithmic Functions</a></li>
+                <li><a href="#section-4-3">Properties of Logarithms</a></li>
+                <li><a href="#section-4-4">Solving Exponential and Logarithmic Equations</a></li>
+                <li><a href="#section-4-5">Applications</a></li>
+                <li><a href="#section-4-6">Practice Problems</a></li>
+            </ol>
+        </nav>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 4.1 -->
+        <!-- ============================================================ -->
+        <h2 id="section-4-1">4.1 Exponential Functions</h2>
+
+        <p>You have already encountered integer exponents: $2^3 = 8$, $5^{-1} = \frac{1}{5}$, and so on. An exponential function takes this idea and lets the exponent be any real number, creating a smooth, continuous curve that models growth and decay.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Exponential Function</h4>
+            <p>An <strong>exponential function</strong> is a function of the form</p>
+            <p>$$f(x) = b^x$$</p>
+            <p>where $b > 0$ and $b \neq 1$. The constant $b$ is called the <strong>base</strong>.</p>
+        </div>
+
+        <p>Why do we require $b > 0$? If $b$ were negative, then $b^x$ would be undefined for many values of $x$ (for example, $(-2)^{1/2}$ is not a real number). And why $b \neq 1$? Because $1^x = 1$ for all $x$, which is just a constant function and not very interesting.</p>
+
+        <h3>Key Properties of $f(x) = b^x$</h3>
+
+        <p>Every exponential function $f(x) = b^x$ shares several fundamental properties:</p>
+
+        <ul>
+            <li><strong>Domain:</strong> All real numbers $(-\infty, \infty)$</li>
+            <li><strong>Range:</strong> All positive real numbers $(0, \infty)$. The output is always positive, no matter what $x$ is.</li>
+            <li><strong>$y$-intercept:</strong> The point $(0, 1)$, since $b^0 = 1$ for any valid base.</li>
+            <li><strong>Horizontal asymptote:</strong> The line $y = 0$ (the $x$-axis). The curve approaches but never touches or crosses this line.</li>
+            <li><strong>One-to-one:</strong> The function passes the horizontal line test, meaning it has an inverse function (which we will discover is the logarithm).</li>
+        </ul>
+
+        <h3>Growth vs. Decay</h3>
+
+        <p>The behavior of $f(x) = b^x$ depends on whether the base is greater than or less than $1$:</p>
+
+        <ul>
+            <li>If $b > 1$, the function is <strong>increasing</strong> (exponential growth). As $x$ increases, $f(x)$ grows without bound. Example: $f(x) = 2^x$.</li>
+            <li>If $0 < b < 1$, the function is <strong>decreasing</strong> (exponential decay). As $x$ increases, $f(x)$ shrinks toward zero. Example: $f(x) = \left(\frac{1}{2}\right)^x$.</li>
+        </ul>
+
+        <p>Use the interactive graph below to explore how changing the base $b$ affects the shape of the exponential curve. When $b > 1$ the curve rises to the right; when $0 < b < 1$ it falls to the right. Notice that regardless of the base, every curve passes through $(0, 1)$.</p>
+
+        <div id="desmos-exp" class="desmos-container"></div>
+        <p class="desmos-caption">Interactive: Drag the slider to change the base $b$ and observe growth vs. decay.</p>
+
+        <h3>The Natural Exponential Function</h3>
+
+        <p>Among all possible bases, one stands out as the most important in mathematics: the number $e$, known as Euler's number. It is an irrational constant defined by the limit</p>
+
+        <p>$$e = \lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^n \approx 2.71828$$</p>
+
+        <p>The function $f(x) = e^x$ is called the <strong>natural exponential function</strong>. It arises naturally in calculus because it is the unique exponential function that is its own derivative: $\frac{d}{dx} e^x = e^x$. For this reason, $e^x$ appears throughout physics, engineering, finance, and biology whenever continuous growth or decay is modeled.</p>
+
+        <div class="example-box">
+            <h4>Worked Example 4.1</h4>
+            <p>Evaluate the following without a calculator:</p>
+            <p>(a) $4^{3/2}$ &nbsp;&nbsp; (b) $27^{-2/3}$ &nbsp;&nbsp; (c) $e^0$</p>
+
+            <p><span class="step-label">Part (a)</span> Rewrite the fractional exponent: $4^{3/2} = \left(4^{1/2}\right)^3 = 2^3 = 8$.</p>
+
+            <p><span class="step-label">Part (b)</span> Apply the negative exponent and fractional exponent rules: $27^{-2/3} = \dfrac{1}{27^{2/3}} = \dfrac{1}{\left(27^{1/3}\right)^2} = \dfrac{1}{3^2} = \dfrac{1}{9}$.</p>
+
+            <p><span class="step-label">Part (c)</span> Any nonzero base raised to the zero power equals $1$: $e^0 = 1$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 4.2</h4>
+            <p>A culture of bacteria doubles every 3 hours. If the initial population is 500, write an exponential function modeling the population after $t$ hours and find the population after 9 hours.</p>
+
+            <p><span class="step-label">Step 1</span> Since the population doubles every 3 hours, the base is $2$ and the growth period is 3 hours. The model is:</p>
+            <p>$$P(t) = 500 \cdot 2^{t/3}$$</p>
+
+            <p><span class="step-label">Step 2</span> Evaluate at $t = 9$:</p>
+            <p>$$P(9) = 500 \cdot 2^{9/3} = 500 \cdot 2^3 = 500 \cdot 8 = 4000$$</p>
+
+            <p>After 9 hours, the population is <strong>4,000 bacteria</strong>.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 4.2 -->
+        <!-- ============================================================ -->
+        <h2 id="section-4-2">4.2 Logarithmic Functions</h2>
+
+        <p>We have just seen that every exponential function $f(x) = b^x$ (with $b > 0, b \neq 1$) is one-to-one. This means it has an inverse function. That inverse is the logarithm.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Logarithmic Function</h4>
+            <p>For $b > 0$ and $b \neq 1$, the <strong>logarithm base $b$</strong> of $x$ is defined by</p>
+            <p>$$\log_b(x) = y \quad \iff \quad b^y = x$$</p>
+            <p>In words: $\log_b(x)$ is the exponent you must raise $b$ to in order to get $x$.</p>
+        </div>
+
+        <p>Think of the logarithm as answering a question. The expression $\log_2(8)$ asks: "2 raised to what power gives 8?" Since $2^3 = 8$, the answer is $\log_2(8) = 3$.</p>
+
+        <h3>Common and Natural Logarithms</h3>
+
+        <p>Two bases are used so frequently that they have special notation:</p>
+
+        <ul>
+            <li><strong>Common logarithm:</strong> $\log(x) = \log_{10}(x)$. When no base is written, base 10 is assumed. This is the "log" button on most calculators.</li>
+            <li><strong>Natural logarithm:</strong> $\ln(x) = \log_e(x)$. The inverse of the natural exponential $e^x$. This is the "ln" button on calculators.</li>
+        </ul>
+
+        <h3>Properties of $g(x) = \log_b(x)$</h3>
+
+        <p>Since $g(x) = \log_b(x)$ is the inverse of $f(x) = b^x$, its properties mirror those of the exponential:</p>
+
+        <ul>
+            <li><strong>Domain:</strong> $(0, \infty)$. You can only take the logarithm of a positive number.</li>
+            <li><strong>Range:</strong> All real numbers $(-\infty, \infty)$.</li>
+            <li><strong>$x$-intercept:</strong> The point $(1, 0)$, since $\log_b(1) = 0$ for any base.</li>
+            <li><strong>Vertical asymptote:</strong> The line $x = 0$ (the $y$-axis).</li>
+            <li><strong>Key point:</strong> $(b, 1)$ is always on the graph, since $\log_b(b) = 1$.</li>
+        </ul>
+
+        <h3>The Inverse Relationship</h3>
+
+        <p>Because $f(x) = b^x$ and $g(x) = \log_b(x)$ are inverses, they "undo" each other:</p>
+
+        <p>$$b^{\log_b(x)} = x \quad \text{for } x > 0 \qquad \text{and} \qquad \log_b(b^x) = x \quad \text{for all } x$$</p>
+
+        <p>Graphically, the curves $y = b^x$ and $y = \log_b(x)$ are reflections of each other across the line $y = x$. The interactive graph below demonstrates this. Adjust the slider to change the base and observe how both curves change together while always remaining symmetric about the diagonal.</p>
+
+        <div id="desmos-log" class="desmos-container"></div>
+        <p class="desmos-caption">Interactive: The exponential (blue) and its inverse logarithm (red) reflected across $y = x$ (dashed).</p>
+
+        <div class="example-box">
+            <h4>Worked Example 4.3</h4>
+            <p>Evaluate each logarithm without a calculator:</p>
+            <p>(a) $\log_3(81)$ &nbsp;&nbsp; (b) $\log_{1/2}(8)$ &nbsp;&nbsp; (c) $\ln(e^5)$</p>
+
+            <p><span class="step-label">Part (a)</span> Ask: $3^y = 81$. Since $3^4 = 81$, we have $\log_3(81) = 4$.</p>
+
+            <p><span class="step-label">Part (b)</span> Ask: $\left(\frac{1}{2}\right)^y = 8$. Write $\frac{1}{2} = 2^{-1}$, so $(2^{-1})^y = 2^{-y} = 8 = 2^3$. Thus $-y = 3$, giving $y = -3$. So $\log_{1/2}(8) = -3$.</p>
+
+            <p><span class="step-label">Part (c)</span> By the inverse property $\ln(e^x) = x$, we get $\ln(e^5) = 5$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 4.4</h4>
+            <p>Find the domain of $f(x) = \ln(3 - 2x)$.</p>
+
+            <p><span class="step-label">Step 1</span> The argument of the natural logarithm must be strictly positive:</p>
+            <p>$$3 - 2x > 0$$</p>
+
+            <p><span class="step-label">Step 2</span> Solve for $x$:</p>
+            <p>$$-2x > -3 \implies x < \frac{3}{2}$$</p>
+
+            <p>The domain is $\left(-\infty, \dfrac{3}{2}\right)$.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 4.3 -->
+        <!-- ============================================================ -->
+        <h2 id="section-4-3">4.3 Properties of Logarithms</h2>
+
+        <p>Logarithms were originally invented to simplify computation: they turn multiplication into addition, division into subtraction, and exponentiation into multiplication. These properties arise directly from the corresponding exponent rules and remain essential tools for solving equations and simplifying expressions.</p>
+
+        <div class="theorem-box">
+            <h4>Logarithm Properties</h4>
+            <p>Let $b > 0$, $b \neq 1$, and suppose $M > 0$ and $N > 0$. Then:</p>
+            <p><strong>1. Product Rule:</strong> $\quad \log_b(MN) = \log_b(M) + \log_b(N)$</p>
+            <p><strong>2. Quotient Rule:</strong> $\quad \log_b\!\left(\dfrac{M}{N}\right) = \log_b(M) - \log_b(N)$</p>
+            <p><strong>3. Power Rule:</strong> $\quad \log_b(M^n) = n \cdot \log_b(M)$</p>
+            <p><strong>4. Change of Base:</strong> $\quad \log_b(x) = \dfrac{\log_a(x)}{\log_a(b)} = \dfrac{\ln(x)}{\ln(b)}$</p>
+        </div>
+
+        <p>These properties follow from the exponent laws. For instance, the product rule works because if $\log_b(M) = p$ and $\log_b(N) = q$, then $b^p = M$ and $b^q = N$, so $MN = b^p \cdot b^q = b^{p+q}$, which means $\log_b(MN) = p + q = \log_b(M) + \log_b(N)$.</p>
+
+        <div class="warning-box">
+            <p><strong>Common Mistakes to Avoid:</strong></p>
+            <p>$\log_b(M + N) \neq \log_b(M) + \log_b(N)$ &mdash; the product rule applies to $\log_b(M \cdot N)$, not $\log_b(M + N)$.</p>
+            <p>$\dfrac{\log_b(M)}{\log_b(N)} \neq \log_b\!\left(\dfrac{M}{N}\right)$ &mdash; the quotient rule applies when the logarithm is on the outside.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 4.5 &mdash; Expanding a Logarithm</h4>
+            <p>Expand $\log_2\!\left(\dfrac{x^3 \sqrt{y}}{z^4}\right)$ as a sum and difference of simpler logarithms.</p>
+
+            <p><span class="step-label">Step 1</span> Apply the quotient rule:</p>
+            <p>$$\log_2\!\left(\frac{x^3 \sqrt{y}}{z^4}\right) = \log_2(x^3 \sqrt{y}) - \log_2(z^4)$$</p>
+
+            <p><span class="step-label">Step 2</span> Apply the product rule to the first term:</p>
+            <p>$$= \log_2(x^3) + \log_2(\sqrt{y}) - \log_2(z^4)$$</p>
+
+            <p><span class="step-label">Step 3</span> Apply the power rule (recall $\sqrt{y} = y^{1/2}$):</p>
+            <p>$$= 3\log_2(x) + \frac{1}{2}\log_2(y) - 4\log_2(z)$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 4.6 &mdash; Condensing Logarithms</h4>
+            <p>Write $2\ln(x) - \frac{1}{3}\ln(y) + \ln(z)$ as a single logarithm.</p>
+
+            <p><span class="step-label">Step 1</span> Apply the power rule in reverse:</p>
+            <p>$$= \ln(x^2) - \ln(y^{1/3}) + \ln(z)$$</p>
+
+            <p><span class="step-label">Step 2</span> Combine using the product and quotient rules:</p>
+            <p>$$= \ln\!\left(\frac{x^2 \cdot z}{y^{1/3}}\right) = \ln\!\left(\frac{x^2 z}{\sqrt[3]{y}}\right)$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 4.7 &mdash; Change of Base</h4>
+            <p>Evaluate $\log_5(20)$ to four decimal places using natural logarithms.</p>
+
+            <p><span class="step-label">Step 1</span> Apply the change of base formula:</p>
+            <p>$$\log_5(20) = \frac{\ln(20)}{\ln(5)}$$</p>
+
+            <p><span class="step-label">Step 2</span> Evaluate using a calculator:</p>
+            <p>$$= \frac{2.9957}{1.6094} \approx 1.8614$$</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 4.4 -->
+        <!-- ============================================================ -->
+        <h2 id="section-4-4">4.4 Solving Exponential and Logarithmic Equations</h2>
+
+        <p>The key to solving exponential equations is to isolate the exponential expression and then apply a logarithm to both sides. The key to solving logarithmic equations is to rewrite the equation in exponential form or combine logarithms and then exponentiate. In either case, you must always check your solutions for extraneous values.</p>
+
+        <h3>Strategy for Exponential Equations</h3>
+
+        <ol>
+            <li>Isolate the exponential expression on one side of the equation.</li>
+            <li>Take the logarithm (usually $\ln$ or $\log$) of both sides.</li>
+            <li>Use the power rule to bring down the exponent.</li>
+            <li>Solve for the variable.</li>
+        </ol>
+
+        <h3>Strategy for Logarithmic Equations</h3>
+
+        <ol>
+            <li>Use logarithm properties to combine into a single logarithm if needed.</li>
+            <li>Convert to exponential form: $\log_b(A) = C$ becomes $b^C = A$.</li>
+            <li>Solve for the variable.</li>
+            <li>Check that each solution makes the argument of every original logarithm positive (reject extraneous solutions).</li>
+        </ol>
+
+        <div class="example-box">
+            <h4>Worked Example 4.8 &mdash; Solving an Exponential Equation</h4>
+            <p>Solve $3^{2x-1} = 15$.</p>
+
+            <p><span class="step-label">Step 1</span> Take the natural logarithm of both sides:</p>
+            <p>$$\ln(3^{2x-1}) = \ln(15)$$</p>
+
+            <p><span class="step-label">Step 2</span> Apply the power rule:</p>
+            <p>$$(2x - 1)\ln(3) = \ln(15)$$</p>
+
+            <p><span class="step-label">Step 3</span> Solve for $x$:</p>
+            <p>$$2x - 1 = \frac{\ln(15)}{\ln(3)} \implies 2x = 1 + \frac{\ln(15)}{\ln(3)} \implies x = \frac{1}{2}\!\left(1 + \frac{\ln(15)}{\ln(3)}\right)$$</p>
+
+            <p><span class="step-label">Step 4</span> Evaluate numerically: $\dfrac{\ln(15)}{\ln(3)} \approx 2.4649$, so $x \approx \dfrac{1 + 2.4649}{2} \approx 1.7325$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 4.9 &mdash; Solving a Logarithmic Equation</h4>
+            <p>Solve $\log_2(x + 3) + \log_2(x - 1) = 5$.</p>
+
+            <p><span class="step-label">Step 1</span> Combine using the product rule:</p>
+            <p>$$\log_2\!\big((x + 3)(x - 1)\big) = 5$$</p>
+
+            <p><span class="step-label">Step 2</span> Convert to exponential form:</p>
+            <p>$$(x + 3)(x - 1) = 2^5 = 32$$</p>
+
+            <p><span class="step-label">Step 3</span> Expand and solve the quadratic:</p>
+            <p>$$x^2 + 2x - 3 = 32 \implies x^2 + 2x - 35 = 0 \implies (x + 7)(x - 5) = 0$$</p>
+            <p>So $x = -7$ or $x = 5$.</p>
+
+            <p><span class="step-label">Step 4</span> Check for extraneous solutions. Substituting $x = -7$: we need $x + 3 = -4 > 0$ (false) and $x - 1 = -8 > 0$ (false). So $x = -7$ is <strong>extraneous</strong>.</p>
+            <p>Substituting $x = 5$: $x + 3 = 8 > 0$ and $x - 1 = 4 > 0$. Both arguments are positive, so $x = 5$ is valid.</p>
+
+            <p>The solution is $x = 5$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 4.10 &mdash; An Equation with $e$</h4>
+            <p>Solve $e^{2x} - 5e^x + 6 = 0$.</p>
+
+            <p><span class="step-label">Step 1</span> Recognize this as a quadratic in disguise. Let $u = e^x$, so the equation becomes:</p>
+            <p>$$u^2 - 5u + 6 = 0$$</p>
+
+            <p><span class="step-label">Step 2</span> Factor:</p>
+            <p>$$(u - 2)(u - 3) = 0 \implies u = 2 \text{ or } u = 3$$</p>
+
+            <p><span class="step-label">Step 3</span> Substitute back $u = e^x$:</p>
+            <p>$$e^x = 2 \implies x = \ln(2) \approx 0.6931$$</p>
+            <p>$$e^x = 3 \implies x = \ln(3) \approx 1.0986$$</p>
+
+            <p><span class="step-label">Step 4</span> Both solutions are valid since $e^x > 0$ always holds. The solutions are $x = \ln(2)$ and $x = \ln(3)$.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 4.5 -->
+        <!-- ============================================================ -->
+        <h2 id="section-4-5">4.5 Applications</h2>
+
+        <p>Exponential and logarithmic functions model a wide variety of real-world phenomena. In this section, we focus on two of the most common: compound interest in finance and exponential decay in the sciences.</p>
+
+        <h3>Compound Interest</h3>
+
+        <p>When money earns interest on both the principal and the previously accumulated interest, the growth is exponential. The compound interest formula depends on how frequently the interest is compounded.</p>
+
+        <div class="theorem-box">
+            <h4>Compound Interest Formulas</h4>
+            <p><strong>Periodic compounding:</strong> If a principal $P$ is invested at an annual rate $r$ (as a decimal), compounded $n$ times per year for $t$ years, the accumulated amount is:</p>
+            <p>$$A = P\!\left(1 + \frac{r}{n}\right)^{nt}$$</p>
+            <p><strong>Continuous compounding:</strong> If interest is compounded continuously, the formula becomes:</p>
+            <p>$$A = Pe^{rt}$$</p>
+        </div>
+
+        <p>The continuous compounding formula is the limiting case as $n \to \infty$. It provides a slightly larger amount than any finite compounding frequency, but the difference is often small in practice.</p>
+
+        <div class="example-box">
+            <h4>Worked Example 4.11 &mdash; Compound Interest</h4>
+            <p>You invest $\$5{,}000$ at $6\%$ annual interest. Find the amount after 10 years if interest is compounded (a) quarterly and (b) continuously.</p>
+
+            <p><span class="step-label">Part (a)</span> Here $P = 5000$, $r = 0.06$, $n = 4$ (quarterly), and $t = 10$:</p>
+            <p>$$A = 5000\!\left(1 + \frac{0.06}{4}\right)^{4 \cdot 10} = 5000(1.015)^{40}$$</p>
+            <p>Using a calculator: $(1.015)^{40} \approx 1.8140$, so</p>
+            <p>$$A \approx 5000 \times 1.8140 = \$9{,}070.09$$</p>
+
+            <p><span class="step-label">Part (b)</span> With continuous compounding:</p>
+            <p>$$A = 5000 \cdot e^{0.06 \times 10} = 5000 \cdot e^{0.6}$$</p>
+            <p>Since $e^{0.6} \approx 1.8221$:</p>
+            <p>$$A \approx 5000 \times 1.8221 = \$9{,}110.59$$</p>
+
+            <p>Continuous compounding yields about $\$40.50$ more than quarterly compounding over 10 years.</p>
+        </div>
+
+        <h3>Exponential Growth and Decay</h3>
+
+        <p>Many natural processes follow an exponential model. If a quantity $Q$ changes at a rate proportional to its current value, then:</p>
+
+        <p>$$Q(t) = Q_0 \cdot e^{kt}$$</p>
+
+        <p>where $Q_0$ is the initial quantity at $t = 0$ and $k$ is the growth/decay constant. If $k > 0$, the quantity grows; if $k < 0$, it decays.</p>
+
+        <h3>Half-Life</h3>
+
+        <p>In radioactive decay, the <strong>half-life</strong> $h$ is the time it takes for a substance to reduce to half its initial amount. The relationship between $k$ and $h$ is:</p>
+
+        <p>$$Q_0 \cdot e^{kh} = \frac{Q_0}{2} \implies e^{kh} = \frac{1}{2} \implies k = \frac{-\ln(2)}{h}$$</p>
+
+        <div class="example-box">
+            <h4>Worked Example 4.12 &mdash; Radioactive Decay</h4>
+            <p>Carbon-14 has a half-life of approximately 5,730 years. A fossil contains 30% of the original Carbon-14. How old is the fossil?</p>
+
+            <p><span class="step-label">Step 1</span> Find the decay constant $k$:</p>
+            <p>$$k = \frac{-\ln(2)}{5730} \approx \frac{-0.6931}{5730} \approx -0.0001210$$</p>
+
+            <p><span class="step-label">Step 2</span> Set up the equation. We want $Q(t) = 0.30 \cdot Q_0$:</p>
+            <p>$$Q_0 \cdot e^{kt} = 0.30 \cdot Q_0 \implies e^{kt} = 0.30$$</p>
+
+            <p><span class="step-label">Step 3</span> Take the natural logarithm:</p>
+            <p>$$kt = \ln(0.30) \implies t = \frac{\ln(0.30)}{k} = \frac{\ln(0.30)}{-0.0001210}$$</p>
+
+            <p><span class="step-label">Step 4</span> Evaluate:</p>
+            <p>$$t = \frac{-1.2040}{-0.0001210} \approx 9{,}950 \text{ years}$$</p>
+
+            <p>The fossil is approximately <strong>9,950 years old</strong>.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 4.6 -->
+        <!-- ============================================================ -->
+        <h2 id="section-4-6">4.6 Practice Problems</h2>
+
+        <p>Test your understanding with the following problems. Each has a hidden solution you can reveal after attempting the problem on your own.</p>
+
+        <!-- Problem 1 -->
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>Evaluate without a calculator: $\log_4(64)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>We need $4^y = 64$. Since $4^3 = 64$, we have $\log_4(64) = 3$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 2 -->
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>Simplify $\log_3(27) + \log_3\!\left(\frac{1}{9}\right)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\log_3(27) = 3$ since $3^3 = 27$.</p>
+                    <p>$\log_3\!\left(\frac{1}{9}\right) = \log_3(3^{-2}) = -2$.</p>
+                    <p>Therefore $\log_3(27) + \log_3\!\left(\frac{1}{9}\right) = 3 + (-2) = 1$.</p>
+                    <p>Alternatively, by the product rule: $\log_3\!\left(27 \cdot \frac{1}{9}\right) = \log_3(3) = 1$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 3 -->
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>Expand completely: $\ln\!\left(\dfrac{x^2(x+1)^3}{e^x}\right)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Apply the quotient rule, then the product and power rules:</p>
+                    <p>$$\ln\!\left(\frac{x^2(x+1)^3}{e^x}\right) = \ln(x^2) + \ln(x+1)^3 - \ln(e^x)$$</p>
+                    <p>$$= 2\ln(x) + 3\ln(x+1) - x$$</p>
+                    <p>(since $\ln(e^x) = x$).</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 4 -->
+        <div class="practice-problem">
+            <h4>Problem 4</h4>
+            <p>Write as a single logarithm: $\frac{1}{2}\log(x) - 3\log(y) + \log(z)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Apply the power rule: $\log(x^{1/2}) - \log(y^3) + \log(z)$.</p>
+                    <p>Combine: $\log\!\left(\dfrac{\sqrt{x} \cdot z}{y^3}\right)$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 5 -->
+        <div class="practice-problem">
+            <h4>Problem 5</h4>
+            <p>Solve for $x$: $5^{x+2} = 125$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Since $125 = 5^3$, we can write $5^{x+2} = 5^3$.</p>
+                    <p>Equating exponents: $x + 2 = 3$, so $x = 1$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 6 -->
+        <div class="practice-problem">
+            <h4>Problem 6</h4>
+            <p>Solve for $x$: $2 \cdot e^{3x} = 14$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Divide both sides by 2: $e^{3x} = 7$.</p>
+                    <p>Take the natural logarithm: $3x = \ln(7)$.</p>
+                    <p>Solve: $x = \dfrac{\ln(7)}{3} \approx \dfrac{1.9459}{3} \approx 0.6486$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 7 -->
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>Solve for $x$: $\log(x - 2) + \log(x + 1) = 1$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Combine: $\log\!\big((x-2)(x+1)\big) = 1$.</p>
+                    <p>Convert to exponential form: $(x-2)(x+1) = 10^1 = 10$.</p>
+                    <p>Expand: $x^2 - x - 2 = 10 \implies x^2 - x - 12 = 0$.</p>
+                    <p>Factor: $(x-4)(x+3) = 0 \implies x = 4$ or $x = -3$.</p>
+                    <p>Check: $x = -3$ gives $\log(-5)$, which is undefined. Reject $x = -3$.</p>
+                    <p>$x = 4$ gives $\log(2) + \log(5) = \log(10) = 1$. Valid.</p>
+                    <p>Solution: $x = 4$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 8 -->
+        <div class="practice-problem">
+            <h4>Problem 8</h4>
+            <p>Find the domain of $g(x) = \log_5(x^2 - 9)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>We need the argument to be positive: $x^2 - 9 > 0$.</p>
+                    <p>Factor: $(x-3)(x+3) > 0$.</p>
+                    <p>By sign analysis, this holds when $x < -3$ or $x > 3$.</p>
+                    <p>Domain: $(-\infty, -3) \cup (3, \infty)$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 9 -->
+        <div class="practice-problem">
+            <h4>Problem 9</h4>
+            <p>You deposit $\$2{,}000$ in an account earning $4.5\%$ annual interest compounded monthly. How long until the balance reaches $\$3{,}000$?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Use $A = P\!\left(1 + \frac{r}{n}\right)^{nt}$ with $A = 3000$, $P = 2000$, $r = 0.045$, $n = 12$:</p>
+                    <p>$$3000 = 2000\!\left(1 + \frac{0.045}{12}\right)^{12t}$$</p>
+                    <p>$$1.5 = (1.00375)^{12t}$$</p>
+                    <p>Take $\ln$ of both sides:</p>
+                    <p>$$\ln(1.5) = 12t \cdot \ln(1.00375)$$</p>
+                    <p>$$t = \frac{\ln(1.5)}{12 \cdot \ln(1.00375)} = \frac{0.4055}{12 \times 0.003743} \approx \frac{0.4055}{0.04492} \approx 9.03 \text{ years}$$</p>
+                    <p>It takes approximately <strong>9 years</strong> for the balance to reach $\$3{,}000$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 10 -->
+        <div class="practice-problem">
+            <h4>Problem 10</h4>
+            <p>A radioactive substance has a half-life of 12 hours. If you start with 80 grams, how much remains after 40 hours?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Method 1 (using the half-life formula directly):</p>
+                    <p>$$Q(t) = Q_0 \cdot \left(\frac{1}{2}\right)^{t/h} = 80 \cdot \left(\frac{1}{2}\right)^{40/12} = 80 \cdot \left(\frac{1}{2}\right)^{10/3}$$</p>
+                    <p>$$= 80 \cdot 2^{-10/3} \approx 80 \cdot 0.09921 \approx 7.94 \text{ grams}$$</p>
+                    <p>Method 2 (using $k$):</p>
+                    <p>$k = \dfrac{-\ln 2}{12} \approx -0.05776$. Then:</p>
+                    <p>$$Q(40) = 80 \cdot e^{-0.05776 \times 40} = 80 \cdot e^{-2.3105} \approx 80 \times 0.09921 \approx 7.94 \text{ grams}$$</p>
+                    <p>Approximately <strong>7.94 grams</strong> remain after 40 hours.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Chapter Navigation -->
+        <div class="chapter-nav">
+            <a href="#">&larr; Chapter 3: Polynomial &amp; Rational Functions</a>
+            <a href="#">Chapter 5: Trigonometric Functions &rarr;</a>
+        </div>
+    </article>
+
+    <div class="footer">
+        <p>&copy; 2025 MathHub Global. All rights reserved.</p>
+    </div>
+
+    <!-- Desmos Initialization -->
+    <script>
+        // Graph 1: Exponential function with adjustable base
+        (function() {
+            var elt1 = document.getElementById('desmos-exp');
+            var calc1 = Desmos.GraphingCalculator(elt1, {
+                expressions: true,
+                settingsMenu: false,
+                zoomButtons: true,
+                expressionsCollapsed: true
+            });
+            calc1.setMathBounds({ left: -4, right: 5, bottom: -1, top: 10 });
+            calc1.setExpression({ id: 'b', latex: 'b=2', sliderBounds: { min: 0.1, max: 5, step: 0.1 } });
+            calc1.setExpression({ id: 'f', latex: 'y=b^x', color: '#2563eb' });
+            calc1.setExpression({ id: 'one', latex: 'y=1', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED });
+            calc1.setExpression({ id: 'pt', latex: '(0, 1)', color: '#2563eb', showLabel: true, label: '(0, 1)' });
+        })();
+
+        // Graph 2: Exponential and logarithm as inverses
+        (function() {
+            var elt2 = document.getElementById('desmos-log');
+            var calc2 = Desmos.GraphingCalculator(elt2, {
+                expressions: true,
+                settingsMenu: false,
+                zoomButtons: true,
+                expressionsCollapsed: true
+            });
+            calc2.setMathBounds({ left: -4, right: 8, bottom: -4, top: 8 });
+            calc2.setExpression({ id: 'b2', latex: 'b=2', sliderBounds: { min: 1.1, max: 5, step: 0.1 } });
+            calc2.setExpression({ id: 'exp', latex: 'y=b^x', color: '#2563eb' });
+            calc2.setExpression({ id: 'logfn', latex: 'y=\\log_b(x)', color: '#dc2626' });
+            calc2.setExpression({ id: 'mirror', latex: 'y=x', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED });
+            calc2.setExpression({ id: 'pt1', latex: '(0, 1)', color: '#2563eb', showLabel: true, label: 'y-int of exp' });
+            calc2.setExpression({ id: 'pt2', latex: '(1, 0)', color: '#dc2626', showLabel: true, label: 'x-int of log' });
+        })();
+    </script>
+</body>
+</html>

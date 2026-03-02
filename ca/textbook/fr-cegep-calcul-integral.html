@@ -52,6 +52,7 @@
         };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 
     <link rel="stylesheet" href="../../assets/css/common.css">
     <style>
@@ -91,6 +92,10 @@
         .graph-container{text-align:center;margin:24px 0;}
         .graph-container svg{max-width:100%;}
         .graph-caption{font-size:0.9em;color:#64748b;margin-top:8px;font-style:italic;}
+        .desmos-wrap { margin: 24px 0; background: #f8fafc; border-radius: 12px; padding: 16px; border: 1px solid #e2e8f0; }
+        .desmos-caption { font-size: 0.88em; color: #475569; margin-bottom: 8px; font-style: italic; }
+        .fig-code { display: inline-block; background: #f1f5f9; color: #64748b; font-style: normal; font-weight: 700; font-size: 0.78em; padding: 1px 7px; border-radius: 4px; margin-right: 8px; font-family: 'Courier New', monospace; letter-spacing: 0.5px; border: 1px solid #e2e8f0; }
+        .fig-label { text-align: center; font-style: italic; color: #475569; font-size: 0.88em; margin: 6px 0 18px; }
         details.solution-box{margin-top:16px;}
         details.solution-box summary{cursor:pointer;color:#1d4ed8;font-weight:600;padding:10px 14px;background:#eff6ff;border-radius:6px;list-style:none;user-select:none;}
         details.solution-box summary::-webkit-details-marker{display:none;}
@@ -291,45 +296,12 @@
         <h3>Idée intuitive : sommes de Riemann</h3>
         <p>L'<strong>intégrale définie</strong> $\displaystyle\int_a^b f(x)\,dx$ représente l'<em>aire algébrique</em> comprise entre la courbe $y = f(x)$ et l'axe des $x$ sur l'intervalle $[a, b]$. On l'approche par des rectangles de plus en plus fins (sommes de Riemann) dont la largeur $\Delta x \to 0$.</p>
 
-        <!-- SVG : aire sous courbe -->
-        <div class="graph-container">
-            <svg viewBox="0 0 420 260" width="420" height="260" aria-label="Aire sous la courbe entre a et b">
-                <!-- Axes -->
-                <line x1="40" y1="220" x2="390" y2="220" stroke="#334155" stroke-width="2"/>
-                <line x1="40" y1="20" x2="40" y2="225" stroke="#334155" stroke-width="2"/>
-                <!-- Flèches -->
-                <polygon points="390,215 400,220 390,225" fill="#334155"/>
-                <polygon points="35,20 40,10 45,20" fill="#334155"/>
-                <!-- Axe labels -->
-                <text x="405" y="224" font-size="14" fill="#334155" font-family="Arial">x</text>
-                <text x="30" y="10" font-size="14" fill="#334155" font-family="Arial">y</text>
-                <!-- Courbe f(x) = 80 + 60*sin((x-40)/55) dessinée manuellement via polyline -->
-                <!-- Points calculés pour une courbe de type arche sur [a,b] = [100,310] -->
-                <defs>
-                    <clipPath id="curve-clip">
-                        <rect x="100" y="0" width="210" height="220"/>
-                    </clipPath>
-                </defs>
-                <!-- Zone ombragée sous la courbe -->
-                <polygon
-                    points="100,220 120,172 140,138 160,115 180,107 200,110 220,123 240,143 260,165 280,186 300,203 310,220"
-                    fill="#bfdbfe" stroke="none" opacity="0.8"/>
-                <!-- Courbe complète (de x=50 à x=380) -->
-                <polyline
-                    points="50,218 70,200 90,178 100,167 110,155 120,143 140,119 160,105 180,97 200,100 220,113 240,133 260,155 280,177 300,196 310,207 330,216 350,220 370,220"
-                    fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
-                <!-- Bornes a et b -->
-                <line x1="100" y1="220" x2="100" y2="167" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4,3"/>
-                <line x1="310" y1="220" x2="310" y2="207" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4,3"/>
-                <text x="95" y="234" font-size="13" fill="#1e3a5f" font-family="Arial" text-anchor="middle">$a$</text>
-                <text x="310" y="234" font-size="13" fill="#1e3a5f" font-family="Arial" text-anchor="middle">$b$</text>
-                <!-- Label aire -->
-                <text x="205" y="175" font-size="13" fill="#1e40af" font-family="Arial" text-anchor="middle" font-style="italic">Aire</text>
-                <!-- Label courbe -->
-                <text x="155" y="90" font-size="13" fill="#1d4ed8" font-family="Arial" font-style="italic">y = f(x)</text>
-            </svg>
-            <p class="graph-caption">Figure 1 — L'intégrale définie $\int_a^b f(x)\,dx$ correspond à l'aire algébrique de la région ombragée.</p>
+        <!-- Desmos : aire sous courbe avec curseurs a et b -->
+        <div class="desmos-wrap">
+            <p class="desmos-caption">Déplacez les curseurs <strong>a</strong> et <strong>b</strong> pour modifier les bornes d'intégration. La région ombragée représente $\int_a^b f(x)\,dx$ avec $f(x) = \sin(x) + 1.5$.</p>
+            <div id="desmos-aire" style="width:100%;height:420px;border-radius:8px;"></div>
         </div>
+        <p class="fig-label"><span class="fig-code">INTG·1</span>Figure 1 — Aire sous la courbe $f(x) = \sin(x) + 1{,}5$ entre les bornes $a$ et $b$ (région ombragée).</p>
 
         <div class="definition-box">
             <h4>&#x1F4D6; Intégrale définie</h4>
@@ -929,6 +901,35 @@
     <footer style="text-align:center;padding:30px 20px;color:#64748b;font-size:0.88em;border-top:1px solid #e2e8f0;margin-top:40px;">
         &copy; 2026 MathHub Global &mdash; Contenu éducatif gratuit pour le Cégep.
     </footer>
+
+    <script>
+    // ── Graphique 1 : Aire sous la courbe avec bornes a et b ─────────────────
+    (function() {
+        var elt = document.getElementById('desmos-aire');
+        if (!elt) return;
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            keypad: false
+        });
+        calc.setMathBounds({ left: -0.5, right: 7.5, bottom: -0.5, top: 3.5 });
+        // Borne inférieure a
+        calc.setExpression({ id: 'a', latex: 'a = 0.5', sliderBounds: { min: 0, max: 6, step: 0.1 } });
+        // Borne supérieure b
+        calc.setExpression({ id: 'b', latex: 'b = 3', sliderBounds: { min: 0, max: 7, step: 0.1 } });
+        // f(x) = sin(x) + 1.5
+        calc.setExpression({ id: 'fx', latex: 'f(x) = \\sin(x) + 1.5', color: '#2563eb', lineWidth: 2.5 });
+        // Région ombragée entre a et b
+        calc.setExpression({ id: 'area', latex: '0 \\le y \\le f(x) \\{a \\le x \\le b\\}', color: '#2563eb', fillOpacity: 0.25 });
+        // Lignes pointillées aux bornes
+        calc.setExpression({ id: 'va', latex: 'x = a \\{0 \\le y \\le f(a)\\}', color: '#64748b', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5 });
+        calc.setExpression({ id: 'vb', latex: 'x = b \\{0 \\le y \\le f(b)\\}', color: '#64748b', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5 });
+        // Labels bornes
+        calc.setExpression({ id: 'ptA', latex: '(a, 0)', label: 'a', showLabel: true, hidden: true, color: '#1e3a5f' });
+        calc.setExpression({ id: 'ptB', latex: '(b, 0)', label: 'b', showLabel: true, hidden: true, color: '#1e3a5f' });
+    })();
+    </script>
 
 </body>
 </html>

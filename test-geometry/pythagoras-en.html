@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pythagorean Theorem — Geometry | MathHub</title>
+    <meta name="description" content="Learn the Pythagorean Theorem: a²+b²=c². Visual SVG proofs, worked examples, Pythagorean triples, the converse, and 20 practice problems.">
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 820px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.1em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #64748b; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+
+        .definition-box { background: #e7f3ff; border-left: 4px solid #3b82f6; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .definition-box h4 { color: #1e40af; margin-bottom: 10px; font-size: 1.05em; }
+        .theorem-box { background: #fff8e7; border-left: 4px solid #f59e0b; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .theorem-box h4 { color: #92400e; margin-bottom: 10px; font-size: 1.05em; }
+        .example-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .example-box h4 { color: #0369a1; margin-bottom: 10px; font-size: 1.05em; }
+        .tip-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .tip-box h4 { color: #166534; margin-bottom: 10px; }
+        .warning-box { background: #fff1f2; border-left: 4px solid #f43f5e; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .warning-box h4 { color: #be123c; margin-bottom: 10px; }
+        .practice-box { background: #fdf4ff; border-left: 4px solid #a855f7; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .practice-box h4 { color: #7e22ce; margin-bottom: 10px; }
+
+        /* SVG figure layout */
+        .figure-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 28px;
+            margin: 24px 0;
+            flex-wrap: wrap;
+        }
+        .figure-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            overflow: hidden;  /* BUG-004 防止 SVG 溢出遮住标题 */
+        }
+        .figure-card figcaption {
+            font-size: 0.85em;
+            color: #64748b;
+            margin-top: 10px;
+            max-width: 220px;
+        }
+        .figure-label {
+            font-weight: 700;
+            font-size: 1em;
+            color: #1e3a5f;
+            margin-bottom: 8px;
+        }
+        .ex-fig-svg { display: block; margin: 0 auto; overflow: visible; }
+
+        /* Exercise grid */
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 18px;
+            margin: 20px 0;
+        }
+        .exercise-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        }
+        .exercise-card .ex-num {
+            font-size: 0.8em;
+            font-weight: 700;
+            color: #7e22ce;
+            margin-bottom: 6px;
+        }
+        .exercise-card .ex-question {
+            font-size: 0.9em;
+            color: #334155;
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+
+        /* Triples table */
+        .triples-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.95em; }
+        .triples-table th { background: #1e3a5f; color: #fff; padding: 10px 14px; text-align: center; }
+        .triples-table td { padding: 9px 14px; text-align: center; border-bottom: 1px solid #e2e8f0; }
+        .triples-table tr:nth-child(even) td { background: #f8fafc; }
+
+        .lang-badge {
+            display: inline-block;
+            background: #e7f3ff;
+            color: #1e40af;
+            border: 1px solid #93c5fd;
+            border-radius: 20px;
+            padding: 4px 14px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-bottom: 16px;
+            margin-right: 8px;
+        }
+        .region-badge {
+            display: inline-block;
+            background: #f0fdf4;
+            color: #166534;
+            border: 1px solid #86efac;
+            border-radius: 20px;
+            padding: 4px 14px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .fr-link {
+            display: inline-block;
+            margin-top: 4px;
+            font-size: 0.85em;
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        .fr-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/us/">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="/us/">US</a> / <a href="/uk/">UK</a> / <a href="/ca/">CA</a>
+            &rsaquo; Geometry &rsaquo; Pythagorean Theorem
+        </div>
+
+        <span class="lang-badge">English</span>
+        <span class="region-badge">US · UK · CA</span>
+        <a href="/test-geometry/pythagoras-fr.html" class="fr-link">🇫🇷 Version française (Québec) →</a>
+
+        <h1>The Pythagorean Theorem</h1>
+        <div class="blog-meta">Geometry &bull; Middle &amp; High School &bull; MathHub Global &bull; February 2026</div>
+
+        <p>
+            The <strong>Pythagorean Theorem</strong> is one of the most famous results in all of mathematics.
+            It connects the three sides of any right triangle with a single elegant equation,
+            and it appears everywhere — from architecture and navigation to computer graphics and physics.
+        </p>
+
+        <!-- ===== THE THEOREM ===== -->
+        <h2>The Theorem</h2>
+
+        <div class="theorem-box">
+            <h4>Pythagorean Theorem</h4>
+            <p>
+                In a right triangle, the square of the <strong>hypotenuse</strong> equals the sum of the squares of the two <strong>legs</strong>:
+            </p>
+            $$a^2 + b^2 = c^2$$
+            <p style="margin-bottom:0">
+                where $c$ is the hypotenuse (the side opposite the right angle) and $a$, $b$ are the two legs.
+            </p>
+        </div>
+
+        <!-- Basic right triangle figure -->
+        <div class="figure-wrap">
+            <figure class="figure-card">
+                <div class="figure-label">Right Triangle — Labels</div>
+                <svg class="ex-fig-svg" width="210" height="180" viewBox="0 0 210 180">
+                    <!-- Right angle at C(30,150), A(30,30), B(180,150) -->
+                    <!-- legs: a=CA=120 (vertical), b=CB=150 (horizontal), hyp c=AB -->
+                    <polygon points="30,30 30,150 180,150" fill="#dbeafe" stroke="#1e40af" stroke-width="1.8"/>
+                    <!-- Right angle box at C -->
+                    <polyline points="30,138 42,138 42,150" fill="none" stroke="#1e40af" stroke-width="1.5"/>
+                    <!-- Side labels -->
+                    <text x="14" y="95" font-size="15" font-weight="bold" fill="#dc2626" text-anchor="middle">a</text>
+                    <text x="105" y="168" font-size="15" font-weight="bold" fill="#16a34a" text-anchor="middle">b</text>
+                    <text x="120" y="82" font-size="15" font-weight="bold" fill="#7c3aed" text-anchor="middle">c</text>
+                    <!-- Vertex labels -->
+                    <text x="30" y="22" font-size="13" font-weight="bold" fill="#1e3a5f" text-anchor="middle">A</text>
+                    <text x="14" y="158" font-size="13" font-weight="bold" fill="#1e3a5f" text-anchor="middle">C</text>
+                    <text x="188" y="158" font-size="13" font-weight="bold" fill="#1e3a5f" text-anchor="middle">B</text>
+                </svg>
+                <figcaption>$a$ and $b$ are legs; $c$ is the hypotenuse</figcaption>
+            </figure>
+
+            <figure class="figure-card">
+                <div class="figure-label">Geometric Proof — Squares on Sides</div>
+                <!-- BUG-004 FIX: Redesigned so all three squares stay inside viewBox.
+                     Triangle: right angle at B(110,140), A(30,140), C(110,80)
+                     leg a=BC=60, leg b=AB=80, hyp=AC=100  (3-4-5 × 20)
+                     a² square: right of BC  → x:110-170, y:80-140   ✓
+                     b² square: below AB    → x:30-110,  y:140-210   ✓
+                     c² square: upper-left  → AC dir=(80,-60), outward perp CW=(-60,-80)
+                                A+(−60,−80)=(−30,60), C+(−60,−80)=(50,0)
+                                vertices: (30,140)(110,80)(50,0)(−30,60) → all inside viewBox ✓ -->
+                <svg class="ex-fig-svg" width="220" height="230" viewBox="-45 -15 225 240">
+                    <!-- Triangle -->
+                    <polygon points="30,140 110,140 110,80" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+                    <!-- Right angle box at B(110,140): one arm left, one arm up -->
+                    <polyline points="98,140 98,128 110,128" fill="none" stroke="#475569" stroke-width="1.3"/>
+                    <!-- a² square (right of BC, blue) -->
+                    <polygon points="110,140 110,80 170,80 170,140" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.3"/>
+                    <text x="140" y="115" font-size="13" font-weight="bold" fill="#1d4ed8" text-anchor="middle">$a^2$</text>
+                    <!-- b² square (below AB, green) -->
+                    <polygon points="30,140 110,140 110,210 30,210" fill="#dcfce7" stroke="#22c55e" stroke-width="1.3"/>
+                    <text x="70" y="180" font-size="13" font-weight="bold" fill="#15803d" text-anchor="middle">$b^2$</text>
+                    <!-- c² square (upper-left, yellow) — all coords inside viewBox -->
+                    <polygon points="30,140 110,80 50,0 -30,60" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.3"/>
+                    <text x="40" y="74" font-size="13" font-weight="bold" fill="#92400e" text-anchor="middle">$c^2$</text>
+                    <!-- Vertex labels -->
+                    <text x="22" y="153" font-size="11" font-weight="bold" fill="#334155" text-anchor="middle">A</text>
+                    <text x="118" y="153" font-size="11" font-weight="bold" fill="#334155" text-anchor="middle">B</text>
+                    <text x="118" y="76" font-size="11" font-weight="bold" fill="#334155" text-anchor="middle">C</text>
+                </svg>
+                <figcaption>$a^2 + b^2 = c^2$ — the three squares together show why</figcaption>
+            </figure>
+        </div>
+
+        <div class="tip-box">
+            <h4>Key Vocabulary</h4>
+            <ul style="margin-bottom:0">
+                <li><strong>Hypotenuse</strong>: the longest side, always opposite the right angle (90°)</li>
+                <li><strong>Legs</strong>: the two shorter sides that form the right angle</li>
+                <li><strong>Right angle</strong>: an angle of exactly 90°, marked with a small square</li>
+            </ul>
+        </div>
+
+        <!-- ===== PROOFS ===== -->
+        <h2>Proofs of the Pythagorean Theorem</h2>
+        <p>There are over 370 known proofs. Here are five of the most elegant.</p>
+
+        <!-- PROOF 1: Rearrangement -->
+        <h3>Proof 1 — Rearrangement (Visual)</h3>
+        <p>
+            Take a square of side $(a+b)$. Fill it with four congruent right triangles (legs $a$, $b$, hypotenuse $c$).
+            The leftover area in the centre is a square of side $c$, so:
+            $$(a+b)^2 = 4 \cdot \tfrac{1}{2}ab + c^2 \implies a^2 + b^2 = c^2 \qquad \square$$
+        </p>
+        <div class="figure-wrap">
+            <figure class="figure-card">
+                <div class="figure-label">Rearrangement — $(a+b)^2 = 4 \cdot \frac{1}{2}ab + c^2$</div>
+                <!-- a=60, b=80, c=100 (3-4-5 × 20)
+                     Outer square: (10,10)→(150,150), side = a+b = 140
+                     Mark b=80 from each corner CW → inner c² square vertices:
+                       TL corner (10,10): right b=80 → (90,10); down a=60 → (10,70)
+                       TR corner (150,10): down b=80 → (150,90); left a=60 → (90,10)
+                       BR corner (150,150): left b=80 → (70,150); up a=60 → (150,90)
+                       BL corner (10,150): up b=80 → (10,70); right a=60 → (70,150)
+                     Inner c² square: (90,10)(150,90)(70,150)(10,70)
+                       Side = √(60²+80²) = √10000 = 100 = c ✓ -->
+                <svg class="ex-fig-svg" width="200" height="200" viewBox="-5 -5 175 175">
+                    <!-- outer square -->
+                    <rect x="10" y="10" width="140" height="140" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+                    <!-- 4 congruent blue right triangles, right angle at each outer corner
+                         TL: (10,10)→(90,10)→(10,70)   top=b=80, left=a=60
+                         TR: (150,10)→(150,90)→(90,10)  down=b=80, left=a=60
+                         BR: (150,150)→(70,150)→(150,90) left=b=80, up=a=60
+                         BL: (10,150)→(10,70)→(70,150)  up=b=80, right=a=60 -->
+                    <polygon points="10,10 90,10 10,70"     fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+                    <polygon points="150,10 150,90 90,10"   fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+                    <polygon points="150,150 70,150 150,90" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+                    <polygon points="10,150 10,70 70,150"   fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+                    <!-- inner c² square: side=√(60²+80²)=100=c ✓ -->
+                    <polygon points="90,10 150,90 70,150 10,70" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+                    <!-- side labels: top edge b=80 then a=60, left edge a=60 then b=80 -->
+                    <text x="50"  y="6"   font-size="13" fill="#1d4ed8" text-anchor="middle">b</text>
+                    <text x="120" y="6"   font-size="13" fill="#1d4ed8" text-anchor="middle">a</text>
+                    <text x="5"   y="43"  font-size="13" fill="#1d4ed8" text-anchor="end">a</text>
+                    <text x="5"   y="113" font-size="13" fill="#1d4ed8" text-anchor="end">b</text>
+                    <!-- c² label at centroid of inner square (80,80) -->
+                    <text x="80" y="85" font-size="16" font-weight="bold" fill="#92400e" text-anchor="middle">c²</text>
+                </svg>
+                <figcaption>Four blue triangles + yellow $c^2$ = full $(a{+}b)^2$ square</figcaption>
+            </figure>
+        </div>
+
+        <!-- PROOF 2: Two-Stage Rearrangement (Image Proof) -->
+        <h3>Proof 2 — Two-Stage Rearrangement</h3>
+        <p>
+            Start with the same $(a+b)^2$ outer square and four congruent right triangles.
+            Arrange them <em>two different ways</em> to expose different inner areas — both equal $(a+b)^2$:
+        </p>
+        <ul>
+            <li><strong>Arrangement 1:</strong> 4 triangles leave a tilted $c^2$ square in the centre.</li>
+            <li><strong>Arrangement 2:</strong> 4 triangles leave an $a^2$ square and a $b^2$ square.</li>
+        </ul>
+        <p>Since both inner areas equal $(a+b)^2 - 4\cdot\tfrac{1}{2}ab$, we get $c^2 = a^2 + b^2$. $\square$</p>
+        <div class="figure-wrap" style="gap:0;align-items:center;flex-wrap:nowrap">
+            <!-- Stage 1: tilted c² inner square (same as Proof 1) -->
+            <figure class="figure-card" style="flex:0 0 auto">
+                <div class="figure-label">Arrangement 1</div>
+                <!-- a=60, b=80, c=100. Outer (10,10)→(150,150).
+                     Inner c² tilted square: (90,10)(150,90)(70,150)(10,70) -->
+                <svg class="ex-fig-svg" width="200" height="200" viewBox="-22 -20 200 200">
+                    <rect x="10" y="10" width="140" height="140" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+                    <polygon points="10,10 90,10 10,70"     fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+                    <polygon points="150,10 150,90 90,10"   fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+                    <polygon points="150,150 70,150 150,90" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+                    <polygon points="10,150 10,70 70,150"   fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+                    <polygon points="90,10 150,90 70,150 10,70" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+                    <text x="80" y="85" font-size="15" font-weight="bold" fill="#92400e" text-anchor="middle">c²</text>
+                    <!-- edge labels: top split b|a, left split a|b -->
+                    <text x="50"  y="-5"  font-size="13" fill="#334155" text-anchor="middle" font-style="italic">b</text>
+                    <text x="120" y="-5"  font-size="13" fill="#334155" text-anchor="middle" font-style="italic">a</text>
+                    <text x="-5"  y="43"  font-size="13" fill="#334155" text-anchor="end"    font-style="italic">a</text>
+                    <text x="-5"  y="113" font-size="13" fill="#334155" text-anchor="end"    font-style="italic">b</text>
+                    <!-- c labels at centroid of each blue triangle (hypotenuse = c) -->
+                    <text x="37"  y="32"  font-size="12" fill="#1e40af" text-anchor="middle" font-style="italic">c</text>
+                    <text x="130" y="37"  font-size="12" fill="#1e40af" text-anchor="middle" font-style="italic">c</text>
+                    <text x="123" y="132" font-size="12" fill="#1e40af" text-anchor="middle" font-style="italic">c</text>
+                    <text x="30"  y="125" font-size="12" fill="#1e40af" text-anchor="middle" font-style="italic">c</text>
+                </svg>
+                <figcaption>Inner area $= c^2$</figcaption>
+            </figure>
+            <!-- Arrow -->
+            <div style="font-size:2rem;padding:0 8px;color:#475569;flex:0 0 auto">&#8658;</div>
+            <!-- Stage 2: aligned a² and b² squares -->
+            <figure class="figure-card" style="flex:0 0 auto">
+                <div class="figure-label">Arrangement 2</div>
+                <!-- Same 4 triangles rearranged:
+                     a²: (90,10)→(150,10)→(150,70)→(90,70) [60×60=a²=3600 ✓]
+                     b²: (10,70)→(90,70)→(90,150)→(10,150) [80×80=b²=6400 ✓]
+                     T1(top-left): (10,10)(90,10)(10,70) right-angle at (10,10) ✓
+                     T2(middle):   (90,10)(90,70)(10,70)  right-angle at (90,70) ✓
+                     T3(middle):   (90,70)(150,70)(90,150) right-angle at (90,70) ✓
+                     T4(bottom-rt):(150,70)(150,150)(90,150) right-angle at (150,150) ✓
+                     All triangles have legs 60 and 80 ✓ -->
+                <svg class="ex-fig-svg" width="210" height="210" viewBox="-22 -20 215 218">
+                    <rect x="10" y="10" width="140" height="140" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+                    <!-- 4 blue triangles rearranged -->
+                    <polygon points="10,10 90,10 10,70"     fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+                    <polygon points="90,10 90,70 10,70"     fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+                    <polygon points="90,70 150,70 90,150"   fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+                    <polygon points="150,70 150,150 90,150" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+                    <!-- a² square (top-right, red-orange) -->
+                    <rect x="90" y="10" width="60" height="60" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+                    <text x="120" y="43" font-size="14" font-weight="bold" fill="#b91c1c" text-anchor="middle">a²</text>
+                    <!-- b² square (bottom-left, green) -->
+                    <rect x="10" y="70" width="80" height="80" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+                    <text x="50" y="112" font-size="14" font-weight="bold" fill="#15803d" text-anchor="middle">b²</text>
+                    <!-- edge labels: top b, left a, right b, bottom a -->
+                    <text x="50"  y="-5"  font-size="13" fill="#334155" text-anchor="middle" font-style="italic">b</text>
+                    <text x="-5"  y="43"  font-size="13" fill="#334155" text-anchor="end"    font-style="italic">a</text>
+                    <text x="163" y="113" font-size="13" fill="#334155" text-anchor="start"  font-style="italic">b</text>
+                    <text x="120" y="165" font-size="13" fill="#334155" text-anchor="middle" font-style="italic">a</text>
+                    <!-- c labels: one in each diagonal blue triangle region -->
+                    <text x="37"  y="32"  font-size="12" fill="#1e40af" text-anchor="middle" font-style="italic">c</text>
+                    <text x="130" y="125" font-size="12" fill="#1e40af" text-anchor="middle" font-style="italic">c</text>
+                </svg>
+                <figcaption>Inner area $= a^2 + b^2$</figcaption>
+            </figure>
+        </div>
+
+        <!-- PROOF 3: Garfield -->
+        <h3>Proof 3 — Garfield's Trapezoid (1876)</h3>
+        <p>
+            US President James Garfield discovered this proof in 1876.
+            Arrange two congruent right triangles and one isosceles right triangle to form a trapezoid.
+        </p>
+        <div class="figure-wrap">
+            <figure class="figure-card">
+                <div class="figure-label">Garfield's Trapezoid</div>
+                <!-- a=90, b=120, c=150 (3-4-5 × 30), 2× scale of original a=45,b=60,c=75
+                     Trapezoid: (0,0),(210,0),(210,120),(0,90)  [parallel sides a=90, b=120; height a+b=210]
+                     T1 (blue):   (0,0),(0,90),(120,0)     right angle at (0,0), legs up=90=a, right=120=b ✓
+                     T2 (green):  (120,0),(210,0),(210,120) right angle at (210,0), legs left=90=a, down=120=b ✓
+                     T3 (yellow): (0,90),(120,0),(210,120)  right angle at (120,0):
+                       arm1 = (0,90)-(120,0) = (-120,90),  unit=(-0.8,0.6)
+                       arm2 = (210,120)-(120,0) = (90,120), unit=(0.6,0.8)
+                       dot = (-120)(90)+(90)(120) = -10800+10800 = 0 ✓
+                     Right angle mark at (120,0) — box size 10px:
+                       P1 = (120,0)+10×(-0.8,0.6) = (112,6)
+                       P2 = (120,0)+10×(0.6,0.8)  = (126,8)
+                       corner = (118,14)  → polyline (112,6)(118,14)(126,8) ✓ -->
+                <svg class="ex-fig-svg" width="260" height="165" viewBox="-20 -18 254 152">
+                    <!-- trapezoid outline -->
+                    <polygon points="0,0 210,0 210,120 0,90" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+                    <!-- dividing lines -->
+                    <line x1="0" y1="90" x2="120" y2="0" stroke="#3b82f6" stroke-width="1.8"/>
+                    <line x1="120" y1="0" x2="210" y2="120" stroke="#22c55e" stroke-width="1.8"/>
+                    <!-- triangle fills -->
+                    <polygon points="0,0 0,90 120,0"      fill="#dbeafe" stroke="none" opacity="0.7"/>
+                    <polygon points="120,0 210,0 210,120" fill="#dcfce7" stroke="none" opacity="0.7"/>
+                    <polygon points="0,90 120,0 210,120"  fill="#fef3c7" stroke="none" opacity="0.7"/>
+                    <!-- right angle marks at outer corners (0,0) and (210,0) -->
+                    <polyline points="14,0 14,14 0,14" fill="none" stroke="#475569" stroke-width="1.5"/>
+                    <polyline points="196,0 196,14 210,14" fill="none" stroke="#475569" stroke-width="1.5"/>
+                    <!-- right angle mark at (120,0) for middle isosceles right triangle
+                         arms: (-0.8,0.6) toward (0,90) and (0.6,0.8) toward (210,120)
+                         P1=(112,6), corner=(118,14), P2=(126,8) -->
+                    <polyline points="112,6 118,14 126,8" fill="none" stroke="#92400e" stroke-width="1.8"/>
+                    <!-- side labels -->
+                    <text x="-14" y="50"  font-size="13" fill="#dc2626" text-anchor="end">a</text>
+                    <text x="224" y="64"  font-size="13" fill="#16a34a" text-anchor="start">b</text>
+                    <text x="105" y="132" font-size="13" fill="#334155" text-anchor="middle">a + b</text>
+                    <!-- c labels on the two equal legs of middle triangle
+                         Hyp1 midpoint: ((0+120)/2,(90+0)/2)=(60,45), offset inward=(0.6,0.8)×10=(6,8) → (66,53) -->
+                    <text x="50"  y="50" font-size="13" fill="#1d4ed8" text-anchor="middle">c</text>
+                    <text x="168" y="56" font-size="13" fill="#1d4ed8" text-anchor="middle">c</text>
+                </svg>
+                <figcaption>
+                    Area two ways:<br>
+                    $\frac{1}{2}(a{+}b)^2 = \frac{1}{2}ab + \frac{1}{2}ab + \frac{1}{2}c^2$<br>
+                    $\Rightarrow a^2+b^2=c^2 \quad\square$
+                </figcaption>
+            </figure>
+        </div>
+        <div class="example-box" style="padding:14px 18px">
+            <p style="margin-bottom:0">
+                <strong>Algebra:</strong> Trapezoid area $= \frac{1}{2}(a+b)(a+b) = \frac{1}{2}(a^2+2ab+b^2)$.
+                The three triangles give $\frac{1}{2}ab + \frac{1}{2}ab + \frac{1}{2}c^2$.
+                Setting equal and simplifying: $\boldsymbol{a^2 + b^2 = c^2}$.
+            </p>
+        </div>
+
+        <!-- PROOF 4: Similar Triangles (Altitude on Hypotenuse) -->
+        <h3>Proof 4 — Similar Triangles (Altitude on Hypotenuse)</h3>
+        <p>
+            Drop an altitude from the right-angle vertex $C$ to the hypotenuse $AB$, meeting it at $H$.
+            This creates three similar triangles.
+        </p>
+        <div class="figure-wrap">
+            <figure class="figure-card">
+                <div class="figure-label">Altitude on Hypotenuse</div>
+                <!-- a=75, b=100, c=125 (3-4-5 × 25)
+                     A(15,20) top-left, C(15,95) bottom-left, B(115,95) bottom-right
+                       CA=75=a (vertical) ✓  CB=100=b (horizontal) ✓  AB=125=c ✓
+                     Altitude from C to H on AB:
+                       t = (C-A)·(B-A)/|AB|² = (0×100+75×75)/15625 = 5625/15625 = 0.36
+                       H = A + 0.36×(100,75) = (51,47)
+                       AH=45=a²/c ✓  HB=80=b²/c ✓  CH=60=ab/c ✓
+                     Right angle at C(15,95): standard corner mark (15,83)(27,83)(27,95)
+                     Right angle at H(51,47):
+                       AB unit=(0.8,0.6), HC unit=(-0.6,0.8)
+                       Along AB +8: (57,52). Along HC +8: (46,53). Corner: (52,58)
+                       Polyline: (57,52)(52,58)(46,53) ✓ -->
+                <svg class="ex-fig-svg" width="230" height="185" viewBox="-5 -8 145 125">
+                    <!-- Main right triangle (light blue fill) -->
+                    <polygon points="15,20 15,95 115,95" fill="#dbeafe" stroke="#1e40af" stroke-width="2"/>
+                    <!-- right angle mark at C(15,95) -->
+                    <polyline points="15,83 27,83 27,95" fill="none" stroke="#1e40af" stroke-width="1.8"/>
+                    <!-- altitude from C(15,95) to H(51,47) — solid black line -->
+                    <line x1="15" y1="95" x2="51" y2="47" stroke="#334155" stroke-width="1.8"/>
+                    <!-- right angle mark at H(51,47):
+                         along AB(0.8,0.6)×8=(57,52); along HC(-0.6,0.8)×8=(46,53); corner(52,58) -->
+                    <polyline points="57,52 52,58 46,53" fill="none" stroke="#334155" stroke-width="1.8"/>
+                    <!-- vertex labels -->
+                    <text x="10"  y="18"  font-size="15" font-weight="bold" fill="#1e3a5f" text-anchor="end">A</text>
+                    <text x="10"  y="100" font-size="15" font-weight="bold" fill="#1e3a5f" text-anchor="end">C</text>
+                    <text x="120" y="100" font-size="15" font-weight="bold" fill="#1e3a5f" text-anchor="start">B</text>
+                    <!-- H label: upper-right of H(51,47) -->
+                    <text x="55"  y="44"  font-size="14" font-weight="bold" fill="#1e3a5f" text-anchor="start">H</text>
+                    <!-- a = CA (red, left side): midpoint (15,57), offset left -->
+                    <text x="9"   y="61"  font-size="14" fill="#dc2626" font-style="italic" text-anchor="end">a</text>
+                    <!-- b = CB (blue, bottom): midpoint (65,95), offset below -->
+                    <text x="65"  y="110" font-size="14" fill="#2563eb" font-style="italic" text-anchor="middle">b</text>
+                    <!-- c = AB (red, upper-right of H): label the full hypotenuse -->
+                    <text x="71"  y="38"  font-size="14" fill="#dc2626" font-style="italic" text-anchor="start">c</text>
+                    <!-- p = AH (blue, inside triangle near AH segment):
+                         midpoint of AH=(33,33), offset inside triangle toward C-side -->
+                    <text x="31"  y="42"  font-size="13" fill="#2563eb" font-style="italic" text-anchor="end">p</text>
+                    <!-- q = HB (blue, inside lower-right):
+                         midpoint of HB=(83,71), inside triangle -->
+                    <text x="86"  y="76"  font-size="13" fill="#2563eb" font-style="italic" text-anchor="start">q</text>
+                </svg>
+                <figcaption>$\triangle ACH \sim \triangle ABC \sim \triangle CBH$</figcaption>
+            </figure>
+        </div>
+        <div class="example-box" style="padding:14px 18px">
+            <p style="margin-bottom:0">
+                From $\triangle ACH \sim \triangle ABC$: $\dfrac{p}{a} = \dfrac{a}{c}$ so $a^2 = pc$.<br>
+                From $\triangle CBH \sim \triangle ABC$: $\dfrac{q}{b} = \dfrac{b}{c}$ so $b^2 = qc$.<br>
+                Adding: $a^2 + b^2 = pc + qc = c(p+q) = c \cdot c = \boldsymbol{c^2} \quad\square$
+            </p>
+        </div>
+
+        <!-- PROOF 5: Euclid (Book I, Prop 47) — 4-step windmill proof
+             Triangle: right angle at C, A(10,80) B(110,80) C(74,32)
+             BC=60=a, AC=80=b, AB=100=c  (3-4-5 × 20)
+             ACDE (b2): A(10,80) C(74,32) D(26,-32) E(-38,16)
+             CBHI (a2): C(74,32) B(110,80) H(158,44) I(122,-4)
+             ABFG (c2): A(10,80) B(110,80) G(110,180) F(10,180)
+             L(74,80)=foot of altitude from C to AB, M(74,180) on FG
+             Right angle mark at C: polyline (68,37)(73,43)(79,38)
+             AF∥CL: AF at x=10 (vertical), CL at x=74 (vertical) -->
+        <h3>Proof 5 — Euclid’s Proof (Elements Book I, Prop. 47)</h3>
+        <p>
+            Draw squares on all three sides, then drop altitude $CL$ from the right-angle vertex
+            $C$ to hypotenuse $AB$, extended to $M$ on the far side of $c^2$.
+            Line $CM$ splits the large square into two rectangles — each equal to one leg-square.
+        </p>
+        <div style="text-align:center;margin:16px 0">
+            <img src="euclid-proof-steps.png" alt="Euclid's Proof — 4-step windmill diagram"
+                 style="max-width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.12)">
+        </div>
+        <div class="tip-box" style="padding:14px 18px">
+            <h4>Euclid’s Key Steps</h4>
+            <ol style="margin-bottom:0">
+                <li>Draw squares $b^2$, $a^2$, $c^2$ on sides $AC$, $BC$, $AB$. Drop altitude $CL$ to $AB$; extend to $M$ on $FG$.</li>
+                <li>$\triangle ABE \cong \triangle AFC$ (SAS): $AB{=}AF{=}c$,  $AE{=}AC{=}b$,  $\angle BAE{=}\angle CAF$.</li>
+                <li>$AF \parallel CL$ (both $\perp AB$), so $\triangle AFC = \triangle AFL$ (same base $AF$, equal height).</li>
+                <li>$\square ACDE = 2\,\triangle ACE = 2\,\triangle ABE = 2\,\triangle AFC = 2\,\triangle AFL = \square AFML = b^2$.</li>
+                <li>Similarly $\square CBHI = \square LBGM = a^2$. Therefore $\boldsymbol{c^2 = b^2 + a^2}$. $\square$</li>
+            </ol>
+        </div>
+
+                <!-- ===== FINDING THE HYPOTENUSE ===== -->
+        <h2>Finding the Hypotenuse</h2>
+        <p>When you know both legs, substitute into $a^2+b^2=c^2$ and take the square root.</p>
+
+        <div class="example-box">
+            <h4>Example 1 — Classic 3-4-5 Triangle</h4>
+            <p>A right triangle has legs $a=3$ and $b=4$. Find the hypotenuse $c$.</p>
+            <div class="figure-wrap" style="margin:16px 0">
+                <svg class="ex-fig-svg" width="180" height="160" viewBox="0 0 180 160">
+                    <!-- C(20,140) A(20,20) B(140,140): CA=120 (a=3 ×40), CB=120 (b=4 ×30) -->
+                    <!-- legs 90 and 120, hyp 150 → 3:4:5 ✓ -->
+                    <!-- C(20,140), A(20,20) CA=120, B(140,140) CB=120... not 3:4:5 -->
+                    <!-- 3:4:5 scaled ×30: C(20,140) A(20,50) B(140,140): CA=90 (3×30), CB=120 (4×30) hyp=150(5×30) -->
+                    <polygon points="20,50 20,140 140,140" fill="#dbeafe" stroke="#1e40af" stroke-width="1.8"/>
+                    <!-- Right angle at C(20,140) -->
+                    <polyline points="20,128 32,128 32,140" fill="none" stroke="#1e40af" stroke-width="1.5"/>
+                    <!-- Side labels -->
+                    <text x="8" y="100" font-size="14" font-weight="bold" fill="#dc2626" text-anchor="middle">3</text>
+                    <text x="80" y="155" font-size="14" font-weight="bold" fill="#16a34a" text-anchor="middle">4</text>
+                    <text x="100" y="82" font-size="14" font-weight="bold" fill="#7c3aed" text-anchor="middle">?</text>
+                    <!-- Vertex labels -->
+                    <text x="20" y="44" font-size="12" font-weight="bold" fill="#1e3a5f" text-anchor="middle">A</text>
+                    <text x="7" y="148" font-size="12" font-weight="bold" fill="#1e3a5f" text-anchor="middle">C</text>
+                    <text x="148" y="148" font-size="12" font-weight="bold" fill="#1e3a5f" text-anchor="middle">B</text>
+                </svg>
+            </div>
+            <p><strong>Solution:</strong></p>
+            $$c^2 = a^2 + b^2 = 3^2 + 4^2 = 9 + 16 = 25$$
+            $$c = \sqrt{25} = \boxed{5}$$
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2 — Non-Integer Answer</h4>
+            <p>A right triangle has legs $a=5$ and $b=7$. Find $c$ (to 2 decimal places).</p>
+            <p><strong>Solution:</strong></p>
+            $$c^2 = 5^2 + 7^2 = 25 + 49 = 74$$
+            $$c = \sqrt{74} \approx \boxed{8.60}$$
+        </div>
+
+        <!-- ===== FINDING A LEG ===== -->
+        <h2>Finding a Missing Leg</h2>
+        <p>When you know the hypotenuse and one leg, rearrange: $a^2 = c^2 - b^2$.</p>
+
+        <div class="example-box">
+            <h4>Example 3 — Missing Leg</h4>
+            <p>A right triangle has hypotenuse $c=13$ and leg $b=5$. Find leg $a$.</p>
+            <div class="figure-wrap" style="margin:16px 0">
+                <svg class="ex-fig-svg" width="160" height="170" viewBox="0 0 160 170">
+                    <!-- 5-12-13: C(20,150) A(20,30) B(70,150): CA=120 (a=12×10), CB=50 (b=5×10) hyp=130(13×10) -->
+                    <polygon points="20,30 20,150 70,150" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.8"/>
+                    <polyline points="20,138 32,138 32,150" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+                    <text x="8" y="95" font-size="14" font-weight="bold" fill="#dc2626" text-anchor="middle">?</text>
+                    <text x="45" y="163" font-size="14" font-weight="bold" fill="#16a34a" text-anchor="middle">5</text>
+                    <text x="62" y="82" font-size="14" font-weight="bold" fill="#7c3aed" text-anchor="middle">13</text>
+                    <text x="20" y="24" font-size="12" font-weight="bold" fill="#1e3a5f" text-anchor="middle">A</text>
+                    <text x="7" y="158" font-size="12" font-weight="bold" fill="#1e3a5f" text-anchor="middle">C</text>
+                    <text x="78" y="158" font-size="12" font-weight="bold" fill="#1e3a5f" text-anchor="middle">B</text>
+                </svg>
+            </div>
+            <p><strong>Solution:</strong></p>
+            $$a^2 = c^2 - b^2 = 13^2 - 5^2 = 169 - 25 = 144$$
+            $$a = \sqrt{144} = \boxed{12}$$
+        </div>
+
+        <!-- ===== PYTHAGOREAN TRIPLES ===== -->
+        <h2>Pythagorean Triples</h2>
+        <p>
+            A <strong>Pythagorean triple</strong> is a set of three positive integers $(a, b, c)$
+            that satisfy $a^2+b^2=c^2$. Memorising a few common ones speeds up problem-solving greatly.
+        </p>
+
+        <table class="triples-table">
+            <thead>
+                <tr><th>Triple $(a, b, c)$</th><th>Verification</th><th>Multiples</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>3, 4, 5</strong></td><td>$9+16=25$ ✓</td><td>6-8-10, 9-12-15, …</td></tr>
+                <tr><td><strong>5, 12, 13</strong></td><td>$25+144=169$ ✓</td><td>10-24-26, …</td></tr>
+                <tr><td><strong>8, 15, 17</strong></td><td>$64+225=289$ ✓</td><td>16-30-34, …</td></tr>
+                <tr><td><strong>7, 24, 25</strong></td><td>$49+576=625$ ✓</td><td>14-48-50, …</td></tr>
+                <tr><td><strong>20, 21, 29</strong></td><td>$400+441=841$ ✓</td><td>—</td></tr>
+            </tbody>
+        </table>
+
+        <div class="tip-box">
+            <h4>Tip — Generating Triples</h4>
+            <p style="margin-bottom:0">
+                Any multiple of a Pythagorean triple is also a triple.
+                If $(3,4,5)$ works, so does $(6,8,10)$, $(15,20,25)$, etc.
+                You can also generate new primitives using $m^2-n^2,\;2mn,\;m^2+n^2$ for integers $m>n>0$.
+            </p>
+        </div>
+
+        <!-- ===== THE CONVERSE ===== -->
+        <h2>The Converse</h2>
+
+        <div class="theorem-box">
+            <h4>Converse of the Pythagorean Theorem</h4>
+            <p>
+                If $a^2 + b^2 = c^2$ (where $c$ is the longest side), then the triangle is a <strong>right triangle</strong>.
+            </p>
+            <p style="margin-bottom:0">
+                If $a^2 + b^2 > c^2$ → <strong>acute</strong> triangle &nbsp;|&nbsp;
+                If $a^2 + b^2 < c^2$ → <strong>obtuse</strong> triangle
+            </p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4 — Is It a Right Triangle?</h4>
+            <p>Determine whether each set of side lengths forms a right triangle.</p>
+            <p><strong>(a)</strong> $6, 8, 10$</p>
+            $$6^2 + 8^2 = 36 + 64 = 100 = 10^2 \quad \checkmark \text{ Right triangle}$$
+            <p><strong>(b)</strong> $5, 7, 9$</p>
+            $$5^2 + 7^2 = 25 + 49 = 74 \neq 81 = 9^2 \quad \text{Not a right triangle}$$
+            <p style="margin-bottom:0">Since $74 < 81$, we have $a^2+b^2 < c^2$ → <strong>obtuse</strong> triangle.</p>
+        </div>
+
+        <!-- ===== REAL-WORLD APPLICATIONS ===== -->
+        <h2>Real-World Applications</h2>
+
+        <div class="example-box">
+            <h4>Example 5 — Diagonal of a Rectangle</h4>
+            <p>A rectangle is 8 m wide and 6 m tall. How long is its diagonal?</p>
+            <div class="figure-wrap" style="margin:16px 0">
+                <svg class="ex-fig-svg" width="200" height="140" viewBox="0 0 200 140">
+                    <!-- Rectangle with diagonal -->
+                    <rect x="20" y="20" width="160" height="100" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.8"/>
+                    <line x1="20" y1="20" x2="180" y2="120" stroke="#dc2626" stroke-width="2" stroke-dasharray="6,3"/>
+                    <!-- Labels -->
+                    <text x="100" y="135" font-size="13" font-weight="bold" fill="#15803d" text-anchor="middle">8 m</text>
+                    <text x="6" y="72" font-size="13" font-weight="bold" fill="#15803d" text-anchor="middle">6 m</text>
+                    <text x="112" y="60" font-size="13" font-weight="bold" fill="#dc2626" text-anchor="middle">d = ?</text>
+                    <!-- Right angle at bottom-left -->
+                    <polyline points="20,108 32,108 32,120" fill="none" stroke="#22c55e" stroke-width="1.3"/>
+                </svg>
+            </div>
+            $$d = \sqrt{8^2 + 6^2} = \sqrt{64 + 36} = \sqrt{100} = \boxed{10 \text{ m}}$$
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6 — Ladder Against a Wall</h4>
+            <p>A 10-ft ladder leans against a vertical wall. The foot of the ladder is 6 ft from the base of the wall. How high up the wall does the ladder reach?</p>
+            <div class="figure-wrap" style="margin:16px 0">
+                <svg class="ex-fig-svg" width="160" height="180" viewBox="0 0 160 180">
+                    <!-- Wall (vertical left), ground (horizontal bottom), ladder (diagonal) -->
+                    <line x1="30" y1="10" x2="30" y2="160" stroke="#64748b" stroke-width="3"/>
+                    <line x1="20" y1="160" x2="150" y2="160" stroke="#64748b" stroke-width="3"/>
+                    <line x1="30" y1="32" x2="114" y2="160" stroke="#dc2626" stroke-width="2.5"/>
+                    <!-- Right angle at base of wall -->
+                    <polyline points="30,148 42,148 42,160" fill="none" stroke="#64748b" stroke-width="1.3"/>
+                    <!-- Labels -->
+                    <text x="18" y="100" font-size="13" font-weight="bold" fill="#1d4ed8" text-anchor="middle">h</text>
+                    <text x="75" y="174" font-size="13" font-weight="bold" fill="#15803d" text-anchor="middle">6 ft</text>
+                    <text x="92" y="88" font-size="13" font-weight="bold" fill="#dc2626" text-anchor="middle">10 ft</text>
+                </svg>
+            </div>
+            $$h^2 = 10^2 - 6^2 = 100 - 36 = 64 \implies h = \boxed{8 \text{ ft}}$$
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7 — Distance Between Two Points</h4>
+            <p>Find the distance between $P(1, 2)$ and $Q(7, 10)$.</p>
+            <div class="figure-wrap" style="margin:16px 0">
+                <svg class="ex-fig-svg" width="190" height="170" viewBox="0 0 190 170">
+                    <!-- Grid hint lines -->
+                    <line x1="30" y1="140" x2="150" y2="140" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3"/>
+                    <line x1="150" y1="140" x2="150" y2="20" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3"/>
+                    <!-- Hypotenuse P to Q -->
+                    <line x1="30" y1="140" x2="150" y2="20" stroke="#7c3aed" stroke-width="2.2"/>
+                    <!-- Right angle -->
+                    <polyline points="138,140 138,128 150,128" fill="none" stroke="#94a3b8" stroke-width="1.3"/>
+                    <!-- Points -->
+                    <circle cx="30" cy="140" r="4" fill="#1d4ed8"/>
+                    <circle cx="150" cy="20" r="4" fill="#1d4ed8"/>
+                    <!-- Labels -->
+                    <text x="18" y="148" font-size="12" font-weight="bold" fill="#1d4ed8">P</text>
+                    <text x="155" y="18" font-size="12" font-weight="bold" fill="#1d4ed8">Q</text>
+                    <text x="90" y="155" font-size="12" fill="#15803d" text-anchor="middle">Δx = 6</text>
+                    <text x="165" y="82" font-size="12" fill="#dc2626" text-anchor="middle">Δy = 8</text>
+                    <text x="72" y="72" font-size="12" font-weight="bold" fill="#7c3aed" text-anchor="middle">d = ?</text>
+                </svg>
+            </div>
+            $$d = \sqrt{(7-1)^2 + (10-2)^2} = \sqrt{36 + 64} = \sqrt{100} = \boxed{10}$$
+        </div>
+
+        <div class="warning-box">
+            <h4>Common Mistakes</h4>
+            <ul style="margin-bottom:0">
+                <li><strong>Forgetting which side is $c$</strong>: $c$ is always the hypotenuse — the longest side.</li>
+                <li><strong>Wrong rearrangement</strong>: To find a leg, use $a^2 = c^2 - b^2$, NOT $c^2 + b^2$.</li>
+                <li><strong>Skipping the square root</strong>: $c^2 = 25$ means $c = 5$, not $c = 25$.</li>
+                <li><strong>Applying to non-right triangles</strong>: The theorem only works for right triangles.</li>
+            </ul>
+        </div>
+
+        <!-- ===== PRACTICE EXERCISES ===== -->
+        <h2>Practice Exercises</h2>
+        <p>For each figure, find the missing side. Leave answers in simplest radical form unless otherwise stated.</p>
+
+        <div class="exercise-grid">
+
+            <!-- Ex 1 -->
+            <div class="exercise-card">
+                <div class="ex-num">Exercise 1</div>
+                <svg class="ex-fig-svg" width="140" height="120" viewBox="0 0 140 120">
+                    <polygon points="20,20 20,100 100,100" fill="#dbeafe" stroke="#1e40af" stroke-width="1.5"/>
+                    <polyline points="20,88 32,88 32,100" fill="none" stroke="#1e40af" stroke-width="1.3"/>
+                    <text x="8" y="64" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">6</text>
+                    <text x="60" y="114" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">8</text>
+                    <text x="76" y="52" font-size="12" font-weight="bold" fill="#7c3aed" text-anchor="middle">c</text>
+                </svg>
+                <div class="ex-question">Find $c$.</div>
+            </div>
+
+            <!-- Ex 2 -->
+            <div class="exercise-card">
+                <div class="ex-num">Exercise 2</div>
+                <svg class="ex-fig-svg" width="140" height="120" viewBox="0 0 140 120">
+                    <!-- legs 5 and 12: scale ×8 → 40 and 96 -->
+                    <polygon points="20,16 20,100 60,100" fill="#dcfce7" stroke="#22c55e" stroke-width="1.5"/>
+                    <polyline points="20,88 32,88 32,100" fill="none" stroke="#22c55e" stroke-width="1.3"/>
+                    <text x="8" y="62" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">12</text>
+                    <text x="40" y="114" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">5</text>
+                    <text x="56" y="50" font-size="12" font-weight="bold" fill="#7c3aed" text-anchor="middle">c</text>
+                </svg>
+                <div class="ex-question">Find $c$.</div>
+            </div>
+
+            <!-- Ex 3 -->
+            <div class="exercise-card">
+                <div class="ex-num">Exercise 3</div>
+                <svg class="ex-fig-svg" width="140" height="120" viewBox="0 0 140 120">
+                    <!-- hyp=10, leg=6 → missing=8 -->
+                    <polygon points="20,20 20,100 76,100" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+                    <polyline points="20,88 32,88 32,100" fill="none" stroke="#f59e0b" stroke-width="1.3"/>
+                    <text x="8" y="64" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">a</text>
+                    <text x="48" y="114" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">6</text>
+                    <text x="66" y="50" font-size="12" font-weight="bold" fill="#7c3aed" text-anchor="middle">10</text>
+                </svg>
+                <div class="ex-question">Find $a$.</div>
+            </div>
+
+            <!-- Ex 4 -->
+            <div class="exercise-card">
+                <div class="ex-num">Exercise 4</div>
+                <svg class="ex-fig-svg" width="140" height="120" viewBox="0 0 140 120">
+                    <!-- legs 9 and 40, hyp=41 -->
+                    <polygon points="20,20 20,100 100,100" fill="#fdf4ff" stroke="#a855f7" stroke-width="1.5"/>
+                    <polyline points="20,88 32,88 32,100" fill="none" stroke="#a855f7" stroke-width="1.3"/>
+                    <text x="8" y="64" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">9</text>
+                    <text x="60" y="114" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">40</text>
+                    <text x="78" y="52" font-size="12" font-weight="bold" fill="#7c3aed" text-anchor="middle">c</text>
+                </svg>
+                <div class="ex-question">Find $c$.</div>
+            </div>
+
+            <!-- Ex 5 -->
+            <div class="exercise-card">
+                <div class="ex-num">Exercise 5</div>
+                <svg class="ex-fig-svg" width="140" height="120" viewBox="0 0 140 120">
+                    <!-- legs 7 and 7: hyp = 7√2 ≈ 9.9 -->
+                    <polygon points="20,20 20,100 100,100" fill="#fff1f2" stroke="#f43f5e" stroke-width="1.5"/>
+                    <polyline points="20,88 32,88 32,100" fill="none" stroke="#f43f5e" stroke-width="1.3"/>
+                    <text x="8" y="64" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">7</text>
+                    <text x="60" y="114" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">7</text>
+                    <text x="78" y="52" font-size="12" font-weight="bold" fill="#7c3aed" text-anchor="middle">c</text>
+                </svg>
+                <div class="ex-question">Find $c$ (exact form).</div>
+            </div>
+
+            <!-- Ex 6 -->
+            <div class="exercise-card">
+                <div class="ex-num">Exercise 6</div>
+                <svg class="ex-fig-svg" width="140" height="120" viewBox="0 0 140 120">
+                    <!-- hyp=25, leg=7 → missing=24 -->
+                    <polygon points="20,20 20,100 44,100" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+                    <polyline points="20,88 32,88 32,100" fill="none" stroke="#3b82f6" stroke-width="1.3"/>
+                    <text x="8" y="64" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">b</text>
+                    <text x="32" y="114" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">7</text>
+                    <text x="48" y="50" font-size="12" font-weight="bold" fill="#7c3aed" text-anchor="middle">25</text>
+                </svg>
+                <div class="ex-question">Find $b$.</div>
+            </div>
+
+            <!-- Ex 7 -->
+            <div class="exercise-card">
+                <div class="ex-num">Exercise 7</div>
+                <svg class="ex-fig-svg" width="140" height="120" viewBox="0 0 140 120">
+                    <!-- legs 1 and 1: hyp = √2 -->
+                    <polygon points="20,20 20,100 100,100" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+                    <polyline points="20,88 32,88 32,100" fill="none" stroke="#16a34a" stroke-width="1.3"/>
+                    <text x="8" y="64" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">1</text>
+                    <text x="60" y="114" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">1</text>
+                    <text x="78" y="52" font-size="12" font-weight="bold" fill="#7c3aed" text-anchor="middle">c</text>
+                </svg>
+                <div class="ex-question">Find $c$ (exact).</div>
+            </div>
+
+            <!-- Ex 8 -->
+            <div class="exercise-card">
+                <div class="ex-num">Exercise 8</div>
+                <svg class="ex-fig-svg" width="140" height="120" viewBox="0 0 140 120">
+                    <!-- legs 10 and 24 → hyp=26 -->
+                    <polygon points="20,20 20,100 68,100" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+                    <polyline points="20,88 32,88 32,100" fill="none" stroke="#f59e0b" stroke-width="1.3"/>
+                    <text x="8" y="64" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">10</text>
+                    <text x="44" y="114" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">24</text>
+                    <text x="62" y="50" font-size="12" font-weight="bold" fill="#7c3aed" text-anchor="middle">c</text>
+                </svg>
+                <div class="ex-question">Find $c$.</div>
+            </div>
+
+            <!-- Ex 9 — converse -->
+            <div class="exercise-card">
+                <div class="ex-num">Exercise 9</div>
+                <svg class="ex-fig-svg" width="140" height="120" viewBox="0 0 140 120">
+                    <!-- generic triangle, no right angle marked -->
+                    <polygon points="20,100 100,100 60,20" fill="#f8fafc" stroke="#475569" stroke-width="1.5"/>
+                    <text x="10" y="108" font-size="11" fill="#334155">A</text>
+                    <text x="102" y="108" font-size="11" fill="#334155">B</text>
+                    <text x="58" y="14" font-size="11" fill="#334155">C</text>
+                </svg>
+                <div class="ex-question">Sides $5, 12, 13$. Is $\triangle ABC$ a right triangle?</div>
+            </div>
+
+            <!-- Ex 10 — converse -->
+            <div class="exercise-card">
+                <div class="ex-num">Exercise 10</div>
+                <svg class="ex-fig-svg" width="140" height="120" viewBox="0 0 140 120">
+                    <polygon points="20,100 100,100 60,20" fill="#f8fafc" stroke="#475569" stroke-width="1.5"/>
+                    <text x="10" y="108" font-size="11" fill="#334155">A</text>
+                    <text x="102" y="108" font-size="11" fill="#334155">B</text>
+                    <text x="58" y="14" font-size="11" fill="#334155">C</text>
+                </svg>
+                <div class="ex-question">Sides $4, 6, 8$. Right, acute, or obtuse?</div>
+            </div>
+
+            <!-- Ex 11 — word problem -->
+            <div class="exercise-card">
+                <div class="ex-num">Exercise 11</div>
+                <svg class="ex-fig-svg" width="140" height="120" viewBox="0 0 140 120">
+                    <!-- rectangle 15×20 with diagonal -->
+                    <rect x="10" y="20" width="120" height="80" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5"/>
+                    <line x1="10" y1="20" x2="130" y2="100" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="5,3"/>
+                    <polyline points="10,88 22,88 22,100" fill="none" stroke="#22c55e" stroke-width="1.3"/>
+                    <text x="70" y="114" font-size="11" fill="#334155" text-anchor="middle">15 cm</text>
+                    <text x="138" y="62" font-size="11" fill="#334155" text-anchor="middle">20 cm</text>
+                </svg>
+                <div class="ex-question">Find the diagonal of the rectangle.</div>
+            </div>
+
+            <!-- Ex 12 — word problem -->
+            <div class="exercise-card">
+                <div class="ex-num">Exercise 12</div>
+                <svg class="ex-fig-svg" width="140" height="130" viewBox="0 0 140 130">
+                    <!-- Ladder: wall left, ground bottom, ladder diagonal -->
+                    <line x1="30" y1="10" x2="30" y2="120" stroke="#64748b" stroke-width="2.5"/>
+                    <line x1="20" y1="120" x2="130" y2="120" stroke="#64748b" stroke-width="2.5"/>
+                    <line x1="30" y1="30" x2="110" y2="120" stroke="#dc2626" stroke-width="2"/>
+                    <polyline points="30,108 42,108 42,120" fill="none" stroke="#64748b" stroke-width="1.3"/>
+                    <text x="16" y="78" font-size="11" fill="#334155" text-anchor="middle">h</text>
+                    <text x="73" y="134" font-size="11" fill="#334155" text-anchor="middle">9 m</text>
+                    <text x="85" y="68" font-size="11" fill="#dc2626" text-anchor="middle">15 m</text>
+                </svg>
+                <div class="ex-question">Find height $h$ up the wall.</div>
+            </div>
+
+            <!-- Ex 13 — distance -->
+            <div class="exercise-card">
+                <div class="ex-num">Exercise 13</div>
+                <svg class="ex-fig-svg" width="140" height="120" viewBox="0 0 140 120">
+                    <line x1="20" y1="100" x2="120" y2="100" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,2"/>
+                    <line x1="120" y1="100" x2="120" y2="20" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,2"/>
+                    <line x1="20" y1="100" x2="120" y2="20" stroke="#7c3aed" stroke-width="2"/>
+                    <polyline points="108,100 108,88 120,88" fill="none" stroke="#94a3b8" stroke-width="1.3"/>
+                    <circle cx="20" cy="100" r="3" fill="#1d4ed8"/>
+                    <circle cx="120" cy="20" r="3" fill="#1d4ed8"/>
+                    <text x="8" y="108" font-size="11" fill="#334155">A</text>
+                    <text x="122" y="16" font-size="11" fill="#334155">B</text>
+                    <text x="70" y="113" font-size="11" fill="#15803d" text-anchor="middle">6</text>
+                    <text x="130" y="62" font-size="11" fill="#dc2626" text-anchor="middle">8</text>
+                </svg>
+                <div class="ex-question">Find distance $AB$.</div>
+            </div>
+
+            <!-- Ex 14 -->
+            <div class="exercise-card">
+                <div class="ex-num">Exercise 14</div>
+                <svg class="ex-fig-svg" width="140" height="120" viewBox="0 0 140 120">
+                    <!-- legs √3 and 1 → hyp = 2 (30-60-90) -->
+                    <polygon points="20,20 20,100 60,100" fill="#dbeafe" stroke="#1e40af" stroke-width="1.5"/>
+                    <polyline points="20,88 32,88 32,100" fill="none" stroke="#1e40af" stroke-width="1.3"/>
+                    <text x="8" y="64" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">$\sqrt{3}$</text>
+                    <text x="40" y="114" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">1</text>
+                    <text x="56" y="50" font-size="12" font-weight="bold" fill="#7c3aed" text-anchor="middle">c</text>
+                </svg>
+                <div class="ex-question">Find $c$ (exact).</div>
+            </div>
+
+            <!-- Ex 15 -->
+            <div class="exercise-card">
+                <div class="ex-num">Exercise 15</div>
+                <svg class="ex-fig-svg" width="140" height="120" viewBox="0 0 140 120">
+                    <!-- isosceles right with hyp=10 → leg = 5√2 -->
+                    <polygon points="20,100 100,100 60,20" fill="#fdf4ff" stroke="#a855f7" stroke-width="1.5"/>
+                    <polyline points="60,32 72,46 56,54" fill="none" stroke="#a855f7" stroke-width="1.3"/>
+                    <text x="36" y="114" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">$a$</text>
+                    <text x="90" y="114" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">$a$</text>
+                    <text x="18" y="64" font-size="12" font-weight="bold" fill="#7c3aed" text-anchor="middle">10</text>
+                </svg>
+                <div class="ex-question">Isosceles right $\triangle$. Find leg $a$.</div>
+            </div>
+
+            <!-- Ex 16 — word problem -->
+            <div class="exercise-card">
+                <div class="ex-num">Exercise 16</div>
+                <svg class="ex-fig-svg" width="140" height="130" viewBox="0 0 140 130">
+                    <!-- Baseball diamond: square 90ft -->
+                    <polygon points="70,10 130,70 70,130 10,70" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+                    <line x1="70" y1="10" x2="70" y2="130" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="5,3"/>
+                    <circle cx="70" cy="10" r="3" fill="#475569"/>
+                    <circle cx="130" cy="70" r="3" fill="#475569"/>
+                    <circle cx="70" cy="130" r="3" fill="#475569"/>
+                    <circle cx="10" cy="70" r="3" fill="#475569"/>
+                    <text x="70" y="5" font-size="10" fill="#334155" text-anchor="middle">2nd</text>
+                    <text x="135" y="74" font-size="10" fill="#334155">1st</text>
+                    <text x="70" y="143" font-size="10" fill="#334155" text-anchor="middle">Home</text>
+                    <text x="0" y="74" font-size="10" fill="#334155">3rd</text>
+                </svg>
+                <div class="ex-question">Baseball diamond: 90 ft sides. Find Home→2nd distance.</div>
+            </div>
+
+            <!-- Ex 17 -->
+            <div class="exercise-card">
+                <div class="ex-num">Exercise 17</div>
+                <svg class="ex-fig-svg" width="140" height="120" viewBox="0 0 140 120">
+                    <!-- hyp=√50, leg=5 → missing=5 -->
+                    <polygon points="20,20 20,100 100,100" fill="#fff1f2" stroke="#f43f5e" stroke-width="1.5"/>
+                    <polyline points="20,88 32,88 32,100" fill="none" stroke="#f43f5e" stroke-width="1.3"/>
+                    <text x="8" y="64" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">$a$</text>
+                    <text x="60" y="114" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">5</text>
+                    <text x="76" y="52" font-size="11" font-weight="bold" fill="#7c3aed" text-anchor="middle">$\sqrt{50}$</text>
+                </svg>
+                <div class="ex-question">Find $a$ (exact).</div>
+            </div>
+
+            <!-- Ex 18 -->
+            <div class="exercise-card">
+                <div class="ex-num">Exercise 18</div>
+                <svg class="ex-fig-svg" width="140" height="120" viewBox="0 0 140 120">
+                    <!-- 8-15-17 triple -->
+                    <polygon points="20,20 20,100 68,100" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+                    <polyline points="20,88 32,88 32,100" fill="none" stroke="#16a34a" stroke-width="1.3"/>
+                    <text x="8" y="64" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">15</text>
+                    <text x="44" y="114" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">8</text>
+                    <text x="60" y="50" font-size="12" font-weight="bold" fill="#7c3aed" text-anchor="middle">c</text>
+                </svg>
+                <div class="ex-question">Find $c$.</div>
+            </div>
+
+            <!-- Ex 19 — converse -->
+            <div class="exercise-card">
+                <div class="ex-num">Exercise 19</div>
+                <svg class="ex-fig-svg" width="140" height="120" viewBox="0 0 140 120">
+                    <polygon points="20,100 110,100 65,20" fill="#f8fafc" stroke="#475569" stroke-width="1.5"/>
+                </svg>
+                <div class="ex-question">Sides $11, 60, 61$. Right, acute, or obtuse?</div>
+            </div>
+
+            <!-- Ex 20 — challenge -->
+            <div class="exercise-card">
+                <div class="ex-num">Exercise 20 ★</div>
+                <svg class="ex-fig-svg" width="140" height="120" viewBox="0 0 140 120">
+                    <!-- 3D box with space diagonal -->
+                    <polygon points="20,90 80,90 80,40 20,40" fill="#f8fafc" stroke="#475569" stroke-width="1.2"/>
+                    <polygon points="80,90 120,60 120,10 80,40" fill="#e2e8f0" stroke="#475569" stroke-width="1.2"/>
+                    <polygon points="20,40 80,40 120,10 60,10" fill="#f1f5f9" stroke="#475569" stroke-width="1.2"/>
+                    <line x1="20" y1="90" x2="120" y2="10" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="5,3"/>
+                    <text x="10" y="96" font-size="9" fill="#334155">3</text>
+                    <text x="90" y="98" font-size="9" fill="#334155">4</text>
+                    <text x="122" y="38" font-size="9" fill="#334155">12</text>
+                </svg>
+                <div class="ex-question">Box: $3 \times 4 \times 12$. Find the space diagonal.</div>
+            </div>
+
+        </div>
+
+        <!-- Answer key -->
+        <div class="practice-box">
+            <h4>Answer Key</h4>
+            <ol style="margin-bottom:0; columns:2; column-gap:32px;">
+                <li>$c = 10$</li>
+                <li>$c = 13$</li>
+                <li>$a = 8$</li>
+                <li>$c = 41$</li>
+                <li>$c = 7\sqrt{2}$</li>
+                <li>$b = 24$</li>
+                <li>$c = \sqrt{2}$</li>
+                <li>$c = 26$</li>
+                <li>Yes, right triangle</li>
+                <li>Obtuse ($16+36=52 < 64$)</li>
+                <li>$d = 25$ cm</li>
+                <li>$h = 12$ m</li>
+                <li>$AB = 10$</li>
+                <li>$c = 2$</li>
+                <li>$a = 5\sqrt{2}$</li>
+                <li>$\approx 127.3$ ft</li>
+                <li>$a = 5$</li>
+                <li>$c = 17$</li>
+                <li>Right triangle</li>
+                <li>$d = 13$</li>
+            </ol>
+        </div>
+
+    </article>
+
+    <footer style="text-align:center; padding:40px 20px; color:#94a3b8; font-size:0.85em; border-top:1px solid #e2e8f0; margin-top:40px;">
+        MathHub &mdash; Pythagorean Theorem &mdash; Geometry
+        &bull; <a href="/test-geometry/pythagoras-fr.html" style="color:#3b82f6; text-decoration:none;">Version française</a>
+    </footer>
+</body>
+</html>

@@ -52,6 +52,7 @@
         };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 
     <link rel="stylesheet" href="../../assets/css/common.css">
     <style>
@@ -99,6 +100,10 @@
         .graph-container{text-align:center;margin:24px 0;}
         .graph-container svg{max-width:100%;}
         .graph-caption{font-size:0.9em;color:#64748b;margin-top:8px;font-style:italic;}
+        .desmos-wrap { margin: 24px 0; background: #f8fafc; border-radius: 12px; padding: 16px; border: 1px solid #e2e8f0; }
+        .desmos-caption { font-size: 0.88em; color: #475569; margin-bottom: 8px; font-style: italic; }
+        .fig-code { display: inline-block; background: #f1f5f9; color: #64748b; font-style: normal; font-weight: 700; font-size: 0.78em; padding: 1px 7px; border-radius: 4px; margin-right: 8px; font-family: 'Courier New', monospace; letter-spacing: 0.5px; border: 1px solid #e2e8f0; }
+        .fig-label { text-align: center; font-style: italic; color: #475569; font-size: 0.88em; margin: 6px 0 18px; }
         @media(max-width:640px){.blog-article h1{font-size:1.6em;}}
     </style>
 </head>
@@ -161,63 +166,12 @@
         Tout vecteur s'écrit $\vec{v} = a\vec{i} + b\vec{j} + c\vec{k}$.
     </p>
 
-    <!-- SVG : loi du parallélogramme -->
-    <div class="graph-container">
-        <svg width="340" height="240" viewBox="0 0 340 240" aria-label="Addition de vecteurs — loi du parallélogramme">
-            <!-- Axes -->
-            <defs>
-                <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-                    <path d="M0,0 L0,6 L8,3 z" fill="#1e3a5f"/>
-                </marker>
-                <marker id="arrow-u" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-                    <path d="M0,0 L0,6 L8,3 z" fill="#1d4ed8"/>
-                </marker>
-                <marker id="arrow-v" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-                    <path d="M0,0 L0,6 L8,3 z" fill="#0ea5e9"/>
-                </marker>
-                <marker id="arrow-sum" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-                    <path d="M0,0 L0,6 L8,3 z" fill="#22c55e"/>
-                </marker>
-                <marker id="arrow-u2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-                    <path d="M0,0 L0,6 L8,3 z" fill="#1d4ed8" fill-opacity="0.4"/>
-                </marker>
-                <marker id="arrow-v2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-                    <path d="M0,0 L0,6 L8,3 z" fill="#0ea5e9" fill-opacity="0.4"/>
-                </marker>
-            </defs>
-            <!-- Grid lines (light) -->
-            <line x1="30" y1="210" x2="310" y2="210" stroke="#e2e8f0" stroke-width="1"/>
-            <line x1="30" y1="30" x2="30" y2="210" stroke="#e2e8f0" stroke-width="1"/>
-            <!-- Axes -->
-            <line x1="30" y1="210" x2="310" y2="210" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#arrow)"/>
-            <line x1="30" y1="210" x2="30" y2="20" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#arrow)"/>
-            <text x="315" y="214" font-size="13" fill="#64748b">x</text>
-            <text x="22" y="18" font-size="13" fill="#64748b">y</text>
-            <!-- Origin -->
-            <circle cx="30" cy="210" r="3" fill="#1e3a5f"/>
-            <text x="18" y="224" font-size="11" fill="#64748b">O</text>
-            <!-- u = (120, -80) → endpoint (150, 130) -->
-            <line x1="30" y1="210" x2="148" y2="132" stroke="#1d4ed8" stroke-width="2.5" marker-end="url(#arrow-u)"/>
-            <text x="78" y="158" font-size="13" font-weight="bold" fill="#1d4ed8">u⃗</text>
-            <!-- v = (80, -120) → endpoint (110, 90) -->
-            <line x1="30" y1="210" x2="108" y2="92" stroke="#0ea5e9" stroke-width="2.5" marker-end="url(#arrow-v)"/>
-            <text x="46" y="128" font-size="13" font-weight="bold" fill="#0ea5e9">v⃗</text>
-            <!-- u+v = (200, -200) → endpoint (230, 10)... scale down: (200,-180)→(230,30) -->
-            <!-- u=(120,-80), v=(80,-100) → sum=(200,-180), endpoint=(230,30) -->
-            <line x1="30" y1="210" x2="228" y2="32" stroke="#22c55e" stroke-width="2.5" marker-end="url(#arrow-sum)"/>
-            <text x="145" y="98" font-size="13" font-weight="bold" fill="#22c55e">u⃗+v⃗</text>
-            <!-- Dashed parallelogram sides -->
-            <!-- from tip of u, draw v -->
-            <line x1="150" y1="130" x2="228" y2="32" stroke="#0ea5e9" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow-v2)"/>
-            <!-- from tip of v, draw u -->
-            <line x1="110" y1="90" x2="228" y2="32" stroke="#1d4ed8" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow-u2)"/>
-            <!-- Labels at endpoints -->
-            <circle cx="150" cy="130" r="3" fill="#1d4ed8"/>
-            <circle cx="110" cy="90" r="3" fill="#0ea5e9"/>
-            <circle cx="228" cy="32" r="3" fill="#22c55e"/>
-        </svg>
-        <p class="graph-caption">Loi du parallélogramme : $\vec{u} + \vec{v}$ est la diagonale du parallélogramme formé par $\vec{u}$ et $\vec{v}$.</p>
+    <!-- Addition de vecteurs — Desmos interactif -->
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Ajustez les composantes pour explorer l'addition de vecteurs. Les curseurs a, b contrôlent $\vec{u}=(a,b)$ (bleu) et c, d contrôlent $\vec{v}=(c,d)$ (cyan). La diagonale verte montre $\vec{u}+\vec{v}$.</p>
+        <div id="desmos-vecteurs" style="width:100%;height:420px;border-radius:8px;"></div>
     </div>
+    <p class="fig-label"><span class="fig-code">LINR·1</span>Figure 1 — Addition de vecteurs $\vec{u}$ et $\vec{v}$ : loi du parallélogramme.</p>
 
     <h3>1.3 Produit scalaire (dot product)</h3>
 
@@ -1105,6 +1059,46 @@
 <footer style="text-align:center; padding:30px 20px; color:#64748b; font-size:0.88em; border-top:1px solid #e2e8f0; margin-top:40px;">
     &copy; 2026 MathHub Global &mdash; Contenu éducatif gratuit pour le Cégep.
 </footer>
+
+<script>
+// ── Addition de vecteurs — loi du parallélogramme ─────────────────────────
+(function() {
+    var el = document.getElementById('desmos-vecteurs');
+    if (!el) return;
+    var calc = Desmos.GraphingCalculator(el, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        keypad: false
+    });
+    calc.setMathBounds({ left: -1.5, right: 5.5, bottom: -1.5, top: 5.5 });
+
+    // Sliders pour les composantes de u = (a, b) et v = (c, d)
+    calc.setExpression({ id: 'a', latex: 'a=3', sliderBounds: { min: -4, max: 4, step: 0.5 } });
+    calc.setExpression({ id: 'b', latex: 'b=1', sliderBounds: { min: -4, max: 4, step: 0.5 } });
+    calc.setExpression({ id: 'c', latex: 'c=1', sliderBounds: { min: -4, max: 4, step: 0.5 } });
+    calc.setExpression({ id: 'd', latex: 'd=3', sliderBounds: { min: -4, max: 4, step: 0.5 } });
+
+    // Vecteur u : segment de O=(0,0) à (a,b) — bleu
+    calc.setExpression({ id: 'vec_u', latex: '\\operatorname{polygon}\\left((0,0),(a,b)\\right)', color: '#1d4ed8', lineWidth: 3 });
+    calc.setExpression({ id: 'tip_u', latex: '(a, b)', color: '#1d4ed8', pointSize: 10, label: 'u\u20d7 = (a, b)', showLabel: true });
+
+    // Vecteur v : segment de O=(0,0) à (c,d) — cyan
+    calc.setExpression({ id: 'vec_v', latex: '\\operatorname{polygon}\\left((0,0),(c,d)\\right)', color: '#0ea5e9', lineWidth: 3 });
+    calc.setExpression({ id: 'tip_v', latex: '(c, d)', color: '#0ea5e9', pointSize: 10, label: 'v\u20d7 = (c, d)', showLabel: true });
+
+    // Vecteur somme u+v : de O à (a+c, b+d) — vert
+    calc.setExpression({ id: 'vec_sum', latex: '\\operatorname{polygon}\\left((0,0),(a+c,b+d)\\right)', color: '#22c55e', lineWidth: 3 });
+    calc.setExpression({ id: 'tip_sum', latex: '(a+c, b+d)', color: '#22c55e', pointSize: 10, label: 'u\u20d7+v\u20d7', showLabel: true });
+
+    // Côtés en pointillés du parallélogramme
+    // De (a,b) vers (a+c, b+d)
+    calc.setExpression({ id: 'para1', latex: '\\operatorname{polygon}\\left((a,b),(a+c,b+d)\\right)', color: '#0ea5e9', lineWidth: 1.5, lineStyle: Desmos.Styles.DASHED });
+    // De (c,d) vers (a+c, b+d)
+    calc.setExpression({ id: 'para2', latex: '\\operatorname{polygon}\\left((c,d),(a+c,b+d)\\right)', color: '#1d4ed8', lineWidth: 1.5, lineStyle: Desmos.Styles.DASHED });
+
+    // Origine
+    calc.setExpression({ id: 'origin', latex: '(0, 0)', color: '#1e3a5f', pointSize: 10, label: 'O', showLabel: true });
+})();
+</script>
 
 </body>
 </html>

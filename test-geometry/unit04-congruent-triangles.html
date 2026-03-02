@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 4 — Congruent Triangles | MathHub</title>
+    <meta name="description" content="Learn triangle classification, congruence postulates (SSS, SAS, ASA, AAS, HL), CPCTC, and triangle proofs for Grade 9–10 Geometry.">
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 820px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.1em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #64748b; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .definition-box { background: #e7f3ff; border-left: 4px solid #3b82f6; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .definition-box h4 { color: #1e40af; margin-bottom: 10px; font-size: 1.05em; }
+        .theorem-box { background: #fff8e7; border-left: 4px solid #f59e0b; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .theorem-box h4 { color: #92400e; margin-bottom: 10px; font-size: 1.05em; }
+        .example-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .example-box h4 { color: #0369a1; margin-bottom: 10px; font-size: 1.05em; }
+        .tip-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .tip-box h4 { color: #166534; margin-bottom: 10px; }
+        .warning-box { background: #fff1f2; border-left: 4px solid #f43f5e; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .warning-box h4 { color: #be123c; margin-bottom: 10px; }
+        .practice-box { background: #fdf4ff; border-left: 4px solid #a855f7; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .practice-box h4 { color: #7e22ce; margin-bottom: 10px; }
+        .sol-toggle { margin-top: 10px; }
+        .sol-toggle summary { cursor: pointer; color: #7e22ce; font-weight: 600; font-size: 0.9em; }
+        .sol-toggle summary:hover { text-decoration: underline; }
+        .sol-body { background: #f9f0ff; border-radius: 6px; padding: 12px 16px; margin-top: 8px; font-size: 0.93em; }
+        .sol-body p { margin-bottom: 8px; color: #334155; }
+        .figure-wrap { display: flex; justify-content: center; align-items: flex-start; gap: 24px; margin: 24px 0; flex-wrap: wrap; }
+        .figure-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); overflow: hidden; }
+        .figure-card figcaption { font-size: 0.82em; color: #64748b; margin-top: 10px; max-width: 200px; }
+        .figure-label { font-weight: 700; font-size: 0.95em; color: #1e3a5f; margin-bottom: 8px; }
+        .unit-nav { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 20px; border-top: 1px solid #e2e8f0; }
+        .unit-nav a { color: #3b82f6; text-decoration: none; font-size: .9em; }
+        table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+        th, td { border: 1px solid #e2e8f0; padding: 10px 14px; text-align: left; font-size: 0.95em; color: #334155; }
+        th { background: #f1f5f9; color: #1e3a5f; font-weight: 600; }
+        .proof-table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+        .proof-table th { background: #e7f3ff; color: #1e40af; font-weight: 600; padding: 10px 14px; border: 1px solid #bfdbfe; }
+        .proof-table td { padding: 10px 14px; border: 1px solid #e2e8f0; vertical-align: top; }
+        .proof-table tr:nth-child(even) td { background: #f8fafc; }
+    </style>
+</head>
+<body>
+<header class="site-header"></header>
+<script src="../../assets/js/common.js"></script>
+<article class="blog-article">
+
+    <div class="breadcrumb">
+        <a href="/test-geometry/index.html">Geometry</a> › Unit 4
+    </div>
+
+    <h1>Unit 4 — Congruent Triangles</h1>
+    <div class="blog-meta">Unit 4 of 13 · Grade 9–10 · Common Core G-CO.6–8</div>
+
+    <p>
+        Triangles are the simplest polygon and the foundation of all geometric reasoning about shapes. When two triangles are <em>congruent</em>, every corresponding side and angle matches exactly. In this unit you will classify triangles by their sides and angles, apply the Triangle Sum Theorem, identify the five triangle congruence postulates and theorems, write formal proofs, and explore special properties of isosceles and equilateral triangles.
+    </p>
+
+    <!-- ============================================================ -->
+    <h2>4.1 Triangle Classification</h2>
+
+    <div class="definition-box">
+        <h4>Classifying Triangles</h4>
+        <p><strong>By side lengths:</strong></p>
+        <ul>
+            <li><strong>Scalene:</strong> no two sides are congruent.</li>
+            <li><strong>Isosceles:</strong> at least two sides are congruent (the equal sides are the <em>legs</em>; the third side is the <em>base</em>).</li>
+            <li><strong>Equilateral:</strong> all three sides are congruent.</li>
+        </ul>
+        <p><strong>By angle measures:</strong></p>
+        <ul>
+            <li><strong>Acute:</strong> all three angles are acute ($&lt; 90°$).</li>
+            <li><strong>Right:</strong> exactly one angle is a right angle ($= 90°$). The side opposite the right angle is the <em>hypotenuse</em>.</li>
+            <li><strong>Obtuse:</strong> exactly one angle is obtuse ($> 90°$).</li>
+            <li><strong>Equiangular:</strong> all three angles are congruent (each measures $60°$). An equiangular triangle is also equilateral.</li>
+        </ul>
+    </div>
+
+    <!-- ============================================================ -->
+    <h2>4.2 Triangle Sum Theorem</h2>
+
+    <div class="theorem-box">
+        <h4>Triangle Sum Theorem</h4>
+        <p>The sum of the interior angle measures of any triangle is $180°$:</p>
+        $$m\angle A + m\angle B + m\angle C = 180°$$
+
+        <h4 style="margin-top:18px;">Exterior Angle Theorem</h4>
+        <p>An exterior angle of a triangle is formed by one side and the extension of an adjacent side. It equals the sum of the two non-adjacent (<em>remote</em>) interior angles:</p>
+        $$m\angle \text{ext} = m\angle A + m\angle B$$
+    </div>
+
+    <div class="figure-wrap">
+        <div class="figure-card">
+            <div class="figure-label">Figure 4.2 — Exterior Angle Theorem</div>
+            <svg width="330" height="270" viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+                <!-- Triangle ABC -->
+                <polygon points="30,150 190,150 110,40" fill="#f0f9ff" stroke="#1e3a5f" stroke-width="2"/>
+                <!-- Angle labels -->
+                <text x="18" y="168" font-size="14" fill="#1e40af" font-weight="bold">α</text>
+                <text x="106" y="34" font-size="14" fill="#1e40af" font-weight="bold">β</text>
+                <text x="170" y="168" font-size="14" fill="#334155" font-weight="bold">γ</text>
+                <!-- Extension of base line for exterior angle -->
+                <line x1="190" y1="150" x2="220" y2="150" stroke="#e11d48" stroke-width="2" stroke-dasharray="6,4"/>
+                <!-- Exterior angle arc -->
+                <path d="M 210 150 A 20 20 0 0 0 192 138" fill="none" stroke="#e11d48" stroke-width="1.5"/>
+                <!-- Exterior angle label -->
+                <text x="196" y="148" font-size="11" fill="#e11d48" font-weight="bold">ext</text>
+                <text x="78" y="175" font-size="11" fill="#e11d48">ext = α + β</text>
+                <!-- Small arc at A (alpha) -->
+                <path d="M 50 150 A 22 22 0 0 0 39 131" fill="none" stroke="#1e40af" stroke-width="1.5"/>
+                <!-- Small arc at top (beta) -->
+                <path d="M 97 54 A 18 18 0 0 0 123 54" fill="none" stroke="#1e40af" stroke-width="1.5"/>
+            </svg>
+            <figcaption>The exterior angle (red) equals the sum of the two non-adjacent interior angles $\alpha$ and $\beta$.</figcaption>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 4.2 — Finding a Missing Angle</h4>
+        <p><strong>Given:</strong> A triangle has two angles measuring $45°$ and $70°$. Find the third angle.</p>
+        <p><strong>Solution:</strong></p>
+        $$m\angle C = 180° - 45° - 70° = 65°$$
+    </div>
+
+    <!-- ============================================================ -->
+    <h2>4.3 Congruence and Triangles</h2>
+
+    <div class="definition-box">
+        <h4>Congruent Figures and CPCTC</h4>
+        <p>Two figures are <strong>congruent</strong> if they have the same shape and size — one can be mapped onto the other by a rigid motion (rotation, reflection, or translation).</p>
+        <p>For triangles, the notation $\triangle ABC \cong \triangle DEF$ means the vertices correspond in order: $A \leftrightarrow D$, $B \leftrightarrow E$, $C \leftrightarrow F$. This implies:</p>
+        <ul>
+            <li>$\overline{AB} \cong \overline{DE}$, $\overline{BC} \cong \overline{EF}$, $\overline{AC} \cong \overline{DF}$ (corresponding sides)</li>
+            <li>$\angle A \cong \angle D$, $\angle B \cong \angle E$, $\angle C \cong \angle F$ (corresponding angles)</li>
+        </ul>
+        <p><strong>CPCTC</strong> — Corresponding Parts of Congruent Triangles are Congruent. Once two triangles are proved congruent, all six pairs of corresponding parts are automatically congruent. CPCTC is used as the final reason in many proofs.</p>
+
+        <h4 style="margin-top:14px;">Third Angles Theorem</h4>
+        <p>If two angles of one triangle are congruent to two angles of another triangle, then the third angles are also congruent.</p>
+    </div>
+
+    <!-- ============================================================ -->
+    <h2>4.4 Triangle Congruence Postulates and Theorems</h2>
+
+    <p>
+        To prove two triangles congruent it is <em>not</em> necessary to show all six pairs of corresponding parts. The following five shortcuts suffice:
+    </p>
+
+    <div class="figure-wrap">
+        <!-- SSS -->
+        <div class="figure-card">
+            <div class="figure-label">SSS</div>
+            <svg width="360" height="270" viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="20,100 140,100 80,20" fill="#e7f3ff" stroke="#1e40af" stroke-width="2"/>
+                <!-- Tick marks: side AB (bottom) — 2 ticks -->
+                <line x1="74" y1="96" x2="74" y2="104" stroke="#1e40af" stroke-width="2"/>
+                <line x1="86" y1="96" x2="86" y2="104" stroke="#1e40af" stroke-width="2"/>
+                <!-- Side BC (right) — 1 tick -->
+                <line x1="105" y1="64" x2="115" y2="56" stroke="#1e40af" stroke-width="2"/>
+                <!-- Side AC (left) — 3 ticks clustered near center -->
+                <line x1="41" y1="66" x2="47" y2="70" stroke="#1e40af" stroke-width="2"/>
+                <line x1="47" y1="58" x2="53" y2="62" stroke="#1e40af" stroke-width="2"/>
+                <line x1="53" y1="50" x2="59" y2="54" stroke="#1e40af" stroke-width="2"/>
+                <text x="55" y="115" font-size="11" fill="#1e40af">Side-Side-Side</text>
+            </svg>
+            <figcaption>All three pairs of corresponding sides are congruent.</figcaption>
+        </div>
+
+        <!-- SAS -->
+        <div class="figure-card">
+            <div class="figure-label">SAS</div>
+            <svg width="360" height="270" viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="20,100 140,100 80,20" fill="#fff8e7" stroke="#92400e" stroke-width="2"/>
+                <!-- Tick on bottom (2) -->
+                <line x1="74" y1="96" x2="74" y2="104" stroke="#92400e" stroke-width="2"/>
+                <line x1="86" y1="96" x2="86" y2="104" stroke="#92400e" stroke-width="2"/>
+                <!-- Tick on right (1) -->
+                <line x1="105" y1="64" x2="115" y2="56" stroke="#92400e" stroke-width="2"/>
+                <!-- Included angle arc at vertex B (140,100) -->
+                <path d="M 118 100 A 22 22 0 0 1 126 82" fill="none" stroke="#f59e0b" stroke-width="2"/>
+                <text x="45" y="115" font-size="11" fill="#92400e">Side-Angle-Side</text>
+            </svg>
+            <figcaption>Two sides and the <em>included</em> angle (between those sides) are congruent.</figcaption>
+        </div>
+
+        <!-- ASA -->
+        <div class="figure-card">
+            <div class="figure-label">ASA</div>
+            <svg width="360" height="270" viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="20,100 140,100 80,20" fill="#f0fdf4" stroke="#166534" stroke-width="2"/>
+                <!-- Included side ticks (2 ticks on bottom) -->
+                <line x1="74" y1="96" x2="74" y2="104" stroke="#166534" stroke-width="2"/>
+                <line x1="86" y1="96" x2="86" y2="104" stroke="#166534" stroke-width="2"/>
+                <!-- Angle arc at A (20,100) -->
+                <path d="M 42 100 A 22 22 0 0 0 30 82" fill="none" stroke="#22c55e" stroke-width="2"/>
+                <!-- Angle arc at B (140,100) -->
+                <path d="M 118 100 A 22 22 0 0 0 126 82" fill="none" stroke="#22c55e" stroke-width="2"/>
+                <text x="44" y="115" font-size="11" fill="#166534">Angle-Side-Angle</text>
+            </svg>
+            <figcaption>Two angles and the <em>included</em> side are congruent.</figcaption>
+        </div>
+    </div>
+
+    <div class="figure-wrap">
+        <!-- AAS -->
+        <div class="figure-card">
+            <div class="figure-label">AAS</div>
+            <svg width="360" height="270" viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="20,100 140,100 80,20" fill="#fdf4ff" stroke="#7e22ce" stroke-width="2"/>
+                <!-- Non-included side: right side (1 tick) -->
+                <line x1="105" y1="64" x2="115" y2="56" stroke="#7e22ce" stroke-width="2"/>
+                <!-- Angle at A (20,100) -->
+                <path d="M 42 100 A 22 22 0 0 0 30 82" fill="none" stroke="#a855f7" stroke-width="2"/>
+                <!-- Angle at top (80,20) -->
+                <path d="M 67 36 A 18 18 0 0 0 93 36" fill="none" stroke="#a855f7" stroke-width="2"/>
+                <text x="40" y="115" font-size="11" fill="#7e22ce">Angle-Angle-Side</text>
+            </svg>
+            <figcaption>Two angles and a <em>non-included</em> side are congruent.</figcaption>
+        </div>
+
+        <!-- HL -->
+        <div class="figure-card">
+            <div class="figure-label">HL</div>
+            <svg width="360" height="270" viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg">
+                <!-- Right triangle -->
+                <polygon points="20,100 140,100 20,20" fill="#fff1f2" stroke="#be123c" stroke-width="2"/>
+                <!-- Right angle mark -->
+                <rect x="20" y="90" width="10" height="10" fill="none" stroke="#be123c" stroke-width="1.5"/>
+                <!-- Hypotenuse tick (2) — tightened spacing t=0.45 & 0.55 -->
+                <line x1="71" y1="61" x2="77" y2="51" stroke="#be123c" stroke-width="2"/>
+                <line x1="83" y1="69" x2="89" y2="59" stroke="#be123c" stroke-width="2"/>
+                <!-- Leg tick (1) — vertical leg -->
+                <line x1="20" y1="57" x2="28" y2="57" stroke="#be123c" stroke-width="2"/>
+                <text x="25" y="115" font-size="11" fill="#be123c">Hypotenuse-Leg</text>
+            </svg>
+            <figcaption>For right triangles only: the hypotenuse and one leg are congruent.</figcaption>
+        </div>
+    </div>
+
+    <div class="warning-box">
+        <h4>SSA and AAA Do NOT Guarantee Congruence!</h4>
+        <ul>
+            <li><strong>SSA (Side-Side-Angle)</strong> — two sides and a non-included angle do not determine a unique triangle. Two different triangles may satisfy the same SSA conditions (the "ambiguous case").</li>
+            <li><strong>AAA (Angle-Angle-Angle)</strong> — three congruent angle pairs only guarantees similar (same shape) triangles, not congruent (same size) ones.</li>
+        </ul>
+        <p>The only exception: HL uses an angle (the right angle) plus the two sides that form the Pythagorean relationship, which resolves the ambiguity.</p>
+    </div>
+
+    <!-- ============================================================ -->
+    <h2>4.5 Proving Triangles Congruent</h2>
+
+    <div class="example-box">
+        <h4>Example 4.5a — Proof by SSS</h4>
+        <p><strong>Given:</strong> $\overline{AB} \cong \overline{DE}$, $\overline{BC} \cong \overline{EF}$, $\overline{AC} \cong \overline{DF}$.</p>
+        <p><strong>Prove:</strong> $\triangle ABC \cong \triangle DEF$.</p>
+
+        <table class="proof-table">
+            <thead><tr><th>Statement</th><th>Reason</th></tr></thead>
+            <tbody>
+                <tr><td>1. $\overline{AB} \cong \overline{DE}$</td><td>Given</td></tr>
+                <tr><td>2. $\overline{BC} \cong \overline{EF}$</td><td>Given</td></tr>
+                <tr><td>3. $\overline{AC} \cong \overline{DF}$</td><td>Given</td></tr>
+                <tr><td>4. $\triangle ABC \cong \triangle DEF$</td><td>SSS Congruence Postulate</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 4.5b — CPCTC Proof</h4>
+        <p><strong>Given:</strong> $M$ is the midpoint of $\overline{AC}$ and $M$ is the midpoint of $\overline{BD}$.</p>
+        <p><strong>Prove:</strong> $\overline{AB} \cong \overline{CD}$.</p>
+        <p><em>(Diagram: diagonals $AC$ and $BD$ intersect at midpoint $M$, forming $\triangle AMB$ and $\triangle CMD$.)</em></p>
+
+        <table class="proof-table">
+            <thead><tr><th>Statement</th><th>Reason</th></tr></thead>
+            <tbody>
+                <tr><td>1. $M$ is the midpoint of $\overline{AC}$</td><td>Given</td></tr>
+                <tr><td>2. $\overline{AM} \cong \overline{CM}$</td><td>Definition of midpoint</td></tr>
+                <tr><td>3. $M$ is the midpoint of $\overline{BD}$</td><td>Given</td></tr>
+                <tr><td>4. $\overline{BM} \cong \overline{DM}$</td><td>Definition of midpoint</td></tr>
+                <tr><td>5. $\angle AMB \cong \angle CMD$</td><td>Vertical Angles Theorem</td></tr>
+                <tr><td>6. $\triangle AMB \cong \triangle CMD$</td><td>SAS Congruence Postulate</td></tr>
+                <tr><td>7. $\overline{AB} \cong \overline{CD}$</td><td>CPCTC</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ============================================================ -->
+    <h2>4.6 Isosceles and Equilateral Triangles</h2>
+
+    <div class="theorem-box">
+        <h4>Base Angles Theorem (Isosceles Triangle Theorem)</h4>
+        <p>If two sides of a triangle are congruent, then the angles opposite those sides are congruent.</p>
+        <p>In $\triangle ABC$ with $\overline{AB} \cong \overline{AC}$: $\angle B \cong \angle C$.</p>
+
+        <h4 style="margin-top:18px;">Converse of the Base Angles Theorem</h4>
+        <p>If two angles of a triangle are congruent, then the sides opposite those angles are congruent.</p>
+        <p>In $\triangle ABC$ with $\angle B \cong \angle C$: $\overline{AB} \cong \overline{AC}$.</p>
+
+        <h4 style="margin-top:18px;">Equilateral Triangle Corollary</h4>
+        <p>An equilateral triangle is also equiangular — each interior angle measures exactly $60°$.</p>
+        <p>Conversely, if all three angles of a triangle are congruent, the triangle is equilateral.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 4.6 — Isosceles Triangle Angles</h4>
+        <p><strong>Given:</strong> $\triangle PQR$ is isosceles with $\overline{PQ} \cong \overline{PR}$. The vertex angle $m\angle P = 40°$. Find the base angles.</p>
+        <p><strong>Solution:</strong> The two base angles $\angle Q$ and $\angle R$ are congruent (Base Angles Theorem). Let each measure $x$.</p>
+        $$40° + x + x = 180°$$
+        $$2x = 140°$$
+        $$x = 70°$$
+        <p>So $m\angle Q = m\angle R = 70°$.</p>
+    </div>
+
+    <!-- ============================================================ -->
+    <h2>Practice Problems</h2>
+
+    <div class="practice-box">
+        <h4>Unit 4 Practice — 12 Problems</h4>
+        <ol>
+            <li>Classify each triangle by sides and by angles: (a) sides $5, 5, 5$ (b) sides $3, 4, 5$ with a $90°$ angle (c) angles $30°, 60°, 90°$ (d) angles $110°, 40°, 30°$.
+                <details class="sol-toggle"><summary>Show Solution</summary>
+                <div class="sol-body">
+                    <p>(a) All sides equal → <strong>equilateral</strong> (by sides); all angles $60°$ → <strong>equiangular/acute</strong> (by angles).</p>
+                    <p>(b) No two sides equal → <strong>scalene</strong>; one $90°$ angle → <strong>right scalene</strong>.</p>
+                    <p>(c) No two angles equal → scalene; one $90°$ angle → <strong>right scalene</strong>.</p>
+                    <p>(d) No two angles equal → scalene; one angle $> 90°$ → <strong>obtuse scalene</strong>.</p>
+                </div></details>
+            </li>
+            <li>The angles of a triangle are $(2x + 5)°$, $(x + 10)°$, and $(3x - 15)°$. Find $x$ and the measure of each angle.
+                <details class="sol-toggle"><summary>Show Solution</summary>
+                <div class="sol-body">
+                    <p>$(2x+5) + (x+10) + (3x-15) = 180$</p>
+                    <p>$6x = 180 \Rightarrow x = 30$.</p>
+                    <p>Angles: $\mathbf{65°}$, $\mathbf{40°}$, $\mathbf{75°}$.</p>
+                </div></details>
+            </li>
+            <li>An exterior angle of a triangle measures $118°$. One non-adjacent interior angle is $47°$. Find the other non-adjacent interior angle.
+                <details class="sol-toggle"><summary>Show Solution</summary>
+                <div class="sol-body">
+                    <p>Exterior Angle Theorem: exterior angle = sum of two remote interior angles.</p>
+                    <p>$118° = 47° + x \Rightarrow x = \mathbf{71°}$.</p>
+                </div></details>
+            </li>
+            <li>$\triangle ABC \cong \triangle XYZ$. $AB = 12$, $m\angle B = 54°$, $m\angle C = 63°$. Find $XY$, $m\angle Y$, and $m\angle Z$.
+                <details class="sol-toggle"><summary>Show Solution</summary>
+                <div class="sol-body">
+                    <p>Corresponding parts: $A \leftrightarrow X$, $B \leftrightarrow Y$, $C \leftrightarrow Z$.</p>
+                    <p>$XY = AB = \mathbf{12}$; $m\angle Y = m\angle B = \mathbf{54°}$; $m\angle Z = m\angle C = \mathbf{63°}$.</p>
+                </div></details>
+            </li>
+            <li>Name the congruence postulate or theorem (SSS, SAS, ASA, AAS, or HL) that proves the triangles congruent, or state "not enough information": <br>
+                (a) All three sides of $\triangle PQR$ are marked congruent to corresponding sides of $\triangle STU$. <br>
+                (b) Two angles and the included side of $\triangle ABC$ match those of $\triangle DEF$. <br>
+                (c) Two sides of $\triangle JKL$ equal two sides of $\triangle MNO$, with a non-included angle matching. <br>
+                (d) Right triangles $\triangle GHI$ and $\triangle JKL$ share a congruent hypotenuse and one leg.
+                <details class="sol-toggle"><summary>Show Solution</summary>
+                <div class="sol-body">
+                    <p>(a) <strong>SSS</strong> — three pairs of congruent sides.</p>
+                    <p>(b) <strong>ASA</strong> — two angles and the included side.</p>
+                    <p>(c) <strong>Not enough information</strong> — SSA is the ambiguous case.</p>
+                    <p>(d) <strong>HL</strong> — right triangles with congruent hypotenuse and leg.</p>
+                </div></details>
+            </li>
+            <li>Why can't AAA prove triangle congruence? Give an example of two non-congruent triangles that are equiangular.
+                <details class="sol-toggle"><summary>Show Solution</summary>
+                <div class="sol-body">
+                    <p>AAA only guarantees that triangles are <em>similar</em> (same shape), not congruent (same size). The sides can scale independently.</p>
+                    <p>Example: an equilateral triangle with side $3$ and one with side $6$ both have all angles $60°$, yet they are not congruent.</p>
+                </div></details>
+            </li>
+            <li><strong>Proof:</strong> Given $\overline{AB} \parallel \overline{CD}$ and $\overline{AB} \cong \overline{CD}$, prove $\triangle ABE \cong \triangle DCE$ where $E$ is the intersection of $\overline{AC}$ and $\overline{BD}$. (Hint: use Alternate Interior Angles, then ASA.)
+                <details class="sol-toggle"><summary>Show Solution</summary>
+                <div class="sol-body">
+                    <p>1. $\overline{AB} \parallel \overline{CD}$ — Given.</p>
+                    <p>2. $\angle ABE \cong \angle DCE$ — Alternate Interior Angles Theorem.</p>
+                    <p>3. $\angle BAE \cong \angle CDE$ — Alternate Interior Angles Theorem.</p>
+                    <p>4. $\overline{AB} \cong \overline{CD}$ — Given.</p>
+                    <p>5. $\triangle ABE \cong \triangle DCE$ — ASA Congruence Postulate (steps 2, 4, 3). $\blacksquare$</p>
+                </div></details>
+            </li>
+            <li>$\triangle RST$ is isosceles with $RS = RT = 15$ and base $ST = 18$. Find $m\angle S$ and $m\angle T$ if the vertex angle $m\angle R = 56°$.
+                <details class="sol-toggle"><summary>Show Solution</summary>
+                <div class="sol-body">
+                    <p>Base angles are congruent (Base Angles Theorem). Let $m\angle S = m\angle T = x$.</p>
+                    <p>$56° + x + x = 180° \Rightarrow 2x = 124° \Rightarrow x = 62°$.</p>
+                    <p>$m\angle S = m\angle T = \mathbf{62°}$.</p>
+                </div></details>
+            </li>
+            <li>In equilateral $\triangle ABC$, $AB = 3x - 6$ and $BC = x + 10$. Find the side length.
+                <details class="sol-toggle"><summary>Show Solution</summary>
+                <div class="sol-body">
+                    <p>All sides equal: $3x - 6 = x + 10$.</p>
+                    <p>$2x = 16 \Rightarrow x = 8$.</p>
+                    <p>Side length $= x + 10 = \mathbf{18}$.</p>
+                </div></details>
+            </li>
+            <li>$\triangle KLM$ is isosceles with $\angle K \cong \angle M$. $m\angle K = (4x + 8)°$ and $m\angle L = (2x + 20)°$. Find all three angle measures.
+                <details class="sol-toggle"><summary>Show Solution</summary>
+                <div class="sol-body">
+                    <p>$m\angle K + m\angle L + m\angle M = 180°$, with $m\angle K = m\angle M = (4x+8)°$.</p>
+                    <p>$2(4x+8) + (2x+20) = 180 \Rightarrow 10x + 36 = 180 \Rightarrow x = 14.4$.</p>
+                    <p>$m\angle K = m\angle M = \mathbf{65.6°}$; $m\angle L = \mathbf{48.8°}$.</p>
+                </div></details>
+            </li>
+            <li><strong>CPCTC Proof:</strong> Given $\overline{WX} \cong \overline{YZ}$ and $\overline{WZ} \cong \overline{YX}$, prove $\angle W \cong \angle Y$ using diagonal $\overline{WY}$ of quadrilateral $WXYZ$.
+                <details class="sol-toggle"><summary>Show Solution</summary>
+                <div class="sol-body">
+                    <p>1. Draw $\overline{WY}$ — Construction.</p>
+                    <p>2. $\overline{WX} \cong \overline{YZ}$, $\overline{WZ} \cong \overline{YX}$ — Given.</p>
+                    <p>3. $\overline{WY} \cong \overline{WY}$ — Reflexive Property.</p>
+                    <p>4. $\triangle WXY \cong \triangle YZW$ — SSS Congruence Postulate.</p>
+                    <p>5. $\angle W \cong \angle Y$ — CPCTC. $\blacksquare$</p>
+                </div></details>
+            </li>
+            <li>The vertex angle of an isosceles triangle is three times each base angle. Find all three angle measures.
+                <details class="sol-toggle"><summary>Show Solution</summary>
+                <div class="sol-body">
+                    <p>Let each base angle $= x$. Then vertex angle $= 3x$.</p>
+                    <p>$3x + x + x = 180° \Rightarrow 5x = 180° \Rightarrow x = 36°$.</p>
+                    <p>Base angles: $\mathbf{36°}$ each. Vertex angle: $\mathbf{108°}$.</p>
+                </div></details>
+            </li>
+        </ol>
+    </div>
+
+    <div class="unit-nav">
+        <a href="/test-geometry/unit03-parallel-lines.html">← Previous Unit</a>
+        <a href="/test-geometry/index.html">All Units</a>
+        <a href="/test-geometry/unit05-triangle-relationships.html">Next Unit →</a>
+    </div>
+</article>
+<footer style="text-align:center;padding:24px 20px;color:#94a3b8;font-size:.85em;border-top:1px solid #e2e8f0;margin-top:40px">
+    Geometry · MathHub · Grade 9–10
+</footer>
+</body>
+</html>

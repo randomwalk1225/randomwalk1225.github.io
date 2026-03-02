@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Calculus: Integration &amp; Fundamental Theorem - Chapter 5 | MathHub</title>
+    <meta name="description" content="Learn integration for AP Calculus: antiderivatives, Riemann sums, Fundamental Theorem of Calculus, and u-substitution with worked examples.">
+    <meta name="keywords" content="AP Calculus integration, Fundamental Theorem of Calculus, antiderivatives, Riemann sums, u-substitution, AP Calculus AB, AP Calculus BC, indefinite integrals, definite integrals">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/blog/ap-calculus-integration-textbook.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/blog/ap-calculus-integration-textbook.html">
+    <meta property="og:title" content="AP Calculus: Integration & Fundamental Theorem of Calculus - Chapter 5">
+    <meta property="og:description" content="Comprehensive guide to integration for AP Calculus: antiderivatives, Riemann sums, FTC, and u-substitution with worked examples.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Calculus: Integration & Fundamental Theorem - Chapter 5">
+    <meta name="twitter:description" content="Learn integration for AP Calculus with worked examples and practice problems.">
+
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "AP Calculus: Integration & Fundamental Theorem of Calculus - Chapter 5",
+        "description": "Learn integration for AP Calculus: antiderivatives, Riemann sums, Fundamental Theorem of Calculus, and u-substitution with worked examples.",
+        "author": { "@type": "Organization", "name": "MathHub" },
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "mainEntityOfPage": "https://mathhub.io/blog/ap-calculus-integration-textbook.html",
+        "datePublished": "2026-02-23",
+        "dateModified": "2026-02-23",
+        "educationalLevel": "AP",
+        "about": {
+            "@type": "Course",
+            "name": "AP Calculus AB/BC",
+            "provider": { "@type": "Organization", "name": "College Board" }
+        }
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+
+        .definition-box {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 18px 22px;
+            margin: 22px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .definition-box strong { color: #15803d; display: block; margin-bottom: 6px; font-size: 1.05em; }
+
+        .theorem-box {
+            background: #faf5ff;
+            border-left: 4px solid #8b5cf6;
+            padding: 18px 22px;
+            margin: 22px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .theorem-box strong { color: #6d28d9; display: block; margin-bottom: 6px; font-size: 1.05em; }
+
+        .example-box {
+            background: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 18px 22px;
+            margin: 22px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .example-box strong { color: #1d4ed8; display: block; margin-bottom: 6px; font-size: 1.05em; }
+
+        .practice-problem {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 18px 22px;
+            margin: 16px 0;
+            border-radius: 8px;
+        }
+        .practice-problem strong { color: #1e3a5f; }
+
+        details.solution {
+            margin-top: 10px;
+        }
+        details.solution summary {
+            cursor: pointer;
+            color: #3b82f6;
+            font-weight: 600;
+            font-size: 0.95em;
+            padding: 6px 0;
+            user-select: none;
+        }
+        details.solution summary:hover { color: #1d4ed8; }
+        .solution-content {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 16px 20px;
+            margin-top: 8px;
+            border-radius: 6px;
+            line-height: 1.8;
+            color: #334155;
+        }
+
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 50px 0 20px;
+            padding: 20px 0;
+            border-top: 2px solid #e2e8f0;
+        }
+        .chapter-nav a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: 1px solid #3b82f6;
+            transition: background 0.2s, color 0.2s;
+        }
+        .chapter-nav a:hover { background: #3b82f6; color: white; }
+
+        .toc { background: #f8fafc; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+
+        .warning-box {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .warning-box strong { color: #b45309; }
+
+        .desmos-container {
+            width: 100%;
+            height: 400px;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+        .desmos-caption {
+            text-align: center;
+            font-size: 0.9em;
+            color: #64748b;
+            margin-top: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/" class="active">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <h1>Chapter 5: Integration and the Fundamental Theorem of Calculus</h1>
+        <div class="blog-meta">AP Calculus AB/BC &middot; February 2026 &middot; 18 min read &middot; <a href="/us/ap-calculus">AP Calculus Past Papers</a></div>
+
+        <p>Integration is one of the two central ideas in calculus, alongside differentiation. While derivatives measure instantaneous rates of change, integrals accumulate quantities over intervals. In this chapter, we develop the theory and technique of integration from the ground up: starting with antiderivatives, building toward Riemann sums and definite integrals, arriving at the Fundamental Theorem of Calculus, and finally learning the essential technique of u-substitution. This material accounts for a significant portion of both the AP Calculus AB and BC exams.</p>
+
+        <div class="toc">
+            <h3>Chapter Contents</h3>
+            <ol>
+                <li><a href="#sec-5-1">Antiderivatives and Indefinite Integrals</a></li>
+                <li><a href="#sec-5-2">Riemann Sums and Definite Integrals</a></li>
+                <li><a href="#sec-5-3">The Fundamental Theorem of Calculus</a></li>
+                <li><a href="#sec-5-4">U-Substitution</a></li>
+                <li><a href="#sec-5-5">Practice Problems</a></li>
+            </ol>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 5.1 -->
+        <!-- ============================================================ -->
+        <h2 id="sec-5-1">5.1 Antiderivatives and Indefinite Integrals</h2>
+
+        <p>Differentiation answers the question: given a function, what is its rate of change? Integration reverses the question: given a rate of change, what was the original function? This reversal is the starting point for everything that follows.</p>
+
+        <div class="definition-box">
+            <strong>Definition: Antiderivative</strong>
+            A function $F(x)$ is called an <em>antiderivative</em> of $f(x)$ on an interval $I$ if $F'(x) = f(x)$ for every $x$ in $I$. If $F(x)$ is one antiderivative of $f(x)$, then every antiderivative of $f(x)$ has the form $F(x) + C$, where $C$ is an arbitrary constant called the <em>constant of integration</em>.
+        </div>
+
+        <p>Why the constant $C$? Because the derivative of any constant is zero. If $F'(x) = f(x)$, then $(F(x) + 7)' = f(x)$ as well. Geometrically, the family of antiderivatives $F(x) + C$ represents an infinite collection of curves, each a vertical shift of the others, all sharing the same slope at every $x$-value.</p>
+
+        <h3>Notation for Indefinite Integrals</h3>
+
+        <p>We write the general antiderivative of $f(x)$ using integral notation:</p>
+
+        $$\int f(x)\,dx = F(x) + C$$
+
+        <p>Here, $\int$ is the integral sign, $f(x)$ is the <em>integrand</em>, $dx$ indicates the variable of integration, and $C$ is the constant of integration. The expression $\int f(x)\,dx$ is called the <em>indefinite integral</em> of $f(x)$. The word "indefinite" reflects the fact that the result is a family of functions rather than a single number.</p>
+
+        <h3>Basic Antiderivative Rules</h3>
+
+        <p>Each differentiation rule has a corresponding antiderivative rule. The following table lists the most important ones for the AP exam.</p>
+
+        <div class="theorem-box">
+            <strong>Basic Integration Rules</strong>
+            <ul style="margin-bottom:0;">
+                <li><strong>Power Rule:</strong> $\displaystyle\int x^n\,dx = \frac{x^{n+1}}{n+1} + C \quad (n \neq -1)$</li>
+                <li><strong>Reciprocal:</strong> $\displaystyle\int \frac{1}{x}\,dx = \ln|x| + C$</li>
+                <li><strong>Exponential:</strong> $\displaystyle\int e^x\,dx = e^x + C$</li>
+                <li><strong>General Exponential:</strong> $\displaystyle\int a^x\,dx = \frac{a^x}{\ln a} + C \quad (a > 0,\, a \neq 1)$</li>
+                <li><strong>Sine:</strong> $\displaystyle\int \sin x\,dx = -\cos x + C$</li>
+                <li><strong>Cosine:</strong> $\displaystyle\int \cos x\,dx = \sin x + C$</li>
+                <li><strong>Secant Squared:</strong> $\displaystyle\int \sec^2 x\,dx = \tan x + C$</li>
+                <li><strong>Cosecant Squared:</strong> $\displaystyle\int \csc^2 x\,dx = -\cot x + C$</li>
+                <li><strong>Secant Tangent:</strong> $\displaystyle\int \sec x \tan x\,dx = \sec x + C$</li>
+                <li><strong>Cosecant Cotangent:</strong> $\displaystyle\int \csc x \cot x\,dx = -\csc x + C$</li>
+                <li><strong>Constant Multiple:</strong> $\displaystyle\int k\,f(x)\,dx = k\int f(x)\,dx$</li>
+                <li><strong>Sum/Difference:</strong> $\displaystyle\int [f(x) \pm g(x)]\,dx = \int f(x)\,dx \pm \int g(x)\,dx$</li>
+            </ul>
+        </div>
+
+        <div class="warning-box">
+            <strong>Common Mistake:</strong> There is no product rule or quotient rule for integration. You cannot split $\int f(x)g(x)\,dx$ into $\int f(x)\,dx \cdot \int g(x)\,dx$. Integration of products requires techniques like u-substitution, integration by parts, or algebraic simplification.
+        </div>
+
+        <div class="example-box">
+            <strong>Example 5.1.1</strong>
+            <p>Find $\displaystyle\int (3x^4 - 5x^2 + 2x - 7)\,dx$.</p>
+            <p><strong>Solution.</strong> Apply the power rule term by term and the constant multiple rule:</p>
+            $$\int (3x^4 - 5x^2 + 2x - 7)\,dx = 3 \cdot \frac{x^5}{5} - 5 \cdot \frac{x^3}{3} + 2 \cdot \frac{x^2}{2} - 7x + C = \frac{3x^5}{5} - \frac{5x^3}{3} + x^2 - 7x + C$$
+            <p>You can verify this by differentiating the result: $\frac{d}{dx}\!\left(\frac{3x^5}{5} - \frac{5x^3}{3} + x^2 - 7x + C\right) = 3x^4 - 5x^2 + 2x - 7$. This check always works and is a reliable way to confirm your answer.</p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 5.1.2</strong>
+            <p>Find $\displaystyle\int \left(\frac{4}{\sqrt{x}} + e^x - 3\sin x\right)\,dx$.</p>
+            <p><strong>Solution.</strong> Rewrite $\frac{4}{\sqrt{x}}$ as $4x^{-1/2}$ and integrate each term:</p>
+            $$\int \left(4x^{-1/2} + e^x - 3\sin x\right)\,dx = 4 \cdot \frac{x^{1/2}}{1/2} + e^x - 3(-\cos x) + C = 8\sqrt{x} + e^x + 3\cos x + C$$
+            <p>Note how $\frac{x^{1/2}}{1/2} = 2x^{1/2} = 2\sqrt{x}$, which when multiplied by 4 gives $8\sqrt{x}$.</p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 5.1.3</strong>
+            <p>Find $\displaystyle\int \frac{x^3 + 2x - 1}{x^2}\,dx$.</p>
+            <p><strong>Solution.</strong> Since there is no quotient rule for integration, we first divide each term in the numerator by $x^2$:</p>
+            $$\int \frac{x^3 + 2x - 1}{x^2}\,dx = \int \left(x + 2x^{-1} - x^{-2}\right)\,dx = \frac{x^2}{2} + 2\ln|x| + \frac{1}{x} + C$$
+            <p>This technique of algebraic simplification before integrating is essential. Always look for ways to rewrite the integrand as a sum of terms you can integrate individually.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 5.2 -->
+        <!-- ============================================================ -->
+        <h2 id="sec-5-2">5.2 Riemann Sums and Definite Integrals</h2>
+
+        <p>Indefinite integrals give us families of functions. But integration also answers a concrete geometric question: what is the area under a curve? To make "area under a curve" precise, we need Riemann sums.</p>
+
+        <h3>The Area Problem</h3>
+
+        <p>Consider a continuous function $f(x) \geq 0$ on the interval $[a,b]$. We want to compute the area of the region between the graph of $f$ and the $x$-axis. The strategy is to approximate this region using rectangles, then take a limit as the rectangles become infinitely thin.</p>
+
+        <div class="definition-box">
+            <strong>Definition: Riemann Sum</strong>
+            <p>Partition $[a,b]$ into $n$ equal subintervals of width $\Delta x = \frac{b-a}{n}$. A <em>Riemann sum</em> is any expression of the form:</p>
+            $$\sum_{i=1}^{n} f(x_i^*)\,\Delta x$$
+            <p>where $x_i^*$ is a sample point in the $i$-th subinterval. Common choices for $x_i^*$ yield:</p>
+            <ul style="margin-bottom:0;">
+                <li><strong>Left Riemann Sum (LRS):</strong> $x_i^* = a + (i-1)\Delta x$ (left endpoint of each subinterval)</li>
+                <li><strong>Right Riemann Sum (RRS):</strong> $x_i^* = a + i\,\Delta x$ (right endpoint of each subinterval)</li>
+                <li><strong>Midpoint Riemann Sum (MRS):</strong> $x_i^* = a + (i - \tfrac{1}{2})\Delta x$ (midpoint of each subinterval)</li>
+            </ul>
+        </div>
+
+        <p>For a function that is increasing on $[a,b]$, the left Riemann sum underestimates the area and the right Riemann sum overestimates it. For a decreasing function, the roles reverse. The midpoint sum generally gives a better approximation than either endpoint sum for the same number of rectangles.</p>
+
+        <div class="desmos-container" id="riemann-sums"></div>
+        <p class="desmos-caption">Adjust n to increase the number of rectangles. Watch how the Riemann sum approximation improves as n grows.</p>
+
+        <div class="definition-box">
+            <strong>Definition: The Definite Integral</strong>
+            <p>If $f$ is continuous on $[a,b]$, the <em>definite integral</em> of $f$ from $a$ to $b$ is defined as:</p>
+            $$\int_a^b f(x)\,dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i^*)\,\Delta x$$
+            <p>This limit exists and is the same regardless of the choice of sample points $x_i^*$. The numbers $a$ and $b$ are called the <em>lower</em> and <em>upper limits of integration</em>, respectively.</p>
+        </div>
+
+        <h3>Properties of Definite Integrals</h3>
+
+        <div class="theorem-box">
+            <strong>Properties of Definite Integrals</strong>
+            <p>Let $f$ and $g$ be integrable on $[a,b]$ and let $c$ be a constant. Then:</p>
+            <ol style="margin-bottom:0;">
+                <li>$\displaystyle\int_a^a f(x)\,dx = 0$</li>
+                <li>$\displaystyle\int_a^b f(x)\,dx = -\int_b^a f(x)\,dx$</li>
+                <li>$\displaystyle\int_a^b c\,f(x)\,dx = c\int_a^b f(x)\,dx$ (constant multiple)</li>
+                <li>$\displaystyle\int_a^b [f(x) \pm g(x)]\,dx = \int_a^b f(x)\,dx \pm \int_a^b g(x)\,dx$ (linearity)</li>
+                <li>$\displaystyle\int_a^b f(x)\,dx = \int_a^c f(x)\,dx + \int_c^b f(x)\,dx$ for any $c$ in $[a,b]$ (additivity over intervals)</li>
+                <li>If $f(x) \geq 0$ on $[a,b]$, then $\displaystyle\int_a^b f(x)\,dx \geq 0$</li>
+                <li>If $f(x) \geq g(x)$ on $[a,b]$, then $\displaystyle\int_a^b f(x)\,dx \geq \int_a^b g(x)\,dx$ (comparison)</li>
+            </ol>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 5.2.1: Computing a Riemann Sum from the Definition</strong>
+            <p>Use a right Riemann sum with $n = 4$ to approximate $\displaystyle\int_0^2 x^2\,dx$.</p>
+            <p><strong>Solution.</strong> We have $a = 0$, $b = 2$, $n = 4$, so $\Delta x = \frac{2-0}{4} = 0.5$.</p>
+            <p>The right endpoints are $x_1 = 0.5$, $x_2 = 1.0$, $x_3 = 1.5$, $x_4 = 2.0$.</p>
+            $$\text{RRS} = \sum_{i=1}^{4} f(x_i)\,\Delta x = [f(0.5) + f(1.0) + f(1.5) + f(2.0)] \cdot 0.5$$
+            $$= [(0.5)^2 + (1.0)^2 + (1.5)^2 + (2.0)^2] \cdot 0.5 = [0.25 + 1 + 2.25 + 4] \cdot 0.5 = 7.5 \cdot 0.5 = 3.75$$
+            <p>The exact value (which we will compute later using the FTC) is $\frac{8}{3} \approx 2.667$. The right Riemann sum overestimates because $f(x) = x^2$ is increasing on $[0,2]$. With more subintervals, the approximation improves: with $n = 100$, the right sum gives approximately $2.7068$.</p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 5.2.2: Estimating a Definite Integral from a Table</strong>
+            <p>The velocity $v(t)$ of a car (in feet per second) is measured at 2-second intervals. Estimate the total distance $\int_0^{10} v(t)\,dt$ using a left Riemann sum.</p>
+            <table style="width:100%; border-collapse:collapse; margin:12px 0;">
+                <tr style="background:#f0f7ff;"><th style="padding:8px; border:1px solid #ddd;">$t$ (sec)</th><td style="padding:8px; border:1px solid #ddd;">0</td><td style="padding:8px; border:1px solid #ddd;">2</td><td style="padding:8px; border:1px solid #ddd;">4</td><td style="padding:8px; border:1px solid #ddd;">6</td><td style="padding:8px; border:1px solid #ddd;">8</td><td style="padding:8px; border:1px solid #ddd;">10</td></tr>
+                <tr><th style="padding:8px; border:1px solid #ddd;">$v(t)$ (ft/s)</th><td style="padding:8px; border:1px solid #ddd;">0</td><td style="padding:8px; border:1px solid #ddd;">15</td><td style="padding:8px; border:1px solid #ddd;">28</td><td style="padding:8px; border:1px solid #ddd;">44</td><td style="padding:8px; border:1px solid #ddd;">52</td><td style="padding:8px; border:1px solid #ddd;">60</td></tr>
+            </table>
+            <p><strong>Solution.</strong> With $\Delta t = 2$ and using left endpoints ($t = 0, 2, 4, 6, 8$):</p>
+            $$\text{LRS} = [v(0) + v(2) + v(4) + v(6) + v(8)] \cdot \Delta t = [0 + 15 + 28 + 44 + 52] \cdot 2 = 139 \cdot 2 = 278 \text{ ft}$$
+            <p>The left sum underestimates here because $v(t)$ is increasing. The right sum would use $t = 2, 4, 6, 8, 10$ and give $[15 + 28 + 44 + 52 + 60] \cdot 2 = 398$ ft. The true distance lies between these two estimates.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 5.3 -->
+        <!-- ============================================================ -->
+        <h2 id="sec-5-3">5.3 The Fundamental Theorem of Calculus</h2>
+
+        <p>The Fundamental Theorem of Calculus (FTC) is the most important result in introductory calculus. It establishes that differentiation and integration are inverse operations, and it transforms the computation of definite integrals from a limit-of-sums problem into a straightforward evaluation of antiderivatives. Without the FTC, computing $\int_0^2 x^2\,dx$ would require evaluating a limit of Riemann sums every time. With the FTC, we simply find an antiderivative and subtract.</p>
+
+        <p>The theorem comes in two parts. Part 1 tells us that integration followed by differentiation returns us to the original function. Part 2 tells us how to evaluate definite integrals using antiderivatives. Together, they reveal a deep structural connection: the accumulation of a quantity (integration) and the rate of change of a quantity (differentiation) are two sides of the same coin.</p>
+
+        <div class="theorem-box">
+            <strong>Fundamental Theorem of Calculus, Part 1</strong>
+            <p>If $f$ is continuous on $[a,b]$, then the function $g$ defined by</p>
+            $$g(x) = \int_a^x f(t)\,dt \quad \text{for } a \leq x \leq b$$
+            <p>is continuous on $[a,b]$, differentiable on $(a,b)$, and satisfies</p>
+            $$g'(x) = \frac{d}{dx}\int_a^x f(t)\,dt = f(x)$$
+        </div>
+
+        <p>FTC Part 1 says something remarkable: if you define a function by accumulating the values of $f$ from a fixed starting point $a$ up to a variable endpoint $x$, then the rate at which this accumulated quantity changes is exactly $f(x)$ itself. Think of it this way: if $f(t)$ represents the rate at which water flows into a tank, then $g(x) = \int_a^x f(t)\,dt$ is the total amount of water that has entered the tank from time $a$ to time $x$. The rate of change of the total amount is the current flow rate, which is $f(x)$. This is almost self-evident physically, but it requires proof mathematically.</p>
+
+        <p>FTC Part 1 also guarantees that every continuous function has an antiderivative. Even if you cannot write the antiderivative in closed form (as with $e^{-x^2}$), the function $g(x) = \int_0^x e^{-t^2}\,dt$ is a perfectly valid antiderivative of $e^{-x^2}$.</p>
+
+        <div class="desmos-container" id="accumulation-fn"></div>
+        <p class="desmos-caption">The Fundamental Theorem of Calculus: F(x) = &#8747;&#8320;&#738; f(t) dt. The blue curve is f(x), the green curve is the accumulation function F(x). Notice F'(x) = f(x).</p>
+
+        <div class="theorem-box">
+            <strong>Fundamental Theorem of Calculus, Part 2 (Evaluation Theorem)</strong>
+            <p>If $f$ is continuous on $[a,b]$ and $F$ is any antiderivative of $f$ (that is, $F' = f$), then</p>
+            $$\int_a^b f(x)\,dx = F(b) - F(a)$$
+            <p>We use the notation $\Big[F(x)\Big]_a^b$ or $F(x)\Big|_a^b$ to mean $F(b) - F(a)$.</p>
+        </div>
+
+        <p>FTC Part 2 is what makes integration computationally tractable. Instead of computing limits of Riemann sums, we find any antiderivative $F$ of $f$, evaluate it at the endpoints, and subtract. The constant of integration $C$ cancels in the subtraction, so we do not need to include it when evaluating definite integrals.</p>
+
+        <h3>The Deep Connection</h3>
+
+        <p>It is worth pausing to appreciate what the FTC achieves. On one hand, the definite integral $\int_a^b f(x)\,dx$ is defined as a limit of sums &mdash; a fundamentally additive, accumulative process. On the other hand, finding an antiderivative is about reversing differentiation &mdash; a fundamentally local, rate-of-change process. The FTC says these two very different-looking operations are intimately connected. The total accumulated change in a quantity equals the integral of its rate of change. This insight unifies the two branches of calculus and has far-reaching consequences in physics, engineering, economics, and every field that models continuous change.</p>
+
+        <div class="example-box">
+            <strong>Example 5.3.1: Evaluating a Definite Integral with FTC Part 2</strong>
+            <p>Evaluate $\displaystyle\int_0^2 x^2\,dx$.</p>
+            <p><strong>Solution.</strong> An antiderivative of $x^2$ is $F(x) = \frac{x^3}{3}$. By FTC Part 2:</p>
+            $$\int_0^2 x^2\,dx = \left[\frac{x^3}{3}\right]_0^2 = \frac{2^3}{3} - \frac{0^3}{3} = \frac{8}{3} - 0 = \frac{8}{3}$$
+            <p>Compare this exact answer of $\frac{8}{3} \approx 2.667$ with the right Riemann sum approximation of $3.75$ from Example 5.2.1. The FTC gives us the exact value with minimal computation.</p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 5.3.2: Evaluating a Definite Integral with Trigonometric and Exponential Functions</strong>
+            <p>Evaluate $\displaystyle\int_0^{\pi} (2\sin x + 3)\,dx$.</p>
+            <p><strong>Solution.</strong> An antiderivative is $F(x) = -2\cos x + 3x$. Then:</p>
+            $$\int_0^{\pi} (2\sin x + 3)\,dx = \left[-2\cos x + 3x\right]_0^{\pi} = \left(-2\cos\pi + 3\pi\right) - \left(-2\cos 0 + 0\right)$$
+            $$= (-2(-1) + 3\pi) - (-2(1)) = (2 + 3\pi) - (-2) = 4 + 3\pi$$
+            <p>The exact answer is $4 + 3\pi \approx 13.42$. Notice that we do not need to approximate &mdash; the FTC gives us the precise value in terms of $\pi$.</p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 5.3.3: FTC Part 1 with the Chain Rule</strong>
+            <p>Find $\displaystyle\frac{d}{dx}\int_1^{x^3} \sqrt{t^2 + 1}\,dt$.</p>
+            <p><strong>Solution.</strong> FTC Part 1 tells us that $\frac{d}{dx}\int_a^x f(t)\,dt = f(x)$. But here the upper limit is $x^3$, not $x$. We need the chain rule.</p>
+            <p>Let $g(u) = \int_1^u \sqrt{t^2+1}\,dt$, so our expression is $g(x^3)$. By the chain rule:</p>
+            $$\frac{d}{dx}\,g(x^3) = g'(x^3) \cdot \frac{d}{dx}(x^3)$$
+            <p>By FTC Part 1, $g'(u) = \sqrt{u^2 + 1}$, so $g'(x^3) = \sqrt{(x^3)^2 + 1} = \sqrt{x^6 + 1}$. Therefore:</p>
+            $$\frac{d}{dx}\int_1^{x^3} \sqrt{t^2 + 1}\,dt = \sqrt{x^6 + 1} \cdot 3x^2 = 3x^2\sqrt{x^6 + 1}$$
+            <p>This type of problem &mdash; FTC Part 1 combined with the chain rule &mdash; appears frequently on the AP exam. The general pattern is:</p>
+            $$\frac{d}{dx}\int_a^{h(x)} f(t)\,dt = f\!\left(h(x)\right) \cdot h'(x)$$
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 5.4 -->
+        <!-- ============================================================ -->
+        <h2 id="sec-5-4">5.4 U-Substitution</h2>
+
+        <p>The basic integration rules from Section 5.1 handle simple integrands, but many functions require a technique to transform them into a recognizable form. U-substitution is the integration counterpart of the chain rule for differentiation. Just as the chain rule allows us to differentiate compositions of functions, u-substitution allows us to integrate them.</p>
+
+        <div class="theorem-box">
+            <strong>U-Substitution Rule</strong>
+            <p>If $u = g(x)$ is a differentiable function whose range is an interval $I$, and $f$ is continuous on $I$, then:</p>
+            $$\int f(g(x))\,g'(x)\,dx = \int f(u)\,du$$
+            <p>where $u = g(x)$ and $du = g'(x)\,dx$.</p>
+        </div>
+
+        <h3>How to Use U-Substitution</h3>
+
+        <ol>
+            <li><strong>Identify the inner function.</strong> Look for a composition $f(g(x))$ in the integrand. The inner function $g(x)$ is your candidate for $u$.</li>
+            <li><strong>Compute $du$.</strong> Differentiate: $du = g'(x)\,dx$. Check that $g'(x)\,dx$ (or a constant multiple of it) appears in the integrand.</li>
+            <li><strong>Substitute.</strong> Replace all instances of $g(x)$ with $u$ and $g'(x)\,dx$ with $du$. The result should be an integral entirely in terms of $u$.</li>
+            <li><strong>Integrate.</strong> Evaluate $\int f(u)\,du$.</li>
+            <li><strong>Back-substitute.</strong> Replace $u$ with $g(x)$ to express the answer in terms of $x$.</li>
+        </ol>
+
+        <p>For definite integrals, you have a choice: either back-substitute and use the original $x$-limits, or convert the limits to $u$-values and evaluate directly in terms of $u$ (without back-substituting). The second approach is often cleaner.</p>
+
+        <div class="example-box">
+            <strong>Example 5.4.1: Basic U-Substitution</strong>
+            <p>Find $\displaystyle\int 2x\cos(x^2)\,dx$.</p>
+            <p><strong>Solution.</strong> The integrand contains $\cos(x^2)$, a composition where the inner function is $x^2$. Let $u = x^2$, so $du = 2x\,dx$.</p>
+            $$\int 2x\cos(x^2)\,dx = \int \cos(u)\,du = \sin(u) + C = \sin(x^2) + C$$
+            <p>Verification: $\frac{d}{dx}[\sin(x^2)] = \cos(x^2) \cdot 2x = 2x\cos(x^2)$.</p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 5.4.2: U-Substitution with a Trigonometric Integrand</strong>
+            <p>Find $\displaystyle\int \tan x\,dx$.</p>
+            <p><strong>Solution.</strong> Rewrite $\tan x = \frac{\sin x}{\cos x}$. Let $u = \cos x$, so $du = -\sin x\,dx$, which means $\sin x\,dx = -du$.</p>
+            $$\int \tan x\,dx = \int \frac{\sin x}{\cos x}\,dx = \int \frac{-du}{u} = -\ln|u| + C = -\ln|\cos x| + C$$
+            <p>This can also be written as $\ln|\sec x| + C$, since $-\ln|\cos x| = \ln\left(\frac{1}{|\cos x|}\right) = \ln|\sec x|$. This is a standard result worth memorizing.</p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 5.4.3: Definite Integral with Changed Limits</strong>
+            <p>Evaluate $\displaystyle\int_0^2 x\,e^{x^2}\,dx$.</p>
+            <p><strong>Solution.</strong> Let $u = x^2$, so $du = 2x\,dx$, which gives $x\,dx = \frac{1}{2}\,du$.</p>
+            <p>Now change the limits: when $x = 0$, $u = 0^2 = 0$; when $x = 2$, $u = 2^2 = 4$.</p>
+            $$\int_0^2 x\,e^{x^2}\,dx = \int_0^4 e^u \cdot \frac{1}{2}\,du = \frac{1}{2}\left[e^u\right]_0^4 = \frac{1}{2}(e^4 - e^0) = \frac{e^4 - 1}{2}$$
+            <p>The exact value is $\frac{e^4 - 1}{2} \approx 26.80$. By changing the limits to $u$-values, we avoid the need to back-substitute entirely.</p>
+        </div>
+
+        <div class="warning-box">
+            <strong>AP Exam Tip:</strong> When using u-substitution on a definite integral, if you change the limits of integration to $u$-values, do not convert back to $x$ at the end. Evaluate using the $u$-limits directly. Mixing up limits is one of the most common errors on the AP exam.
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 5.5 -->
+        <!-- ============================================================ -->
+        <h2 id="sec-5-5">5.5 Practice Problems</h2>
+
+        <p>Work through these problems to solidify your understanding of the integration techniques covered in this chapter. Each problem has a detailed solution you can reveal after attempting it yourself.</p>
+
+        <!-- Problem 1 -->
+        <div class="practice-problem">
+            <strong>Problem 1.</strong> Find $\displaystyle\int (6x^5 - 4x^3 + 3x - 1)\,dx$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    Apply the power rule term by term:
+                    $$\int (6x^5 - 4x^3 + 3x - 1)\,dx = 6 \cdot \frac{x^6}{6} - 4 \cdot \frac{x^4}{4} + 3 \cdot \frac{x^2}{2} - x + C = x^6 - x^4 + \frac{3x^2}{2} - x + C$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 2 -->
+        <div class="practice-problem">
+            <strong>Problem 2.</strong> Evaluate $\displaystyle\int_1^4 \left(\sqrt{x} + \frac{1}{x}\right)\,dx$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    Rewrite $\sqrt{x} = x^{1/2}$ and find the antiderivative:
+                    $$\int_1^4 \left(x^{1/2} + x^{-1}\right)\,dx = \left[\frac{x^{3/2}}{3/2} + \ln|x|\right]_1^4 = \left[\frac{2x^{3/2}}{3} + \ln x\right]_1^4$$
+                    $$= \left(\frac{2(4)^{3/2}}{3} + \ln 4\right) - \left(\frac{2(1)^{3/2}}{3} + \ln 1\right) = \left(\frac{2 \cdot 8}{3} + \ln 4\right) - \left(\frac{2}{3} + 0\right) = \frac{16}{3} - \frac{2}{3} + \ln 4 = \frac{14}{3} + \ln 4$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 3 -->
+        <div class="practice-problem">
+            <strong>Problem 3.</strong> Use a left Riemann sum with $n = 5$ subintervals to approximate $\displaystyle\int_0^{5} (x^2 + 1)\,dx$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    $\Delta x = \frac{5 - 0}{5} = 1$. Left endpoints: $x = 0, 1, 2, 3, 4$.
+                    $$\text{LRS} = [f(0) + f(1) + f(2) + f(3) + f(4)] \cdot 1$$
+                    $$= [(0+1) + (1+1) + (4+1) + (9+1) + (16+1)] \cdot 1 = [1 + 2 + 5 + 10 + 17] = 35$$
+                    The exact value is $\int_0^5 (x^2+1)\,dx = \left[\frac{x^3}{3} + x\right]_0^5 = \frac{125}{3} + 5 = \frac{140}{3} \approx 46.67$. The left sum underestimates because $f(x) = x^2 + 1$ is increasing on $[0,5]$.
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 4 -->
+        <div class="practice-problem">
+            <strong>Problem 4.</strong> Evaluate $\displaystyle\int_0^{\pi/2} (4\cos x - 2\sin x)\,dx$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    $$\int_0^{\pi/2} (4\cos x - 2\sin x)\,dx = \left[4\sin x + 2\cos x\right]_0^{\pi/2}$$
+                    $$= (4\sin\tfrac{\pi}{2} + 2\cos\tfrac{\pi}{2}) - (4\sin 0 + 2\cos 0) = (4 \cdot 1 + 2 \cdot 0) - (0 + 2 \cdot 1) = 4 - 2 = 2$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 5 -->
+        <div class="practice-problem">
+            <strong>Problem 5.</strong> Find $\displaystyle\frac{d}{dx}\int_2^{x^2} \frac{1}{1+t^3}\,dt$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    By FTC Part 1 with the chain rule, if $g(x) = \int_2^{h(x)} f(t)\,dt$, then $g'(x) = f(h(x)) \cdot h'(x)$.
+                    <br><br>
+                    Here $f(t) = \frac{1}{1+t^3}$ and $h(x) = x^2$, so $h'(x) = 2x$.
+                    $$\frac{d}{dx}\int_2^{x^2} \frac{1}{1+t^3}\,dt = \frac{1}{1+(x^2)^3} \cdot 2x = \frac{2x}{1+x^6}$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 6 -->
+        <div class="practice-problem">
+            <strong>Problem 6.</strong> Use u-substitution to find $\displaystyle\int x^2\sqrt{x^3 + 5}\,dx$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    Let $u = x^3 + 5$, so $du = 3x^2\,dx$, which gives $x^2\,dx = \frac{1}{3}\,du$.
+                    $$\int x^2\sqrt{x^3+5}\,dx = \int \sqrt{u} \cdot \frac{1}{3}\,du = \frac{1}{3} \cdot \frac{u^{3/2}}{3/2} + C = \frac{2}{9}(x^3+5)^{3/2} + C$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 7 -->
+        <div class="practice-problem">
+            <strong>Problem 7.</strong> Evaluate $\displaystyle\int_0^1 \frac{e^{\sqrt{x}}}{\sqrt{x}}\,dx$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    Let $u = \sqrt{x} = x^{1/2}$, so $du = \frac{1}{2}x^{-1/2}\,dx = \frac{1}{2\sqrt{x}}\,dx$, which gives $\frac{dx}{\sqrt{x}} = 2\,du$.
+                    <br><br>
+                    Change limits: when $x = 0$, $u = 0$; when $x = 1$, $u = 1$.
+                    $$\int_0^1 \frac{e^{\sqrt{x}}}{\sqrt{x}}\,dx = \int_0^1 e^u \cdot 2\,du = 2\left[e^u\right]_0^1 = 2(e^1 - e^0) = 2(e - 1)$$
+                    <br>
+                    Note: Strictly speaking, the integrand is undefined at $x = 0$. This is an improper integral that converges. For AP purposes, the substitution handles it cleanly.
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 8 -->
+        <div class="practice-problem">
+            <strong>Problem 8.</strong> If $\displaystyle\int_0^5 f(x)\,dx = 8$ and $\displaystyle\int_0^5 g(x)\,dx = 3$, find $\displaystyle\int_0^5 [2f(x) - 3g(x) + 4]\,dx$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    Using the linearity properties of definite integrals:
+                    $$\int_0^5 [2f(x) - 3g(x) + 4]\,dx = 2\int_0^5 f(x)\,dx - 3\int_0^5 g(x)\,dx + \int_0^5 4\,dx$$
+                    $$= 2(8) - 3(3) + 4(5) = 16 - 9 + 20 = 27$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 9 -->
+        <div class="practice-problem">
+            <strong>Problem 9.</strong> Find $\displaystyle\int \frac{\cos(\ln x)}{x}\,dx$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    Let $u = \ln x$, so $du = \frac{1}{x}\,dx$.
+                    $$\int \frac{\cos(\ln x)}{x}\,dx = \int \cos(u)\,du = \sin(u) + C = \sin(\ln x) + C$$
+                    Verification: $\frac{d}{dx}[\sin(\ln x)] = \cos(\ln x) \cdot \frac{1}{x} = \frac{\cos(\ln x)}{x}$.
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 10 -->
+        <div class="practice-problem">
+            <strong>Problem 10.</strong> Let $g(x) = \displaystyle\int_0^x (3t^2 - 6t)\,dt$. Find the value of $x$ in $[0, 4]$ where $g(x)$ has a local minimum.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    By FTC Part 1, $g'(x) = 3x^2 - 6x$. Set $g'(x) = 0$:
+                    $$3x^2 - 6x = 0 \implies 3x(x - 2) = 0 \implies x = 0 \text{ or } x = 2$$
+                    To determine which is a local minimum, examine $g''(x) = 6x - 6$.
+                    <br><br>
+                    At $x = 0$: $g''(0) = -6 < 0$ (local maximum).
+                    <br>
+                    At $x = 2$: $g''(2) = 6 > 0$ (local minimum).
+                    <br><br>
+                    Therefore $g(x)$ has a local minimum at $x = 2$.
+                    <br><br>
+                    We can verify: $g(2) = \int_0^2 (3t^2 - 6t)\,dt = \left[t^3 - 3t^2\right]_0^2 = (8 - 12) - 0 = -4$.
+                    <br>
+                    Also $g(0) = 0$ and $g(4) = \left[t^3 - 3t^2\right]_0^4 = (64 - 48) - 0 = 16$. Indeed, $g(2) = -4$ is the minimum value on $[0,4]$.
+                </div>
+            </details>
+        </div>
+
+        <!-- Chapter Navigation -->
+        <div class="chapter-nav">
+            <a href="#">&larr; Prev: Ch 4 &mdash; Applications of Derivatives</a>
+            <a href="#">Next: Ch 6 &mdash; Applications of Integration &rarr;</a>
+        </div>
+    </article>
+
+    <footer style="text-align:center; padding:30px 20px; color:#94a3b8; font-size:0.85em; border-top:1px solid #e2e8f0;">
+        &copy; 2026 MathHub Global. All rights reserved. &middot;
+        <a href="/" style="color:#64748b;">Home</a> &middot;
+        <a href="/blog" style="color:#64748b;">Blog</a> &middot;
+        <a href="/us/ap-calculus" style="color:#64748b;">AP Calculus</a>
+    </footer>
+    
+    <script>
+    (function() {
+        var elt = document.getElementById('riemann-sums');
+        var calc = Desmos.GraphingCalculator(elt, {expressions: true, settingsMenu: false, zoomButtons: true});
+        calc.setExpression({id: 'f', latex: 'f(x) = -x^2 + 4x', color: '#2563eb'});
+        calc.setExpression({id: 'n', latex: 'n = 5', sliderBounds: {min: '1', max: '50', step: '1'}});
+        calc.setExpression({id: 'a0', latex: 'a_0 = 0'});
+        calc.setExpression({id: 'b0', latex: 'b_0 = 4'});
+        calc.setExpression({id: 'dx', latex: 'd = \\frac{b_0 - a_0}{n}'});
+        calc.setExpression({id: 'rects', latex: '0 \\le y \\le f(a_0 + d \\cdot \\operatorname{floor}\\left(\\frac{x - a_0}{d}\\right) + d) \\{a_0 \\le x \\le b_0\\}', color: '#93c5fd', fillOpacity: 0.4});
+        calc.setMathBounds({left: -1, right: 5, bottom: -1, top: 6});
+    })();
+    (function() {
+        var elt = document.getElementById('accumulation-fn');
+        var calc = Desmos.GraphingCalculator(elt, {expressions: true, settingsMenu: false, zoomButtons: true});
+        calc.setExpression({id: 'f', latex: 'f(x) = \\sin(x) + 1', color: '#2563eb'});
+        calc.setExpression({id: 'F', latex: 'F(x) = \\int_0^x f(t)\\,dt', color: '#16a34a'});
+        calc.setExpression({id: 'x0', latex: 'x_0 = 3', sliderBounds: {min: '0', max: '8', step: '0.1'}});
+        calc.setExpression({id: 'shade', latex: '0 \\le y \\le f(x) \\{0 \\le x \\le x_0\\}', color: '#93c5fd', fillOpacity: 0.3});
+        calc.setExpression({id: 'pt', latex: '(x_0, F(x_0))', color: '#dc2626', pointSize: 12});
+        calc.setMathBounds({left: -1, right: 10, bottom: -2, top: 8});
+    })();
+    </script>
+</body>
+</html>

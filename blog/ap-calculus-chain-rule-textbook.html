@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Calculus: Chain Rule &amp; Implicit Differentiation - Chapter 3 | MathHub</title>
+    <meta name="description" content="Master the chain rule, implicit differentiation, and inverse function derivatives for AP Calculus with step-by-step examples and practice problems.">
+    <meta name="keywords" content="chain rule, implicit differentiation, inverse function derivatives, AP Calculus AB, AP Calculus BC, composite functions, higher-order derivatives, arcsin derivative, arctan derivative">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/blog/ap-calculus-chain-rule-textbook.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/blog/ap-calculus-chain-rule-textbook.html">
+    <meta property="og:title" content="AP Calculus: Chain Rule & Implicit Differentiation - Chapter 3">
+    <meta property="og:description" content="Master the chain rule, implicit differentiation, and inverse function derivatives for AP Calculus with step-by-step examples and practice problems.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Calculus: Chain Rule & Implicit Differentiation - Chapter 3">
+    <meta name="twitter:description" content="Master the chain rule, implicit differentiation, and inverse function derivatives for AP Calculus.">
+
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "AP Calculus: Chain Rule & Implicit Differentiation - Chapter 3",
+        "description": "Master the chain rule, implicit differentiation, and inverse function derivatives for AP Calculus with step-by-step examples and practice problems.",
+        "author": {
+            "@type": "Organization",
+            "name": "MathHub"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "MathHub Global"
+        },
+        "datePublished": "2026-02-23",
+        "dateModified": "2026-02-23",
+        "mainEntityOfPage": "https://mathhub.io/blog/ap-calculus-chain-rule-textbook.html",
+        "educationalLevel": "AP/College",
+        "about": ["Chain Rule", "Implicit Differentiation", "Inverse Function Derivatives", "AP Calculus"]
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax -->
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <style>
+        .blog-article {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 16px;
+        }
+        .blog-article h1 {
+            font-size: 2.2em;
+            color: #1e3a5f;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .blog-meta {
+            color: #64748b;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .blog-article h2 {
+            font-size: 1.5em;
+            color: #1e3a5f;
+            margin: 36px 0 16px;
+            padding-top: 12px;
+        }
+        .blog-article h3 {
+            font-size: 1.2em;
+            color: #334155;
+            margin: 24px 0 10px;
+        }
+        .blog-article p {
+            color: #334155;
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+        .blog-article ul, .blog-article ol {
+            margin: 12px 0 20px 24px;
+            color: #334155;
+        }
+        .blog-article li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            font-size: 0.85em;
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+        .breadcrumb a {
+            color: #64748b;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            color: #1e3a5f;
+            text-decoration: underline;
+        }
+
+        /* Chapter Navigation */
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            margin: 32px 0 8px;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.9em;
+        }
+        .chapter-nav a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .chapter-nav a:hover {
+            text-decoration: underline;
+        }
+        .chapter-nav .current {
+            color: #1e3a5f;
+            font-weight: 700;
+        }
+
+        /* Definition Box */
+        .definition-box {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 18px 22px;
+            margin: 22px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .definition-box strong {
+            color: #166534;
+        }
+
+        /* Theorem Box */
+        .theorem-box {
+            background: #faf5ff;
+            border-left: 4px solid #8b5cf6;
+            padding: 18px 22px;
+            margin: 22px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .theorem-box strong {
+            color: #5b21b6;
+        }
+
+        /* Example Box */
+        .example-box {
+            background: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 18px 22px;
+            margin: 22px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .example-box strong {
+            color: #1d4ed8;
+        }
+        .example-box .example-title {
+            font-weight: 700;
+            color: #1d4ed8;
+            margin-bottom: 10px;
+            font-size: 1.02em;
+        }
+
+        /* Warning / Note Box */
+        .note-box {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .note-box strong {
+            color: #b45309;
+        }
+
+        /* Practice Problem */
+        .practice-problem {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 18px 22px;
+            margin: 18px 0;
+            border-radius: 8px;
+        }
+        .practice-problem .problem-number {
+            font-weight: 700;
+            color: #1e3a5f;
+            margin-bottom: 8px;
+        }
+
+        /* Solution Details */
+        details.solution {
+            margin-top: 12px;
+        }
+        details.solution summary {
+            cursor: pointer;
+            color: #3b82f6;
+            font-weight: 600;
+            font-size: 0.92em;
+            padding: 6px 0;
+            user-select: none;
+        }
+        details.solution summary:hover {
+            color: #1d4ed8;
+        }
+        details.solution .solution-content {
+            background: #f0fdf4;
+            border-left: 3px solid #22c55e;
+            padding: 14px 18px;
+            margin-top: 8px;
+            border-radius: 0 6px 6px 0;
+            line-height: 1.9;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 20px 28px;
+            margin: 24px 0;
+            border-radius: 10px;
+        }
+        .toc h3 {
+            margin: 0 0 12px;
+            color: #1e3a5f;
+            font-size: 1.05em;
+        }
+        .toc ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .toc li {
+            margin-bottom: 6px;
+        }
+        .toc a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* Bottom chapter nav */
+        .chapter-nav-bottom {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0 20px;
+            padding: 20px 0;
+            border-top: 2px solid #e2e8f0;
+        }
+        .chapter-nav-bottom a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+        .chapter-nav-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* CTA */
+        .cta-inline {
+            background: #1e3a5f;
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        .cta-inline a {
+            color: white;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 12px;
+            font-weight: 600;
+        }
+        .cta-inline a:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Desmos Interactive Graphs */
+        .desmos-container {
+            width: 100%;
+            height: 400px;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+        .desmos-caption {
+            text-align: center;
+            font-size: 0.9em;
+            color: #64748b;
+            margin-top: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/" class="active">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="/">Home</a> &rsaquo; <a href="/us/">US</a> &rsaquo; <a href="/us/ap-calculus">AP Calculus</a> &rsaquo; Chapter 3
+        </div>
+
+        <h1>Chapter 3: Composite, Implicit, and Inverse Function Differentiation</h1>
+        <div class="blog-meta">Updated February 2026 &middot; 18 min read &middot; AP Calculus AB/BC &middot; <a href="/us/ap-calculus">AP Calculus Past Papers</a></div>
+
+        <div class="chapter-nav">
+            <a href="#">&larr; Ch 2: Derivatives &amp; Rates of Change</a>
+            <span class="current">Chapter 3</span>
+            <a href="#">Ch 4: Applications of Derivatives &rarr;</a>
+        </div>
+
+        <p>
+            The chain rule is often called the most important differentiation technique in all of calculus. While the basic derivative rules let you handle sums, products, and quotients, it is the chain rule that unlocks the vast majority of functions you will encounter on the AP Calculus exam and beyond. In this chapter, we build from the chain rule to implicit differentiation, inverse function derivatives, and higher-order derivatives, forming a complete toolkit for differentiating virtually any function.
+        </p>
+
+        <div class="toc">
+            <h3>In This Chapter</h3>
+            <ol>
+                <li><a href="#sec-3-1">3.1 The Chain Rule</a></li>
+                <li><a href="#sec-3-2">3.2 Implicit Differentiation</a></li>
+                <li><a href="#sec-3-3">3.3 Derivatives of Inverse Functions</a></li>
+                <li><a href="#sec-3-4">3.4 Higher-Order Derivatives</a></li>
+                <li><a href="#sec-3-5">3.5 Practice Problems (50 problems)</a></li>
+            </ol>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SECTION 3.1 -->
+        <!-- ============================================ -->
+        <h2 id="sec-3-1">3.1 The Chain Rule</h2>
+
+        <p>
+            Consider the function $h(x) = \sin(x^2)$. We know how to differentiate $\sin(x)$ and we know how to differentiate $x^2$, but $\sin(x^2)$ is a <em>composition</em>&mdash;one function nested inside another. None of the basic rules (power, product, quotient) directly apply. The chain rule is the tool designed precisely for this situation.
+        </p>
+
+        <div class="theorem-box">
+            <strong>Theorem 3.1 &mdash; The Chain Rule.</strong> If $g$ is differentiable at $x$ and $f$ is differentiable at $g(x)$, then the composite function $h(x) = f(g(x))$ is differentiable at $x$ and
+            $$h'(x) = f'(g(x)) \cdot g'(x).$$
+            In Leibniz notation, if $y = f(u)$ and $u = g(x)$, then
+            $$\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}.$$
+        </div>
+
+        <h3>How to Think About It</h3>
+
+        <p>
+            The chain rule asks you to identify two layers of the function:
+        </p>
+        <ul>
+            <li><strong>The outer function</strong> $f$: the last operation applied.</li>
+            <li><strong>The inner function</strong> $g$: the input to the outer function.</li>
+        </ul>
+        <p>
+            You then multiply two quantities: the derivative of the outer function <em>evaluated at the inner function</em>, and the derivative of the inner function. A helpful mnemonic is: <em>"derivative of the outside, leave the inside alone, then multiply by the derivative of the inside."</em>
+        </p>
+
+        <p>
+            For the function $h(x) = \sin(x^2)$, the outer function is $f(u) = \sin u$ and the inner function is $g(x) = x^2$. So:
+        </p>
+        <ul>
+            <li>Derivative of outer: $f'(u) = \cos u$, evaluated at the inside: $\cos(x^2)$.</li>
+            <li>Derivative of inner: $g'(x) = 2x$.</li>
+            <li>Result: $h'(x) = \cos(x^2) \cdot 2x = 2x\cos(x^2)$.</li>
+        </ul>
+
+        <h3>Multiple Layers of Composition</h3>
+
+        <p>
+            When three or more functions are composed, the chain rule extends naturally. For $y = f(g(h(x)))$, we get
+            $$\frac{dy}{dx} = f'(g(h(x))) \cdot g'(h(x)) \cdot h'(x).$$
+            Each layer contributes its own derivative, evaluated at everything still inside it, and we multiply all these factors together. Think of peeling an onion from the outside inward.
+        </p>
+
+        <div class="example-box">
+            <div class="example-title">Example 3.1 &mdash; Trigonometric Composition</div>
+            <p>Find $\dfrac{d}{dx}\left[\cos^3(x)\right]$.</p>
+            <p>
+                <strong>Solution.</strong> Rewrite as $[\cos(x)]^3$. Here the outer function is $u^3$ and the inner function is $\cos x$.
+            </p>
+            <p>
+                Apply the chain rule:
+                $$\frac{d}{dx}[\cos(x)]^3 = 3[\cos(x)]^2 \cdot (-\sin x) = -3\cos^2(x)\sin(x).$$
+            </p>
+            <p>
+                The key insight is recognizing that the exponent $3$ is the outermost operation acting on $\cos x$. The power rule gives $3[\cos x]^2$, and then we multiply by the derivative of the inside, which is $-\sin x$.
+            </p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 3.2 &mdash; Exponential Composition</div>
+            <p>Find $\dfrac{d}{dx}\left[e^{3x^2 + 1}\right]$.</p>
+            <p>
+                <strong>Solution.</strong> The outer function is $e^u$ and the inner function is $u = 3x^2 + 1$.
+            </p>
+            <p>
+                Since $\frac{d}{du}e^u = e^u$, we have
+                $$\frac{d}{dx}\left[e^{3x^2+1}\right] = e^{3x^2+1} \cdot \frac{d}{dx}(3x^2+1) = e^{3x^2+1} \cdot 6x = 6x\,e^{3x^2+1}.$$
+            </p>
+            <p>
+                The exponential function has the special property that its derivative is itself, so the outer derivative simply reproduces the original exponential. All the action comes from the inner derivative $6x$.
+            </p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 3.3 &mdash; Multi-Layer Composition</div>
+            <p>Find $\dfrac{d}{dx}\left[\ln(\sin(e^x))\right]$.</p>
+            <p>
+                <strong>Solution.</strong> There are three nested functions here. Identify them from outside to inside:
+            </p>
+            <ul>
+                <li>Outermost: $\ln(u)$ with derivative $\frac{1}{u}$.</li>
+                <li>Middle: $\sin(v)$ with derivative $\cos(v)$.</li>
+                <li>Innermost: $e^x$ with derivative $e^x$.</li>
+            </ul>
+            <p>
+                Apply the chain rule layer by layer:
+                $$\frac{d}{dx}\left[\ln(\sin(e^x))\right] = \frac{1}{\sin(e^x)} \cdot \cos(e^x) \cdot e^x.$$
+            </p>
+            <p>
+                Simplify using $\frac{\cos\theta}{\sin\theta} = \cot\theta$:
+                $$= e^x \cot(e^x).$$
+            </p>
+            <p>
+                Each function in the chain contributes one factor to the derivative. Practice identifying the layers, and the computation becomes mechanical.
+            </p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 3.4 &mdash; Chain Rule with Natural Logarithm</div>
+            <p>Find $\dfrac{d}{dx}\left[\ln(x^3 + 5)\right]$.</p>
+            <p>
+                <strong>Solution.</strong> The outer function is $\ln(u)$ with derivative $\frac{1}{u}$, and the inner function is $u = x^3 + 5$.
+            </p>
+            <p>
+                Apply the chain rule:
+                $$\frac{d}{dx}\left[\ln(x^3+5)\right] = \frac{1}{x^3+5} \cdot 3x^2 = \frac{3x^2}{x^3+5}.$$
+            </p>
+            <p>
+                A useful pattern emerges: $\frac{d}{dx}[\ln(g(x))] = \frac{g'(x)}{g(x)}$ for any differentiable $g > 0$. This rule appears constantly in AP Calculus, particularly in related-rates and implicit differentiation problems involving logarithms.
+            </p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 3.5 &mdash; Chain Rule Combined with Product Rule</div>
+            <p>Find $\dfrac{d}{dx}\left[x^2 \cos(x^3)\right]$.</p>
+            <p>
+                <strong>Solution.</strong> This is a product of $x^2$ and $\cos(x^3)$. Apply the product rule first:
+                $$\frac{d}{dx}\left[x^2 \cos(x^3)\right] = 2x\cos(x^3) + x^2 \cdot \frac{d}{dx}[\cos(x^3)].$$
+            </p>
+            <p>
+                Now handle $\frac{d}{dx}[\cos(x^3)]$ with the chain rule: outer $\cos(u)$, inner $u = x^3$:
+                $$\frac{d}{dx}[\cos(x^3)] = -\sin(x^3) \cdot 3x^2 = -3x^2\sin(x^3).$$
+            </p>
+            <p>
+                Combine:
+                $$\frac{d}{dx}\left[x^2\cos(x^3)\right] = 2x\cos(x^3) + x^2(-3x^2\sin(x^3)) = 2x\cos(x^3) - 3x^4\sin(x^3).$$
+            </p>
+            <p>
+                The rule of thumb: when the chain rule and another rule (product, quotient) are both needed, apply the outer rule first, then handle any composite pieces with the chain rule.
+            </p>
+        </div>
+
+        <div class="desmos-container" id="chain-rule-viz"></div>
+        <p class="desmos-caption">Explore the chain rule: see how changing the inner function g(x) affects the composite f(g(x)) and its derivative.</p>
+
+        <div class="note-box">
+            <strong>AP Exam Tip:</strong> On the AP Calculus exam, chain rule errors are the most common source of lost points on free-response questions. The most frequent mistake is forgetting to multiply by the derivative of the inner function. Always ask yourself: "Did I multiply by the inside derivative?"
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SECTION 3.2 -->
+        <!-- ============================================ -->
+        <h2 id="sec-3-2">3.2 Implicit Differentiation</h2>
+
+        <p>
+            Not every relationship between $x$ and $y$ can be written in the form $y = f(x)$. Consider the equation of a circle $x^2 + y^2 = 25$. Solving for $y$ gives $y = \pm\sqrt{25 - x^2}$, which is not a single function. Many important curves in mathematics&mdash;ellipses, hyperbolas, and more exotic curves&mdash;are defined <em>implicitly</em> by equations relating $x$ and $y$.
+        </p>
+
+        <p>
+            Implicit differentiation allows us to find $\frac{dy}{dx}$ without first solving for $y$. The technique is powerful and essential for the AP exam.
+        </p>
+
+        <div class="definition-box">
+            <strong>Definition.</strong> An equation $F(x, y) = 0$ defines $y$ <em>implicitly</em> as a function of $x$ if, near a given point, there exists a differentiable function $y = f(x)$ satisfying $F(x, f(x)) = 0$.
+        </div>
+
+        <h3>The Procedure</h3>
+
+        <ol>
+            <li><strong>Differentiate both sides</strong> of the equation with respect to $x$, treating $y$ as a function of $x$.</li>
+            <li>Every time you differentiate an expression involving $y$, <strong>apply the chain rule</strong>: the derivative of a function of $y$ picks up a factor of $\frac{dy}{dx}$.</li>
+            <li><strong>Collect</strong> all terms containing $\frac{dy}{dx}$ on one side of the equation.</li>
+            <li><strong>Factor out</strong> $\frac{dy}{dx}$ and <strong>solve</strong> for it.</li>
+        </ol>
+
+        <p>
+            The critical point is step 2. Since $y$ depends on $x$, the derivative of $y^2$ with respect to $x$ is not simply $2y$; by the chain rule, it is $2y \cdot \frac{dy}{dx}$.
+        </p>
+
+        <div class="desmos-container" id="implicit-curves"></div>
+        <p class="desmos-caption">Explore implicit curves: the circle x² + y² = r² and its tangent line at a chosen point.</p>
+
+        <div class="example-box">
+            <div class="example-title">Example 3.6 &mdash; Circle</div>
+            <p>Find $\dfrac{dy}{dx}$ for $x^2 + y^2 = 25$.</p>
+            <p><strong>Solution.</strong> Differentiate both sides with respect to $x$:</p>
+            $$\frac{d}{dx}(x^2) + \frac{d}{dx}(y^2) = \frac{d}{dx}(25)$$
+            $$2x + 2y\,\frac{dy}{dx} = 0.$$
+            <p>Solve for $\frac{dy}{dx}$:</p>
+            $$2y\,\frac{dy}{dx} = -2x$$
+            $$\frac{dy}{dx} = -\frac{x}{y}.$$
+            <p>
+                This result makes geometric sense. At the point $(3, 4)$ on the circle, the slope of the tangent line is $-\frac{3}{4}$, and the radius to that point has slope $\frac{4}{3}$. The tangent is perpendicular to the radius, exactly as Euclidean geometry predicts for a circle.
+            </p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 3.7 &mdash; Ellipse</div>
+            <p>Find the equation of the tangent line to $\dfrac{x^2}{9} + \dfrac{y^2}{4} = 1$ at the point $(x_0, y_0) = \left(\frac{3\sqrt{2}}{2}, \sqrt{2}\right)$.</p>
+            <p><strong>Solution.</strong> First find $\frac{dy}{dx}$. Differentiate implicitly:</p>
+            $$\frac{2x}{9} + \frac{2y}{4} \cdot \frac{dy}{dx} = 0$$
+            $$\frac{dy}{dx} = -\frac{2x/9}{2y/4} = -\frac{2x}{9} \cdot \frac{4}{2y} = -\frac{4x}{9y}.$$
+            <p>Evaluate at the given point:</p>
+            $$\frac{dy}{dx}\bigg|_{\left(\frac{3\sqrt{2}}{2},\,\sqrt{2}\right)} = -\frac{4 \cdot \frac{3\sqrt{2}}{2}}{9\sqrt{2}} = -\frac{6\sqrt{2}}{9\sqrt{2}} = -\frac{2}{3}.$$
+            <p>The tangent line is:</p>
+            $$y - \sqrt{2} = -\frac{2}{3}\left(x - \frac{3\sqrt{2}}{2}\right).$$
+            <p>Simplifying: $y = -\frac{2}{3}x + \sqrt{2} + \sqrt{2} = -\frac{2}{3}x + 2\sqrt{2}.$</p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 3.8 &mdash; Folium of Descartes</div>
+            <p>Find $\dfrac{dy}{dx}$ for $x^3 + y^3 = 6xy$.</p>
+            <p>
+                <strong>Solution.</strong> This famous curve, the folium of Descartes, cannot be solved explicitly for $y$ in closed form. Implicit differentiation is the only practical approach.
+            </p>
+            <p>Differentiate both sides with respect to $x$:</p>
+            $$3x^2 + 3y^2\,\frac{dy}{dx} = 6y + 6x\,\frac{dy}{dx}.$$
+            <p>
+                On the right side, we used the product rule on $6xy$: the derivative of $6xy$ with respect to $x$ is $6\left(y + x\frac{dy}{dx}\right) = 6y + 6x\frac{dy}{dx}$.
+            </p>
+            <p>Collect terms with $\frac{dy}{dx}$:</p>
+            $$3y^2\,\frac{dy}{dx} - 6x\,\frac{dy}{dx} = 6y - 3x^2$$
+            $$\frac{dy}{dx}(3y^2 - 6x) = 6y - 3x^2$$
+            $$\frac{dy}{dx} = \frac{6y - 3x^2}{3y^2 - 6x} = \frac{2y - x^2}{y^2 - 2x}.$$
+            <p>
+                Notice that the derivative is undefined when $y^2 = 2x$, which corresponds to points where the tangent line is vertical. At the origin $(0,0)$, the formula gives $\frac{0}{0}$, which is consistent with the fact that the curve crosses itself there and has two distinct tangent lines.
+            </p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 3.9 &mdash; Implicit Differentiation with Trigonometric Terms</div>
+            <p>Find $\dfrac{dy}{dx}$ for $x\sin(y) = \cos(x + y)$.</p>
+            <p>
+                <strong>Solution.</strong> Differentiate both sides with respect to $x$. The left side requires the product rule; the right side requires the chain rule.
+            </p>
+            <p>Left side: $\dfrac{d}{dx}[x\sin y] = \sin y + x\cos(y)\dfrac{dy}{dx}$.</p>
+            <p>Right side: $\dfrac{d}{dx}[\cos(x+y)] = -\sin(x+y)\cdot\left(1 + \dfrac{dy}{dx}\right)$.</p>
+            <p>Setting them equal and collecting $\dfrac{dy}{dx}$ terms:</p>
+            $$\sin y + x\cos(y)\frac{dy}{dx} = -\sin(x+y) - \sin(x+y)\frac{dy}{dx}$$
+            $$\frac{dy}{dx}\bigl[x\cos y + \sin(x+y)\bigr] = -\sin(x+y) - \sin y$$
+            $$\frac{dy}{dx} = \frac{-\sin(x+y) - \sin y}{x\cos y + \sin(x+y)}.$$
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 3.10 &mdash; Finding Points of Horizontal Tangency</div>
+            <p>Find all points on the curve $x^2 - xy + y^2 = 3$ where the tangent line is horizontal.</p>
+            <p>
+                <strong>Solution.</strong> Differentiate implicitly:
+                $$2x - y - x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0$$
+                $$\frac{dy}{dx}(2y - x) = y - 2x$$
+                $$\frac{dy}{dx} = \frac{y - 2x}{2y - x}.$$
+            </p>
+            <p>
+                For a <strong>horizontal tangent</strong>, set $\dfrac{dy}{dx} = 0$: the numerator must be zero (with non-zero denominator), so $y - 2x = 0$, giving $y = 2x$.
+            </p>
+            <p>Substitute $y = 2x$ into the original equation:</p>
+            $$x^2 - x(2x) + (2x)^2 = 3 \implies x^2 - 2x^2 + 4x^2 = 3 \implies 3x^2 = 3 \implies x = \pm 1.$$
+            <p>
+                The two points of horizontal tangency are $\boldsymbol{(1,\,2)}$ and $\boldsymbol{(-1,\,-2)}$. (Verify: at $(1,2)$, the denominator $2y-x = 4-1 = 3 \neq 0$. ✓)
+            </p>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SECTION 3.3 -->
+        <!-- ============================================ -->
+        <h2 id="sec-3-3">3.3 Derivatives of Inverse Functions</h2>
+
+        <p>
+            If $f$ is a one-to-one differentiable function with inverse $f^{-1}$, can we find the derivative of $f^{-1}$ in terms of the derivative of $f$? The answer is yes, and the result is both elegant and frequently tested on the AP exam.
+        </p>
+
+        <div class="theorem-box">
+            <strong>Theorem 3.2 &mdash; Derivative of an Inverse Function.</strong> If $f$ is differentiable and one-to-one with $f'(f^{-1}(a)) \neq 0$, then $f^{-1}$ is differentiable at $a$ and
+            $$(f^{-1})'(a) = \frac{1}{f'(f^{-1}(a))}.$$
+        </div>
+
+        <p>
+            The intuition is straightforward: if $f$ stretches inputs by a factor of $k$ near a point, then $f^{-1}$ compresses by a factor of $\frac{1}{k}$ near the corresponding output. The theorem formalizes this reciprocal relationship.
+        </p>
+
+        <p>
+            To derive this, start from $f(f^{-1}(x)) = x$. Differentiate both sides using the chain rule:
+        </p>
+        $$f'(f^{-1}(x)) \cdot (f^{-1})'(x) = 1$$
+        $$(f^{-1})'(x) = \frac{1}{f'(f^{-1}(x))}.$$
+
+        <h3>Inverse Trigonometric Derivatives</h3>
+
+        <p>
+            The most important application of this theorem produces the derivatives of the inverse trigonometric functions. These appear throughout AP Calculus BC and in integration problems on both AB and BC exams.
+        </p>
+
+        <div class="definition-box">
+            <strong>Inverse Trigonometric Derivatives.</strong>
+            $$\frac{d}{dx}[\arcsin x] = \frac{1}{\sqrt{1-x^2}}, \qquad |x| < 1$$
+            $$\frac{d}{dx}[\arccos x] = -\frac{1}{\sqrt{1-x^2}}, \qquad |x| < 1$$
+            $$\frac{d}{dx}[\arctan x] = \frac{1}{1+x^2}$$
+            $$\frac{d}{dx}[\text{arcsec}\, x] = \frac{1}{|x|\sqrt{x^2-1}}, \qquad |x| > 1$$
+        </div>
+
+        <p>
+            Let us derive the first of these. Let $y = \arcsin x$, so $\sin y = x$ with $-\frac{\pi}{2} \le y \le \frac{\pi}{2}$. Differentiate implicitly:
+        </p>
+        $$\cos y \cdot \frac{dy}{dx} = 1$$
+        $$\frac{dy}{dx} = \frac{1}{\cos y}.$$
+        <p>
+            Since $\sin^2 y + \cos^2 y = 1$, we have $\cos y = \sqrt{1 - \sin^2 y} = \sqrt{1 - x^2}$ (positive because $y \in [-\pi/2, \pi/2]$). Therefore
+        </p>
+        $$\frac{d}{dx}[\arcsin x] = \frac{1}{\sqrt{1 - x^2}}.$$
+
+        <div class="example-box">
+            <div class="example-title">Example 3.11 &mdash; Inverse Function Derivative from a Table</div>
+            <p>
+                Let $f$ be a differentiable function with $f(2) = 5$ and $f'(2) = 3$. Find $(f^{-1})'(5)$.
+            </p>
+            <p><strong>Solution.</strong> By Theorem 3.2:</p>
+            $$(f^{-1})'(5) = \frac{1}{f'(f^{-1}(5))}.$$
+            <p>
+                Since $f(2) = 5$, we know $f^{-1}(5) = 2$. Therefore:
+            </p>
+            $$(f^{-1})'(5) = \frac{1}{f'(2)} = \frac{1}{3}.$$
+            <p>
+                This type of problem appears regularly on AP Calculus exams, often presented as a table of values. The key is to first determine $f^{-1}(a)$ by reading the table in reverse, then evaluate $f'$ at that point and take the reciprocal.
+            </p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 3.12 &mdash; Inverse Trig with Chain Rule</div>
+            <p>Find $\dfrac{d}{dx}\left[\arctan(3x^2)\right]$.</p>
+            <p><strong>Solution.</strong> Combine the inverse tangent derivative with the chain rule:</p>
+            $$\frac{d}{dx}\left[\arctan(3x^2)\right] = \frac{1}{1+(3x^2)^2} \cdot \frac{d}{dx}(3x^2) = \frac{6x}{1 + 9x^4}.$$
+            <p>
+                Whenever an inverse trigonometric function has a non-trivial argument, the chain rule is required. The derivative of the outer function ($\arctan$) is $\frac{1}{1+u^2}$, and we multiply by the derivative of the inner function ($6x$).
+            </p>
+        </div>
+
+        <div class="note-box">
+            <strong>Common Pitfall:</strong> Students often confuse $(f^{-1})'(a)$ with $\frac{1}{f'(a)}$. These are not the same. The correct formula requires evaluating $f'$ at $f^{-1}(a)$, not at $a$ itself. The input to $f'$ must be the $x$-value, not the $y$-value.
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 3.13 &mdash; Inverse Cosine with Chain Rule</div>
+            <p>Find $\dfrac{d}{dx}\left[\arccos(\sqrt{x})\right]$.</p>
+            <p>
+                <strong>Solution.</strong> Apply the chain rule. The outer function is $\arccos(u)$ with derivative $-\dfrac{1}{\sqrt{1-u^2}}$, and the inner function is $u = \sqrt{x} = x^{1/2}$ with derivative $\dfrac{1}{2\sqrt{x}}$.
+            </p>
+            $$\frac{d}{dx}\left[\arccos(\sqrt{x})\right] = -\frac{1}{\sqrt{1-x}} \cdot \frac{1}{2\sqrt{x}} = -\frac{1}{2\sqrt{x(1-x)}}.$$
+            <p>
+                This is valid for $0 < x < 1$. The negative sign reflects the fact that $\arccos$ is a decreasing function.
+            </p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 3.14 &mdash; Product Involving Inverse Tangent</div>
+            <p>Find $\dfrac{d}{dx}\left[x\arctan(x)\right]$.</p>
+            <p>
+                <strong>Solution.</strong> Apply the product rule:
+                $$\frac{d}{dx}[x\arctan(x)] = \arctan(x) + x \cdot \frac{1}{1+x^2} = \arctan(x) + \frac{x}{1+x^2}.$$
+            </p>
+            <p>
+                This combination — $\arctan(x) + \dfrac{x}{1+x^2}$ — appears when integrating $\arctan(x)$ by parts and is worth recognizing. Note that as $x \to \infty$, the term $\frac{x}{1+x^2} \to 0$, so the derivative approaches $\frac{\pi}{2}$, consistent with the fact that $x\arctan(x) \approx \frac{\pi}{2}x$ for large $x$.
+            </p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 3.15 &mdash; A Surprising Constant</div>
+            <p>Compute $\dfrac{d}{dx}\left[\arcsin(x) + \arccos(x)\right]$ and explain the result.</p>
+            <p>
+                <strong>Solution.</strong>
+                $$\frac{d}{dx}[\arcsin x] = \frac{1}{\sqrt{1-x^2}}, \qquad \frac{d}{dx}[\arccos x] = -\frac{1}{\sqrt{1-x^2}}.$$
+            </p>
+            <p>
+                The sum of derivatives is $\dfrac{1}{\sqrt{1-x^2}} - \dfrac{1}{\sqrt{1-x^2}} = 0$.
+            </p>
+            <p>
+                A derivative of zero means the function is <em>constant</em>. Indeed, the identity $\arcsin(x) + \arccos(x) = \dfrac{\pi}{2}$ holds for all $x \in [-1, 1]$: since $\sin\theta = \cos(\frac{\pi}{2} - \theta)$, if $\sin\theta = x$ then $\arccos(x) = \frac{\pi}{2} - \theta = \frac{\pi}{2} - \arcsin(x)$. This is a beautiful illustration of why the derivative of a constant is zero.
+            </p>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SECTION 3.4 -->
+        <!-- ============================================ -->
+        <h2 id="sec-3-4">3.4 Higher-Order Derivatives</h2>
+
+        <p>
+            The derivative of a function is itself a function, so we can differentiate it again. The result is the <strong>second derivative</strong>, and the process can continue to produce third, fourth, and higher derivatives.
+        </p>
+
+        <div class="definition-box">
+            <strong>Notation for Higher-Order Derivatives.</strong>
+            <ul>
+                <li><strong>Second derivative:</strong> $f''(x)$, or $\dfrac{d^2y}{dx^2}$, or $y''$.</li>
+                <li><strong>Third derivative:</strong> $f'''(x)$, or $\dfrac{d^3y}{dx^3}$.</li>
+                <li><strong>$n$-th derivative:</strong> $f^{(n)}(x)$, or $\dfrac{d^ny}{dx^n}$.</li>
+            </ul>
+        </div>
+
+        <h3>Interpretation of the Second Derivative</h3>
+
+        <p>
+            The first derivative $f'(x)$ measures the <strong>rate of change</strong> of $f$. The second derivative $f''(x)$ measures the <strong>rate of change of the rate of change</strong>. In physical terms:
+        </p>
+        <ul>
+            <li>If $s(t)$ is position, then $s'(t)$ is velocity and $s''(t)$ is acceleration.</li>
+            <li>$f''(x) > 0$ means $f$ is <strong>concave up</strong> (the graph bends upward like a bowl).</li>
+            <li>$f''(x) < 0$ means $f$ is <strong>concave down</strong> (the graph bends downward like a cap).</li>
+            <li>Points where $f''$ changes sign are <strong>inflection points</strong>, where the concavity reverses.</li>
+        </ul>
+
+        <p>
+            The second derivative test for concavity is one of the most important analytical tools in the study of curve sketching, and it plays a central role in optimization problems on the AP exam.
+        </p>
+
+        <div class="example-box">
+            <div class="example-title">Example 3.16 &mdash; Second Derivative via Implicit Differentiation</div>
+            <p>Given $x^2 + y^2 = 25$, find $\dfrac{d^2y}{dx^2}$.</p>
+            <p><strong>Solution.</strong> From Example 3.6, we found $\frac{dy}{dx} = -\frac{x}{y}$. Differentiate again using the quotient rule:</p>
+            $$\frac{d^2y}{dx^2} = \frac{d}{dx}\left(-\frac{x}{y}\right) = -\frac{y \cdot 1 - x \cdot \frac{dy}{dx}}{y^2}.$$
+            <p>Substitute $\frac{dy}{dx} = -\frac{x}{y}$:</p>
+            $$= -\frac{y - x\left(-\frac{x}{y}\right)}{y^2} = -\frac{y + \frac{x^2}{y}}{y^2} = -\frac{\frac{y^2 + x^2}{y}}{y^2} = -\frac{x^2 + y^2}{y^3}.$$
+            <p>Since $x^2 + y^2 = 25$, this simplifies to:</p>
+            $$\frac{d^2y}{dx^2} = -\frac{25}{y^3}.$$
+            <p>
+                At the point $(3, 4)$: $\frac{d^2y}{dx^2} = -\frac{25}{64}$. The negative sign confirms that the upper semicircle is concave down, which matches our geometric intuition.
+            </p>
+        </div>
+
+        <div class="note-box">
+            <strong>AP Exam Note:</strong> When finding $\frac{d^2y}{dx^2}$ by implicit differentiation, you will always need to substitute the first derivative back into the expression. The final answer may still contain both $x$ and $y$. On free-response questions, simplifying using the original equation (as we did with $x^2 + y^2 = 25$ above) earns full credit and demonstrates mathematical fluency.
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 3.17 &mdash; Repeated Differentiation of a Polynomial</div>
+            <p>Let $f(x) = x^5 - 4x^3 + 2x$. Find $f^{(4)}(x)$ (the fourth derivative).</p>
+            <p><strong>Solution.</strong> Differentiate successively:</p>
+            <ul>
+                <li>$f'(x) = 5x^4 - 12x^2 + 2$</li>
+                <li>$f''(x) = 20x^3 - 24x$</li>
+                <li>$f'''(x) = 60x^2 - 24$</li>
+                <li>$f^{(4)}(x) = 120x$</li>
+            </ul>
+            <p>
+                Observe that each differentiation reduces the degree by one. A degree-$n$ polynomial has its $(n+1)$-th derivative equal to zero. Here the fifth derivative would be $120$, and the sixth derivative would be $0$.
+            </p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 3.18 &mdash; Second Derivative and Simple Harmonic Motion</div>
+            <p>Find $y''$ for $y = \sin(3x)$ and describe the relationship between $y''$ and $y$.</p>
+            <p><strong>Solution.</strong> Apply the chain rule twice:</p>
+            $$y' = 3\cos(3x), \qquad y'' = -9\sin(3x).$$
+            <p>
+                Notice that $y'' = -9\sin(3x) = -9y$. The function satisfies the <strong>differential equation</strong> $y'' + 9y = 0$, which governs simple harmonic oscillation. Any function of the form $y = A\sin(3x) + B\cos(3x)$ satisfies this equation, explaining the fundamental role of sinusoidal functions in physics.
+            </p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 3.19 &mdash; Pattern for the $n$-th Derivative</div>
+            <p>Let $y = e^{ax}$ for a constant $a$. Find a formula for $y^{(n)}$ (the $n$-th derivative).</p>
+            <p><strong>Solution.</strong> Compute the first several derivatives:</p>
+            $$y' = ae^{ax}, \quad y'' = a^2e^{ax}, \quad y''' = a^3e^{ax}, \quad \ldots$$
+            <p>
+                The pattern is clear: $y^{(n)} = a^n e^{ax}$.
+            </p>
+            <p>
+                <strong>Proof by induction:</strong> Base case $n=1$: $y' = ae^{ax}$ ✓. Inductive step: if $y^{(k)} = a^k e^{ax}$, then $y^{(k+1)} = \frac{d}{dx}[a^k e^{ax}] = a^k \cdot a e^{ax} = a^{k+1}e^{ax}$. ✓
+            </p>
+            <p>
+                In particular, $e^x$ has the remarkable property that every derivative equals $e^x$ (i.e., $a = 1$ gives $y^{(n)} = e^x$ for all $n$).
+            </p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 3.20 &mdash; Position, Velocity, and Acceleration</div>
+            <p>A particle's position (in meters) is $s(t) = t^3 - 6t^2 + 9t$ for $t \ge 0$ (seconds).</p>
+            <p>(a) Find velocity $v(t)$ and acceleration $a(t)$.<br>
+               (b) When is the particle momentarily at rest?<br>
+               (c) When is the speed <em>increasing</em>?</p>
+            <p><strong>Solution.</strong></p>
+            <p><strong>(a)</strong>
+                $$v(t) = s'(t) = 3t^2 - 12t + 9 = 3(t-1)(t-3), \qquad a(t) = v'(t) = 6t - 12 = 6(t-2).$$
+            </p>
+            <p><strong>(b)</strong> $v(t)=0$ at $t = 1$ and $t = 3$.</p>
+            <p><strong>(c)</strong> Speed increases when velocity and acceleration have the <em>same sign</em>:</p>
+            <ul>
+                <li>$t \in (0,1)$: $v > 0$, $a < 0$ — speed <em>decreasing</em>.</li>
+                <li>$t \in (1,2)$: $v < 0$, $a < 0$ — speed <em>increasing</em> (moving left faster).</li>
+                <li>$t \in (2,3)$: $v < 0$, $a > 0$ — speed <em>decreasing</em>.</li>
+                <li>$t \in (3,\infty)$: $v > 0$, $a > 0$ — speed <em>increasing</em>.</li>
+            </ul>
+            <p>Speed is increasing for $t \in (1,2) \cup (3, \infty)$.</p>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SECTION 3.5 -->
+        <!-- ============================================ -->
+        <h2 id="sec-3-5">3.5 Practice Problems</h2>
+
+        <p>
+            Fifty problems covering every technique in this chapter. Problems 1–15 focus on the chain rule, 16–22 on implicit differentiation, 23–27 on inverse functions, 28–32 on higher-order derivatives, and 33–50 on mixed and AP exam-style challenges. Try each problem on your own before revealing the solution.
+        </p>
+
+        <h3>Chain Rule (Problems 1–15)</h3>
+
+        <!-- Problem 1 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 1</div>
+            <p>Find $\dfrac{d}{dx}\left[\sin(5x^3 - 2x)\right]$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Apply the chain rule with outer function $\sin u$ and inner function $u = 5x^3 - 2x$:</p>
+                    $$\frac{d}{dx}[\sin(5x^3-2x)] = \cos(5x^3-2x) \cdot (15x^2 - 2) = (15x^2-2)\cos(5x^3-2x).$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 2 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 2</div>
+            <p>Find $\dfrac{d}{dx}\left[\left(e^{2x} + 1\right)^4\right]$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Two layers of chain rule. Outer: $u^4$, inner: $u = e^{2x}+1$, and $e^{2x}$ itself requires the chain rule.</p>
+                    $$\frac{d}{dx}\left[(e^{2x}+1)^4\right] = 4(e^{2x}+1)^3 \cdot \frac{d}{dx}(e^{2x}+1) = 4(e^{2x}+1)^3 \cdot 2e^{2x} = 8e^{2x}(e^{2x}+1)^3.$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 3 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 3</div>
+            <p>Find $\dfrac{d}{dx}\left[\sqrt{\tan(x)}\right]$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Rewrite as $[\tan x]^{1/2}$. Outer: $u^{1/2}$, inner: $\tan x$.</p>
+                    $$\frac{d}{dx}[\tan x]^{1/2} = \frac{1}{2}[\tan x]^{-1/2} \cdot \sec^2 x = \frac{\sec^2 x}{2\sqrt{\tan x}}.$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 4 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 4</div>
+            <p>Use implicit differentiation to find $\dfrac{dy}{dx}$ for $x^2y + xy^2 = 6$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Differentiate each term using the product rule and chain rule:</p>
+                    $$\frac{d}{dx}(x^2 y) + \frac{d}{dx}(xy^2) = 0$$
+                    $$\left(2xy + x^2\frac{dy}{dx}\right) + \left(y^2 + 2xy\frac{dy}{dx}\right) = 0.$$
+                    <p>Collect $\frac{dy}{dx}$ terms:</p>
+                    $$x^2\frac{dy}{dx} + 2xy\frac{dy}{dx} = -2xy - y^2$$
+                    $$\frac{dy}{dx}(x^2 + 2xy) = -(2xy + y^2)$$
+                    $$\frac{dy}{dx} = -\frac{2xy + y^2}{x^2 + 2xy} = -\frac{y(2x+y)}{x(x+2y)}.$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 5 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 5</div>
+            <p>Find the slope of the tangent line to $\sin(xy) = \frac{1}{2}$ at the point $\left(1, \frac{\pi}{6}\right)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Differentiate implicitly. The left side requires the chain rule on $\sin(xy)$, then the product rule on $xy$:</p>
+                    $$\cos(xy) \cdot \left(y + x\frac{dy}{dx}\right) = 0.$$
+                    <p>At the point $\left(1, \frac{\pi}{6}\right)$: $xy = \frac{\pi}{6}$, so $\cos\left(\frac{\pi}{6}\right) = \frac{\sqrt{3}}{2} \neq 0$. Divide by $\cos(xy)$:</p>
+                    $$y + x\frac{dy}{dx} = 0 \quad \Rightarrow \quad \frac{dy}{dx} = -\frac{y}{x}.$$
+                    <p>At the point: $\frac{dy}{dx} = -\frac{\pi/6}{1} = -\frac{\pi}{6}.$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 6 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 6</div>
+            <p>Let $f(x) = x^3 + x$. Given that $f$ is one-to-one, find $(f^{-1})'(2)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>First find $f^{-1}(2)$: solve $x^3 + x = 2$. Testing $x = 1$: $1 + 1 = 2$. So $f^{-1}(2) = 1$.</p>
+                    <p>Compute $f'(x) = 3x^2 + 1$, so $f'(1) = 4$.</p>
+                    <p>By the inverse function theorem:</p>
+                    $$(f^{-1})'(2) = \frac{1}{f'(f^{-1}(2))} = \frac{1}{f'(1)} = \frac{1}{4}.$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 7 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 7</div>
+            <p>Find $\dfrac{d}{dx}\left[\arcsin(2x)\right]$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Chain rule with the arcsin derivative formula:</p>
+                    $$\frac{d}{dx}[\arcsin(2x)] = \frac{1}{\sqrt{1-(2x)^2}} \cdot 2 = \frac{2}{\sqrt{1-4x^2}}.$$
+                    <p>Valid for $|2x| < 1$, i.e., $|x| < \frac{1}{2}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 8 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 8</div>
+            <p>Find $\dfrac{d^2y}{dx^2}$ for $y = e^{-x^2}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>First derivative (chain rule):</p>
+                    $$y' = e^{-x^2} \cdot (-2x) = -2xe^{-x^2}.$$
+                    <p>Second derivative (product rule + chain rule):</p>
+                    $$y'' = -2\left[e^{-x^2} + x \cdot e^{-x^2}(-2x)\right] = -2e^{-x^2}\left[1 - 2x^2\right] = (4x^2-2)e^{-x^2}.$$
+                    <p>Setting $y'' = 0$: $4x^2 - 2 = 0 \Rightarrow x = \pm\frac{1}{\sqrt{2}}$. These are the inflection points of the Gaussian curve $e^{-x^2}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 9 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 9</div>
+            <p>Find $\dfrac{d}{dx}\left[x^{\sin x}\right]$ for $x > 0$. (Hint: use logarithmic differentiation.)</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Let $y = x^{\sin x}$. Take the natural log of both sides:</p>
+                    $$\ln y = \sin x \cdot \ln x.$$
+                    <p>Differentiate implicitly:</p>
+                    $$\frac{1}{y}\frac{dy}{dx} = \cos x \cdot \ln x + \sin x \cdot \frac{1}{x}.$$
+                    <p>Multiply both sides by $y = x^{\sin x}$:</p>
+                    $$\frac{dy}{dx} = x^{\sin x}\left(\cos x \cdot \ln x + \frac{\sin x}{x}\right).$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 10 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 10</div>
+            <p>
+                The table below gives selected values of $f$ and $f'$. If $g(x) = f(f(x))$, find $g'(1)$.
+            </p>
+            <table style="width:auto; border-collapse:collapse; margin:12px 0;">
+                <tr style="border-bottom:2px solid #1e3a5f;">
+                    <th style="padding:8px 20px; text-align:center; color:#1e3a5f;">$x$</th>
+                    <th style="padding:8px 20px; text-align:center; color:#1e3a5f;">$f(x)$</th>
+                    <th style="padding:8px 20px; text-align:center; color:#1e3a5f;">$f'(x)$</th>
+                </tr>
+                <tr style="border-bottom:1px solid #e2e8f0;">
+                    <td style="padding:8px 20px; text-align:center;">1</td>
+                    <td style="padding:8px 20px; text-align:center;">3</td>
+                    <td style="padding:8px 20px; text-align:center;">2</td>
+                </tr>
+                <tr style="border-bottom:1px solid #e2e8f0;">
+                    <td style="padding:8px 20px; text-align:center;">2</td>
+                    <td style="padding:8px 20px; text-align:center;">1</td>
+                    <td style="padding:8px 20px; text-align:center;">5</td>
+                </tr>
+                <tr>
+                    <td style="padding:8px 20px; text-align:center;">3</td>
+                    <td style="padding:8px 20px; text-align:center;">2</td>
+                    <td style="padding:8px 20px; text-align:center;">7</td>
+                </tr>
+            </table>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>By the chain rule: $g'(x) = f'(f(x)) \cdot f'(x)$.</p>
+                    <p>At $x = 1$:</p>
+                    $$g'(1) = f'(f(1)) \cdot f'(1) = f'(3) \cdot 2 = 7 \cdot 2 = 14.$$
+                    <p>
+                        This type of problem tests whether you truly understand the chain rule conceptually: the derivative of the outer function must be evaluated at the value of the inner function, not at $x$.
+                    </p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 11 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 11</div>
+            <p>Find $\dfrac{d}{dx}\left[\ln(1 + e^x)\right]$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Using the pattern $\frac{d}{dx}[\ln u] = \frac{u'}{u}$ with $u = 1+e^x$:</p>
+                    $$\frac{d}{dx}[\ln(1+e^x)] = \frac{e^x}{1+e^x}.$$
+                    <p>This is the logistic sigmoid derivative and arises constantly in statistics and machine learning.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 12 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 12</div>
+            <p>Find $\dfrac{d}{dx}\left[(4x^2 + 9)^{3/2}\right]$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Outer: $u^{3/2}$, inner: $u = 4x^2+9$, $u' = 8x$:</p>
+                    $$\frac{d}{dx}\left[(4x^2+9)^{3/2}\right] = \tfrac{3}{2}(4x^2+9)^{1/2} \cdot 8x = 12x\sqrt{4x^2+9}.$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 13 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 13</div>
+            <p>Find $\dfrac{d}{dx}\left[\cos\!\left(e^{-2x}\right)\right]$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Outer: $\cos u$, inner: $u = e^{-2x}$, $u' = -2e^{-2x}$:</p>
+                    $$\frac{d}{dx}\left[\cos(e^{-2x})\right] = -\sin(e^{-2x})\cdot(-2e^{-2x}) = 2e^{-2x}\sin(e^{-2x}).$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 14 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 14</div>
+            <p>Find $\dfrac{d}{dx}\left[\tan\!\left(\sqrt{x^2+1}\right)\right]$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Two layers: outer $\tan(u)$, middle $u = \sqrt{x^2+1}$, innermost $x^2+1$.</p>
+                    $$\frac{d}{dx}[\sqrt{x^2+1}] = \frac{x}{\sqrt{x^2+1}}.$$
+                    $$\frac{d}{dx}\left[\tan(\sqrt{x^2+1})\right] = \sec^2\!\left(\sqrt{x^2+1}\right)\cdot\frac{x}{\sqrt{x^2+1}} = \frac{x\sec^2(\sqrt{x^2+1})}{\sqrt{x^2+1}}.$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 15 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 15</div>
+            <p>Find $\dfrac{d}{dx}\left[e^{\sin(x^2)}\right]$. (Triple chain rule.)</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Three nested functions: $e^u$, $\sin(v)$, $x^2$. Apply chain rule from outside in:</p>
+                    $$\frac{d}{dx}\left[e^{\sin(x^2)}\right] = e^{\sin(x^2)} \cdot \cos(x^2) \cdot 2x = 2x\cos(x^2)\,e^{\sin(x^2)}.$$
+                </div>
+            </details>
+        </div>
+
+        <h3>Implicit Differentiation (Problems 16–22)</h3>
+
+        <!-- Problem 16 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 16</div>
+            <p>Find $\dfrac{dy}{dx}$ for $x^3 + y^3 = 3xy + 1$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Differentiate both sides. On the right, use the product rule on $3xy$:</p>
+                    $$3x^2 + 3y^2\frac{dy}{dx} = 3y + 3x\frac{dy}{dx}.$$
+                    <p>Collect and solve:</p>
+                    $$\frac{dy}{dx}(3y^2 - 3x) = 3y - 3x^2 \implies \frac{dy}{dx} = \frac{y - x^2}{y^2 - x}.$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 17 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 17</div>
+            <p>Find $\dfrac{dy}{dx}$ for $e^{xy} = x^2 + y$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Differentiate the left side using the chain rule and product rule on the exponent:</p>
+                    $$e^{xy}\!\left(y + x\frac{dy}{dx}\right) = 2x + \frac{dy}{dx}.$$
+                    <p>Expand and isolate $\frac{dy}{dx}$:</p>
+                    $$\frac{dy}{dx}\!\left(xe^{xy} - 1\right) = 2x - ye^{xy} \implies \frac{dy}{dx} = \frac{2x - ye^{xy}}{xe^{xy} - 1}.$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 18 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 18</div>
+            <p>Find $\dfrac{dy}{dx}$ for $\ln(x + y) = 2x - 3y$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Differentiate both sides (chain rule on the left):</p>
+                    $$\frac{1+\frac{dy}{dx}}{x+y} = 2 - 3\frac{dy}{dx}.$$
+                    <p>Multiply through by $(x+y)$:</p>
+                    $$1 + \frac{dy}{dx} = (2-3\tfrac{dy}{dx})(x+y).$$
+                    $$\frac{dy}{dx}\bigl[1 + 3(x+y)\bigr] = 2(x+y) - 1 \implies \frac{dy}{dx} = \frac{2(x+y)-1}{1+3(x+y)}.$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 19 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 19</div>
+            <p>Find $\dfrac{dy}{dx}$ for $y = x^y$ using logarithmic differentiation.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Take $\ln$ of both sides: $\ln y = y\ln x$. Differentiate implicitly:</p>
+                    $$\frac{y'}{y} = y'\ln x + \frac{y}{x}.$$
+                    <p>Collect $y'$:</p>
+                    $$y'\!\left(\frac{1}{y} - \ln x\right) = \frac{y}{x} \implies y' = \frac{y/x}{1/y - \ln x} = \frac{y^2}{x(1 - y\ln x)}.$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 20 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 20</div>
+            <p>Find the equation of the tangent line to $x^2 + 2xy + y^2 = 9$ at the point $(1,\,2)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Differentiate implicitly:</p>
+                    $$2x + 2y + 2x\frac{dy}{dx} + 2y\frac{dy}{dx} = 0 \implies \frac{dy}{dx}(2x+2y) = -(2x+2y).$$
+                    <p>Since $2x+2y = 2(1)+2(2) = 6 \neq 0$, we get $\frac{dy}{dx} = -1$ at $(1,2)$.</p>
+                    <p>Tangent line: $y - 2 = -1(x - 1) \implies y = -x + 3$.</p>
+                    <p><em>Note:</em> The curve factors as $(x+y)^2 = 9$, i.e., $x+y = \pm 3$, so it consists of two parallel lines with slope $-1$ — confirming the result.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 21 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 21</div>
+            <p>Find $\dfrac{dy}{dx}$ for $\sin(xy) = y$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Chain rule on left, product rule inside $xy$:</p>
+                    $$\cos(xy)\!\left(y + x\frac{dy}{dx}\right) = \frac{dy}{dx}.$$
+                    $$y\cos(xy) + x\cos(xy)\frac{dy}{dx} = \frac{dy}{dx}$$
+                    $$\frac{dy}{dx}\bigl(1 - x\cos(xy)\bigr) = y\cos(xy) \implies \frac{dy}{dx} = \frac{y\cos(xy)}{1-x\cos(xy)}.$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 22 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 22</div>
+            <p>Find all points on $x^2 - xy + y^2 = 7$ where the tangent line is <em>vertical</em>.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>From implicit differentiation: $\dfrac{dy}{dx} = \dfrac{y - 2x}{2y - x}$. Vertical tangents occur where the denominator is zero: $2y - x = 0 \Rightarrow x = 2y$.</p>
+                    <p>Substitute into the original equation: $(2y)^2 - (2y)y + y^2 = 7 \Rightarrow 3y^2 = 7 \Rightarrow y = \pm\dfrac{\sqrt{21}}{3}$.</p>
+                    <p>The two points are $\left(\dfrac{2\sqrt{21}}{3},\,\dfrac{\sqrt{21}}{3}\right)$ and $\left(-\dfrac{2\sqrt{21}}{3},\,-\dfrac{\sqrt{21}}{3}\right)$.</p>
+                </div>
+            </details>
+        </div>
+
+        <h3>Inverse Functions &amp; Inverse Trig (Problems 23–27)</h3>
+
+        <!-- Problem 23 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 23</div>
+            <p>Find $\dfrac{d}{dx}\left[\arctan(x^2)\right]$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    $$\frac{d}{dx}[\arctan(x^2)] = \frac{1}{1+(x^2)^2}\cdot 2x = \frac{2x}{1+x^4}.$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 24 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 24</div>
+            <p>Find $\dfrac{d}{dx}\!\left[x\arcsin(x) + \sqrt{1-x^2}\right]$. (The answer simplifies beautifully.)</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Differentiate term by term. Product rule on first term:</p>
+                    $$\frac{d}{dx}[x\arcsin x] = \arcsin x + \frac{x}{\sqrt{1-x^2}}.$$
+                    <p>Chain rule on second term:</p>
+                    $$\frac{d}{dx}[\sqrt{1-x^2}] = \frac{-x}{\sqrt{1-x^2}}.$$
+                    <p>Sum: $\arcsin x + \dfrac{x}{\sqrt{1-x^2}} - \dfrac{x}{\sqrt{1-x^2}} = \arcsin x$.</p>
+                    <p>This confirms that $x\arcsin(x)+\sqrt{1-x^2}$ is an antiderivative of $\arcsin(x)$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 25 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 25</div>
+            <p>Let $f(x) = x^3 + 3x$. Find $(f^{-1})'(4)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Solve $x^3+3x=4$: testing $x=1$ gives $1+3=4$ ✓. So $f^{-1}(4)=1$.</p>
+                    <p>Compute $f'(x) = 3x^2+3$, so $f'(1) = 6$.</p>
+                    $$(f^{-1})'(4) = \frac{1}{f'(f^{-1}(4))} = \frac{1}{f'(1)} = \frac{1}{6}.$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 26 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 26</div>
+            <p>Find $\dfrac{d}{dx}\!\left[\arcsin\!\left(\dfrac{x}{a}\right)\right]$ where $a > 0$ is a constant. (This general form appears frequently in integration tables.)</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Inner: $u = x/a$, $u' = 1/a$.</p>
+                    $$\frac{d}{dx}\!\left[\arcsin\!\left(\frac{x}{a}\right)\right] = \frac{1}{\sqrt{1-(x/a)^2}}\cdot\frac{1}{a} = \frac{1}{\sqrt{a^2 - x^2}}.$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 27 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 27</div>
+            <p>Show that $\dfrac{d}{dx}\!\left[\arctan(x) + \arctan\!\left(\dfrac{1}{x}\right)\right] = 0$ for $x > 0$, and determine the value of this constant sum.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Differentiate $\arctan(1/x)$ using the chain rule (inner: $1/x$, $\frac{d}{dx}[1/x] = -1/x^2$):</p>
+                    $$\frac{d}{dx}\!\left[\arctan\!\left(\frac{1}{x}\right)\right] = \frac{1}{1+1/x^2}\cdot\left(-\frac{1}{x^2}\right) = \frac{x^2}{x^2+1}\cdot\left(-\frac{1}{x^2}\right) = -\frac{1}{1+x^2}.$$
+                    <p>Sum of derivatives: $\dfrac{1}{1+x^2} - \dfrac{1}{1+x^2} = 0$.</p>
+                    <p>At $x=1$: $\arctan(1)+\arctan(1) = \dfrac{\pi}{4}+\dfrac{\pi}{4} = \dfrac{\pi}{2}$. So the constant value is $\dfrac{\pi}{2}$ for $x>0$.</p>
+                </div>
+            </details>
+        </div>
+
+        <h3>Higher-Order Derivatives (Problems 28–32)</h3>
+
+        <!-- Problem 28 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 28</div>
+            <p>Find $\dfrac{d^2y}{dx^2}$ for $y = x\ln(x)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Product rule for first derivative: $y' = \ln x + x\cdot\dfrac{1}{x} = \ln x + 1$.</p>
+                    <p>Differentiate again: $y'' = \dfrac{1}{x}$.</p>
+                    <p>Since $y'' > 0$ for $x > 0$, the function $x\ln x$ is concave up on its domain.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 29 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 29</div>
+            <p>Find $y''$ for $y = \sqrt{x^2+1}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$y' = \dfrac{x}{\sqrt{x^2+1}}$. Apply the quotient rule (or chain rule on $x(x^2+1)^{-1/2}$):</p>
+                    $$y'' = \frac{\sqrt{x^2+1} - x\cdot\dfrac{x}{\sqrt{x^2+1}}}{x^2+1} = \frac{(x^2+1)-x^2}{(x^2+1)^{3/2}} = \frac{1}{(x^2+1)^{3/2}}.$$
+                    <p>Since $y'' > 0$ always, $y = \sqrt{x^2+1}$ is concave up everywhere.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 30 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 30</div>
+            <p>Find $y''$ for $y = \arctan(x)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$y' = \dfrac{1}{1+x^2} = (1+x^2)^{-1}$.</p>
+                    $$y'' = -(1+x^2)^{-2}\cdot 2x = \frac{-2x}{(1+x^2)^2}.$$
+                    <p>$y'' = 0$ at $x = 0$ (inflection point), $y'' > 0$ for $x < 0$ (concave up), $y'' < 0$ for $x > 0$ (concave down).</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 31 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 31</div>
+            <p>Find $\dfrac{d^2y}{dx^2}$ implicitly for $y^2 = x^3$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>First derivative:</strong> $2y\,y' = 3x^2 \Rightarrow y' = \dfrac{3x^2}{2y}$.</p>
+                    <p><strong>Second derivative:</strong> Differentiate $y' = \dfrac{3x^2}{2y}$ using the quotient rule:</p>
+                    $$y'' = \frac{6x\cdot 2y - 3x^2\cdot 2y'}{4y^2} = \frac{12xy - 6x^2 y'}{4y^2}.$$
+                    <p>Substitute $y' = \dfrac{3x^2}{2y}$:</p>
+                    $$y'' = \frac{12xy - 6x^2\cdot\dfrac{3x^2}{2y}}{4y^2} = \frac{12xy - \dfrac{9x^4}{y}}{4y^2} = \frac{12xy^2 - 9x^4}{4y^3}.$$
+                    <p>Use $y^2 = x^3$: $y'' = \dfrac{12x\cdot x^3 - 9x^4}{4y^3} = \dfrac{3x^4}{4y^3}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 32 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 32</div>
+            <p>Find $f''(x)$ for $f(x) = e^{-x}\sin(x)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$f'(x) = -e^{-x}\sin x + e^{-x}\cos x = e^{-x}(\cos x - \sin x)$.</p>
+                    <p>$f''(x) = -e^{-x}(\cos x - \sin x) + e^{-x}(-\sin x - \cos x)$</p>
+                    $$= e^{-x}\bigl[-(\cos x-\sin x) + (-\sin x-\cos x)\bigr] = e^{-x}(-2\cos x) = -2e^{-x}\cos x.$$
+                    <p>Note that $f'' = -2e^{-x}\cos x$, and $f''(x) = 0$ when $\cos x = 0$, i.e., at $x = \frac{\pi}{2} + k\pi$, confirming where the concavity of this damped oscillation changes.</p>
+                </div>
+            </details>
+        </div>
+
+        <h3>Mixed &amp; AP Exam-Style (Problems 33–50)</h3>
+
+        <!-- Problem 33 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 33</div>
+            <p>If $g(x) = f(x^2)$ where $f$ is differentiable, express $g'(x)$ in terms of $f'$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    $$g'(x) = f'(x^2)\cdot 2x.$$
+                    <p>For example, if $f(x) = \sin x$, then $g'(x) = 2x\cos(x^2)$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 34 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 34</div>
+            <p>If $h(x) = \sqrt{f(x)}$ where $f > 0$ and $f$ is differentiable, find $h'(x)$ in terms of $f$ and $f'$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    $$h'(x) = \frac{1}{2}[f(x)]^{-1/2}\cdot f'(x) = \frac{f'(x)}{2\sqrt{f(x)}}.$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 35 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 35</div>
+            <p>Derive $\dfrac{d}{dx}[\sec(x)]$ using the chain rule by writing $\sec(x) = [\cos(x)]^{-1}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Outer: $u^{-1}$ with derivative $-u^{-2}$; inner: $\cos x$ with derivative $-\sin x$:</p>
+                    $$\frac{d}{dx}[\cos x]^{-1} = -[\cos x]^{-2}\cdot(-\sin x) = \frac{\sin x}{\cos^2 x} = \frac{1}{\cos x}\cdot\frac{\sin x}{\cos x} = \sec(x)\tan(x).$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 36 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 36</div>
+            <p>Find $\dfrac{dy}{dx}$ for $y = \dfrac{(x+1)^2(x-2)^3}{(x+3)^4}$ using logarithmic differentiation.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Take $\ln$: $\ln y = 2\ln(x+1)+3\ln(x-2)-4\ln(x+3)$. Differentiate:</p>
+                    $$\frac{y'}{y} = \frac{2}{x+1}+\frac{3}{x-2}-\frac{4}{x+3}.$$
+                    $$y' = \frac{(x+1)^2(x-2)^3}{(x+3)^4}\left[\frac{2}{x+1}+\frac{3}{x-2}-\frac{4}{x+3}\right].$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 37 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 37</div>
+            <p>Find $\dfrac{d}{dx}[\sin^n(x)]$ for any positive integer $n$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Outer: $u^n$, inner: $\sin x$:</p>
+                    $$\frac{d}{dx}[\sin^n x] = n\sin^{n-1}(x)\cdot\cos(x).$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 38 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 38</div>
+            <p>Find $y'$ and $y''$ for $y = x^2 e^{-x}$. Are there any inflection points?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Product rule: $y' = 2xe^{-x} + x^2(-e^{-x}) = e^{-x}(2x - x^2) = xe^{-x}(2-x)$.</p>
+                    <p>$y'' = e^{-x}(2-2x) + (2x-x^2)(-e^{-x}) = e^{-x}[(2-2x)-(2x-x^2)] = e^{-x}(x^2-4x+2)$.</p>
+                    <p>$y'' = 0$ when $x^2-4x+2=0$, i.e., $x = 2\pm\sqrt{2}$. Since $e^{-x} > 0$ always, these are genuine inflection points where concavity changes.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 39 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 39</div>
+            <p>Show that $y = A\cos(2x) + B\sin(2x)$ satisfies the differential equation $y'' + 4y = 0$ for any constants $A, B$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$y' = -2A\sin(2x) + 2B\cos(2x)$.</p>
+                    <p>$y'' = -4A\cos(2x) - 4B\sin(2x) = -4y$.</p>
+                    <p>Therefore $y'' + 4y = -4y + 4y = 0$. ✓</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 40 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 40</div>
+            <p>A particle's position is $s(t) = t^3 - 6t^2 + 9t + 1$ (meters, $t \ge 0$ seconds).</p>
+            <p>(a) Find velocity $v(t)$ and acceleration $a(t)$.<br>
+               (b) When is the particle momentarily at rest?<br>
+               (c) On what time interval(s) does the particle move in the positive direction with <em>increasing</em> speed?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>(a)</strong> $v(t) = 3t^2-12t+9 = 3(t-1)(t-3)$; $a(t) = 6t-12 = 6(t-2)$.</p>
+                    <p><strong>(b)</strong> $v(t)=0$ at $t=1$ and $t=3$.</p>
+                    <p><strong>(c)</strong> Speed is increasing when $v$ and $a$ have the same sign. For $t > 3$: $v > 0$ and $a > 0$. Answer: $t \in (3, \infty)$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 41 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 41</div>
+            <p>Let $f$ be differentiable with $f(3) = 2$ and $f'(3) = 5$. Evaluate $\dfrac{d}{dx}[\ln(f(x))]$ at $x = 3$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\dfrac{d}{dx}[\ln(f(x))] = \dfrac{f'(x)}{f(x)}$. At $x = 3$: $\dfrac{5}{2}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 42 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 42</div>
+            <p>Find a general formula for $\dfrac{d}{dx}[f(x)^n]$ for any differentiable $f$ and positive integer $n$. This is the <em>generalized power rule</em>.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    $$\frac{d}{dx}[f(x)^n] = n[f(x)]^{n-1}\cdot f'(x).$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 43 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 43</div>
+            <p>Let $f(x) = \sin(2x^2 + \tfrac{\pi}{4})$.<br>
+               (a) Find $f'(x)$.<br>
+               (b) Find all critical points of $f$ in $[0,\,\sqrt{2\pi}]$.<br>
+               (c) Find $f''(0)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>(a)</strong> $f'(x) = \cos(2x^2+\tfrac{\pi}{4})\cdot 4x$.</p>
+                    <p><strong>(b)</strong> $f'(x) = 0$ when $x = 0$ or $\cos(2x^2+\tfrac{\pi}{4}) = 0$.</p>
+                    <p>For cosine: $2x^2+\frac{\pi}{4} = \frac{\pi}{2}+k\pi$, giving $x^2 = \frac{\pi}{8}+\frac{k\pi}{2}$ for non-negative integers $k$. The critical points in $[0,\sqrt{2\pi}]$ are $x = 0,\,\sqrt{\frac{\pi}{8}},\,\sqrt{\frac{5\pi}{8}},\,\sqrt{\frac{9\pi}{8}},\,\sqrt{\frac{13\pi}{8}}$.</p>
+                    <p><strong>(c)</strong> $f''(x) = 4\cos(2x^2+\tfrac{\pi}{4}) + 4x\cdot(-\sin(2x^2+\tfrac{\pi}{4}))\cdot 4x$. At $x=0$: $f''(0) = 4\cos(\tfrac{\pi}{4}) = 4\cdot\tfrac{\sqrt{2}}{2} = 2\sqrt{2}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 44 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 44</div>
+            <p>Find $\dfrac{dy}{dx}$ for $y = \dfrac{\sqrt{x^2+1}\,e^{-3x}}{(x^3+4)^{2/3}}$ using logarithmic differentiation.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\ln y = \tfrac{1}{2}\ln(x^2+1) - 3x - \tfrac{2}{3}\ln(x^3+4)$. Differentiate:</p>
+                    $$\frac{y'}{y} = \frac{x}{x^2+1} - 3 - \frac{2x^2}{x^3+4}.$$
+                    $$y' = \frac{\sqrt{x^2+1}\,e^{-3x}}{(x^3+4)^{2/3}}\left[\frac{x}{x^2+1} - 3 - \frac{2x^2}{x^3+4}\right].$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 45 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 45</div>
+            <p>Let $h(x) = f(g(x))$. Given $g(2) = 3$, $g'(2) = 4$, $f'(3) = 7$, and $f'(2) = 9$, find $h'(2)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>By the chain rule: $h'(2) = f'(g(2))\cdot g'(2) = f'(3)\cdot 4 = 7\cdot 4 = 28$.</p>
+                    <p>Note: $f'(2) = 9$ is a distractor — the chain rule requires $f'$ evaluated at $g(2)$, not at $2$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 46 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 46</div>
+            <p>Find $\dfrac{dy}{dx}$ for $y = x^{1/x}$ ($x > 0$) via logarithmic differentiation.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\ln y = \dfrac{\ln x}{x}$. Differentiate using the quotient rule on the right:</p>
+                    $$\frac{y'}{y} = \frac{\frac{1}{x}\cdot x - \ln x\cdot 1}{x^2} = \frac{1 - \ln x}{x^2}.$$
+                    $$y' = x^{1/x}\cdot\frac{1-\ln x}{x^2}.$$
+                    <p>$y' = 0$ when $\ln x = 1$, i.e., $x = e$. The function $x^{1/x}$ achieves its maximum value $e^{1/e}$ at $x = e$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 47 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 47</div>
+            <p>Let $f(x) = \arctan(e^{2x})$.<br>
+               (a) Find $f'(x)$.<br>
+               (b) Find the equation of the tangent line at $x = 0$.<br>
+               (c) Find $f''(x)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>(a)</strong> $f'(x) = \dfrac{1}{1+e^{4x}}\cdot 2e^{2x} = \dfrac{2e^{2x}}{1+e^{4x}}$.</p>
+                    <p><strong>(b)</strong> $f(0) = \arctan(1) = \dfrac{\pi}{4}$; $f'(0) = \dfrac{2}{2} = 1$. Tangent: $y = x + \dfrac{\pi}{4}$.</p>
+                    <p><strong>(c)</strong> Differentiate $f'$ using quotient rule:</p>
+                    $$f''(x) = \frac{4e^{2x}(1+e^{4x}) - 2e^{2x}\cdot 4e^{4x}}{(1+e^{4x})^2} = \frac{4e^{2x}(1-e^{4x})}{(1+e^{4x})^2}.$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 48 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 48</div>
+            <p>Verify that $\dfrac{d}{dx}\!\left[\ln(\sec x + \tan x)\right] = \sec x$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Chain rule: $\dfrac{1}{\sec x + \tan x}\cdot\dfrac{d}{dx}[\sec x + \tan x]$.</p>
+                    <p>$\dfrac{d}{dx}[\sec x + \tan x] = \sec x\tan x + \sec^2 x = \sec x(\tan x + \sec x)$.</p>
+                    $$= \frac{\sec x(\sec x+\tan x)}{\sec x + \tan x} = \sec x.\quad\checkmark$$
+                    <p>This confirms that $\ln(\sec x + \tan x)$ is an antiderivative of $\sec x$, an important result in AP Calculus BC.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 49 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 49</div>
+            <p>A point moves along the curve $y = x^{3/2}$. Find the rate of change of the slope of the curve at the point $(4,\, 8)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>The slope of the curve is $y' = \dfrac{3}{2}x^{1/2}$. The <em>rate of change of the slope</em> is $y'' = \dfrac{3}{4}x^{-1/2}$.</p>
+                    <p>At $x = 4$: $y'' = \dfrac{3}{4}\cdot\dfrac{1}{2} = \dfrac{3}{8}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 50 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 50</div>
+            <p>Let $f$ and $g$ be differentiable with $g(0) = 1$ and $g'(0) = 2$. Define $h(x) = f(x\cdot g(x))$. Find $h'(0)$ in terms of $f'$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>By the chain rule: $h'(x) = f'(x\cdot g(x))\cdot\dfrac{d}{dx}[x\cdot g(x)] = f'(x\,g(x))\cdot(g(x)+x\,g'(x))$.</p>
+                    <p>At $x = 0$: the inner value is $0\cdot g(0) = 0$, and $g(0)+0\cdot g'(0) = 1$.</p>
+                    $$h'(0) = f'(0)\cdot 1 = f'(0).$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Chapter Summary -->
+        <h2>Chapter Summary</h2>
+        <p>In this chapter, we developed four major differentiation techniques:</p>
+        <ol>
+            <li><strong>The Chain Rule</strong> handles compositions by multiplying the outer derivative (evaluated at the inner function) by the inner derivative. It extends to arbitrarily deep compositions.</li>
+            <li><strong>Implicit Differentiation</strong> finds $\frac{dy}{dx}$ for curves defined by equations $F(x,y)=0$ by differentiating both sides and solving. The chain rule is the engine that makes this work.</li>
+            <li><strong>Inverse Function Derivatives</strong> give us $(f^{-1})'(a) = \frac{1}{f'(f^{-1}(a))}$, which produces the derivatives of all inverse trigonometric functions.</li>
+            <li><strong>Higher-Order Derivatives</strong> extend differentiation to second and beyond, revealing concavity and acceleration.</li>
+        </ol>
+        <p>
+            Together, these tools allow you to differentiate any function you will encounter on the AP Calculus AB or BC exam. In the next chapter, we apply these derivatives to solve optimization, related rates, and curve-sketching problems.
+        </p>
+
+        <div class="cta-inline">
+            <p style="color:white; margin-bottom:8px; font-size:1.1em;"><strong>Ready to practice with real AP questions?</strong></p>
+            <p style="color:rgba(255,255,255,0.85); margin-bottom:0;">Build exam confidence with official-style problems.</p>
+            <a href="/us/ap-calculus">AP Calculus Past Papers &amp; Practice</a>
+        </div>
+
+        <div class="chapter-nav-bottom">
+            <a href="#">&larr; Chapter 2: Derivatives &amp; Rates of Change</a>
+            <a href="#">Chapter 4: Applications of Derivatives &rarr;</a>
+        </div>
+    </article>
+
+    <footer style="text-align:center; padding:32px 20px; color:#94a3b8; font-size:0.85em; border-top:1px solid #e2e8f0;">
+        &copy; 2026 MathHub. All rights reserved.
+    </footer>
+    
+    <script>
+    (function() {
+        var elt = document.getElementById('chain-rule-viz');
+        var calc = Desmos.GraphingCalculator(elt, {expressions: true, settingsMenu: false, zoomButtons: true});
+        calc.setExpression({id: 'b', latex: 'b = 2', sliderBounds: {min: '0.5', max: '5', step: '0.1'}});
+        calc.setExpression({id: 'f', latex: 'f(x) = \\sin(bx)', color: '#2563eb'});
+        calc.setExpression({id: 'df', latex: 'g(x) = b\\cos(bx)', color: '#dc2626', lineStyle: Desmos.Styles.DASHED});
+        calc.setExpression({id: 'label1', latex: 'f(x)=\\sin(bx)', color: '#2563eb', showLabel: true, label: 'f(x)=sin(bx)', hidden: true});
+        calc.setMathBounds({left: -2*Math.PI, right: 2*Math.PI, bottom: -6, top: 6});
+    })();
+    </script>
+    <script>
+    (function() {
+        var elt = document.getElementById('implicit-curves');
+        var calc = Desmos.GraphingCalculator(elt, {expressions: true, settingsMenu: false, zoomButtons: true});
+        calc.setExpression({id: 'r', latex: 'r = 3', sliderBounds: {min: '1', max: '5', step: '0.1'}});
+        calc.setExpression({id: 'circle', latex: 'x^2 + y^2 = r^2', color: '#2563eb'});
+        calc.setExpression({id: 'theta', latex: '\\theta_0 = 0.8', sliderBounds: {min: '0', max: '6.28', step: '0.05'}});
+        calc.setExpression({id: 'px', latex: 'p = r\\cos(\\theta_0)', hidden: true});
+        calc.setExpression({id: 'py', latex: 'q = r\\sin(\\theta_0)', hidden: true});
+        calc.setExpression({id: 'point', latex: '(p, q)', color: '#dc2626', pointSize: 12});
+        calc.setExpression({id: 'tangent', latex: 'y - q = -\\frac{p}{q}(x - p)', color: '#dc2626', lineStyle: Desmos.Styles.DASHED});
+        calc.setMathBounds({left: -6, right: 6, bottom: -6, top: 6});
+    })();
+    </script>
+</body>
+</html>

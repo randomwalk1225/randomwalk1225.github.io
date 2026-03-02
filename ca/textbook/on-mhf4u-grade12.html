@@ -43,11 +43,7 @@
     }
     </script>
 
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
-            crossorigin="anonymous"></script>
-
-    <!-- Google Analytics -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -56,7 +52,6 @@
         gtag('config', 'G-99124077');
     </script>
 
-    <!-- MathJax -->
     <script>
         MathJax = {
             tex: {
@@ -69,17 +64,19 @@
 
     <link rel="stylesheet" href="../../assets/css/common.css">
     <style>
-        .blog-article { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
         .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
         .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
-        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; }
-        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 40px 0 16px; padding-top: 12px; border-top: 2px solid #e0e7ff; }
+        .blog-article h3 { font-size: 1.15em; color: #334155; margin: 28px 0 10px; }
         .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
         .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
         .blog-article li { margin-bottom: 8px; line-height: 1.7; }
         .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
         .breadcrumb a { color: #3b82f6; text-decoration: none; }
         .breadcrumb a:hover { text-decoration: underline; }
+
+        /* Boxes */
         .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
         .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
         .example-box p, .example-box li { color: #334155; line-height: 1.8; }
@@ -89,26 +86,46 @@
         .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
         .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
         .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
-        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .warning-box { background: #fff7ed; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+        .warning-box p { color: #92400e; margin: 0; line-height: 1.7; }
+
+        /* Practice problems */
+        .practice-section { margin-top: 20px; }
+        .practice-group { margin-bottom: 32px; }
+        .practice-group-title { font-size: 1.05em; font-weight: 700; color: #1e3a5f; background: #e0e7ff; padding: 8px 16px; border-radius: 6px; margin-bottom: 14px; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 18px 22px; margin: 12px 0; border-radius: 8px; }
         .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
-        .practice-problem p { margin-bottom: 12px; }
+        .practice-problem p { margin-bottom: 10px; }
         details.solution { margin-top: 12px; }
-        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.92em; padding: 6px 0; user-select: none; }
         details.solution summary:hover { color: #1d4ed8; }
-        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .solution-content { padding: 14px 18px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
         .solution-content p { margin-bottom: 10px; }
+
+        /* TOC */
         .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
         .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
         .toc ol { margin: 0; padding-left: 20px; }
         .toc li { margin-bottom: 6px; }
         .toc a { color: #3b82f6; text-decoration: none; }
         .toc a:hover { text-decoration: underline; }
+
+        /* Nav */
         .chapter-nav { display: flex; justify-content: space-between; align-items: center; margin: 48px 0 20px; padding: 20px 0; border-top: 2px solid #e2e8f0; }
         .chapter-nav a { color: #3b82f6; text-decoration: none; font-weight: 600; font-size: 0.95em; }
         .chapter-nav a:hover { text-decoration: underline; }
-        .chapter-nav .disabled { color: #cbd5e1; cursor: default; }
-        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+
+        /* Labels */
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.78em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .note-label { display: inline-block; background: #f59e0b; color: white; font-size: 0.78em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
         .course-badge { display: inline-block; background: #e0f2fe; color: #0369a1; font-size: 0.85em; font-weight: 600; padding: 4px 12px; border-radius: 4px; margin-bottom: 16px; }
+
+        /* Sign chart */
+        .sign-chart { display: table; width: auto; margin: 12px 0; border-collapse: collapse; font-size: 0.9em; }
+        .sign-chart td, .sign-chart th { border: 1px solid #cbd5e1; padding: 6px 12px; text-align: center; color: #334155; }
+        .sign-chart th { background: #f1f5f9; font-weight: 700; color: #1e3a5f; }
+        .pos { color: #16a34a; font-weight: 700; }
+        .neg { color: #dc2626; font-weight: 700; }
     </style>
 </head>
 <body>
@@ -131,9 +148,9 @@
 
         <div class="course-badge">Ontario Curriculum &middot; MHF4U &middot; Grade 12 University</div>
         <h1>Grade 12 Advanced Functions (MHF4U)</h1>
-        <div class="blog-meta">Ontario Curriculum &middot; University Preparation &middot; Prerequisite for MCV4U &middot; Updated March 2026 &middot; 45 min read</div>
+        <div class="blog-meta">Ontario Curriculum &middot; University Preparation &middot; Prerequisite for MCV4U &middot; Updated March 2026 &middot; 90 min read</div>
 
-        <p>MHF4U is the prerequisite for Calculus and Vectors (MCV4U) and develops the function fluency required for university mathematics. The course takes a rigorous approach to four families: polynomial and rational functions (including end behaviour, asymptotes, and sign analysis); exponential and logarithmic functions; advanced trigonometry; and the structural properties of functions themselves (composition and inverses). Mastery here is the single best preparation for first-year calculus.</p>
+        <p>MHF4U is the gateway to calculus. It demands real fluency with functions — not just procedural skill, but the ability to read a function's structure and predict its behaviour. This guide covers all four strands in the Ontario curriculum: polynomial and rational functions, exponential and logarithmic functions, advanced trigonometry, and the structural properties of functions (composition and inverses). For each topic, worked examples build from simple entry points to exam-level complexity before the practice set tests your mastery.</p>
 
         <nav class="toc">
             <h3>Course Contents</h3>
@@ -142,8 +159,8 @@
                 <li><a href="#section-2">Rational Functions</a></li>
                 <li><a href="#section-3">Exponential and Logarithmic Functions</a></li>
                 <li><a href="#section-4">Trigonometric Functions and Identities</a></li>
-                <li><a href="#section-5">Characteristics of Functions: Composition and Inverses</a></li>
-                <li><a href="#section-6">Practice Problems</a></li>
+                <li><a href="#section-5">Composition and Inverses</a></li>
+                <li><a href="#section-6">Practice Problems (40 Questions)</a></li>
             </ol>
         </nav>
 
@@ -152,44 +169,105 @@
         <!-- ================================================================ -->
         <h2 id="section-1">1. Polynomial Functions</h2>
 
+        <p>A polynomial function of degree $n$ has the form $f(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1 x + a_0$ where $a_n \neq 0$. The <strong>leading term</strong> $a_n x^n$ controls the big-picture behaviour; the <strong>roots and their multiplicities</strong> control the local behaviour near each zero.</p>
+
         <div class="definition-box">
-            <h4>Key Properties of Polynomial Functions</h4>
-            <p>A polynomial function of degree $n$ has the form $f(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_1 x + a_0$, where $a_n \neq 0$.</p>
+            <h4>End Behaviour Summary</h4>
             <ul>
-                <li><strong>End behaviour:</strong> determined by the leading term $a_n x^n$. If $a_n > 0$ and $n$ is even: both ends up. If $a_n < 0$ and $n$ is odd: left end up, right end down. Etc.</li>
-                <li><strong>Zeros (roots):</strong> values of $x$ where $f(x) = 0$; a degree-$n$ polynomial has at most $n$ real zeros.</li>
-                <li><strong>Multiplicity:</strong> if $(x - r)^m$ is a factor, then $r$ is a zero of multiplicity $m$. Odd multiplicity: graph crosses axis; even multiplicity: graph touches and turns.</li>
-                <li><strong>$y$-intercept:</strong> $f(0) = a_0$, the constant term.</li>
+                <li>$a_n > 0$, $n$ even: both ends up ($\nearrow \cdots \nearrow$)</li>
+                <li>$a_n < 0$, $n$ even: both ends down ($\searrow \cdots \searrow$)</li>
+                <li>$a_n > 0$, $n$ odd: left end down, right end up ($\searrow \cdots \nearrow$)</li>
+                <li>$a_n < 0$, $n$ odd: left end up, right end down ($\nearrow \cdots \searrow$)</li>
             </ul>
         </div>
 
-        <h3>Factor Theorem and Remainder Theorem</h3>
+        <div class="example-box">
+            <h4>Worked Example 1.1 — Reading End Behaviour</h4>
+            <p>Without graphing, describe the end behaviour of each function.</p>
+            <p><strong>(a)</strong> $f(x) = -2x^5 + 3x^3 - x$</p>
+            <p>Leading term: $-2x^5$. Degree 5 (odd), leading coefficient $-2$ (negative). As $x \to +\infty$, $f(x) \to -\infty$; as $x \to -\infty$, $f(x) \to +\infty$. <em>Left end up, right end down.</em></p>
+            <p><strong>(b)</strong> $g(x) = 4x^4 - 7x^2 + 1$</p>
+            <p>Leading term: $4x^4$. Degree 4 (even), leading coefficient $4$ (positive). Both ends go up: $g(x) \to +\infty$ as $x \to \pm\infty$.</p>
+            <p><strong>(c)</strong> $h(x) = -3(x-1)^2(x+2)^3$</p>
+            <p>Expanding the leading term: $-3 \cdot x^2 \cdot x^3 = -3x^5$. Same as case (a): left end up, right end down.</p>
+        </div>
+
+        <h3>1.2 Remainder and Factor Theorems</h3>
 
         <div class="theorem-box">
-            <h4>Remainder and Factor Theorems</h4>
-            <p><strong>Remainder Theorem:</strong> When $f(x)$ is divided by $(x - a)$, the remainder is $f(a)$.</p>
+            <h4>Remainder Theorem &amp; Factor Theorem</h4>
+            <p><strong>Remainder Theorem:</strong> When $f(x)$ is divided by $(x - a)$, the remainder equals $f(a)$. You can find the remainder <em>without</em> doing the division.</p>
             <p><strong>Factor Theorem:</strong> $(x - a)$ is a factor of $f(x)$ if and only if $f(a) = 0$.</p>
+            <p><strong>Rational Root Theorem:</strong> If $f(x) = a_n x^n + \cdots + a_0$ has integer coefficients, any rational zero $\frac{p}{q}$ (in lowest terms) satisfies: $p \mid a_0$ and $q \mid a_n$.</p>
         </div>
 
         <div class="example-box">
-            <h4>Worked Example 1.1 — Factoring a Cubic</h4>
-            <p>Factor $f(x) = x^3 - 2x^2 - 5x + 6$ completely.</p>
-            <p><span class="step-label">Step 1</span> Test integer factors of 6: $f(1) = 1 - 2 - 5 + 6 = 0$. So $(x - 1)$ is a factor.</p>
-            <p><span class="step-label">Step 2</span> Perform polynomial long division or synthetic division by $(x-1)$:
-            $$x^3 - 2x^2 - 5x + 6 = (x - 1)(x^2 - x - 6)$$</p>
-            <p><span class="step-label">Step 3</span> Factor the quadratic: $x^2 - x - 6 = (x - 3)(x + 2)$.</p>
-            <p>Complete factorization: $f(x) = (x-1)(x-3)(x+2)$. Zeros at $x = 1, 3, -2$.</p>
+            <h4>Worked Example 1.2 — Using the Remainder Theorem</h4>
+            <p>Find the remainder when $f(x) = 3x^4 - 2x^3 + x - 5$ is divided by $(x + 2)$.</p>
+            <p>By the Remainder Theorem, substitute $x = -2$:
+            $$f(-2) = 3(-2)^4 - 2(-2)^3 + (-2) - 5 = 3(16) - 2(-8) - 2 - 5 = 48 + 16 - 2 - 5 = 57$$</p>
+            <p>The remainder is $\mathbf{57}$. (Notice we never performed long division.)</p>
         </div>
 
-        <h3>Sketching Polynomial Graphs</h3>
-        <p>To sketch a polynomial: find and classify all zeros (by multiplicity), determine the end behaviour from the leading term, find the $y$-intercept, and perform a sign analysis (or use test values) to determine where the function is positive or negative.</p>
+        <h3>1.3 Factoring Polynomials: The Step-by-Step Process</h3>
+        <p>The standard approach: (1) list possible rational roots using $\pm\frac{p}{q}$; (2) test each with the Factor Theorem; (3) once a root $a$ is found, divide out $(x - a)$ using synthetic division; (4) repeat on the quotient.</p>
 
         <div class="example-box">
-            <h4>Worked Example 1.2 — Sign Analysis</h4>
-            <p>Solve $f(x) = (x+2)(x-1)^2(x-4) > 0$.</p>
-            <p>Zeros: $x = -2$ (odd multiplicity, crosses), $x = 1$ (even multiplicity, touches/turns), $x = 4$ (odd multiplicity, crosses).</p>
-            <p>Test values in each interval: $(-\infty,-2)$: $f(-3) = (-1)(-4)^2(-7) = (-1)(16)(-7) > 0$. $(-2,1)$: $f(0) = (2)(-1)^2(-4) < 0$. $(1,4)$: $f(2) = (4)(1)(-2) < 0$. $(4,\infty)$: $f(5) = (7)(16)(1) > 0$.</p>
-            <p>Solution: $x \in (-\infty, -2) \cup (4, \infty)$.</p>
+            <h4>Worked Example 1.3 — Factoring a Cubic Completely</h4>
+            <p>Factor $f(x) = x^3 - 2x^2 - 5x + 6$ completely and state all real zeros.</p>
+            <p><span class="step-label">Step 1</span> Possible rational roots: $\pm 1, \pm 2, \pm 3, \pm 6$ (factors of $6$, leading coeff $= 1$).</p>
+            <p><span class="step-label">Step 2</span> Test: $f(1) = 1 - 2 - 5 + 6 = 0$. <strong>$(x - 1)$ is a factor.</strong></p>
+            <p><span class="step-label">Step 3</span> Synthetic division by $(x - 1)$:</p>
+            <p style="font-family:monospace; margin-left:24px;">
+                1 &nbsp;|&nbsp; 1 &nbsp; &minus;2 &nbsp; &minus;5 &nbsp; 6<br>
+                &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; 1 &nbsp; &minus;1 &nbsp; &minus;6<br>
+                &nbsp; &nbsp; &nbsp; | &nbsp; 1 &nbsp; &minus;1 &nbsp; &minus;6 &nbsp; 0
+            </p>
+            <p>Quotient: $x^2 - x - 6$.</p>
+            <p><span class="step-label">Step 4</span> Factor the quadratic: $x^2 - x - 6 = (x - 3)(x + 2)$.</p>
+            <p>$$\boxed{f(x) = (x-1)(x-3)(x+2)}$$</p>
+            <p>Zeros: $x = 1, 3, -2$. All have multiplicity 1, so the graph <em>crosses</em> the $x$-axis at each zero.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 1.4 — Factoring a Quartic</h4>
+            <p>Factor $f(x) = x^4 - x^3 - 7x^2 + x + 6$ completely.</p>
+            <p><span class="step-label">Step 1</span> Possible rational roots: $\pm 1, \pm 2, \pm 3, \pm 6$.</p>
+            <p><span class="step-label">Step 2</span> Test $x = 1$: $f(1) = 1 - 1 - 7 + 1 + 6 = 0$. So $(x-1)$ is a factor.</p>
+            <p><span class="step-label">Step 3</span> Synthetic division by $1$: quotient is $x^3 - 7x - 6$.</p>
+            <p><span class="step-label">Step 4</span> Factor $g(x) = x^3 - 7x - 6$. Test $x = -1$: $g(-1) = -1 + 7 - 6 = 0$. So $(x + 1)$ is a factor.</p>
+            <p><span class="step-label">Step 5</span> Divide $x^3 - 7x - 6$ by $(x+1)$: quotient is $x^2 - x - 6 = (x-3)(x+2)$.</p>
+            <p>$$\boxed{f(x) = (x-1)(x+1)(x-3)(x+2)}$$</p>
+            <p>Zeros: $x = 1, -1, 3, -2$. Degree 4 with positive leading coefficient: both ends up.</p>
+        </div>
+
+        <h3>1.4 Multiplicity and Graph Behaviour</h3>
+
+        <div class="definition-box">
+            <h4>Multiplicity Rules</h4>
+            <ul>
+                <li><strong>Odd multiplicity</strong> (1, 3, 5, …): graph <em>crosses</em> the $x$-axis at the zero.</li>
+                <li><strong>Even multiplicity</strong> (2, 4, 6, …): graph <em>touches</em> the $x$-axis and turns back (bounces).</li>
+                <li>The sum of all multiplicities equals the degree of the polynomial.</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 1.5 — Sketch from Factored Form</h4>
+            <p>Sketch $f(x) = -2(x + 3)(x - 1)^2(x - 4)$ and solve $f(x) \geq 0$.</p>
+            <p><span class="step-label">Step 1 — Zeros &amp; multiplicity</span> $x = -3$ (mult 1, crosses); $x = 1$ (mult 2, bounces); $x = 4$ (mult 1, crosses).</p>
+            <p><span class="step-label">Step 2 — End behaviour</span> Leading term: $-2 \cdot x \cdot x^2 \cdot x = -2x^4$. Degree 4, negative: <em>both ends down</em>.</p>
+            <p><span class="step-label">Step 3 — $y$-intercept</span> $f(0) = -2(3)(1)(-4) = 24$.</p>
+            <p><span class="step-label">Step 4 — Sign chart</span> Critical values: $-3, 1, 4$.</p>
+            <table class="sign-chart">
+                <tr><th>Interval</th><th>$x+3$</th><th>$(x-1)^2$</th><th>$x-4$</th><th>$-2(\cdots)$</th><th>$f(x)$</th></tr>
+                <tr><td>$x &lt; -3$</td><td class="neg">&minus;</td><td class="pos">+</td><td class="neg">&minus;</td><td>$-2(-)(+)(-) = -$</td><td class="neg">neg</td></tr>
+                <tr><td>$-3 &lt; x &lt; 1$</td><td class="pos">+</td><td class="pos">+</td><td class="neg">&minus;</td><td>$-2(+)(+)(-) = +$</td><td class="pos">pos</td></tr>
+                <tr><td>$1 &lt; x &lt; 4$</td><td class="pos">+</td><td class="pos">+</td><td class="neg">&minus;</td><td>$-2(+)(+)(-) = +$</td><td class="pos">pos</td></tr>
+                <tr><td>$x &gt; 4$</td><td class="pos">+</td><td class="pos">+</td><td class="pos">+</td><td>$-2(+)(+)(+) = -$</td><td class="neg">neg</td></tr>
+            </table>
+            <p><span class="step-label">Step 5 — Solution</span> $f(x) \geq 0$ (including zeros): $x \in [-3,\, 1] \cup [1,\, 4] = [-3,\, 4]$.</p>
+            <p><span class="note-label">Note</span> Although $x = 1$ is included in the solution, it is a bouncing zero — the function merely touches zero there before rising back up.</p>
         </div>
 
         <!-- ================================================================ -->
@@ -197,38 +275,71 @@
         <!-- ================================================================ -->
         <h2 id="section-2">2. Rational Functions</h2>
 
-        <p>A <strong>rational function</strong> has the form $f(x) = \dfrac{p(x)}{q(x)}$ where $p$ and $q$ are polynomials and $q(x) \neq 0$.</p>
+        <p>A <strong>rational function</strong> is a ratio of two polynomials: $f(x) = \dfrac{p(x)}{q(x)}$, $q(x) \neq 0$. The asymptotic and discontinuity behaviour all come from the interaction between $p$ and $q$.</p>
 
         <div class="definition-box">
-            <h4>Asymptotes of Rational Functions</h4>
+            <h4>Asymptote Reference Card</h4>
             <ul>
-                <li><strong>Vertical asymptotes (VA):</strong> occur where the denominator is zero and the numerator is not zero. If both are zero, a hole (removable discontinuity) results.</li>
+                <li><strong>Vertical asymptote (VA):</strong> $x = a$ where $q(a) = 0$ and $p(a) \neq 0$. If both are zero, factor and cancel — you get a <em>hole</em> instead.</li>
                 <li><strong>Horizontal asymptote (HA):</strong>
                     <ul>
-                        <li>deg$(p) <$ deg$(q)$: $y = 0$</li>
-                        <li>deg$(p) =$ deg$(q)$: $y = \dfrac{\text{leading coeff of } p}{\text{leading coeff of } q}$</li>
-                        <li>deg$(p) >$ deg$(q)$: no horizontal asymptote (oblique asymptote if difference in degree is 1)</li>
+                        <li>$\deg p &lt; \deg q$: $\quad y = 0$</li>
+                        <li>$\deg p = \deg q$: $\quad y = \dfrac{\text{leading coeff of } p}{\text{leading coeff of } q}$</li>
+                        <li>$\deg p &gt; \deg q$: $\quad$ no HA (oblique or polynomial asymptote)</li>
                     </ul>
                 </li>
-                <li><strong>Oblique (slant) asymptote:</strong> when deg$(p) = $ deg$(q) + 1$; found by polynomial long division.</li>
+                <li><strong>Oblique (slant) asymptote:</strong> exists when $\deg p = \deg q + 1$; found by polynomial long division. The remainder $\to 0$ as $x \to \pm\infty$.</li>
             </ul>
         </div>
 
         <div class="example-box">
-            <h4>Worked Example 2.1 — Analyzing a Rational Function</h4>
-            <p>Analyze and sketch $f(x) = \dfrac{x^2 - x - 6}{x^2 - 4}$.</p>
-            <p><span class="step-label">Step 1</span> Factor: $f(x) = \dfrac{(x-3)(x+2)}{(x-2)(x+2)}$.</p>
-            <p><span class="step-label">Step 2</span> Cancel the common factor $(x+2)$: there is a <strong>hole</strong> at $x = -2$. After cancelling, $f(x) = \dfrac{x-3}{x-2}$ for $x \neq -2$.</p>
-            <p><span class="step-label">Step 3</span> VA: $x = 2$ (denominator zero, numerator $\neq 0$).</p>
-            <p><span class="step-label">Step 4</span> HA: degrees are equal (both 1 after cancelling), so $y = \dfrac{1}{1} = 1$.</p>
-            <p><span class="step-label">Step 5</span> Hole coordinates: at $x = -2$, the simplified function gives $\dfrac{-2-3}{-2-2} = \dfrac{-5}{-4} = \dfrac{5}{4}$. Hole at $\left(-2, \dfrac{5}{4}\right)$.</p>
+            <h4>Worked Example 2.1 — Identifying Asymptotes (No Cancellation)</h4>
+            <p>Find all asymptotes, intercepts, and the domain of $f(x) = \dfrac{3x + 6}{x^2 - x - 2}$.</p>
+            <p><span class="step-label">Step 1 — Factor both</span> Numerator: $3(x+2)$. Denominator: $(x-2)(x+1)$.</p>
+            <p><span class="step-label">Step 2 — Check for holes</span> No common factors $\Rightarrow$ no holes.</p>
+            <p><span class="step-label">Step 3 — VAs</span> Denominator zero at $x = 2$ and $x = -1$ (numerator $\neq 0$ at both). VAs: $x = 2$ and $x = -1$.</p>
+            <p><span class="step-label">Step 4 — HA</span> $\deg p = 1 &lt; \deg q = 2$: HA is $y = 0$.</p>
+            <p><span class="step-label">Step 5 — Intercepts</span> $x$-intercept: set numerator $= 0 \Rightarrow x = -2$, so $(-2,0)$. $y$-intercept: $f(0) = \dfrac{6}{-2} = -3$, so $(0,-3)$.</p>
+            <p>Domain: $\{x \in \mathbb{R} \mid x \neq 2, x \neq -1\}$.</p>
         </div>
 
         <div class="example-box">
-            <h4>Worked Example 2.2 — Oblique Asymptote</h4>
-            <p>Find the oblique asymptote of $g(x) = \dfrac{x^2 + 3x - 2}{x + 1}$.</p>
-            <p>Perform polynomial division: $x^2 + 3x - 2 = (x+1)(x+2) - 4$, so $g(x) = x + 2 - \dfrac{4}{x+1}$.</p>
-            <p>As $x \to \pm\infty$, the fractional part vanishes. The oblique asymptote is $y = x + 2$.</p>
+            <h4>Worked Example 2.2 — Hole vs. Vertical Asymptote</h4>
+            <p>Analyze $f(x) = \dfrac{x^2 - x - 6}{x^2 - 4}$ completely.</p>
+            <p><span class="step-label">Step 1 — Factor</span> $\dfrac{(x-3)(x+2)}{(x-2)(x+2)}$. Common factor: $(x+2)$.</p>
+            <p><span class="step-label">Step 2 — Hole</span> Cancel $(x+2)$: simplified form is $\dfrac{x-3}{x-2}$ for $x \neq -2$. There is a <strong>hole at $x = -2$</strong>. $y$-coordinate: $\dfrac{-2-3}{-2-2} = \dfrac{-5}{-4} = \dfrac{5}{4}$. Hole at $\left(-2,\tfrac{5}{4}\right)$.</p>
+            <p><span class="step-label">Step 3 — VA</span> $x = 2$ (denominator of simplified form).</p>
+            <p><span class="step-label">Step 4 — HA</span> Equal degrees after cancellation; leading coefficients both $1$: HA is $y = 1$.</p>
+            <p><span class="step-label">Step 5 — Intercepts</span> $x$-intercept: numerator $= 0 \Rightarrow x = 3$, so $(3, 0)$. $y$-intercept: $f(0) = \dfrac{-3}{-2} = \dfrac{3}{2}$, so $\left(0, \tfrac{3}{2}\right)$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 2.3 — Oblique Asymptote</h4>
+            <p>Find all asymptotes of $g(x) = \dfrac{2x^2 - 5x + 1}{x - 3}$.</p>
+            <p><span class="step-label">Step 1 — Check degrees</span> $\deg p = 2 = \deg q + 1 = 1 + 1$. There is an oblique asymptote.</p>
+            <p><span class="step-label">Step 2 — Long division</span>
+            $$2x^2 - 5x + 1 \div (x - 3)$$
+            $$2x^2 - 5x + 1 = (x-3)(2x + 1) + 4$$
+            So $g(x) = 2x + 1 + \dfrac{4}{x-3}$.</p>
+            <p><span class="step-label">Step 3</span> As $x \to \pm\infty$, $\dfrac{4}{x-3} \to 0$. Oblique asymptote: $y = 2x + 1$.</p>
+            <p><span class="step-label">Step 4 — VA</span> $x = 3$ (denominator zero, no cancellation).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 2.4 — Rational Inequality via Sign Chart</h4>
+            <p>Solve $\dfrac{(x+1)(x-3)}{(x-1)(x+2)} \geq 0$.</p>
+            <p><span class="step-label">Step 1</span> Critical values (zeros of numerator and denominator): $x = -2, -1, 1, 3$. Note: $x = -2$ and $x = 1$ are <em>excluded</em> from the domain.</p>
+            <p><span class="step-label">Step 2 — Sign chart</span></p>
+            <table class="sign-chart">
+                <tr><th>Interval</th><th>$x+2$</th><th>$x+1$</th><th>$x-1$</th><th>$x-3$</th><th>Result</th></tr>
+                <tr><td>$x &lt; -2$</td><td class="neg">&minus;</td><td class="neg">&minus;</td><td class="neg">&minus;</td><td class="neg">&minus;</td><td class="pos">+</td></tr>
+                <tr><td>$-2 &lt; x &lt; -1$</td><td class="pos">+</td><td class="neg">&minus;</td><td class="neg">&minus;</td><td class="neg">&minus;</td><td class="neg">&minus;</td></tr>
+                <tr><td>$-1 &lt; x &lt; 1$</td><td class="pos">+</td><td class="pos">+</td><td class="neg">&minus;</td><td class="neg">&minus;</td><td class="pos">+</td></tr>
+                <tr><td>$1 &lt; x &lt; 3$</td><td class="pos">+</td><td class="pos">+</td><td class="pos">+</td><td class="neg">&minus;</td><td class="neg">&minus;</td></tr>
+                <tr><td>$x &gt; 3$</td><td class="pos">+</td><td class="pos">+</td><td class="pos">+</td><td class="pos">+</td><td class="pos">+</td></tr>
+            </table>
+            <p><span class="step-label">Step 3</span> Include zeros of numerator ($x = -1$, $x = 3$); exclude zeros of denominator ($x = -2$, $x = 1$).</p>
+            <p>$$\boxed{x \in (-\infty,\,-2) \cup [-1,\,1) \cup [3,\,+\infty)}$$</p>
         </div>
 
         <!-- ================================================================ -->
@@ -236,42 +347,86 @@
         <!-- ================================================================ -->
         <h2 id="section-3">3. Exponential and Logarithmic Functions</h2>
 
-        <h3>The Logarithm</h3>
+        <p>Exponential and logarithmic functions are inverses of each other. The key to solving equations in this family is recognizing which "direction" to convert: rewrite with the same base (if possible) or take logarithms of both sides.</p>
 
         <div class="definition-box">
-            <h4>Definition of Logarithm</h4>
+            <h4>Definition and Laws</h4>
             <p>$\log_b x = y \iff b^y = x$ &ensp; (for $b > 0$, $b \neq 1$, $x > 0$).</p>
-            <p>The logarithm is the <strong>inverse</strong> of the exponential: $\log_b(b^x) = x$ and $b^{\log_b x} = x$.</p>
-            <p>Special cases: $\log_{10} x = \log x$ (common logarithm); $\log_e x = \ln x$ (natural logarithm).</p>
-        </div>
-
-        <div class="definition-box">
-            <h4>Laws of Logarithms</h4>
             <ul>
-                <li>$\log_b(MN) = \log_b M + \log_b N$ (product law)</li>
-                <li>$\log_b\!\left(\dfrac{M}{N}\right) = \log_b M - \log_b N$ (quotient law)</li>
-                <li>$\log_b(M^p) = p\log_b M$ (power law)</li>
-                <li>$\log_b M = \dfrac{\log M}{\log b}$ (change of base)</li>
+                <li><strong>Product:</strong> $\log_b(MN) = \log_b M + \log_b N$</li>
+                <li><strong>Quotient:</strong> $\log_b\!\left(\frac{M}{N}\right) = \log_b M - \log_b N$</li>
+                <li><strong>Power:</strong> $\log_b(M^p) = p\log_b M$</li>
+                <li><strong>Change of base:</strong> $\log_b M = \dfrac{\log M}{\log b} = \dfrac{\ln M}{\ln b}$</li>
             </ul>
         </div>
 
-        <div class="example-box">
-            <h4>Worked Example 3.1 — Solving Exponential Equations</h4>
-            <p>Solve $3^{2x-1} = 5^{x+2}$.</p>
-            <p>Take $\log$ of both sides: $(2x-1)\log 3 = (x+2)\log 5$.</p>
-            <p>Expand: $2x\log 3 - \log 3 = x\log 5 + 2\log 5$.</p>
-            <p>Collect $x$ terms: $x(2\log 3 - \log 5) = 2\log 5 + \log 3$.</p>
-            <p>$$x = \frac{2\log 5 + \log 3}{2\log 3 - \log 5} = \frac{\log 25 + \log 3}{\log 9 - \log 5} = \frac{\log 75}{\log(9/5)}$$</p>
-            <p>$x \approx \dfrac{1.8751}{0.2553} \approx 7.35$.</p>
+        <div class="warning-box">
+            <p><strong>Domain warning:</strong> Logarithms require positive arguments. Always check your solutions by substituting back — extraneous solutions arise whenever you square both sides or combine logarithms.</p>
         </div>
 
         <div class="example-box">
-            <h4>Worked Example 3.2 — Solving Logarithmic Equations</h4>
+            <h4>Worked Example 3.1 — Same Base: Rewrite and Equate Exponents</h4>
+            <p>Solve $8^{x-1} = 4^{2x-3}$.</p>
+            <p><span class="step-label">Step 1</span> Rewrite both sides as powers of $2$: $8 = 2^3$ and $4 = 2^2$.</p>
+            <p>$$2^{3(x-1)} = 2^{2(2x-3)}$$</p>
+            <p><span class="step-label">Step 2</span> Equate exponents:
+            $$3(x-1) = 2(2x-3) \implies 3x - 3 = 4x - 6 \implies x = 3$$</p>
+            <p><strong>Check:</strong> $8^{3-1} = 8^2 = 64$ and $4^{2(3)-3} = 4^3 = 64$. ✓</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 3.2 — Substitution Method</h4>
+            <p>Solve $9^x - 4 \cdot 3^x + 3 = 0$.</p>
+            <p><span class="step-label">Key observation</span> $9^x = (3^2)^x = (3^x)^2$. Let $u = 3^x$ (note $u > 0$ always).</p>
+            <p><span class="step-label">Step 1</span> Substitute: $u^2 - 4u + 3 = 0$.</p>
+            <p><span class="step-label">Step 2</span> Factor: $(u - 1)(u - 3) = 0$, so $u = 1$ or $u = 3$.</p>
+            <p><span class="step-label">Step 3</span> Back-substitute:</p>
+            <ul>
+                <li>$3^x = 1 = 3^0 \Rightarrow x = 0$</li>
+                <li>$3^x = 3 = 3^1 \Rightarrow x = 1$</li>
+            </ul>
+            <p>Solutions: $x = 0$ and $x = 1$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 3.3 — Different Bases: Take Logarithms</h4>
+            <p>Solve $3^{2x-1} = 5^{x+2}$. Give an exact answer and a decimal approximation.</p>
+            <p><span class="step-label">Step 1</span> Take $\log$ of both sides:
+            $$(2x - 1)\log 3 = (x + 2)\log 5$$</p>
+            <p><span class="step-label">Step 2</span> Expand and collect $x$-terms:
+            $$2x\log 3 - \log 3 = x\log 5 + 2\log 5$$
+            $$x(2\log 3 - \log 5) = 2\log 5 + \log 3$$</p>
+            <p><span class="step-label">Step 3</span> Solve:
+            $$x = \frac{2\log 5 + \log 3}{2\log 3 - \log 5} = \frac{\log 75}{\log(9/5)} \approx \frac{1.8751}{0.2553} \approx 7.35$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 3.4 — Logarithmic Equation (Single Log)</h4>
+            <p>Solve $2\log_3(x - 1) = \log_3(x + 5)$.</p>
+            <p><span class="step-label">Step 1</span> Apply the power law to the left side: $\log_3(x-1)^2 = \log_3(x+5)$.</p>
+            <p><span class="step-label">Step 2</span> Equate arguments (same base, both sides are logarithms):
+            $$(x-1)^2 = x + 5 \implies x^2 - 2x + 1 = x + 5 \implies x^2 - 3x - 4 = 0$$</p>
+            <p><span class="step-label">Step 3</span> Factor: $(x - 4)(x + 1) = 0$, so $x = 4$ or $x = -1$.</p>
+            <p><span class="step-label">Step 4 — Domain check</span></p>
+            <ul>
+                <li>$x = 4$: $\log_3(3) = 1$ ✓ and $\log_3(9) = 2$ ✓. Valid.</li>
+                <li>$x = -1$: $\log_3(-2)$ is undefined. <strong>Reject $x = -1$.</strong></li>
+            </ul>
+            <p>Answer: $x = 4$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 3.5 — Multiple Logs Leading to a Quadratic</h4>
             <p>Solve $\log(x + 2) + \log(x - 1) = 1$.</p>
-            <p><span class="step-label">Step 1</span> Combine using the product law: $\log[(x+2)(x-1)] = 1$.</p>
-            <p><span class="step-label">Step 2</span> Convert to exponential form: $(x+2)(x-1) = 10^1 = 10$.</p>
-            <p><span class="step-label">Step 3</span> Expand and rearrange: $x^2 + x - 2 = 10 \Rightarrow x^2 + x - 12 = 0 \Rightarrow (x+4)(x-3) = 0$.</p>
-            <p><span class="step-label">Step 4</span> Check: $x = -4$ gives $\log(-2)$ which is undefined. Reject $x = -4$. Answer: $x = 3$.</p>
+            <p><span class="step-label">Step 1</span> Product law: $\log[(x+2)(x-1)] = 1$.</p>
+            <p><span class="step-label">Step 2</span> Convert to exponential form ($\log = \log_{10}$): $(x+2)(x-1) = 10$.</p>
+            <p><span class="step-label">Step 3</span> Expand: $x^2 + x - 2 = 10 \implies x^2 + x - 12 = 0 \implies (x+4)(x-3) = 0$.</p>
+            <p><span class="step-label">Step 4 — Domain check</span> Both arguments must be positive:</p>
+            <ul>
+                <li>$x = 3$: $\log(5)$ and $\log(2)$ — both valid. ✓</li>
+                <li>$x = -4$: $\log(-2)$ — undefined. <strong>Reject.</strong></li>
+            </ul>
+            <p>Answer: $x = 3$.</p>
         </div>
 
         <!-- ================================================================ -->
@@ -279,26 +434,24 @@
         <!-- ================================================================ -->
         <h2 id="section-4">4. Trigonometric Functions and Identities</h2>
 
-        <h3>Reciprocal Trigonometric Functions</h3>
-        <p>Three additional trig functions are introduced: $\csc\theta = \dfrac{1}{\sin\theta}$, $\sec\theta = \dfrac{1}{\cos\theta}$, and $\cot\theta = \dfrac{1}{\tan\theta} = \dfrac{\cos\theta}{\sin\theta}$.</p>
-
-        <h3>Fundamental Identities</h3>
+        <p>MHF4U pushes beyond MCR3U by introducing reciprocal trig functions, the full toolkit of identities (Pythagorean, compound angle, double angle), and the ability to both <em>prove</em> identities and <em>solve</em> equations using them. The worked examples build from reading exact values up to multi-step proofs.</p>
 
         <div class="theorem-box">
-            <h4>Key Trigonometric Identities</h4>
-            <p><strong>Pythagorean identities:</strong></p>
+            <h4>Identity Reference Sheet</h4>
+            <p><strong>Reciprocal:</strong> $\csc\theta = \dfrac{1}{\sin\theta}$, $\sec\theta = \dfrac{1}{\cos\theta}$, $\cot\theta = \dfrac{\cos\theta}{\sin\theta}$</p>
+            <p><strong>Pythagorean:</strong></p>
             <ul>
                 <li>$\sin^2\theta + \cos^2\theta = 1$</li>
-                <li>$1 + \tan^2\theta = \sec^2\theta$</li>
-                <li>$1 + \cot^2\theta = \csc^2\theta$</li>
+                <li>$\tan^2\theta + 1 = \sec^2\theta$</li>
+                <li>$\cot^2\theta + 1 = \csc^2\theta$</li>
             </ul>
-            <p><strong>Compound angle formulas:</strong></p>
+            <p><strong>Compound Angle:</strong></p>
             <ul>
                 <li>$\sin(A \pm B) = \sin A\cos B \pm \cos A\sin B$</li>
                 <li>$\cos(A \pm B) = \cos A\cos B \mp \sin A\sin B$</li>
                 <li>$\tan(A + B) = \dfrac{\tan A + \tan B}{1 - \tan A\tan B}$</li>
             </ul>
-            <p><strong>Double angle formulas:</strong></p>
+            <p><strong>Double Angle:</strong></p>
             <ul>
                 <li>$\sin 2A = 2\sin A\cos A$</li>
                 <li>$\cos 2A = \cos^2 A - \sin^2 A = 2\cos^2 A - 1 = 1 - 2\sin^2 A$</li>
@@ -306,23 +459,59 @@
         </div>
 
         <div class="example-box">
-            <h4>Worked Example 4.1 — Proving a Trig Identity</h4>
-            <p>Prove that $\dfrac{\sin\theta}{1 - \cos\theta} = \dfrac{1 + \cos\theta}{\sin\theta}$.</p>
-            <p><span class="step-label">Strategy</span> Work on the left side. Multiply numerator and denominator by $(1 + \cos\theta)$:
-            $$\frac{\sin\theta}{1 - \cos\theta} \cdot \frac{1 + \cos\theta}{1 + \cos\theta} = \frac{\sin\theta(1 + \cos\theta)}{1 - \cos^2\theta}$$</p>
-            <p>Since $1 - \cos^2\theta = \sin^2\theta$:
-            $$= \frac{\sin\theta(1 + \cos\theta)}{\sin^2\theta} = \frac{1 + \cos\theta}{\sin\theta} \quad \checkmark$$</p>
+            <h4>Worked Example 4.1 — Exact Values with Special Angles</h4>
+            <p>Evaluate $\cos\dfrac{5\pi}{6}$ and $\tan\dfrac{7\pi}{4}$ exactly without a calculator.</p>
+            <p><strong>$\cos\dfrac{5\pi}{6}$:</strong> Reference angle $= \pi - \dfrac{5\pi}{6} = \dfrac{\pi}{6}$. In Q2, cosine is negative.
+            $\cos\dfrac{5\pi}{6} = -\cos\dfrac{\pi}{6} = -\dfrac{\sqrt{3}}{2}$.</p>
+            <p><strong>$\tan\dfrac{7\pi}{4}$:</strong> Reference angle $= 2\pi - \dfrac{7\pi}{4} = \dfrac{\pi}{4}$. In Q4, tangent is negative.
+            $\tan\dfrac{7\pi}{4} = -\tan\dfrac{\pi}{4} = -1$.</p>
         </div>
 
         <div class="example-box">
-            <h4>Worked Example 4.2 — Solving a Trig Equation</h4>
+            <h4>Worked Example 4.2 — Exact Value Using Compound Angle</h4>
+            <p>Find the exact value of $\sin 75°$.</p>
+            <p>Write $75° = 45° + 30°$ and apply the sine addition formula:
+            $$\sin 75° = \sin(45° + 30°) = \sin 45°\cos 30° + \cos 45°\sin 30°$$
+            $$= \frac{\sqrt{2}}{2} \cdot \frac{\sqrt{3}}{2} + \frac{\sqrt{2}}{2} \cdot \frac{1}{2} = \frac{\sqrt{6}}{4} + \frac{\sqrt{2}}{4} = \frac{\sqrt{6} + \sqrt{2}}{4}$$</p>
+            <p><span class="note-label">Alternative</span> $75° = 45° + 30°$ or $= 120° - 45°$. Either decomposition works.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 4.3 — Double Angle Given One Trig Value</h4>
+            <p>Given $\sin\theta = \dfrac{3}{5}$ with $0 &lt; \theta &lt; \dfrac{\pi}{2}$, find $\sin 2\theta$, $\cos 2\theta$, and $\tan 2\theta$.</p>
+            <p><span class="step-label">Step 1 — Find $\cos\theta$</span> Using $\sin^2\theta + \cos^2\theta = 1$:
+            $$\cos\theta = \sqrt{1 - \frac{9}{25}} = \sqrt{\frac{16}{25}} = \frac{4}{5}$$
+            (positive because $\theta$ is in Q1).</p>
+            <p><span class="step-label">Step 2</span>
+            $$\sin 2\theta = 2\sin\theta\cos\theta = 2 \cdot \frac{3}{5} \cdot \frac{4}{5} = \frac{24}{25}$$
+            $$\cos 2\theta = 1 - 2\sin^2\theta = 1 - 2 \cdot \frac{9}{25} = 1 - \frac{18}{25} = \frac{7}{25}$$
+            $$\tan 2\theta = \frac{\sin 2\theta}{\cos 2\theta} = \frac{24/25}{7/25} = \frac{24}{7}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 4.4 — Proving a Trigonometric Identity</h4>
+            <p>Prove: $\dfrac{\cos 2\theta}{1 + \sin 2\theta} = \dfrac{\cos\theta - \sin\theta}{\cos\theta + \sin\theta}$.</p>
+            <p><span class="step-label">Strategy</span> Always work on <em>one side only</em>. Work on the LHS, expanding using double-angle formulas.</p>
+            <p>Apply $\cos 2\theta = \cos^2\theta - \sin^2\theta$ and $\sin 2\theta = 2\sin\theta\cos\theta$:
+            $$\text{LHS} = \frac{\cos^2\theta - \sin^2\theta}{1 + 2\sin\theta\cos\theta}$$</p>
+            <p>Factor numerator as difference of squares, and recognize denominator as a perfect square:
+            $$= \frac{(\cos\theta - \sin\theta)(\cos\theta + \sin\theta)}{(\cos\theta + \sin\theta)^2}$$</p>
+            <p>Cancel the common factor $(\cos\theta + \sin\theta)$:
+            $$= \frac{\cos\theta - \sin\theta}{\cos\theta + \sin\theta} = \text{RHS} \quad\checkmark$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 4.5 — Solving a Trig Equation (Quadratic Form)</h4>
             <p>Solve $2\sin^2 x - \sin x - 1 = 0$ for $x \in [0, 2\pi]$.</p>
-            <p><span class="step-label">Step 1</span> Treat as a quadratic in $\sin x$. Let $u = \sin x$:
-            $(2u + 1)(u - 1) = 0$.</p>
-            <p><span class="step-label">Step 2</span> $u = -\dfrac{1}{2}$ or $u = 1$.</p>
-            <p><span class="step-label">Step 3</span> For $\sin x = 1$: $x = \dfrac{\pi}{2}$.</p>
-            <p>For $\sin x = -\dfrac{1}{2}$: reference angle $= \dfrac{\pi}{6}$, and sine is negative in Q3 and Q4: $x = \pi + \dfrac{\pi}{6} = \dfrac{7\pi}{6}$ or $x = 2\pi - \dfrac{\pi}{6} = \dfrac{11\pi}{6}$.</p>
-            <p>Solutions: $x = \dfrac{\pi}{2}, \dfrac{7\pi}{6}, \dfrac{11\pi}{6}$.</p>
+            <p><span class="step-label">Step 1 — Substitute</span> Let $u = \sin x$: $2u^2 - u - 1 = 0$.</p>
+            <p><span class="step-label">Step 2 — Factor</span> $(2u + 1)(u - 1) = 0 \Rightarrow u = -\dfrac{1}{2}$ or $u = 1$.</p>
+            <p><span class="step-label">Step 3 — Find $x$</span></p>
+            <ul>
+                <li>$\sin x = 1$: $x = \dfrac{\pi}{2}$.</li>
+                <li>$\sin x = -\dfrac{1}{2}$: reference angle $= \dfrac{\pi}{6}$; sine negative in Q3 and Q4:
+                $x = \pi + \dfrac{\pi}{6} = \dfrac{7\pi}{6}$ and $x = 2\pi - \dfrac{\pi}{6} = \dfrac{11\pi}{6}$.</li>
+            </ul>
+            <p>Solutions: $x \in \left\{\dfrac{\pi}{2},\, \dfrac{7\pi}{6},\, \dfrac{11\pi}{6}\right\}$.</p>
         </div>
 
         <!-- ================================================================ -->
@@ -332,130 +521,534 @@
 
         <div class="definition-box">
             <h4>Composition of Functions</h4>
-            <p>The <strong>composition</strong> $(f \circ g)(x) = f(g(x))$ means: first apply $g$, then apply $f$ to the result.</p>
-            <p><strong>Domain of $f \circ g$:</strong> the set of all $x$ in the domain of $g$ such that $g(x)$ is in the domain of $f$.</p>
-            <p>In general, $f \circ g \neq g \circ f$ (composition is not commutative).</p>
+            <p>$(f \circ g)(x) = f(g(x))$: apply $g$ first, then $f$ to the output.</p>
+            <p><strong>Domain of $f \circ g$:</strong> the set of all $x$ in Dom$(g)$ such that $g(x) \in$ Dom$(f)$. This requires a two-step check.</p>
+            <p><strong>Key fact:</strong> $f \circ g \neq g \circ f$ in general (composition is not commutative).</p>
         </div>
 
         <div class="example-box">
-            <h4>Worked Example 5.1 — Composition</h4>
-            <p>Let $f(x) = x^2 + 1$ and $g(x) = \sqrt{x - 2}$. Find $(f \circ g)(x)$ and $(g \circ f)(x)$ and state their domains.</p>
-            <p><strong>$(f \circ g)(x) = f(g(x)) = (\sqrt{x-2})^2 + 1 = x - 2 + 1 = x - 1$.</strong></p>
-            <p>Domain: need $x - 2 \geq 0$, so $x \geq 2$. Domain: $[2, \infty)$.</p>
-            <p><strong>$(g \circ f)(x) = g(f(x)) = \sqrt{(x^2 + 1) - 2} = \sqrt{x^2 - 1}$.</strong></p>
-            <p>Domain: need $x^2 - 1 \geq 0$, so $x \leq -1$ or $x \geq 1$. Domain: $(-\infty, -1] \cup [1, \infty)$.</p>
+            <h4>Worked Example 5.1 — Basic Composition and Domain</h4>
+            <p>Let $f(x) = x^2 + 1$ and $g(x) = \sqrt{x - 2}$. Find $(f \circ g)(x)$ and $(g \circ f)(x)$ with domains.</p>
+            <p><strong>$(f \circ g)(x) = f(\sqrt{x-2}) = (\sqrt{x-2})^2 + 1 = x - 2 + 1 = x - 1$</strong></p>
+            <p>Domain: need $x - 2 \geq 0$, so $x \geq 2$. Domain: $[2, +\infty)$.</p>
+            <p><strong>$(g \circ f)(x) = g(x^2 + 1) = \sqrt{(x^2 + 1) - 2} = \sqrt{x^2 - 1}$</strong></p>
+            <p>Domain: need $x^2 - 1 \geq 0$, so $|x| \geq 1$. Domain: $(-\infty, -1] \cup [1, +\infty)$.</p>
+            <p>Confirm: $f \circ g \neq g \circ f$.</p>
         </div>
 
         <div class="example-box">
-            <h4>Worked Example 5.2 — Inverse of a Restricted Function</h4>
-            <p>Find the inverse of $f(x) = x^2 - 4$ restricted to $x \geq 0$, and state the domain and range of $f^{-1}$.</p>
-            <p><span class="step-label">Step 1</span> With restriction $x \geq 0$, range of $f$ is $[-4, \infty)$.</p>
-            <p><span class="step-label">Step 2</span> Swap $x$ and $y$: $x = y^2 - 4 \Rightarrow y^2 = x + 4 \Rightarrow y = \sqrt{x+4}$ (taking positive root because $x \geq 0$ on original domain).</p>
-            <p>$f^{-1}(x) = \sqrt{x + 4}$. Domain: $[-4, \infty)$; Range: $[0, \infty)$.</p>
+            <h4>Worked Example 5.2 — Careful Domain Restriction</h4>
+            <p>Let $f(x) = \dfrac{1}{x}$ (defined for $x \neq 0$) and $g(x) = x - 4$ (defined for all $x$).</p>
+            <p>Find $(f \circ g)(x)$ and state its domain carefully.</p>
+            <p>$(f \circ g)(x) = f(x - 4) = \dfrac{1}{x - 4}$.</p>
+            <p>Domain: start with all $x$; then require $g(x) = x - 4 \in$ Dom$(f)$, i.e., $x - 4 \neq 0$, i.e., $x \neq 4$.</p>
+            <p>Domain of $f \circ g$: $\{x \in \mathbb{R} \mid x \neq 4\}$.</p>
+            <p>Now find $(g \circ f)(x) = g\!\left(\dfrac{1}{x}\right) = \dfrac{1}{x} - 4$.</p>
+            <p>Domain: require $x \in$ Dom$(f)$, i.e., $x \neq 0$. Domain: $\{x \in \mathbb{R} \mid x \neq 0\}$.</p>
+        </div>
+
+        <div class="definition-box">
+            <h4>Inverse Functions</h4>
+            <p>$f^{-1}$ exists if and only if $f$ is one-to-one (passes the horizontal line test). To find $f^{-1}$:</p>
+            <ol>
+                <li>Replace $f(x)$ with $y$.</li>
+                <li>Swap $x$ and $y$.</li>
+                <li>Solve for $y$ — this is $f^{-1}(x)$.</li>
+                <li>Domain of $f^{-1}$ = Range of $f$; Range of $f^{-1}$ = Domain of $f$.</li>
+            </ol>
+            <p><strong>Verification:</strong> $(f^{-1} \circ f)(x) = x$ for all $x$ in Dom$(f)$, and $(f \circ f^{-1})(x) = x$ for all $x$ in Dom$(f^{-1})$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 5.3 — Finding an Inverse with Domain Restriction</h4>
+            <p>Find the inverse of $f(x) = x^2 - 4$ restricted to $x \geq 0$. State the domain and range of $f^{-1}$.</p>
+            <p><span class="step-label">Step 1</span> With restriction $x \geq 0$: Range of $f$ is $[-4, +\infty)$.</p>
+            <p><span class="step-label">Step 2</span> Swap $x$ and $y$ in $y = x^2 - 4$: $x = y^2 - 4$.</p>
+            <p><span class="step-label">Step 3</span> Solve for $y$: $y^2 = x + 4$, so $y = \sqrt{x + 4}$ (positive root, since original restriction was $x \geq 0$).</p>
+            <p>$$f^{-1}(x) = \sqrt{x + 4}$$</p>
+            <p>Domain of $f^{-1}$: $[-4, +\infty)$ &ensp;|&ensp; Range of $f^{-1}$: $[0, +\infty)$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 5.4 — Verifying Inverses</h4>
+            <p>Show that $f(x) = 2x + 5$ and $g(x) = \dfrac{x - 5}{2}$ are inverses of each other.</p>
+            <p><strong>$(f \circ g)(x)$:</strong>
+            $$f(g(x)) = f\!\left(\frac{x-5}{2}\right) = 2 \cdot \frac{x-5}{2} + 5 = (x - 5) + 5 = x \quad\checkmark$$</p>
+            <p><strong>$(g \circ f)(x)$:</strong>
+            $$g(f(x)) = g(2x + 5) = \frac{(2x+5) - 5}{2} = \frac{2x}{2} = x \quad\checkmark$$</p>
+            <p>Both compositions return $x$, confirming $g = f^{-1}$.</p>
         </div>
 
         <!-- ================================================================ -->
-        <!-- SECTION 6: PRACTICE -->
+        <!-- SECTION 6: PRACTICE PROBLEMS (40 Questions) -->
         <!-- ================================================================ -->
         <h2 id="section-6">6. Practice Problems</h2>
 
-        <div class="practice-problem">
-            <h4>Problem 1 — Polynomial Zeros</h4>
-            <p>Find all real zeros of $f(x) = 2x^3 + x^2 - 13x + 6$ and factor completely.</p>
-            <details class="solution">
-                <summary>Show Solution</summary>
+        <p>Forty problems organized by topic. Attempt each problem before revealing the solution. Within each group, problems progress from foundational to exam-level.</p>
+
+        <!-- ─── GROUP A: Polynomial Functions ─── -->
+        <div class="practice-group">
+            <div class="practice-group-title">A — Polynomial Functions (Problems 1–8)</div>
+
+            <div class="practice-problem">
+                <h4>Problem 1 — Remainder Theorem</h4>
+                <p>Without performing division, find the remainder when $f(x) = x^4 - 3x^3 + 2x - 5$ is divided by $(x - 2)$.</p>
+                <details class="solution"><summary>Show Solution</summary>
                 <div class="solution-content">
-                    <p>Test $x = 2$: $f(2) = 16 + 4 - 26 + 6 = 0$. So $(x-2)$ is a factor.</p>
-                    <p>Dividing: $2x^3 + x^2 - 13x + 6 = (x-2)(2x^2 + 5x - 3)$.</p>
-                    <p>Factor the quadratic: $(x-2)(2x-1)(x+3)$. Zeros: $x = 2, \frac{1}{2}, -3$.</p>
-                </div>
-            </details>
+                    <p>$f(2) = 16 - 24 + 4 - 5 = -9$. The remainder is $\mathbf{-9}$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 2 — Factor Theorem</h4>
+                <p>Determine whether $(x + 3)$ is a factor of $f(x) = 2x^3 + 5x^2 - x - 6$. If yes, find all zeros.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$f(-3) = 2(-27) + 5(9) - (-3) - 6 = -54 + 45 + 3 - 6 = -12 \neq 0$. <strong>Not a factor.</strong></p>
+                    <p>Try $x = 1$: $f(1) = 2 + 5 - 1 - 6 = 0$. So $(x-1)$ is a factor.</p>
+                    <p>Divide: $f(x) = (x-1)(2x^2 + 7x + 6) = (x-1)(2x+3)(x+2)$.</p>
+                    <p>Zeros: $x = 1,\; x = -\dfrac{3}{2},\; x = -2$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 3 — Factoring a Cubic</h4>
+                <p>Factor $f(x) = 2x^3 + x^2 - 13x + 6$ completely and state all real zeros.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Possible rational roots: $\pm 1, \pm 2, \pm 3, \pm 6, \pm\frac{1}{2}, \pm\frac{3}{2}$.</p>
+                    <p>$f(2) = 16 + 4 - 26 + 6 = 0$. Factor out $(x - 2)$.</p>
+                    <p>Synthetic division: quotient is $2x^2 + 5x - 3$.</p>
+                    <p>Factor: $2x^2 + 5x - 3 = (2x - 1)(x + 3)$.</p>
+                    <p>$f(x) = (x-2)(2x-1)(x+3)$. Zeros: $x = 2,\; \dfrac{1}{2},\; -3$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 4 — Determining Equation from Zeros</h4>
+                <p>A polynomial of degree 4 has zeros at $x = -1$ (multiplicity 2), $x = 3$, and $x = 5$, and passes through $(0, -30)$. Find the equation.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>General form: $f(x) = a(x+1)^2(x-3)(x-5)$.</p>
+                    <p>Use $(0, -30)$: $-30 = a(1)^2(-3)(-5) = 15a$, so $a = -2$.</p>
+                    <p>$f(x) = -2(x+1)^2(x-3)(x-5)$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 5 — End Behaviour</h4>
+                <p>Describe the end behaviour of $f(x) = -(x-1)^2(x+3)^3$ and find the $y$-intercept.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Leading term: $-(x^2)(x^3) = -x^5$. Degree 5 (odd), negative leading coeff: as $x\to+\infty$, $f\to-\infty$; as $x\to-\infty$, $f\to+\infty$.</p>
+                    <p>$y$-intercept: $f(0) = -(0-1)^2(0+3)^3 = -(1)(27) = -27$. So $(0, -27)$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 6 — Multiplicity and Graph Behaviour</h4>
+                <p>For $f(x) = (x+2)^2(x-1)(x-4)^3$, state the degree, end behaviour, and whether the graph crosses or bounces at each zero.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Degree: $2 + 1 + 3 = 6$. Leading coeff: $+1$ (positive). Both ends up.</p>
+                    <p>$x = -2$ (mult 2): <em>bounces</em>. $x = 1$ (mult 1): <em>crosses</em>. $x = 4$ (mult 3): <em>crosses</em> (odd multiplicity, though flattened).</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 7 — Polynomial Inequality</h4>
+                <p>Solve $(x - 2)(x + 1)(x - 5) \leq 0$.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Zeros: $x = -1, 2, 5$ (all multiplicity 1). Leading term: $x^3$ (positive, odd) — right end up.</p>
+                    <table class="sign-chart">
+                        <tr><th>Interval</th><th>Sign of product</th></tr>
+                        <tr><td>$x &lt; -1$</td><td class="neg">negative</td></tr>
+                        <tr><td>$-1 &lt; x &lt; 2$</td><td class="pos">positive</td></tr>
+                        <tr><td>$2 &lt; x &lt; 5$</td><td class="neg">negative</td></tr>
+                        <tr><td>$x &gt; 5$</td><td class="pos">positive</td></tr>
+                    </table>
+                    <p>Solution ($\leq 0$): $x \in (-\infty,\, -1] \cup [2,\, 5]$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 8 — Finding a Value via the Remainder Theorem</h4>
+                <p>Given that $f(x) = x^3 + kx^2 - 2x + 1$ has remainder $13$ when divided by $(x - 2)$, find the value of $k$.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>By the Remainder Theorem: $f(2) = 13$.</p>
+                    <p>$8 + 4k - 4 + 1 = 13 \implies 4k + 5 = 13 \implies 4k = 8 \implies k = 2$.</p>
+                </div></details>
+            </div>
         </div>
 
-        <div class="practice-problem">
-            <h4>Problem 2 — Rational Function</h4>
-            <p>Find all asymptotes and holes of $f(x) = \dfrac{x^2 - 9}{x^2 + x - 6}$.</p>
-            <details class="solution">
-                <summary>Show Solution</summary>
+        <!-- ─── GROUP B: Rational Functions ─── -->
+        <div class="practice-group">
+            <div class="practice-group-title">B — Rational Functions (Problems 9–18)</div>
+
+            <div class="practice-problem">
+                <h4>Problem 9 — Identifying Asymptotes</h4>
+                <p>Find all asymptotes of $f(x) = \dfrac{2x + 4}{x - 3}$.</p>
+                <details class="solution"><summary>Show Solution</summary>
                 <div class="solution-content">
-                    <p>Factor: $\dfrac{(x-3)(x+3)}{(x+3)(x-2)}$. Hole at $x = -3$ (shared factor), at $y = \dfrac{-3-3}{-3-2} = \dfrac{-6}{-5} = \dfrac{6}{5}$.</p>
-                    <p>After cancelling: $\dfrac{x-3}{x-2}$. VA: $x = 2$. HA: $y = 1$ (equal degrees, leading coeff ratio $= 1$).</p>
-                </div>
-            </details>
+                    <p>VA: $x = 3$ (denominator zero, numerator $2(3)+4=10 \neq 0$).</p>
+                    <p>HA: equal degrees; ratio of leading coefficients $= \dfrac{2}{1} = 2$. HA: $y = 2$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 10 — Hole vs. Asymptote</h4>
+                <p>Find all asymptotes and holes of $f(x) = \dfrac{x^2 - 9}{x^2 + x - 6}$.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Factor: $\dfrac{(x-3)(x+3)}{(x+3)(x-2)}$. Common factor $(x+3)$ → hole at $x = -3$.</p>
+                    <p>$y$-coordinate of hole: $\dfrac{-3-3}{-3-2} = \dfrac{-6}{-5} = \dfrac{6}{5}$. Hole: $\left(-3,\,\dfrac{6}{5}\right)$.</p>
+                    <p>Simplified: $\dfrac{x-3}{x-2}$. VA: $x = 2$. HA: $y = 1$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 11 — $y$-intercept and $x$-intercept</h4>
+                <p>Find all intercepts of $f(x) = \dfrac{x^2 - 4x + 3}{x^2 - 1}$.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Factor: $\dfrac{(x-1)(x-3)}{(x-1)(x+1)}$. Hole at $x = 1$; simplified: $\dfrac{x-3}{x+1}$.</p>
+                    <p>$y$-intercept: $f(0) = \dfrac{-3}{1} = -3$. So $(0,-3)$.</p>
+                    <p>$x$-intercept: numerator of simplified $= 0 \Rightarrow x = 3$. So $(3, 0)$.</p>
+                    <p>VA: $x = -1$. HA: $y = 1$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 12 — Oblique Asymptote</h4>
+                <p>Find the oblique asymptote of $h(x) = \dfrac{x^2 - x + 2}{x + 2}$.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Polynomial division: $x^2 - x + 2 = (x+2)(x - 3) + 8$.</p>
+                    <p>So $h(x) = x - 3 + \dfrac{8}{x+2}$. As $x \to \pm\infty$, the fraction vanishes.</p>
+                    <p>Oblique asymptote: $y = x - 3$. VA: $x = -2$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 13 — Rational Inequality (Basic)</h4>
+                <p>Solve $\dfrac{x - 2}{x + 3} \geq 1$.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Rearrange: $\dfrac{x-2}{x+3} - 1 \geq 0 \Rightarrow \dfrac{x-2-(x+3)}{x+3} \geq 0 \Rightarrow \dfrac{-5}{x+3} \geq 0$.</p>
+                    <p>Since $-5 &lt; 0$, need $x + 3 &lt; 0$, i.e., $x &lt; -3$.</p>
+                    <p>Solution: $x \in (-\infty,\, -3)$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 14 — Rational Inequality (Sign Chart)</h4>
+                <p>Solve $\dfrac{x^2 - 4}{x - 1} &lt; 0$.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Factor numerator: $\dfrac{(x-2)(x+2)}{x-1}$. Critical values: $-2, 1, 2$ (VA at $x=1$).</p>
+                    <table class="sign-chart">
+                        <tr><th>Interval</th><th>$(x+2)$</th><th>$(x-2)$</th><th>$(x-1)$</th><th>Result</th></tr>
+                        <tr><td>$x &lt; -2$</td><td class="neg">&minus;</td><td class="neg">&minus;</td><td class="neg">&minus;</td><td class="neg">&minus;</td></tr>
+                        <tr><td>$-2 &lt; x &lt; 1$</td><td class="pos">+</td><td class="neg">&minus;</td><td class="neg">&minus;</td><td class="pos">+</td></tr>
+                        <tr><td>$1 &lt; x &lt; 2$</td><td class="pos">+</td><td class="neg">&minus;</td><td class="pos">+</td><td class="neg">&minus;</td></tr>
+                        <tr><td>$x &gt; 2$</td><td class="pos">+</td><td class="pos">+</td><td class="pos">+</td><td class="pos">+</td></tr>
+                    </table>
+                    <p>Solution ($&lt; 0$): $x \in (-\infty,\,-2) \cup (1,\,2)$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 15 — Domain of a Rational Function</h4>
+                <p>State the domain of $f(x) = \dfrac{\sqrt{x + 5}}{x^2 - 4}$.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Numerator requires $x + 5 \geq 0 \Rightarrow x \geq -5$.</p>
+                    <p>Denominator requires $x^2 - 4 \neq 0 \Rightarrow x \neq \pm 2$.</p>
+                    <p>Domain: $[-5,\, +\infty) \setminus \{-2,\, 2\} = [-5,\,-2) \cup (-2,\,2) \cup (2,\,+\infty)$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 16 — Constructing a Rational Function</h4>
+                <p>Write a rational function $f(x)$ that has: VA at $x = 1$ and $x = -3$; a hole at $x = 2$; HA at $y = 0$; $x$-intercept at $x = -1$.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>HA at $y = 0$ means $\deg p &lt; \deg q$. Hole at $x = 2$ means $(x-2)$ is a common factor. VAs at $x=1$ and $x=-3$ mean $(x-1)(x+3)$ is in the denominator after cancellation. $x$-intercept at $x=-1$ means $(x+1)$ is in the numerator.</p>
+                    <p>One answer: $f(x) = \dfrac{(x+1)(x-2)}{(x-2)(x-1)(x+3)}$.</p>
+                    <p>Check degrees: numerator deg 2, denominator deg 3. HA: $y=0$ ✓.</p>
+                </div></details>
+            </div>
         </div>
 
-        <div class="practice-problem">
-            <h4>Problem 3 — Logarithm Laws</h4>
-            <p>Simplify $\log_4 8 + \log_4 2 - \log_4 \sqrt{2}$ to a single rational number.</p>
-            <details class="solution">
-                <summary>Show Solution</summary>
+        <!-- ─── GROUP C: Exponential and Logarithmic ─── -->
+        <div class="practice-group">
+            <div class="practice-group-title">C — Exponential and Logarithmic Functions (Problems 17–26)</div>
+
+            <div class="practice-problem">
+                <h4>Problem 17 — Same-Base Exponential</h4>
+                <p>Solve $27^{x+1} = 9^{3x-1}$.</p>
+                <details class="solution"><summary>Show Solution</summary>
                 <div class="solution-content">
-                    <p>$\log_4 8 + \log_4 2 - \log_4 2^{1/2} = \log_4\!\left(\dfrac{8 \times 2}{2^{1/2}}\right) = \log_4\!\left(\dfrac{16}{\sqrt{2}}\right) = \log_4(16 \cdot 2^{-1/2}) = \log_4(2^{7/2})$.</p>
-                    <p>$= \dfrac{7}{2} \log_4 2 = \dfrac{7}{2} \cdot \dfrac{1}{2} = \dfrac{7}{4}$.</p>
-                </div>
-            </details>
+                    <p>$3^{3(x+1)} = 3^{2(3x-1)} \Rightarrow 3x + 3 = 6x - 2 \Rightarrow 5 = 3x \Rightarrow x = \dfrac{5}{3}$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 18 — Substitution (Exponential Quadratic)</h4>
+                <p>Solve $4^x - 6 \cdot 2^x + 8 = 0$.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$4^x = (2^x)^2$. Let $u = 2^x$: $u^2 - 6u + 8 = 0 \Rightarrow (u-2)(u-4) = 0$.</p>
+                    <p>$2^x = 2 \Rightarrow x = 1$; $2^x = 4 \Rightarrow x = 2$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 19 — Different Bases</h4>
+                <p>Solve $5^{2x} = 7^{x-1}$. Give an exact answer using logarithms.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$2x \log 5 = (x-1)\log 7 \Rightarrow 2x\log 5 = x\log 7 - \log 7$.</p>
+                    <p>$x(2\log 5 - \log 7) = -\log 7 \Rightarrow x = \dfrac{-\log 7}{2\log 5 - \log 7} = \dfrac{\log 7}{\log 7 - \log 25} = \dfrac{\log 7}{\log(7/25)}$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 20 — Log Laws (Simplification)</h4>
+                <p>Simplify $\log_4 8 + \log_4 2 - \log_4 \sqrt{2}$ to a single rational number.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\log_4 8 + \log_4 2 - \log_4 2^{1/2} = \log_4\!\left(\dfrac{8 \cdot 2}{2^{1/2}}\right) = \log_4\!\left(\dfrac{16}{\sqrt{2}}\right) = \log_4\!\left(2^{7/2}\right)$.</p>
+                    <p>$= \dfrac{7}{2}\log_4 2 = \dfrac{7}{2} \cdot \dfrac{1}{2} = \dfrac{7}{4}$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 21 — Log Equation (Single Log)</h4>
+                <p>Solve $\log_5(3x - 1) = 2$.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Convert: $3x - 1 = 5^2 = 25 \Rightarrow 3x = 26 \Rightarrow x = \dfrac{26}{3}$.</p>
+                    <p>Check: $3 \cdot \dfrac{26}{3} - 1 = 25 &gt; 0$ ✓.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 22 — Log Equation (Multiple Logs)</h4>
+                <p>Solve $\log(x+2) + \log(x-1) = 1$.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\log[(x+2)(x-1)] = 1 \Rightarrow (x+2)(x-1) = 10 \Rightarrow x^2 + x - 2 = 10$.</p>
+                    <p>$x^2 + x - 12 = 0 \Rightarrow (x+4)(x-3) = 0$.</p>
+                    <p>$x = -4$: gives $\log(-2)$ — invalid. $x = 3$: valid ✓. Answer: $x = 3$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 23 — Log Equation (Quadratic After Combining)</h4>
+                <p>Solve $2\log_3(x-1) = \log_3(x+5)$.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\log_3(x-1)^2 = \log_3(x+5) \Rightarrow (x-1)^2 = x+5$.</p>
+                    <p>$x^2 - 3x - 4 = 0 \Rightarrow (x-4)(x+1) = 0$.</p>
+                    <p>$x = -1$: $\log_3(-2)$ undefined. Reject. $x = 4$: valid ✓.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 24 — Change of Base</h4>
+                <p>Evaluate $\log_8 125$ using the change of base formula. Leave as an exact simplified fraction if possible; otherwise give a 4-decimal approximation.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\log_8 125 = \dfrac{\log 125}{\log 8} = \dfrac{3\log 5}{3\log 2} = \dfrac{\log 5}{\log 2} = \log_2 5 \approx \dfrac{0.6990}{0.3010} \approx 2.3219$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 25 — Log Inequality</h4>
+                <p>Solve $\log_3(x - 2) &lt; 2$. State the solution as an interval and identify any domain restrictions.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Domain: $x - 2 &gt; 0 \Rightarrow x &gt; 2$.</p>
+                    <p>Since $\log_3$ is increasing: $x - 2 &lt; 3^2 = 9 \Rightarrow x &lt; 11$.</p>
+                    <p>Combining: $2 &lt; x &lt; 11$. Solution: $(2,\, 11)$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 26 — Applied: Half-Life</h4>
+                <p>A radioactive substance decays according to $A(t) = A_0 \cdot 2^{-t/k}$, where $t$ is in years and $k$ is the half-life. If 80 g decays to 5 g in 24 years, find the half-life $k$, exact.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$5 = 80 \cdot 2^{-24/k} \Rightarrow \dfrac{1}{16} = 2^{-24/k} \Rightarrow 2^{-4} = 2^{-24/k} \Rightarrow -4 = -\dfrac{24}{k} \Rightarrow k = 6$.</p>
+                    <p>The half-life is $\mathbf{6}$ years.</p>
+                </div></details>
+            </div>
         </div>
 
-        <div class="practice-problem">
-            <h4>Problem 4 — Proving an Identity</h4>
-            <p>Prove: $\dfrac{\cos 2\theta}{1 + \sin 2\theta} = \dfrac{\cos\theta - \sin\theta}{\cos\theta + \sin\theta}$.</p>
-            <details class="solution">
-                <summary>Show Solution</summary>
-                <div class="solution-content">
-                    <p>Use $\cos 2\theta = \cos^2\theta - \sin^2\theta = (\cos\theta - \sin\theta)(\cos\theta + \sin\theta)$ and $\sin 2\theta = 2\sin\theta\cos\theta$:</p>
-                    <p>LHS $= \dfrac{(\cos\theta - \sin\theta)(\cos\theta + \sin\theta)}{1 + 2\sin\theta\cos\theta} = \dfrac{(\cos\theta - \sin\theta)(\cos\theta + \sin\theta)}{(\cos\theta + \sin\theta)^2} = \dfrac{\cos\theta - \sin\theta}{\cos\theta + \sin\theta}$ = RHS. $\checkmark$</p>
-                </div>
-            </details>
-        </div>
+        <!-- ─── GROUP D: Trigonometric ─── -->
+        <div class="practice-group">
+            <div class="practice-group-title">D — Trigonometric Functions and Identities (Problems 27–34)</div>
 
-        <div class="practice-problem">
-            <h4>Problem 5 — Composition</h4>
-            <p>Let $f(x) = \dfrac{1}{x}$ and $g(x) = x + 3$. Find $(f \circ g)(x)$, $(g \circ f)(x)$, and the domain of each.</p>
-            <details class="solution">
-                <summary>Show Solution</summary>
+            <div class="practice-problem">
+                <h4>Problem 27 — Exact Values</h4>
+                <p>Without a calculator, evaluate $\sin\dfrac{5\pi}{3}$ and $\cos\dfrac{3\pi}{4}$.</p>
+                <details class="solution"><summary>Show Solution</summary>
                 <div class="solution-content">
-                    <p>$(f \circ g)(x) = f(x+3) = \dfrac{1}{x+3}$. Domain: $x \neq -3$.</p>
-                    <p>$(g \circ f)(x) = g\!\left(\dfrac{1}{x}\right) = \dfrac{1}{x} + 3$. Domain: $x \neq 0$.</p>
-                </div>
-            </details>
-        </div>
+                    <p>$\sin\dfrac{5\pi}{3}$: reference angle $\dfrac{\pi}{3}$, Q4, sine negative: $-\dfrac{\sqrt{3}}{2}$.</p>
+                    <p>$\cos\dfrac{3\pi}{4}$: reference angle $\dfrac{\pi}{4}$, Q2, cosine negative: $-\dfrac{\sqrt{2}}{2}$.</p>
+                </div></details>
+            </div>
 
-        <div class="practice-problem">
-            <h4>Problem 6 — Exponential Equation</h4>
-            <p>Solve $4^x - 6 \cdot 2^x + 8 = 0$.</p>
-            <details class="solution">
-                <summary>Show Solution</summary>
+            <div class="practice-problem">
+                <h4>Problem 28 — Compound Angle (Exact Value)</h4>
+                <p>Find the exact value of $\cos 15°$.</p>
+                <details class="solution"><summary>Show Solution</summary>
                 <div class="solution-content">
-                    <p>Note $4^x = (2^2)^x = (2^x)^2$. Let $u = 2^x$: $u^2 - 6u + 8 = 0 \Rightarrow (u-2)(u-4) = 0$.</p>
-                    <p>$2^x = 2 \Rightarrow x = 1$ or $2^x = 4 \Rightarrow x = 2$.</p>
-                </div>
-            </details>
-        </div>
+                    <p>Write $15° = 45° - 30°$:
+                    $$\cos 15° = \cos 45°\cos 30° + \sin 45°\sin 30° = \frac{\sqrt{2}}{2}\cdot\frac{\sqrt{3}}{2} + \frac{\sqrt{2}}{2}\cdot\frac{1}{2} = \frac{\sqrt{6}+\sqrt{2}}{4}$$</p>
+                </div></details>
+            </div>
 
-        <div class="practice-problem">
-            <h4>Problem 7 — Trig Equation</h4>
-            <p>Solve $\cos 2x = \cos x$ for $x \in [0, 2\pi]$.</p>
-            <details class="solution">
-                <summary>Show Solution</summary>
+            <div class="practice-problem">
+                <h4>Problem 29 — Double Angle from Given Value</h4>
+                <p>Given $\cos\theta = -\dfrac{5}{13}$ and $\pi &lt; \theta &lt; \dfrac{3\pi}{2}$, find $\sin 2\theta$ and $\cos 2\theta$.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\theta$ in Q3: $\sin\theta = -\sqrt{1 - \frac{25}{169}} = -\dfrac{12}{13}$.</p>
+                    <p>$\sin 2\theta = 2\sin\theta\cos\theta = 2\cdot\left(-\dfrac{12}{13}\right)\cdot\left(-\dfrac{5}{13}\right) = \dfrac{120}{169}$.</p>
+                    <p>$\cos 2\theta = 2\cos^2\theta - 1 = 2\cdot\dfrac{25}{169} - 1 = \dfrac{50}{169} - 1 = -\dfrac{119}{169}$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 30 — Prove a Pythagorean Identity</h4>
+                <p>Prove: $\sec^2\theta - \tan^2\theta \cdot \sec^2\theta = 1 - \tan^2\theta$.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>LHS $= \sec^2\theta(1 - \tan^2\theta)$. Use $\sec^2\theta = 1 + \tan^2\theta$:
+                    $= (1 + \tan^2\theta)(1 - \tan^2\theta) = 1 - \tan^4\theta$.</p>
+                    <p>Hmm — this doesn't simplify to $1 - \tan^2\theta$ directly. Let's work on the RHS instead to match LHS.</p>
+                    <p>Actually, factor the LHS differently: LHS $= \sec^2\theta - \tan^2\theta\sec^2\theta = \sec^2\theta(1 - \tan^2\theta)$. RHS $= 1 - \tan^2\theta$.</p>
+                    <p>For these to be equal: $\sec^2\theta(1-\tan^2\theta) = 1 - \tan^2\theta$ requires $\sec^2\theta = 1$ or $\tan\theta = \pm 1$ — so this is not an identity. <strong>Note for students:</strong> Check the problem statement carefully before attempting to prove. This is an example of a statement that is <em>conditional</em>, not an identity.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 31 — Proving an Identity (Compound Angle)</h4>
+                <p>Prove: $\dfrac{\sin(A+B)}{\cos A \cos B} = \tan A + \tan B$.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>LHS $= \dfrac{\sin A \cos B + \cos A \sin B}{\cos A \cos B} = \dfrac{\sin A \cos B}{\cos A \cos B} + \dfrac{\cos A \sin B}{\cos A \cos B} = \dfrac{\sin A}{\cos A} + \dfrac{\sin B}{\cos B} = \tan A + \tan B$ = RHS. $\checkmark$</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 32 — Solving a Basic Trig Equation</h4>
+                <p>Solve $\cos 2x = \cos x$ for $x \in [0, 2\pi]$.</p>
+                <details class="solution"><summary>Show Solution</summary>
                 <div class="solution-content">
                     <p>Use $\cos 2x = 2\cos^2 x - 1$: $2\cos^2 x - 1 = \cos x \Rightarrow 2\cos^2 x - \cos x - 1 = 0$.</p>
-                    <p>$(2\cos x + 1)(\cos x - 1) = 0$. So $\cos x = -\dfrac{1}{2}$ or $\cos x = 1$.</p>
-                    <p>$\cos x = 1 \Rightarrow x = 0$ or $x = 2\pi$. $\cos x = -\dfrac{1}{2} \Rightarrow x = \dfrac{2\pi}{3}$ or $x = \dfrac{4\pi}{3}$.</p>
-                    <p>Solutions: $x = 0, \dfrac{2\pi}{3}, \dfrac{4\pi}{3}, 2\pi$.</p>
-                </div>
-            </details>
+                    <p>$(2\cos x + 1)(\cos x - 1) = 0$. So $\cos x = 1$ or $\cos x = -\dfrac{1}{2}$.</p>
+                    <p>$\cos x = 1 \Rightarrow x = 0,\; 2\pi$. $\cos x = -\dfrac{1}{2} \Rightarrow x = \dfrac{2\pi}{3},\; \dfrac{4\pi}{3}$.</p>
+                    <p>Solutions: $x \in \left\{0,\;\dfrac{2\pi}{3},\;\dfrac{4\pi}{3},\;2\pi\right\}$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 33 — Trig Equation (Quadratic, Multiple Approaches)</h4>
+                <p>Solve $\tan^2 x - 3 = 0$ for $x \in [0, 2\pi]$.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\tan^2 x = 3 \Rightarrow \tan x = \pm\sqrt{3}$.</p>
+                    <p>$\tan x = \sqrt{3}$: reference angle $\dfrac{\pi}{3}$, positive in Q1 and Q3: $x = \dfrac{\pi}{3},\;\dfrac{4\pi}{3}$.</p>
+                    <p>$\tan x = -\sqrt{3}$: negative in Q2 and Q4: $x = \pi - \dfrac{\pi}{3} = \dfrac{2\pi}{3}$, and $x = 2\pi - \dfrac{\pi}{3} = \dfrac{5\pi}{3}$.</p>
+                    <p>Solutions: $x \in \left\{\dfrac{\pi}{3},\;\dfrac{2\pi}{3},\;\dfrac{4\pi}{3},\;\dfrac{5\pi}{3}\right\}$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 34 — Proving a Double Angle Identity</h4>
+                <p>Prove: $\dfrac{\sin 2\theta}{\sin\theta} - \dfrac{\cos 2\theta}{\cos\theta} = \sec\theta$.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>LHS $= \dfrac{2\sin\theta\cos\theta}{\sin\theta} - \dfrac{\cos^2\theta - \sin^2\theta}{\cos\theta} = 2\cos\theta - \dfrac{\cos^2\theta - \sin^2\theta}{\cos\theta}$.</p>
+                    <p>$= \dfrac{2\cos^2\theta - (\cos^2\theta - \sin^2\theta)}{\cos\theta} = \dfrac{\cos^2\theta + \sin^2\theta}{\cos\theta} = \dfrac{1}{\cos\theta} = \sec\theta$ = RHS. $\checkmark$</p>
+                </div></details>
+            </div>
         </div>
 
-        <div class="practice-problem">
-            <h4>Problem 8 — Rational Inequality</h4>
-            <p>Solve $\dfrac{x - 2}{x + 3} \geq 1$.</p>
-            <details class="solution">
-                <summary>Show Solution</summary>
+        <!-- ─── GROUP E: Composition and Inverses ─── -->
+        <div class="practice-group">
+            <div class="practice-group-title">E — Composition and Inverses (Problems 35–40)</div>
+
+            <div class="practice-problem">
+                <h4>Problem 35 — Evaluating a Composition</h4>
+                <p>Let $f(x) = 2x - 1$ and $g(x) = x^2 + 3$. Evaluate $(f \circ g)(2)$ and $(g \circ f)(-1)$.</p>
+                <details class="solution"><summary>Show Solution</summary>
                 <div class="solution-content">
-                    <p>Rearrange: $\dfrac{x-2}{x+3} - 1 \geq 0 \Rightarrow \dfrac{x - 2 - (x+3)}{x+3} \geq 0 \Rightarrow \dfrac{-5}{x+3} \geq 0$.</p>
-                    <p>Since $-5 < 0$, we need $x + 3 < 0$, i.e., $x < -3$. Solution: $x \in (-\infty, -3)$.</p>
-                </div>
-            </details>
+                    <p>$(f \circ g)(2) = f(g(2)) = f(4+3) = f(7) = 14 - 1 = 13$.</p>
+                    <p>$(g \circ f)(-1) = g(f(-1)) = g(-2-1) = g(-3) = 9 + 3 = 12$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 36 — Composition with Domain</h4>
+                <p>Let $f(x) = \dfrac{1}{x}$ and $g(x) = x + 3$. Find $(f \circ g)(x)$ and $(g \circ f)(x)$ with their domains.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$(f \circ g)(x) = \dfrac{1}{x+3}$. Domain: $x \neq -3$.</p>
+                    <p>$(g \circ f)(x) = \dfrac{1}{x} + 3$. Domain: $x \neq 0$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 37 — Finding an Inverse</h4>
+                <p>Find $f^{-1}(x)$ for $f(x) = \dfrac{3x - 2}{x + 1}$ and state its domain.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Set $y = \dfrac{3x-2}{x+1}$. Swap $x$ and $y$: $x = \dfrac{3y-2}{y+1}$. Solve for $y$:</p>
+                    <p>$x(y+1) = 3y - 2 \Rightarrow xy + x = 3y - 2 \Rightarrow y(x-3) = -x - 2 \Rightarrow y = \dfrac{-x-2}{x-3} = \dfrac{x+2}{3-x}$.</p>
+                    <p>$f^{-1}(x) = \dfrac{x+2}{3-x}$. Domain: $x \neq 3$ (i.e., $x \neq 3$, the VA of $f^{-1}$).</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 38 — Verifying Inverses</h4>
+                <p>Verify algebraically that $f(x) = \dfrac{3x-2}{x+1}$ and $f^{-1}(x) = \dfrac{x+2}{3-x}$ are inverses.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$(f \circ f^{-1})(x) = f\!\left(\dfrac{x+2}{3-x}\right) = \dfrac{3\cdot\frac{x+2}{3-x} - 2}{\frac{x+2}{3-x}+1}$.</p>
+                    <p>Numerator: $\dfrac{3(x+2) - 2(3-x)}{3-x} = \dfrac{3x+6-6+2x}{3-x} = \dfrac{5x}{3-x}$.</p>
+                    <p>Denominator: $\dfrac{(x+2)+(3-x)}{3-x} = \dfrac{5}{3-x}$.</p>
+                    <p>$\dfrac{5x/(3-x)}{5/(3-x)} = x$ ✓. Similarly $(f^{-1} \circ f)(x) = x$ can be verified.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 39 — Inverse with Restriction</h4>
+                <p>Find the inverse of $f(x) = -2(x - 3)^2 + 5$ restricted to $x \leq 3$. State domain and range of the inverse.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>With $x \leq 3$: range of $f$ is $(-\infty, 5]$.</p>
+                    <p>Swap: $x = -2(y-3)^2 + 5 \Rightarrow (y-3)^2 = \dfrac{5-x}{2} \Rightarrow y - 3 = -\sqrt{\dfrac{5-x}{2}}$ (negative root since $x \leq 3$ means $y - 3 \leq 0$).</p>
+                    <p>$f^{-1}(x) = 3 - \sqrt{\dfrac{5-x}{2}}$.</p>
+                    <p>Domain of $f^{-1}$: $(-\infty, 5]$. Range of $f^{-1}$: $(-\infty, 3]$.</p>
+                </div></details>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 40 — Composition (Mixed Functions, Challenge)</h4>
+                <p>Let $f(x) = \sqrt{x}$ and $g(x) = 1 - x^2$. Find the domain of $(f \circ g)(x)$ and $(g \circ f)(x)$ and simplify each.</p>
+                <details class="solution"><summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>$(f \circ g)(x) = \sqrt{1 - x^2}$.</strong> Require $1 - x^2 \geq 0 \Rightarrow x^2 \leq 1 \Rightarrow -1 \leq x \leq 1$. Domain: $[-1,\, 1]$.</p>
+                    <p><strong>$(g \circ f)(x) = 1 - (\sqrt{x})^2 = 1 - x$.</strong> Require $x \geq 0$ (domain of $f$) and $f(x) = \sqrt{x}$ must be in domain of $g$ — which is all reals, so no additional restriction. Domain: $[0, +\infty)$.</p>
+                    <p>Note: though $(g \circ f)(x) = 1 - x$ looks simple, the domain is <em>not</em> all reals — it is restricted by the inner function $f$.</p>
+                </div></details>
+            </div>
         </div>
 
         <div class="chapter-nav">

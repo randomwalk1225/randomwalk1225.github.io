@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGCSE Mathematics – Chapter 8: Probability | Cambridge &amp; Edexcel IGCSE | MathHub</title>
+    <meta name="description" content="Complete IGCSE Maths guide to probability: basic probability, sample spaces, tree diagrams, Venn diagrams, and conditional probability for Cambridge 0580 and Edexcel 4MA1.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/igcse-ch8-probability.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/uk/textbook/igcse-ch8-probability.html">
+    <meta property="og:title" content="IGCSE Mathematics: Probability | MathHub">
+    <meta property="og:site_name" content="MathHub Global">
+    <link rel="alternate" hreflang="en-GB" href="https://mathhub.io/uk/textbook/igcse-ch8-probability.html">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .extended-badge { display: inline-block; background: #fde68a; color: #92400e; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+        .tree-diagram { font-family: monospace; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 16px 0; line-height: 2.2; font-size: 0.95em; color: #334155; white-space: pre; overflow-x: auto; }
+        .venn-container { display: flex; justify-content: center; margin: 16px 0; }
+        .prob-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.95em; }
+        .prob-table th { background: #1e3a5f; color: white; padding: 10px 14px; text-align: center; }
+        .prob-table td { border: 1px solid #e2e8f0; padding: 10px 14px; text-align: center; color: #334155; }
+        .prob-table tr:nth-child(even) td { background: #f8fafc; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/">US</a>
+            <a href="/uk/" class="active">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="/uk/">UK</a> &rsaquo; <a href="/uk/">Textbook</a> &rsaquo; IGCSE Maths Chapter 8
+        </div>
+        <h1>IGCSE Mathematics: Probability</h1>
+        <div class="blog-meta">Cambridge IGCSE 0580 &amp; Edexcel 4MA1 &middot; Updated March 2026</div>
+
+        <p>Probability is the study of chance and uncertainty. In this chapter you will learn to calculate the likelihood of events, represent combined events using sample spaces, tree diagrams, and Venn diagrams, and use set notation to describe relationships between events. These skills underpin data analysis, decision-making, and statistical reasoning.</p>
+
+        <div class="exam-note">
+            <h4>Specification Note</h4>
+            <p>Content labelled <span class="extended-badge">Extended</span> is required for Extended tier (Cambridge) or Higher tier (Edexcel) only.</p>
+        </div>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#basic">Basic Probability</a></li>
+                <li><a href="#combined">Combined Events and Sample Spaces</a></li>
+                <li><a href="#tree">Tree Diagrams</a></li>
+                <li><a href="#venn">Venn Diagrams and Set Notation</a></li>
+                <li><a href="#conditional">Conditional Probability <span class="extended-badge">Extended</span></a></li>
+                <li><a href="#practice">Mixed Practice Problems</a></li>
+            </ol>
+        </nav>
+
+        <!-- ============================================================ -->
+        <h2 id="basic">1. Basic Probability</h2>
+
+        <h3>The Probability Scale</h3>
+        <p>Probability is always a number between $0$ and $1$ inclusive. A probability of $0$ means the event is impossible; a probability of $1$ means it is certain.</p>
+
+        $$0 \leq P(A) \leq 1$$
+
+        <div class="definition-box">
+            <h4>Theoretical Probability</h4>
+            <p>When all outcomes are equally likely:</p>
+            $$P(\text{event}) = \frac{\text{number of favourable outcomes}}{\text{total number of possible outcomes}}$$
+        </div>
+
+        <h3>Complementary Events</h3>
+        <p>The complement of event $A$, written $A'$ (or $\bar{A}$), consists of all outcomes where $A$ does <em>not</em> occur.</p>
+        $$P(A') = 1 - P(A)$$
+
+        <h3>Experimental Probability and Relative Frequency</h3>
+        <p>When we cannot calculate probability theoretically, we estimate it through experiment. The <strong>relative frequency</strong> of an event after $n$ trials is:</p>
+        $$\text{Relative frequency} = \frac{\text{number of times event occurs}}{n}$$
+        <p>As $n$ increases, the relative frequency tends towards the theoretical probability. This is the basis of the <strong>law of large numbers</strong>.</p>
+
+        <div class="example-box">
+            <h4>Example 1 — Basic probability calculations</h4>
+            <p>A bag contains 5 red, 3 blue, and 2 green counters. One counter is selected at random. Find:</p>
+            <p>(a) $P(\text{red})$ &nbsp; (b) $P(\text{not blue})$ &nbsp; (c) $P(\text{yellow})$</p>
+            <p><span class="step-label">Step 1</span> Total counters: $5 + 3 + 2 = 10$</p>
+            <p>(a) $P(\text{red}) = \dfrac{5}{10} = \dfrac{1}{2}$</p>
+            <p>(b) $P(\text{blue}) = \dfrac{3}{10}$, so $P(\text{not blue}) = 1 - \dfrac{3}{10} = \dfrac{7}{10}$</p>
+            <p>(c) There are no yellow counters, so $P(\text{yellow}) = 0$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2 — Relative frequency</h4>
+            <p>A biased coin is flipped 200 times. It lands heads 130 times. Estimate the probability of getting heads on the next flip.</p>
+            <p><span class="step-label">Step 1</span> Relative frequency $= \dfrac{130}{200} = \dfrac{13}{20} = 0.65$</p>
+            <p>The estimated probability of heads is $0.65$. Since this is greater than $0.5$, the coin appears biased towards heads.</p>
+        </div>
+
+        <div id="desmos-prob-bar" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 8.1 — Probability distribution for the colours of counters in Example 1. Each bar shows the probability of selecting that colour.</p>
+
+        <div class="practice-problem">
+            <h4>Practice 1a</h4>
+            <p>A standard six-sided die is rolled. Find: (i) $P(4)$, (ii) $P(\text{even})$, (iii) $P(\text{greater than 4})$, (iv) $P(\text{not 1})$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Total outcomes: 6 equally likely</p>
+                    <p>(i) $P(4) = \dfrac{1}{6}$</p>
+                    <p>(ii) Even numbers: $\{2, 4, 6\}$. $P(\text{even}) = \dfrac{3}{6} = \dfrac{1}{2}$</p>
+                    <p>(iii) Numbers greater than 4: $\{5, 6\}$. $P(>4) = \dfrac{2}{6} = \dfrac{1}{3}$</p>
+                    <p>(iv) $P(\text{not 1}) = 1 - \dfrac{1}{6} = \dfrac{5}{6}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 1b</h4>
+            <p>A spinner is spun 400 times. It lands on red 96 times. Estimate $P(\text{red})$ and suggest the number of red sections if the spinner has 10 equal sections.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Relative frequency $= \dfrac{96}{400} = 0.24$</p>
+                    <p>Expected number of red sections $\approx 0.24 \times 10 = 2.4$</p>
+                    <p>Since sections must be whole numbers, we estimate approximately $2$ or $3$ red sections.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="combined">2. Combined Events and Sample Spaces</h2>
+
+        <p>When two or more events occur together, we need to list all possible combined outcomes. This is called the <strong>sample space</strong>.</p>
+
+        <div class="definition-box">
+            <h4>Mutually Exclusive Events</h4>
+            <p>Events $A$ and $B$ are <strong>mutually exclusive</strong> if they cannot both occur at the same time. If $A$ and $B$ are mutually exclusive:</p>
+            $$P(A \text{ or } B) = P(A) + P(B)$$
+            <p>More generally, if $A_1, A_2, \ldots, A_n$ are mutually exclusive and exhaustive (one must occur):</p>
+            $$P(A_1) + P(A_2) + \cdots + P(A_n) = 1$$
+        </div>
+
+        <h3>Sample Space Diagrams</h3>
+        <p>A sample space diagram lists all possible outcomes of two combined events in a grid. Each cell represents one outcome.</p>
+
+        <div class="example-box">
+            <h4>Example 3 — Two dice sample space</h4>
+            <p>Two fair six-sided dice are rolled. A sample space diagram shows all 36 equally likely outcomes. Find the probability that the sum equals 7.</p>
+            <p><span class="step-label">Step 1</span> List pairs that sum to 7: $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$ — that is 6 pairs.</p>
+            <p><span class="step-label">Step 2</span> $P(\text{sum} = 7) = \dfrac{6}{36} = \dfrac{1}{6}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4 — Mutually exclusive events</h4>
+            <p>A card is drawn from a standard pack of 52. Find $P(\text{ace or king})$.</p>
+            <p><span class="step-label">Step 1</span> An ace and a king cannot be the same card, so these events are mutually exclusive.</p>
+            <p><span class="step-label">Step 2</span> $P(\text{ace}) = \dfrac{4}{52}$; $P(\text{king}) = \dfrac{4}{52}$</p>
+            <p><span class="step-label">Step 3</span> $P(\text{ace or king}) = \dfrac{4}{52} + \dfrac{4}{52} = \dfrac{8}{52} = \dfrac{2}{13}$</p>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 2a</h4>
+            <p>A fair coin is tossed and a fair four-sided die (faces 1–4) is rolled. List the full sample space and find: (i) $P(\text{head and even number})$, (ii) $P(\text{tail and number} > 2)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Sample space (8 equally likely outcomes): H1, H2, H3, H4, T1, T2, T3, T4</p>
+                    <p>(i) Head and even: H2, H4 — 2 outcomes. $P = \dfrac{2}{8} = \dfrac{1}{4}$</p>
+                    <p>(ii) Tail and greater than 2: T3, T4 — 2 outcomes. $P = \dfrac{2}{8} = \dfrac{1}{4}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 2b</h4>
+            <p>$P(A) = 0.3$, $P(B) = 0.45$. Events $A$ and $B$ are mutually exclusive. Find $P(A \text{ or } B)$ and $P(\text{neither } A \text{ nor } B)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$P(A \text{ or } B) = 0.3 + 0.45 = 0.75$</p>
+                    <p>$P(\text{neither}) = 1 - 0.75 = 0.25$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="tree">3. Tree Diagrams</h2>
+
+        <p>A <strong>tree diagram</strong> shows all possible outcomes for two or more events happening in sequence. Each branch shows one possible outcome and its probability. The rules are:</p>
+
+        <div class="definition-box">
+            <h4>Rules for Tree Diagrams</h4>
+            <ul>
+                <li><strong>Multiply along branches</strong> to find the probability of a combined outcome.</li>
+                <li><strong>Add across branches</strong> to find the probability of events that can happen in different ways.</li>
+                <li>Probabilities on branches from the same point must always sum to $1$.</li>
+                <li>The sum of all end-branch probabilities equals $1$.</li>
+            </ul>
+        </div>
+
+        <h3>With and Without Replacement</h3>
+        <p>When selecting items from a set:</p>
+        <ul>
+            <li><strong>With replacement:</strong> the item is returned before the next selection, so probabilities remain the same at each stage.</li>
+            <li><strong>Without replacement:</strong> the item is not returned, so both the numerator and denominator change at each stage.</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Example 5 — Tree diagram without replacement</h4>
+            <p>A bag contains 4 red and 3 blue balls. Two balls are selected at random without replacement. Find the probability that both balls are the same colour.</p>
+            <p><span class="step-label">Step 1</span> Draw the tree diagram. Total balls at start = 7.</p>
+            <p>First selection:</p>
+            <ul>
+                <li>$P(\text{red}) = \dfrac{4}{7}$</li>
+                <li>$P(\text{blue}) = \dfrac{3}{7}$</li>
+            </ul>
+            <p>Second selection (given first was red, now 6 balls remain: 3 red, 3 blue):</p>
+            <ul>
+                <li>$P(\text{red} \mid \text{first red}) = \dfrac{3}{6} = \dfrac{1}{2}$</li>
+                <li>$P(\text{blue} \mid \text{first red}) = \dfrac{3}{6} = \dfrac{1}{2}$</li>
+            </ul>
+            <p>Second selection (given first was blue, now 6 balls remain: 4 red, 2 blue):</p>
+            <ul>
+                <li>$P(\text{red} \mid \text{first blue}) = \dfrac{4}{6} = \dfrac{2}{3}$</li>
+                <li>$P(\text{blue} \mid \text{first blue}) = \dfrac{2}{6} = \dfrac{1}{3}$</li>
+            </ul>
+            <p><span class="step-label">Step 2</span> Find $P(\text{same colour})$:</p>
+            <p>$P(\text{RR}) = \dfrac{4}{7} \times \dfrac{3}{6} = \dfrac{12}{42} = \dfrac{2}{7}$</p>
+            <p>$P(\text{BB}) = \dfrac{3}{7} \times \dfrac{2}{6} = \dfrac{6}{42} = \dfrac{1}{7}$</p>
+            <p>$P(\text{same colour}) = \dfrac{2}{7} + \dfrac{1}{7} = \dfrac{3}{7}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6 — Tree diagram with replacement</h4>
+            <p>A biased coin has $P(\text{heads}) = 0.6$. It is flipped twice. Find: (a) $P(\text{two heads})$, (b) $P(\text{exactly one tail})$.</p>
+            <p><span class="step-label">Step 1</span> Since flips are independent (with replacement): $P(H) = 0.6$, $P(T) = 0.4$ each time.</p>
+            <p>(a) $P(HH) = 0.6 \times 0.6 = 0.36$</p>
+            <p>(b) Exactly one tail: $P(HT)$ or $P(TH)$</p>
+            <p>$P(HT) = 0.6 \times 0.4 = 0.24$</p>
+            <p>$P(TH) = 0.4 \times 0.6 = 0.24$</p>
+            <p>$P(\text{exactly one tail}) = 0.24 + 0.24 = 0.48$</p>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 3a</h4>
+            <p>A box contains 5 white and 3 black counters. Two counters are chosen at random without replacement. Find $P(\text{at least one white counter})$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>It is easier to use $P(\text{at least one white}) = 1 - P(\text{no white}) = 1 - P(\text{BB})$.</p>
+                    <p>$P(BB) = \dfrac{3}{8} \times \dfrac{2}{7} = \dfrac{6}{56} = \dfrac{3}{28}$</p>
+                    <p>$P(\text{at least one white}) = 1 - \dfrac{3}{28} = \dfrac{25}{28}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 3b</h4>
+            <p>$P(\text{rain on any day}) = 0.3$. Find the probability that it rains on exactly one of two consecutive days.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Days are independent. $P(\text{rain}) = 0.3$, $P(\text{no rain}) = 0.7$.</p>
+                    <p>$P(\text{rain, no rain}) = 0.3 \times 0.7 = 0.21$</p>
+                    <p>$P(\text{no rain, rain}) = 0.7 \times 0.3 = 0.21$</p>
+                    <p>$P(\text{exactly one day rain}) = 0.21 + 0.21 = 0.42$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="venn">4. Venn Diagrams and Set Notation</h2>
+
+        <p>Venn diagrams use overlapping circles inside a rectangle to show relationships between sets. The rectangle represents the universal set $\xi$ (all possible outcomes).</p>
+
+        <div class="definition-box">
+            <h4>Set Notation</h4>
+            <ul>
+                <li>$\xi$ — universal set (all outcomes)</li>
+                <li>$A \cup B$ — union of $A$ and $B$ (in $A$ <em>or</em> $B$ or both)</li>
+                <li>$A \cap B$ — intersection of $A$ and $B$ (in <em>both</em> $A$ and $B$)</li>
+                <li>$A'$ — complement of $A$ (not in $A$)</li>
+                <li>$n(A)$ — number of elements in set $A$</li>
+            </ul>
+        </div>
+
+        <h3>Addition Rule</h3>
+        <p>For any two events $A$ and $B$:</p>
+        $$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
+        <p>The intersection is subtracted to avoid counting it twice. If $A$ and $B$ are mutually exclusive, $P(A \cap B) = 0$ and the formula reduces to $P(A \cup B) = P(A) + P(B)$.</p>
+
+        <div class="example-box">
+            <h4>Example 7 — Venn diagram from given information</h4>
+            <p>In a group of 40 students, 25 study French ($F$), 18 study Spanish ($S$), and 8 study both. Draw a Venn diagram and find:</p>
+            <p>(a) $P(F \cup S)$ &nbsp; (b) $P(F \cap S')$ &nbsp; (c) $P(F' \cap S')$</p>
+            <p><span class="step-label">Step 1</span> Fill in the Venn diagram regions:</p>
+            <ul>
+                <li>Both: $F \cap S = 8$</li>
+                <li>French only: $25 - 8 = 17$</li>
+                <li>Spanish only: $18 - 8 = 10$</li>
+                <li>Neither: $40 - 17 - 8 - 10 = 5$</li>
+            </ul>
+            <p><span class="step-label">Step 2</span> Calculate probabilities (out of 40):</p>
+            <p>(a) $P(F \cup S) = \dfrac{17 + 8 + 10}{40} = \dfrac{35}{40} = \dfrac{7}{8}$</p>
+            <p>(b) $P(F \cap S') = \dfrac{17}{40}$ (French only)</p>
+            <p>(c) $P(F' \cap S') = \dfrac{5}{40} = \dfrac{1}{8}$ (neither)</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8 — Using the addition rule</h4>
+            <p>$P(A) = 0.5$, $P(B) = 0.4$, $P(A \cap B) = 0.2$. Find $P(A \cup B)$ and $P(A' \cap B)$.</p>
+            <p>$P(A \cup B) = 0.5 + 0.4 - 0.2 = 0.7$</p>
+            <p>$P(A' \cap B)$ = probability in $B$ but not $A$ = $P(B) - P(A \cap B) = 0.4 - 0.2 = 0.2$</p>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 4a</h4>
+            <p>In a class of 30 pupils, 16 play football ($F$), 14 play cricket ($C$), and 5 play both. Find $P(F' \cap C')$, the probability that a randomly chosen pupil plays neither sport.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Football only: $16 - 5 = 11$</p>
+                    <p>Cricket only: $14 - 5 = 9$</p>
+                    <p>Both: $5$</p>
+                    <p>Neither: $30 - 11 - 5 - 9 = 5$</p>
+                    <p>$P(F' \cap C') = \dfrac{5}{30} = \dfrac{1}{6}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 4b</h4>
+            <p>$P(X) = 0.45$, $P(Y) = 0.35$, $P(X \cup Y) = 0.65$. Find $P(X \cap Y)$ and state whether $X$ and $Y$ are mutually exclusive.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$P(X \cap Y) = P(X) + P(Y) - P(X \cup Y) = 0.45 + 0.35 - 0.65 = 0.15$</p>
+                    <p>Since $P(X \cap Y) = 0.15 \neq 0$, the events are <strong>not</strong> mutually exclusive.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="conditional">5. Conditional Probability <span class="extended-badge">Extended</span></h2>
+
+        <p><strong>Conditional probability</strong> is the probability of event $A$ occurring, given that event $B$ has already occurred. It is written $P(A \mid B)$ (read: "probability of $A$ given $B$").</p>
+
+        <div class="definition-box">
+            <h4>Conditional Probability Formula</h4>
+            $$P(A \mid B) = \frac{P(A \cap B)}{P(B)}, \quad P(B) \neq 0$$
+            <p>Rearranging: $P(A \cap B) = P(A \mid B) \times P(B)$ — this is the <strong>multiplication rule</strong>.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Independent Events</h4>
+            <p>Events $A$ and $B$ are <strong>independent</strong> if the occurrence of one does not affect the other:</p>
+            $$P(A \mid B) = P(A) \quad \text{and} \quad P(A \cap B) = P(A) \times P(B)$$
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9 — Conditional probability from a Venn diagram</h4>
+            <p>Using the data from Example 7 (40 students, French 25, Spanish 18, both 8):</p>
+            <p>Find the probability that a student selected at random studies French, given that they study Spanish.</p>
+            <p><span class="step-label">Step 1</span> We want $P(F \mid S)$.</p>
+            <p><span class="step-label">Step 2</span> $P(F \cap S) = \dfrac{8}{40}$; $P(S) = \dfrac{18}{40}$</p>
+            <p><span class="step-label">Step 3</span> $P(F \mid S) = \dfrac{P(F \cap S)}{P(S)} = \dfrac{8/40}{18/40} = \dfrac{8}{18} = \dfrac{4}{9}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10 — Conditional probability without replacement</h4>
+            <p>Cards labelled 1 to 10 are shuffled. Two cards are drawn without replacement. Find the probability that the second card is even, given the first card drawn was odd.</p>
+            <p><span class="step-label">Step 1</span> After drawing an odd card, 9 cards remain: 5 even and 4 odd.</p>
+            <p><span class="step-label">Step 2</span> $P(\text{second even} \mid \text{first odd}) = \dfrac{5}{9}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11 — Testing for independence</h4>
+            <p>$P(A) = 0.4$, $P(B) = 0.3$, $P(A \cap B) = 0.12$. Are $A$ and $B$ independent?</p>
+            <p><span class="step-label">Step 1</span> If independent: $P(A) \times P(B) = 0.4 \times 0.3 = 0.12$</p>
+            <p><span class="step-label">Step 2</span> $P(A \cap B) = 0.12 = P(A) \times P(B)$ ✓</p>
+            <p><strong>Yes</strong>, $A$ and $B$ are independent events.</p>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 5a</h4>
+            <p>A bag has 6 red and 4 blue balls. Two are selected without replacement. Find $P(\text{second ball is red} \mid \text{first ball is red})$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>After drawing one red ball: 9 balls remain (5 red, 4 blue).</p>
+                    <p>$P(\text{second red} \mid \text{first red}) = \dfrac{5}{9}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 5b</h4>
+            <p>$P(A \cap B) = 0.15$ and $P(B) = 0.5$. Find $P(A \mid B)$. If $P(A) = 0.3$, are $A$ and $B$ independent?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$P(A \mid B) = \dfrac{0.15}{0.5} = 0.3$</p>
+                    <p>Since $P(A \mid B) = 0.3 = P(A)$, events $A$ and $B$ are <strong>independent</strong>.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="practice">6. Mixed Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Question 1</h4>
+            <p>A fair spinner has sections labelled 1, 1, 2, 3, 3, 3. It is spun once. Find: (a) $P(3)$, (b) $P(\text{odd number})$, (c) $P(\text{not 1})$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Total sections: 6</p>
+                    <p>(a) Sections with 3: 3. $P(3) = \dfrac{3}{6} = \dfrac{1}{2}$</p>
+                    <p>(b) Odd numbers: 1, 1, 3, 3, 3 — 5 sections. $P(\text{odd}) = \dfrac{5}{6}$</p>
+                    <p>(c) Sections not 1: 2, 3, 3, 3 — 4 sections. $P(\text{not 1}) = \dfrac{4}{6} = \dfrac{2}{3}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 2</h4>
+            <p>Two fair dice are rolled. Find the probability that the product of the two numbers is greater than 20.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Total outcomes: 36. Products greater than 20:</p>
+                    <p>$(4,6): 24$, $(5,5): 25$, $(5,6): 30$, $(6,4): 24$, $(6,5): 30$, $(6,6): 36$ — 6 outcomes.</p>
+                    <p>$P(\text{product} > 20) = \dfrac{6}{36} = \dfrac{1}{6}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 3</h4>
+            <p>A bag contains 7 counters: 3 red, 2 green, 2 yellow. Two are drawn at random without replacement. Find $P(\text{both green})$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$P(\text{first green}) = \dfrac{2}{7}$</p>
+                    <p>$P(\text{second green} \mid \text{first green}) = \dfrac{1}{6}$</p>
+                    <p>$P(\text{both green}) = \dfrac{2}{7} \times \dfrac{1}{6} = \dfrac{2}{42} = \dfrac{1}{21}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 4</h4>
+            <p>$P(A) = \dfrac{3}{5}$, $P(B) = \dfrac{1}{3}$, and $A$ and $B$ are independent. Find $P(A \cap B)$ and $P(A \cup B)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$P(A \cap B) = P(A) \times P(B) = \dfrac{3}{5} \times \dfrac{1}{3} = \dfrac{1}{5}$</p>
+                    <p>$P(A \cup B) = \dfrac{3}{5} + \dfrac{1}{3} - \dfrac{1}{5} = \dfrac{9}{15} + \dfrac{5}{15} - \dfrac{3}{15} = \dfrac{11}{15}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 5</h4>
+            <p>In a survey of 50 people, 30 own a cat ($C$), 25 own a dog ($D$), and 10 own both. Find the probability that a randomly chosen person owns a cat but not a dog.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Cat only: $30 - 10 = 20$</p>
+                    <p>$P(C \cap D') = \dfrac{20}{50} = \dfrac{2}{5}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 6</h4>
+            <p>A bag has 5 red and 3 blue balls. One ball is drawn, its colour noted, and it is <em>not</em> replaced. A second ball is then drawn. Complete a tree diagram and find $P(\text{one red and one blue})$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$P(\text{red then blue}) = \dfrac{5}{8} \times \dfrac{3}{7} = \dfrac{15}{56}$</p>
+                    <p>$P(\text{blue then red}) = \dfrac{3}{8} \times \dfrac{5}{7} = \dfrac{15}{56}$</p>
+                    <p>$P(\text{one of each}) = \dfrac{15}{56} + \dfrac{15}{56} = \dfrac{30}{56} = \dfrac{15}{28}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 7</h4>
+            <p>$P(X \cup Y) = 0.8$, $P(X) = 0.6$, $P(Y) = 0.5$. Find $P(X \cap Y)$ and $P(X' \cap Y)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$P(X \cap Y) = P(X) + P(Y) - P(X \cup Y) = 0.6 + 0.5 - 0.8 = 0.3$</p>
+                    <p>$P(X' \cap Y)$ = in $Y$ but not $X$ $= P(Y) - P(X \cap Y) = 0.5 - 0.3 = 0.2$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 8 <span class="extended-badge">Extended</span></h4>
+            <p>A medical test for a disease gives a positive result for 95% of people who have the disease and a positive result for 4% of people who do not have the disease. In a population where 2% have the disease, find the probability that a person who tests positive actually has the disease.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Let $D$ = has disease, $T+$ = tests positive.</p>
+                    <p>$P(D) = 0.02$, $P(D') = 0.98$, $P(T+ \mid D) = 0.95$, $P(T+ \mid D') = 0.04$</p>
+                    <p>$P(T+) = P(T+ \mid D) \cdot P(D) + P(T+ \mid D') \cdot P(D')$</p>
+                    <p>$= 0.95 \times 0.02 + 0.04 \times 0.98 = 0.019 + 0.0392 = 0.0582$</p>
+                    <p>$P(D \mid T+) = \dfrac{P(T+ \mid D) \cdot P(D)}{P(T+)} = \dfrac{0.019}{0.0582} \approx 0.326$</p>
+                    <p>So only about $32.6\%$ of those who test positive actually have the disease — illustrating the importance of disease prevalence in interpreting test results.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 9</h4>
+            <p>A card is drawn at random from a pack of 52 playing cards. Events: $H$ = card is a heart, $K$ = card is a king. Find $P(H \cup K)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$P(H) = \dfrac{13}{52} = \dfrac{1}{4}$; $P(K) = \dfrac{4}{52} = \dfrac{1}{13}$; $P(H \cap K) = \dfrac{1}{52}$ (king of hearts)</p>
+                    <p>$P(H \cup K) = \dfrac{13}{52} + \dfrac{4}{52} - \dfrac{1}{52} = \dfrac{16}{52} = \dfrac{4}{13}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 10 <span class="extended-badge">Extended</span></h4>
+            <p>From Question 9, find the probability that a randomly chosen card is a king, given that it is a heart.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$P(K \mid H) = \dfrac{P(K \cap H)}{P(H)} = \dfrac{1/52}{13/52} = \dfrac{1}{13}$</p>
+                    <p>Note that $P(K \mid H) = P(K) = \dfrac{1}{13}$, which confirms that $H$ and $K$ are independent events.</p>
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <script>
+        // Desmos Figure — Probability bar chart for counter colours
+        (function() {
+            var elt = document.getElementById('desmos-prob-bar');
+            var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true
+            });
+            calc.setMathBounds({ left: 0, right: 4, bottom: 0, top: 0.7 });
+            calc.setExpressions([
+                // Red bar — P = 0.5
+                { id: 'r1', latex: 'polygon((0.3, 0), (0.3, 0.5), (0.9, 0.5), (0.9, 0))', color: '#ef4444', fillOpacity: 0.7 },
+                { id: 'r_label', latex: '(0.6, 0.55)', label: 'P(R)=0.5', showLabel: true, color: '#dc2626', pointOpacity: 0 },
+                // Blue bar — P = 0.3
+                { id: 'b1', latex: 'polygon((1.3, 0), (1.3, 0.3), (1.9, 0.3), (1.9, 0))', color: '#3b82f6', fillOpacity: 0.7 },
+                { id: 'b_label', latex: '(1.6, 0.35)', label: 'P(B)=0.3', showLabel: true, color: '#1d4ed8', pointOpacity: 0 },
+                // Green bar — P = 0.2
+                { id: 'g1', latex: 'polygon((2.3, 0), (2.3, 0.2), (2.9, 0.2), (2.9, 0))', color: '#22c55e', fillOpacity: 0.7 },
+                { id: 'g_label', latex: '(2.6, 0.25)', label: 'P(G)=0.2', showLabel: true, color: '#15803d', pointOpacity: 0 },
+                // x-axis labels
+                { id: 'xl_r', latex: '(0.6, -0.03)', label: 'Red', showLabel: true, color: '#64748b', pointOpacity: 0 },
+                { id: 'xl_b', latex: '(1.6, -0.03)', label: 'Blue', showLabel: true, color: '#64748b', pointOpacity: 0 },
+                { id: 'xl_g', latex: '(2.6, -0.03)', label: 'Green', showLabel: true, color: '#64748b', pointOpacity: 0 }
+            ]);
+        })();
+    </script>
+</body>
+</html>

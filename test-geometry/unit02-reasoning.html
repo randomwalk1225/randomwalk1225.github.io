@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 2 — Reasoning and Proof | MathHub</title>
+    <meta name="description" content="Master inductive and deductive reasoning, conditional statements, properties of equality, and geometric proof techniques.">
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 820px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.1em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #64748b; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .definition-box { background: #e7f3ff; border-left: 4px solid #3b82f6; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .definition-box h4 { color: #1e40af; margin-bottom: 10px; font-size: 1.05em; }
+        .theorem-box { background: #fff8e7; border-left: 4px solid #f59e0b; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .theorem-box h4 { color: #92400e; margin-bottom: 10px; font-size: 1.05em; }
+        .example-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .example-box h4 { color: #0369a1; margin-bottom: 10px; font-size: 1.05em; }
+        .tip-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .tip-box h4 { color: #166534; margin-bottom: 10px; }
+        .warning-box { background: #fff1f2; border-left: 4px solid #f43f5e; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .warning-box h4 { color: #be123c; margin-bottom: 10px; }
+        .practice-box { background: #fdf4ff; border-left: 4px solid #a855f7; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .practice-box h4 { color: #7e22ce; margin-bottom: 10px; }
+        .figure-wrap { display: flex; justify-content: center; align-items: flex-start; gap: 28px; margin: 24px 0; flex-wrap: wrap; }
+        .figure-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); overflow: hidden; }
+        .figure-card figcaption { font-size: 0.85em; color: #64748b; margin-top: 10px; max-width: 220px; }
+        .figure-label { font-weight: 700; font-size: 1em; color: #1e3a5f; margin-bottom: 8px; }
+        .unit-nav { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 20px; border-top: 1px solid #e2e8f0; }
+        .unit-nav a { color: #3b82f6; text-decoration: none; font-size: .9em; }
+        table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+        th, td { border: 1px solid #e2e8f0; padding: 10px 14px; text-align: left; font-size: 0.95em; color: #334155; }
+        th { background: #f1f5f9; color: #1e3a5f; font-weight: 600; }
+        .proof-table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+        .proof-table th { background: #e7f3ff; color: #1e40af; font-weight: 600; padding: 10px 14px; border: 1px solid #bfdbfe; }
+        .proof-table td { padding: 10px 14px; border: 1px solid #e2e8f0; vertical-align: top; }
+        .proof-table tr:nth-child(even) td { background: #f8fafc; }
+    </style>
+</head>
+<body>
+<header class="site-header"></header>
+<script src="../../assets/js/common.js"></script>
+<article class="blog-article">
+
+    <div class="breadcrumb">
+        <a href="/test-geometry/index.html">Geometry</a> › Unit 2
+    </div>
+
+    <h1>Unit 2 — Reasoning and Proof</h1>
+    <div class="blog-meta">Unit 2 of 13 · Grade 9–10 · Common Core G-CO</div>
+
+    <p>
+        Mathematics is distinguished by the certainty of its conclusions — and that certainty comes from <em>proof</em>. In this unit you will develop the logical reasoning skills that make proof possible. You will learn to recognize patterns and form conjectures (inductive reasoning), to chain definitions and postulates into airtight arguments (deductive reasoning), and to write both algebraic and two-column geometric proofs. These skills will be used in every subsequent unit.
+    </p>
+
+    <!-- ============================================================ -->
+    <h2>2.1 Inductive Reasoning</h2>
+
+    <div class="definition-box">
+        <h4>Inductive Reasoning and Conjectures</h4>
+        <p><strong>Inductive reasoning</strong> is the process of observing specific cases, identifying a pattern, and forming a general conclusion called a <strong>conjecture</strong>.</p>
+        <p>A conjecture can be disproved by finding a single <strong>counterexample</strong> — one case where the conjecture fails. A counterexample does <em>not</em> need to be typical; it just needs to exist.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 2.1 — Finding a Pattern</h4>
+        <p><strong>Sequence:</strong> $2,\; 4,\; 8,\; 16,\; \underline{\phantom{00}}$</p>
+        <p><strong>Pattern observed:</strong> Each term is double the previous term.</p>
+        <p><strong>Conjecture:</strong> The next term is $32$. In general, the $n$-th term is $2^n$.</p>
+        <p><strong>Counterexample approach:</strong> Suppose someone conjectures "the square of every odd number is odd." To disprove it you would need an odd number whose square is even — but no such number exists, so the conjecture is actually true (and must be proved by deduction to be certain).</p>
+    </div>
+
+    <!-- ============================================================ -->
+    <h2>2.2 Conditional Statements</h2>
+
+    <div class="definition-box">
+        <h4>If-Then Statements and Related Forms</h4>
+        <p>A <strong>conditional statement</strong> has the form <em>"If $p$, then $q$"</em>, written $p \Rightarrow q$, where $p$ is the <strong>hypothesis</strong> and $q$ is the <strong>conclusion</strong>.</p>
+
+        <table>
+            <thead>
+                <tr><th>Form</th><th>Symbolic</th><th>Words</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Conditional</td><td>$p \Rightarrow q$</td><td>If $p$, then $q$.</td></tr>
+                <tr><td>Converse</td><td>$q \Rightarrow p$</td><td>If $q$, then $p$.</td></tr>
+                <tr><td>Inverse</td><td>$\neg p \Rightarrow \neg q$</td><td>If not $p$, then not $q$.</td></tr>
+                <tr><td>Contrapositive</td><td>$\neg q \Rightarrow \neg p$</td><td>If not $q$, then not $p$.</td></tr>
+            </tbody>
+        </table>
+        <p>A conditional and its <strong>contrapositive</strong> always have the same truth value. The <strong>converse</strong> and <strong>inverse</strong> are logically equivalent to each other but may differ from the original.</p>
+        <p>When a conditional and its converse are both true, the result is a <strong>biconditional</strong>: "$p$ if and only if $q$" ($p \Leftrightarrow q$).</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 2.2 — Writing Related Statements</h4>
+        <p><strong>Original conditional:</strong> "If a triangle has a right angle, then it is a right triangle."</p>
+        <ul>
+            <li><strong>Converse:</strong> If a triangle is a right triangle, then it has a right angle. <em>(True)</em></li>
+            <li><strong>Inverse:</strong> If a triangle does not have a right angle, then it is not a right triangle. <em>(True)</em></li>
+            <li><strong>Contrapositive:</strong> If a triangle is not a right triangle, then it does not have a right angle. <em>(True)</em></li>
+        </ul>
+        <p>Since both the conditional and converse are true, the biconditional holds: "A triangle is a right triangle <em>if and only if</em> it has a right angle."</p>
+    </div>
+
+    <!-- ============================================================ -->
+    <h2>2.3 Deductive Reasoning</h2>
+
+    <div class="theorem-box">
+        <h4>Law of Detachment</h4>
+        <p>If $p \Rightarrow q$ is a true conditional and $p$ is true, then $q$ must be true.</p>
+        <p><em>Example:</em> "If it is raining, then the ground is wet" (true) + "It is raining" (true) → "The ground is wet."</p>
+    </div>
+
+    <div class="theorem-box">
+        <h4>Law of Syllogism</h4>
+        <p>If $p \Rightarrow q$ and $q \Rightarrow r$ are both true conditionals, then $p \Rightarrow r$ is also true.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 2.3 — Law of Syllogism</h4>
+        <p>Statement 1: If a figure is a square, then it is a rectangle. ($p \Rightarrow q$)</p>
+        <p>Statement 2: If a figure is a rectangle, then it has four right angles. ($q \Rightarrow r$)</p>
+        <p><strong>Conclusion:</strong> If a figure is a square, then it has four right angles. ($p \Rightarrow r$)</p>
+    </div>
+
+    <!-- ============================================================ -->
+    <h2>2.4 Properties and Postulates</h2>
+
+    <div class="definition-box">
+        <h4>Properties of Equality (for real numbers $a$, $b$, $c$)</h4>
+        <ul>
+            <li><strong>Reflexive:</strong> $a = a$</li>
+            <li><strong>Symmetric:</strong> If $a = b$ then $b = a$</li>
+            <li><strong>Transitive:</strong> If $a = b$ and $b = c$ then $a = c$</li>
+            <li><strong>Addition:</strong> If $a = b$ then $a + c = b + c$</li>
+            <li><strong>Subtraction:</strong> If $a = b$ then $a - c = b - c$</li>
+            <li><strong>Multiplication:</strong> If $a = b$ then $ac = bc$</li>
+            <li><strong>Division:</strong> If $a = b$ and $c \neq 0$ then $\dfrac{a}{c} = \dfrac{b}{c}$</li>
+            <li><strong>Substitution:</strong> If $a = b$, then $a$ may replace $b$ in any expression.</li>
+        </ul>
+
+        <h4 style="margin-top: 18px;">Properties of Congruence (for segments or angles)</h4>
+        <ul>
+            <li><strong>Reflexive:</strong> $\overline{AB} \cong \overline{AB}$</li>
+            <li><strong>Symmetric:</strong> If $\overline{AB} \cong \overline{CD}$ then $\overline{CD} \cong \overline{AB}$</li>
+            <li><strong>Transitive:</strong> If $\overline{AB} \cong \overline{CD}$ and $\overline{CD} \cong \overline{EF}$ then $\overline{AB} \cong \overline{EF}$</li>
+        </ul>
+    </div>
+
+    <!-- ============================================================ -->
+    <h2>2.5 Algebraic and Two-Column Proofs</h2>
+
+    <p>
+        A <strong>two-column proof</strong> organizes logical steps into two columns: the left column lists numbered <em>Statements</em> and the right column gives the <em>Reason</em> (definition, postulate, theorem, or property) that justifies each statement.
+    </p>
+
+    <div class="example-box">
+        <h4>Example 2.5a — Algebraic Two-Column Proof</h4>
+        <p><strong>Given:</strong> $2x + 4 = 10$. <strong>Prove:</strong> $x = 3$.</p>
+
+        <table class="proof-table">
+            <thead><tr><th>Statement</th><th>Reason</th></tr></thead>
+            <tbody>
+                <tr><td>1. $2x + 4 = 10$</td><td>Given</td></tr>
+                <tr><td>2. $2x + 4 - 4 = 10 - 4$</td><td>Subtraction Property of Equality</td></tr>
+                <tr><td>3. $2x = 6$</td><td>Simplify</td></tr>
+                <tr><td>4. $\dfrac{2x}{2} = \dfrac{6}{2}$</td><td>Division Property of Equality</td></tr>
+                <tr><td>5. $x = 3$</td><td>Simplify</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 2.5b — Geometric Two-Column Proof</h4>
+        <p><strong>Given:</strong> Lines $\ell$ and $m$ intersect at $P$, forming $\angle 1$ and $\angle 3$ as vertical angles and $\angle 2$ and $\angle 4$ as vertical angles. <strong>Prove:</strong> $\angle 1 \cong \angle 3$.</p>
+
+        <table class="proof-table">
+            <thead><tr><th>Statement</th><th>Reason</th></tr></thead>
+            <tbody>
+                <tr><td>1. $\angle 1$ and $\angle 2$ form a linear pair</td><td>Definition of linear pair</td></tr>
+                <tr><td>2. $m\angle 1 + m\angle 2 = 180°$</td><td>Linear Pair Postulate</td></tr>
+                <tr><td>3. $\angle 2$ and $\angle 3$ form a linear pair</td><td>Definition of linear pair</td></tr>
+                <tr><td>4. $m\angle 2 + m\angle 3 = 180°$</td><td>Linear Pair Postulate</td></tr>
+                <tr><td>5. $m\angle 1 + m\angle 2 = m\angle 2 + m\angle 3$</td><td>Substitution (steps 2 and 4)</td></tr>
+                <tr><td>6. $m\angle 1 = m\angle 3$</td><td>Subtraction Property of Equality</td></tr>
+                <tr><td>7. $\angle 1 \cong \angle 3$</td><td>Definition of congruent angles</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ============================================================ -->
+    <h2>2.6 Proving Angle Relationships</h2>
+
+    <div class="theorem-box">
+        <h4>Vertical Angles Theorem</h4>
+        <p>If two lines intersect, then the vertical angles formed are congruent.</p>
+        <p>(The proof is shown in Example 2.5b above.)</p>
+
+        <h4 style="margin-top:18px;">Congruent Supplements Theorem</h4>
+        <p>If two angles are supplementary to the same angle (or to congruent angles), then the two angles are congruent.</p>
+        <p>Formally: if $\angle 1 \cong \angle 2$ and $\angle 1$ and $\angle 3$ are supplementary and $\angle 2$ and $\angle 4$ are supplementary, then $\angle 3 \cong \angle 4$.</p>
+
+        <h4 style="margin-top:18px;">Congruent Complements Theorem</h4>
+        <p>If two angles are complementary to the same angle (or to congruent angles), then the two angles are congruent.</p>
+
+        <h4 style="margin-top:18px;">Linear Pair Postulate</h4>
+        <p>If two angles form a linear pair, then they are supplementary: $m\angle 1 + m\angle 2 = 180°$.</p>
+    </div>
+
+    <!-- ============================================================ -->
+    <h2>Practice Problems</h2>
+
+    <div class="practice-box">
+        <h4>Unit 2 Practice — 10 Problems</h4>
+        <ol>
+            <li>Find the next three terms and state the conjecture: $3, 6, 12, 24, \ldots$</li>
+            <li>Give a counterexample to disprove: "The sum of two prime numbers is always odd."</li>
+            <li>Write the converse, inverse, and contrapositive of: "If two angles are vertical angles, then they are congruent."</li>
+            <li>Is the converse in Problem 3 true or false? Explain.</li>
+            <li>Use the Law of Detachment: "If a polygon is a triangle, then it has exactly three sides." Alex draws a polygon with three sides. What can you conclude?</li>
+            <li>Use the Law of Syllogism: (1) If you study hard, then you pass the test. (2) If you pass the test, then you earn a good grade. What can you conclude?</li>
+            <li>State the property that justifies each step when solving $3(x - 2) = 15$: <br>(a) $3x - 6 = 15$ &nbsp; (b) $3x = 21$ &nbsp; (c) $x = 7$.</li>
+            <li>Write a two-column proof: Given $5x - 3 = 2x + 12$, prove $x = 5$.</li>
+            <li>Two angles are supplementary and congruent. Find the measure of each angle. Justify each step.</li>
+            <li>$\angle A$ and $\angle B$ are complementary. $\angle C$ and $\angle B$ are complementary. Using the Congruent Complements Theorem, what can you conclude about $\angle A$ and $\angle C$?</li>
+        </ol>
+    </div>
+
+    <div class="unit-nav">
+        <a href="/test-geometry/unit01-foundations.html">← Previous Unit</a>
+        <a href="/test-geometry/index.html">All Units</a>
+        <a href="/test-geometry/unit03-parallel-lines.html">Next Unit →</a>
+    </div>
+</article>
+<footer style="text-align:center;padding:24px 20px;color:#94a3b8;font-size:.85em;border-top:1px solid #e2e8f0;margin-top:40px">
+    Geometry · MathHub · Grade 9–10
+</footer>
+</body>
+</html>

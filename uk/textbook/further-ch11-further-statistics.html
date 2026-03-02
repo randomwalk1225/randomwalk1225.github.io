@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Further Mathematics – Chapter 11: Further Statistics | Further Mathematics | MathHub</title>
+    <meta name="description" content="Comprehensive guide to Further Statistics for A-Level Further Mathematics. Covers Poisson distribution, continuous random variables, exponential distribution, chi-squared tests, correlation, regression, and t-tests. Edexcel, AQA, OCR.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/further-ch11-further-statistics.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .further-badge { display: inline-block; background: #fce7f3; color: #9d174d; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin: 16px 0 20px; font-size: 0.92em; }
+        th { background: #1e3a5f; color: white; padding: 10px 14px; text-align: left; }
+        td { padding: 9px 14px; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        tr:nth-child(even) td { background: #f8fafc; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/" class="active">UK</a><a href="/ca/">CA</a><a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+    <article class="blog-article">
+        <div class="breadcrumb"><a href="/uk/">UK</a> › <a href="/uk/">Textbook</a> › Further Maths – Chapter 11: Further Statistics</div>
+        <h1>A-Level Further Mathematics – Chapter 11: Further Statistics <span class="further-badge">Further Statistics</span></h1>
+        <div class="blog-meta">Edexcel · AQA · OCR A-Level Further Mathematics &middot; Updated March 2026</div>
+
+        <div class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#poisson">11.1 Poisson Distribution</a></li>
+                <li><a href="#crv">11.2 Continuous Random Variables</a></li>
+                <li><a href="#cont-dist">11.3 Continuous Distributions: Uniform and Exponential</a></li>
+                <li><a href="#chi2">11.4 Chi-Squared ($\chi^2$) Tests</a></li>
+                <li><a href="#correlation">11.5 Correlation and Regression</a></li>
+                <li><a href="#t-tests">11.6 Further Hypothesis Testing: the $t$-Distribution</a></li>
+                <li><a href="#practice">Practice Problems</a></li>
+            </ol>
+        </div>
+
+        <!-- ─── SECTION 11.1 ─── -->
+        <h2 id="poisson">11.1 Poisson Distribution</h2>
+
+        <div class="definition-box">
+            <h4>Definition — Poisson Distribution</h4>
+            <p>$X \sim \text{Po}(\lambda)$ if $X$ counts the number of random events occurring in a fixed interval of time or space, where events occur independently and at a constant average rate $\lambda$. The probability mass function is:</p>
+            <p>$$P(X = r) = \frac{e^{-\lambda}\lambda^r}{r!}, \quad r = 0, 1, 2, \ldots$$</p>
+            <p>Key properties: $\mathrm{E}(X) = \lambda$, $\mathrm{Var}(X) = \lambda$ (mean equals variance).</p>
+        </div>
+
+        <p>The <strong>Poisson conditions</strong> are: events occur (i) randomly, (ii) independently, (iii) singly (not in clusters), and (iv) at a constant average rate. When the rate changes (e.g. over a different time period), scale $\lambda$ proportionally.</p>
+
+        <div class="theorem-box">
+            <h4>Poisson as a Limit of the Binomial</h4>
+            <p>If $X \sim B(n, p)$ with $n$ large and $p$ small such that $np = \lambda$ remains constant, then as $n \to \infty$:</p>
+            <p>$$B(n, p) \approx \text{Po}(\lambda)$$</p>
+            <p>A common rule of thumb: use the Poisson approximation when $n > 50$ and $p < 0.1$ (or $np < 5$).</p>
+        </div>
+
+        <div id="desmos-fig1" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 11.1 — Probability distribution of $X \sim \text{Po}(3)$, showing $P(X = r)$ for $r = 0, 1, \ldots, 10$. The distribution is right-skewed with mode at $r = 2$ and $r = 3$.</p>
+
+        <div class="example-box">
+            <h4>Example 11.1.1 — Basic Poisson Probabilities</h4>
+            <p>Calls arrive at a switchboard at an average rate of 4 per minute. Find $P(X = 2)$ and $P(X \leq 2)$ where $X \sim \text{Po}(4)$.</p>
+            <p>$P(X = 2) = \dfrac{e^{-4} \cdot 4^2}{2!} = \dfrac{e^{-4} \cdot 16}{2} = 8e^{-4} \approx 0.1465$.</p>
+            <p>$P(X \leq 2) = P(0) + P(1) + P(2) = e^{-4}\left(1 + 4 + 8\right) = 13e^{-4} \approx 0.2381$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.1.2 — Changing the Time Period</h4>
+            <p>Defects in a sheet of metal occur at an average of 2 per m². Find the probability of exactly 5 defects in a 3 m² sheet.</p>
+            <p>New rate: $\lambda = 2 \times 3 = 6$. $P(X = 5) = \dfrac{e^{-6} \cdot 6^5}{5!} = \dfrac{e^{-6} \cdot 7776}{120} = 64.8e^{-6} \approx 0.1606$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.1.3 — Poisson Approximation to Binomial</h4>
+            <p>A batch of 500 components contains 0.6% defective items. Find the approximate probability that a random sample of 200 contains at most 2 defectives.</p>
+            <p>$\lambda = np = 200 \times 0.006 = 1.2$. Using $X \sim \text{Po}(1.2)$:<br>
+            $P(X \leq 2) = e^{-1.2}(1 + 1.2 + 0.72) = 2.92e^{-1.2} \approx 0.8795$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.1.4 — Sum of Independent Poisson Variables</h4>
+            <p>If $X \sim \text{Po}(2)$ and $Y \sim \text{Po}(3)$ independently, find $P(X + Y = 4)$.</p>
+            <p>$X + Y \sim \text{Po}(5)$. $P(X + Y = 4) = \dfrac{e^{-5} \cdot 5^4}{4!} = \dfrac{625e^{-5}}{24} \approx 0.1755$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>The sum of independent Poisson variables is again Poisson: if $X \sim \text{Po}(\lambda_1)$ and $Y \sim \text{Po}(\lambda_2)$ independently, then $X + Y \sim \text{Po}(\lambda_1 + \lambda_2)$. State this result explicitly in your working.</p>
+        </div>
+
+        <!-- ─── SECTION 11.2 ─── -->
+        <h2 id="crv">11.2 Continuous Random Variables</h2>
+
+        <div class="definition-box">
+            <h4>Definition — Probability Density Function (PDF)</h4>
+            <p>A continuous random variable $X$ has a <strong>probability density function</strong> $f(x)$ if, for all $a \leq b$:</p>
+            <p>$$P(a \leq X \leq b) = \int_a^b f(x)\,dx$$</p>
+            <p>Required conditions: $f(x) \geq 0$ for all $x$, and $\displaystyle\int_{-\infty}^{\infty} f(x)\,dx = 1$.</p>
+        </div>
+
+        <div class="definition-box">
+            <h4>Definition — Cumulative Distribution Function (CDF)</h4>
+            <p>$$F(x) = P(X \leq x) = \int_{-\infty}^{x} f(t)\,dt$$</p>
+            <p>Properties: $F(-\infty) = 0$, $F(\infty) = 1$, $F$ is non-decreasing, and $f(x) = F'(x)$.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Key Formulae for Expectation and Variance</h4>
+            <p>$$\mathrm{E}(X) = \int_{-\infty}^{\infty} x\,f(x)\,dx$$</p>
+            <p>$$\mathrm{E}(X^2) = \int_{-\infty}^{\infty} x^2 f(x)\,dx$$</p>
+            <p>$$\mathrm{Var}(X) = \mathrm{E}(X^2) - [\mathrm{E}(X)]^2$$</p>
+            <p>The <strong>median</strong> $m$ satisfies $F(m) = \tfrac{1}{2}$; the <strong>mode</strong> is the value of $x$ at which $f(x)$ is maximised.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.2.1 — Finding the Constant $k$</h4>
+            <p>A continuous random variable has PDF $f(x) = kx(2-x)$ for $0 \leq x \leq 2$, and $0$ otherwise. Find $k$.</p>
+            <p>$\displaystyle\int_0^2 kx(2-x)\,dx = k\int_0^2 (2x - x^2)\,dx = k\left[x^2 - \tfrac{x^3}{3}\right]_0^2 = k\left(4 - \tfrac{8}{3}\right) = k \cdot \tfrac{4}{3} = 1$.</p>
+            <p>Therefore $k = \tfrac{3}{4}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.2.2 — Finding Mean, Variance, and Median</h4>
+            <p>For the distribution in Example 11.2.1 with $f(x) = \tfrac{3}{4}x(2-x)$, $0 \leq x \leq 2$:</p>
+            <p>$\mathrm{E}(X) = \tfrac{3}{4}\displaystyle\int_0^2 x^2(2-x)\,dx = \tfrac{3}{4}\left[\tfrac{2x^3}{3} - \tfrac{x^4}{4}\right]_0^2 = \tfrac{3}{4}\left(\tfrac{16}{3} - 4\right) = \tfrac{3}{4} \cdot \tfrac{4}{3} = 1$. (By symmetry, $\mathrm{E}(X) = 1$.)</p>
+            <p>$\mathrm{E}(X^2) = \tfrac{3}{4}\displaystyle\int_0^2 x^3(2-x)\,dx = \tfrac{3}{4}\left[\tfrac{x^4}{2} - \tfrac{x^5}{5}\right]_0^2 = \tfrac{3}{4}\left(8 - \tfrac{32}{5}\right) = \tfrac{3}{4} \cdot \tfrac{8}{5} = \tfrac{6}{5}$.</p>
+            <p>$\mathrm{Var}(X) = \tfrac{6}{5} - 1 = \tfrac{1}{5}$. Median: by symmetry, $m = 1$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.2.3 — Finding the CDF and a Percentile</h4>
+            <p>For $f(x) = \tfrac{3}{4}x(2-x)$, $0 \leq x \leq 2$, find $F(x)$ and the upper quartile.</p>
+            <p>$F(x) = \tfrac{3}{4}\displaystyle\int_0^x t(2-t)\,dt = \tfrac{3}{4}\left[t^2 - \tfrac{t^3}{3}\right]_0^x = \tfrac{3}{4}\left(x^2 - \tfrac{x^3}{3}\right) = \tfrac{3x^2}{4} - \tfrac{x^3}{4}$.</p>
+            <p>For the upper quartile $q$: $F(q) = \tfrac{3}{4}$. Solving $\tfrac{3q^2}{4} - \tfrac{q^3}{4} = \tfrac{3}{4}$, i.e. $q^3 - 3q^2 + 3 = 0$. Numerically, $q \approx 1.347$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>For a CDF question, always verify $F(0) = 0$ and $F(\text{upper limit}) = 1$ after integrating. If they do not hold, you have made an error in the limits or the integral.</p>
+        </div>
+
+        <!-- ─── SECTION 11.3 ─── -->
+        <h2 id="cont-dist">11.3 Continuous Distributions: Uniform and Exponential</h2>
+
+        <div class="definition-box">
+            <h4>Uniform Distribution $U(a, b)$</h4>
+            <p>$$f(x) = \frac{1}{b-a}, \quad a \leq x \leq b$$</p>
+            <p>$\mathrm{E}(X) = \dfrac{a+b}{2}$, $\quad\mathrm{Var}(X) = \dfrac{(b-a)^2}{12}$.</p>
+        </div>
+
+        <div class="definition-box">
+            <h4>Exponential Distribution $\text{Exp}(\lambda)$</h4>
+            <p>$$f(x) = \lambda e^{-\lambda x}, \quad x \geq 0$$</p>
+            <p>$F(x) = 1 - e^{-\lambda x}$, $\quad\mathrm{E}(X) = \dfrac{1}{\lambda}$, $\quad\mathrm{Var}(X) = \dfrac{1}{\lambda^2}$.</p>
+            <p>The exponential distribution models waiting times between Poisson events. It has the <strong>memoryless property</strong>: $P(X > s + t \mid X > s) = P(X > t)$.</p>
+        </div>
+
+        <div id="desmos-fig2" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 11.2 — Exponential PDFs $f(x) = \lambda e^{-\lambda x}$ for $\lambda = 0.5$ (blue), $\lambda = 1$ (red), and $\lambda = 2$ (green). Higher $\lambda$ gives steeper decay and smaller mean.</p>
+
+        <div class="example-box">
+            <h4>Example 11.3.1 — Exponential Probability</h4>
+            <p>The lifetime (in years) of a light bulb follows $\text{Exp}(0.5)$. Find the probability the bulb lasts more than 3 years.</p>
+            <p>$P(X > 3) = 1 - F(3) = e^{-0.5 \times 3} = e^{-1.5} \approx 0.2231$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.3.2 — Memoryless Property</h4>
+            <p>Using Example 11.3.1, given the bulb has already lasted 2 years, find the probability it lasts a further 3 years.</p>
+            <p>By the memoryless property: $P(X > 5 \mid X > 2) = P(X > 3) = e^{-1.5} \approx 0.2231$.</p>
+            <p>The past lifetime is irrelevant — the bulb is "as good as new" at any given moment.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.3.3 — Uniform Distribution</h4>
+            <p>A bus arrives uniformly between 8:00 and 8:20. Find the probability of waiting more than 12 minutes and the expected waiting time.</p>
+            <p>$X \sim U(0, 20)$ (minutes). $P(X > 12) = \dfrac{20-12}{20} = \dfrac{8}{20} = 0.4$.</p>
+            <p>$\mathrm{E}(X) = \dfrac{0 + 20}{2} = 10$ minutes.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.3.4 — Relationship Between Poisson and Exponential</h4>
+            <p>Events occur at a Poisson rate of $\lambda = 3$ per hour. Find the probability the next event occurs within 15 minutes.</p>
+            <p>Waiting time $T \sim \text{Exp}(3)$ (per hour), so for 15 min = 0.25 hours:<br>
+            $P(T \leq 0.25) = 1 - e^{-3 \times 0.25} = 1 - e^{-0.75} \approx 0.5276$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>The connection between the Poisson distribution (events per unit time) and the exponential distribution (waiting time between events) appears frequently. If $X \sim \text{Po}(\lambda)$ counts events per unit time, then the waiting time $T \sim \text{Exp}(\lambda)$.</p>
+        </div>
+
+        <!-- ─── SECTION 11.4 ─── -->
+        <h2 id="chi2">11.4 Chi-Squared ($\chi^2$) Tests</h2>
+
+        <p>The $\chi^2$ test assesses whether observed frequencies differ significantly from expected frequencies, under a stated null hypothesis $H_0$.</p>
+
+        <div class="definition-box">
+            <h4>Chi-Squared Test Statistic</h4>
+            <p>$$\chi^2 = \sum \frac{(O - E)^2}{E}$$</p>
+            <p>where $O$ is the observed frequency and $E$ is the expected frequency for each cell. Under $H_0$, this statistic follows a $\chi^2_\nu$ distribution with $\nu$ degrees of freedom.</p>
+            <ul>
+                <li><strong>Goodness-of-fit test:</strong> $\nu = k - 1 - m$, where $k$ = number of categories and $m$ = number of parameters estimated from the data.</li>
+                <li><strong>Contingency table ($r \times c$):</strong> $\nu = (r-1)(c-1)$.</li>
+            </ul>
+            <p><strong>Requirement:</strong> All expected frequencies should be at least 5. If not, merge adjacent cells and reduce $\nu$ accordingly.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.4.1 — Goodness-of-Fit Test</h4>
+            <p>A die is rolled 120 times. Test at the 5% level whether the die is fair.</p>
+            <table>
+                <tr><th>Face</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr>
+                <tr><td>Observed</td><td>17</td><td>22</td><td>19</td><td>23</td><td>18</td><td>21</td></tr>
+                <tr><td>Expected</td><td>20</td><td>20</td><td>20</td><td>20</td><td>20</td><td>20</td></tr>
+            </table>
+            <p>$\chi^2 = \dfrac{9}{20} + \dfrac{4}{20} + \dfrac{1}{20} + \dfrac{9}{20} + \dfrac{4}{20} + \dfrac{1}{20} = \dfrac{28}{20} = 1.4$.</p>
+            <p>$\nu = 6 - 1 = 5$. Critical value at 5%: $\chi^2_{5, 0.05} = 11.07$. Since $1.4 < 11.07$, do not reject $H_0$ — no evidence the die is unfair.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.4.2 — Contingency Table</h4>
+            <p>Test at the 5% level whether gender is independent of choice of A-Level subject (Mathematics or Biology) for a sample of 200 students.</p>
+            <table>
+                <tr><th></th><th>Maths</th><th>Biology</th><th>Total</th></tr>
+                <tr><td>Male</td><td>60</td><td>40</td><td>100</td></tr>
+                <tr><td>Female</td><td>30</td><td>70</td><td>100</td></tr>
+                <tr><td>Total</td><td>90</td><td>110</td><td>200</td></tr>
+            </table>
+            <p>Expected frequencies: $E_{11} = \frac{100 \times 90}{200} = 45$, $E_{12} = 55$, $E_{21} = 45$, $E_{22} = 55$.</p>
+            <p>$\chi^2 = \dfrac{(60-45)^2}{45} + \dfrac{(40-55)^2}{55} + \dfrac{(30-45)^2}{45} + \dfrac{(70-55)^2}{55} = 5 + \tfrac{225}{55} + 5 + \tfrac{225}{55} \approx 18.18$.</p>
+            <p>$\nu = (2-1)(2-1) = 1$. Critical value: $\chi^2_{1, 0.05} = 3.841$. Since $18.18 > 3.841$, reject $H_0$ — there is evidence that gender and subject choice are not independent.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>In a contingency table, the expected frequency formula is $E = \dfrac{\text{row total} \times \text{column total}}{\text{grand total}}$. Always check that all $E \geq 5$; if any are less than 5, combine rows or columns and state you are doing so.</p>
+        </div>
+
+        <!-- ─── SECTION 11.5 ─── -->
+        <h2 id="correlation">11.5 Correlation and Regression</h2>
+
+        <div class="definition-box">
+            <h4>Pearson's Product-Moment Correlation Coefficient</h4>
+            <p>$$r = \frac{S_{xy}}{\sqrt{S_{xx} S_{yy}}}$$</p>
+            <p>where $S_{xy} = \sum x_i y_i - \dfrac{(\sum x_i)(\sum y_i)}{n}$, $\;S_{xx} = \sum x_i^2 - \dfrac{(\sum x_i)^2}{n}$, $\;S_{yy} = \sum y_i^2 - \dfrac{(\sum y_i)^2}{n}$.</p>
+            <p>$r$ lies in $[-1, 1]$. $r = +1$ perfect positive linear correlation; $r = -1$ perfect negative; $r = 0$ no linear correlation.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Hypothesis Test for Zero Correlation</h4>
+            <p>To test $H_0: \rho = 0$ against $H_1: \rho \neq 0$ (or one-tailed), compute $r$ and compare with critical values from the PMCC table at the given significance level and sample size $n$ (degrees of freedom $\nu = n - 2$).</p>
+            <p>Alternatively, use the test statistic: $t = r\sqrt{\dfrac{n-2}{1-r^2}} \sim t_{n-2}$ under $H_0$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.5.1 — Computing PMCC</h4>
+            <p>For the data $\sum x = 30$, $\sum y = 40$, $\sum x^2 = 200$, $\sum y^2 = 360$, $\sum xy = 260$, $n = 5$, find $r$.</p>
+            <p>$S_{xx} = 200 - \tfrac{30^2}{5} = 200 - 180 = 20$.</p>
+            <p>$S_{yy} = 360 - \tfrac{40^2}{5} = 360 - 320 = 40$.</p>
+            <p>$S_{xy} = 260 - \tfrac{30 \times 40}{5} = 260 - 240 = 20$.</p>
+            <p>$r = \dfrac{20}{\sqrt{20 \times 40}} = \dfrac{20}{\sqrt{800}} = \dfrac{20}{20\sqrt{2}} = \dfrac{1}{\sqrt{2}} \approx 0.707$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.5.2 — Regression Line and Prediction</h4>
+            <p>Using the data in Example 11.5.1, find the regression line of $y$ on $x$.</p>
+            <p>$b = \dfrac{S_{xy}}{S_{xx}} = \dfrac{20}{20} = 1$. $\quad a = \bar{y} - b\bar{x} = 8 - 1 \times 6 = 2$.</p>
+            <p>Regression line: $\hat{y} = 2 + x$. For $x = 7$: $\hat{y} = 9$ (interpolation — reliable).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.5.3 — Non-Linear Regression Using Coding</h4>
+            <p>Data suggest $y \approx ab^x$. Taking logarithms: $\ln y = \ln a + x \ln b$. Let $Y = \ln y$; then $Y = A + Bx$ is a linear model. Compute the regression of $Y$ on $x$, then $a = e^A$, $b = e^B$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.5.4 — Hypothesis Test for Correlation</h4>
+            <p>For $n = 10$ and computed $r = 0.65$, test at the 5% level whether there is positive linear correlation ($H_1: \rho > 0$).</p>
+            <p>Using the $t$-test approach: $t = r\sqrt{\dfrac{n-2}{1-r^2}} = 0.65\sqrt{\dfrac{8}{1-0.4225}} = 0.65\sqrt{\dfrac{8}{0.5775}} = 0.65 \times 3.722 = 2.419$.</p>
+            <p>$\nu = n - 2 = 8$. One-tailed $t_{8, 0.05} = 1.860$. Since $2.419 > 1.860$, reject $H_0$ — there is evidence of positive linear correlation at the 5% level.</p>
+            <p>Alternatively, compare $r = 0.65$ with the critical value from the PMCC table for $n = 10$ at 5% (one-tailed), which is $0.5494$. Since $0.65 > 0.5494$, the same conclusion follows.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>The regression line of $y$ on $x$ minimises the sum of squared residuals in the $y$-direction. It is used to predict $y$ given $x$. Do not use the regression line of $y$ on $x$ to predict $x$ from $y$ — use the regression line of $x$ on $y$ for that purpose.</p>
+        </div>
+
+        <!-- ─── SECTION 11.6 ─── -->
+        <h2 id="t-tests">11.6 Further Hypothesis Testing: the $t$-Distribution</h2>
+
+        <p>When the population variance is unknown and must be estimated from a small sample, the test statistic follows a <strong>$t$-distribution</strong> rather than the standard normal $Z$. The $t$-distribution has heavier tails than the normal and depends on the degrees of freedom $\nu$.</p>
+
+        <div class="definition-box">
+            <h4>One-Sample $t$-Test</h4>
+            <p>Testing $H_0: \mu = \mu_0$ with unknown $\sigma^2$, using sample mean $\bar{x}$, sample variance $s^2$, sample size $n$:</p>
+            <p>$$t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}}, \quad \text{where } s^2 = \frac{1}{n-1}\sum(x_i - \bar{x})^2$$</p>
+            <p>Under $H_0$, $t \sim t_{n-1}$ (Student's $t$-distribution with $\nu = n-1$ degrees of freedom).</p>
+        </div>
+
+        <div class="definition-box">
+            <h4>Two-Sample and Paired $t$-Tests</h4>
+            <p><strong>Paired $t$-test:</strong> Compute differences $d_i = x_i - y_i$, then apply the one-sample $t$-test to $\{d_i\}$ with $H_0: \mu_d = 0$.</p>
+            <p><strong>Independent two-sample $t$-test (equal variances):</strong> Use pooled variance $s_p^2 = \dfrac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1+n_2-2}$ and test statistic $t = \dfrac{\bar{x}_1 - \bar{x}_2}{s_p\sqrt{1/n_1 + 1/n_2}}$ with $\nu = n_1 + n_2 - 2$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.6.1 — One-Sample $t$-Test</h4>
+            <p>A sample of 10 readings gives $\bar{x} = 52.3$ and $s = 4.1$. Test $H_0: \mu = 50$ against $H_1: \mu > 50$ at the 5% level.</p>
+            <p>$t = \dfrac{52.3 - 50}{4.1/\sqrt{10}} = \dfrac{2.3}{1.297} \approx 1.773$.</p>
+            <p>$\nu = 9$. One-tailed critical value at 5%: $t_{9, 0.05} = 1.833$. Since $1.773 < 1.833$, do not reject $H_0$ at the 5% level.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.6.2 — Paired $t$-Test</h4>
+            <p>Six students sat a test before and after a revision course. Differences (after $-$ before) are: $3, 5, -1, 4, 2, 3$. Test at 5% whether the course improved performance.</p>
+            <p>$\bar{d} = \tfrac{16}{6} = 2.667$. $\sum d_i^2 = 9 + 25 + 1 + 16 + 4 + 9 = 64$.<br>
+            $s_d^2 = \dfrac{64 - 6 \times 2.667^2}{5} = \dfrac{64 - 42.667}{5} = \dfrac{21.333}{5} = 4.267$, $s_d = 2.066$.<br>
+            $t = \dfrac{2.667}{2.066/\sqrt{6}} = \dfrac{2.667}{0.843} \approx 3.163$.</p>
+            <p>$\nu = 5$. $t_{5, 0.05}^{\text{one-tail}} = 2.015$. Since $3.163 > 2.015$, reject $H_0$ — there is evidence the course improved performance.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.6.3 — $t$-Test vs $Z$-Test</h4>
+            <p>Key comparison:</p>
+            <ul>
+                <li>Use a <strong>$Z$-test</strong> when $\sigma^2$ is <em>known</em> (from a large population or given explicitly).</li>
+                <li>Use a <strong>$t$-test</strong> when $\sigma^2$ is <em>unknown</em> and estimated from the sample using $s^2$.</li>
+                <li>For large $n$ (&gt; 30), the $t_{n-1}$ distribution approximates the standard normal, so the distinction matters less in practice.</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.6.4 — Independent Two-Sample $t$-Test</h4>
+            <p>Two independent groups of students took a test. Group 1 ($n_1 = 8$): $\bar{x}_1 = 71$, $s_1 = 6$. Group 2 ($n_2 = 10$): $\bar{x}_2 = 65$, $s_2 = 8$. Assuming equal population variances, test at 5% whether the group means differ ($H_1: \mu_1 \neq \mu_2$).</p>
+            <p>Pooled variance: $s_p^2 = \dfrac{7(36) + 9(64)}{16} = \dfrac{252 + 576}{16} = \dfrac{828}{16} = 51.75$, $s_p = 7.194$.</p>
+            <p>$t = \dfrac{71 - 65}{7.194\sqrt{1/8 + 1/10}} = \dfrac{6}{7.194 \times 0.474} = \dfrac{6}{3.410} \approx 1.759$.</p>
+            <p>$\nu = 16$. Two-tailed $t_{16, 0.025} = 2.120$. Since $|t| = 1.759 < 2.120$, do not reject $H_0$ — insufficient evidence of a difference at 5%.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Summary — Choosing the Right Test</h4>
+            <ul>
+                <li><strong>$Z$-test:</strong> Population variance $\sigma^2$ <em>known</em>. Test statistic $Z = (\bar{x} - \mu_0)/(\sigma/\sqrt{n})$.</li>
+                <li><strong>One-sample $t$-test:</strong> $\sigma^2$ unknown, estimated by $s^2$. $t = (\bar{x} - \mu_0)/(s/\sqrt{n})$, $\nu = n-1$.</li>
+                <li><strong>Paired $t$-test:</strong> Two related samples; work with differences $d_i$. $\nu = n-1$.</li>
+                <li><strong>Two-sample $t$-test:</strong> Two independent samples with equal variances; use pooled $s_p$. $\nu = n_1 + n_2 - 2$.</li>
+                <li><strong>$\chi^2$ test:</strong> Categorical data — goodness of fit or contingency table independence.</li>
+            </ul>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Always use the <em>unbiased</em> estimate $s^2 = \dfrac{1}{n-1}\sum(x_i - \bar{x})^2$ (dividing by $n-1$, not $n$) in $t$-tests. Dividing by $n$ gives the biased sample variance; the $t$-test requires the unbiased version.</p>
+        </div>
+
+        <!-- ─── PRACTICE PROBLEMS ─── -->
+        <h2 id="practice">Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>$X \sim \text{Po}(2.5)$. Find $P(X = 3)$ and $P(X \geq 2)$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$P(X = 3) = \dfrac{e^{-2.5}(2.5)^3}{6} = \dfrac{15.625e^{-2.5}}{6} \approx 0.2138$.</p>
+                    <p>$P(X \geq 2) = 1 - P(X=0) - P(X=1) = 1 - e^{-2.5}(1 + 2.5) = 1 - 3.5e^{-2.5} \approx 1 - 0.2873 = 0.7127$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>$X \sim \text{Po}(4)$ and $Y \sim \text{Po}(6)$ independently. Find $P(X + Y = 10)$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$X + Y \sim \text{Po}(10)$. $P(X+Y=10) = \dfrac{e^{-10}10^{10}}{10!} = \dfrac{10^{10}e^{-10}}{3628800} \approx 0.1251$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>A continuous random variable has PDF $f(x) = \tfrac{3}{8}x^2$ for $0 \leq x \leq 2$. Find $\mathrm{E}(X)$ and $\mathrm{Var}(X)$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$\mathrm{E}(X) = \int_0^2 \tfrac{3}{8}x^3\,dx = \tfrac{3}{8}\left[\tfrac{x^4}{4}\right]_0^2 = \tfrac{3}{8} \times 4 = \tfrac{3}{2}$.</p>
+                    <p>$\mathrm{E}(X^2) = \int_0^2 \tfrac{3}{8}x^4\,dx = \tfrac{3}{8}\left[\tfrac{x^5}{5}\right]_0^2 = \tfrac{3}{8} \times \tfrac{32}{5} = \tfrac{12}{5}$.</p>
+                    <p>$\mathrm{Var}(X) = \tfrac{12}{5} - \left(\tfrac{3}{2}\right)^2 = \tfrac{12}{5} - \tfrac{9}{4} = \tfrac{48-45}{20} = \tfrac{3}{20}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4</h4>
+            <p>$X \sim \text{Exp}(2)$. Find (a) $P(X > 1)$, (b) $P(1 < X < 2)$, and (c) the median of $X$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>(a) $P(X > 1) = e^{-2} \approx 0.1353$.</p>
+                    <p>(b) $P(1 < X < 2) = e^{-2} - e^{-4} \approx 0.1353 - 0.0183 = 0.1170$.</p>
+                    <p>(c) Median $m$: $F(m) = 1 - e^{-2m} = \tfrac{1}{2} \Rightarrow e^{-2m} = \tfrac{1}{2} \Rightarrow m = \tfrac{\ln 2}{2} \approx 0.347$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5</h4>
+            <p>A fair six-sided die is rolled 60 times. The frequencies are: 1:8, 2:11, 3:9, 4:14, 5:7, 6:11. Carry out a $\chi^2$ goodness-of-fit test at the 10% significance level.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Expected frequency each: $60/6 = 10$. $H_0$: die is fair.</p>
+                    <p>$\chi^2 = \dfrac{4}{10}+\dfrac{1}{10}+\dfrac{1}{10}+\dfrac{16}{10}+\dfrac{9}{10}+\dfrac{1}{10} = \dfrac{32}{10} = 3.2$.</p>
+                    <p>$\nu = 5$. $\chi^2_{5, 0.10} = 9.236$. Since $3.2 < 9.236$, do not reject $H_0$ — no evidence the die is unfair.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6</h4>
+            <p>From a sample of size $n = 8$: $\bar{x} = 24.5$, $s = 3.2$. Test $H_0: \mu = 22$ against $H_1: \mu \neq 22$ at the 5% significance level.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$t = \dfrac{24.5 - 22}{3.2/\sqrt{8}} = \dfrac{2.5}{1.131} \approx 2.210$.</p>
+                    <p>$\nu = 7$. Two-tailed 5% critical value: $t_{7, 0.025} = 2.365$. Since $|t| = 2.210 < 2.365$, do not reject $H_0$ at 5%.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>Compute the PMCC for the data: $(1,2), (2,4), (3,5), (4,4), (5,7)$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$n = 5$, $\sum x = 15$, $\sum y = 22$, $\sum x^2 = 55$, $\sum y^2 = 110$, $\sum xy = 72$.</p>
+                    <p>$S_{xx} = 55 - 45 = 10$, $S_{yy} = 110 - 96.8 = 13.2$, $S_{xy} = 72 - 66 = 6$.</p>
+                    <p>$r = \dfrac{6}{\sqrt{10 \times 13.2}} = \dfrac{6}{\sqrt{132}} \approx \dfrac{6}{11.49} \approx 0.522$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8</h4>
+            <p>Find the regression line of $y$ on $x$ for the data in Problem 7, and predict $y$ when $x = 6$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$b = S_{xy}/S_{xx} = 6/10 = 0.6$. $\bar{x} = 3$, $\bar{y} = 4.4$.</p>
+                    <p>$a = 4.4 - 0.6 \times 3 = 2.6$. Regression line: $\hat{y} = 2.6 + 0.6x$.</p>
+                    <p>For $x = 6$: $\hat{y} = 2.6 + 3.6 = 6.2$. (Extrapolation — treat with caution.)</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 9</h4>
+            <p>Pairs of observations give differences $d$: $2, -1, 3, 0, 4, 1, 2, -1$. Use a paired $t$-test to test $H_0: \mu_d = 0$ against $H_1: \mu_d > 0$ at 5%.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$n = 8$, $\sum d = 10$, $\bar{d} = 1.25$. $\sum d^2 = 4+1+9+0+16+1+4+1 = 36$.</p>
+                    <p>$s_d^2 = \dfrac{36 - 8(1.25)^2}{7} = \dfrac{36 - 12.5}{7} = \dfrac{23.5}{7} = 3.357$. $s_d = 1.833$.</p>
+                    <p>$t = \dfrac{1.25}{1.833/\sqrt{8}} = \dfrac{1.25}{0.648} \approx 1.929$. $\nu = 7$, $t_{7,0.05}^{\text{one-tail}} = 1.895$.</p>
+                    <p>Since $1.929 > 1.895$, reject $H_0$ — evidence that $\mu_d > 0$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 10</h4>
+            <p>A $3 \times 2$ contingency table has observed frequencies: $(10, 20), (15, 15), (5, 15)$. The row totals are 30, 30, 20, and the column totals are 30 and 50. Carry out a $\chi^2$ test of independence at 5%.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Grand total: 80. Expected frequencies: $E_{ij} = \dfrac{R_i \times C_j}{80}$.</p>
+                    <p>$E_{11} = 30\times30/80 = 11.25$, $E_{12} = 18.75$; $E_{21} = 11.25$, $E_{22} = 18.75$; $E_{31} = 7.5$, $E_{32} = 12.5$.</p>
+                    <p>$\chi^2 = \dfrac{1.5625}{11.25}+\dfrac{1.5625}{18.75}+\dfrac{(3.75)^2}{11.25}+\dfrac{(3.75)^2}{18.75}+\dfrac{(2.5)^2}{7.5}+\dfrac{(2.5)^2}{12.5}$</p>
+                    <p>$= 0.139 + 0.083 + 1.25 + 0.75 + 0.833 + 0.5 = 3.556$.</p>
+                    <p>$\nu = (3-1)(2-1) = 2$. $\chi^2_{2,0.05} = 5.991$. Since $3.556 < 5.991$, do not reject $H_0$ — no evidence of dependence.</p>
+                </div>
+            </details>
+        </div>
+    </article>
+
+    <script>
+    (function() {
+        // Figure 1: Poisson(3) bar chart approximated with segments
+        var elt1 = document.getElementById('desmos-fig1');
+        var calc1 = Desmos.GraphingCalculator(elt1, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            border: false
+        });
+        calc1.setMathBounds({ left: -0.5, right: 10.5, bottom: -0.02, top: 0.25 });
+        // Plot discrete bars for Poisson(3): P(X=r) = e^{-3} * 3^r / r!
+        var lambda = 3;
+        var exprs = [];
+        var probs = [];
+        var factorials = [1,1,2,6,24,120,720,5040,40320,362880,3628800];
+        var eMinus3 = Math.exp(-lambda);
+        for (var r = 0; r <= 10; r++) {
+            var p = eMinus3 * Math.pow(lambda, r) / factorials[r];
+            probs.push(p);
+            exprs.push({
+                id: 'b' + r,
+                latex: 'x=' + r + '\\left\\{0\\le y\\le ' + p.toFixed(5) + '\\right\\}',
+                color: '#3b82f6',
+                lineWidth: 18
+            });
+        }
+        calc1.setExpressions(exprs);
+
+        // Figure 2: Exponential PDFs for lambda = 0.5, 1, 2
+        var elt2 = document.getElementById('desmos-fig2');
+        var calc2 = Desmos.GraphingCalculator(elt2, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            border: false
+        });
+        calc2.setMathBounds({ left: -0.2, right: 5, bottom: -0.1, top: 2.2 });
+        calc2.setExpressions([
+            { id: 'e1', latex: 'y = 0.5e^{-0.5x}\\left\\{x\\ge0\\right\\}', color: '#3b82f6', lineWidth: 2.5, label: 'λ=0.5' },
+            { id: 'e2', latex: 'y = e^{-x}\\left\\{x\\ge0\\right\\}', color: '#ef4444', lineWidth: 2.5, label: 'λ=1' },
+            { id: 'e3', latex: 'y = 2e^{-2x}\\left\\{x\\ge0\\right\\}', color: '#22c55e', lineWidth: 2.5, label: 'λ=2' }
+        ]);
+    })();
+    </script>
+</body>
+</html>

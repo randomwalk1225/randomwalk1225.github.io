@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGCSE Mathematics – Chapter 9: Statistics | Cambridge &amp; Edexcel IGCSE | MathHub</title>
+    <meta name="description" content="Complete IGCSE Maths guide to statistics: data types, averages, charts, scatter diagrams, stem-and-leaf, histograms, and cumulative frequency for Cambridge 0580 and Edexcel 4MA1.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/igcse-ch9-statistics.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/uk/textbook/igcse-ch9-statistics.html">
+    <meta property="og:title" content="IGCSE Mathematics: Statistics | MathHub">
+    <meta property="og:site_name" content="MathHub Global">
+    <link rel="alternate" hreflang="en-GB" href="https://mathhub.io/uk/textbook/igcse-ch9-statistics.html">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .extended-badge { display: inline-block; background: #fde68a; color: #92400e; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+        .data-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.95em; }
+        .data-table th { background: #1e3a5f; color: white; padding: 10px 14px; text-align: center; }
+        .data-table td { border: 1px solid #e2e8f0; padding: 10px 14px; text-align: center; color: #334155; }
+        .data-table tr:nth-child(even) td { background: #f8fafc; }
+        .stem-leaf { font-family: 'Courier New', monospace; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 16px 0; line-height: 2; color: #334155; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/">US</a>
+            <a href="/uk/" class="active">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="/uk/">UK</a> &rsaquo; <a href="/uk/">Textbook</a> &rsaquo; IGCSE Maths Chapter 9
+        </div>
+        <h1>IGCSE Mathematics: Statistics</h1>
+        <div class="blog-meta">Cambridge IGCSE 0580 &amp; Edexcel 4MA1 &middot; Updated March 2026</div>
+
+        <p>Statistics is the science of collecting, organising, summarising, and interpreting data. In this chapter you will learn to classify different types of data, calculate measures of average and spread, construct and interpret a wide range of statistical diagrams, and draw conclusions by comparing distributions. These skills are essential for analysing real-world information critically.</p>
+
+        <div class="exam-note">
+            <h4>Specification Note</h4>
+            <p>Content labelled <span class="extended-badge">Extended</span> is required for Extended tier (Cambridge) or Higher tier (Edexcel) only.</p>
+        </div>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#data-types">Types of Data and Sampling</a></li>
+                <li><a href="#averages">Averages and Spread</a></li>
+                <li><a href="#charts">Charts and Diagrams</a></li>
+                <li><a href="#scatter">Scatter Diagrams and Correlation</a></li>
+                <li><a href="#stem-leaf">Stem-and-Leaf Diagrams</a></li>
+                <li><a href="#histograms">Histograms and Frequency Density</a></li>
+                <li><a href="#cumulative">Cumulative Frequency and Box Plots</a></li>
+                <li><a href="#practice">Mixed Practice Problems</a></li>
+            </ol>
+        </nav>
+
+        <!-- ============================================================ -->
+        <h2 id="data-types">1. Types of Data and Sampling</h2>
+
+        <h3>Classifying Data</h3>
+
+        <div class="definition-box">
+            <h4>Types of Data</h4>
+            <ul>
+                <li><strong>Qualitative (categorical):</strong> Data described by words or categories. Examples: colour of cars, favourite subject, nationality.</li>
+                <li><strong>Quantitative:</strong> Data described by numbers. This is further divided into:
+                    <ul>
+                        <li><strong>Discrete:</strong> Can only take specific values (usually whole numbers). Examples: number of children, shoe size, goals scored.</li>
+                        <li><strong>Continuous:</strong> Can take any value within a range. Examples: height, weight, time, temperature.</li>
+                    </ul>
+                </li>
+                <li><strong>Primary data:</strong> Collected by the researcher themselves (e.g., via a questionnaire or experiment).</li>
+                <li><strong>Secondary data:</strong> Collected by someone else and used by the researcher (e.g., census data, published statistics).</li>
+            </ul>
+        </div>
+
+        <h3>Sampling Methods</h3>
+        <p>It is rarely practical to collect data from every member of a population. Instead, we select a <strong>sample</strong>. The method of selection affects how representative the sample is.</p>
+
+        <ul>
+            <li><strong>Random sampling:</strong> Every member of the population has an equal chance of being selected (e.g., names drawn from a hat, random number generator). Avoids bias.</li>
+            <li><strong>Systematic sampling:</strong> Every $n$th member of a list is selected (e.g., every 10th name on a register). Simple and structured.</li>
+            <li><strong>Stratified sampling:</strong> The population is divided into groups (strata) and a proportional sample is taken from each group. Ensures representation of sub-groups.</li>
+            <li><strong>Convenience (opportunity) sampling:</strong> The easiest people to reach are selected. Simple but prone to bias.</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Example 1 — Stratified sampling</h4>
+            <p>A school has 600 students: 240 in Year 10 and 360 in Year 11. A stratified sample of 50 students is to be selected. How many should come from each year group?</p>
+            <p><span class="step-label">Step 1</span> Find the proportion from each year group:</p>
+            <p>Year 10: $\dfrac{240}{600} \times 50 = 20$ students</p>
+            <p>Year 11: $\dfrac{360}{600} \times 50 = 30$ students</p>
+            <p>Check: $20 + 30 = 50$ ✓</p>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 1a</h4>
+            <p>Classify each of the following as qualitative, discrete, or continuous: (i) the length of a leaf in cm, (ii) the number of pets owned, (iii) the brand of a mobile phone, (iv) the time taken to complete a race.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>(i) Continuous — length can take any value in a range.</p>
+                    <p>(ii) Discrete — whole numbers only.</p>
+                    <p>(iii) Qualitative — described by a category (brand name).</p>
+                    <p>(iv) Continuous — time can take any value.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="averages">2. Averages and Spread</h2>
+
+        <div class="definition-box">
+            <h4>Measures of Average</h4>
+            <ul>
+                <li><strong>Mean:</strong> Sum of all values divided by the number of values. $\bar{x} = \dfrac{\sum x}{n}$</li>
+                <li><strong>Median:</strong> The middle value when data is arranged in order. For $n$ values, the median is at position $\dfrac{n+1}{2}$.</li>
+                <li><strong>Mode:</strong> The value that occurs most frequently. A data set may have more than one mode, or no mode.</li>
+            </ul>
+        </div>
+
+        <div class="definition-box">
+            <h4>Measures of Spread</h4>
+            <ul>
+                <li><strong>Range:</strong> Largest value $-$ Smallest value.</li>
+                <li><strong>Interquartile range (IQR):</strong> Upper quartile $Q_3$ $-$ Lower quartile $Q_1$. The IQR is less affected by extreme values than the range.</li>
+            </ul>
+        </div>
+
+        <h3>Mean from a Frequency Table</h3>
+        $$\bar{x} = \frac{\sum f x}{\sum f}$$
+        <p>where $f$ is the frequency and $x$ is the value.</p>
+
+        <h3>Estimating the Mean from Grouped Data</h3>
+        <p>Use the midpoint of each class interval as the representative value $x$:</p>
+        $$\bar{x} \approx \frac{\sum f m}{\sum f}$$
+        <p>where $m$ is the midpoint of each class. This is an estimate because we do not know the exact values within each class.</p>
+
+        <div class="example-box">
+            <h4>Example 2 — Mean from a frequency table</h4>
+            <p>The table shows the number of books read by 20 students last month.</p>
+            <table class="data-table">
+                <tr><th>Books read ($x$)</th><th>Frequency ($f$)</th><th>$fx$</th></tr>
+                <tr><td>0</td><td>3</td><td>0</td></tr>
+                <tr><td>1</td><td>5</td><td>5</td></tr>
+                <tr><td>2</td><td>7</td><td>14</td></tr>
+                <tr><td>3</td><td>4</td><td>12</td></tr>
+                <tr><td>4</td><td>1</td><td>4</td></tr>
+                <tr><td><strong>Total</strong></td><td><strong>20</strong></td><td><strong>35</strong></td></tr>
+            </table>
+            <p>$\bar{x} = \dfrac{35}{20} = 1.75$ books</p>
+            <p>Median: $20$ values, so median is between the 10th and 11th values. Cumulative frequencies: 0→3, 1→8, 2→15. Both the 10th and 11th values lie in the $x=2$ group. Median $= 2$.</p>
+            <p>Mode: $x = 2$ (highest frequency = 7).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3 — Estimating mean from grouped data</h4>
+            <p>The heights (in cm) of 30 students are recorded in the grouped frequency table below.</p>
+            <table class="data-table">
+                <tr><th>Height (cm)</th><th>Frequency ($f$)</th><th>Midpoint ($m$)</th><th>$fm$</th></tr>
+                <tr><td>$150 \leq h < 160$</td><td>6</td><td>155</td><td>930</td></tr>
+                <tr><td>$160 \leq h < 170$</td><td>11</td><td>165</td><td>1815</td></tr>
+                <tr><td>$170 \leq h < 180$</td><td>9</td><td>175</td><td>1575</td></tr>
+                <tr><td>$180 \leq h < 190$</td><td>4</td><td>185</td><td>740</td></tr>
+                <tr><td><strong>Total</strong></td><td><strong>30</strong></td><td></td><td><strong>5060</strong></td></tr>
+            </table>
+            <p>Estimated mean $= \dfrac{5060}{30} \approx 168.7$ cm</p>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 2a</h4>
+            <p>The ages of 8 people are: 14, 17, 15, 21, 14, 19, 16, 14. Find the mean, median, mode, and range.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Ordered: 14, 14, 14, 15, 16, 17, 19, 21</p>
+                    <p>Mean $= \dfrac{14+14+14+15+16+17+19+21}{8} = \dfrac{130}{8} = 16.25$</p>
+                    <p>Median: $n=8$, position $= 4.5$, so average of 4th and 5th values $= \dfrac{15+16}{2} = 15.5$</p>
+                    <p>Mode $= 14$ (appears 3 times)</p>
+                    <p>Range $= 21 - 14 = 7$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="charts">3. Charts and Diagrams</h2>
+
+        <p>Statistical diagrams provide a visual summary of data. The choice of diagram depends on the type of data and what you want to communicate.</p>
+
+        <h3>Bar Charts</h3>
+        <p>Used for qualitative or discrete data. Bars are drawn with gaps between them. The height of each bar represents the frequency (or relative frequency). <strong>Compound bar charts</strong> place related data in stacked or side-by-side bars. <strong>Dual bar charts</strong> show two data sets alongside each other for comparison.</p>
+
+        <h3>Pie Charts</h3>
+        <p>A pie chart divides a circle into sectors, where each sector represents a category. The angle for each sector is calculated as:</p>
+        $$\text{angle} = \frac{\text{frequency}}{\text{total frequency}} \times 360°$$
+
+        <h3>Pictograms</h3>
+        <p>Use symbols or pictures to represent data. A key is always included to show what each symbol represents. Partial symbols represent fractions of the unit value.</p>
+
+        <div class="example-box">
+            <h4>Example 4 — Pie chart calculation</h4>
+            <p>In a survey, 80 students chose their favourite sport: Football 32, Basketball 20, Tennis 16, Swimming 12. Calculate the angle for each sector.</p>
+            <table class="data-table">
+                <tr><th>Sport</th><th>Frequency</th><th>Angle</th></tr>
+                <tr><td>Football</td><td>32</td><td>$\dfrac{32}{80} \times 360 = 144°$</td></tr>
+                <tr><td>Basketball</td><td>20</td><td>$\dfrac{20}{80} \times 360 = 90°$</td></tr>
+                <tr><td>Tennis</td><td>16</td><td>$\dfrac{16}{80} \times 360 = 72°$</td></tr>
+                <tr><td>Swimming</td><td>12</td><td>$\dfrac{12}{80} \times 360 = 54°$</td></tr>
+                <tr><td><strong>Total</strong></td><td><strong>80</strong></td><td><strong>360°</strong></td></tr>
+            </table>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 3a</h4>
+            <p>A pie chart shows the transport used by 120 pupils to travel to school. The sector for "bus" has an angle of 150°. How many pupils travel by bus?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Number of pupils $= \dfrac{150}{360} \times 120 = \dfrac{5}{12} \times 120 = 50$ pupils.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="scatter">4. Scatter Diagrams and Correlation</h2>
+
+        <p>A <strong>scatter diagram</strong> (or scatter graph) plots pairs of values $(x, y)$ to investigate whether a relationship exists between two variables.</p>
+
+        <div class="definition-box">
+            <h4>Types of Correlation</h4>
+            <ul>
+                <li><strong>Positive correlation:</strong> As $x$ increases, $y$ tends to increase. Points slope upwards from left to right.</li>
+                <li><strong>Negative correlation:</strong> As $x$ increases, $y$ tends to decrease. Points slope downwards from left to right.</li>
+                <li><strong>No correlation:</strong> No clear pattern. Points are scattered randomly.</li>
+                <li>Correlation can also be described as <strong>strong</strong> (points close to a line) or <strong>weak</strong> (points more scattered).</li>
+            </ul>
+        </div>
+
+        <h3>Line of Best Fit</h3>
+        <p>A <strong>line of best fit</strong> (or trend line) is drawn through the middle of the data points so that roughly equal numbers of points lie on each side. It should pass through the mean point $(\bar{x}, \bar{y})$.</p>
+        <ul>
+            <li><strong>Interpolation:</strong> Using the line of best fit to estimate values within the range of the data. Generally reliable.</li>
+            <li><strong>Extrapolation:</strong> Using the line of best fit to estimate values <em>outside</em> the range of the data. Less reliable, as the relationship may not continue.</li>
+            <li><strong>Outliers:</strong> Data points that lie well away from the general trend. They may indicate measurement errors or genuinely unusual values.</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Example 5 — Interpreting a scatter diagram</h4>
+            <p>A scatter diagram shows the marks scored in Maths ($x$) and Science ($y$) by 10 students. The points show a strong positive correlation. The line of best fit passes through $(20, 25)$ and $(60, 65)$.</p>
+            <p><span class="step-label">Step 1</span> Find the gradient: $m = \dfrac{65-25}{60-20} = \dfrac{40}{40} = 1$</p>
+            <p><span class="step-label">Step 2</span> Equation of line: $y - 25 = 1(x - 20) \Rightarrow y = x + 5$</p>
+            <p><span class="step-label">Step 3</span> Estimate Science mark for Maths mark of 45: $y = 45 + 5 = 50$</p>
+            <p>This is interpolation — reliable, as 45 lies within the data range.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Important: Correlation and Causation</h4>
+            <p>Correlation does not imply causation. Just because two variables are correlated does not mean that one causes the other. There may be a third variable influencing both, or the correlation may be coincidental.</p>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 4a</h4>
+            <p>Describe the type of correlation you would expect between: (i) the temperature and the number of ice creams sold; (ii) the age of a car and its resale value; (iii) a person's height and their IQ score.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>(i) Positive correlation — as temperature increases, more ice creams are sold.</p>
+                    <p>(ii) Negative correlation — as a car ages, its resale value generally decreases.</p>
+                    <p>(iii) No correlation — height and IQ are not related.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="stem-leaf">5. Stem-and-Leaf Diagrams</h2>
+
+        <p>A <strong>stem-and-leaf diagram</strong> organises numerical data by splitting each value into a <em>stem</em> (the leading digit(s)) and a <em>leaf</em> (the final digit). The data retains its original values, making it easy to find the median and quartiles.</p>
+
+        <p>In a <strong>back-to-back stem-and-leaf diagram</strong>, two sets of data share a common stem, with one set's leaves going left and the other's going right. This allows direct comparison of two distributions.</p>
+
+        <div class="example-box">
+            <h4>Example 6 — Back-to-back stem-and-leaf diagram</h4>
+            <p>The times (in minutes) taken by Group A and Group B to complete a puzzle are:</p>
+            <p><strong>Group A:</strong> 12, 15, 18, 21, 23, 25, 27, 31, 34, 38</p>
+            <p><strong>Group B:</strong> 14, 16, 19, 20, 24, 26, 29, 30, 32, 35</p>
+            <div class="stem-leaf">
+Group A  |  Stem  |  Group B
+         |        |
+  8  5  2|   1   | 4  6  9
+7  5  3  1|   2   | 0  4  6  9
+    8  4  1|   3   | 0  2  5
+
+Key: 2|1|4 means 12 minutes (A) and 14 minutes (B)
+            </div>
+            <p><span class="step-label">Step 1</span> Find the median of Group A: 10 values, median is between 5th and 6th: $\dfrac{23+25}{2} = 24$ minutes.</p>
+            <p><span class="step-label">Step 2</span> $Q_1$ of Group A: median of lower 5 values (12, 15, 18, 21, 23) = 18.</p>
+            <p><span class="step-label">Step 3</span> $Q_3$ of Group A: median of upper 5 values (25, 27, 31, 34, 38) = 31.</p>
+            <p><span class="step-label">Step 4</span> IQR of Group A $= 31 - 18 = 13$ minutes.</p>
+            <p>Group B median: $\dfrac{24+26}{2} = 25$ minutes. Group B $Q_1 = 19$, $Q_3 = 32$, IQR $= 13$ minutes.</p>
+            <p><strong>Comparison:</strong> Group B has a slightly higher median (25 vs 24 minutes), but both groups have the same IQR, suggesting similar spread.</p>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 5a</h4>
+            <p>The following data shows test scores for 9 students: 43, 51, 55, 57, 62, 68, 71, 74, 79. Draw a stem-and-leaf diagram and find the median and IQR.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <div class="stem-leaf">Stem | Leaves
+4    | 3
+5    | 1  5  7
+6    | 2  8
+7    | 1  4  9
+
+Key: 4|3 = 43</div>
+                    <p>Median: 9 values, 5th value = 62.</p>
+                    <p>$Q_1$: median of lower 4 values (43, 51, 55, 57) $= \dfrac{51+55}{2} = 53$</p>
+                    <p>$Q_3$: median of upper 4 values (68, 71, 74, 79) $= \dfrac{71+74}{2} = 72.5$</p>
+                    <p>IQR $= 72.5 - 53 = 19.5$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="histograms">6. Histograms and Frequency Density</h2>
+
+        <p>A <strong>histogram</strong> is used to display grouped continuous data. Unlike bar charts, histograms have no gaps between bars because the data is continuous. In a histogram, the area of each bar (not the height) represents the frequency.</p>
+
+        <div class="definition-box">
+            <h4>Frequency Density</h4>
+            $$\text{Frequency density} = \frac{\text{Frequency}}{\text{Class width}}$$
+            <p>Rearranging: $\text{Frequency} = \text{Frequency density} \times \text{Class width}$</p>
+            <p>The $y$-axis of a histogram is always labelled "Frequency density", not "Frequency".</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7 — Drawing a histogram</h4>
+            <p>The masses (in kg) of 60 parcels are recorded below.</p>
+            <table class="data-table">
+                <tr><th>Mass (kg)</th><th>Frequency</th><th>Class width</th><th>Frequency density</th></tr>
+                <tr><td>$0 \leq m < 2$</td><td>8</td><td>2</td><td>$8 \div 2 = 4$</td></tr>
+                <tr><td>$2 \leq m < 5$</td><td>18</td><td>3</td><td>$18 \div 3 = 6$</td></tr>
+                <tr><td>$5 \leq m < 8$</td><td>21</td><td>3</td><td>$21 \div 3 = 7$</td></tr>
+                <tr><td>$8 \leq m < 12$</td><td>12</td><td>4</td><td>$12 \div 4 = 3$</td></tr>
+                <tr><td>$12 \leq m < 20$</td><td>4</td><td>8</td><td>$4 \div 8 = 0.5$</td></tr>
+                <tr><td><strong>Total</strong></td><td><strong>60</strong></td><td></td><td></td></tr>
+            </table>
+            <p>Draw a histogram with mass on the $x$-axis and frequency density on the $y$-axis. The width of each bar spans its class interval and the height equals its frequency density.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8 — Reading a histogram</h4>
+            <p>A histogram shows the following frequency densities for age groups: $0 \leq a < 10$: fd = 3.5; $10 \leq a < 20$: fd = 5; $20 \leq a < 30$: fd = 4.2. Find the number of people in each group.</p>
+            <p>Each class width = 10.</p>
+            <p>$0$–$10$: $3.5 \times 10 = 35$ people</p>
+            <p>$10$–$20$: $5 \times 10 = 50$ people</p>
+            <p>$20$–$30$: $4.2 \times 10 = 42$ people</p>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 6a</h4>
+            <p>A histogram has a bar for the interval $15 \leq t < 25$ with frequency density 3.6. A bar for $25 \leq t < 30$ has frequency density 8. Find the frequency for each interval and the total number of data values in these two classes.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Interval $15 \leq t < 25$: class width $= 10$, frequency $= 3.6 \times 10 = 36$</p>
+                    <p>Interval $25 \leq t < 30$: class width $= 5$, frequency $= 8 \times 5 = 40$</p>
+                    <p>Total: $36 + 40 = 76$ data values</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="cumulative">7. Cumulative Frequency and Box Plots</h2>
+
+        <p><strong>Cumulative frequency</strong> is the running total of frequencies up to and including each class. A <strong>cumulative frequency curve</strong> (ogive) is used to estimate the median, quartiles, and interquartile range from grouped data.</p>
+
+        <div class="definition-box">
+            <h4>Reading from a Cumulative Frequency Curve</h4>
+            <p>For $n$ data values:</p>
+            <ul>
+                <li><strong>Median</strong> at cumulative frequency $\dfrac{n}{2}$</li>
+                <li><strong>Lower quartile $Q_1$</strong> at cumulative frequency $\dfrac{n}{4}$</li>
+                <li><strong>Upper quartile $Q_3$</strong> at cumulative frequency $\dfrac{3n}{4}$</li>
+                <li><strong>Interquartile range</strong> $= Q_3 - Q_1$</li>
+            </ul>
+        </div>
+
+        <div id="desmos-cumfreq" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 9.1 — A cumulative frequency step function (blue) and a smooth cumulative frequency curve (green) for grouped data. The median and quartiles are read off horizontally from the $\frac{n}{2}$ and $\frac{n}{4}$ levels.</p>
+
+        <div id="desmos-normal" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 9.2 — A normal distribution bell curve, illustrating the symmetric, unimodal shape that naturally arises in many large data sets (e.g., heights, examination marks).</p>
+
+        <div class="example-box">
+            <h4>Example 9 — Cumulative frequency table and curve</h4>
+            <p>The times (in seconds) taken by 80 swimmers to complete a length are given in the grouped frequency table.</p>
+            <table class="data-table">
+                <tr><th>Time (s)</th><th>Frequency</th><th>Cumulative Frequency</th></tr>
+                <tr><td>$50 \leq t < 60$</td><td>5</td><td>5</td></tr>
+                <tr><td>$60 \leq t < 70$</td><td>18</td><td>23</td></tr>
+                <tr><td>$70 \leq t < 80$</td><td>28</td><td>51</td></tr>
+                <tr><td>$80 \leq t < 90$</td><td>20</td><td>71</td></tr>
+                <tr><td>$90 \leq t < 100$</td><td>9</td><td>80</td></tr>
+            </table>
+            <p><span class="step-label">Step 1</span> Plot cumulative frequency against the <em>upper class boundary</em> of each interval: $(60, 5)$, $(70, 23)$, $(80, 51)$, $(90, 71)$, $(100, 80)$. Also plot $(50, 0)$.</p>
+            <p><span class="step-label">Step 2</span> Join with a smooth curve.</p>
+            <p><span class="step-label">Step 3</span> Read off: Median at cf = 40 → $t \approx 77$ s; $Q_1$ at cf = 20 → $t \approx 68$ s; $Q_3$ at cf = 60 → $t \approx 83$ s.</p>
+            <p>IQR $\approx 83 - 68 = 15$ s</p>
+        </div>
+
+        <h3>Box-and-Whisker Plots</h3>
+        <p>A <strong>box-and-whisker plot</strong> (or box plot) provides a visual summary of a distribution using five key values: minimum, $Q_1$, median, $Q_3$, maximum. The box spans the IQR; the whiskers extend to the minimum and maximum values (excluding outliers).</p>
+
+        <div class="example-box">
+            <h4>Example 10 — Comparing distributions using box plots</h4>
+            <p>Two classes sit the same test. Their results:</p>
+            <ul>
+                <li><strong>Class X:</strong> Min = 20, $Q_1$ = 40, Median = 55, $Q_3$ = 70, Max = 90</li>
+                <li><strong>Class Y:</strong> Min = 30, $Q_1$ = 50, Median = 65, $Q_3$ = 75, Max = 95</li>
+            </ul>
+            <p><strong>Comparison:</strong></p>
+            <ul>
+                <li>Class Y has a higher median (65 vs 55), suggesting Class Y performed better on average.</li>
+                <li>Class X has a larger IQR ($70 - 40 = 30$) compared to Class Y ($75 - 50 = 25$), suggesting Class X's results are more spread out.</li>
+                <li>Both classes have a similar range (Class X: 70, Class Y: 65).</li>
+            </ul>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip — Comparing Distributions</h4>
+            <p>When asked to compare two distributions, always comment on <strong>both</strong> a measure of average (mean or median) <strong>and</strong> a measure of spread (range or IQR), and interpret them in context.</p>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 7a</h4>
+            <p>From the cumulative frequency curve in Example 9, estimate the number of swimmers who took more than 85 seconds.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Read the cumulative frequency at $t = 85$: approximately 63 swimmers took 85 seconds or less.</p>
+                    <p>Number taking more than 85 s $= 80 - 63 = 17$ swimmers.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Practice 7b</h4>
+            <p>Two data sets have the following box plot summaries:</p>
+            <p><strong>Set A:</strong> Min = 5, $Q_1$ = 12, Median = 18, $Q_3$ = 26, Max = 40</p>
+            <p><strong>Set B:</strong> Min = 8, $Q_1$ = 15, Median = 22, $Q_3$ = 28, Max = 35</p>
+            <p>Write two comparisons between Set A and Set B.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>Average:</strong> Set B has a higher median (22 vs 18), so the values in Set B tend to be larger.</p>
+                    <p><strong>Spread:</strong> Set A has a larger IQR ($26 - 12 = 14$) compared to Set B ($28 - 15 = 13$), and a larger overall range ($40 - 5 = 35$ vs $35 - 8 = 27$), so Set A's values are more spread out.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="practice">8. Mixed Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Question 1</h4>
+            <p>The number of goals scored by a football team in each of 12 matches is: 0, 1, 2, 1, 3, 0, 2, 4, 1, 2, 1, 0. Find the mean, median, mode, and range.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Ordered: 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 3, 4</p>
+                    <p>Mean $= \dfrac{0+0+0+1+1+1+1+2+2+2+3+4}{12} = \dfrac{17}{12} \approx 1.42$</p>
+                    <p>Median: 12 values, average of 6th and 7th: $\dfrac{1+1}{2} = 1$</p>
+                    <p>Mode $= 1$ (appears 4 times)</p>
+                    <p>Range $= 4 - 0 = 4$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 2</h4>
+            <p>The table shows the masses of 50 apples. Estimate the mean mass.</p>
+            <table class="data-table">
+                <tr><th>Mass (g)</th><th>Frequency</th></tr>
+                <tr><td>$80 \leq m < 100$</td><td>8</td></tr>
+                <tr><td>$100 \leq m < 120$</td><td>17</td></tr>
+                <tr><td>$120 \leq m < 140$</td><td>19</td></tr>
+                <tr><td>$140 \leq m < 160$</td><td>6</td></tr>
+            </table>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Midpoints: 90, 110, 130, 150</p>
+                    <p>$\sum fm = 8 \times 90 + 17 \times 110 + 19 \times 130 + 6 \times 150$</p>
+                    <p>$= 720 + 1870 + 2470 + 900 = 5960$</p>
+                    <p>Estimated mean $= \dfrac{5960}{50} = 119.2$ g</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 3</h4>
+            <p>In a school of 900 pupils, 360 are in Key Stage 3 and 540 are in Key Stage 4. A stratified sample of 75 pupils is needed. How many pupils should be selected from each Key Stage?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>KS3: $\dfrac{360}{900} \times 75 = 0.4 \times 75 = 30$ pupils</p>
+                    <p>KS4: $\dfrac{540}{900} \times 75 = 0.6 \times 75 = 45$ pupils</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 4</h4>
+            <p>A pie chart shows that 60 people chose "blue" as their favourite colour. The angle of the blue sector is 144°. How many people were surveyed in total?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\dfrac{60}{\text{total}} = \dfrac{144}{360} = 0.4$</p>
+                    <p>Total $= \dfrac{60}{0.4} = 150$ people</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 5</h4>
+            <p>A histogram bar for the interval $20 \leq x < 30$ has frequency density 4.5, and a bar for $30 \leq x < 50$ has frequency density 2.5. Find the total frequency for these two intervals.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$20 \leq x < 30$: width $= 10$, frequency $= 4.5 \times 10 = 45$</p>
+                    <p>$30 \leq x < 50$: width $= 20$, frequency $= 2.5 \times 20 = 50$</p>
+                    <p>Total frequency $= 45 + 50 = 95$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 6</h4>
+            <p>The stem-and-leaf diagram below shows the ages of people at a community event:</p>
+            <div class="stem-leaf">Stem | Leaves
+1    | 5  8
+2    | 2  4  6  9
+3    | 1  3  5  5  7
+4    | 0  2  8
+5    | 3  6
+
+Key: 1|5 = 15 years</div>
+            <p>Find: (a) the median, (b) the interquartile range.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Data in order: 15, 18, 22, 24, 26, 29, 31, 33, 35, 35, 37, 40, 42, 48, 53, 56</p>
+                    <p>$n = 16$. Median at position 8.5: $\dfrac{33+35}{2} = 34$</p>
+                    <p>$Q_1$: median of lower 8 values (15–31) at position 4.5: $\dfrac{24+26}{2} = 25$</p>
+                    <p>$Q_3$: median of upper 8 values (33–56) at position 4.5 within that group: $\dfrac{40+42}{2} = 41$</p>
+                    <p>IQR $= 41 - 25 = 16$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 7</h4>
+            <p>The following data shows the heights (in cm) of 10 plants: 34, 38, 42, 45, 47, 50, 53, 58, 61, 65. Draw a box-and-whisker plot using this data.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Minimum $= 34$, Maximum $= 65$</p>
+                    <p>Median: 10 values, average of 5th and 6th: $\dfrac{47+50}{2} = 48.5$</p>
+                    <p>$Q_1$: median of lower 5 values (34, 38, 42, 45, 47) $= 42$</p>
+                    <p>$Q_3$: median of upper 5 values (50, 53, 58, 61, 65) $= 58$</p>
+                    <p>Box-and-whisker plot: draw a number line, mark 34, 42, 48.5, 58, 65. Draw a box from $Q_1 = 42$ to $Q_3 = 58$ with a line at the median $48.5$. Draw whiskers from $34$ to $42$ and from $58$ to $65$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 8</h4>
+            <p>A scatter diagram shows the temperature ($x$°C) and the number of visitors to a park ($y$). The line of best fit has equation $y = 12x + 40$. Estimate the number of visitors when the temperature is 18°C, and comment on the reliability of using the line of best fit for a temperature of $-5$°C.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>At $x = 18$: $y = 12(18) + 40 = 216 + 40 = 256$ visitors.</p>
+                    <p>At $x = -5$°C: This is extrapolation — using the line of best fit outside the range of observed temperatures. The result ($y = 12(-5) + 40 = -20$ visitors) is not meaningful. Predictions outside the data range are unreliable.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 9</h4>
+            <p>The cumulative frequency for the times (in minutes) taken by 100 people to complete a puzzle is as follows: by 10 min: 8; by 15 min: 27; by 20 min: 56; by 25 min: 81; by 30 min: 100. Estimate the median and interquartile range.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$n = 100$. Median at cf $= 50$; from the data, cf goes from 27 at 15 min to 56 at 20 min.</p>
+                    <p>By linear interpolation: $15 + \dfrac{50-27}{56-27} \times 5 = 15 + \dfrac{23}{29} \times 5 \approx 15 + 3.97 \approx 19.0$ min</p>
+                    <p>$Q_1$ at cf $= 25$: between 15 min (cf=27) so $Q_1 \approx 15$ min. More precisely: $10 + \dfrac{25-8}{27-8} \times 5 = 10 + \dfrac{17}{19} \times 5 \approx 14.5$ min</p>
+                    <p>$Q_3$ at cf $= 75$: between 20 min (cf=56) and 25 min (cf=81): $20 + \dfrac{75-56}{81-56} \times 5 = 20 + \dfrac{19}{25} \times 5 = 20 + 3.8 = 23.8$ min</p>
+                    <p>IQR $\approx 23.8 - 14.5 = 9.3$ min</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Question 10</h4>
+            <p>Two classes each took a test out of 50 marks. Class A: median = 32, IQR = 18, range = 42. Class B: median = 36, IQR = 10, range = 30. Write a comparison of the two distributions, referring to both average and spread.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>Average:</strong> Class B has a higher median mark (36 vs 32), so Class B performed better on average.</p>
+                    <p><strong>Spread:</strong> Class A has a larger IQR (18 vs 10) and a larger range (42 vs 30), so Class A's marks are more spread out and less consistent. Class B's results are more tightly clustered around the median.</p>
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <script>
+        // Desmos Figure 1 — Cumulative frequency step function and smooth curve
+        (function() {
+            var elt = document.getElementById('desmos-cumfreq');
+            var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true
+            });
+            calc.setMathBounds({ left: 48, right: 105, bottom: -5, top: 90 });
+            calc.setExpressions([
+                // Smooth cumulative frequency curve (approximate)
+                { id: 'cf_curve', latex: 'y = \\frac{80}{1+e^{-0.18(x-75)}}', color: '#22c55e', lineWidth: 2.5 },
+                // Step function (staircase) approximating the cumulative frequency
+                { id: 's1', latex: 'polygon((50,0),(60,0),(60,5),(70,5),(70,23),(80,23),(80,51),(90,51),(90,71),(100,71),(100,80))', color: '#3b82f6', fillOpacity: 0 },
+                // Points at upper boundaries
+                { id: 'p1', latex: '(60,5)', color: '#3b82f6' },
+                { id: 'p2', latex: '(70,23)', color: '#3b82f6' },
+                { id: 'p3', latex: '(80,51)', color: '#3b82f6' },
+                { id: 'p4', latex: '(90,71)', color: '#3b82f6' },
+                { id: 'p5', latex: '(100,80)', color: '#3b82f6' },
+                // Median line at cf=40
+                { id: 'med_h', latex: 'y=40\\{48 \\leq x \\leq 105\\}', color: '#f59e0b', lineStyle: Desmos.Styles.DASHED },
+                { id: 'med_label', latex: '(50, 42)', label: 'cf=40 (median)', showLabel: true, color: '#b45309', pointOpacity: 0 },
+                // Q1 line at cf=20
+                { id: 'q1_h', latex: 'y=20\\{48 \\leq x \\leq 105\\}', color: '#8b5cf6', lineStyle: Desmos.Styles.DASHED },
+                { id: 'q1_label', latex: '(50, 22)', label: 'cf=20 (Q₁)', showLabel: true, color: '#6d28d9', pointOpacity: 0 },
+                // Q3 line at cf=60
+                { id: 'q3_h', latex: 'y=60\\{48 \\leq x \\leq 105\\}', color: '#ef4444', lineStyle: Desmos.Styles.DASHED },
+                { id: 'q3_label', latex: '(50, 62)', label: 'cf=60 (Q₃)', showLabel: true, color: '#dc2626', pointOpacity: 0 }
+            ]);
+        })();
+
+        // Desmos Figure 2 — Normal distribution bell curve
+        (function() {
+            var elt = document.getElementById('desmos-normal');
+            var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true
+            });
+            calc.setMathBounds({ left: -4, right: 4, bottom: -0.05, top: 0.5 });
+            calc.setExpressions([
+                // Normal distribution curve
+                { id: 'norm', latex: 'y = \\frac{1}{\\sqrt{2\\pi}}e^{-\\frac{x^2}{2}}', color: '#3b82f6', lineWidth: 3 },
+                // Shaded area under curve
+                { id: 'shade', latex: 'y \\leq \\frac{1}{\\sqrt{2\\pi}}e^{-\\frac{x^2}{2}}', color: '#3b82f6', fillOpacity: 0.15 },
+                // Mean line
+                { id: 'mean_line', latex: 'x = 0', color: '#ef4444', lineStyle: Desmos.Styles.DASHED },
+                { id: 'mean_label', latex: '(0.1, 0.42)', label: 'Mean = Median = Mode', showLabel: true, color: '#dc2626', pointOpacity: 0 },
+                // Standard deviation markers
+                { id: 'sd1', latex: 'x = 1', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED },
+                { id: 'sd2', latex: 'x = -1', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED },
+                { id: 'sd1_label', latex: '(1.1, 0.05)', label: '+1σ', showLabel: true, color: '#64748b', pointOpacity: 0 },
+                { id: 'sd2_label', latex: '(-1.3, 0.05)', label: '−1σ', showLabel: true, color: '#64748b', pointOpacity: 0 }
+            ]);
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Mathematics – Chapter 6: Differentiation | A-Level Mathematics | MathHub</title>
+    <meta name="description" content="Complete A-Level Maths Chapter 6: Differentiation. Covers first principles, standard derivatives, chain, product and quotient rules, implicit and parametric differentiation, stationary points, and optimisation.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/alevel-ch6-differentiation.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/uk/textbook/alevel-ch6-differentiation.html">
+    <meta property="og:title" content="A-Level Mathematics – Chapter 6: Differentiation | MathHub">
+    <meta property="og:site_name" content="MathHub Global">
+    <link rel="alternate" hreflang="en-GB" href="https://mathhub.io/uk/textbook/alevel-ch6-differentiation.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .year2-badge { display: inline-block; background: #e0e7ff; color: #3730a3; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; }
+        th, td { border: 1px solid #e2e8f0; padding: 10px 14px; text-align: center; color: #334155; }
+        th { background: #f0f7ff; color: #1e3a5f; font-weight: 700; }
+        tr:nth-child(even) { background: #f8fafc; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/" class="active">UK</a><a href="/ca/">CA</a><a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+    <article class="blog-article">
+        <div class="breadcrumb"><a href="/uk/">UK</a> &rsaquo; <a href="/uk/a-level/">A-Level Maths</a> &rsaquo; Chapter 6: Differentiation</div>
+        <h1>A-Level Mathematics – Chapter 6: Differentiation</h1>
+        <div class="blog-meta">Edexcel &middot; AQA &middot; OCR A-Level Mathematics &middot; Updated March 2026</div>
+
+        <p>Differentiation is the mathematical study of rates of change and the gradients of curves. It underpins curve sketching, optimisation, mechanics, and an enormous range of applied mathematics. This chapter develops the subject from the foundational limit definition, through standard derivatives and the chain, product, and quotient rules, to the Year 2 techniques of implicit and parametric differentiation, before arriving at stationary points and optimisation problems.</p>
+
+        <div class="exam-note">
+            <h4>Specification Note</h4>
+            <p>Content labelled <span class="year2-badge">Year 2</span> is A2-level only and is not assessed at AS. Sections 6.1, 6.2, and 6.6 are required for both AS and full A-Level.</p>
+        </div>
+
+        <div class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#s61">6.1 First Principles</a></li>
+                <li><a href="#s62">6.2 Standard Derivatives</a></li>
+                <li><a href="#s63">6.3 Rules of Differentiation</a></li>
+                <li><a href="#s64">6.4 Implicit Differentiation <span class="year2-badge">Year 2</span></a></li>
+                <li><a href="#s65">6.5 Parametric Differentiation <span class="year2-badge">Year 2</span></a></li>
+                <li><a href="#s66">6.6 Stationary Points and Optimisation</a></li>
+                <li><a href="#practice">Practice Problems</a></li>
+            </ol>
+        </div>
+
+        <!-- ===== SECTION 6.1 ===== -->
+        <h2 id="s61">6.1 First Principles</h2>
+
+        <p>The derivative is defined as the <strong>limit of the gradient of a chord</strong> as the chord length tends to zero. This formal definition underpins all of differentiation, and being able to derive simple results from it is an explicit exam requirement.</p>
+
+        <div class="definition-box">
+            <h4>Definition: The Derivative from First Principles</h4>
+            $$f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}$$
+            <p>Also written as $\dfrac{dy}{dx}$, $\dfrac{d}{dx}[f(x)]$, or $\dot{y}$ (in mechanics).</p>
+            <p>Geometrically, $f'(x)$ gives the <strong>gradient of the tangent</strong> to $y = f(x)$ at the point $(x, f(x))$, and also the instantaneous rate of change of $y$ with respect to $x$.</p>
+        </div>
+
+        <h3>Standard Limits Required</h3>
+        <p>Two limits are needed for the first-principles derivation of trigonometric derivatives (both stated without proof at A-Level):</p>
+        $$\lim_{h \to 0}\frac{\sin h}{h} = 1 \qquad \lim_{h \to 0}\frac{\cos h - 1}{h} = 0$$
+
+        <div class="example-box">
+            <h4>Example 6.1.1 — Differentiating $f(x) = x^2$ from First Principles</h4>
+            <p>Use the definition to show that $\dfrac{d}{dx}(x^2) = 2x$.</p>
+            <p><span class="step-label">1</span> Form the difference quotient: $\dfrac{(x+h)^2 - x^2}{h}$</p>
+            <p><span class="step-label">2</span> Expand: $= \dfrac{x^2 + 2xh + h^2 - x^2}{h} = \dfrac{2xh + h^2}{h} = 2x + h$</p>
+            <p><span class="step-label">3</span> Take the limit: $f'(x) = \lim_{h \to 0}(2x + h) = 2x$ &#8203;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.1.2 — Differentiating $f(x) = x^3$ from First Principles</h4>
+            <p>Show that $\dfrac{d}{dx}(x^3) = 3x^2$.</p>
+            <p><span class="step-label">1</span> $\dfrac{(x+h)^3 - x^3}{h}$</p>
+            <p><span class="step-label">2</span> Expand $(x+h)^3 = x^3 + 3x^2h + 3xh^2 + h^3$:</p>
+            <p>$= \dfrac{3x^2h + 3xh^2 + h^3}{h} = 3x^2 + 3xh + h^2$</p>
+            <p><span class="step-label">3</span> $\lim_{h\to 0}(3x^2 + 3xh + h^2) = 3x^2$ &#8203;</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.1.3 — Differentiating $\sin x$ from First Principles</h4>
+            <p>Show that $\dfrac{d}{dx}(\sin x) = \cos x$.</p>
+            <p><span class="step-label">1</span> $\dfrac{\sin(x+h) - \sin x}{h}$. Apply the compound angle formula: $\sin(x+h) = \sin x\cos h + \cos x\sin h$.</p>
+            <p><span class="step-label">2</span> $= \dfrac{\sin x\cos h + \cos x\sin h - \sin x}{h} = \sin x\cdot\dfrac{\cos h - 1}{h} + \cos x\cdot\dfrac{\sin h}{h}$</p>
+            <p><span class="step-label">3</span> Apply the standard limits: $= \sin x \cdot 0 + \cos x \cdot 1 = \cos x$ &#8203;</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>In first-principles questions, you <em>must</em> show the limit notation explicitly and take the limit at the final step. Writing $h \to 0$ once at the start and then substituting $h = 0$ will lose marks — keep the limit notation until the very last line.</p>
+        </div>
+
+        <!-- ===== SECTION 6.2 ===== -->
+        <h2 id="s62">6.2 Standard Derivatives</h2>
+
+        <p>The following table of derivatives must be memorised. The power rule and the trig derivatives are given in the formulae booklet, but the $e^x$ and $\ln x$ results are not, so they should be learnt.</p>
+
+        <div class="theorem-box">
+            <h4>Table of Standard Derivatives</h4>
+            <table>
+                <tr><th>$f(x)$</th><th>$f'(x)$</th></tr>
+                <tr><td>$x^n$</td><td>$nx^{n-1}$</td></tr>
+                <tr><td>$e^x$</td><td>$e^x$</td></tr>
+                <tr><td>$e^{ax}$</td><td>$ae^{ax}$</td></tr>
+                <tr><td>$\ln x$</td><td>$\dfrac{1}{x}$</td></tr>
+                <tr><td>$\sin x$</td><td>$\cos x$</td></tr>
+                <tr><td>$\cos x$</td><td>$-\sin x$</td></tr>
+                <tr><td>$\tan x$</td><td>$\sec^2 x$</td></tr>
+            </table>
+            <p><strong>Sum/difference rule:</strong> $\dfrac{d}{dx}[f(x) \pm g(x)] = f'(x) \pm g'(x)$</p>
+            <p><strong>Constant multiple:</strong> $\dfrac{d}{dx}[kf(x)] = kf'(x)$</p>
+        </div>
+
+        <p>The figure below shows a function $f(x)$ alongside its derivative $f'(x)$. Observe how the derivative is zero where the original function has a horizontal tangent, positive where the function increases, and negative where it decreases.</p>
+
+        <div id="desmos-deriv" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 6.1 — $f(x) = x^3 - 3x$ (blue) and its derivative $f'(x) = 3x^2 - 3$ (green). The derivative is zero at the turning points of $f$.</p>
+
+        <div class="example-box">
+            <h4>Example 6.2.1 — Differentiating a Polynomial (Rewriting First)</h4>
+            <p>Find $\dfrac{dy}{dx}$ for $y = 4x^3 - \dfrac{6}{x^2} + 5\sqrt{x} - 7$.</p>
+            <p><span class="step-label">1</span> Rewrite: $y = 4x^3 - 6x^{-2} + 5x^{1/2} - 7$</p>
+            <p><span class="step-label">2</span> Differentiate term by term:</p>
+            <p>$\dfrac{dy}{dx} = 12x^2 + 12x^{-3} + \dfrac{5}{2}x^{-1/2} = 12x^2 + \dfrac{12}{x^3} + \dfrac{5}{2\sqrt{x}}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.2.2 — Differentiating Trigonometric and Exponential Functions</h4>
+            <p>Differentiate: (a) $y = 3\sin x - 2\cos x$ &ensp; (b) $y = 4e^{3x} + \ln x$ &ensp; (c) $y = 2\tan x - 5e^x$</p>
+            <p><span class="step-label">a</span> $\dfrac{dy}{dx} = 3\cos x + 2\sin x$</p>
+            <p><span class="step-label">b</span> $\dfrac{dy}{dx} = 12e^{3x} + \dfrac{1}{x}$</p>
+            <p><span class="step-label">c</span> $\dfrac{dy}{dx} = 2\sec^2 x - 5e^x$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.2.3 — Finding the Gradient at a Point</h4>
+            <p>Find the gradient of $y = x^3 - 4x + 1$ at the point where $x = 2$.</p>
+            <p><span class="step-label">1</span> $\dfrac{dy}{dx} = 3x^2 - 4$</p>
+            <p><span class="step-label">2</span> At $x = 2$: $\dfrac{dy}{dx} = 12 - 4 = 8$</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Before differentiating, always rewrite the function in index notation: $\dfrac{1}{x^2} = x^{-2}$, $\sqrt[3]{x} = x^{1/3}$, $\dfrac{5}{\sqrt{x}} = 5x^{-1/2}$. Attempting to apply the power rule without rewriting is the most common error in this section.</p>
+        </div>
+
+        <!-- ===== SECTION 6.3 ===== -->
+        <h2 id="s63">6.3 Rules of Differentiation</h2>
+
+        <p>The chain rule, product rule, and quotient rule extend differentiation to composite, product, and quotient functions respectively. These three rules are the workhorses of Year 1 and Year 2 calculus.</p>
+
+        <div class="theorem-box">
+            <h4>Chain Rule</h4>
+            <p>For a composite function $y = f(g(x))$:</p>
+            $$\frac{dy}{dx} = f'(g(x)) \cdot g'(x) \qquad \text{equivalently,} \quad \frac{dy}{dx} = \frac{dy}{du}\cdot\frac{du}{dx}$$
+            <p><em>Mnemonic:</em> differentiate the outer function, leave the inner unchanged, then multiply by the derivative of the inner.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Product Rule</h4>
+            <p>For $y = u(x)\,v(x)$:</p>
+            $$\frac{dy}{dx} = u'v + uv'$$
+        </div>
+
+        <div class="theorem-box">
+            <h4>Quotient Rule</h4>
+            <p>For $y = \dfrac{u(x)}{v(x)}$:</p>
+            $$\frac{dy}{dx} = \frac{u'v - uv'}{v^2}$$
+            <p><em>Mnemonic:</em> "bottom $d$(top) minus top $d$(bottom), over bottom squared."</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.3.1 — Chain Rule: Power of a Function</h4>
+            <p>Differentiate $y = (3x^2 + 1)^5$.</p>
+            <p><span class="step-label">1</span> Let $u = 3x^2 + 1$, $y = u^5$.</p>
+            <p><span class="step-label">2</span> $\dfrac{dy}{du} = 5u^4$ and $\dfrac{du}{dx} = 6x$.</p>
+            <p><span class="step-label">3</span> $\dfrac{dy}{dx} = 5u^4 \cdot 6x = 30x(3x^2+1)^4$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.3.2 — Chain Rule: Logarithm and Trigonometry</h4>
+            <p>Differentiate: (a) $y = \ln(4x^3 - 1)$ &ensp; (b) $y = \sin(e^{2x})$</p>
+            <p><span class="step-label">a</span> Let $u = 4x^3 - 1$: $\dfrac{dy}{dx} = \dfrac{1}{u} \cdot 12x^2 = \dfrac{12x^2}{4x^3 - 1}$</p>
+            <p><span class="step-label">b</span> Let $u = e^{2x}$: $\dfrac{dy}{dx} = \cos(e^{2x}) \cdot 2e^{2x} = 2e^{2x}\cos(e^{2x})$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.3.3 — Product Rule</h4>
+            <p>Differentiate $y = x^3 e^{2x}$.</p>
+            <p><span class="step-label">1</span> $u = x^3$, $v = e^{2x}$; $u' = 3x^2$, $v' = 2e^{2x}$.</p>
+            <p><span class="step-label">2</span> $\dfrac{dy}{dx} = 3x^2 e^{2x} + x^3 \cdot 2e^{2x} = x^2 e^{2x}(3 + 2x)$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.3.4 — Product Rule with $\ln x$</h4>
+            <p>Differentiate $y = x^2\ln x$. Hence find $\dfrac{dy}{dx}$ at $x = e$.</p>
+            <p><span class="step-label">1</span> $u = x^2$, $v = \ln x$; $u' = 2x$, $v' = \dfrac{1}{x}$.</p>
+            <p><span class="step-label">2</span> $\dfrac{dy}{dx} = 2x\ln x + x^2 \cdot \dfrac{1}{x} = 2x\ln x + x$</p>
+            <p><span class="step-label">3</span> At $x = e$: $\dfrac{dy}{dx} = 2e\ln e + e = 2e + e = 3e$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.3.5 — Quotient Rule</h4>
+            <p>Differentiate $y = \dfrac{\sin x}{x^2 + 1}$.</p>
+            <p><span class="step-label">1</span> $u = \sin x$, $v = x^2+1$; $u' = \cos x$, $v' = 2x$.</p>
+            <p><span class="step-label">2</span> $\dfrac{dy}{dx} = \dfrac{\cos x(x^2+1) - \sin x \cdot 2x}{(x^2+1)^2} = \dfrac{(x^2+1)\cos x - 2x\sin x}{(x^2+1)^2}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.3.6 — Chain Rule Inside Product Rule</h4>
+            <p>Differentiate $y = e^{x^2}\sin(3x)$.</p>
+            <p><span class="step-label">1</span> $u = e^{x^2}$, $v = \sin(3x)$; $u' = 2xe^{x^2}$, $v' = 3\cos(3x)$.</p>
+            <p><span class="step-label">2</span> $\dfrac{dy}{dx} = 2xe^{x^2}\sin(3x) + e^{x^2} \cdot 3\cos(3x) = e^{x^2}[2x\sin(3x) + 3\cos(3x)]$</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Before applying the quotient rule, check whether the expression can be split and differentiated term by term instead — it is often faster. For instance, $\dfrac{x^3 + 2x}{x}$ should be split as $x^2 + 2$ rather than treated as a quotient.</p>
+        </div>
+
+        <!-- ===== SECTION 6.4 ===== -->
+        <h2 id="s64">6.4 Implicit Differentiation <span class="year2-badge">Year 2</span></h2>
+
+        <p>When a curve is defined by an equation in both $x$ and $y$ that cannot easily be rearranged into $y = f(x)$, we differentiate <strong>implicitly</strong> with respect to $x$. The key idea is that $y$ is treated as a function of $x$, so every term involving $y$ acquires a factor of $\dfrac{dy}{dx}$ by the chain rule:</p>
+        $$\frac{d}{dx}[f(y)] = f'(y)\,\frac{dy}{dx}$$
+
+        <div class="example-box">
+            <h4>Example 6.4.1 — A Circle</h4>
+            <p>Find $\dfrac{dy}{dx}$ for $x^2 + y^2 = 25$ and hence find the gradient at the point $(3, 4)$.</p>
+            <p><span class="step-label">1</span> Differentiate: $2x + 2y\dfrac{dy}{dx} = 0$</p>
+            <p><span class="step-label">2</span> Solve: $\dfrac{dy}{dx} = -\dfrac{x}{y}$</p>
+            <p><span class="step-label">3</span> At $(3,4)$: $\dfrac{dy}{dx} = -\dfrac{3}{4}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.4.2 — Mixed Terms</h4>
+            <p>Find the gradient of $x^3 + y^3 - 3xy = 7$ at the point $(2, 1)$.</p>
+            <p><span class="step-label">1</span> Differentiate: $3x^2 + 3y^2\dfrac{dy}{dx} - 3\!\left(y + x\dfrac{dy}{dx}\right) = 0$</p>
+            <p><span class="step-label">2</span> Rearrange: $(3y^2 - 3x)\dfrac{dy}{dx} = 3y - 3x^2$</p>
+            <p><span class="step-label">3</span> $\dfrac{dy}{dx} = \dfrac{y - x^2}{y^2 - x}$</p>
+            <p><span class="step-label">4</span> At $(2,1)$: $\dfrac{dy}{dx} = \dfrac{1 - 4}{1 - 2} = \dfrac{-3}{-1} = 3$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.4.3 — Finding the Tangent to an Implicit Curve</h4>
+            <p>Find the equation of the tangent to $ye^x + x^2 = 3$ at the point $(0, 3)$.</p>
+            <p><span class="step-label">1</span> Differentiate: $\dfrac{dy}{dx}e^x + ye^x + 2x = 0$</p>
+            <p><span class="step-label">2</span> At $(0, 3)$: $\dfrac{dy}{dx}\cdot 1 + 3\cdot 1 + 0 = 0 \Rightarrow \dfrac{dy}{dx} = -3$</p>
+            <p><span class="step-label">3</span> Tangent: $y - 3 = -3(x - 0) \Rightarrow y = -3x + 3$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.4.4 — Implicit Differentiation with $\ln$</h4>
+            <p>Find $\dfrac{dy}{dx}$ for $\ln(xy) + x = 2y$.</p>
+            <p><span class="step-label">1</span> Use log law: $\ln x + \ln y + x = 2y$</p>
+            <p><span class="step-label">2</span> Differentiate: $\dfrac{1}{x} + \dfrac{1}{y}\dfrac{dy}{dx} + 1 = 2\dfrac{dy}{dx}$</p>
+            <p><span class="step-label">3</span> Rearrange: $\left(2 - \dfrac{1}{y}\right)\dfrac{dy}{dx} = \dfrac{1}{x} + 1$</p>
+            <p><span class="step-label">4</span> $\dfrac{dy}{dx} = \dfrac{\dfrac{1}{x} + 1}{2 - \dfrac{1}{y}} = \dfrac{y(1+x)}{x(2y-1)}$</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>After differentiating implicitly, collect all $\dfrac{dy}{dx}$ terms on one side immediately — do not try to simplify while $\dfrac{dy}{dx}$ terms are scattered on both sides. Factorising cleanly is essential for full marks.</p>
+        </div>
+
+        <!-- ===== SECTION 6.5 ===== -->
+        <h2 id="s65">6.5 Parametric Differentiation <span class="year2-badge">Year 2</span></h2>
+
+        <p>When a curve is given parametrically by $x = f(t)$ and $y = g(t)$, differentiate each with respect to $t$ and use the chain rule to find $\dfrac{dy}{dx}$:</p>
+
+        <div class="theorem-box">
+            <h4>Parametric Differentiation</h4>
+            $$\frac{dy}{dx} = \frac{dy/dt}{dx/dt} \quad \left(\text{provided } \frac{dx}{dt} \neq 0\right)$$
+            <p>The second derivative is found by:</p>
+            $$\frac{d^2y}{dx^2} = \frac{d}{dx}\!\left(\frac{dy}{dx}\right) = \frac{\dfrac{d}{dt}\!\left(\dfrac{dy}{dx}\right)}{\dfrac{dx}{dt}}$$
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.5.1 — First Derivative</h4>
+            <p>A curve is given by $x = t^2 + 1$, $y = 2t^3 - 3t$. Find $\dfrac{dy}{dx}$ and the gradient at $t = 1$.</p>
+            <p><span class="step-label">1</span> $\dfrac{dx}{dt} = 2t$, $\dfrac{dy}{dt} = 6t^2 - 3$</p>
+            <p><span class="step-label">2</span> $\dfrac{dy}{dx} = \dfrac{6t^2 - 3}{2t} = \dfrac{3(2t^2-1)}{2t}$</p>
+            <p><span class="step-label">3</span> At $t=1$: $\dfrac{dy}{dx} = \dfrac{3(1)}{2} = \dfrac{3}{2}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.5.2 — Second Derivative Parametrically</h4>
+            <p>For the curve in Example 6.5.1, find $\dfrac{d^2y}{dx^2}$ at $t = 1$.</p>
+            <p><span class="step-label">1</span> $\dfrac{dy}{dx} = \dfrac{3(2t^2-1)}{2t}$. Differentiate with respect to $t$ using the quotient rule:</p>
+            <p>$\dfrac{d}{dt}\!\left(\dfrac{dy}{dx}\right) = \dfrac{12t \cdot 2t - (6t^2-3)\cdot 2}{4t^2} = \dfrac{24t^2 - 12t^2 + 6}{4t^2} = \dfrac{12t^2+6}{4t^2} = \dfrac{3(2t^2+1)}{2t^2}$</p>
+            <p><span class="step-label">2</span> $\dfrac{d^2y}{dx^2} = \dfrac{3(2t^2+1)/(2t^2)}{2t} = \dfrac{3(2t^2+1)}{4t^3}$</p>
+            <p><span class="step-label">3</span> At $t=1$: $\dfrac{d^2y}{dx^2} = \dfrac{3\times3}{4} = \dfrac{9}{4}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.5.3 — Ellipse: Tangent at a Point</h4>
+            <p>A curve has parametric equations $x = 3\cos t$, $y = 2\sin t$. Find the equation of the tangent at $t = \dfrac{\pi}{4}$.</p>
+            <p><span class="step-label">1</span> $\dfrac{dx}{dt} = -3\sin t$, $\dfrac{dy}{dt} = 2\cos t$.</p>
+            <p><span class="step-label">2</span> $\dfrac{dy}{dx} = \dfrac{2\cos t}{-3\sin t} = -\dfrac{2}{3}\cot t$</p>
+            <p><span class="step-label">3</span> At $t = \pi/4$: $\cot(\pi/4) = 1$, so gradient $= -\dfrac{2}{3}$.</p>
+            <p><span class="step-label">4</span> Point: $x = \dfrac{3}{\sqrt{2}}$, $y = \dfrac{2}{\sqrt{2}} = \sqrt{2}$.</p>
+            <p><span class="step-label">5</span> Tangent: $y - \sqrt{2} = -\dfrac{2}{3}\!\left(x - \dfrac{3}{\sqrt{2}}\right) \Rightarrow y = -\dfrac{2}{3}x + \dfrac{\sqrt{2}}{1} + \sqrt{2} = -\dfrac{2}{3}x + 2\sqrt{2}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.5.4 — Parametric Normal</h4>
+            <p>Find the equation of the normal to $x = \ln(t+1)$, $y = t^2 - 2t$ at $t = 2$.</p>
+            <p><span class="step-label">1</span> Point: $x = \ln 3$, $y = 4 - 4 = 0$.</p>
+            <p><span class="step-label">2</span> $\dfrac{dx}{dt} = \dfrac{1}{t+1}$, $\dfrac{dy}{dt} = 2t-2$. So $\dfrac{dy}{dx} = (2t-2)(t+1)$.</p>
+            <p><span class="step-label">3</span> At $t=2$: $\dfrac{dy}{dx} = (2)(3) = 6$. Normal gradient $= -\dfrac{1}{6}$.</p>
+            <p><span class="step-label">4</span> Normal: $y - 0 = -\dfrac{1}{6}(x - \ln 3) \Rightarrow y = -\dfrac{1}{6}x + \dfrac{\ln 3}{6}$</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>To find $\dfrac{d^2y}{dx^2}$ parametrically, do <em>not</em> differentiate $\dfrac{dy}{dx}$ with respect to $x$ — differentiate with respect to $t$ first, then divide by $\dfrac{dx}{dt}$. Forgetting to divide by $\dfrac{dx}{dt}$ is the most common error here.</p>
+        </div>
+
+        <!-- ===== SECTION 6.6 ===== -->
+        <h2 id="s66">6.6 Stationary Points and Optimisation</h2>
+
+        <p>A <strong>stationary point</strong> is a point where $\dfrac{dy}{dx} = 0$. At such a point the tangent is horizontal. Stationary points fall into three categories: local maxima, local minima, and points of inflection (where the gradient does not change sign).</p>
+
+        <div class="definition-box">
+            <h4>Classifying Stationary Points</h4>
+            <p>At a stationary point $x = a$ where $f'(a) = 0$, examine the second derivative $f''(a)$:</p>
+            <ul>
+                <li>$f''(a) < 0$: <strong>local maximum</strong></li>
+                <li>$f''(a) > 0$: <strong>local minimum</strong></li>
+                <li>$f''(a) = 0$: inconclusive — use the first derivative test (examine sign of $f'$ on either side)</li>
+            </ul>
+        </div>
+
+        <p>The figure below shows a cubic with its stationary points marked. The blue labels indicate the classification from the second derivative test.</p>
+
+        <div id="desmos-stationary" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 6.2 — $y = x^3 - 3x$ (grey) with local maximum at $(-1, 2)$ (red) and local minimum at $(1, -2)$ (blue), found by setting $y' = 3x^2 - 3 = 0$.</p>
+
+        <div class="example-box">
+            <h4>Example 6.6.1 — Finding and Classifying Stationary Points</h4>
+            <p>Find and classify all stationary points of $y = 2x^3 - 9x^2 + 12x - 4$.</p>
+            <p><span class="step-label">1</span> $\dfrac{dy}{dx} = 6x^2 - 18x + 12 = 6(x-1)(x-2) = 0 \Rightarrow x = 1$ or $x = 2$</p>
+            <p><span class="step-label">2</span> $\dfrac{d^2y}{dx^2} = 12x - 18$</p>
+            <p><span class="step-label">3</span> At $x=1$: $y = 2-9+12-4 = 1$; $y'' = -6 < 0$ → <strong>local maximum</strong> at $(1, 1)$</p>
+            <p><span class="step-label">4</span> At $x=2$: $y = 16-36+24-4 = 0$; $y'' = 6 > 0$ → <strong>local minimum</strong> at $(2, 0)$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.6.2 — Tangent and Normal</h4>
+            <p>Find the equations of the tangent and normal to $y = x^3 - 3x$ at $x = 2$.</p>
+            <p><span class="step-label">1</span> $y(2) = 8 - 6 = 2$. Point $(2, 2)$.</p>
+            <p><span class="step-label">2</span> $y' = 3x^2 - 3$; at $x=2$: gradient $= 9$.</p>
+            <p><span class="step-label">3</span> Tangent: $y - 2 = 9(x-2) \Rightarrow y = 9x - 16$</p>
+            <p><span class="step-label">4</span> Normal gradient: $-\tfrac{1}{9}$. Normal: $y - 2 = -\tfrac{1}{9}(x-2) \Rightarrow x + 9y = 20$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.6.3 — Optimisation: Cylindrical Tin</h4>
+            <p>A closed cylinder has volume $250\pi\,\text{cm}^3$. Find the dimensions that minimise the total surface area.</p>
+            <p><span class="step-label">1</span> Let radius $= r$, height $= h$. Volume: $\pi r^2 h = 250\pi \Rightarrow h = \dfrac{250}{r^2}$.</p>
+            <p><span class="step-label">2</span> $S = 2\pi r^2 + 2\pi r h = 2\pi r^2 + \dfrac{500\pi}{r}$</p>
+            <p><span class="step-label">3</span> $\dfrac{dS}{dr} = 4\pi r - \dfrac{500\pi}{r^2} = 0 \Rightarrow r^3 = 125 \Rightarrow r = 5\,\text{cm}$</p>
+            <p><span class="step-label">4</span> $h = \dfrac{250}{25} = 10\,\text{cm}$. $\dfrac{d^2S}{dr^2} > 0$ → minimum confirmed.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.6.4 — Connected Rates of Change</h4>
+            <p>A spherical balloon is inflated so that its volume increases at $200\,\text{cm}^3\,\text{s}^{-1}$. Find the rate of increase of the radius when $r = 5\,\text{cm}$.</p>
+            <p><span class="step-label">1</span> $V = \tfrac{4}{3}\pi r^3 \Rightarrow \dfrac{dV}{dr} = 4\pi r^2$</p>
+            <p><span class="step-label">2</span> Chain rule: $\dfrac{dr}{dt} = \dfrac{dV/dt}{dV/dr} = \dfrac{200}{4\pi r^2}$</p>
+            <p><span class="step-label">3</span> At $r=5$: $\dfrac{dr}{dt} = \dfrac{200}{100\pi} = \dfrac{2}{\pi} \approx 0.637\,\text{cm\,s}^{-1}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6.6.5 — Optimisation: Rectangular Field</h4>
+            <p>A farmer has 120 m of fencing and a straight wall as one side of a rectangle. Find the dimensions that maximise the enclosed area.</p>
+            <p><span class="step-label">1</span> Let sides perpendicular to the wall each be $y$ m; side parallel to the wall is $x$ m. Then $x + 2y = 120 \Rightarrow x = 120 - 2y$.</p>
+            <p><span class="step-label">2</span> $A = xy = (120-2y)y = 120y - 2y^2$</p>
+            <p><span class="step-label">3</span> $\dfrac{dA}{dy} = 120 - 4y = 0 \Rightarrow y = 30\,\text{m}$; $x = 60\,\text{m}$</p>
+            <p><span class="step-label">4</span> $\dfrac{d^2A}{dy^2} = -4 < 0$ → maximum. Area $= 1800\,\text{m}^2$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>In optimisation, always show that you have verified the nature of the stationary point (maximum or minimum) — a one-line check with the second derivative or a sign diagram is required for full marks. Simply finding the stationary point is not sufficient.</p>
+        </div>
+
+        <!-- ===== PRACTICE PROBLEMS ===== -->
+        <h2 id="practice">Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>Differentiate $y = \dfrac{x^4 - 3x^2 + 7}{x}$ after first simplifying the expression.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Simplify: $y = x^3 - 3x + 7x^{-1}$</p>
+                    <p>$\dfrac{dy}{dx} = 3x^2 - 3 - \dfrac{7}{x^2}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>Differentiate from first principles: $f(x) = 3x^2 + 2x$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\dfrac{f(x+h)-f(x)}{h} = \dfrac{3(x+h)^2 + 2(x+h) - 3x^2 - 2x}{h} = \dfrac{6xh + 3h^2 + 2h}{h} = 6x + 3h + 2$</p>
+                    <p>$f'(x) = \lim_{h\to 0}(6x + 3h + 2) = 6x + 2$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>Differentiate $y = \cos^4(3x)$ using the chain rule.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Let $u = \cos(3x)$, $y = u^4$.</p>
+                    <p>$\dfrac{dy}{du} = 4u^3$, $\dfrac{du}{dx} = -3\sin(3x)$</p>
+                    <p>$\dfrac{dy}{dx} = 4\cos^3(3x) \cdot (-3\sin(3x)) = -12\cos^3(3x)\sin(3x)$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4</h4>
+            <p>Differentiate $y = \dfrac{e^x}{x^2 + 4}$ using the quotient rule.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$u = e^x$, $v = x^2+4$; $u' = e^x$, $v' = 2x$</p>
+                    <p>$\dfrac{dy}{dx} = \dfrac{e^x(x^2+4) - 2xe^x}{(x^2+4)^2} = \dfrac{e^x(x^2 - 2x + 4)}{(x^2+4)^2}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5 <span class="year2-badge">Year 2</span></h4>
+            <p>Find $\dfrac{dy}{dx}$ by implicit differentiation for $e^{x+y} = xy + 1$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Differentiate: $e^{x+y}\!\left(1 + \dfrac{dy}{dx}\right) = y + x\dfrac{dy}{dx}$</p>
+                    <p>$(e^{x+y} - x)\dfrac{dy}{dx} = y - e^{x+y}$</p>
+                    <p>$\dfrac{dy}{dx} = \dfrac{y - e^{x+y}}{e^{x+y} - x}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6 <span class="year2-badge">Year 2</span></h4>
+            <p>A curve has parametric equations $x = \ln(t+1)$, $y = t^2 - 2t$. Find the equation of the tangent at $t = 1$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>At $t=1$: $x = \ln 2$, $y = -1$.</p>
+                    <p>$\dfrac{dx}{dt} = \dfrac{1}{t+1}$, $\dfrac{dy}{dt} = 2t-2$. So $\dfrac{dy}{dx} = (2t-2)(t+1)$.</p>
+                    <p>At $t=1$: $\dfrac{dy}{dx} = (0)(2) = 0$. Tangent: $y = -1$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>Find and classify all stationary points of $y = x^4 - 8x^2 + 3$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$y' = 4x^3 - 16x = 4x(x-2)(x+2) = 0 \Rightarrow x = 0, \pm 2$</p>
+                    <p>$y'' = 12x^2 - 16$</p>
+                    <p>$x=0$: $y'' = -16 < 0$ → <strong>local max</strong> at $(0, 3)$</p>
+                    <p>$x=2$: $y'' = 32 > 0$ → <strong>local min</strong> at $(2, -13)$</p>
+                    <p>$x=-2$: $y'' = 32 > 0$ → <strong>local min</strong> at $(-2, -13)$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8</h4>
+            <p>A ladder of length 5 m leans against a vertical wall. Its foot slides away from the wall at $0.1\,\text{m\,s}^{-1}$. Find the rate at which the top slides down when the foot is 3 m from the wall.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Let $x$ = distance of foot from wall, $y$ = height of top. Then $x^2 + y^2 = 25$.</p>
+                    <p>Differentiate: $2x\dfrac{dx}{dt} + 2y\dfrac{dy}{dt} = 0 \Rightarrow \dfrac{dy}{dt} = -\dfrac{x}{y}\dfrac{dx}{dt}$</p>
+                    <p>When $x=3$: $y = 4$. $\dfrac{dy}{dt} = -\dfrac{3}{4}\times 0.1 = -0.075\,\text{m\,s}^{-1}$</p>
+                    <p>The top slides down at $0.075\,\text{m\,s}^{-1}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 9</h4>
+            <p>Prove from first principles that $\dfrac{d}{dx}(\cos x) = -\sin x$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\lim_{h\to 0}\dfrac{\cos(x+h)-\cos x}{h}$. Use $\cos(x+h) = \cos x\cos h - \sin x\sin h$:</p>
+                    <p>$= \lim_{h\to 0}\left[\cos x\cdot\dfrac{\cos h - 1}{h} - \sin x\cdot\dfrac{\sin h}{h}\right]$</p>
+                    <p>$= \cos x\cdot 0 - \sin x\cdot 1 = -\sin x$ &nbsp; QED</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 10 <span class="year2-badge">Year 2</span></h4>
+            <p>The curve $C$ is defined by $x = 2t + 1$, $y = t^3 - 3t$. Find $\dfrac{d^2y}{dx^2}$ in terms of $t$ and hence determine whether the point at $t = 2$ is a point of inflection, local maximum, or local minimum on the curve.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\dfrac{dx}{dt} = 2$, $\dfrac{dy}{dt} = 3t^2 - 3$. So $\dfrac{dy}{dx} = \dfrac{3t^2-3}{2}$.</p>
+                    <p>$\dfrac{d}{dt}\!\left(\dfrac{dy}{dx}\right) = \dfrac{6t}{2} = 3t$</p>
+                    <p>$\dfrac{d^2y}{dx^2} = \dfrac{3t}{2}$</p>
+                    <p>At $t=2$: $\dfrac{dy}{dx} = \dfrac{9}{2} \neq 0$, so $t=2$ is <strong>not a stationary point</strong> — it is simply a point on the curve where the curvature is $\dfrac{d^2y}{dx^2} = 3 > 0$ (concave up).</p>
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <script>
+    (function() {
+        // Figure 6.1 — f(x) and f'(x) simultaneously (non-interactive)
+        var el1 = document.getElementById('desmos-deriv');
+        if (el1) {
+            var calc1 = Desmos.GraphingCalculator(el1, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true
+            });
+            calc1.setMathBounds({ left: -3, right: 3, bottom: -5, top: 6 });
+            calc1.setExpressions([
+                { id: 'f',  latex: 'y = x^3 - 3x',   color: '#3b82f6', lineWidth: 2.5,
+                  label: 'f(x)=x³−3x', showLabel: true },
+                { id: 'df', latex: "y = 3x^2 - 3",    color: '#22c55e', lineWidth: 2.5,
+                  label: "f'(x)=3x²−3", showLabel: true }
+            ]);
+        }
+
+        // Figure 6.2 — Cubic with stationary points labelled (non-interactive)
+        var el2 = document.getElementById('desmos-stationary');
+        if (el2) {
+            var calc2 = Desmos.GraphingCalculator(el2, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true
+            });
+            calc2.setMathBounds({ left: -3, right: 3, bottom: -4, top: 4 });
+            calc2.setExpressions([
+                { id: 'curve', latex: 'y = x^3 - 3x',  color: '#94a3b8', lineWidth: 2.5 },
+                { id: 'max',   latex: '(-1, 2)',         color: '#ef4444', pointSize: 10,
+                  label: 'Local max (−1, 2)', showLabel: true },
+                { id: 'min',   latex: '(1, -2)',         color: '#3b82f6', pointSize: 10,
+                  label: 'Local min (1, −2)', showLabel: true }
+            ]);
+        }
+    })();
+    </script>
+</body>
+</html>

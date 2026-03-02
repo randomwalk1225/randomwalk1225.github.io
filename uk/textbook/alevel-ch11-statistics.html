@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Mathematics – Chapter 11: Statistics | A-Level Mathematics | MathHub</title>
+    <meta name="description" content="Complete A-Level Maths Chapter 11: Statistics. Covers data collection, measures of location and spread, probability, discrete random variables, binomial distribution, normal distribution, and hypothesis testing.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/alevel-ch11-statistics.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/uk/textbook/alevel-ch11-statistics.html">
+    <meta property="og:title" content="A-Level Mathematics – Chapter 11: Statistics | MathHub">
+    <meta property="og:site_name" content="MathHub Global">
+    <link rel="alternate" hreflang="en-GB" href="https://mathhub.io/uk/textbook/alevel-ch11-statistics.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .year2-badge { display: inline-block; background: #e0e7ff; color: #3730a3; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.95em; }
+        th { background: #1e3a5f; color: white; padding: 10px 14px; text-align: left; }
+        td { border: 1px solid #e2e8f0; padding: 9px 14px; color: #334155; }
+        tr:nth-child(even) td { background: #f8fafc; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/" class="active">UK</a><a href="/ca/">CA</a><a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+    <article class="blog-article">
+        <div class="breadcrumb"><a href="/uk/">UK</a> &rsaquo; <a href="/uk/a-level/">A-Level Maths</a> &rsaquo; Chapter 11: Statistics</div>
+        <h1>A-Level Mathematics – Chapter 11: Statistics</h1>
+        <div class="blog-meta">Edexcel · AQA · OCR &nbsp;&middot;&nbsp; A-Level Mathematics &nbsp;&middot;&nbsp; Updated March 2026</div>
+
+        <p>Statistics underpins evidence-based reasoning in science, medicine, economics, and everyday life. This chapter builds from the foundations of data collection and summary statistics through probability laws, discrete distributions, and — at A2 level — the powerful normal distribution and formal hypothesis testing.</p>
+
+        <div class="exam-note">
+            <h4>Specification Note</h4>
+            <p>Content labelled <span class="year2-badge">Year 2</span> is A2-level only. Sections 11.1–11.5 form the AS Statistics content. The Large Data Set (LDS) is assessed in Edexcel; familiarity with context-based questions is important for all boards.</p>
+        </div>
+
+        <div class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#s11-1">11.1 Data Collection</a></li>
+                <li><a href="#s11-2">11.2 Measures of Location and Spread</a></li>
+                <li><a href="#s11-3">11.3 Probability</a></li>
+                <li><a href="#s11-4">11.4 Discrete Random Variables</a></li>
+                <li><a href="#s11-5">11.5 Binomial Distribution</a></li>
+                <li><a href="#s11-6">11.6 Normal Distribution</a> <span class="year2-badge">Year 2</span></li>
+                <li><a href="#s11-7">11.7 Statistical Hypothesis Testing</a> <span class="year2-badge">Year 2</span></li>
+                <li><a href="#s11-practice">Practice Problems</a></li>
+            </ol>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="s11-1">11.1 Data Collection</h2>
+
+        <div class="definition-box">
+            <h4>Key Vocabulary</h4>
+            <ul>
+                <li><strong>Population</strong> — the entire group of individuals or items being studied.</li>
+                <li><strong>Sample</strong> — a subset of the population selected for investigation.</li>
+                <li><strong>Census</strong> — data collected from every member of the population.</li>
+                <li><strong>Sampling frame</strong> — a list of all members of the population from which the sample is drawn.</li>
+                <li><strong>Bias</strong> — a systematic tendency for a sample to over- or under-represent certain members of the population.</li>
+            </ul>
+        </div>
+
+        <h3>Sampling Methods</h3>
+
+        <table>
+            <tr><th>Method</th><th>Description</th><th>Advantage</th><th>Disadvantage</th></tr>
+            <tr><td>Simple random</td><td>Every member has an equal chance of selection (e.g. using a random number generator)</td><td>Free from bias</td><td>Requires a complete sampling frame; impractical for large populations</td></tr>
+            <tr><td>Systematic</td><td>Select every $k$th member after a random start</td><td>Simple to implement</td><td>Can introduce periodic bias if the population has a repeating pattern</td></tr>
+            <tr><td>Stratified</td><td>Divide the population into strata; sample each stratum proportionally</td><td>Represents sub-groups accurately</td><td>Strata must be clearly defined and non-overlapping</td></tr>
+            <tr><td>Quota</td><td>Interviewer selects individuals until quotas for each category are filled</td><td>Cheap and quick</td><td>Not random; prone to interviewer bias</td></tr>
+            <tr><td>Opportunity (convenience)</td><td>Select whoever is available at the time</td><td>Very easy to carry out</td><td>Highly likely to be biased</td></tr>
+        </table>
+
+        <div class="example-box">
+            <h4>Example 11.1.1 — Choosing a sampling method</h4>
+            <p>A school has 600 students: 200 in Year 12 and 400 in Year 13. A researcher wants a sample of 60 students representative of both year groups.</p>
+            <p><strong>Stratified sampling:</strong> Year 12 proportion $= \frac{200}{600} = \frac{1}{3}$, so select $\frac{1}{3} \times 60 = 20$ from Year 12. Select $40$ from Year 13. Within each year group, use simple random sampling to choose the individuals.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.1.2 — Identifying bias</h4>
+            <p>A survey of shopping habits is conducted outside a supermarket on a Tuesday morning. Identify a source of bias.</p>
+            <p>People shopping on a Tuesday morning are likely to be retired or not in full-time employment, so the sample over-represents those groups. Workers and students are under-represented. This is an example of opportunity sampling introducing bias.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="s11-2">11.2 Measures of Location and Spread</h2>
+
+        <div class="definition-box">
+            <h4>Measures of Location (Averages)</h4>
+            <ul>
+                <li><strong>Mean:</strong> $\bar{x} = \dfrac{\sum x_i}{n}$ (or $\dfrac{\sum f_i x_i}{\sum f_i}$ for grouped or frequency data)</li>
+                <li><strong>Median:</strong> the middle value when data are ordered; for $n$ values, the median is at position $\frac{n+1}{2}$</li>
+                <li><strong>Mode:</strong> the most frequently occurring value (or modal class for grouped data)</li>
+            </ul>
+        </div>
+
+        <div class="definition-box">
+            <h4>Measures of Spread</h4>
+            <ul>
+                <li><strong>Range:</strong> largest value $-$ smallest value</li>
+                <li><strong>Interquartile range (IQR):</strong> $Q_3 - Q_1$, where $Q_1$ is the lower quartile and $Q_3$ is the upper quartile</li>
+                <li><strong>Variance:</strong> $\sigma^2 = \dfrac{\sum (x_i - \bar{x})^2}{n} = \dfrac{\sum x_i^2}{n} - \bar{x}^2$</li>
+                <li><strong>Standard deviation:</strong> $\sigma = \sqrt{\sigma^2}$</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.2.1 — Calculate mean and standard deviation for the data set: 4, 7, 3, 9, 2, 8, 6.</h4>
+            <p>$n = 7$, $\displaystyle\sum x_i = 4 + 7 + 3 + 9 + 2 + 8 + 6 = 39$</p>
+            <p>$\bar{x} = \dfrac{39}{7} \approx 5.571$</p>
+            <p>$\displaystyle\sum x_i^2 = 16 + 49 + 9 + 81 + 4 + 64 + 36 = 259$</p>
+            <p>$\sigma^2 = \dfrac{259}{7} - \left(\dfrac{39}{7}\right)^2 = 37 - 30.918\ldots \approx 6.082$</p>
+            <p>$\sigma \approx 2.47$ (to 3 s.f.)</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.2.2 — Identify outliers using the IQR fence rule.</h4>
+            <p>An outlier is a value that lies more than $1.5 \times \text{IQR}$ below $Q_1$ or above $Q_3$. For the ordered data set 2, 5, 6, 7, 8, 9, 10, 11, 25:</p>
+            <p>$Q_1 = 5.5$, $Q_3 = 10.5$, $\text{IQR} = 5.0$.</p>
+            <p>Lower fence $= 5.5 - 1.5 \times 5 = -2.0$. Upper fence $= 10.5 + 1.5 \times 5 = 18.0$.</p>
+            <p>The value 25 exceeds 18.0, so it is identified as an outlier.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.2.3 — Mean from a frequency table.</h4>
+            <p>Find the mean from the following frequency distribution:</p>
+            <table>
+                <tr><th>$x$</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+                <tr><th>Frequency $f$</th><td>3</td><td>7</td><td>10</td><td>6</td><td>4</td></tr>
+            </table>
+            <p>$\sum f = 30$, $\sum fx = 3(1) + 7(2) + 10(3) + 6(4) + 4(5) = 3 + 14 + 30 + 24 + 20 = 91$</p>
+            <p>$\bar{x} = \dfrac{91}{30} \approx 3.03$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.2.4 — Comparing the mean and median.</h4>
+            <p>Salaries (£000s) at a small firm: 22, 24, 25, 26, 28, 30, 75. Find the mean and median and comment.</p>
+            <p>Mean $= \dfrac{230}{7} \approx £32.9$k. Median $= £26$k (the 4th value in order).</p>
+            <p>The mean is pulled upward by the outlier of £75k, so the median is a better measure of a "typical" salary here.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="s11-3">11.3 Probability</h2>
+
+        <div class="definition-box">
+            <h4>Basic Probability Rules</h4>
+            <ul>
+                <li>For any event $A$: $0 \le P(A) \le 1$</li>
+                <li>$P(A') = 1 - P(A)$ (complement rule)</li>
+                <li><strong>Addition law:</strong> $P(A \cup B) = P(A) + P(B) - P(A \cap B)$</li>
+                <li>Mutually exclusive: $P(A \cap B) = 0$, so $P(A \cup B) = P(A) + P(B)$</li>
+                <li><strong>Multiplication law:</strong> $P(A \cap B) = P(A) \times P(B \mid A)$</li>
+                <li>Independent: $P(A \cap B) = P(A) \times P(B)$</li>
+                <li><strong>Conditional probability:</strong> $P(A \mid B) = \dfrac{P(A \cap B)}{P(B)}$</li>
+            </ul>
+        </div>
+
+        <div id="desmos-probtree" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 11.1 — A probability tree illustrating two draws from a bag containing 3 red and 2 blue balls without replacement. Each path probability is the product of its branch probabilities.</p>
+
+        <div class="example-box">
+            <h4>Example 11.3.1 — Addition law</h4>
+            <p>In a class of 30 students, 18 study French, 12 study Spanish, and 6 study both. Find the probability that a randomly chosen student studies French or Spanish.</p>
+            <p>$P(F \cup S) = P(F) + P(S) - P(F \cap S) = \dfrac{18}{30} + \dfrac{12}{30} - \dfrac{6}{30} = \dfrac{24}{30} = \dfrac{4}{5}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.3.2 — Conditional probability</h4>
+            <p>A bag contains 4 red and 6 blue balls. Two are drawn without replacement. Find the probability that the second ball is red, given the first was red.</p>
+            <p>After drawing one red ball, 3 red and 6 blue remain (9 total).</p>
+            <p>$P(\text{2nd red} \mid \text{1st red}) = \dfrac{3}{9} = \dfrac{1}{3}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.3.3 — Tree diagram: two draws without replacement</h4>
+            <p>From a bag of 3 red (R) and 2 blue (B) balls, two are drawn without replacement. Find $P(\text{one of each colour})$.</p>
+            <p>$P(RB) = \dfrac{3}{5} \times \dfrac{2}{4} = \dfrac{6}{20}$ &nbsp;&nbsp; $P(BR) = \dfrac{2}{5} \times \dfrac{3}{4} = \dfrac{6}{20}$</p>
+            <p>$P(\text{one of each}) = \dfrac{6}{20} + \dfrac{6}{20} = \dfrac{12}{20} = \dfrac{3}{5}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.3.4 — Independent events</h4>
+            <p>Events $A$ and $B$ satisfy $P(A) = 0.4$, $P(B) = 0.3$ and are independent. Find $P(A \cup B)$.</p>
+            <p>$P(A \cap B) = P(A) \times P(B) = 0.4 \times 0.3 = 0.12$</p>
+            <p>$P(A \cup B) = 0.4 + 0.3 - 0.12 = 0.58$</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="s11-4">11.4 Discrete Random Variables</h2>
+
+        <div class="definition-box">
+            <h4>Definition — Discrete Random Variable</h4>
+            <p>A <em>discrete random variable</em> (DRV) $X$ takes a countable set of values $x_1, x_2, \ldots$, each with an associated probability. The <em>probability distribution</em> specifies $P(X = x_i)$ for each $x_i$. The probabilities must satisfy: $P(X = x_i) \ge 0$ and $\sum_i P(X = x_i) = 1$.</p>
+        </div>
+
+        <div class="definition-box">
+            <h4>Expectation and Variance</h4>
+            <p><strong>Expected value (mean):</strong> $E(X) = \mu = \displaystyle\sum_i x_i \, P(X = x_i)$</p>
+            <p><strong>Variance:</strong> $\text{Var}(X) = E(X^2) - [E(X)]^2$ &nbsp; where &nbsp; $E(X^2) = \displaystyle\sum_i x_i^2 \, P(X = x_i)$</p>
+            <p><strong>Linear transformation:</strong> $E(aX + b) = aE(X) + b$ &nbsp;&nbsp; $\text{Var}(aX + b) = a^2\,\text{Var}(X)$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.4.1 — Find $E(X)$ and $\text{Var}(X)$.</h4>
+            <table>
+                <tr><th>$x$</th><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+                <tr><th>$P(X=x)$</th><td>0.1</td><td>0.3</td><td>0.4</td><td>0.2</td></tr>
+            </table>
+            <p>$E(X) = 1(0.1) + 2(0.3) + 3(0.4) + 4(0.2) = 0.1 + 0.6 + 1.2 + 0.8 = 2.7$</p>
+            <p>$E(X^2) = 1(0.1) + 4(0.3) + 9(0.4) + 16(0.2) = 0.1 + 1.2 + 3.6 + 3.2 = 8.1$</p>
+            <p>$\text{Var}(X) = 8.1 - (2.7)^2 = 8.1 - 7.29 = 0.81$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.4.2 — Finding a missing probability.</h4>
+            <p>Given $P(X=1) = 0.20$, $P(X=2) = k$, $P(X=3) = 0.35$, $P(X=4) = 0.15$, find $k$.</p>
+            <p>Since all probabilities sum to 1: $0.20 + k + 0.35 + 0.15 = 1 \Rightarrow k = 0.30$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.4.3 — Linear transformation.</h4>
+            <p>Given $E(X) = 3$ and $\text{Var}(X) = 2$, find $E(4X - 1)$ and $\text{Var}(4X - 1)$.</p>
+            <p>$E(4X - 1) = 4E(X) - 1 = 4(3) - 1 = 11$</p>
+            <p>$\text{Var}(4X - 1) = 4^2 \,\text{Var}(X) = 16 \times 2 = 32$</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="s11-5">11.5 Binomial Distribution</h2>
+
+        <div class="definition-box">
+            <h4>Definition — Binomial Distribution $B(n, p)$</h4>
+            <p>$X \sim B(n, p)$ if all of the following hold:</p>
+            <ul>
+                <li>There are a fixed number $n$ of independent trials.</li>
+                <li>Each trial results in either success (probability $p$) or failure (probability $1-p$).</li>
+                <li>The probability $p$ is constant across all trials.</li>
+            </ul>
+            <p>The probability of exactly $r$ successes is:
+            $$P(X = r) = \binom{n}{r} p^r (1-p)^{n-r}, \quad r = 0, 1, \ldots, n$$
+            <strong>Mean:</strong> $E(X) = np$ &nbsp;&nbsp;&nbsp; <strong>Variance:</strong> $\text{Var}(X) = np(1-p)$</p>
+        </div>
+
+        <div id="desmos-binomial" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 11.2 — Probability distribution of $X \sim B(10,\, 0.4)$. The bars show $P(X = r)$ for $r = 0, 1, \ldots, 10$. The distribution is slightly right-skewed since $p &lt; 0.5$.</p>
+
+        <div class="example-box">
+            <h4>Example 11.5.1 — A biased coin has $P(\text{heads}) = 0.6$. Tossed 8 times, find $P(X = 5)$.</h4>
+            <p>$X \sim B(8,\, 0.6)$</p>
+            <p>$P(X = 5) = \dbinom{8}{5}(0.6)^5(0.4)^3 = 56 \times 0.07776 \times 0.064 \approx 0.2787$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.5.2 — Find $P(X \le 2)$ for $X \sim B(5,\, 0.3)$.</h4>
+            <p>$P(X = 0) = (0.7)^5 = 0.16807$</p>
+            <p>$P(X = 1) = 5(0.3)(0.7)^4 = 0.36015$</p>
+            <p>$P(X = 2) = 10(0.3)^2(0.7)^3 = 0.30870$</p>
+            <p>$P(X \le 2) = 0.16807 + 0.36015 + 0.30870 = 0.83692 \approx 0.837$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.5.3 — Mean and standard deviation of a binomial variable.</h4>
+            <p>For $X \sim B(20,\, 0.35)$, find the mean and standard deviation.</p>
+            <p>$E(X) = np = 20 \times 0.35 = 7.0$</p>
+            <p>$\text{Var}(X) = np(1-p) = 20 \times 0.35 \times 0.65 = 4.55$</p>
+            <p>$\text{SD}(X) = \sqrt{4.55} \approx 2.13$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.5.4 — Finding $n$ and $p$ from the mean and variance.</h4>
+            <p>$X \sim B(n, p)$ has $E(X) = 6$ and $\text{Var}(X) = 4.2$. Find $n$ and $p$.</p>
+            <p>$np = 6$ and $np(1-p) = 4.2$. Dividing: $1 - p = \dfrac{4.2}{6} = 0.7$, so $p = 0.3$. Then $n = \dfrac{6}{0.3} = 20$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>On the exam, use your calculator's binomial distribution functions (binomPDF and binomCDF) to compute probabilities efficiently. Always state the distribution clearly, e.g. "$X \sim B(n, p)$", before calculating, and remember to check all four conditions for a binomial model.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="s11-6">11.6 Normal Distribution <span class="year2-badge">Year 2</span></h2>
+
+        <div class="definition-box">
+            <h4>Definition — Normal Distribution $N(\mu,\, \sigma^2)$</h4>
+            <p>A continuous random variable $X$ has a <em>normal distribution</em> $X \sim N(\mu, \sigma^2)$ if its probability density function is the bell-shaped curve:
+            $$f(x) = \frac{1}{\sigma\sqrt{2\pi}} \exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)$$
+            Key properties: symmetric about $\mu$; mean $=$ median $=$ mode $= \mu$; approximately 68% of values lie within $\mu \pm \sigma$, 95% within $\mu \pm 2\sigma$, 99.7% within $\mu \pm 3\sigma$.</p>
+        </div>
+
+        <div id="desmos-normal" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 11.3 — The standard normal curve $N(0,\,1)$ with the region $-1 \le z \le 1$ shaded in blue. This region contains approximately 68.3% of the total probability.</p>
+
+        <h3>Standardising to the Standard Normal</h3>
+
+        <p>If $X \sim N(\mu, \sigma^2)$, then $Z = \dfrac{X - \mu}{\sigma} \sim N(0, 1)$ (the standard normal distribution). You can then read probabilities from $\Phi(z)$ tables or use your calculator's normal distribution function.</p>
+
+        <div class="example-box">
+            <h4>Example 11.6.1 — Find $P(X &lt; 72)$ where $X \sim N(70,\, 25)$.</h4>
+            <p>Standardise: $Z = \dfrac{72 - 70}{\sqrt{25}} = \dfrac{2}{5} = 0.4$</p>
+            <p>$P(X &lt; 72) = P(Z &lt; 0.4) = \Phi(0.4) \approx 0.6554$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.6.2 — Find $P(60 &lt; X &lt; 80)$ where $X \sim N(70,\, 100)$.</h4>
+            <p>$Z_1 = \dfrac{60-70}{10} = -1$, $\quad Z_2 = \dfrac{80-70}{10} = 1$</p>
+            <p>$P(-1 &lt; Z &lt; 1) = \Phi(1) - \Phi(-1) = 0.8413 - 0.1587 = 0.6826$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.6.3 — Inverse normal: find $a$ such that $P(X &lt; a) = 0.9$, where $X \sim N(50,\, 16)$.</h4>
+            <p>From tables, $\Phi^{-1}(0.9) \approx 1.2816$.</p>
+            <p>$\dfrac{a - 50}{4} = 1.2816 \Rightarrow a = 50 + 4(1.2816) = 55.13$</p>
+        </div>
+
+        <h3>Normal Approximation to the Binomial</h3>
+
+        <p>When $n$ is large and $p$ is not too close to 0 or 1, $B(n, p)$ can be approximated by $N(np,\; np(1-p))$. A <em>continuity correction</em> must be applied: replace a discrete value $k$ with the continuous interval $(k - 0.5,\; k + 0.5)$.</p>
+
+        <div class="example-box">
+            <h4>Example 11.6.4 — Approximate $P(X \ge 60)$ for $X \sim B(100,\, 0.55)$ using the normal approximation.</h4>
+            <p>$\mu = 55$, $\sigma^2 = 100 \times 0.55 \times 0.45 = 24.75$, $\sigma \approx 4.975$.</p>
+            <p>With continuity correction: $P(X \ge 60) \approx P(Y \ge 59.5)$ where $Y \sim N(55,\, 24.75)$.</p>
+            <p>$Z = \dfrac{59.5 - 55}{4.975} \approx 0.904$; $\quad P(Z \ge 0.904) = 1 - \Phi(0.904) \approx 1 - 0.8169 = 0.1831$</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="s11-7">11.7 Statistical Hypothesis Testing <span class="year2-badge">Year 2</span></h2>
+
+        <div class="definition-box">
+            <h4>Key Concepts in Hypothesis Testing</h4>
+            <ul>
+                <li><strong>Null hypothesis $H_0$</strong>: the assumption being tested (a specific value of the parameter).</li>
+                <li><strong>Alternative hypothesis $H_1$</strong>: what we believe if $H_0$ is rejected. One-tailed ($p &gt; p_0$ or $p &lt; p_0$) or two-tailed ($p \ne p_0$).</li>
+                <li><strong>Significance level $\alpha$</strong>: the probability threshold below which $H_0$ is rejected (commonly 5% or 1%).</li>
+                <li><strong>$p$-value</strong>: the probability of observing a result at least as extreme as the one obtained, assuming $H_0$ is true. Reject $H_0$ if $p$-value $\le \alpha$.</li>
+                <li><strong>Critical region</strong>: the set of values for the test statistic that lead to rejection of $H_0$.</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.7.1 — One-tailed binomial test (upper tail)</h4>
+            <p>A manufacturer claims a machine produces defective items with probability 0.1. An inspector tests 20 items and finds 5 defective. Test at the 5% significance level whether there is evidence that the defect rate has increased.</p>
+            <p>$H_0: p = 0.1$ &nbsp;&nbsp; $H_1: p &gt; 0.1$ (one-tailed, upper)</p>
+            <p>Under $H_0$: $X \sim B(20,\, 0.1)$.</p>
+            <p>$P(X \ge 5) = 1 - P(X \le 4) \approx 1 - 0.9568 = 0.0432$</p>
+            <p>Since $0.0432 &lt; 0.05$, we reject $H_0$. There is sufficient evidence at the 5% level to conclude the defect rate has increased.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.7.2 — Two-tailed binomial test</h4>
+            <p>It is claimed a coin is fair ($p = 0.5$). In 10 tosses, 2 heads are obtained. Test at the 5% level.</p>
+            <p>$H_0: p = 0.5$ &nbsp;&nbsp; $H_1: p \ne 0.5$ (two-tailed)</p>
+            <p>Under $H_0$: $X \sim B(10,\, 0.5)$. Each tail may use at most $2.5\%$ of the significance level.</p>
+            <p>$P(X \le 2) = P(0) + P(1) + P(2) \approx 0.0010 + 0.0098 + 0.0439 = 0.0547$</p>
+            <p>Since $0.0547 &gt; 0.025$, $X = 2$ does not fall in the critical region. We do not reject $H_0$. There is insufficient evidence to conclude the coin is biased.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11.7.3 — Finding the critical region</h4>
+            <p>For $H_0: p = 0.4$, $H_1: p &lt; 0.4$ using $X \sim B(15,\, 0.4)$ at the 5% significance level, find the critical region.</p>
+            <p>Look for the largest $c$ such that $P(X \le c) \le 0.05$.</p>
+            <p>$P(X \le 2) \approx 0.0271 \le 0.05$ ✓ &nbsp;&nbsp; $P(X \le 3) \approx 0.0905 &gt; 0.05$ ✗</p>
+            <p>Critical region: $X \le 2$. Actual significance level: $2.71\%$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Always write a conclusion in context. Do not merely write "reject $H_0$" — state what this means in terms of the original claim, e.g. "There is sufficient evidence at the 5% significance level to suggest that the probability of defects has increased." Hypothesis testing provides evidence, not proof.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <h2 id="s11-practice">Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>A company has 400 employees: 160 in production, 120 in sales, and 120 in administration. A stratified sample of 50 is required. How many should be selected from each department?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Production: $\dfrac{160}{400} \times 50 = 20$ &nbsp; Sales: $\dfrac{120}{400} \times 50 = 15$ &nbsp; Administration: $\dfrac{120}{400} \times 50 = 15$. Total = 50. ✓</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>Calculate the mean and standard deviation of: 12, 15, 11, 18, 14, 16, 13, 17.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$n = 8$, $\sum x = 116$, $\bar{x} = 14.5$</p>
+                    <p>$\sum x^2 = 144 + 225 + 121 + 324 + 196 + 256 + 169 + 289 = 1724$</p>
+                    <p>$\sigma^2 = \dfrac{1724}{8} - (14.5)^2 = 215.5 - 210.25 = 5.25$; $\sigma = \sqrt{5.25} \approx 2.29$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>Events $A$ and $B$ satisfy $P(A) = 0.5$, $P(B) = 0.4$, and $P(A \cap B) = 0.2$. (a) Find $P(A \cup B)$. (b) Are $A$ and $B$ independent?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>(a) $P(A \cup B) = 0.5 + 0.4 - 0.2 = 0.7$</p>
+                    <p>(b) Check: $P(A) \times P(B) = 0.5 \times 0.4 = 0.2 = P(A \cap B)$. Yes, $A$ and $B$ are independent.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4</h4>
+            <p>The discrete random variable $X$ has $P(X = x) = kx$ for $x = 1, 2, 3, 4$. Find $k$, $E(X)$, and $\text{Var}(X)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$10k = 1 \Rightarrow k = 0.1$</p>
+                    <p>$E(X) = 1(0.1) + 2(0.2) + 3(0.3) + 4(0.4) = 3.0$</p>
+                    <p>$E(X^2) = 1(0.1) + 4(0.2) + 9(0.3) + 16(0.4) = 10.0$</p>
+                    <p>$\text{Var}(X) = 10 - 9 = 1$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5</h4>
+            <p>$X \sim B(12,\, 0.25)$. Find (a) $P(X = 3)$, (b) $P(X \le 2)$, (c) $P(X \ge 4)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>(a) $P(X=3) = \dbinom{12}{3}(0.25)^3(0.75)^9 = 220 \times 0.015625 \times 0.07508 \approx 0.2581$</p>
+                    <p>(b) $P(X=0) \approx 0.03168$; $P(X=1) \approx 0.12671$; $P(X=2) \approx 0.23228$. $P(X \le 2) \approx 0.391$</p>
+                    <p>(c) $P(X \ge 4) = 1 - P(X \le 3) \approx 1 - 0.391 - 0.258 = 0.351$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6</h4>
+            <p>$X \sim N(45,\, 36)$. Find (a) $P(X &lt; 51)$, (b) $P(X &gt; 42)$, (c) $P(39 &lt; X &lt; 51)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>(a) $Z = \dfrac{51-45}{6} = 1.0$; $P(Z &lt; 1.0) \approx 0.8413$</p>
+                    <p>(b) $Z = \dfrac{42-45}{6} = -0.5$; $P(Z &gt; -0.5) = \Phi(0.5) \approx 0.6915$</p>
+                    <p>(c) $Z_1 = -1$, $Z_2 = 1$; $P(-1 &lt; Z &lt; 1) \approx 0.6826$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>A die is suspected of being biased towards 6. In 20 rolls, a 6 appears 7 times. Test at the 5% significance level whether there is evidence of bias.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$H_0: p = \frac{1}{6}$, $H_1: p &gt; \frac{1}{6}$ (one-tailed). Under $H_0$: $X \sim B(20, \frac{1}{6})$.</p>
+                    <p>$P(X \ge 7) = 1 - P(X \le 6) \approx 1 - 0.9216 = 0.0784$.</p>
+                    <p>Since $0.0784 &gt; 0.05$, we do not reject $H_0$. Insufficient evidence at the 5% level to conclude the die is biased towards 6.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8</h4>
+            <p>Find the value of $a$ such that $P(X &lt; a) = 0.025$ where $X \sim N(100,\, 64)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\Phi^{-1}(0.025) = -1.960$. So $\dfrac{a - 100}{8} = -1.960 \Rightarrow a = 100 - 15.68 = 84.32$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 9</h4>
+            <p>$X \sim B(50,\, 0.45)$. Using a normal approximation with continuity correction, estimate $P(X \le 20)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\mu = 22.5$, $\sigma^2 = 50 \times 0.45 \times 0.55 = 12.375$, $\sigma \approx 3.518$.</p>
+                    <p>$P(X \le 20) \approx P(Y \le 20.5)$ where $Y \sim N(22.5, 12.375)$.</p>
+                    <p>$Z = \dfrac{20.5 - 22.5}{3.518} \approx -0.569$; $P(Z \le -0.569) \approx 0.2847$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 10</h4>
+            <p>A researcher believes a new treatment increases recovery rate above the standard 30%. In a trial of 25 patients, 12 recovered. Carry out a hypothesis test at the 5% significance level.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$H_0: p = 0.3$, $H_1: p &gt; 0.3$ (one-tailed upper). Under $H_0$: $X \sim B(25, 0.3)$.</p>
+                    <p>$P(X \ge 12) = 1 - P(X \le 11) \approx 1 - 0.9021 = 0.0979$.</p>
+                    <p>Since $0.0979 &gt; 0.05$, we do not reject $H_0$. Insufficient evidence at the 5% level that the new treatment increases recovery rate above 30%.</p>
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <script>
+    // Figure 11.1 — Probability tree branches
+    (function() {
+        var elt = document.getElementById('desmos-probtree');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true
+        });
+        calc.setMathBounds({ left: -0.5, right: 10, bottom: -0.5, top: 6.5 });
+        calc.setExpressions([
+            { id: 'l1', latex: '\\left(\\left[0,3\\right],\\left[3,5\\right]\\right)', color: '#334155', lineWidth: 2 },
+            { id: 'l2', latex: '\\left(\\left[0,3\\right],\\left[3,1\\right]\\right)', color: '#334155', lineWidth: 2 },
+            { id: 'l3', latex: '\\left(\\left[3,6\\right],\\left[5,6\\right]\\right)', color: '#ef4444', lineWidth: 2 },
+            { id: 'l4', latex: '\\left(\\left[3,6\\right],\\left[5,4\\right]\\right)', color: '#3b82f6', lineWidth: 2 },
+            { id: 'l5', latex: '\\left(\\left[3,6\\right],\\left[1,2\\right]\\right)', color: '#ef4444', lineWidth: 2 },
+            { id: 'l6', latex: '\\left(\\left[3,6\\right],\\left[1,0\\right]\\right)', color: '#3b82f6', lineWidth: 2 }
+        ]);
+    })();
+
+    // Figure 11.2 — B(10, 0.4) bar chart
+    (function() {
+        var elt = document.getElementById('desmos-binomial');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true
+        });
+        calc.setMathBounds({ left: -1, right: 11, bottom: -0.02, top: 0.30 });
+        var probs = [0.0060, 0.0403, 0.1209, 0.2150, 0.2508, 0.2007, 0.1115, 0.0425, 0.0106, 0.0016, 0.0001];
+        var exprs = [];
+        for (var r = 0; r <= 10; r++) {
+            var x0 = r - 0.4, x1 = r + 0.4, y = probs[r];
+            exprs.push({
+                id: 'b' + r,
+                latex: 'polygon\\left(\\left(' + x0 + ',0\\right),\\left(' + x0 + ',' + y + '\\right),\\left(' + x1 + ',' + y + '\\right),\\left(' + x1 + ',0\\right)\\right)',
+                color: '#3b82f6',
+                fillOpacity: 0.55
+            });
+        }
+        calc.setExpressions(exprs);
+    })();
+
+    // Figure 11.3 — Standard normal with shaded region
+    (function() {
+        var elt = document.getElementById('desmos-normal');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true
+        });
+        calc.setMathBounds({ left: -4, right: 4, bottom: -0.05, top: 0.50 });
+        calc.setExpressions([
+            { id: 'nc',  latex: 'y = \\frac{1}{\\sqrt{2\\pi}}e^{-x^{2}/2}', color: '#1e3a5f', lineWidth: 2.5 },
+            { id: 'shd', latex: '-1 \\le x \\le 1 \\left\\{y \\le \\frac{1}{\\sqrt{2\\pi}}e^{-x^{2}/2}\\right\\}', color: '#3b82f6', fillOpacity: 0.35 }
+        ]);
+    })();
+    </script>
+</body>
+</html>

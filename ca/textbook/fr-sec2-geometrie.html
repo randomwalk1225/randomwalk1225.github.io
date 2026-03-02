@@ -27,6 +27,9 @@
     <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+    <!-- Desmos API -->
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
     <link rel="stylesheet" href="../../assets/css/common.css">
     <style>
         .blog-article{max-width:800px;margin:0 auto;padding:40px 20px;font-family:Arial,sans-serif;font-size:1.02em;line-height:1.8;}
@@ -79,8 +82,10 @@
         .solution-content .sol-item{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #e2e8f0;}
         .solution-content .sol-item:last-child{border-bottom:none;margin-bottom:0;}
         @media(max-width:640px){.compare-grid,.three-grid{grid-template-columns:1fr;}.blog-article h1{font-size:1.6em;}}
-        /* SVG diagram base styles */
-        svg text { font-family: Arial, sans-serif; }
+        .desmos-wrap{margin:24px auto;background:#f8fafc;border-radius:12px;padding:4px;border:1px solid #e2e8f0;text-align:center;}
+        .desmos-wrap canvas{border-radius:8px;}
+        .fig-label{text-align:center;font-size:0.82em;color:#64748b;margin:6px 0 4px;font-weight:600;letter-spacing:0.03em;}
+        .fig-code { display: inline-block; background: #f1f5f9; color: #64748b; font-style: normal; font-weight: 700; font-size: 0.78em; padding: 1px 7px; border-radius: 4px; margin-right: 8px; font-family: 'Courier New', monospace; letter-spacing: 0.5px; border: 1px solid #e2e8f0; }
     </style>
 </head>
 <body>
@@ -171,54 +176,33 @@
             </ul>
         </div>
 
-        <!-- Figure 1: Parallel lines with transversal — SVG -->
+        <!-- Figure 1: Parallel lines with transversal — Desmos -->
         <div class="graph-container">
-            <svg viewBox="0 0 420 260" width="420" height="260" style="max-width:100%;display:block;margin:0 auto;" aria-label="Droites parallèles coupées par une transversale">
-                <!-- Parallel line d1 (top) -->
-                <line x1="30" y1="80" x2="390" y2="80" stroke="#475569" stroke-width="2.5"/>
-                <!-- Parallel line d2 (bottom) -->
-                <line x1="30" y1="190" x2="390" y2="190" stroke="#475569" stroke-width="2.5"/>
-                <!-- Transversal t -->
-                <line x1="110" y1="20" x2="270" y2="250" stroke="#64748b" stroke-width="2" stroke-dasharray="6,3"/>
-
-                <!-- Intersection point P1 (top line) -->
-                <!-- transversal at y=80: x = 110 + (80-20)*(270-110)/(250-20) = 110 + 60*160/230 ≈ 151.7 -->
-                <!-- Intersection P1 ≈ (152, 80), P2 ≈ (212, 190) -->
-
-                <!-- Alternate interior angle α at P1 (below-right, between d1 and d2) — blue arc -->
-                <path d="M 168,80 A 18,18 0 0,0 152,97" fill="none" stroke="#2563eb" stroke-width="2.2"/>
-                <!-- Alternate interior angle α at P2 (above-left, between d1 and d2) — blue arc -->
-                <path d="M 194,190 A 18,18 0 0,0 212,173" fill="none" stroke="#2563eb" stroke-width="2.2"/>
-
-                <!-- Corresponding angle at P1 (above-right) — green arc -->
-                <path d="M 168,80 A 18,18 0 0,1 152,63" fill="none" stroke="#16a34a" stroke-width="2.2"/>
-                <!-- Corresponding angle at P2 (above-right) — green arc -->
-                <path d="M 228,190 A 18,18 0 0,1 212,173" fill="none" stroke="#16a34a" stroke-width="2.2"/>
-
-                <!-- α labels -->
-                <text x="173" y="100" fill="#2563eb" font-size="14" font-style="italic" font-family="Arial">α</text>
-                <text x="185" y="178" fill="#2563eb" font-size="14" font-style="italic" font-family="Arial">α</text>
-                <!-- β labels (corresponding) -->
-                <text x="173" y="72" fill="#16a34a" font-size="14" font-style="italic" font-family="Arial">β</text>
-                <text x="230" y="180" fill="#16a34a" font-size="14" font-style="italic" font-family="Arial">β</text>
-
-                <!-- Line labels -->
-                <text x="36" y="73" fill="#1e3a5f" font-size="14" font-weight="bold" font-family="Arial">d₁</text>
-                <text x="36" y="185" fill="#1e3a5f" font-size="14" font-weight="bold" font-family="Arial">d₂</text>
-                <text x="258" y="240" fill="#64748b" font-size="13" font-style="italic" font-family="Arial">t</text>
-
-                <!-- Parallel arrows on d1 -->
-                <polygon points="310,76 320,80 310,84" fill="#475569"/>
-                <!-- Parallel arrows on d2 -->
-                <polygon points="310,186 320,190 310,194" fill="#475569"/>
-
-                <!-- Legend -->
-                <line x1="30" y1="232" x2="50" y2="232" stroke="#2563eb" stroke-width="2"/>
-                <text x="55" y="237" fill="#2563eb" font-size="12" font-family="Arial">Alternes-internes (égaux)</text>
-                <line x1="230" y1="232" x2="250" y2="232" stroke="#16a34a" stroke-width="2"/>
-                <text x="255" y="237" fill="#16a34a" font-size="12" font-family="Arial">Correspondants (égaux)</text>
-            </svg>
-            <p class="graph-caption">Angles formés par une transversale $t$ coupant deux droites parallèles $d_1 \parallel d_2$.</p>
+            <div id="fig1-parallel" style="width:100%;height:320px;border-radius:8px;"></div>
+            <script>
+            (function(){
+              var elt = document.getElementById('fig1-parallel');
+              var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false, settingsMenu: false, zoomButtons: false, lockViewport: false, border: false, showGrid: false, showXAxis: false, showYAxis: false
+              });
+              calc.setMathBounds({left:-1, right:9, bottom:-1, top:5});
+              calc.setExpression({id:'d1', latex:'y=4', color:'#475569', lineWidth:2.5});
+              calc.setExpression({id:'d2', latex:'y=1', color:'#475569', lineWidth:2.5});
+              calc.setExpression({id:'t', latex:'y=1.2x+0.4\\left\\{-0.5\\le x\\le5\\right\\}', color:'#64748b', lineWidth:2, lineStyle:Desmos.Styles.DASHED});
+              calc.setExpression({id:'arc1a', latex:'(3+0.35\\cos t,4+0.35\\sin t)\\left\\{-0.69\\le t\\le0\\right\\}', color:'#2563eb', lineWidth:2.5});
+              calc.setExpression({id:'arc1b', latex:'(3+0.35\\cos t,4+0.35\\sin t)\\left\\{2.45\\le t\\le3.14\\right\\}', color:'#16a34a', lineWidth:2.5});
+              calc.setExpression({id:'arc2a', latex:'(0.5+0.35\\cos t,1+0.35\\sin t)\\left\\{2.45\\le t\\le3.14\\right\\}', color:'#2563eb', lineWidth:2.5});
+              calc.setExpression({id:'arc2b', latex:'(0.5+0.35\\cos t,1+0.35\\sin t)\\left\\{-0.69\\le t\\le0\\right\\}', color:'#16a34a', lineWidth:2.5});
+              calc.setExpression({id:'lbl_d1', latex:'(8.5,4.3)', label:'d\u2081', showLabel:true, color:'#1e3a5f', pointSize:0});
+              calc.setExpression({id:'lbl_d2', latex:'(8.5,1.3)', label:'d\u2082', showLabel:true, color:'#1e3a5f', pointSize:0});
+              calc.setExpression({id:'lbl_t',  latex:'(4.6,4.8)', label:'t',       showLabel:true, color:'#64748b', pointSize:0});
+              calc.setExpression({id:'lbl_a1', latex:'(3.4,3.65)', label:'\u03b1', showLabel:true, color:'#2563eb', pointSize:0});
+              calc.setExpression({id:'lbl_a2', latex:'(0.1,1.35)', label:'\u03b1', showLabel:true, color:'#2563eb', pointSize:0});
+              calc.setExpression({id:'lbl_b1', latex:'(3.4,4.35)', label:'\u03b2', showLabel:true, color:'#16a34a', pointSize:0});
+              calc.setExpression({id:'lbl_b2', latex:'(0.9,0.65)', label:'\u03b2', showLabel:true, color:'#16a34a', pointSize:0});
+            })();
+            </script>
+            <p class="fig-label"><span class="fig-code">GEOM·1</span>Figure 1 — Angles formés par une transversale $t$ coupant deux droites parallèles $d_1 \parallel d_2$. Les angles <span style="color:#2563eb">alternes-internes (α)</span> sont égaux ; les angles <span style="color:#16a34a">correspondants (β)</span> sont égaux.</p>
         </div>
 
         <h3>1.4 Exemples résolus</h3>
@@ -326,44 +310,33 @@
             $$\angle_{\text{ext}} = \angle A + \angle B$$
         </div>
 
-        <!-- Figure 2: Triangle with labeled angles — SVG -->
+        <!-- Figure 2: Triangle with labeled angles — Desmos -->
         <div class="graph-container">
-            <svg viewBox="0 0 380 240" width="380" height="240" style="max-width:100%;display:block;margin:0 auto;" aria-label="Triangle avec angles A B C">
-                <!-- Triangle vertices: A(60,200), B(320,200), C(190,40) -->
-                <polygon points="60,200 320,200 190,40" fill="#eff6ff" stroke="#1e3a5f" stroke-width="2.5"/>
-
-                <!-- Angle A arc (blue) at (60,200) -->
-                <!-- direction to B: (260,0), direction to C: (130,-160) -->
-                <path d="M 90,200 A 30,30 0 0,1 72,174" fill="rgba(37,99,235,0.15)" stroke="#2563eb" stroke-width="1.8"/>
-                <!-- Angle B arc (green) at (320,200) -->
-                <!-- direction to A: (-260,0), direction to C: (-130,-160) -->
-                <path d="M 293,185 A 30,30 0 0,1 290,200" fill="rgba(22,163,74,0.15)" stroke="#16a34a" stroke-width="1.8"/>
-                <!-- Angle C arc (red) at (190,40) -->
-                <path d="M 178,66 A 30,30 0 0,1 202,66" fill="rgba(220,38,38,0.15)" stroke="#dc2626" stroke-width="1.8"/>
-
-                <!-- Vertex labels -->
-                <text x="42" y="220" fill="#2563eb" font-size="16" font-weight="bold" font-family="Arial">A</text>
-                <text x="326" y="220" fill="#16a34a" font-size="16" font-weight="bold" font-family="Arial">B</text>
-                <text x="183" y="32" fill="#dc2626" font-size="16" font-weight="bold" font-family="Arial">C</text>
-
-                <!-- Side labels (opposite sides) -->
-                <!-- a = BC (opposite A), midpoint ≈ (255, 120) -->
-                <text x="268" y="128" fill="#1e3a5f" font-size="14" font-style="italic" font-family="Arial">a</text>
-                <!-- b = AC (opposite B), midpoint ≈ (125, 120) -->
-                <text x="108" y="128" fill="#1e3a5f" font-size="14" font-style="italic" font-family="Arial">b</text>
-                <!-- c = AB (opposite C), midpoint ≈ (190, 206) -->
-                <text x="183" y="218" fill="#1e3a5f" font-size="14" font-style="italic" font-family="Arial">c</text>
-
-                <!-- Angle value labels -->
-                <text x="92" y="197" fill="#2563eb" font-size="12" font-family="Arial">∠A</text>
-                <text x="264" y="196" fill="#16a34a" font-size="12" font-family="Arial">∠B</text>
-                <text x="180" y="76" fill="#dc2626" font-size="12" font-family="Arial">∠C</text>
-
-                <!-- Formula -->
-                <rect x="110" y="210" width="160" height="26" rx="6" fill="#dbeafe"/>
-                <text x="190" y="228" fill="#1e40af" font-size="13" font-weight="bold" font-family="Arial" text-anchor="middle">∠A + ∠B + ∠C = 180°</text>
-            </svg>
-            <p class="graph-caption">Triangle $ABC$ : angles $\angle A$, $\angle B$, $\angle C$ et côtés $a$, $b$, $c$ opposés respectivement. Somme $= 180°$.</p>
+            <div id="fig2-triangle" style="width:100%;height:340px;border-radius:8px;"></div>
+            <script>
+            (function(){
+              var elt = document.getElementById('fig2-triangle');
+              var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false, settingsMenu: false, zoomButtons: false, lockViewport: false, border: false, showGrid: false, showXAxis: false, showYAxis: false
+              });
+              // Vertices: A(1,0), B(7,0), C(4,5)
+              calc.setMathBounds({left:-0.5, right:8.5, bottom:-1.2, top:6.5});
+              calc.setExpression({id:'sAB', latex:'\\polygon((1,0),(7,0),(4,5))', color:'#1e3a5f', lineWidth:2.5, fillOpacity:0.06});
+              calc.setExpression({id:'arcA', latex:'(1+0.6\\cos t,0+0.6\\sin t)\\left\\{0\\le t\\le1.03\\right\\}', color:'#2563eb', lineWidth:2.5});
+              calc.setExpression({id:'arcB', latex:'(7+0.6\\cos t,0+0.6\\sin t)\\left\\{2.11\\le t\\le3.14\\right\\}', color:'#16a34a', lineWidth:2.5});
+              calc.setExpression({id:'arcC', latex:'(4+0.6\\cos t,5+0.6\\sin t)\\left\\{4.17\\le t\\le5.25\\right\\}', color:'#dc2626', lineWidth:2.5});
+              calc.setExpression({id:'ptA', latex:'(1,0)', label:'A', showLabel:true, color:'#2563eb', pointSize:5});
+              calc.setExpression({id:'ptB', latex:'(7,0)', label:'B', showLabel:true, color:'#16a34a', pointSize:5});
+              calc.setExpression({id:'ptC', latex:'(4,5)', label:'C', showLabel:true, color:'#dc2626', pointSize:5});
+              calc.setExpression({id:'lbla', latex:'(5.7,2.5)', label:'a', showLabel:true, color:'#334155', pointSize:0});
+              calc.setExpression({id:'lblb', latex:'(2.2,2.5)', label:'b', showLabel:true, color:'#334155', pointSize:0});
+              calc.setExpression({id:'lblc', latex:'(4,-0.5)',  label:'c', showLabel:true, color:'#334155', pointSize:0});
+              calc.setExpression({id:'lblA', latex:'(1.9,0.45)', label:'\u2220A', showLabel:true, color:'#2563eb', pointSize:0});
+              calc.setExpression({id:'lblB', latex:'(6.1,0.45)', label:'\u2220B', showLabel:true, color:'#16a34a', pointSize:0});
+              calc.setExpression({id:'lblC', latex:'(4,4.0)',    label:'\u2220C', showLabel:true, color:'#dc2626', pointSize:0});
+            })();
+            </script>
+            <p class="fig-label"><span class="fig-code">GEOM·2</span>Figure 2 — Triangle $ABC$ : angles $\angle A$ (bleu), $\angle B$ (vert), $\angle C$ (rouge) et côtés $a$, $b$, $c$ opposés. Somme $\angle A + \angle B + \angle C = 180°$.</p>
         </div>
 
         <h3>2.3 Exemples résolus</h3>
@@ -714,42 +687,31 @@
             <p><strong>Réciproque :</strong> Si $a^2 + b^2 = c^2$, alors le triangle est rectangle.</p>
         </div>
 
-        <!-- Figure 3: Right triangle — SVG -->
+        <!-- Figure 3: Right triangle — Desmos -->
         <div class="graph-container">
-            <svg viewBox="0 0 340 260" width="340" height="260" style="max-width:100%;display:block;margin:0 auto;" aria-label="Triangle rectangle avec cathètes a b et hypoténuse c">
-                <!-- Triangle: right angle at O(80,210), B(80,60), A(280,210) -->
-                <polygon points="80,210 80,60 280,210" fill="#fff7ed" stroke="#1e3a5f" stroke-width="2.5"/>
-
-                <!-- Right angle square at O(80,210) -->
-                <rect x="80" y="196" width="14" height="14" fill="none" stroke="#1e3a5f" stroke-width="2"/>
-
-                <!-- Side labels -->
-                <!-- a = vertical cathète OB, midpoint (80, 135) -->
-                <text x="52" y="140" fill="#2563eb" font-size="16" font-style="italic" font-weight="bold" font-family="Arial">a</text>
-                <!-- b = horizontal cathète OA, midpoint (180, 210) -->
-                <text x="176" y="232" fill="#16a34a" font-size="16" font-style="italic" font-weight="bold" font-family="Arial">b</text>
-                <!-- c = hypotenuse BA, midpoint ≈ (180, 135) -->
-                <text x="196" y="128" fill="#dc2626" font-size="16" font-style="italic" font-weight="bold" font-family="Arial">c</text>
-
-                <!-- Vertex labels -->
-                <text x="58" y="228" fill="#1e3a5f" font-size="13" font-family="Arial">O</text>
-                <text x="64" y="52" fill="#2563eb" font-size="14" font-weight="bold" font-family="Arial">B</text>
-                <text x="284" y="228" fill="#16a34a" font-size="14" font-weight="bold" font-family="Arial">A</text>
-
-                <!-- Small right-angle arcs at B and A -->
-                <path d="M 80,85 A 25,25 0 0,1 100,72" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
-                <path d="M 262,210 A 25,25 0 0,1 252,193" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
-
-                <!-- Blue squares on sides (Pythagorean visual hint) -->
-                <!-- Square on a (left side, rotated) — simplified as colored rectangles -->
-                <rect x="44" y="60" width="36" height="150" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1" stroke-dasharray="4,3"/>
-                <rect x="80" y="210" width="200" height="36" fill="rgba(22,163,74,0.08)" stroke="#16a34a" stroke-width="1" stroke-dasharray="4,3"/>
-
-                <!-- Formula box -->
-                <rect x="68" y="12" width="190" height="30" rx="8" fill="#fef3c7"/>
-                <text x="163" y="32" fill="#92400e" font-size="14" font-weight="bold" font-family="Arial" text-anchor="middle">a² + b² = c²</text>
-            </svg>
-            <p class="graph-caption">Triangle rectangle : cathètes $a$ (verticale) et $b$ (horizontale), hypoténuse $c$. Théorème de Pythagore : $a^2 + b^2 = c^2$.</p>
+            <div id="fig3-pythagore" style="width:100%;height:340px;border-radius:8px;"></div>
+            <script>
+            (function(){
+              var elt = document.getElementById('fig3-pythagore');
+              var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false, settingsMenu: false, zoomButtons: false, lockViewport: false, border: false, showGrid: false, showXAxis: false, showYAxis: false
+              });
+              // O(0,0) right angle, B(0,4) top, A(5,0) right
+              calc.setMathBounds({left:-2, right:8, bottom:-2, top:6.5});
+              calc.setExpression({id:'tri', latex:'\\polygon((0,0),(0,4),(5,0))', color:'#1e3a5f', lineWidth:2.5, fillOpacity:0.06});
+              calc.setExpression({id:'sq1', latex:'\\polygon((0,0),(0.35,0),(0.35,0.35),(0,0.35))', color:'#1e3a5f', lineWidth:1.8, fillOpacity:0});
+              calc.setExpression({id:'sqA', latex:'\\polygon((-1,0),(-1,4),(0,4),(0,0))', color:'#2563eb', lineWidth:1.2, fillOpacity:0.08, lineStyle:Desmos.Styles.DASHED});
+              calc.setExpression({id:'sqB', latex:'\\polygon((0,-1),(5,-1),(5,0),(0,0))', color:'#16a34a', lineWidth:1.2, fillOpacity:0.08, lineStyle:Desmos.Styles.DASHED});
+              calc.setExpression({id:'ptO', latex:'(0,0)', label:'O', showLabel:true, color:'#1e3a5f', pointSize:5});
+              calc.setExpression({id:'ptB', latex:'(0,4)', label:'B', showLabel:true, color:'#2563eb', pointSize:5});
+              calc.setExpression({id:'ptA', latex:'(5,0)', label:'A', showLabel:true, color:'#16a34a', pointSize:5});
+              calc.setExpression({id:'lbla', latex:'(-0.7,2)',  label:'a',           showLabel:true, color:'#2563eb', pointSize:0});
+              calc.setExpression({id:'lblb', latex:'(2.5,-0.6)',label:'b',           showLabel:true, color:'#16a34a', pointSize:0});
+              calc.setExpression({id:'lblc', latex:'(3.0,2.4)', label:'c',           showLabel:true, color:'#dc2626', pointSize:0});
+              calc.setExpression({id:'form', latex:'(3,5.5)',   label:'a\u00b2 + b\u00b2 = c\u00b2', showLabel:true, color:'#92400e', pointSize:0});
+            })();
+            </script>
+            <p class="fig-label"><span class="fig-code">GEOM·3</span>Figure 3 — Triangle rectangle $OBA$ : cathètes $a$ (bleue, verticale) et $b$ (verte, horizontale), hypoténuse $c$ (rouge). Théorème de Pythagore : $a^2 + b^2 = c^2$.</p>
         </div>
 
         <div class="tip-box">
@@ -929,60 +891,43 @@
             </tbody>
         </table>
 
-        <!-- Figure 4: Two similar triangles — SVG -->
+        <!-- Figure 4: Two similar triangles — Desmos -->
         <div class="graph-container">
-            <svg viewBox="0 0 460 230" width="460" height="230" style="max-width:100%;display:block;margin:0 auto;" aria-label="Deux triangles semblables ABC et DEF">
-
-                <!-- △ABC (small, blue): right angle at C(40,190), A(40,110), B(100,190) -->
-                <!-- sides: AC=3 (80px), BC=4 (60... let's use scale 20px/unit) -->
-                <!-- AC = 3 → 60px vertical, BC = 4 → 80px horizontal, AB = 5 → 100px hyp -->
-                <!-- A(60,190), C(60,110), B(140,190) — but shifted left -->
-                <!-- Let's place: C(50,190), A(50,70), B(130,190) → AC=120px=6units? let's use px directly -->
-                <!-- △ABC: C(50,195), A(50,75), B(170,195) — AC=120, BC=120, AB... too much -->
-                <!-- Keep it simple: 3-4-5 scaled by 24: AC=72, BC=96, AB=120 -->
-                <!-- C(55,195), A(55,123), B(151,195) -->
-                <polygon points="55,123 55,195 151,195" fill="#dbeafe" stroke="#2563eb" stroke-width="2.2"/>
-                <!-- Right angle at C -->
-                <rect x="55" y="181" width="14" height="14" fill="none" stroke="#2563eb" stroke-width="1.8"/>
-                <!-- Labels -->
-                <text x="38" y="120" fill="#2563eb" font-size="14" font-weight="bold" font-family="Arial">A</text>
-                <text x="37" y="212" fill="#2563eb" font-size="14" font-weight="bold" font-family="Arial">C</text>
-                <text x="154" y="212" fill="#2563eb" font-size="14" font-weight="bold" font-family="Arial">B</text>
-                <!-- Side lengths -->
-                <text x="30" y="162" fill="#1e40af" font-size="13" font-family="Arial">3</text>
-                <text x="96" y="212" fill="#1e40af" font-size="13" font-family="Arial">4</text>
-                <text x="114" y="150" fill="#1e40af" font-size="13" font-style="italic" font-family="Arial">5</text>
-
-                <!-- ∼ symbol in center -->
-                <text x="200" y="168" fill="#1e3a5f" font-size="28" font-weight="bold" font-family="Arial" text-anchor="middle">∼</text>
-
-                <!-- △DEF (large, green): scaled × 1.5 → DE=4.5, EF=6, DF=7.5; px: ×36: DE=108, EF=144, DF=180 -->
-                <!-- E(250,195), D(250,87), F(394,195) -->
-                <polygon points="250,87 250,195 394,195" fill="#dcfce7" stroke="#16a34a" stroke-width="2.2"/>
-                <!-- Right angle at E -->
-                <rect x="250" y="181" width="14" height="14" fill="none" stroke="#16a34a" stroke-width="1.8"/>
-                <!-- Labels -->
-                <text x="233" y="84" fill="#16a34a" font-size="14" font-weight="bold" font-family="Arial">D</text>
-                <text x="232" y="212" fill="#16a34a" font-size="14" font-weight="bold" font-family="Arial">E</text>
-                <text x="397" y="212" fill="#16a34a" font-size="14" font-weight="bold" font-family="Arial">F</text>
-                <!-- Side lengths -->
-                <text x="225" y="146" fill="#166534" font-size="13" font-family="Arial">4,5</text>
-                <text x="315" y="212" fill="#166534" font-size="13" font-family="Arial">6</text>
-                <text x="330" y="135" fill="#166534" font-size="13" font-style="italic" font-family="Arial">7,5</text>
-
-                <!-- Equal angle marks -->
-                <!-- Angle at A ≈ angle at D (upper vertex) -->
-                <path d="M 55,140 A 18,18 0 0,1 68,127" fill="none" stroke="#f59e0b" stroke-width="2"/>
-                <path d="M 250,106 A 18,18 0 0,1 263,93" fill="none" stroke="#f59e0b" stroke-width="2"/>
-                <!-- Angle at B ≈ angle at F -->
-                <path d="M 139,195 A 18,18 0 0,1 134,181" fill="none" stroke="#f59e0b" stroke-width="2"/>
-                <path d="M 380,195 A 18,18 0 0,1 375,181" fill="none" stroke="#f59e0b" stroke-width="2"/>
-
-                <!-- k label -->
-                <rect x="160" y="20" width="140" height="28" rx="8" fill="#fef3c7"/>
-                <text x="230" y="39" fill="#92400e" font-size="13" font-weight="bold" font-family="Arial" text-anchor="middle">rapport k = 1,5</text>
-            </svg>
-            <p class="graph-caption">$\triangle ABC \sim \triangle DEF$, rapport $k = 1{,}5$ : côtés $3:4{,}5 = 4:6 = 5:7{,}5$. Angles correspondants égaux.</p>
+            <div id="fig4-similar" style="width:100%;height:340px;border-radius:8px;"></div>
+            <script>
+            (function(){
+              var elt = document.getElementById('fig4-similar');
+              var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false, settingsMenu: false, zoomButtons: false, lockViewport: false, border: false, showGrid: false, showXAxis: false, showYAxis: false
+              });
+              // △ABC: right angle at C(0,0), A(0,3), B(4,0)  — 3-4-5 triangle
+              // △DEF: right angle at E(6,0), D(6,4.5), F(14,0) — scaled ×1.5
+              calc.setMathBounds({left:-2, right:16, bottom:-2, top:7});
+              calc.setExpression({id:'triABC', latex:'\\polygon((0,3),(0,0),(4,0))', color:'#2563eb', lineWidth:2.2, fillOpacity:0.1});
+              calc.setExpression({id:'sqC',    latex:'\\polygon((0,0),(0.3,0),(0.3,0.3),(0,0.3))', color:'#2563eb', lineWidth:1.5, fillOpacity:0});
+              calc.setExpression({id:'triDEF', latex:'\\polygon((6,4.5),(6,0),(14,0))', color:'#16a34a', lineWidth:2.2, fillOpacity:0.1});
+              calc.setExpression({id:'sqE',    latex:'\\polygon((6,0),(6.3,0),(6.3,0.3),(6,0.3))', color:'#16a34a', lineWidth:1.5, fillOpacity:0});
+              calc.setExpression({id:'arcA', latex:'(0+0.45\\cos t,3+0.45\\sin t)\\left\\{4.71\\le t\\le5.64\\right\\}', color:'#f59e0b', lineWidth:2.2});
+              calc.setExpression({id:'arcD', latex:'(6+0.45\\cos t,4.5+0.45\\sin t)\\left\\{4.71\\le t\\le5.64\\right\\}', color:'#f59e0b', lineWidth:2.2});
+              calc.setExpression({id:'arcB', latex:'(4+0.45\\cos t,0+0.45\\sin t)\\left\\{2.50\\le t\\le3.14\\right\\}', color:'#f59e0b', lineWidth:2.2});
+              calc.setExpression({id:'arcF', latex:'(14+0.45\\cos t,0+0.45\\sin t)\\left\\{2.50\\le t\\le3.14\\right\\}', color:'#f59e0b', lineWidth:2.2});
+              calc.setExpression({id:'ptA', latex:'(0,3)',   label:'A', showLabel:true, color:'#2563eb', pointSize:5});
+              calc.setExpression({id:'ptC', latex:'(0,0)',   label:'C', showLabel:true, color:'#2563eb', pointSize:5});
+              calc.setExpression({id:'ptB', latex:'(4,0)',   label:'B', showLabel:true, color:'#2563eb', pointSize:5});
+              calc.setExpression({id:'ptD', latex:'(6,4.5)', label:'D', showLabel:true, color:'#16a34a', pointSize:5});
+              calc.setExpression({id:'ptE', latex:'(6,0)',   label:'E', showLabel:true, color:'#16a34a', pointSize:5});
+              calc.setExpression({id:'ptF', latex:'(14,0)',  label:'F', showLabel:true, color:'#16a34a', pointSize:5});
+              calc.setExpression({id:'l3',  latex:'(-0.6,1.5)', label:'3',   showLabel:true, color:'#1e40af', pointSize:0});
+              calc.setExpression({id:'l4',  latex:'(2,-0.6)',   label:'4',   showLabel:true, color:'#1e40af', pointSize:0});
+              calc.setExpression({id:'l5',  latex:'(2.5,1.8)',  label:'5',   showLabel:true, color:'#1e40af', pointSize:0});
+              calc.setExpression({id:'l45', latex:'(5.2,2.2)',  label:'4,5', showLabel:true, color:'#166534', pointSize:0});
+              calc.setExpression({id:'l6',  latex:'(10,-0.6)',  label:'6',   showLabel:true, color:'#166534', pointSize:0});
+              calc.setExpression({id:'l75', latex:'(11,2.8)',   label:'7,5', showLabel:true, color:'#166534', pointSize:0});
+              calc.setExpression({id:'sim',  latex:'(5,3.5)', label:'\u223c',            showLabel:true, color:'#1e3a5f', pointSize:0});
+              calc.setExpression({id:'klbl', latex:'(7,6)',   label:'rapport k = 1,5', showLabel:true, color:'#92400e', pointSize:0});
+            })();
+            </script>
+            <p class="fig-label"><span class="fig-code">GEOM·4</span>Figure 4 — $\triangle ABC \sim \triangle DEF$, rapport $k = 1{,}5$ : côtés $3:4{,}5 = 4:6 = 5:7{,}5$. Les angles correspondants (orange) sont égaux.</p>
         </div>
 
         <h3>6.3 Exemples résolus</h3>

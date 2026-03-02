@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Further Mathematics – Chapter 1: Complex Numbers | Further Mathematics | MathHub</title>
+    <meta name="description" content="Complete A-Level Further Maths Chapter 1: Complex Numbers. Covers Cartesian form, modulus-argument form, Euler's formula, de Moivre's theorem, and nth roots for Edexcel, AQA, and OCR Further Mathematics.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/further-ch1-complex-numbers.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/uk/textbook/further-ch1-complex-numbers.html">
+    <meta property="og:title" content="A-Level Further Mathematics – Chapter 1: Complex Numbers | MathHub">
+    <meta property="og:site_name" content="MathHub Global">
+    <link rel="alternate" hreflang="en-GB" href="https://mathhub.io/uk/textbook/further-ch1-complex-numbers.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .further-badge { display: inline-block; background: #fce7f3; color: #9d174d; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/" class="active">UK</a><a href="/ca/">CA</a><a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+    <article class="blog-article">
+        <div class="breadcrumb"><a href="/uk/">UK</a> &rsaquo; <a href="/uk/">Textbook</a> &rsaquo; Further Maths – Chapter 1: Complex Numbers</div>
+        <h1>A-Level Further Mathematics – Chapter 1: Complex Numbers</h1>
+        <div class="blog-meta">Edexcel · AQA · OCR A-Level Further Mathematics &middot; Updated March 2026</div>
+
+        <p>Complex numbers are the gateway to Further Mathematics. They extend the real number line into the complex plane, unlocking solutions to equations that have no real roots and providing the language for Fourier analysis, quantum mechanics, and control theory. Every topic in this chapter — from arithmetic in Cartesian form through to de Moivre's theorem — is assessed directly in the Further Pure papers and underpins later work on series, differential equations, and transforms.</p>
+
+        <div class="exam-note">
+            <h4>Specification Note</h4>
+            <p>All content in this chapter is <span class="further-badge">Further</span> level and forms part of the compulsory Further Pure 1 component for Edexcel, AQA, and OCR. Loci in the Argand diagram are introduced here and developed fully in Chapter 2.</p>
+        </div>
+
+        <div class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#intro">1.1 Introduction to Complex Numbers</a></li>
+                <li><a href="#arithmetic">1.2 Arithmetic of Complex Numbers</a></li>
+                <li><a href="#modarg">1.3 Modulus and Argument</a></li>
+                <li><a href="#euler">1.4 Exponential (Euler) Form</a></li>
+                <li><a href="#demoivre">1.5 Applications of de Moivre's Theorem</a></li>
+                <li><a href="#loci-preview">1.6 Loci in the Complex Plane (Preview)</a></li>
+                <li><a href="#practice">Practice Problems</a></li>
+            </ol>
+        </div>
+
+        <!-- ===================== SECTION 1.1 ===================== -->
+        <h2 id="intro">1.1 Introduction to Complex Numbers <span class="further-badge">Further</span></h2>
+
+        <p>The equation $x^2 + 1 = 0$ has no solution in the real numbers because $x^2 \geq 0$ for all $x \in \mathbb{R}$. To resolve this, mathematicians introduce the <em>imaginary unit</em> $\mathrm{i}$, defined by $\mathrm{i}^2 = -1$.</p>
+
+        <div class="definition-box">
+            <h4>Definition 1.1 — Complex Number (Cartesian Form)</h4>
+            <p>A <strong>complex number</strong> is an expression of the form</p>
+            <p>$$z = a + b\mathrm{i}, \quad a,b \in \mathbb{R},$$</p>
+            <p>where $a = \operatorname{Re}(z)$ is the <strong>real part</strong> and $b = \operatorname{Im}(z)$ is the <strong>imaginary part</strong>. The set of all complex numbers is denoted $\mathbb{C}$.</p>
+        </div>
+
+        <p>Note that $\mathbb{R} \subset \mathbb{C}$: every real number $a$ is complex with imaginary part zero. A complex number with $a = 0$ and $b \neq 0$ is called <strong>purely imaginary</strong>.</p>
+
+        <h3>Equality of Complex Numbers</h3>
+        <p>Two complex numbers $z_1 = a + b\mathrm{i}$ and $z_2 = c + d\mathrm{i}$ are equal if and only if $a = c$ <em>and</em> $b = d$. This seemingly simple fact is the basis of the method of <strong>equating real and imaginary parts</strong>, used throughout the course.</p>
+
+        <div class="example-box">
+            <h4>Example 1.1 — Solving by Equating Parts</h4>
+            <p>Find real $p$ and $q$ such that $(p + q) + (2p - q)\mathrm{i} = 5 + \mathrm{i}$.</p>
+            <p><span class="step-label">Step 1</span> Equate real parts: $p + q = 5$.</p>
+            <p><span class="step-label">Step 2</span> Equate imaginary parts: $2p - q = 1$.</p>
+            <p><span class="step-label">Step 3</span> Add the two equations: $3p = 6$, so $p = 2$.</p>
+            <p><span class="step-label">Step 4</span> Substitute back: $q = 5 - 2 = 3$.</p>
+            <p>Therefore $p = 2$, $q = 3$.</p>
+        </div>
+
+        <h3>Powers of $\mathrm{i}$</h3>
+        <p>Since $\mathrm{i}^2 = -1$, the powers of $\mathrm{i}$ cycle with period 4:</p>
+        <p>$$\mathrm{i}^1 = \mathrm{i}, \quad \mathrm{i}^2 = -1, \quad \mathrm{i}^3 = -\mathrm{i}, \quad \mathrm{i}^4 = 1, \quad \mathrm{i}^5 = \mathrm{i}, \ldots$$</p>
+
+        <div class="example-box">
+            <h4>Example 1.2 — Simplifying Powers of i</h4>
+            <p>Simplify $\mathrm{i}^{23}$.</p>
+            <p>Write $23 = 4 \times 5 + 3$, so $\mathrm{i}^{23} = (\mathrm{i}^4)^5 \cdot \mathrm{i}^3 = 1^5 \cdot (-\mathrm{i}) = -\mathrm{i}$.</p>
+        </div>
+
+        <!-- ===================== SECTION 1.2 ===================== -->
+        <h2 id="arithmetic">1.2 Arithmetic of Complex Numbers <span class="further-badge">Further</span></h2>
+
+        <p>Addition, subtraction, and multiplication follow from the ordinary rules of algebra, with $\mathrm{i}^2$ replaced by $-1$ wherever it appears.</p>
+
+        <div class="definition-box">
+            <h4>Definition 1.2 — Complex Conjugate</h4>
+            <p>The <strong>complex conjugate</strong> of $z = a + b\mathrm{i}$ is $\bar{z} = a - b\mathrm{i}$. Key properties:</p>
+            <ul>
+                <li>$z + \bar{z} = 2a = 2\operatorname{Re}(z)$</li>
+                <li>$z - \bar{z} = 2b\mathrm{i} = 2\mathrm{i}\operatorname{Im}(z)$</li>
+                <li>$z\bar{z} = a^2 + b^2 = |z|^2$ (always real and non-negative)</li>
+                <li>$\overline{z_1 z_2} = \bar{z}_1 \bar{z}_2$ and $\overline{z_1 + z_2} = \bar{z}_1 + \bar{z}_2$</li>
+            </ul>
+        </div>
+
+        <h3>Multiplication</h3>
+        <p>$$( a + b\mathrm{i})(c + d\mathrm{i}) = ac + ad\mathrm{i} + bc\mathrm{i} + bd\mathrm{i}^2 = (ac - bd) + (ad + bc)\mathrm{i}.$$</p>
+
+        <div class="example-box">
+            <h4>Example 1.3 — Multiplication</h4>
+            <p>Expand $(3 + 2\mathrm{i})(1 - 5\mathrm{i})$.</p>
+            <p>$= 3(1) + 3(-5\mathrm{i}) + 2\mathrm{i}(1) + 2\mathrm{i}(-5\mathrm{i})$</p>
+            <p>$= 3 - 15\mathrm{i} + 2\mathrm{i} - 10\mathrm{i}^2$</p>
+            <p>$= 3 - 13\mathrm{i} + 10 = 13 - 13\mathrm{i}$.</p>
+        </div>
+
+        <h3>Division</h3>
+        <p>To divide $z_1$ by $z_2$, multiply numerator and denominator by $\bar{z}_2$:</p>
+        <p>$$\frac{z_1}{z_2} = \frac{z_1 \bar{z}_2}{z_2 \bar{z}_2} = \frac{z_1 \bar{z}_2}{|z_2|^2}.$$</p>
+
+        <div class="example-box">
+            <h4>Example 1.4 — Division</h4>
+            <p>Write $\dfrac{3 + \mathrm{i}}{2 - 3\mathrm{i}}$ in the form $a + b\mathrm{i}$.</p>
+            <p>Multiply by $\dfrac{2 + 3\mathrm{i}}{2 + 3\mathrm{i}}$:</p>
+            <p>$$\frac{(3 + \mathrm{i})(2 + 3\mathrm{i})}{(2 - 3\mathrm{i})(2 + 3\mathrm{i})} = \frac{6 + 9\mathrm{i} + 2\mathrm{i} + 3\mathrm{i}^2}{4 + 9} = \frac{6 + 11\mathrm{i} - 3}{13} = \frac{3 + 11\mathrm{i}}{13} = \frac{3}{13} + \frac{11}{13}\mathrm{i}.$$</p>
+        </div>
+
+        <h3>Complex Roots of Real Polynomials</h3>
+
+        <div class="theorem-box">
+            <h4>Theorem 1.1 — Complex Conjugate Root Theorem</h4>
+            <p>If $P(z)$ is a polynomial with <em>real</em> coefficients and $\alpha \in \mathbb{C}$ is a root, then $\bar{\alpha}$ is also a root. In particular, non-real complex roots of real polynomials always occur in conjugate pairs.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 1.5 — Finding a Cubic Given One Complex Root</h4>
+            <p>A cubic $P(z)$ with real coefficients has roots $2$ and $1 + 3\mathrm{i}$. Find $P(z)$ in the form $z^3 + bz^2 + cz + d$.</p>
+            <p><span class="step-label">Step 1</span> By the conjugate root theorem, $1 - 3\mathrm{i}$ is also a root.</p>
+            <p><span class="step-label">Step 2</span> The quadratic factor from the complex pair is $(z - (1+3\mathrm{i}))(z - (1-3\mathrm{i})) = (z-1)^2 + 9 = z^2 - 2z + 10$.</p>
+            <p><span class="step-label">Step 3</span> The linear factor from root $2$ is $(z - 2)$.</p>
+            <p><span class="step-label">Step 4</span> $P(z) = (z-2)(z^2 - 2z + 10) = z^3 - 2z^2 + 10z - 2z^2 + 4z - 20 = z^3 - 4z^2 + 14z - 20$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 1.6 — Solving a Quartic with Complex Roots</h4>
+            <p>Solve $z^4 - 2z^3 + 3z^2 - 2z + 2 = 0$ given that $z = \mathrm{i}$ is a root.</p>
+            <p><span class="step-label">Step 1</span> Since coefficients are real, $z = -\mathrm{i}$ is also a root. Quadratic factor: $(z - \mathrm{i})(z + \mathrm{i}) = z^2 + 1$.</p>
+            <p><span class="step-label">Step 2</span> Divide: $z^4 - 2z^3 + 3z^2 - 2z + 2 \div (z^2 + 1) = z^2 - 2z + 2$.</p>
+            <p><span class="step-label">Step 3</span> Solve $z^2 - 2z + 2 = 0$: $z = \dfrac{2 \pm \sqrt{4-8}}{2} = 1 \pm \mathrm{i}$.</p>
+            <p>The four roots are $z = \mathrm{i},\; -\mathrm{i},\; 1+\mathrm{i},\; 1-\mathrm{i}$.</p>
+        </div>
+
+        <!-- ===================== SECTION 1.3 ===================== -->
+        <h2 id="modarg">1.3 Modulus and Argument <span class="further-badge">Further</span></h2>
+
+        <div class="definition-box">
+            <h4>Definition 1.3 — Modulus and Argument</h4>
+            <p>For $z = a + b\mathrm{i}$:</p>
+            <ul>
+                <li><strong>Modulus</strong>: $|z| = \sqrt{a^2 + b^2}$ (the distance from the origin in the Argand diagram)</li>
+                <li><strong>Argument</strong>: $\arg(z) = \theta$ where $\tan\theta = b/a$, chosen so that $\theta \in (-\pi, \pi]$. This is the <em>principal argument</em>.</li>
+            </ul>
+            <p>The <strong>modulus-argument form</strong> (polar form) is $z = r(\cos\theta + \mathrm{i}\sin\theta)$ where $r = |z|$ and $\theta = \arg(z)$.</p>
+        </div>
+
+        <p>To determine $\arg(z)$ correctly, always sketch the point in the Argand diagram to identify the correct quadrant before applying the arctangent formula.</p>
+
+        <div class="example-box">
+            <h4>Example 1.7 — Finding Modulus and Argument</h4>
+            <p>Express $z = -1 + \sqrt{3}\,\mathrm{i}$ in modulus-argument form.</p>
+            <p><span class="step-label">Step 1</span> Modulus: $|z| = \sqrt{(-1)^2 + (\sqrt{3})^2} = \sqrt{1 + 3} = 2$.</p>
+            <p><span class="step-label">Step 2</span> The point $(-1, \sqrt{3})$ lies in the second quadrant. The reference angle is $\arctan\!\left(\frac{\sqrt{3}}{1}\right) = \frac{\pi}{3}$, so $\arg(z) = \pi - \frac{\pi}{3} = \frac{2\pi}{3}$.</p>
+            <p><span class="step-label">Step 3</span> $z = 2\!\left(\cos\frac{2\pi}{3} + \mathrm{i}\sin\frac{2\pi}{3}\right)$.</p>
+        </div>
+
+        <h3>Properties of Modulus and Argument</h3>
+        <div class="theorem-box">
+            <h4>Theorem 1.2 — Multiplication and Division Rules</h4>
+            <p>For $z_1 = r_1 e^{\mathrm{i}\theta_1}$ and $z_2 = r_2 e^{\mathrm{i}\theta_2}$:</p>
+            <ul>
+                <li>$|z_1 z_2| = |z_1||z_2|$ and $\arg(z_1 z_2) = \arg(z_1) + \arg(z_2)$ (modulo $2\pi$)</li>
+                <li>$\left|\dfrac{z_1}{z_2}\right| = \dfrac{|z_1|}{|z_2|}$ and $\arg\!\left(\dfrac{z_1}{z_2}\right) = \arg(z_1) - \arg(z_2)$ (modulo $2\pi$)</li>
+            </ul>
+            <p><em>Geometric interpretation</em>: multiplying by $z_2$ scales by $|z_2|$ and rotates by $\arg(z_2)$.</p>
+        </div>
+
+        <div id="desmos1" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 1.1 — The point $z = 3 + 4\mathrm{i}$ (blue), its conjugate $\bar{z} = 3 - 4\mathrm{i}$ (red), and the modulus $|z| = 5$ illustrated on an Argand diagram.</p>
+
+        <!-- ===================== SECTION 1.4 ===================== -->
+        <h2 id="euler">1.4 Exponential (Euler) Form <span class="further-badge">Further</span></h2>
+
+        <div class="theorem-box">
+            <h4>Theorem 1.3 — Euler's Formula</h4>
+            <p>For all $\theta \in \mathbb{R}$:</p>
+            <p>$$e^{\mathrm{i}\theta} = \cos\theta + \mathrm{i}\sin\theta.$$</p>
+            <p>Consequently, any complex number with modulus $r$ and argument $\theta$ may be written in <strong>exponential form</strong> as $z = r e^{\mathrm{i}\theta}$.</p>
+        </div>
+
+        <p>Euler's formula may be established by comparing the Maclaurin series for $e^x$, $\cos x$, and $\sin x$:</p>
+        <p>$$e^{\mathrm{i}\theta} = \sum_{n=0}^{\infty}\frac{(\mathrm{i}\theta)^n}{n!} = \left(1 - \frac{\theta^2}{2!} + \frac{\theta^4}{4!} - \cdots\right) + \mathrm{i}\!\left(\theta - \frac{\theta^3}{3!} + \frac{\theta^5}{5!} - \cdots\right) = \cos\theta + \mathrm{i}\sin\theta.$$</p>
+
+        <p>The special case $\theta = \pi$ gives <strong>Euler's identity</strong>: $e^{\mathrm{i}\pi} + 1 = 0$, often cited as one of the most beautiful results in mathematics.</p>
+
+        <div class="example-box">
+            <h4>Example 1.8 — Converting Between Forms</h4>
+            <p>Write $z = 4e^{\mathrm{i}\pi/3}$ in Cartesian form.</p>
+            <p>$z = 4\!\left(\cos\frac{\pi}{3} + \mathrm{i}\sin\frac{\pi}{3}\right) = 4\!\left(\frac{1}{2} + \frac{\sqrt{3}}{2}\mathrm{i}\right) = 2 + 2\sqrt{3}\,\mathrm{i}.$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 1.9 — Product in Exponential Form</h4>
+            <p>Let $z_1 = 3e^{\mathrm{i}\pi/4}$ and $z_2 = 2e^{\mathrm{i}\pi/6}$. Find $z_1 z_2$ and $z_1/z_2$.</p>
+            <p>$z_1 z_2 = 6\,e^{\mathrm{i}(\pi/4 + \pi/6)} = 6\,e^{\mathrm{i}5\pi/12}$.</p>
+            <p>$z_1/z_2 = \tfrac{3}{2}\,e^{\mathrm{i}(\pi/4 - \pi/6)} = \tfrac{3}{2}\,e^{\mathrm{i}\pi/12}$.</p>
+        </div>
+
+        <div id="desmos2" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 1.2 — The unit circle $|z| = 1$ with selected points at standard arguments $\theta = 0, \frac{\pi}{6}, \frac{\pi}{4}, \frac{\pi}{3}, \frac{\pi}{2}, \pi, -\frac{\pi}{2}$ shown in Euler form $e^{\mathrm{i}\theta}$.</p>
+
+        <!-- ===================== SECTION 1.5 ===================== -->
+        <h2 id="demoivre">1.5 Applications of de Moivre's Theorem <span class="further-badge">Further</span></h2>
+
+        <div class="theorem-box">
+            <h4>Theorem 1.4 — de Moivre's Theorem</h4>
+            <p>For any integer $n$ and $\theta \in \mathbb{R}$:</p>
+            <p>$$(\cos\theta + \mathrm{i}\sin\theta)^n = \cos n\theta + \mathrm{i}\sin n\theta,$$</p>
+            <p>equivalently, $(e^{\mathrm{i}\theta})^n = e^{\mathrm{i}n\theta}$.</p>
+            <p><em>Proof sketch</em>: For $n \geq 1$, use induction together with the addition formulae. For negative $n$, use $z^{-1} = \bar{z}/|z|^2$. The result for rational $n$ extends to roots; see below.</p>
+        </div>
+
+        <h3>Expressing Multiple-Angle Identities</h3>
+        <p>De Moivre's theorem combined with the binomial theorem enables the derivation of identities for $\cos n\theta$ and $\sin n\theta$ in terms of powers of $\cos\theta$ and $\sin\theta$.</p>
+
+        <div class="example-box">
+            <h4>Example 1.10 — Triple Angle Formulae</h4>
+            <p>Derive expressions for $\cos 3\theta$ and $\sin 3\theta$.</p>
+            <p><span class="step-label">Step 1</span> By de Moivre: $\cos 3\theta + \mathrm{i}\sin 3\theta = (\cos\theta + \mathrm{i}\sin\theta)^3$.</p>
+            <p><span class="step-label">Step 2</span> Expand using the binomial theorem (let $c = \cos\theta$, $s = \sin\theta$):
+            $$= c^3 + 3c^2(\mathrm{i}s) + 3c(\mathrm{i}s)^2 + (\mathrm{i}s)^3 = c^3 + 3c^2 s\,\mathrm{i} - 3cs^2 - s^3\mathrm{i}.$$</p>
+            <p><span class="step-label">Step 3</span> Equate real parts: $\cos 3\theta = c^3 - 3cs^2 = \cos^3\!\theta - 3\cos\theta\sin^2\!\theta$.</p>
+            <p>Using $\sin^2\theta = 1 - \cos^2\theta$: $\cos 3\theta = 4\cos^3\!\theta - 3\cos\theta$.</p>
+            <p><span class="step-label">Step 4</span> Equate imaginary parts: $\sin 3\theta = 3c^2 s - s^3 = 3\sin\theta\cos^2\!\theta - \sin^3\!\theta = 3\sin\theta - 4\sin^3\!\theta$.</p>
+        </div>
+
+        <h3>Expressing Powers in Terms of Multiple Angles</h3>
+        <p>Let $z = e^{\mathrm{i}\theta}$ so $z + z^{-1} = 2\cos\theta$ and $z - z^{-1} = 2\mathrm{i}\sin\theta$. Then:</p>
+        <p>$$(2\cos\theta)^n = (z + z^{-1})^n, \qquad (2\mathrm{i}\sin\theta)^n = (z - z^{-1})^n.$$</p>
+        <p>Expanding the right-hand side using the binomial theorem and applying de Moivre yields identities expressing $\cos^n\theta$ or $\sin^n\theta$ in terms of $\cos k\theta$ or $\sin k\theta$.</p>
+
+        <div class="example-box">
+            <h4>Example 1.11 — Expressing $\cos^4\theta$</h4>
+            <p>Show that $\cos^4\!\theta = \tfrac{1}{8}\cos 4\theta + \tfrac{1}{2}\cos 2\theta + \tfrac{3}{8}$.</p>
+            <p>$(2\cos\theta)^4 = (z + z^{-1})^4 = z^4 + 4z^2 + 6 + 4z^{-2} + z^{-4}$.</p>
+            <p>$= (z^4 + z^{-4}) + 4(z^2 + z^{-2}) + 6 = 2\cos 4\theta + 8\cos 2\theta + 6$.</p>
+            <p>So $16\cos^4\!\theta = 2\cos 4\theta + 8\cos 2\theta + 6$, giving $\cos^4\!\theta = \tfrac{1}{8}\cos 4\theta + \tfrac{1}{2}\cos 2\theta + \tfrac{3}{8}$.</p>
+        </div>
+
+        <h3>nth Roots of Complex Numbers</h3>
+        <p>The equation $z^n = w$ has exactly $n$ solutions in $\mathbb{C}$. If $w = Re^{\mathrm{i}\Phi}$, the $n$ roots are:</p>
+        <p>$$z_k = R^{1/n}\exp\!\left(\mathrm{i}\,\frac{\Phi + 2k\pi}{n}\right), \quad k = 0, 1, \ldots, n-1.$$</p>
+        <p>These roots are equally spaced around a circle of radius $R^{1/n}$, separated by angles of $\frac{2\pi}{n}$.</p>
+
+        <div class="example-box">
+            <h4>Example 1.12 — Cube Roots of Unity</h4>
+            <p>Find all solutions to $z^3 = 1$ and plot them on an Argand diagram.</p>
+            <p>Write $1 = 1 \cdot e^{\mathrm{i} \cdot 0}$, so $R = 1$, $\Phi = 0$.</p>
+            <p>The three roots are $z_k = e^{\mathrm{i} \cdot 2k\pi/3}$ for $k = 0, 1, 2$:</p>
+            <ul>
+                <li>$z_0 = 1$</li>
+                <li>$z_1 = e^{2\pi\mathrm{i}/3} = -\tfrac{1}{2} + \tfrac{\sqrt{3}}{2}\mathrm{i}$</li>
+                <li>$z_2 = e^{4\pi\mathrm{i}/3} = -\tfrac{1}{2} - \tfrac{\sqrt{3}}{2}\mathrm{i}$</li>
+            </ul>
+            <p>The roots form an equilateral triangle inscribed in the unit circle. Denoting $\omega = e^{2\pi\mathrm{i}/3}$, note that $1 + \omega + \omega^2 = 0$, a result that recurs throughout Further Mathematics.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 1.13 — Fourth Roots of $-16$</h4>
+            <p>Solve $z^4 = -16$.</p>
+            <p>Write $-16 = 16e^{\mathrm{i}\pi}$, so $R = 16$, $\Phi = \pi$.</p>
+            <p>$z_k = 16^{1/4} e^{\mathrm{i}(\pi + 2k\pi)/4} = 2\,e^{\mathrm{i}(1+2k)\pi/4}$ for $k = 0,1,2,3$.</p>
+            <ul>
+                <li>$k=0$: $2e^{\mathrm{i}\pi/4} = \sqrt{2}(1 + \mathrm{i})$</li>
+                <li>$k=1$: $2e^{\mathrm{i}3\pi/4} = \sqrt{2}(-1 + \mathrm{i})$</li>
+                <li>$k=2$: $2e^{\mathrm{i}5\pi/4} = \sqrt{2}(-1 - \mathrm{i})$</li>
+                <li>$k=3$: $2e^{\mathrm{i}7\pi/4} = \sqrt{2}(1 - \mathrm{i})$</li>
+            </ul>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip — Arguments and Principal Values</h4>
+            <p>Always express the principal argument in the range $(-\pi, \pi]$. When computing $\arg(z_1 z_2)$, add the arguments then adjust by $\pm 2\pi$ if necessary to return to $(-\pi, \pi]$. Forgetting this step is one of the most common sources of mark loss on Further Pure papers.</p>
+        </div>
+
+        <!-- ===================== SECTION 1.6 ===================== -->
+        <h2 id="loci-preview">1.6 Loci in the Complex Plane (Preview) <span class="further-badge">Further</span></h2>
+
+        <p>A <strong>locus</strong> is a set of complex numbers satisfying a given condition. For example, the set $\{z \in \mathbb{C} : |z - (2 + \mathrm{i})| = 3\}$ is a circle in the Argand diagram centred at $2 + \mathrm{i}$ with radius 3. This material is treated in full generality in Chapter 2, where Cartesian equations, half-lines, perpendicular bisectors, and regions are all covered systematically.</p>
+
+        <div class="exam-note">
+            <h4>Chapter Link</h4>
+            <p>Locus problems featuring $|z - a| = r$, $\arg(z - a) = \theta$, and $|z - a| = |z - b|$ are examined together with Argand diagram sketches. Practise converting between complex locus notation and Cartesian equations — this skill is assessed on every Further Pure paper.</p>
+        </div>
+
+        <!-- ===================== PRACTICE ===================== -->
+        <h2 id="practice">Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1 — Cartesian Arithmetic</h4>
+            <p>Given $z_1 = 2 + 3\mathrm{i}$ and $z_2 = 1 - 4\mathrm{i}$, find $z_1 z_2$ and $\dfrac{z_1}{z_2}$, expressing each answer in the form $a + b\mathrm{i}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p><strong>Product:</strong> $(2+3\mathrm{i})(1-4\mathrm{i}) = 2 - 8\mathrm{i} + 3\mathrm{i} - 12\mathrm{i}^2 = 2 - 5\mathrm{i} + 12 = 14 - 5\mathrm{i}$.</p>
+                    <p><strong>Quotient:</strong> $\dfrac{(2+3\mathrm{i})(1+4\mathrm{i})}{(1-4\mathrm{i})(1+4\mathrm{i})} = \dfrac{2+8\mathrm{i}+3\mathrm{i}+12\mathrm{i}^2}{1+16} = \dfrac{2+11\mathrm{i}-12}{17} = \dfrac{-10+11\mathrm{i}}{17} = -\dfrac{10}{17} + \dfrac{11}{17}\mathrm{i}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2 — Modulus and Argument</h4>
+            <p>Find the modulus and principal argument of $z = -3 - 3\mathrm{i}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$|z| = \sqrt{9 + 9} = 3\sqrt{2}$.</p>
+                    <p>The point $(-3, -3)$ lies in the third quadrant. Reference angle $= \arctan(3/3) = \pi/4$, so $\arg(z) = -\pi + \pi/4 = -3\pi/4$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3 — Euler Form</h4>
+            <p>Write $z = \sqrt{2}\,e^{-\mathrm{i}\pi/4}$ in Cartesian form and find $|z|$ and $\arg(z)$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$z = \sqrt{2}\!\left(\cos(-\pi/4) + \mathrm{i}\sin(-\pi/4)\right) = \sqrt{2}\!\left(\dfrac{\sqrt{2}}{2} - \dfrac{\sqrt{2}}{2}\mathrm{i}\right) = 1 - \mathrm{i}$.</p>
+                    <p>$|z| = \sqrt{2}$, $\arg(z) = -\pi/4$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4 — de Moivre's Theorem</h4>
+            <p>Use de Moivre's theorem to find $(\cos(\pi/12) + \mathrm{i}\sin(\pi/12))^{12}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>By de Moivre: $(\cos(\pi/12) + \mathrm{i}\sin(\pi/12))^{12} = \cos(12 \cdot \pi/12) + \mathrm{i}\sin(12 \cdot \pi/12) = \cos\pi + \mathrm{i}\sin\pi = -1$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5 — Double-Angle Identity via de Moivre</h4>
+            <p>Use de Moivre's theorem to show that $\sin 2\theta = 2\sin\theta\cos\theta$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$(\cos\theta + \mathrm{i}\sin\theta)^2 = \cos^2\theta + 2\mathrm{i}\sin\theta\cos\theta + \mathrm{i}^2\sin^2\theta = (\cos^2\theta - \sin^2\theta) + 2\mathrm{i}\sin\theta\cos\theta$.</p>
+                    <p>By de Moivre this equals $\cos 2\theta + \mathrm{i}\sin 2\theta$. Equating imaginary parts gives $\sin 2\theta = 2\sin\theta\cos\theta$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6 — Powers Identity</h4>
+            <p>Show that $\sin^3\theta = \tfrac{3}{4}\sin\theta - \tfrac{1}{4}\sin 3\theta$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Let $z = e^{\mathrm{i}\theta}$. Then $2\mathrm{i}\sin\theta = z - z^{-1}$, so $(2\mathrm{i})^3\sin^3\theta = (z - z^{-1})^3 = z^3 - 3z + 3z^{-1} - z^{-3}$.</p>
+                    <p>$= (z^3 - z^{-3}) - 3(z - z^{-1}) = 2\mathrm{i}\sin 3\theta - 3 \cdot 2\mathrm{i}\sin\theta$.</p>
+                    <p>So $-8\mathrm{i}\sin^3\theta = 2\mathrm{i}\sin 3\theta - 6\mathrm{i}\sin\theta$. Dividing by $-8\mathrm{i}$: $\sin^3\theta = \tfrac{3}{4}\sin\theta - \tfrac{1}{4}\sin 3\theta$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7 — Conjugate Root Theorem</h4>
+            <p>A quartic polynomial $P(z)$ with real coefficients has roots $3$ (multiplicity 2) and $2 - \mathrm{i}$. Write down all four roots and hence write $P(z)$ as a product of two real quadratic factors.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>By the conjugate root theorem, $2 + \mathrm{i}$ is also a root. The four roots are $3, 3, 2 - \mathrm{i}, 2 + \mathrm{i}$.</p>
+                    <p>Real quadratic from root 3 (multiplicity 2): $(z-3)^2 = z^2 - 6z + 9$.</p>
+                    <p>Real quadratic from complex pair: $(z-(2-\mathrm{i}))(z-(2+\mathrm{i})) = (z-2)^2 + 1 = z^2 - 4z + 5$.</p>
+                    <p>$P(z) = (z^2 - 6z + 9)(z^2 - 4z + 5)$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8 — nth Roots</h4>
+            <p>Find all fifth roots of $32\,e^{\mathrm{i}\pi/5}$, expressing each in exponential form.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$R = 32$, $\Phi = \pi/5$. $R^{1/5} = 2$. The roots are $z_k = 2\,e^{\mathrm{i}(\pi/5 + 2k\pi)/5} = 2\,e^{\mathrm{i}\pi(1+10k)/25}$ for $k = 0,1,2,3,4$.</p>
+                    <ul>
+                        <li>$k=0$: $2e^{\mathrm{i}\pi/25}$</li>
+                        <li>$k=1$: $2e^{\mathrm{i}11\pi/25}$</li>
+                        <li>$k=2$: $2e^{\mathrm{i}21\pi/25}$</li>
+                        <li>$k=3$: $2e^{\mathrm{i}31\pi/25}$ (principal argument: $2e^{-\mathrm{i}19\pi/25}$)</li>
+                        <li>$k=4$: $2e^{\mathrm{i}41\pi/25}$ (principal argument: $2e^{-\mathrm{i}9\pi/25}$)</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 9 — Modulus-Argument Multiplication</h4>
+            <p>Given $z_1 = 6(\cos(2\pi/3) + \mathrm{i}\sin(2\pi/3))$ and $z_2 = 3(\cos(\pi/6) + \mathrm{i}\sin(\pi/6))$, find $|z_1 z_2|$ and $\arg(z_1 z_2)$ without expanding into Cartesian form.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$|z_1 z_2| = 6 \times 3 = 18$.</p>
+                    <p>$\arg(z_1 z_2) = \tfrac{2\pi}{3} + \tfrac{\pi}{6} = \tfrac{4\pi}{6} + \tfrac{\pi}{6} = \tfrac{5\pi}{6}$. Since $\tfrac{5\pi}{6} \in (-\pi, \pi]$, this is already the principal argument.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 10 — Proof Using de Moivre</h4>
+            <p>Prove that $\cos 4\theta = 8\cos^4\!\theta - 8\cos^2\!\theta + 1$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Expand $(\cos\theta + \mathrm{i}\sin\theta)^4$ by the binomial theorem:</p>
+                    <p>$= \cos^4\theta + 4\cos^3\theta(\mathrm{i}\sin\theta) + 6\cos^2\theta(\mathrm{i}\sin\theta)^2 + 4\cos\theta(\mathrm{i}\sin\theta)^3 + (\mathrm{i}\sin\theta)^4$</p>
+                    <p>$= \cos^4\theta + 4\mathrm{i}\cos^3\theta\sin\theta - 6\cos^2\theta\sin^2\theta - 4\mathrm{i}\cos\theta\sin^3\theta + \sin^4\theta$.</p>
+                    <p>By de Moivre, the real part equals $\cos 4\theta$:</p>
+                    <p>$\cos 4\theta = \cos^4\theta - 6\cos^2\theta\sin^2\theta + \sin^4\theta$.</p>
+                    <p>Substitute $\sin^2\theta = 1 - \cos^2\theta$:</p>
+                    <p>$= \cos^4\theta - 6\cos^2\theta(1-\cos^2\theta) + (1-\cos^2\theta)^2$</p>
+                    <p>$= \cos^4\theta - 6\cos^2\theta + 6\cos^4\theta + 1 - 2\cos^2\theta + \cos^4\theta = 8\cos^4\theta - 8\cos^2\theta + 1$. $\square$</p>
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <script>
+    (function() {
+        // Figure 1: z = 3+4i, conjugate, modulus
+        var elt1 = document.getElementById('desmos1');
+        var calc1 = Desmos.GraphingCalculator(elt1, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            xAxisLabel: 'Re',
+            yAxisLabel: 'Im'
+        });
+        calc1.setMathBounds({ left: -1, right: 7, bottom: -6, top: 6 });
+        calc1.setExpressions([
+            { id: 'reaxis', latex: 'y=0', color: '#94a3b8' },
+            { id: 'imaxis', latex: 'x=0', color: '#94a3b8' },
+            { id: 'modline', latex: '\\left(x,y\\right)=\\left(0+3t,0+4t\\right)', color: '#64748b', lineStyle: Desmos.Styles.DASHED, parametricDomain: { min: 0, max: 1 } },
+            { id: 'z', latex: '(3,4)', color: '#3b82f6', pointStyle: Desmos.Styles.POINT, label: 'z = 3+4i, |z|=5', showLabel: true },
+            { id: 'zconj', latex: '(3,-4)', color: '#ef4444', pointStyle: Desmos.Styles.POINT, label: 'z̄ = 3−4i', showLabel: true }
+        ]);
+
+        // Figure 2: Unit circle with Euler form labels
+        var elt2 = document.getElementById('desmos2');
+        var calc2 = Desmos.GraphingCalculator(elt2, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            xAxisLabel: 'Re',
+            yAxisLabel: 'Im'
+        });
+        calc2.setMathBounds({ left: -1.8, right: 1.8, bottom: -1.5, top: 1.8 });
+        calc2.setExpressions([
+            { id: 'circle', latex: 'x^2+y^2=1', color: '#3b82f6' },
+            { id: 'p0', latex: '(1,0)', color: '#8b5cf6', pointStyle: Desmos.Styles.POINT, label: 'θ=0: (1,0)', showLabel: true },
+            { id: 'p1', latex: '(0.866,0.5)', color: '#8b5cf6', pointStyle: Desmos.Styles.POINT, label: 'θ=π/6', showLabel: true },
+            { id: 'p2', latex: '(0.707,0.707)', color: '#8b5cf6', pointStyle: Desmos.Styles.POINT, label: 'θ=π/4', showLabel: true },
+            { id: 'p3', latex: '(0.5,0.866)', color: '#8b5cf6', pointStyle: Desmos.Styles.POINT, label: 'θ=π/3', showLabel: true },
+            { id: 'p4', latex: '(0,1)', color: '#8b5cf6', pointStyle: Desmos.Styles.POINT, label: 'θ=π/2', showLabel: true },
+            { id: 'p5', latex: '(-1,0)', color: '#8b5cf6', pointStyle: Desmos.Styles.POINT, label: 'θ=π', showLabel: true },
+            { id: 'p6', latex: '(0,-1)', color: '#8b5cf6', pointStyle: Desmos.Styles.POINT, label: 'θ=−π/2', showLabel: true }
+        ]);
+    })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Precalculus: Sequences &amp; Series - Chapter 9 | MathHub</title>
+    <meta name="description" content="Precalculus Chapter 9: Sequences and Series. Arithmetic and geometric sequences, infinite geometric series, sigma notation, mathematical induction, Binomial Theorem, and Pascal's Triangle with worked examples.">
+    <meta name="keywords" content="precalculus sequences, arithmetic sequence, geometric sequence, infinite geometric series, sigma notation, mathematical induction, binomial theorem, Pascal's triangle, precalculus textbook, precalculus chapter 9">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/blog/precalculus-sequences-series-textbook.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/blog/precalculus-sequences-series-textbook.html">
+    <meta property="og:title" content="Precalculus: Sequences & Series - Chapter 9">
+    <meta property="og:description" content="Complete precalculus guide to sequences, series, sigma notation, mathematical induction, and the Binomial Theorem with worked examples and practice problems.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Precalculus: Sequences & Series - Chapter 9">
+    <meta name="twitter:description" content="Precalculus sequences and series: arithmetic, geometric, sigma notation, induction, and Binomial Theorem.">
+
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Precalculus: Sequences & Series - Chapter 9",
+        "description": "Comprehensive precalculus chapter covering sequences, arithmetic and geometric series, sigma notation, mathematical induction, the Binomial Theorem, and Pascal's Triangle.",
+        "author": {"@type": "Organization", "name": "MathHub Global"},
+        "publisher": {"@type": "Organization", "name": "MathHub Global"},
+        "datePublished": "2025-06-01",
+        "dateModified": "2026-02-23",
+        "educationalLevel": "Precalculus",
+        "mainEntityOfPage": "https://mathhub.io/blog/precalculus-sequences-series-textbook.html"
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h2:first-of-type { border-top: none; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #64748b; margin-bottom: 8px; }
+        .breadcrumb a { color: #2563eb; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .example-box .example-title { font-weight: 700; color: #1d4ed8; margin-bottom: 8px; }
+        .example-box strong { color: #1d4ed8; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .definition-box strong { color: #15803d; }
+        .definition-box p { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #a855f7; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .theorem-box strong { color: #7c3aed; }
+        .theorem-box p { color: #334155; line-height: 1.8; }
+        .practice-problem { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+        .practice-problem .problem-number { font-weight: 700; color: #1e3a5f; margin-bottom: 8px; }
+        details.solution { margin-top: 12px; }
+        details.solution summary { cursor: pointer; color: #2563eb; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        details.solution summary:hover { color: #1d4ed8; }
+        details.solution .solution-content { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 16px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .tip-box { background: #f0f9ff; border-left: 4px solid #2563eb; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .tip-box strong { color: #1d4ed8; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin: 20px 0 30px; }
+        .toc h3 { margin: 0 0 12px; color: #1e3a5f; font-size: 1.1em; }
+        .toc ol { margin: 0 0 0 20px; }
+        .toc li { margin-bottom: 4px; line-height: 1.6; }
+        .toc a { color: #2563eb; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .chapter-nav { display: flex; justify-content: space-between; align-items: center; margin: 40px 0 20px; padding: 20px 0; border-top: 2px solid #e2e8f0; font-size: 0.95em; }
+        .chapter-nav a { color: #2563eb; text-decoration: none; font-weight: 600; }
+        .chapter-nav a:hover { text-decoration: underline; }
+        .chapter-nav .nav-center { color: #16a34a; font-weight: 700; text-align: center; }
+        @media (max-width: 600px) {
+            .blog-article h1 { font-size: 1.6em; }
+            .chapter-nav { flex-direction: column; gap: 10px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/" class="active">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="/">Home</a> &rsaquo; <a href="/us/">US</a> &rsaquo; <a href="/blog">Precalculus</a> &rsaquo; Chapter 9
+        </div>
+
+        <h1>Chapter 9: Sequences &amp; Series</h1>
+        <div class="blog-meta">Updated February 2026 &middot; 20 min read &middot; <a href="/us/">US Exam Resources</a></div>
+
+        <p>Sequences and series form the bridge between algebra and calculus. In this chapter, you will learn how to identify patterns in ordered lists of numbers, compute their sums using compact formulas, and apply powerful tools like the Binomial Theorem and mathematical induction. These ideas appear throughout higher mathematics, from financial modeling to physics and computer science.</p>
+
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ol>
+                <li><a href="#sequences">9.1 Introduction to Sequences</a></li>
+                <li><a href="#arithmetic">9.2 Arithmetic Sequences and Series</a></li>
+                <li><a href="#geometric">9.3 Geometric Sequences and Series</a></li>
+                <li><a href="#infinite-geometric">9.4 Infinite Geometric Series</a></li>
+                <li><a href="#sigma">9.5 Sigma Notation and Properties of Summation</a></li>
+                <li><a href="#induction">9.6 Mathematical Induction</a></li>
+                <li><a href="#binomial">9.7 The Binomial Theorem and Pascal's Triangle</a></li>
+                <li><a href="#practice">9.8 Practice Problems</a></li>
+            </ol>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 9.1 INTRODUCTION TO SEQUENCES -->
+        <!-- ============================================================ -->
+        <h2 id="sequences">9.1 Introduction to Sequences</h2>
+
+        <div class="definition-box">
+            <strong>Definition &mdash; Sequence:</strong> A <em>sequence</em> is an ordered list of numbers defined by a rule. Each number in the list is called a <em>term</em>. We write the sequence as $\{a_n\}$ or $a_1, a_2, a_3, \ldots$ where $a_n$ denotes the $n$th term.
+        </div>
+
+        <p>A sequence can be defined in two ways:</p>
+        <ul>
+            <li><strong>Explicit formula:</strong> A formula that gives the $n$th term directly as a function of $n$. For example, $a_n = 3n + 1$ produces the sequence $4, 7, 10, 13, \ldots$</li>
+            <li><strong>Recursive formula:</strong> A formula that defines each term using one or more previous terms, together with an initial term. For example, $a_1 = 2,\; a_n = a_{n-1} + 5$ produces $2, 7, 12, 17, \ldots$</li>
+        </ul>
+
+        <div class="example-box">
+            <div class="example-title">Example 1: Finding terms of a sequence</div>
+            <p>Find the first five terms of the sequence defined by $a_n = \dfrac{(-1)^{n+1}}{n^2}$.</p>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>$a_1 = \dfrac{(-1)^2}{1} = 1$</li>
+                <li>$a_2 = \dfrac{(-1)^3}{4} = -\dfrac{1}{4}$</li>
+                <li>$a_3 = \dfrac{(-1)^4}{9} = \dfrac{1}{9}$</li>
+                <li>$a_4 = \dfrac{(-1)^5}{16} = -\dfrac{1}{16}$</li>
+                <li>$a_5 = \dfrac{(-1)^6}{25} = \dfrac{1}{25}$</li>
+            </ul>
+            <p>The first five terms are $1,\; -\dfrac{1}{4},\; \dfrac{1}{9},\; -\dfrac{1}{16},\; \dfrac{1}{25}$.</p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 2: Finding an explicit formula from a pattern</div>
+            <p>Write an explicit formula for the sequence $3, 7, 11, 15, 19, \ldots$</p>
+            <p><strong>Solution:</strong> The terms increase by $4$ each time, so this is arithmetic with first term $a_1 = 3$ and common difference $d = 4$. The explicit formula is:</p>
+            $$a_n = 3 + (n-1) \cdot 4 = 4n - 1$$
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 9.2 ARITHMETIC SEQUENCES AND SERIES -->
+        <!-- ============================================================ -->
+        <h2 id="arithmetic">9.2 Arithmetic Sequences and Series</h2>
+
+        <div class="definition-box">
+            <strong>Definition &mdash; Arithmetic Sequence:</strong> An <em>arithmetic sequence</em> is a sequence in which each term differs from the previous term by a fixed amount $d$, called the <em>common difference</em>. If the first term is $a_1$, then $a_n = a_{n-1} + d$ for all $n \geq 2$.
+        </div>
+
+        <div class="theorem-box">
+            <strong>Explicit Formula for the $n$th Term:</strong>
+            $$a_n = a_1 + (n - 1)d$$
+            <p>where $a_1$ is the first term and $d$ is the common difference.</p>
+        </div>
+
+        <p>To find the common difference, subtract any term from the next: $d = a_{n+1} - a_n$. If this value is constant for all consecutive pairs, the sequence is arithmetic.</p>
+
+        <div class="example-box">
+            <div class="example-title">Example 3: Finding the $n$th term of an arithmetic sequence</div>
+            <p>An arithmetic sequence has $a_1 = 5$ and $d = -3$. Find $a_{20}$.</p>
+            <p><strong>Solution:</strong></p>
+            $$a_{20} = 5 + (20 - 1)(-3) = 5 + 19(-3) = 5 - 57 = -52$$
+        </div>
+
+        <h3>Sum of an Arithmetic Series</h3>
+
+        <div class="theorem-box">
+            <strong>Arithmetic Series Sum Formula:</strong> The sum of the first $n$ terms of an arithmetic sequence is:
+            $$S_n = \frac{n}{2}(a_1 + a_n) = \frac{n}{2}\bigl[2a_1 + (n-1)d\bigr]$$
+        </div>
+
+        <p>The first form is intuitive: the average of the first and last term, multiplied by the number of terms. Legend has it that young Carl Friedrich Gauss discovered this idea when asked to add the integers from $1$ to $100$: he paired $1 + 100$, $2 + 99$, $3 + 98$, and so on, getting $50$ pairs each summing to $101$, for a total of $5050$.</p>
+
+        <div class="example-box">
+            <div class="example-title">Example 4: Sum of an arithmetic series</div>
+            <p>Find the sum $5 + 8 + 11 + 14 + \cdots + 302$.</p>
+            <p><strong>Solution:</strong> Here $a_1 = 5$, $d = 3$, and $a_n = 302$. First find $n$:</p>
+            $$302 = 5 + (n-1)(3) \implies 297 = 3(n-1) \implies n = 100$$
+            <p>Now compute the sum:</p>
+            $$S_{100} = \frac{100}{2}(5 + 302) = 50 \times 307 = 15{,}350$$
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 9.3 GEOMETRIC SEQUENCES AND SERIES -->
+        <!-- ============================================================ -->
+        <h2 id="geometric">9.3 Geometric Sequences and Series</h2>
+
+        <div class="definition-box">
+            <strong>Definition &mdash; Geometric Sequence:</strong> A <em>geometric sequence</em> is a sequence in which each term is obtained by multiplying the previous term by a fixed nonzero constant $r$, called the <em>common ratio</em>. If the first term is $a_1$, then $a_n = a_{n-1} \cdot r$ for all $n \geq 2$.
+        </div>
+
+        <div class="theorem-box">
+            <strong>Explicit Formula for the $n$th Term:</strong>
+            $$a_n = a_1 \cdot r^{n-1}$$
+            <p>where $a_1$ is the first term and $r$ is the common ratio.</p>
+        </div>
+
+        <p>To find the common ratio, divide any term by the previous term: $r = \dfrac{a_{n+1}}{a_n}$. If this ratio is constant for all consecutive pairs, the sequence is geometric.</p>
+
+        <div class="example-box">
+            <div class="example-title">Example 5: Finding terms of a geometric sequence</div>
+            <p>A geometric sequence has $a_1 = 3$ and $r = 2$. Find $a_8$.</p>
+            <p><strong>Solution:</strong></p>
+            $$a_8 = 3 \cdot 2^{8-1} = 3 \cdot 2^7 = 3 \cdot 128 = 384$$
+        </div>
+
+        <h3>Sum of a Finite Geometric Series</h3>
+
+        <div class="theorem-box">
+            <strong>Geometric Series Sum Formula (Finite):</strong> The sum of the first $n$ terms of a geometric sequence with $r \neq 1$ is:
+            $$S_n = a_1 \cdot \frac{1 - r^n}{1 - r}$$
+        </div>
+
+        <p>To derive this, write $S_n = a_1 + a_1 r + a_1 r^2 + \cdots + a_1 r^{n-1}$. Multiply both sides by $r$ and subtract to eliminate most terms, leaving $S_n(1 - r) = a_1(1 - r^n)$.</p>
+
+        <div class="example-box">
+            <div class="example-title">Example 6: Sum of a finite geometric series</div>
+            <p>Find the sum $\displaystyle\sum_{k=1}^{8} 5 \cdot 3^{k-1}$.</p>
+            <p><strong>Solution:</strong> Here $a_1 = 5$, $r = 3$, and $n = 8$.</p>
+            $$S_8 = 5 \cdot \frac{1 - 3^8}{1 - 3} = 5 \cdot \frac{1 - 6561}{-2} = 5 \cdot \frac{-6560}{-2} = 5 \cdot 3280 = 16{,}400$$
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 9.4 INFINITE GEOMETRIC SERIES -->
+        <!-- ============================================================ -->
+        <h2 id="infinite-geometric">9.4 Infinite Geometric Series</h2>
+
+        <p>What happens if we add up infinitely many terms of a geometric sequence? If the common ratio is small enough in absolute value, the partial sums approach a finite limit, and we say the infinite series <em>converges</em>.</p>
+
+        <div class="theorem-box">
+            <strong>Infinite Geometric Series:</strong> The infinite geometric series $\displaystyle\sum_{n=1}^{\infty} a_1 \cdot r^{n-1} = a_1 + a_1 r + a_1 r^2 + \cdots$ converges if and only if $|r| < 1$, and its sum is:
+            $$S = \frac{a_1}{1 - r}, \quad |r| < 1$$
+            <p>If $|r| \geq 1$, the series diverges (the partial sums grow without bound or oscillate).</p>
+        </div>
+
+        <p>The condition $|r| < 1$ means the terms shrink toward zero, allowing the sum to settle on a finite value. When $|r| \geq 1$, each successive term is at least as large as the previous one, so the sum cannot converge.</p>
+
+        <div class="example-box">
+            <div class="example-title">Example 7: Sum of an infinite geometric series</div>
+            <p>Find the sum of $12 + 4 + \dfrac{4}{3} + \dfrac{4}{9} + \cdots$</p>
+            <p><strong>Solution:</strong> The first term is $a_1 = 12$ and the common ratio is $r = \dfrac{4}{12} = \dfrac{1}{3}$. Since $|r| = \dfrac{1}{3} < 1$, the series converges:</p>
+            $$S = \frac{12}{1 - \frac{1}{3}} = \frac{12}{\frac{2}{3}} = 12 \cdot \frac{3}{2} = 18$$
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 8: Repeating decimal as a geometric series</div>
+            <p>Express the repeating decimal $0.272727\ldots$ as a fraction.</p>
+            <p><strong>Solution:</strong> Write as a geometric series:</p>
+            $$0.272727\ldots = 0.27 + 0.0027 + 0.000027 + \cdots = \frac{27}{100} + \frac{27}{10000} + \frac{27}{1000000} + \cdots$$
+            <p>This is geometric with $a_1 = \dfrac{27}{100}$ and $r = \dfrac{1}{100}$. Since $|r| < 1$:</p>
+            $$S = \frac{27/100}{1 - 1/100} = \frac{27/100}{99/100} = \frac{27}{99} = \frac{3}{11}$$
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 9.5 SIGMA NOTATION AND PROPERTIES -->
+        <!-- ============================================================ -->
+        <h2 id="sigma">9.5 Sigma Notation and Properties of Summation</h2>
+
+        <div class="definition-box">
+            <strong>Definition &mdash; Sigma Notation:</strong> The Greek capital letter sigma ($\Sigma$) provides a compact way to write sums. The expression
+            $$\sum_{k=m}^{n} a_k = a_m + a_{m+1} + a_{m+2} + \cdots + a_n$$
+            <p>reads "the sum of $a_k$ from $k = m$ to $k = n$." Here $k$ is the <em>index of summation</em>, $m$ is the <em>lower limit</em>, and $n$ is the <em>upper limit</em>.</p>
+        </div>
+
+        <h3>Properties of Summation</h3>
+
+        <div class="theorem-box">
+            <strong>Summation Properties:</strong> Let $c$ be a constant. Then:
+            <ol style="margin:8px 0 0 20px;">
+                <li>$\displaystyle\sum_{k=1}^{n} c \cdot a_k = c \cdot \sum_{k=1}^{n} a_k$ &nbsp;(constant multiple)</li>
+                <li>$\displaystyle\sum_{k=1}^{n} (a_k \pm b_k) = \sum_{k=1}^{n} a_k \pm \sum_{k=1}^{n} b_k$ &nbsp;(sum/difference)</li>
+                <li>$\displaystyle\sum_{k=1}^{n} c = nc$ &nbsp;(sum of a constant)</li>
+            </ol>
+        </div>
+
+        <h3>Useful Closed-Form Formulas</h3>
+
+        <div class="theorem-box">
+            <strong>Standard Summation Formulas:</strong>
+            <ul style="margin:8px 0 0 20px;">
+                <li>$\displaystyle\sum_{k=1}^{n} k = \frac{n(n+1)}{2}$</li>
+                <li>$\displaystyle\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}$</li>
+                <li>$\displaystyle\sum_{k=1}^{n} k^3 = \left[\frac{n(n+1)}{2}\right]^2$</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 9: Evaluating a sum with sigma notation</div>
+            <p>Evaluate $\displaystyle\sum_{k=1}^{50} (3k + 2)$.</p>
+            <p><strong>Solution:</strong> Use the summation properties:</p>
+            $$\sum_{k=1}^{50} (3k + 2) = 3\sum_{k=1}^{50} k + \sum_{k=1}^{50} 2 = 3 \cdot \frac{50 \cdot 51}{2} + 2 \cdot 50 = 3 \cdot 1275 + 100 = 3825 + 100 = 3925$$
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 9.6 MATHEMATICAL INDUCTION -->
+        <!-- ============================================================ -->
+        <h2 id="induction">9.6 Mathematical Induction</h2>
+
+        <p>Mathematical induction is a proof technique used to establish that a statement $P(n)$ holds for all positive integers $n$. It works like a chain of dominoes: if the first domino falls, and each domino knocks down the next, then all dominoes fall.</p>
+
+        <div class="theorem-box">
+            <strong>Principle of Mathematical Induction:</strong> To prove that a statement $P(n)$ is true for all integers $n \geq 1$:
+            <ol style="margin:8px 0 0 20px;">
+                <li><strong>Base Case:</strong> Show that $P(1)$ is true.</li>
+                <li><strong>Inductive Step:</strong> Assume $P(k)$ is true for some arbitrary positive integer $k$ (the <em>inductive hypothesis</em>). Then show that $P(k+1)$ must also be true.</li>
+            </ol>
+            <p>If both steps are completed, then $P(n)$ is true for all integers $n \geq 1$.</p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 10: Proof by induction</div>
+            <p>Prove that $\displaystyle\sum_{k=1}^{n} k = \frac{n(n+1)}{2}$ for all positive integers $n$.</p>
+            <p><strong>Proof:</strong></p>
+            <p><strong>Base Case ($n = 1$):</strong> LHS $= 1$. RHS $= \dfrac{1 \cdot 2}{2} = 1$. True.</p>
+            <p><strong>Inductive Step:</strong> Assume the formula holds for $n = k$, meaning $\displaystyle\sum_{j=1}^{k} j = \frac{k(k+1)}{2}$.</p>
+            <p>We must show it holds for $n = k + 1$:</p>
+            $$\sum_{j=1}^{k+1} j = \sum_{j=1}^{k} j + (k+1) = \frac{k(k+1)}{2} + (k+1)$$
+            $$= (k+1)\left(\frac{k}{2} + 1\right) = (k+1) \cdot \frac{k+2}{2} = \frac{(k+1)(k+2)}{2}$$
+            <p>This is exactly the formula with $n = k+1$. By induction, the formula holds for all $n \geq 1$. $\square$</p>
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 11: Induction with divisibility</div>
+            <p>Prove that $6^n - 1$ is divisible by $5$ for all positive integers $n$.</p>
+            <p><strong>Proof:</strong></p>
+            <p><strong>Base Case ($n = 1$):</strong> $6^1 - 1 = 5$, which is divisible by $5$. True.</p>
+            <p><strong>Inductive Step:</strong> Assume $6^k - 1 \equiv 0 \pmod{5}$ for some $k$, so $6^k - 1 = 5m$ for some integer $m$. Then:</p>
+            $$6^{k+1} - 1 = 6 \cdot 6^k - 1 = 6(5m + 1) - 1 = 30m + 6 - 1 = 30m + 5 = 5(6m + 1)$$
+            <p>Since $5(6m+1)$ is divisible by $5$, the statement holds for $k+1$. By induction, $6^n - 1$ is divisible by $5$ for all $n \geq 1$. $\square$</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 9.7 BINOMIAL THEOREM AND PASCAL'S TRIANGLE -->
+        <!-- ============================================================ -->
+        <h2 id="binomial">9.7 The Binomial Theorem and Pascal's Triangle</h2>
+
+        <h3>Binomial Coefficients</h3>
+
+        <div class="definition-box">
+            <strong>Definition &mdash; Binomial Coefficient:</strong> For non-negative integers $n$ and $k$ with $0 \leq k \leq n$, the <em>binomial coefficient</em> "n choose k" is:
+            $$\binom{n}{k} = \frac{n!}{k!(n-k)!}$$
+            <p>This counts the number of ways to choose $k$ items from a set of $n$ items without regard to order.</p>
+        </div>
+
+        <p>The connection to counting is fundamental: $\binom{n}{k}$ appears in the Binomial Theorem precisely because expanding $(a + b)^n$ involves choosing which of the $n$ factors contribute $a$ and which contribute $b$. To get the term $a^{n-k}b^k$, you must choose $k$ of the $n$ factors to supply the $b$, which can be done in $\binom{n}{k}$ ways.</p>
+
+        <h3>Pascal's Triangle</h3>
+
+        <p>Pascal's Triangle arranges the binomial coefficients in a triangular array. Each entry is the sum of the two entries directly above it:</p>
+
+        <div class="tip-box">
+            <strong>Pascal's Triangle (first 6 rows):</strong>
+            <pre style="text-align:center; font-family:monospace; margin-top:8px; line-height:1.8;">
+         1
+        1  1
+       1  2  1
+      1  3  3  1
+     1  4  6  4  1
+    1  5 10 10  5  1</pre>
+            <p style="margin-top:8px;">Row $n$ contains the coefficients $\binom{n}{0}, \binom{n}{1}, \ldots, \binom{n}{n}$, starting from row $0$ at the top.</p>
+        </div>
+
+        <div class="theorem-box">
+            <strong>Pascal's Identity:</strong> For $1 \leq k \leq n$:
+            $$\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$$
+            <p>This explains why each entry in Pascal's Triangle is the sum of the two entries above it.</p>
+        </div>
+
+        <h3>The Binomial Theorem</h3>
+
+        <div class="theorem-box">
+            <strong>Binomial Theorem:</strong> For any positive integer $n$:
+            $$(a + b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k = \binom{n}{0}a^n + \binom{n}{1}a^{n-1}b + \binom{n}{2}a^{n-2}b^2 + \cdots + \binom{n}{n}b^n$$
+        </div>
+
+        <p>Key observations about the expansion of $(a+b)^n$:</p>
+        <ul>
+            <li>There are $n + 1$ terms in the expansion.</li>
+            <li>The exponents of $a$ decrease from $n$ to $0$, while the exponents of $b$ increase from $0$ to $n$.</li>
+            <li>In each term, the sum of the exponents of $a$ and $b$ equals $n$.</li>
+            <li>The coefficients are symmetric: $\binom{n}{k} = \binom{n}{n-k}$.</li>
+        </ul>
+
+        <div class="example-box">
+            <div class="example-title">Example 12: Expanding with the Binomial Theorem</div>
+            <p>Expand $(2x + 3)^4$.</p>
+            <p><strong>Solution:</strong> Apply the Binomial Theorem with $a = 2x$, $b = 3$, $n = 4$:</p>
+            $$(2x+3)^4 = \sum_{k=0}^{4} \binom{4}{k}(2x)^{4-k}(3)^k$$
+            <ul>
+                <li>$k=0$: $\binom{4}{0}(2x)^4(3)^0 = 1 \cdot 16x^4 \cdot 1 = 16x^4$</li>
+                <li>$k=1$: $\binom{4}{1}(2x)^3(3)^1 = 4 \cdot 8x^3 \cdot 3 = 96x^3$</li>
+                <li>$k=2$: $\binom{4}{2}(2x)^2(3)^2 = 6 \cdot 4x^2 \cdot 9 = 216x^2$</li>
+                <li>$k=3$: $\binom{4}{3}(2x)^1(3)^3 = 4 \cdot 2x \cdot 27 = 216x$</li>
+                <li>$k=4$: $\binom{4}{4}(2x)^0(3)^4 = 1 \cdot 1 \cdot 81 = 81$</li>
+            </ul>
+            $$(2x+3)^4 = 16x^4 + 96x^3 + 216x^2 + 216x + 81$$
+        </div>
+
+        <div class="example-box">
+            <div class="example-title">Example 13: Finding a specific term</div>
+            <p>Find the coefficient of $x^5$ in the expansion of $(x + 2)^8$.</p>
+            <p><strong>Solution:</strong> The general term is $\binom{8}{k} x^{8-k} \cdot 2^k$. We need $8 - k = 5$, so $k = 3$.</p>
+            $$\binom{8}{3} x^5 \cdot 2^3 = 56 \cdot x^5 \cdot 8 = 448x^5$$
+            <p>The coefficient of $x^5$ is $\mathbf{448}$.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 9.8 PRACTICE PROBLEMS -->
+        <!-- ============================================================ -->
+        <h2 id="practice">9.8 Practice Problems</h2>
+
+        <p>Test your understanding with these problems covering all topics from this chapter. Click "Show Solution" to check your work.</p>
+
+        <!-- Problem 1 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 1 &mdash; Arithmetic Sequences</div>
+            <p>The 5th term of an arithmetic sequence is $19$ and the 12th term is $47$. Find the first term and the common difference.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>We have $a_5 = a_1 + 4d = 19$ and $a_{12} = a_1 + 11d = 47$.</p>
+                    <p>Subtracting the first equation from the second: $7d = 28$, so $d = 4$.</p>
+                    <p>Substituting back: $a_1 + 4(4) = 19$, so $a_1 = 19 - 16 = 3$.</p>
+                    <p>The first term is $a_1 = 3$ and the common difference is $d = 4$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 2 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 2 &mdash; Arithmetic Series</div>
+            <p>Find $\displaystyle\sum_{k=1}^{40} (2k + 5)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>This is an arithmetic series with $a_1 = 2(1)+5 = 7$ and $a_{40} = 2(40)+5 = 85$.</p>
+                    $$S_{40} = \frac{40}{2}(7 + 85) = 20 \times 92 = 1840$$
+                    <p>Alternatively: $\displaystyle\sum_{k=1}^{40}(2k+5) = 2\cdot\frac{40 \cdot 41}{2} + 5 \cdot 40 = 1640 + 200 = 1840$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 3 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 3 &mdash; Geometric Sequences</div>
+            <p>A geometric sequence has $a_3 = 20$ and $a_6 = 160$. Find the common ratio $r$ and the first term $a_1$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>We have $a_3 = a_1 r^2 = 20$ and $a_6 = a_1 r^5 = 160$.</p>
+                    <p>Dividing: $\dfrac{a_6}{a_3} = \dfrac{a_1 r^5}{a_1 r^2} = r^3 = \dfrac{160}{20} = 8$, so $r = 2$.</p>
+                    <p>From $a_1 r^2 = 20$: $a_1 \cdot 4 = 20$, so $a_1 = 5$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 4 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 4 &mdash; Finite Geometric Series</div>
+            <p>Find the sum $\displaystyle\sum_{k=0}^{9} 6 \cdot \left(\frac{1}{2}\right)^k$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Here $a_1 = 6$, $r = \dfrac{1}{2}$, and $n = 10$ (from $k=0$ to $k=9$).</p>
+                    $$S_{10} = 6 \cdot \frac{1 - (1/2)^{10}}{1 - 1/2} = 6 \cdot \frac{1 - 1/1024}{1/2} = 12 \cdot \frac{1023}{1024} = \frac{12276}{1024} = \frac{3069}{256} \approx 11.988$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 5 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 5 &mdash; Infinite Geometric Series</div>
+            <p>Determine whether each series converges or diverges. If it converges, find the sum.</p>
+            <p>(a) $\displaystyle\sum_{n=1}^{\infty} 8 \cdot \left(-\frac{2}{3}\right)^{n-1}$ &nbsp;&nbsp;&nbsp;&nbsp; (b) $\displaystyle\sum_{n=0}^{\infty} \frac{5^n}{4^n}$</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>(a)</strong> Here $a_1 = 8$ and $r = -\dfrac{2}{3}$. Since $|r| = \dfrac{2}{3} < 1$, the series converges:</p>
+                    $$S = \frac{8}{1 - (-2/3)} = \frac{8}{5/3} = \frac{24}{5}$$
+                    <p><strong>(b)</strong> This is $\displaystyle\sum_{n=0}^{\infty} \left(\frac{5}{4}\right)^n$, which is geometric with $r = \dfrac{5}{4}$. Since $|r| = \dfrac{5}{4} > 1$, the series <strong>diverges</strong>.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 6 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 6 &mdash; Repeating Decimals</div>
+            <p>Express $0.5\overline{18} = 0.518181818\ldots$ as a fraction.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Write $0.518181818\ldots = 0.5 + 0.018181818\ldots$</p>
+                    <p>The repeating part is $0.0\overline{18} = \dfrac{18}{1000} + \dfrac{18}{100000} + \cdots$, a geometric series with $a_1 = \dfrac{18}{1000}$ and $r = \dfrac{1}{100}$:</p>
+                    $$0.0\overline{18} = \frac{18/1000}{1 - 1/100} = \frac{18/1000}{99/100} = \frac{18}{990} = \frac{1}{55}$$
+                    <p>Therefore: $0.5\overline{18} = \dfrac{1}{2} + \dfrac{1}{55} = \dfrac{55 + 2}{110} = \dfrac{57}{110}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 7 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 7 &mdash; Sigma Notation</div>
+            <p>Evaluate $\displaystyle\sum_{k=1}^{20} k^2$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Using the standard formula:</p>
+                    $$\sum_{k=1}^{20} k^2 = \frac{20 \cdot 21 \cdot 41}{6} = \frac{17220}{6} = 2870$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 8 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 8 &mdash; Mathematical Induction</div>
+            <p>Prove by induction that $\displaystyle\sum_{k=1}^{n} (2k - 1) = n^2$ for all positive integers $n$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>Base Case ($n = 1$):</strong> LHS $= 2(1) - 1 = 1$. RHS $= 1^2 = 1$. True.</p>
+                    <p><strong>Inductive Step:</strong> Assume $\displaystyle\sum_{j=1}^{k}(2j-1) = k^2$. Show the formula holds for $k+1$:</p>
+                    $$\sum_{j=1}^{k+1}(2j-1) = \sum_{j=1}^{k}(2j-1) + [2(k+1)-1] = k^2 + (2k+1) = (k+1)^2$$
+                    <p>This is the formula with $n = k+1$. By mathematical induction, $\displaystyle\sum_{k=1}^{n}(2k-1) = n^2$ for all $n \geq 1$. $\square$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 9 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 9 &mdash; Binomial Theorem (Expansion)</div>
+            <p>Expand $(x - 2)^5$ using the Binomial Theorem.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Apply the Binomial Theorem with $a = x$, $b = -2$, $n = 5$:</p>
+                    $$(x-2)^5 = \sum_{k=0}^{5}\binom{5}{k}x^{5-k}(-2)^k$$
+                    <ul>
+                        <li>$k=0$: $\binom{5}{0}x^5(-2)^0 = x^5$</li>
+                        <li>$k=1$: $\binom{5}{1}x^4(-2)^1 = -10x^4$</li>
+                        <li>$k=2$: $\binom{5}{2}x^3(-2)^2 = 40x^3$</li>
+                        <li>$k=3$: $\binom{5}{3}x^2(-2)^3 = -80x^2$</li>
+                        <li>$k=4$: $\binom{5}{4}x^1(-2)^4 = 80x$</li>
+                        <li>$k=5$: $\binom{5}{5}x^0(-2)^5 = -32$</li>
+                    </ul>
+                    $$(x-2)^5 = x^5 - 10x^4 + 40x^3 - 80x^2 + 80x - 32$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 10 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 10 &mdash; Binomial Theorem (Specific Term)</div>
+            <p>Find the term containing $x^3$ in the expansion of $(3x + 4)^6$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>The general term is $\binom{6}{k}(3x)^{6-k}(4)^k$. For the $x^3$ term, we need $6 - k = 3$, so $k = 3$.</p>
+                    $$\binom{6}{3}(3x)^3(4)^3 = 20 \cdot 27x^3 \cdot 64 = 20 \cdot 27 \cdot 64 \cdot x^3 = 34{,}560x^3$$
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 11 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 11 &mdash; Counting and Binomial Coefficients</div>
+            <p>A pizza shop offers 10 toppings. How many different pizzas can be made with exactly 4 toppings?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>The order of toppings does not matter, so we use combinations:</p>
+                    $$\binom{10}{4} = \frac{10!}{4! \cdot 6!} = \frac{10 \cdot 9 \cdot 8 \cdot 7}{4 \cdot 3 \cdot 2 \cdot 1} = \frac{5040}{24} = 210$$
+                    <p>There are $\mathbf{210}$ different 4-topping pizzas.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 12 -->
+        <div class="practice-problem">
+            <div class="problem-number">Problem 12 &mdash; Mixed Application</div>
+            <p>A ball is dropped from a height of $10$ meters. Each time it bounces, it reaches $\dfrac{3}{5}$ of the previous height. Find the total vertical distance traveled by the ball.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>The ball falls $10$ m initially. It then bounces up $10 \cdot \dfrac{3}{5} = 6$ m and falls $6$ m, then bounces up $6 \cdot \dfrac{3}{5} = 3.6$ m and falls $3.6$ m, and so on.</p>
+                    <p>Total distance $= 10 + 2(6 + 3.6 + 2.16 + \cdots) = 10 + 2 \displaystyle\sum_{n=1}^{\infty} 10 \cdot \left(\frac{3}{5}\right)^n$.</p>
+                    <p>The sum $\displaystyle\sum_{n=1}^{\infty} 10 \cdot \left(\frac{3}{5}\right)^n = 10 \cdot \frac{3/5}{1 - 3/5} = 10 \cdot \frac{3/5}{2/5} = 10 \cdot \frac{3}{2} = 15$.</p>
+                    <p>Total distance $= 10 + 2(15) = 10 + 30 = \mathbf{40}$ meters.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- CHAPTER NAVIGATION -->
+        <!-- ============================================================ -->
+        <div class="chapter-nav">
+            <a href="#">&larr; Ch 8: Conic Sections</a>
+            <div class="nav-center">Chapter 9 Complete</div>
+            <a href="#">Ch 10: Intro to Calculus &rarr;</a>
+        </div>
+
+        <!-- AdSense -->
+        <ins class="adsbygoogle"
+             style="display:block; margin: 30px 0;"
+             data-ad-client="ca-pub-7322143430416257"
+             data-ad-slot="auto"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    </article>
+
+    <footer style="text-align:center; padding:30px 20px; color:#64748b; font-size:0.85em; border-top:1px solid #e2e8f0; margin-top:20px;">
+        &copy; 2025 MathHub Global. All rights reserved. |
+        <a href="/" style="color:#2563eb; text-decoration:none;">Home</a> |
+        <a href="/us/" style="color:#2563eb; text-decoration:none;">US Resources</a> |
+        <a href="/blog" style="color:#2563eb; text-decoration:none;">Blog</a>
+    </footer>
+</body>
+</html>

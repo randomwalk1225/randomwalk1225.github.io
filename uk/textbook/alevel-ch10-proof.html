@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Mathematics – Chapter 10: Proof and Further Functions | A-Level Mathematics | MathHub</title>
+    <meta name="description" content="Complete guide to proof techniques and further functions for A-Level Maths. Covers proof by deduction, exhaustion, contradiction, modulus function, composite and inverse functions.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/alevel-ch10-proof.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/uk/textbook/alevel-ch10-proof.html">
+    <meta property="og:title" content="A-Level Mathematics – Chapter 10: Proof and Further Functions | MathHub">
+    <meta property="og:site_name" content="MathHub Global">
+    <link rel="alternate" hreflang="en-GB" href="https://mathhub.io/uk/textbook/alevel-ch10-proof.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .year2-badge { display: inline-block; background: #e0e7ff; color: #3730a3; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/" class="active">UK</a><a href="/ca/">CA</a><a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+    <article class="blog-article">
+        <div class="breadcrumb"><a href="/uk/">UK</a> &rsaquo; <a href="/uk/a-level/">A-Level Maths</a> &rsaquo; Chapter 10: Proof and Further Functions</div>
+        <h1>A-Level Mathematics – Chapter 10: Proof and Further Functions</h1>
+        <div class="blog-meta">Edexcel · AQA · OCR &nbsp;&middot;&nbsp; A-Level Mathematics &nbsp;&middot;&nbsp; Updated March 2026</div>
+
+        <p>Proof is the bedrock of mathematics: it transforms plausible observations into certainties. This chapter develops three key proof methods — deduction, exhaustion, and contradiction — and applies them to classic results. The second half of the chapter extends your understanding of functions to include the modulus function and the construction of composite and inverse functions.</p>
+
+        <div class="exam-note">
+            <h4>Specification Note</h4>
+            <p>Content labelled <span class="year2-badge">Year 2</span> is A2-level only and is not required for the AS qualification. The proof methods in Sections 10.1 and 10.2 are required for both AS and A-Level.</p>
+        </div>
+
+        <div class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#s10-1">10.1 Types of Proof</a></li>
+                <li><a href="#s10-2">10.2 Proof by Contradiction</a></li>
+                <li><a href="#s10-3">10.3 The Modulus Function</a> <span class="year2-badge">Year 2</span></li>
+                <li><a href="#s10-4">10.4 Composite and Inverse Functions</a> <span class="year2-badge">Year 2</span></li>
+                <li><a href="#s10-practice">Practice Problems</a></li>
+            </ol>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <h2 id="s10-1">10.1 Types of Proof</h2>
+
+        <p>A mathematical <em>proof</em> is a sequence of logical steps that establishes the truth of a statement beyond all doubt. There are three methods you need for A-Level.</p>
+
+        <div class="definition-box">
+            <h4>Definition — Proof by Deduction</h4>
+            <p>Start from known facts and axioms, then apply logical rules step by step to reach the desired conclusion. This is the most common proof method and applies to all algebraic identities, divisibility results, and inequalities.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.1.1 — Prove that the product of two odd integers is odd.</h4>
+            <p>Let $m$ and $n$ be odd integers. Then $m = 2a + 1$ and $n = 2b + 1$ for some integers $a, b$.</p>
+            <p>$$mn = (2a+1)(2b+1) = 4ab + 2a + 2b + 1 = 2(2ab + a + b) + 1$$</p>
+            <p>Since $2ab + a + b$ is an integer, $mn$ is of the form $2k + 1$, which is odd. $\square$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.1.2 — Prove that $n^2 - n$ is even for all integers $n$.</h4>
+            <p>$n^2 - n = n(n-1)$. This is the product of two consecutive integers. One of any two consecutive integers must be even, so their product is even. $\square$</p>
+            <p><em>Alternatively by deduction:</em> Either $n = 2k$ (even), giving $n(n-1) = 2k(2k-1)$, which is even; or $n = 2k+1$ (odd), giving $n(n-1) = (2k+1)(2k) = 2k(2k+1)$, which is even. $\square$</p>
+        </div>
+
+        <div class="definition-box">
+            <h4>Definition — Proof by Exhaustion</h4>
+            <p>Check every possible case individually. This method is only practical when the number of cases is finite and small. It is important to ensure that the cases are exhaustive (they cover all possibilities) and mutually exclusive.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.1.3 — Prove that $n^2 + n + 41$ is prime for all integers $1 \le n \le 5$.</h4>
+            <p>Check each case in turn:</p>
+            <ul>
+                <li>$n = 1$: $1 + 1 + 41 = 43$ ✓ (prime)</li>
+                <li>$n = 2$: $4 + 2 + 41 = 47$ ✓ (prime)</li>
+                <li>$n = 3$: $9 + 3 + 41 = 53$ ✓ (prime)</li>
+                <li>$n = 4$: $16 + 4 + 41 = 61$ ✓ (prime)</li>
+                <li>$n = 5$: $25 + 5 + 41 = 71$ ✓ (prime)</li>
+            </ul>
+            <p>All five cases yield a prime, so the statement holds for $1 \le n \le 5$. $\square$</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Proof by exhaustion proves a statement only for the finite set of cases checked — not in general. Note that $n = 40$ gives $40^2 + 40 + 41 = 41 \times 41 = 1681$, which is not prime. Always state the range to which your exhaustion applies.</p>
+        </div>
+
+        <div class="definition-box">
+            <h4>Definition — Disproof by Counterexample</h4>
+            <p>To disprove a universal statement ("for all $n$, …"), it suffices to find a single value of $n$ for which the statement is false. This is called a <em>counterexample</em>. You only need one counterexample, but it must be valid and clearly stated.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.1.4 — Disprove the claim: "For all real $x$, $x^2 > x$."</h4>
+            <p>Let $x = \frac{1}{2}$. Then $x^2 = \frac{1}{4}$ and $x = \frac{1}{2}$, so $x^2 = \frac{1}{4} &lt; \frac{1}{2} = x$.</p>
+            <p>This is a counterexample, so the claim is false. $\square$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.1.5 — Disprove: "If $p$ is prime then $p^2 + 2$ is prime."</h4>
+            <p>Let $p = 3$. Then $p^2 + 2 = 9 + 2 = 11$, which is prime — so this case does not disprove it.</p>
+            <p>Let $p = 5$. Then $p^2 + 2 = 25 + 2 = 27 = 3 \times 9$, which is not prime.</p>
+            <p>Therefore $p = 5$ is a counterexample, and the claim is false. $\square$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.1.6 — Prove that if $n$ is an integer, then $n^3 - n$ is divisible by 6.</h4>
+            <p>Factorise: $n^3 - n = n(n^2-1) = (n-1)n(n+1)$.</p>
+            <p>This is the product of three consecutive integers. Among any three consecutive integers, at least one is divisible by 2 and at least one by 3, so their product is divisible by $2 \times 3 = 6$. $\square$</p>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <h2 id="s10-2">10.2 Proof by Contradiction</h2>
+
+        <p>In a proof by contradiction (also called <em>reductio ad absurdum</em>), you assume the negation of what you wish to prove and deduce a logical contradiction. Since the contradiction shows the assumption is impossible, the original statement must be true.</p>
+
+        <div class="definition-box">
+            <h4>Method — Proof by Contradiction</h4>
+            <ol>
+                <li>State clearly what you wish to prove.</li>
+                <li>Assume the opposite (the negation) is true.</li>
+                <li>Use logical deduction to reach a statement that is false (a contradiction — often of the original assumption or a known fact).</li>
+                <li>Conclude that the assumption must be false, so the original statement is true.</li>
+            </ol>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Theorem — $\sqrt{2}$ is irrational</h4>
+            <p><strong>Proof.</strong> Assume for contradiction that $\sqrt{2}$ is rational. Then $\sqrt{2} = \frac{p}{q}$ where $p, q$ are integers with no common factor (the fraction is in its lowest terms), and $q \ne 0$.</p>
+            <p>Squaring: $2 = \frac{p^2}{q^2}$, so $p^2 = 2q^2$. This means $p^2$ is even, so $p$ must be even (since if $p$ were odd, $p^2$ would be odd). Write $p = 2k$.</p>
+            <p>Then $p^2 = 4k^2 = 2q^2$, giving $q^2 = 2k^2$, so $q^2$ is even, hence $q$ is even.</p>
+            <p>But now both $p$ and $q$ are even, contradicting the assumption that $\frac{p}{q}$ is in its lowest terms. Therefore $\sqrt{2}$ is irrational. $\square$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.2.1 — Prove that $\sqrt{3}$ is irrational.</h4>
+            <p>Assume $\sqrt{3} = \frac{p}{q}$ in lowest terms. Then $p^2 = 3q^2$, so $3 \mid p^2$. Since 3 is prime, $3 \mid p$; write $p = 3k$.</p>
+            <p>Then $9k^2 = 3q^2 \Rightarrow q^2 = 3k^2$, so $3 \mid q$. Both $p$ and $q$ are divisible by 3, contradicting lowest terms. $\square$</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Theorem — There are infinitely many prime numbers</h4>
+            <p><strong>Proof (Euclid).</strong> Assume for contradiction that there are only finitely many primes: $p_1, p_2, \ldots, p_n$.</p>
+            <p>Consider $N = p_1 p_2 \cdots p_n + 1$. Dividing $N$ by any $p_i$ leaves remainder 1, so $N$ is not divisible by any $p_i$.</p>
+            <p>Either $N$ is prime itself (a prime not in our list — contradiction), or $N$ has a prime factor not in $\{p_1, \ldots, p_n\}$ (also a contradiction).</p>
+            <p>In either case we have a contradiction, so there must be infinitely many primes. $\square$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.2.2 — Prove: there is no greatest even integer.</h4>
+            <p>Assume for contradiction that there exists a greatest even integer $N$. Then $N + 2$ is also an even integer, and $N + 2 > N$, contradicting the assumption that $N$ is greatest. $\square$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.2.3 — Prove: $\log_2 3$ is irrational.</h4>
+            <p>Assume $\log_2 3 = \frac{p}{q}$ for positive integers $p, q$. Then $2^{p/q} = 3$, so $2^p = 3^q$.</p>
+            <p>But $2^p$ is even and $3^q$ is odd, so they cannot be equal — a contradiction. Therefore $\log_2 3$ is irrational. $\square$</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Always begin a proof by contradiction with the phrase "Assume for contradiction that…" and end by explicitly identifying the contradiction and stating the conclusion. Marks are often awarded for clearly articulating these steps.</p>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <h2 id="s10-3">10.3 The Modulus Function <span class="year2-badge">Year 2</span></h2>
+
+        <div class="definition-box">
+            <h4>Definition — Modulus Function</h4>
+            <p>The <em>modulus</em> (or absolute value) of a real number $x$ is defined as:
+            $$|x| = \begin{cases} x & \text{if } x \ge 0 \\ -x & \text{if } x < 0 \end{cases}$$
+            Geometrically, $|x|$ is the distance of $x$ from the origin on the number line. Key properties:
+            </p>
+            <ul>
+                <li>$|x| \ge 0$ for all real $x$, and $|x| = 0 \iff x = 0$</li>
+                <li>$|ab| = |a||b|$</li>
+                <li>$|a + b| \le |a| + |b|$ (triangle inequality)</li>
+                <li>$|x|^2 = x^2$</li>
+            </ul>
+        </div>
+
+        <div id="desmos-modulus" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 10.1 — Graph of $y = |x - 2|$ (blue) and $y = 3$ (red). The intersections show the solutions to $|x-2| = 3$.</p>
+
+        <h3>Solving Modulus Equations</h3>
+
+        <p>To solve $|f(x)| = g(x)$, use the fact that $|A| = B$ (with $B \ge 0$) gives $A = B$ or $A = -B$.</p>
+
+        <div class="example-box">
+            <h4>Example 10.3.1 — Solve $|x - 2| = 3$.</h4>
+            <p>Case 1: $x - 2 = 3 \Rightarrow x = 5$</p>
+            <p>Case 2: $x - 2 = -3 \Rightarrow x = -1$</p>
+            <p><strong>Solutions:</strong> $x = 5$ or $x = -1$. (Both can be seen in Figure 10.1 where $y = |x-2|$ meets $y = 3$.)</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.3.2 — Solve $|3x + 1| = 5$.</h4>
+            <p>Case 1: $3x + 1 = 5 \Rightarrow 3x = 4 \Rightarrow x = \frac{4}{3}$</p>
+            <p>Case 2: $3x + 1 = -5 \Rightarrow 3x = -6 \Rightarrow x = -2$</p>
+            <p><strong>Solutions:</strong> $x = \frac{4}{3}$ or $x = -2$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.3.3 — Solve $|2x - 1| = x + 3$.</h4>
+            <p>Note: we require $x + 3 \ge 0$, i.e., $x \ge -3$.</p>
+            <p>Case 1: $2x - 1 = x + 3 \Rightarrow x = 4$ ✓ (since $4 + 3 = 7 \ge 0$)</p>
+            <p>Case 2: $2x - 1 = -(x + 3) \Rightarrow 2x - 1 = -x - 3 \Rightarrow 3x = -2 \Rightarrow x = -\frac{2}{3}$ ✓ (since $-\frac{2}{3} + 3 = \frac{7}{3} \ge 0$)</p>
+            <p><strong>Solutions:</strong> $x = 4$ or $x = -\frac{2}{3}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.3.4 — Solve $|x^2 - 4| = 5$.</h4>
+            <p>Case 1: $x^2 - 4 = 5 \Rightarrow x^2 = 9 \Rightarrow x = \pm 3$</p>
+            <p>Case 2: $x^2 - 4 = -5 \Rightarrow x^2 = -1$, which has no real solutions.</p>
+            <p><strong>Solutions:</strong> $x = 3$ or $x = -3$.</p>
+        </div>
+
+        <h3>Sketching Modulus Graphs</h3>
+
+        <p>To sketch $y = |f(x)|$: draw $y = f(x)$ first, then reflect any portion below the $x$-axis upwards (since the modulus makes everything non-negative).</p>
+
+        <div class="example-box">
+            <h4>Example 10.3.5 — Describe the graph of $y = |2x - 4|$.</h4>
+            <p>Start with $y = 2x - 4$, a straight line with gradient 2, crossing the $x$-axis at $x = 2$.</p>
+            <p>For $x \ge 2$: $y = 2x - 4$ (unchanged, since $2x-4 \ge 0$).</p>
+            <p>For $x &lt; 2$: $y = -(2x - 4) = -2x + 4$ (reflected upwards).</p>
+            <p>The graph is a V-shape with vertex at $(2, 0)$, with gradient $-2$ to the left and $+2$ to the right.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>When solving modulus equations graphically, sketch both sides of the equation as separate curves. The number of intersections gives the number of solutions. Always verify any solution by substituting back into the original equation.</p>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <h2 id="s10-4">10.4 Composite and Inverse Functions <span class="year2-badge">Year 2</span></h2>
+
+        <div class="definition-box">
+            <h4>Definition — Composite Function</h4>
+            <p>Given functions $f$ and $g$, the <em>composite function</em> $fg$ (also written $f \circ g$) is defined by:
+            $$fg(x) = f(g(x))$$
+            Apply $g$ first, then $f$. The domain of $fg$ is the set of $x$ in the domain of $g$ such that $g(x)$ lies in the domain of $f$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.4.1 — Given $f(x) = 2x + 1$ and $g(x) = x^2$, find $fg(x)$ and $gf(x)$.</h4>
+            <p>$fg(x) = f(g(x)) = f(x^2) = 2x^2 + 1$</p>
+            <p>$gf(x) = g(f(x)) = g(2x+1) = (2x+1)^2 = 4x^2 + 4x + 1$</p>
+            <p>Note that $fg(x) \ne gf(x)$ in general — composition is not commutative.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.4.2 — Find $ff(x)$ where $f(x) = \frac{1}{x+1}$, $x \ne -1$.</h4>
+            <p>$ff(x) = f\!\left(\frac{1}{x+1}\right) = \frac{1}{\dfrac{1}{x+1} + 1} = \frac{1}{\dfrac{1 + x + 1}{x+1}} = \frac{x+1}{x+2}$, provided $x \ne -1$ and $x \ne -2$.</p>
+        </div>
+
+        <div class="definition-box">
+            <h4>Definition — Inverse Function</h4>
+            <p>The <em>inverse function</em> $f^{-1}$ of $f$ is the function satisfying $f^{-1}(f(x)) = x$ and $f(f^{-1}(x)) = x$. The inverse exists if and only if $f$ is a <strong>one-to-one</strong> (bijective) function on its domain. The domain of $f^{-1}$ equals the range of $f$, and vice versa.</p>
+        </div>
+
+        <p>The graph of $y = f^{-1}(x)$ is the reflection of $y = f(x)$ in the line $y = x$.</p>
+
+        <div id="desmos-inverse" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 10.2 — A function $f(x) = 2^x$ (blue) and its inverse $f^{-1}(x) = \log_2 x$ (red), reflected in the line $y = x$ (dashed).</p>
+
+        <div class="example-box">
+            <h4>Example 10.4.3 — Find the inverse of $f(x) = 3x - 7$.</h4>
+            <p><span class="step-label">Step 1</span> Write $y = 3x - 7$.</p>
+            <p><span class="step-label">Step 2</span> Rearrange for $x$: $x = \frac{y + 7}{3}$.</p>
+            <p><span class="step-label">Step 3</span> Replace $y$ with $x$: $f^{-1}(x) = \frac{x + 7}{3}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.4.4 — Find the inverse of $f(x) = \frac{2x + 1}{x - 3}$, $x \ne 3$.</h4>
+            <p>Let $y = \frac{2x+1}{x-3}$. Then $y(x-3) = 2x+1 \Rightarrow xy - 3y = 2x + 1 \Rightarrow xy - 2x = 3y + 1 \Rightarrow x(y-2) = 3y+1$.</p>
+            <p>So $x = \frac{3y+1}{y-2}$, giving $f^{-1}(x) = \frac{3x+1}{x-2}$, $x \ne 2$.</p>
+        </div>
+
+        <h3>Restricting the Domain</h3>
+
+        <p>A function that is not one-to-one (e.g., $f(x) = x^2$) does not have an inverse on its full natural domain. However, by restricting the domain to a region where $f$ is one-to-one, we can define an inverse on that restricted domain.</p>
+
+        <div class="example-box">
+            <h4>Example 10.4.5 — Find the inverse of $f(x) = x^2 + 3$ with domain $x \ge 0$.</h4>
+            <p>On $x \ge 0$, $f$ is strictly increasing, hence one-to-one. The range of $f$ is $[3, \infty)$.</p>
+            <p>Let $y = x^2 + 3$. Then $x^2 = y - 3$, so $x = \sqrt{y-3}$ (positive square root since $x \ge 0$).</p>
+            <p>Therefore $f^{-1}(x) = \sqrt{x - 3}$, with domain $x \ge 3$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.4.6 — Given $f(x) = (x-1)^2 - 4$ with domain $x \ge 1$, find $f^{-1}(x)$ and its domain.</h4>
+            <p>Range of $f$: minimum value at $x = 1$ gives $f(1) = -4$, so range is $[-4, \infty)$.</p>
+            <p>Let $y = (x-1)^2 - 4$. Then $(x-1)^2 = y + 4$, so $x - 1 = \sqrt{y+4}$ (taking positive root).</p>
+            <p>$f^{-1}(x) = 1 + \sqrt{x + 4}$, domain $x \ge -4$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Always state the domain and range of the inverse function. A common error is forgetting to restrict the domain when dealing with quadratics or trigonometric functions. The domain of $f^{-1}$ must equal the range of $f$.</p>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <h2 id="s10-practice">Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>Prove by deduction that the sum of three consecutive integers is divisible by 3.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Let the three consecutive integers be $n-1$, $n$, $n+1$. Their sum is $(n-1) + n + (n+1) = 3n$. Since $3n = 3 \times n$, it is divisible by 3. $\square$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>Disprove the claim: "For all positive integers $n$, the expression $2n^2 - 1$ is prime."</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Let $n = 4$: $2(16) - 1 = 31$, prime. Let $n = 5$: $2(25) - 1 = 49 = 7 \times 7$, not prime. So $n = 5$ is a counterexample. $\square$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>Prove by contradiction that $\sqrt{5}$ is irrational.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Assume $\sqrt{5} = p/q$ in lowest terms. Then $p^2 = 5q^2$, so $5 \mid p^2$. Since 5 is prime, $5 \mid p$; write $p = 5k$. Then $25k^2 = 5q^2 \Rightarrow q^2 = 5k^2$, so $5 \mid q$. Both $p$ and $q$ are divisible by 5, contradicting lowest terms. $\square$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4</h4>
+            <p>Solve $|4x - 3| = 9$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Case 1: $4x - 3 = 9 \Rightarrow 4x = 12 \Rightarrow x = 3$.</p>
+                    <p>Case 2: $4x - 3 = -9 \Rightarrow 4x = -6 \Rightarrow x = -\frac{3}{2}$.</p>
+                    <p>Solutions: $x = 3$ or $x = -\frac{3}{2}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5</h4>
+            <p>Solve $|2x + 5| = x + 4$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Require $x + 4 \ge 0$, i.e. $x \ge -4$.</p>
+                    <p>Case 1: $2x + 5 = x + 4 \Rightarrow x = -1$ ✓</p>
+                    <p>Case 2: $2x + 5 = -(x+4) \Rightarrow 2x + 5 = -x - 4 \Rightarrow 3x = -9 \Rightarrow x = -3$ ✓</p>
+                    <p>Solutions: $x = -1$ or $x = -3$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6</h4>
+            <p>Given $f(x) = x^2 - 1$ and $g(x) = 3x + 2$, find (a) $fg(x)$, (b) $gf(x)$, (c) $f^2(x) = ff(x)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>(a) $fg(x) = f(3x+2) = (3x+2)^2 - 1 = 9x^2 + 12x + 4 - 1 = 9x^2 + 12x + 3$</p>
+                    <p>(b) $gf(x) = g(x^2-1) = 3(x^2-1) + 2 = 3x^2 - 3 + 2 = 3x^2 - 1$</p>
+                    <p>(c) $ff(x) = f(x^2-1) = (x^2-1)^2 - 1 = x^4 - 2x^2 + 1 - 1 = x^4 - 2x^2$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>Find $f^{-1}(x)$ where $f(x) = \frac{x + 5}{2x - 1}$, $x \ne \frac{1}{2}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Let $y = \frac{x+5}{2x-1}$. Then $y(2x-1) = x+5 \Rightarrow 2xy - y = x + 5 \Rightarrow 2xy - x = y + 5 \Rightarrow x(2y-1) = y + 5$.</p>
+                    <p>So $f^{-1}(x) = \frac{x+5}{2x-1}$, domain $x \ne \frac{1}{2}$. (This function is its own inverse.)</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8</h4>
+            <p>The function $f(x) = (2x + 3)^2 - 1$ has domain $x \ge -\frac{3}{2}$. Find $f^{-1}(x)$ and state its domain and range.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Range of $f$: minimum at $x = -\frac{3}{2}$: $f(-\frac{3}{2}) = 0 - 1 = -1$. Range: $[-1, \infty)$.</p>
+                    <p>Let $y = (2x+3)^2 - 1$. Then $(2x+3)^2 = y+1$, so $2x+3 = \sqrt{y+1}$ (positive root since $x \ge -\frac{3}{2}$ means $2x + 3 \ge 0$).</p>
+                    <p>$x = \frac{\sqrt{y+1} - 3}{2}$, so $f^{-1}(x) = \frac{\sqrt{x+1} - 3}{2}$.</p>
+                    <p>Domain: $x \ge -1$. Range: $x \ge -\frac{3}{2}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 9</h4>
+            <p>Prove by exhaustion that for all integers $n$ with $0 \le n \le 4$, the value $6n^2 + 6n + 2$ is even.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$n=0$: $0 + 0 + 2 = 2$ ✓ even<br>
+                    $n=1$: $6 + 6 + 2 = 14$ ✓ even<br>
+                    $n=2$: $24 + 12 + 2 = 38$ ✓ even<br>
+                    $n=3$: $54 + 18 + 2 = 74$ ✓ even<br>
+                    $n=4$: $96 + 24 + 2 = 122$ ✓ even</p>
+                    <p>All cases yield an even number. $\square$</p>
+                    <p><em>Note:</em> This can also be proved in general by deduction, since $6n^2 + 6n + 2 = 2(3n^2 + 3n + 1)$, which is always even.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 10</h4>
+            <p>Prove by contradiction: if $ab$ is odd, then both $a$ and $b$ are odd.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Assume for contradiction that $ab$ is odd but at least one of $a$, $b$ is even. Without loss of generality, suppose $a$ is even, so $a = 2k$ for some integer $k$.</p>
+                    <p>Then $ab = 2k \cdot b = 2(kb)$, which is even. But this contradicts the assumption that $ab$ is odd. $\square$</p>
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <script>
+    // Figure 10.1 — y = |x-2| and y = 3
+    (function() {
+        var elt = document.getElementById('desmos-modulus');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true
+        });
+        calc.setMathBounds({ left: -4, right: 9, bottom: -1, top: 6 });
+        calc.setExpressions([
+            { id: 'mod', latex: 'y = \\left|x - 2\\right|', color: '#3b82f6' },
+            { id: 'line', latex: 'y = 3', color: '#ef4444' }
+        ]);
+    })();
+
+    // Figure 10.2 — f(x) = 2^x and inverse
+    (function() {
+        var elt = document.getElementById('desmos-inverse');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true
+        });
+        calc.setMathBounds({ left: -4, right: 6, bottom: -4, top: 6 });
+        calc.setExpressions([
+            { id: 'fx',  latex: 'y = 2^x',         color: '#3b82f6' },
+            { id: 'inv', latex: 'y = \\log_2(x)',   color: '#ef4444' },
+            { id: 'sym', latex: 'y = x',             color: '#94a3b8', lineStyle: Desmos.Styles.DASHED }
+        ]);
+    })();
+    </script>
+</body>
+</html>

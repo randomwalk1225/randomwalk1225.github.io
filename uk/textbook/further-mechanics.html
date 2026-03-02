@@ -67,10 +67,11 @@
         };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 
     <link rel="stylesheet" href="../../assets/css/common.css">
     <style>
-        .blog-article { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
         .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
         .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
         .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; }
@@ -113,6 +114,8 @@
         th { background: #f0f7ff; font-weight: 600; color: #1e3a5f; }
         tr:nth-child(even) { background: #f8fafc; }
         .dim-table td:first-child { text-align: left; font-family: monospace; }
+        .desmos-fig { width: 100%; height: 260px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 20px 0 8px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; margin: 4px 0 24px; font-style: italic; }
     </style>
 </head>
 <body>
@@ -387,6 +390,29 @@
             <p>Maximum speed: $v_{\max} = A\omega$ (at $x = 0$)</p>
             <p>Maximum acceleration: $|\ddot{x}|_{\max} = A\omega^2$ (at $x = \pm A$)</p>
         </div>
+
+        <div id="fig-fmech1" class="desmos-fig"></div>
+        <p class="fig-caption">FMECH·1 &mdash; SHM displacement $x = A\cos(\omega t)$ (blue) and velocity $v = -A\omega\sin(\omega t)$ (green, dashed) plotted against time, with $A = 3$, $\omega = 1$ (so period $T = 2\pi$). The velocity is zero at the amplitude positions and maximum in magnitude at $x = 0$.</p>
+        <script>(function(){
+            var OPT = {keypad:false, expressions:false, settingsMenu:false, zoomButtons:false, lockViewport:true, showGrid:false, showXAxis:true, showYAxis:true};
+            var c = Desmos.GraphingCalculator(document.getElementById('fig-fmech1'), OPT);
+            c.setMathBounds({left:-0.4, right:13.5, bottom:-4.2, top:4.6});
+            // Displacement: x = 3cos(t)
+            c.setExpression({id:'disp', latex:'y=3\\cos x', color:'#2563eb', lineWidth:2.5});
+            // Velocity: v = -3sin(t)  (with ω=1, v = -Aω sin(ωt) = -3sin t)
+            c.setExpression({id:'vel',  latex:'y=-3\\sin x', color:'#16a34a', lineWidth:2, lineStyle:'DASHED'});
+            // Period vertical marker at T=2π
+            c.setExpression({id:'Tl',   latex:'x=6.283\\left\\{-3.5\\le y\\le3.5\\right\\}', color:'#94a3b8', lineWidth:1, lineStyle:'DASHED'});
+            // Labels
+            c.setExpression({id:'lx',   latex:'(1.8,3.35)', label:'x = A cos(ωt)', showLabel:true, color:'#2563eb', pointSize:0, pointOpacity:0});
+            c.setExpression({id:'lv',   latex:'(7.5,-3.35)', label:'v = −Aω sin(ωt)', showLabel:true, color:'#16a34a', pointSize:0, pointOpacity:0});
+            // Key point markers
+            c.setExpression({id:'amp',  latex:'(0,3)',     label:'A',         showLabel:true, color:'#2563eb', pointSize:6});
+            c.setExpression({id:'mamp', latex:'(0,-3)',    label:'−A',        showLabel:true, color:'#2563eb', pointSize:6});
+            c.setExpression({id:'vmax', latex:'(1.571,-3)',label:'v_max=Aω',  showLabel:true, color:'#16a34a', pointSize:6});
+            c.setExpression({id:'Tpt',  latex:'(6.283,0)', label:'T = 2π',   showLabel:true, color:'#64748b', pointSize:5});
+            c.setExpression({id:'T2pt', latex:'(12.566,0)',label:'2T',        showLabel:true, color:'#64748b', pointSize:5});
+        })();</script>
 
         <div class="example-box">
             <h4>Worked Example 7.1 &mdash; SHM: Mass on a Spring</h4>

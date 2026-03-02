@@ -52,6 +52,7 @@
         };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 
     <link rel="stylesheet" href="../../assets/css/common.css">
     <style>
@@ -90,6 +91,10 @@
         .compare-card h5{color:#1e3a5f;margin-bottom:8px;font-size:0.95em;}
         .graph-container{text-align:center;margin:24px 0;}
         .graph-caption{font-size:0.9em;color:#64748b;margin-top:8px;font-style:italic;}
+        .desmos-wrap { margin: 24px 0; background: #f8fafc; border-radius: 12px; padding: 16px; border: 1px solid #e2e8f0; }
+        .desmos-caption { font-size: 0.88em; color: #475569; margin-bottom: 8px; font-style: italic; }
+        .fig-code { display: inline-block; background: #f1f5f9; color: #64748b; font-style: normal; font-weight: 700; font-size: 0.78em; padding: 1px 7px; border-radius: 4px; margin-right: 8px; font-family: 'Courier New', monospace; letter-spacing: 0.5px; border: 1px solid #e2e8f0; }
+        .fig-label { text-align: center; font-style: italic; color: #475569; font-size: 0.88em; margin: 6px 0 18px; }
         .chapter-nav{display:flex;justify-content:space-between;margin-top:50px;padding-top:20px;border-top:1px solid #e2e8f0;}
         .chapter-nav a{color:#1d4ed8;text-decoration:none;font-weight:500;}
         .chapter-nav a:hover{text-decoration:underline;}
@@ -177,41 +182,12 @@
             $$\lim_{x \to a} f(x) = L \quad \Longleftrightarrow \quad \lim_{x \to a^-} f(x) = \lim_{x \to a^+} f(x) = L$$
         </div>
 
-        <!-- SVG : limite avec trou -->
-        <div class="graph-container">
-            <svg width="380" height="220" viewBox="0 0 380 220" aria-label="Graphique montrant une limite avec trou en x=a">
-                <!-- Axes -->
-                <line x1="30" y1="190" x2="370" y2="190" stroke="#94a3b8" stroke-width="1.5"/>
-                <line x1="30" y1="10" x2="30" y2="190" stroke="#94a3b8" stroke-width="1.5"/>
-                <!-- Flèches axes -->
-                <polygon points="370,187 376,190 370,193" fill="#94a3b8"/>
-                <polygon points="27,10 30,4 33,10" fill="#94a3b8"/>
-                <!-- Labels axes -->
-                <text x="372" y="194" font-size="12" fill="#64748b">x</text>
-                <text x="20" y="8" font-size="12" fill="#64748b">y</text>
-                <!-- Courbe gauche (x < a = 200) -->
-                <path d="M 50,160 C 80,150 120,120 160,100 C 175,93 188,88 198,84" stroke="#1d4ed8" stroke-width="2.5" fill="none"/>
-                <!-- Courbe droite (x > a) -->
-                <path d="M 204,84 C 214,80 230,76 260,72 C 300,67 340,60 360,55" stroke="#1d4ed8" stroke-width="2.5" fill="none"/>
-                <!-- Trou à x=a (200, 84) -->
-                <circle cx="201" cy="84" r="6" fill="white" stroke="#1d4ed8" stroke-width="2.5"/>
-                <!-- Point hors limite (valeur de f(a)) -->
-                <circle cx="201" cy="150" r="5" fill="#1d4ed8"/>
-                <!-- Ligne pointillée verticale -->
-                <line x1="201" y1="190" x2="201" y2="60" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5,4"/>
-                <!-- Ligne pointillée horizontale vers L -->
-                <line x1="30" y1="84" x2="201" y2="84" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="5,4"/>
-                <!-- Labels -->
-                <text x="194" y="205" font-size="12" fill="#f59e0b" font-weight="bold">a</text>
-                <text x="8" y="88" font-size="12" fill="#22c55e" font-weight="bold">L</text>
-                <text x="206" y="153" font-size="11" fill="#1d4ed8">f(a)</text>
-                <!-- Annotation trou -->
-                <text x="210" y="78" font-size="11" fill="#94a3b8" font-style="italic">trou</text>
-                <!-- Accolade / flèche vers trou -->
-                <line x1="209" y1="80" x2="205" y2="84" stroke="#94a3b8" stroke-width="1" marker-end="url(#arr)"/>
-            </svg>
-            <p class="graph-caption">La limite $\lim_{x \to a} f(x) = L$ existe même si $f(a)$ est indéfinie ou différente de $L$.</p>
+        <!-- Desmos : limite avec curseur c -->
+        <div class="desmos-wrap">
+            <p class="desmos-caption">Déplacez le curseur <strong>c</strong> pour observer comment $f(x) = \dfrac{x^2 - c^2}{x - c}$ (trou en $x = c$) approche la limite $L = 2c$ des deux côtés.</p>
+            <div id="desmos-limite" style="width:100%;height:420px;border-radius:8px;"></div>
         </div>
+        <p class="fig-label"><span class="fig-code">DIFF·1</span>Figure 1 — Limite d'une fonction avec trou en $x = c$ : la courbe approche $L = 2c$ des deux côtés.</p>
 
         <h3>Propriétés des limites</h3>
         <p>Si $\displaystyle\lim_{x \to a} f(x) = L$ et $\displaystyle\lim_{x \to a} g(x) = M$, alors :</p>
@@ -482,39 +458,12 @@
         <h3>Interprétation géométrique</h3>
         <p>Le taux de variation $\dfrac{f(x+h)-f(x)}{h}$ représente la <strong>pente de la sécante</strong> entre les points $(x, f(x))$ et $(x+h, f(x+h))$. Quand $h \to 0$, cette sécante tend vers la <strong>tangente</strong> à la courbe en $(x, f(x))$.</p>
 
-        <!-- SVG : tangente -->
-        <div class="graph-container">
-            <svg width="380" height="220" viewBox="0 0 380 220" aria-label="Tangente à une courbe">
-                <!-- Axes -->
-                <line x1="30" y1="190" x2="370" y2="190" stroke="#94a3b8" stroke-width="1.5"/>
-                <line x1="30" y1="10" x2="30" y2="190" stroke="#94a3b8" stroke-width="1.5"/>
-                <polygon points="370,187 376,190 370,193" fill="#94a3b8"/>
-                <polygon points="27,10 30,4 33,10" fill="#94a3b8"/>
-                <text x="372" y="194" font-size="12" fill="#64748b">x</text>
-                <text x="20" y="8" font-size="12" fill="#64748b">y</text>
-                <!-- Parabole f(x) = x^2 / 60 + 100 (scaled) -->
-                <!-- Points: x=50->y=173, x=100->y=151, x=150->y=120, x=190->y=96, x=230->y=77, x=280->y=62, x=330->y=55 -->
-                <path d="M 50,173 C 90,155 130,128 190,96 C 240,70 290,58 340,52" stroke="#1d4ed8" stroke-width="2.5" fill="none"/>
-                <!-- Point de tangence à x=190, y=96 -->
-                <circle cx="190" cy="96" r="5" fill="#f59e0b"/>
-                <!-- Ligne tangente (pente ~-1) : y - 96 = -1.2(x - 190) -->
-                <line x1="90" y1="216" x2="310" y2="−28" stroke="#22c55e" stroke-width="2" stroke-dasharray="0"/>
-                <!-- Recalcul tangente visible : pass through (190,96), slope ≈ -1.1 -->
-                <line x1="80" y1="207" x2="320" y2="-37" stroke="#22c55e" stroke-width="2"/>
-                <!-- Visible portion clipped -->
-                <line x1="80" y1="207" x2="310" y2="45" stroke="#22c55e" stroke-width="2"/>
-                <!-- Label point -->
-                <text x="196" y="92" font-size="11" fill="#f59e0b" font-weight="bold">(a, f(a))</text>
-                <!-- Label tangente -->
-                <text x="316" y="42" font-size="11" fill="#22c55e">tangente</text>
-                <!-- Label courbe -->
-                <text x="344" y="56" font-size="11" fill="#1d4ed8">f(x)</text>
-                <!-- Ligne pointillée verticale -->
-                <line x1="190" y1="190" x2="190" y2="96" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3"/>
-                <text x="184" y="204" font-size="11" fill="#64748b">a</text>
-            </svg>
-            <p class="graph-caption">La dérivée $f'(a)$ est la pente de la droite tangente à la courbe $y = f(x)$ au point $(a, f(a))$.</p>
+        <!-- Desmos : dérivée et tangente avec curseur a -->
+        <div class="desmos-wrap">
+            <p class="desmos-caption">Déplacez le curseur <strong>a</strong> pour voir la droite tangente à $f(x) = x^2$ au point $(a, a^2)$. La pente de la tangente vaut $f'(a) = 2a$.</p>
+            <div id="desmos-tangente" style="width:100%;height:420px;border-radius:8px;"></div>
         </div>
+        <p class="fig-label"><span class="fig-code">DIFF·2</span>Figure 2 — Droite tangente à $f(x) = x^2$ au point $(a, a^2)$ ; pente $f'(a) = 2a$.</p>
 
         <h3>Notations de la dérivée</h3>
         <table>
@@ -1163,5 +1112,57 @@
     <footer style="text-align:center; padding:30px 20px; color:#64748b; font-size:0.88em; border-top:1px solid #e2e8f0; margin-top:40px;">
         &copy; 2026 MathHub Global &mdash; Contenu éducatif gratuit pour le Cégep.
     </footer>
+
+    <script>
+    // ── Graphique 1 : Limite avec trou ────────────────────────────────────────
+    (function() {
+        var elt = document.getElementById('desmos-limite');
+        if (!elt) return;
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            keypad: false
+        });
+        calc.setMathBounds({ left: -4, right: 4, bottom: -1, top: 10 });
+        // Curseur c
+        calc.setExpression({ id: 'c', latex: 'c = 1', sliderBounds: { min: -3, max: 3, step: 0.1 } });
+        // f(x) = (x^2 - c^2)/(x - c) = x + c  avec trou en x = c
+        calc.setExpression({ id: 'f', latex: 'y = x + c', color: '#2563eb', lineWidth: 2.5 });
+        // Marque le trou en x = c, y = 2c
+        calc.setExpression({ id: 'hole', latex: '(c, 2c)', color: '#2563eb', pointStyle: Desmos.Styles.OPEN, pointSize: 12 });
+        // Ligne horizontale pointillée indiquant la limite L = 2c
+        calc.setExpression({ id: 'L', latex: 'y = 2c \\{x < c\\}', color: '#22c55e', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5 });
+        // Ligne verticale pointillée en x = c
+        calc.setExpression({ id: 'vert', latex: 'x = c \\{0 \\le y \\le 2c + 0.5\\}', color: '#f59e0b', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5 });
+        // Labels
+        calc.setExpression({ id: 'labelL', latex: '(c + 0.15, 2c)', label: 'L = 2c', color: '#22c55e', showLabel: true, hidden: true });
+    })();
+
+    // ── Graphique 2 : Tangente à f(x) = x² avec curseur a ────────────────────
+    (function() {
+        var elt = document.getElementById('desmos-tangente');
+        if (!elt) return;
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            keypad: false
+        });
+        calc.setMathBounds({ left: -4, right: 4, bottom: -1, top: 10 });
+        // Curseur a
+        calc.setExpression({ id: 'a', latex: 'a = 1', sliderBounds: { min: -3, max: 3, step: 0.1 } });
+        // Courbe f(x) = x²
+        calc.setExpression({ id: 'fx', latex: 'y = x^2', color: '#2563eb', lineWidth: 2.5 });
+        // Droite tangente en x = a : y = a² + 2a(x - a) = 2ax - a²
+        calc.setExpression({ id: 'tang', latex: 'y = 2a \\cdot x - a^2', color: '#22c55e', lineWidth: 2 });
+        // Point de tangence
+        calc.setExpression({ id: 'pt', latex: '(a, a^2)', color: '#f59e0b', pointSize: 14 });
+        // Ligne pointillée verticale
+        calc.setExpression({ id: 'vline', latex: 'x = a \\{0 \\le y \\le a^2\\}', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.2 });
+        // Label pente
+        calc.setExpression({ id: 'slope', latex: '(a + 0.2, a^2 + 0.4)', label: "f'(a) = 2a", color: '#f59e0b', showLabel: true, hidden: true });
+    })();
+    </script>
 </body>
 </html>

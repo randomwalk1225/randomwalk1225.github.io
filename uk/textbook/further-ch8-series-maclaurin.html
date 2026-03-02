@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Further Mathematics – Chapter 8: Series and Maclaurin Expansions | Further Mathematics | MathHub</title>
+    <meta name="description" content="Complete guide to Series and Maclaurin Expansions for A-Level Further Mathematics. Covers method of differences, standard power series, deriving Maclaurin series, operations on series, and applications. Edexcel, AQA and OCR.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/further-ch8-series-maclaurin.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .further-badge { display: inline-block; background: #fce7f3; color: #9d174d; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+        th, td { border: 1px solid #e2e8f0; padding: 10px 14px; text-align: left; color: #334155; }
+        th { background: #f1f5f9; color: #1e3a5f; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/" class="active">UK</a><a href="/ca/">CA</a><a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+    <article class="blog-article">
+        <div class="breadcrumb"><a href="/uk/">UK</a> › <a href="/uk/">Textbook</a> › Further Maths – Chapter 8: Series and Maclaurin Expansions</div>
+        <h1>A-Level Further Mathematics – Chapter 8: Series and Maclaurin Expansions <span class="further-badge">Further Pure</span></h1>
+        <div class="blog-meta">Edexcel · AQA · OCR A-Level Further Mathematics &middot; Updated March 2026</div>
+
+        <div class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#differences">8.1 Method of Differences</a></li>
+                <li><a href="#standard">8.2 Standard Power Series</a></li>
+                <li><a href="#deriving">8.3 Deriving Maclaurin Series from Scratch</a></li>
+                <li><a href="#operations">8.4 Operations on Series</a></li>
+                <li><a href="#applications">8.5 Applications of Series</a></li>
+                <li><a href="#practice">Practice Problems</a></li>
+            </ol>
+        </div>
+
+        <p>Infinite series lie at the heart of analysis and have practical importance throughout applied mathematics, physics, and engineering. In this chapter we study two distinct but complementary topics. The <strong>method of differences</strong> gives us a powerful technique for evaluating finite sums in closed form. <strong>Maclaurin expansions</strong> allow us to represent functions as infinite power series, enabling approximations, limit calculations, and the evaluation of integrals that resist standard techniques.</p>
+
+        <!-- ===================== SECTION 8.1 ===================== -->
+        <h2 id="differences">8.1 Method of Differences</h2>
+
+        <div class="definition-box">
+            <h4>The Method of Differences (Telescoping)</h4>
+            <p>If we can write the general term of a series as $f(r) = g(r) - g(r+1)$ for some function $g$, then the partial sum telescopes:</p>
+            <p>$$\sum_{r=1}^{n} f(r) = \sum_{r=1}^{n} \bigl[g(r) - g(r+1)\bigr] = g(1) - g(n+1)$$</p>
+            <p>The most common way to find $g$ is to express $f(r)$ using <strong>partial fractions</strong>.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.1.1 — A simple telescoping sum</h4>
+            <p>Show that $\frac{1}{r(r+1)} = \frac{1}{r} - \frac{1}{r+1}$, and hence find $\displaystyle\sum_{r=1}^{n}\frac{1}{r(r+1)}$.</p>
+            <p>Partial fractions: $\frac{1}{r(r+1)} = \frac{A}{r}+\frac{B}{r+1}$. Setting $r=0$ gives $A=1$; setting $r=-1$ gives $B=-1$. So $\frac{1}{r(r+1)} = \frac{1}{r}-\frac{1}{r+1}$. ✓</p>
+            <p>Telescoping: $\sum_{r=1}^{n}\Bigl(\frac{1}{r}-\frac{1}{r+1}\Bigr) = \frac{1}{1}-\frac{1}{n+1} = \frac{n}{n+1}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.1.2 — Sum involving a product of three consecutive integers</h4>
+            <p>Use the identity $\frac{1}{r(r+1)(r+2)} = \frac{1}{2}\Bigl[\frac{1}{r(r+1)}-\frac{1}{(r+1)(r+2)}\Bigr]$ to find $\displaystyle\sum_{r=1}^{n}\frac{1}{r(r+1)(r+2)}$.</p>
+            <p>$\sum_{r=1}^{n}\frac{1}{r(r+1)(r+2)} = \frac{1}{2}\Bigl[\frac{1}{1\cdot2}-\frac{1}{(n+1)(n+2)}\Bigr] = \frac{1}{4} - \frac{1}{2(n+1)(n+2)}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.1.3 — Difference involving a factorial-like product</h4>
+            <p>Show that $r(r+1) - (r-1)r = 2r$, and hence find $\displaystyle\sum_{r=1}^{n} r$ using the method of differences.</p>
+            <p>$r(r+1)-(r-1)r = r[(r+1)-(r-1)] = 2r$. So $r = \tfrac{1}{2}[r(r+1)-(r-1)r]$.</p>
+            <p>$\sum_{r=1}^{n}r = \frac{1}{2}[n(n+1)-0] = \frac{n(n+1)}{2}$. ✓</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.1.4 — Finding the sum of $\sum r(r+2)$ by splitting</h4>
+            <p>Show that $r(r+2) = \tfrac{1}{3}\bigl[r(r+1)(r+2)-(r-1)r(r+1)\bigr]$ and use this to find $\displaystyle\sum_{r=1}^{n}r(r+2)$.</p>
+            <p>$(r-1)r(r+1) = r(r^2-1)$ and $r(r+1)(r+2) = r(r^2+3r+2)$. The difference is $r[(r^2+3r+2)-(r^2-1)] = r(3r+3) = 3r(r+1)$, so $r(r+1) = \tfrac{1}{3}[r(r+1)(r+2)-(r-1)r(r+1)]$... adjusting the approach: note $r(r+2) = r(r+1)+r$ so</p>
+            <p>$\sum_{r=1}^{n}r(r+2) = \sum r(r+1) + \sum r = \frac{n(n+1)(n+2)}{3} + \frac{n(n+1)}{2} = \frac{n(n+1)}{6}[2(n+2)+3] = \frac{n(n+1)(2n+5)}{6}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.1.5 — Partial fractions with repeated roots</h4>
+            <p>Find $\displaystyle\sum_{r=1}^{n}\frac{2r+1}{r^2(r+1)^2}$.</p>
+            <p>Notice $\frac{2r+1}{r^2(r+1)^2} = \frac{1}{r^2}-\frac{1}{(r+1)^2}$ (verified by expanding). Hence the sum telescopes to $\frac{1}{1}-\frac{1}{(n+1)^2} = \frac{(n+1)^2-1}{(n+1)^2} = \frac{n(n+2)}{(n+1)^2}$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>In method-of-differences questions, the examiners typically ask you first to "show that" the partial-fraction decomposition holds — always verify this result before using it in the sum. Write out the first few and last few terms explicitly to make the telescoping clear.</p>
+        </div>
+
+        <!-- ===================== SECTION 8.2 ===================== -->
+        <h2 id="standard">8.2 Standard Power Series</h2>
+
+        <div class="definition-box">
+            <h4>Definition — Maclaurin Series</h4>
+            <p>If $f$ is infinitely differentiable at $x = 0$, its <strong>Maclaurin series</strong> is:</p>
+            <p>$$f(x) = \sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^n = f(0) + f'(0)\,x + \frac{f''(0)}{2!}x^2 + \frac{f'''(0)}{3!}x^3 + \cdots$$</p>
+            <p>The series converges to $f(x)$ within its <strong>radius of convergence</strong>. Outside this radius the partial sums diverge.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Theorem 8.1 — Standard Maclaurin Series</h4>
+            <p>The following series are valid for the stated ranges:</p>
+            <table>
+                <tr><th>Function</th><th>Maclaurin Series</th><th>Validity</th></tr>
+                <tr><td>$e^x$</td><td>$1 + x + \dfrac{x^2}{2!} + \dfrac{x^3}{3!} + \cdots = \displaystyle\sum_{n=0}^{\infty}\frac{x^n}{n!}$</td><td>All $x$</td></tr>
+                <tr><td>$\sin x$</td><td>$x - \dfrac{x^3}{3!} + \dfrac{x^5}{5!} - \cdots = \displaystyle\sum_{n=0}^{\infty}\frac{(-1)^n x^{2n+1}}{(2n+1)!}$</td><td>All $x$</td></tr>
+                <tr><td>$\cos x$</td><td>$1 - \dfrac{x^2}{2!} + \dfrac{x^4}{4!} - \cdots = \displaystyle\sum_{n=0}^{\infty}\frac{(-1)^n x^{2n}}{(2n)!}$</td><td>All $x$</td></tr>
+                <tr><td>$\ln(1+x)$</td><td>$x - \dfrac{x^2}{2} + \dfrac{x^3}{3} - \cdots = \displaystyle\sum_{n=1}^{\infty}\frac{(-1)^{n+1}x^n}{n}$</td><td>$-1 < x \le 1$</td></tr>
+                <tr><td>$(1+x)^n$</td><td>$1 + nx + \dfrac{n(n-1)}{2!}x^2 + \cdots$</td><td>$|x|<1$ (if $n\notin\mathbb{N}$)</td></tr>
+            </table>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.2.1 — Using the series for $e^x$</h4>
+            <p>Write down the first four non-zero terms of the Maclaurin series for $e^{-2x}$ and state its range of validity.</p>
+            <p>Replace $x$ with $-2x$ in the series for $e^x$: $e^{-2x} = 1 + (-2x) + \frac{(-2x)^2}{2!} + \frac{(-2x)^3}{3!} + \cdots = 1 - 2x + 2x^2 - \frac{4x^3}{3} + \cdots$</p>
+            <p>Valid for all $x$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.2.2 — Series for $\ln(1-x)$</h4>
+            <p>By replacing $x$ with $-x$ in the series for $\ln(1+x)$, write down the Maclaurin series for $\ln(1-x)$, and hence find the series for $\ln\!\left(\frac{1+x}{1-x}\right)$.</p>
+            <p>$\ln(1-x) = -x - \frac{x^2}{2} - \frac{x^3}{3} - \frac{x^4}{4} - \cdots$, valid for $-1 \le x < 1$.</p>
+            <p>$\ln\!\left(\frac{1+x}{1-x}\right) = \ln(1+x) - \ln(1-x) = 2x + \frac{2x^3}{3} + \frac{2x^5}{5} + \cdots = 2\sum_{n=0}^{\infty}\frac{x^{2n+1}}{2n+1}$, valid for $|x|<1$.</p>
+        </div>
+
+        <div class="desmos-fig" id="desmos-sinx"></div>
+        <div class="fig-caption">Figure 8.1 — The function $\sin x$ (blue) alongside its 1-term ($y=x$), 3-term, 5-term, and 7-term Maclaurin approximations, showing convergence on $[-2\pi, 2\pi]$.</div>
+
+        <!-- ===================== SECTION 8.3 ===================== -->
+        <h2 id="deriving">8.3 Deriving Maclaurin Series from Scratch</h2>
+
+        <p>When a function is not directly obtainable by substitution into a standard series, we return to the definition: differentiate repeatedly, evaluate at $x = 0$, and build the series term by term.</p>
+
+        <div class="example-box">
+            <h4>Example 8.3.1 — Maclaurin series for $\tan x$ (first three non-zero terms)</h4>
+            <p>Let $f(x) = \tan x$. We need $f(0), f'(0), f''(0), f'''(0), f^{(4)}(0), f^{(5)}(0)$.</p>
+            <p>$f(0) = 0$. $f'(x) = \sec^2 x$, so $f'(0) = 1$.</p>
+            <p>$f''(x) = 2\sec^2 x \tan x$, so $f''(0) = 0$.</p>
+            <p>$f'''(x) = 2\sec^4 x + 4\sec^2 x\tan^2 x = 2\sec^2 x(\sec^2 x + 2\tan^2 x)$, so $f'''(0) = 2$.</p>
+            <p>$f^{(4)}(0) = 0$ (by parity — $\tan x$ is odd so only odd powers appear). $f^{(5)}(0) = 16$.</p>
+            <p>$$\tan x = x + \frac{2}{3!}x^3 + \frac{16}{5!}x^5 + \cdots = x + \frac{x^3}{3} + \frac{2x^5}{15} + \cdots$$</p>
+            <p>Valid for $|x| < \pi/2$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.3.2 — Maclaurin series for $\arctan x$</h4>
+            <p>Since $\frac{d}{dx}\arctan x = \frac{1}{1+x^2}$, we can use the geometric series:</p>
+            <p>$$\frac{1}{1+x^2} = 1 - x^2 + x^4 - x^6 + \cdots \quad (|x|<1)$$</p>
+            <p>Integrating term by term with $\arctan 0 = 0$:</p>
+            <p>$$\arctan x = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \cdots = \sum_{n=0}^{\infty}\frac{(-1)^n x^{2n+1}}{2n+1}$$</p>
+            <p>Valid for $|x| \le 1$. Setting $x = 1$ gives the famous result $\frac{\pi}{4} = 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \cdots$ (Leibniz formula).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.3.3 — Maclaurin series for $\ln(\cos x)$</h4>
+            <p>Let $g(x) = \ln(\cos x)$. Then $g'(x) = -\tan x$.</p>
+            <p>Using the series from Example 8.3.1: $g'(x) = -\tan x = -x - \frac{x^3}{3} - \frac{2x^5}{15} - \cdots$</p>
+            <p>Integrating with $g(0) = \ln 1 = 0$:</p>
+            <p>$$\ln(\cos x) = -\frac{x^2}{2} - \frac{x^4}{12} - \frac{x^6}{45} - \cdots$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.3.4 — Maclaurin series for $(1+x)^{1/2}$</h4>
+            <p>Using the binomial expansion with $n = \tfrac{1}{2}$:</p>
+            <p>$\sqrt{1+x} = 1 + \tfrac{1}{2}x + \frac{\tfrac{1}{2}(\tfrac{1}{2}-1)}{2!}x^2 + \frac{\tfrac{1}{2}(\tfrac{1}{2}-1)(\tfrac{1}{2}-2)}{3!}x^3 + \cdots$</p>
+            <p>$= 1 + \frac{x}{2} - \frac{x^2}{8} + \frac{x^3}{16} - \frac{5x^4}{128} + \cdots$, valid for $|x| \le 1$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>When deriving series by repeated differentiation, always check whether $f(x)$ is an odd or even function. Odd functions ($f(-x)=-f(x)$) have only odd-power terms; even functions have only even-power terms. This halves the work and provides a useful check.</p>
+        </div>
+
+        <!-- ===================== SECTION 8.4 ===================== -->
+        <h2 id="operations">8.4 Operations on Series</h2>
+
+        <p>Once we know the Maclaurin series for individual functions, we can build series for combinations by algebraic manipulation: multiplication, composition, addition, and subtraction.</p>
+
+        <div class="example-box">
+            <h4>Example 8.4.1 — Multiplying series: $e^x \sin x$</h4>
+            <p>Find the series for $e^x\sin x$ up to and including $x^4$.</p>
+            <p>$e^x = 1+x+\tfrac{x^2}{2}+\tfrac{x^3}{6}+\tfrac{x^4}{24}+\cdots$</p>
+            <p>$\sin x = x - \tfrac{x^3}{6}+\cdots$</p>
+            <p>Multiply term by term, collecting by degree:</p>
+            <p>$x^1$: $1\cdot x = x$</p>
+            <p>$x^2$: $x\cdot x = x^2$</p>
+            <p>$x^3$: $\tfrac{x^2}{2}\cdot x + 1\cdot(-\tfrac{x^3}{6}) = \tfrac{x^3}{2}-\tfrac{x^3}{6} = \tfrac{x^3}{3}$</p>
+            <p>$x^4$: $\tfrac{x^3}{6}\cdot x + x\cdot(-\tfrac{x^3}{6}) = \tfrac{x^4}{6}-\tfrac{x^4}{6} = 0$</p>
+            <p>$$e^x\sin x = x + x^2 + \frac{x^3}{3} + 0 \cdot x^4 + \cdots$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.4.2 — Composing series: $e^{\sin x}$</h4>
+            <p>Find the Maclaurin series for $e^{\sin x}$ up to $x^3$.</p>
+            <p>Let $u = \sin x = x - \tfrac{x^3}{6} + \cdots$. Then $e^u = 1 + u + \tfrac{u^2}{2} + \tfrac{u^3}{6} + \cdots$</p>
+            <p>$u = x - \tfrac{x^3}{6}$, $u^2 = x^2 + O(x^4)$, $u^3 = x^3 + O(x^5)$.</p>
+            <p>$$e^{\sin x} = 1 + \bigl(x-\tfrac{x^3}{6}\bigr) + \tfrac{x^2}{2} + \tfrac{x^3}{6} + \cdots = 1 + x + \frac{x^2}{2} + \frac{x^3 - x^3}{6} + \cdots = 1 + x + \frac{x^2}{2} + 0\cdot x^3 + \cdots$$</p>
+            <p>More carefully: $-\tfrac{x^3}{6}+\tfrac{x^3}{6} = 0$, so the $x^3$ coefficient is $0$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.4.3 — Finding a limit using series (no L'Hôpital)</h4>
+            <p>Find $\displaystyle\lim_{x\to 0}\frac{e^x - 1 - x}{x^2}$.</p>
+            <p>$e^x - 1 - x = \tfrac{x^2}{2} + \tfrac{x^3}{6} + \cdots$</p>
+            <p>$\frac{e^x-1-x}{x^2} = \frac{1}{2} + \frac{x}{6} + \cdots \xrightarrow{x\to 0} \boxed{\frac{1}{2}}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.4.4 — Limit with both sin and $\ln$</h4>
+            <p>Find $\displaystyle\lim_{x\to 0}\frac{\ln(1+x) - \sin x}{x^2}$.</p>
+            <p>$\ln(1+x) = x - \tfrac{x^2}{2} + \tfrac{x^3}{3} - \cdots$, $\sin x = x - \tfrac{x^3}{6}+\cdots$.</p>
+            <p>Numerator: $(x-\tfrac{x^2}{2}+\cdots)-(x-\cdots) = -\tfrac{x^2}{2} + O(x^3)$.</p>
+            <p>$\frac{-x^2/2}{x^2} \to -\frac{1}{2}$.</p>
+        </div>
+
+        <div class="desmos-fig" id="desmos-lnx"></div>
+        <div class="fig-caption">Figure 8.2 — The function $\ln(1+x)$ (blue) alongside its 1-term through 5-term Maclaurin approximations. The approximations are only reliable for $|x| &lt; 1$ (shaded region), diverging outside this interval.</div>
+
+        <div class="example-box">
+            <h4>Example 8.4.5 — Product $\cos x \cdot \ln(1+x)$</h4>
+            <p>Find the first three non-zero terms in the Maclaurin series for $\cos x \cdot \ln(1+x)$.</p>
+            <p>$\cos x = 1 - \tfrac{x^2}{2}+\cdots$, $\ln(1+x) = x - \tfrac{x^2}{2}+\tfrac{x^3}{3}-\cdots$.</p>
+            <p>Product up to $x^3$:</p>
+            <p>$1\cdot(x-\tfrac{x^2}{2}+\tfrac{x^3}{3}) + (-\tfrac{x^2}{2})\cdot x + \cdots = x - \tfrac{x^2}{2} + \tfrac{x^3}{3} - \tfrac{x^3}{2} + \cdots = x - \frac{x^2}{2} - \frac{x^3}{6} + \cdots$</p>
+        </div>
+
+        <!-- ===================== SECTION 8.5 ===================== -->
+        <h2 id="applications">8.5 Applications of Series</h2>
+
+        <p>Maclaurin series have several important practical applications: approximating function values, evaluating integrals that have no elementary closed form, and obtaining refined small-angle approximations.</p>
+
+        <div class="example-box">
+            <h4>Example 8.5.1 — Approximating $e^{0.1}$</h4>
+            <p>Use the first five terms of the series for $e^x$ to estimate $e^{0.1}$, and bound the error.</p>
+            <p>$e^{0.1} \approx 1 + 0.1 + \tfrac{0.01}{2} + \tfrac{0.001}{6} + \tfrac{0.0001}{24} = 1 + 0.1 + 0.005 + 0.0001\overline{6} + 0.000004\overline{16} \approx 1.10517$.</p>
+            <p>The true value is $1.10517091...$, so the error is less than $2\times10^{-7}$. The error is bounded by the next term $\tfrac{(0.1)^5}{5!} \approx 8.3\times10^{-8}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.5.2 — Estimating $\int_0^1 e^{-x^2}dx$</h4>
+            <p>The function $e^{-x^2}$ has no elementary antiderivative (it is related to the error function). Use the series to estimate $\int_0^{0.5}e^{-x^2}dx$ to 5 decimal places.</p>
+            <p>$e^{-x^2} = 1 - x^2 + \tfrac{x^4}{2} - \tfrac{x^6}{6} + \cdots$</p>
+            <p>$\int_0^{0.5}e^{-x^2}dx \approx \Bigl[x - \tfrac{x^3}{3}+\tfrac{x^5}{10}-\tfrac{x^7}{42}\Bigr]_0^{0.5}$</p>
+            <p>$= 0.5 - \tfrac{0.125}{3}+\tfrac{0.03125}{10}-\tfrac{0.0078125}{42} \approx 0.5 - 0.04167+0.003125-0.000186 \approx 0.46127$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.5.3 — Higher-order small-angle approximations</h4>
+            <p>For small $\theta$ (in radians), the standard approximation $\sin\theta\approx\theta$ has error $O(\theta^3)$. A better approximation is $\sin\theta \approx \theta - \tfrac{\theta^3}{6}$. Show that this gives a relative error less than $0.01\%$ for $|\theta| < 0.1$ rad ($\approx 5.7°$).</p>
+            <p>The next term is $\tfrac{\theta^5}{120}$. At $\theta=0.1$: $\tfrac{(0.1)^5}{120} = \tfrac{10^{-5}}{120} \approx 8.3\times10^{-8}$. Compare with $\sin(0.1)\approx0.09983$: relative error $\approx 8.3\times10^{-7}$, well below $0.01\%$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 8.5.4 — Evaluating $\int_0^1\frac{\sin x}{x}dx$</h4>
+            <p>Since $\frac{\sin x}{x} = 1 - \tfrac{x^2}{3!}+\tfrac{x^4}{5!}-\cdots$ (the sinc function), integrate term by term:</p>
+            <p>$\int_0^1\frac{\sin x}{x}dx = \Bigl[x-\tfrac{x^3}{18}+\tfrac{x^5}{600}-\tfrac{x^7}{35280}\Bigr]_0^1 = 1-\tfrac{1}{18}+\tfrac{1}{600}-\tfrac{1}{35280}+\cdots \approx 0.94608$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>When you are asked to "use the series to find an approximation", show enough terms that the final answer is clearly correct to the required accuracy. State explicitly which term you are using as the "error bound" term, and verify that it is small enough. The alternating series estimation theorem guarantees that the error is less than the absolute value of the first neglected term, provided the terms are decreasing in modulus.</p>
+        </div>
+
+        <!-- ===================== PRACTICE ===================== -->
+        <h2 id="practice">Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>Show that $\dfrac{4}{(2r-1)(2r+3)} = \dfrac{1}{2r-1}-\dfrac{1}{2r+3}$, and hence find $\displaystyle\sum_{r=1}^{n}\frac{4}{(2r-1)(2r+3)}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    Partial fractions: $\frac{A}{2r-1}+\frac{B}{2r+3}$. Setting $r=\tfrac{1}{2}$: $4 = 4A\Rightarrow A=1$. Setting $r=-\tfrac{3}{2}$: $4=-4B\Rightarrow B=-1$. ✓<br>
+                    Telescoping (terms are $\tfrac{1}{1}-\tfrac{1}{5}+\tfrac{1}{3}-\tfrac{1}{7}+\cdots$). The groups of non-cancelling terms at start and end give:<br>
+                    $\sum = \frac{1}{1}+\frac{1}{3}-\frac{1}{2n+1}-\frac{1}{2n+3}$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>Find $\displaystyle\sum_{r=1}^{n}\frac{1}{r(r+2)}$ by first expressing the general term in partial fractions.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $\frac{1}{r(r+2)} = \frac{1}{2}\Bigl(\frac{1}{r}-\frac{1}{r+2}\Bigr)$.<br>
+                    The non-cancelling terms are $\frac{1}{2}\Bigl(1+\frac{1}{2}-\frac{1}{n+1}-\frac{1}{n+2}\Bigr) = \frac{3}{4}-\frac{1}{2(n+1)}-\frac{1}{2(n+2)}$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>Write down the Maclaurin series for $\cos(2x)$ up to and including the $x^6$ term, and state the range of validity.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    Replace $x$ with $2x$ in $\cos x = 1-\frac{x^2}{2}+\frac{x^4}{24}-\frac{x^6}{720}+\cdots$:<br>
+                    $\cos(2x) = 1 - \frac{(2x)^2}{2}+\frac{(2x)^4}{24}-\frac{(2x)^6}{720}+\cdots = 1-2x^2+\frac{2x^4}{3}-\frac{4x^6}{45}+\cdots$<br>
+                    Valid for all $x$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4</h4>
+            <p>Find the first four non-zero terms in the Maclaurin series for $\arcsin x$ by differentiating appropriately. State the range of validity.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $\frac{d}{dx}\arcsin x = (1-x^2)^{-1/2}$. Use binomial series:<br>
+                    $(1-x^2)^{-1/2} = 1+\frac{x^2}{2}+\frac{3x^4}{8}+\frac{5x^6}{16}+\cdots$<br>
+                    Integrate with $\arcsin 0 = 0$:<br>
+                    $\arcsin x = x+\frac{x^3}{6}+\frac{3x^5}{40}+\frac{5x^7}{112}+\cdots$, valid for $|x|\le1$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5</h4>
+            <p>Find the Maclaurin series for $e^x\cos x$ up to and including $x^4$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $e^x = 1+x+\frac{x^2}{2}+\frac{x^3}{6}+\frac{x^4}{24}+\cdots$, $\cos x = 1-\frac{x^2}{2}+\frac{x^4}{24}+\cdots$<br>
+                    Coefficient of $x^0$: $1$. Of $x^1$: $1$. Of $x^2$: $\frac{1}{2}-\frac{1}{2}=0$. Of $x^3$: $\frac{1}{6}-\frac{1}{2}=-\frac{1}{3}$. Of $x^4$: $\frac{1}{24}-\frac{1}{4}+\frac{1}{24}=-\frac{1}{6}$.<br>
+                    $e^x\cos x = 1+x-\frac{x^3}{3}-\frac{x^4}{6}+\cdots$
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6</h4>
+            <p>Use the Maclaurin series to find $\displaystyle\lim_{x\to 0}\frac{\cos x - 1 + \frac{1}{2}x^2}{x^4}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $\cos x = 1 - \frac{x^2}{2}+\frac{x^4}{24}-\cdots$<br>
+                    Numerator: $\cos x - 1 + \frac{x^2}{2} = \frac{x^4}{24}-\cdots$<br>
+                    $\frac{x^4/24}{x^4} \to \frac{1}{24}$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>Evaluate $\displaystyle\int_0^{0.2}\ln(1+x^2)\,dx$ using the first three terms of the appropriate Maclaurin series. Give your answer to 4 significant figures.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $\ln(1+x^2) = x^2 - \frac{x^4}{2}+\frac{x^6}{3}-\cdots$<br>
+                    $\int_0^{0.2}\approx\Bigl[\frac{x^3}{3}-\frac{x^5}{10}+\frac{x^7}{21}\Bigr]_0^{0.2}$<br>
+                    $=\frac{0.008}{3}-\frac{0.00032}{10}+\frac{0.0000128}{21}\approx0.002667-0.000032+0.0000006\approx0.002636$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8</h4>
+            <p>The Maclaurin series for $f(x) = (1+x)\ln(1+x)$ begins $x+\frac{x^2}{2}-\frac{x^2}{2}+\cdots$. Find the first four non-zero terms by multiplying the series for $\ln(1+x)$ by $(1+x)$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $\ln(1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\cdots$<br>
+                    $(1+x)\ln(1+x) = \ln(1+x)+x\ln(1+x)$<br>
+                    $= (x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\cdots) + (x^2-\frac{x^3}{2}+\frac{x^4}{3}-\cdots)$<br>
+                    $= x + \frac{x^2}{2} - \frac{x^3}{6} + \frac{x^4}{12} - \cdots$
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 9</h4>
+            <p>Find the sum to infinity of $\displaystyle\sum_{r=2}^{\infty}\frac{1}{r^2-1}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $\frac{1}{r^2-1}=\frac{1}{(r-1)(r+1)}=\frac{1}{2}\Bigl(\frac{1}{r-1}-\frac{1}{r+1}\Bigr)$.<br>
+                    Telescoping partial sum (non-cancelling terms at start): $\frac{1}{2}\Bigl(1+\frac{1}{2}-\frac{1}{n}-\frac{1}{n+1}\Bigr)$.<br>
+                    As $n\to\infty$: $\frac{1}{2}\cdot\frac{3}{2}=\frac{3}{4}$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 10</h4>
+            <p>By writing $\sin^2 x = \frac{1}{2}(1-\cos 2x)$, find the Maclaurin series for $\sin^2 x$ up to and including $x^6$, and verify the result by squaring the series for $\sin x$ directly.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    Method 1: $\cos(2x) = 1-2x^2+\frac{2x^4}{3}-\frac{4x^6}{45}+\cdots$ so $\sin^2 x = \frac{1}{2}(2x^2-\frac{2x^4}{3}+\frac{4x^6}{45}-\cdots) = x^2-\frac{x^4}{3}+\frac{2x^6}{45}-\cdots$<br>
+                    Method 2: $\sin x = x-\frac{x^3}{6}+\frac{x^5}{120}-\cdots$ Squaring: $x^2-\frac{x^4}{3}+(terms)$… the $x^6$ coefficient from $2(x)(\frac{x^5}{120})+(-\frac{x^3}{6})^2 = \frac{x^6}{60}+\frac{x^6}{36}=\frac{3x^6+5x^6}{180}=\frac{8x^6}{180}=\frac{2x^6}{45}$ ✓.
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <script>
+        // Figure 1: sin x with Maclaurin approximations
+        (function(){
+            var elt = document.getElementById('desmos-sinx');
+            var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true,
+                border: false
+            });
+            calc.setMathBounds({left: -7, right: 7, bottom: -2.5, top: 2.5});
+            calc.setExpressions([
+                {id: 's', latex: 'y=\\sin x', color: '#1e3a5f', lineWidth: 2.5},
+                {id: 'p1', latex: 'y=x', color: '#ef4444'},
+                {id: 'p3', latex: 'y=x-\\frac{x^3}{6}', color: '#f59e0b'},
+                {id: 'p5', latex: 'y=x-\\frac{x^3}{6}+\\frac{x^5}{120}', color: '#22c55e'},
+                {id: 'p7', latex: 'y=x-\\frac{x^3}{6}+\\frac{x^5}{120}-\\frac{x^7}{5040}', color: '#8b5cf6'}
+            ]);
+        })();
+
+        // Figure 2: ln(1+x) with series approximations and validity shading
+        (function(){
+            var elt = document.getElementById('desmos-lnx');
+            var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true,
+                border: false
+            });
+            calc.setMathBounds({left: -1.5, right: 2, bottom: -3, top: 2});
+            calc.setExpressions([
+                {id: 'shade', latex: '-3\\le y\\le 2\\left\\{-1\\le x\\le 1\\right\\}', color: '#22c55e', fillOpacity: '0.08'},
+                {id: 'f', latex: 'y=\\ln(1+x)', color: '#1e3a5f', lineWidth: 2.5},
+                {id: 'p1', latex: 'y=x', color: '#ef4444'},
+                {id: 'p2', latex: 'y=x-\\frac{x^2}{2}', color: '#f59e0b'},
+                {id: 'p3', latex: 'y=x-\\frac{x^2}{2}+\\frac{x^3}{3}', color: '#22c55e'},
+                {id: 'p4', latex: 'y=x-\\frac{x^2}{2}+\\frac{x^3}{3}-\\frac{x^4}{4}', color: '#8b5cf6'},
+                {id: 'p5', latex: 'y=x-\\frac{x^2}{2}+\\frac{x^3}{3}-\\frac{x^4}{4}+\\frac{x^5}{5}', color: '#ec4899'}
+            ]);
+        })();
+    </script>
+</body>
+</html>

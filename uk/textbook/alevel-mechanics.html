@@ -62,10 +62,11 @@
         };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 
     <link rel="stylesheet" href="../../assets/css/common.css">
     <style>
-        .blog-article { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
         .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
         .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
         .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; }
@@ -106,6 +107,8 @@
         .suvat-table { border-collapse: collapse; width: 100%; margin: 16px 0; }
         .suvat-table th, .suvat-table td { border: 1px solid #cbd5e1; padding: 10px 14px; text-align: left; color: #334155; }
         .suvat-table th { background: #e8f0fe; font-weight: 600; }
+        .desmos-fig { width: 100%; height: 260px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 20px 0 8px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; margin: 4px 0 24px; font-style: italic; }
     </style>
 </head>
 <body>
@@ -237,6 +240,36 @@
             <p><span class="step-label">Total distance</span> $= 24 + 72 + 18 + 2 = 116\,\text{m}$.</p>
         </div>
 
+        <div id="fig-mech1" class="desmos-fig"></div>
+        <p class="fig-caption">MECH·1 &mdash; Velocity-time graph for Worked Example 3.1. Green shaded areas are positive displacement (above axis); red area is negative displacement (below axis). Gradient of each segment gives acceleration; total area gives displacement.</p>
+        <script>(function(){
+            var OPT = {keypad:false, expressions:false, settingsMenu:false, zoomButtons:false, lockViewport:true, showGrid:false, showXAxis:true, showYAxis:true};
+            var c = Desmos.GraphingCalculator(document.getElementById('fig-mech1'), OPT);
+            c.setMathBounds({left:-0.8, right:15.5, bottom:-5.5, top:15.5});
+            // v-t graph segments (using x for t, y for v)
+            c.setExpression({id:'s1', latex:'3x\\left\\{0\\le x\\le4\\right\\}',                color:'#2563eb', lineWidth:3});
+            c.setExpression({id:'s2', latex:'12\\left\\{4\\le x\\le10\\right\\}',               color:'#2563eb', lineWidth:3});
+            c.setExpression({id:'s3', latex:'12-4\\left(x-10\\right)\\left\\{10\\le x\\le14\\right\\}', color:'#2563eb', lineWidth:3});
+            // Green shade: positive displacement areas
+            c.setExpression({id:'sh1', latex:'0\\le y\\le3x\\left\\{0\\le x\\le4\\right\\}',    color:'#16a34a', lineWidth:0, fillOpacity:0.32});
+            c.setExpression({id:'sh2', latex:'0\\le y\\le12\\left\\{4\\le x\\le10\\right\\}',   color:'#16a34a', lineWidth:0, fillOpacity:0.32});
+            c.setExpression({id:'sh3', latex:'0\\le y\\le12-4\\left(x-10\\right)\\left\\{10\\le x\\le13\\right\\}', color:'#16a34a', lineWidth:0, fillOpacity:0.32});
+            // Red shade: negative displacement (13 to 14 s)
+            c.setExpression({id:'sh4', latex:'12-4\\left(x-10\\right)\\le y\\le0\\left\\{13\\le x\\le14\\right\\}', color:'#dc2626', lineWidth:0, fillOpacity:0.45});
+            // Area labels
+            c.setExpression({id:'la1', latex:'(2,5.5)',   label:'+24 m', showLabel:true, color:'#16a34a', pointSize:0, pointOpacity:0});
+            c.setExpression({id:'la2', latex:'(7,5.5)',   label:'+72 m', showLabel:true, color:'#16a34a', pointSize:0, pointOpacity:0});
+            c.setExpression({id:'la3', latex:'(11.5,5.5)',label:'+18 m', showLabel:true, color:'#16a34a', pointSize:0, pointOpacity:0});
+            c.setExpression({id:'la4', latex:'(13.5,-2.5)',label:'−2 m', showLabel:true, color:'#dc2626', pointSize:0, pointOpacity:0});
+            // Axis markers
+            c.setExpression({id:'t4',  latex:'(4,0)',   label:'4',  showLabel:true, color:'#64748b', pointSize:5});
+            c.setExpression({id:'t10', latex:'(10,0)',  label:'10', showLabel:true, color:'#64748b', pointSize:5});
+            c.setExpression({id:'t13', latex:'(13,0)',  label:'13', showLabel:true, color:'#64748b', pointSize:5});
+            c.setExpression({id:'t14', latex:'(14,0)',  label:'14', showLabel:true, color:'#64748b', pointSize:5});
+            c.setExpression({id:'v12', latex:'(0,12)',  label:'12', showLabel:true, color:'#64748b', pointSize:5});
+            c.setExpression({id:'v0f', latex:'(0,0)',   label:'0',  showLabel:true, color:'#64748b', pointSize:4});
+        })();</script>
+
         <!-- ============================================================ -->
         <h2 id="section-4">4. Forces and Newton's Laws</h2>
 
@@ -356,6 +389,27 @@
             <p><strong>Vertical velocity:</strong> $v_y = u\sin\alpha - gt$</p>
             <p><strong>Speed at time $t$:</strong> $|v| = \sqrt{v_x^2 + v_y^2}$ where $v_x = u\cos\alpha$ (constant).</p>
         </div>
+
+        <div id="fig-mech2" class="desmos-fig"></div>
+        <p class="fig-caption">MECH·2 &mdash; Projectile trajectory for Worked Example 7.1: initial speed $20\,\text{m\,s}^{-1}$ at $35°$. The parabolic path has Cartesian equation $y = x\tan 35° - \tfrac{g}{2u^2\cos^2\!35°}\,x^2$. Maximum height $\approx 6.71\,\text{m}$ at $x \approx 19.2\,\text{m}$; range $\approx 38.3\,\text{m}$.</p>
+        <script>(function(){
+            var OPT = {keypad:false, expressions:false, settingsMenu:false, zoomButtons:false, lockViewport:true, showGrid:true, showXAxis:true, showYAxis:true};
+            var c = Desmos.GraphingCalculator(document.getElementById('fig-mech2'), OPT);
+            c.setMathBounds({left:-2.5, right:43, bottom:-1.5, top:10.5});
+            // y = x·tan35° - g/(2u²cos²35°)·x²  = 0.7002x - 0.01825x²  (valid for 0≤x≤38.33)
+            c.setExpression({id:'path', latex:'y=0.7002x-0.01825x^2\\left\\{0\\le x\\le38.33\\right\\}', color:'#2563eb', lineWidth:2.5});
+            // Velocity arrow at launch (schematic)
+            c.setExpression({id:'arr', latex:'(0,0)\\to(3.28,2.29)', color:'#16a34a', lineWidth:2.5});
+            c.setExpression({id:'ang', latex:'(0.8,0)', label:'35°', showLabel:true, color:'#16a34a', pointSize:0, pointOpacity:0});
+            // Key points
+            c.setExpression({id:'launch', latex:'(0,0)',      label:'launch',              showLabel:true, color:'#16a34a', pointSize:7});
+            c.setExpression({id:'apex',   latex:'(19.17,6.71)', label:'max ≈ 6.71 m',     showLabel:true, color:'#dc2626', pointSize:7});
+            c.setExpression({id:'land',   latex:'(38.33,0)',  label:'range ≈ 38.3 m',     showLabel:true, color:'#2563eb', pointSize:7});
+            // Dashed height line
+            c.setExpression({id:'ht', latex:'(19.17,0)\\to(19.17,6.71)', color:'#dc2626', lineWidth:1.5, lineStyle:'DASHED'});
+            // Axis tick
+            c.setExpression({id:'tx20', latex:'(20,0)', label:'20', showLabel:true, color:'#64748b', pointSize:4});
+        })();</script>
 
         <div class="example-box">
             <h4>Worked Example 7.1 &mdash; Full Projectile Analysis</h4>

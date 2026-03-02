@@ -110,7 +110,7 @@
         }
         .pdf-modal-overlay.active { display: flex; }
         .pdf-modal {
-            background: white; border-radius: 12px; width: 90%; max-width: 900px; height: 85vh;
+            background: white; border-radius: 12px; width: 96%; max-width: 1400px; height: 94vh;
             display: flex; flex-direction: column; overflow: hidden;
         }
         .pdf-modal-header {
@@ -138,7 +138,7 @@
         @media (max-width: 768px) {
             .grade-btn { font-size: 0.8em; padding: 10px 4px; }
             .textbook-grid { grid-template-columns: 1fr; }
-            .pdf-modal { width: 95%; height: 80vh; }
+            .pdf-modal { width: 99%; height: 92vh; }
         }
     </style>
 </head>
@@ -156,7 +156,7 @@
     </nav>
 
     <div class="exam-hero kr-theme">
-        <div class="breadcrumb"><a href="/">MathHub</a> &gt; <a href="../">Korea</a> &gt; 교재 답지</div>
+        <div class="breadcrumb"><a href="/">MathHub</a> &gt; <a href="/kr">Korea</a> &gt; 교재 답지</div>
         <h1>수학 교재 답지</h1>
         <p>인기 수학 교재의 정답 및 해설을 확인하세요</p>
     </div>
@@ -188,9 +188,10 @@
         <div style="background:#f8fafc; border-radius:12px; padding:24px; margin-top:20px;">
             <h3 style="color:#1e3a5f; margin-top:0;">이용 안내</h3>
             <ul style="color:#475569; line-height:1.8;">
-                <li>"답지 보기"를 클릭하면 출판사 공식 답지 PDF를 확인할 수 있습니다.</li>
-                <li>답지가 로딩되지 않을 경우 "공식 사이트에서 보기" 링크를 이용해 주세요.</li>
-                <li>최근 10년 이내 출판된 교재 답지를 제공합니다.</li>
+                <li>"답지 바로보기"를 누르면 PDF를 바로 확인할 수 있어요!</li>
+                <li>직접 저장하고 싶다면 "⬇ 다운로드" 버튼을 눌러주세요.</li>
+                <li>PDF가 열리지 않으면 "출판사 사이트↗" 버튼으로 출판사 사이트에서 확인해 보세요.</li>
+                <li>최신 교재 위주로 제공하고 있어요 (전년도 ~ 현재 연도 기준).</li>
             </ul>
         </div>
 
@@ -198,9 +199,9 @@
         <div style="margin-top:30px; padding:20px; background:white; border-radius:12px; box-shadow:0 1px 6px rgba(0,0,0,0.06);">
             <h3 style="color:#1e3a5f; margin-top:0;">관련 페이지</h3>
             <ul style="line-height:2;">
-                <li><a href="../exams/" style="color:#2563eb;">기출문제</a> &mdash; 수능/모의고사 기출문제 다운로드</li>
-                <li><a href="../books/" style="color:#2563eb;">문제집 추천</a> &mdash; 수준별 수학 문제집 구매</li>
-                <li><a href="../" style="color:#2563eb;">수학 블로그</a> &mdash; 수학 개념 정리 글</li>
+                <li><a href="/kr/exams" style="color:#2563eb;">기출문제</a> &mdash; 수능/모의고사 기출문제 다운로드</li>
+                <li><a href="/kr/books" style="color:#2563eb;">문제집 추천</a> &mdash; 수준별 수학 문제집 구매</li>
+                <li><a href="/kr" style="color:#2563eb;">수학 블로그</a> &mdash; 수학 개념 정리 글</li>
             </ul>
         </div>
     </div>
@@ -231,6 +232,17 @@
 
     var TEXTBOOKS = [
         {
+            id: 'ssen-common-math1',
+            name: '쎈 공통수학 1',
+            publisher: '좋은책신사고',
+            description: '2022 개정 교육과정 반영! 내신이랑 수능, 두 마리 토끼를 한 번에 잡을 수 있는 공통수학 1 기본서예요. 유형별 체계적 문제 분류로 실력을 단계별로 쌓을 수 있어요 :)',
+            officialUrl: 'https://www.sinsago.co.kr/',
+            pdfUrl: '/kr/answers/pdfs/ssen-common-math1-2025.pdf',
+            grades: ['h1'],
+            semesters: ['1'],
+            years: [2025]
+        },
+        {
             id: 'ssen',
             name: '쎈 수학',
             publisher: '좋은책신사고',
@@ -238,7 +250,7 @@
             officialUrl: 'https://www.sinsago.co.kr/',
             grades: ['m1','m2','m3','h1','h2','h3'],
             semesters: ['1','2'],
-            years: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+            years: [2026]
         },
         {
             id: 'gaenyeomwonri',
@@ -248,7 +260,84 @@
             officialUrl: 'https://www.imath.tv/',
             grades: ['h1','h2','h3'],
             semesters: ['1','2'],
-            years: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+            years: [2026]
+        },
+        {
+            id: 'gaenyeomwonri-mieokbun-2026',
+            name: '개념원리 미적분',
+            publisher: '개념원리',
+            description: '2022 개정 교육과정 미적분! 극한·미분·적분 개념을 차근차근 쌓아가는 개념원리 미적분 해설집이에요 :)',
+            officialUrl: 'https://www.imath.tv/',
+            pdfUrl: '/kr/answers/pdfs/gaenyeomwonri-mieokbun-2026.pdf',
+            grades: ['h2','h3'],
+            semesters: ['1','2'],
+            years: [2026]
+        },
+        {
+            id: 'ssen-gongtong1-2026',
+            name: '쎈 공통수학 1',
+            publisher: '좋은책신사고',
+            description: '2022 개정 공통수학 1 해설집! 유형별 체계적 문제 분류로 내신과 수능을 한 번에 대비해요 :)',
+            officialUrl: 'https://www.sinsago.co.kr/',
+            pdfUrl: '/kr/answers/pdfs/ssen-gongtong1-2026.pdf',
+            grades: ['h1'],
+            semesters: ['1'],
+            years: [2026]
+        },
+        {
+            id: 'gaenyeomwonri-gongtong1-2026',
+            name: '개념원리 공통수학 1',
+            publisher: '개념원리',
+            description: '2022 개정 공통수학 1 해설집! 수학 개념을 기초부터 탄탄하게 다지는 개념원리예요 :)',
+            officialUrl: 'https://www.imath.tv/',
+            pdfUrl: '/kr/answers/pdfs/gaenyeomwonri-gongtong1-2026.pdf',
+            grades: ['h1'],
+            semesters: ['1'],
+            years: [2026]
+        },
+        {
+            id: 'gaenyeomwonri-gongtong2-2026',
+            name: '개념원리 공통수학 2',
+            publisher: '개념원리',
+            description: '2022 개정 공통수학 2 해설집! 수학 개념을 기초부터 탄탄하게 다지는 개념원리예요 :)',
+            officialUrl: 'https://www.imath.tv/',
+            pdfUrl: '/kr/answers/pdfs/gaenyeomwonri-gongtong2-2026.pdf',
+            grades: ['h1'],
+            semesters: ['2'],
+            years: [2026]
+        },
+        {
+            id: 'blacklabel-gongtong1-2026',
+            name: '블랙라벨 공통수학 1',
+            publisher: '진학사',
+            description: '2022 개정 공통수학 1 해설집! 상위권을 위한 고난도 심화 문제를 꼼꼼하게 풀어드려요 :)',
+            officialUrl: 'https://www.jinhak.com/',
+            pdfUrl: '/kr/answers/pdfs/blacklabel-gongtong1-2026.pdf',
+            grades: ['h1'],
+            semesters: ['1'],
+            years: [2026]
+        },
+        {
+            id: 'blacklabel-mieokbun1-2026',
+            name: '블랙라벨 미적분 1',
+            publisher: '진학사',
+            description: '2022 개정 미적분 1 해설집! 상위권을 향한 고난도 심화 문제를 꼼꼼하게 풀어드려요 :)',
+            officialUrl: 'https://www.jinhak.com/',
+            pdfUrl: '/kr/answers/pdfs/blacklabel-mieokbun1-2026.pdf',
+            grades: ['h2','h3'],
+            semesters: ['1','2'],
+            years: [2026]
+        },
+        {
+            id: 'rpm-daesu-2026',
+            name: 'RPM 대수',
+            publisher: '개념원리',
+            description: '2022 개정 대수 해설집! 유형별 반복 학습으로 대수 실력을 탄탄하게 쌓아요 :)',
+            officialUrl: 'https://www.imath.tv/',
+            pdfUrl: '/kr/answers/pdfs/rpm-daesu-2026.pdf',
+            grades: ['h2'],
+            semesters: ['1','2'],
+            years: [2026]
         },
         {
             id: 'rpm',
@@ -258,18 +347,9 @@
             officialUrl: 'https://www.imath.tv/',
             grades: ['m1','m2','m3','h1','h2','h3'],
             semesters: ['1','2'],
-            years: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+            years: [2026]
         },
-        {
-            id: 'jungseok',
-            name: '수학의 정석',
-            publisher: '성지출판',
-            description: '대한민국 수학 교재의 전설, 기본/실력 두 단계 구성',
-            officialUrl: 'https://www.sungjipub.com/',
-            grades: ['h1','h2','h3'],
-            semesters: ['1','2'],
-            years: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
-        },
+
         {
             id: 'blacklabel',
             name: '블랙라벨',
@@ -278,7 +358,7 @@
             officialUrl: 'https://www.jinhak.com/',
             grades: ['m1','m2','m3','h1','h2','h3'],
             semesters: ['1','2'],
-            years: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+            years: [2026]
         },
         {
             id: 'maple',
@@ -288,7 +368,7 @@
             officialUrl: 'https://www.maplemath.co.kr/',
             grades: ['h1','h2','h3'],
             semesters: ['1','2'],
-            years: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+            years: [2026]
         },
         {
             id: 'bible',
@@ -298,7 +378,7 @@
             officialUrl: 'https://book.etoos.com/',
             grades: ['h1','h2','h3'],
             semesters: ['1','2'],
-            years: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+            years: [2026]
         },
         {
             id: 'ilpum',
@@ -308,7 +388,7 @@
             officialUrl: 'https://www.sinsago.co.kr/',
             grades: ['h1','h2','h3'],
             semesters: ['1','2'],
-            years: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+            years: [2026]
         },
         {
             id: 'zistory',
@@ -318,7 +398,7 @@
             officialUrl: 'https://www.sookyung.co.kr/',
             grades: ['m1','m2','m3','h1','h2','h3'],
             semesters: ['1','2'],
-            years: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+            years: [2026]
         },
         {
             id: 'ebs',
@@ -328,7 +408,7 @@
             officialUrl: 'https://www.ebs.co.kr/',
             grades: ['h3'],
             semesters: ['1','2'],
-            years: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+            years: [2026]
         },
         {
             id: 'visang-gaenyeom',
@@ -338,7 +418,7 @@
             officialUrl: 'https://www.visang.com/',
             grades: ['m1','m2','m3','h1','h2','h3'],
             semesters: ['1','2'],
-            years: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+            years: [2026]
         },
         {
             id: 'visang-yuhyeong',
@@ -348,7 +428,7 @@
             officialUrl: 'https://www.visang.com/',
             grades: ['m1','m2','m3','h1','h2','h3'],
             semesters: ['1','2'],
-            years: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+            years: [2026]
         },
         {
             id: 'a-grade',
@@ -358,7 +438,7 @@
             officialUrl: 'https://www.didimdol.co.kr/',
             grades: ['m1','m2','m3'],
             semesters: ['1','2'],
-            years: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+            years: [2026]
         },
         {
             id: 'kmo-bible-algebra',
@@ -368,7 +448,7 @@
             officialUrl: 'https://www.sehwabook.com/',
             grades: ['m1','m2','m3','h1','h2'],
             semesters: ['1','2'],
-            years: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+            years: [2026]
         },
         {
             id: 'kmo-bible-combinatorics',
@@ -378,7 +458,7 @@
             officialUrl: 'https://www.sehwabook.com/',
             grades: ['m1','m2','m3','h1','h2'],
             semesters: ['1','2'],
-            years: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+            years: [2026]
         },
         {
             id: 'kmo-bible-number-theory',
@@ -388,7 +468,7 @@
             officialUrl: 'https://www.sehwabook.com/',
             grades: ['m1','m2','m3','h1','h2'],
             semesters: ['1','2'],
-            years: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+            years: [2026]
         },
         {
             id: 'kmo-bible-geometry',
@@ -398,7 +478,7 @@
             officialUrl: 'https://www.sehwabook.com/',
             grades: ['m1','m2','m3','h1','h2'],
             semesters: ['1','2'],
-            years: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+            years: [2026]
         }
     ];
 
@@ -425,9 +505,9 @@
             return t.grades.indexOf(selectedGrade) !== -1 && t.semesters.indexOf(selectedSemester) !== -1;
         });
 
-        // 3-year rolling filter
+        // 1-year rolling filter (serve current and previous year)
         filtered = filtered.filter(function(t) {
-            return t.years.some(function(y) { return y >= currentYear - 9 && y <= currentYear; });
+            return t.years.some(function(y) { return y >= currentYear - 1 && y <= currentYear; });
         });
 
         if (filtered.length === 0) {
@@ -437,17 +517,24 @@
 
         var html = '';
         filtered.forEach(function(t) {
-            html += '<div class="textbook-card" onclick="openPdfModal(\'' + t.name + '\', \'' + t.officialUrl + '\')">';
+            var pdfUrl = t.pdfUrl || '';
+            var yearBadge = t.years && t.years.length === 1 ? '<span class="year-badge">' + t.years[0] + '</span>' : '';
+            html += '<div class="textbook-card" onclick="openPdfModal(\'' + t.name + '\', \'' + t.officialUrl + '\', \'' + pdfUrl + '\')">';
             html += '<div class="card-accent"></div>';
             html += '<div class="textbook-card-body">';
             html += '<div class="card-top">';
-            html += '<h3>' + t.name + '</h3>';
+            html += '<h3>' + t.name + yearBadge + '</h3>';
             html += '<span class="publisher-badge">' + t.publisher + '</span>';
             html += '</div>';
             html += '<p class="description">' + t.description + '</p>';
             html += '<div class="card-actions">';
-            html += '<button class="btn-view-answer" onclick="event.stopPropagation(); openPdfModal(\'' + t.name + '\', \'' + t.officialUrl + '\')">&#x1F4C4; 답지 보기</button>';
-            html += '<a href="' + t.officialUrl + '" target="_blank" class="btn-official-link" onclick="event.stopPropagation()">공식↗</a>';
+            if (pdfUrl) {
+                html += '<button class="btn-view-answer" onclick="event.stopPropagation(); openPdfModal(\'' + t.name + '\', \'' + t.officialUrl + '\', \'' + pdfUrl + '\')">&#x1F4C4; 답지 바로보기</button>';
+                html += '<a href="' + pdfUrl + '" download class="btn-official-link" onclick="event.stopPropagation()">⬇ 다운로드</a>';
+            } else {
+                html += '<button class="btn-view-answer" onclick="event.stopPropagation(); openPdfModal(\'' + t.name + '\', \'' + t.officialUrl + '\', \'\')">&#x1F4C4; 답지 보기</button>';
+                html += '<a href="' + t.officialUrl + '" target="_blank" class="btn-official-link" onclick="event.stopPropagation()">출판사 사이트↗</a>';
+            }
             html += '</div>';
             html += '</div>';
             html += '</div>';
@@ -455,14 +542,19 @@
         grid.innerHTML = html;
     }
 
-    function openPdfModal(name, officialUrl) {
+    function openPdfModal(name, officialUrl, pdfUrl) {
         var modal = document.getElementById('pdfModal');
         document.getElementById('pdfModalTitle').textContent = name + ' 답지';
         document.getElementById('pdfFallbackLink').href = officialUrl;
 
-        // Show fallback with official link since we don't have actual PDF URLs yet
-        document.getElementById('pdfFrame').style.display = 'none';
-        document.getElementById('pdfFallback').style.display = 'block';
+        if (pdfUrl) {
+            document.getElementById('pdfFrame').src = pdfUrl;
+            document.getElementById('pdfFrame').style.display = 'block';
+            document.getElementById('pdfFallback').style.display = 'none';
+        } else {
+            document.getElementById('pdfFrame').style.display = 'none';
+            document.getElementById('pdfFallback').style.display = 'block';
+        }
 
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';

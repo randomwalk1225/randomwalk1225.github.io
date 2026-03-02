@@ -52,13 +52,14 @@
         };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 
     <link rel="stylesheet" href="../../assets/css/common.css">
     <style>
         .blog-article {
-            max-width: 800px;
+            max-width: 980px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 40px 8px;
             font-family: Arial, sans-serif;
             font-size: 1.02em;
             line-height: 1.8;
@@ -134,6 +135,10 @@
         .graph-container { text-align: center; margin: 24px 0; }
         .graph-container svg { max-width: 100%; }
         .graph-caption { font-size: 0.9em; color: #64748b; margin-top: 8px; font-style: italic; }
+        .desmos-wrap { margin: 24px 0; background: #f8fafc; border-radius: 12px; padding: 4px; border: 1px solid #e2e8f0; }
+        .desmos-caption { font-size: 0.88em; color: #475569; margin-bottom: 8px; font-style: italic; }
+        .fig-label { text-align: center; font-size: 0.82em; color: #64748b; margin-top: 6px; margin-bottom: 4px; font-weight: 600; letter-spacing: 0.03em; }
+        .fig-code { display: inline-block; background: #f1f5f9; color: #64748b; font-style: normal; font-weight: 700; font-size: 0.78em; padding: 1px 7px; border-radius: 4px; margin-right: 8px; font-family: 'Courier New', monospace; letter-spacing: 0.5px; border: 1px solid #e2e8f0; }
 
         .compare-grid {
             display: grid;
@@ -281,29 +286,11 @@
             <strong>T</strong>an = <strong>O</strong>pposé / <strong>A</strong>djacent</p>
         </div>
 
-        <!-- SVG right triangle -->
-        <div class="graph-container">
-            <svg viewBox="0 0 360 240" width="360" height="240" aria-label="Triangle rectangle annoté">
-                <!-- Triangle -->
-                <polygon points="40,200 300,200 300,40" fill="#e0f2fe" stroke="#1e3a5f" stroke-width="2"/>
-                <!-- Right angle marker -->
-                <polyline points="280,200 280,180 300,180" fill="none" stroke="#1e3a5f" stroke-width="2"/>
-                <!-- Angle theta arc -->
-                <path d="M 70,200 A 30,30 0 0,0 55.6,179.4" fill="none" stroke="#1d4ed8" stroke-width="2"/>
-                <!-- Labels -->
-                <text x="55" y="215" font-size="14" fill="#1d4ed8" font-style="italic">&#x03B8;</text>
-                <!-- Hypotenuse label -->
-                <text x="150" y="108" font-size="13" fill="#7e22ce" font-weight="bold" transform="rotate(-37,150,108)">hypoténuse</text>
-                <!-- Opposite label (vertical side) -->
-                <text x="308" y="130" font-size="13" fill="#dc2626" font-weight="bold">opposé</text>
-                <!-- Adjacent label (horizontal side) -->
-                <text x="145" y="220" font-size="13" fill="#166534" font-weight="bold">adjacent</text>
-                <!-- Vertices -->
-                <circle cx="40" cy="200" r="3" fill="#1e3a5f"/>
-                <circle cx="300" cy="200" r="3" fill="#1e3a5f"/>
-                <circle cx="300" cy="40" r="3" fill="#1e3a5f"/>
-            </svg>
-            <p class="graph-caption">Triangle rectangle avec angle $\theta$ à gauche — les trois côtés sont identifiés par rapport à $\theta$.</p>
+        <!-- Desmos : cercle trigonométrique avec curseur θ -->
+        <div class="desmos-wrap" id="fig-1">
+            <p class="desmos-caption">Déplacez le curseur <strong>θ</strong> pour voir le point $(\cos\theta, \sin\theta)$ sur le cercle unité et visualiser les rapports trigonométriques. La ligne rouge montre le côté opposé ($\sin\theta$) et la ligne verte le côté adjacent ($\cos\theta$).</p>
+            <div id="desmos-triangle" style="width:100%;max-width:630px;height:630px;border-radius:8px;display:block;margin:0 auto;"></div>
+            <p class="fig-label"><span class="fig-code">TRIG·1</span>Figure 1 — Cercle unité et rapports trigonométriques</p>
         </div>
 
         <h3>Angles particuliers — Valeurs exactes</h3>
@@ -434,53 +421,11 @@
             <p>Ainsi : $\cos\theta = x$-coordonnée du point $P$ &nbsp;&nbsp;&nbsp; $\sin\theta = y$-coordonnée du point $P$</p>
         </div>
 
-        <!-- SVG unit circle -->
-        <div class="graph-container">
-            <svg viewBox="0 0 340 340" width="340" height="340" aria-label="Cercle trigonométrique avec quadrants et angles clés">
-                <!-- Axes -->
-                <line x1="20" y1="170" x2="320" y2="170" stroke="#94a3b8" stroke-width="1.5"/>
-                <line x1="170" y1="20" x2="170" y2="320" stroke="#94a3b8" stroke-width="1.5"/>
-                <!-- Circle -->
-                <circle cx="170" cy="170" r="130" fill="none" stroke="#1e3a5f" stroke-width="2"/>
-                <!-- Quadrant labels -->
-                <text x="220" y="100" font-size="15" fill="#166534" font-weight="bold">Q I</text>
-                <text x="100" y="100" font-size="15" fill="#1d4ed8" font-weight="bold">Q II</text>
-                <text x="100" y="250" font-size="15" fill="#dc2626" font-weight="bold">Q III</text>
-                <text x="215" y="250" font-size="15" fill="#7e22ce" font-weight="bold">Q IV</text>
-                <!-- Key points on circle -->
-                <circle cx="300" cy="170" r="4" fill="#1e3a5f"/>
-                <text x="306" y="165" font-size="11" fill="#1e3a5f">0°</text>
-                <circle cx="170" cy="40" r="4" fill="#1e3a5f"/>
-                <text x="175" y="36" font-size="11" fill="#1e3a5f">90°</text>
-                <circle cx="40" cy="170" r="4" fill="#1e3a5f"/>
-                <text x="6" y="165" font-size="11" fill="#1e3a5f">180°</text>
-                <circle cx="170" cy="300" r="4" fill="#1e3a5f"/>
-                <text x="175" y="316" font-size="11" fill="#1e3a5f">270°</text>
-                <!-- 45° point -->
-                <circle cx="261.9" cy="78.1" r="3" fill="#7e22ce"/>
-                <text x="264" y="74" font-size="10" fill="#7e22ce">45°</text>
-                <!-- 135° point -->
-                <circle cx="78.1" cy="78.1" r="3" fill="#7e22ce"/>
-                <text x="52" y="74" font-size="10" fill="#7e22ce">135°</text>
-                <!-- 225° point -->
-                <circle cx="78.1" cy="261.9" r="3" fill="#7e22ce"/>
-                <text x="48" y="268" font-size="10" fill="#7e22ce">225°</text>
-                <!-- 315° point -->
-                <circle cx="261.9" cy="261.9" r="3" fill="#7e22ce"/>
-                <text x="264" y="268" font-size="10" fill="#7e22ce">315°</text>
-                <!-- Origin -->
-                <circle cx="170" cy="170" r="3" fill="#1e3a5f"/>
-                <text x="174" y="184" font-size="11" fill="#1e3a5f">O</text>
-                <!-- Radius label -->
-                <line x1="170" y1="170" x2="300" y2="170" stroke="#0ea5e9" stroke-width="1.5" stroke-dasharray="4,3"/>
-                <text x="225" y="165" font-size="11" fill="#0ea5e9">r = 1</text>
-                <!-- cos/sin labels -->
-                <text x="28" y="188" font-size="10" fill="#334155">(-1, 0)</text>
-                <text x="296" y="188" font-size="10" fill="#334155">(1, 0)</text>
-                <text x="174" y="56" font-size="10" fill="#334155">(0, 1)</text>
-                <text x="160" y="320" font-size="10" fill="#334155">(0,-1)</text>
-            </svg>
-            <p class="graph-caption">Cercle trigonométrique (rayon = 1) avec les quatre quadrants et les angles clés. Le point sur le cercle a pour coordonnées $(\cos\theta, \sin\theta)$.</p>
+        <!-- Desmos : cercle unité interactif avec curseur θ -->
+        <div class="desmos-wrap" id="fig-2">
+            <p class="desmos-caption">Triangle rectangle — ajustez <strong>r</strong> (hypoténuse) et <strong>θ</strong> (angle). La base vaut $r\cos\theta$, la hauteur $r\sin\theta$. Le sommet de l'angle est à $(0,0)$ ; le bout de l'hypoténuse est en $(r\cos\theta,\, r\sin\theta)$.</p>
+            <div id="desmos-cercle" style="width:100%;max-width:630px;height:630px;border-radius:8px;display:block;margin:0 auto;"></div>
+            <p class="fig-label"><span class="fig-code">TRIG·2</span>Figure 2 — Triangle rectangle et rapports trigonométriques</p>
         </div>
 
         <h3>Règle ASTC — Signe des fonctions par quadrant</h3>
@@ -669,9 +614,15 @@
 
         <div class="theorem-box">
             <h4>&#x2728; Loi des sinus</h4>
-            <p>Dans un triangle $ABC$ où $a$, $b$, $c$ sont les côtés opposés respectivement aux angles $A$, $B$, $C$ :</p>
-            $$\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}$$
+            <p>Dans un triangle $ABC$ où $a$, $b$, $c$ sont les côtés opposés respectivement aux angles $A$, $B$, $C$, et $R$ est le rayon de l'<strong>cercle circonscrit</strong> :</p>
+            $$\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} = 2R$$
             <p style="margin-bottom:0;">Cette loi est aussi valide sous la forme inverse : $\dfrac{\sin A}{a} = \dfrac{\sin B}{b} = \dfrac{\sin C}{c}$</p>
+        </div>
+
+        <div class="desmos-wrap" id="fig-3">
+            <p class="desmos-caption">Loi des sinus — ajustez les angles <strong>A</strong>, <strong>B</strong> et le côté <strong>a</strong>. Le triangle $ABC$ se met à jour en temps réel, avec ses côtés $a$, $b$, $c$ et le cercle circonscrit de rayon $R = \dfrac{a}{2\sin A}$.</p>
+            <div id="desmos-sinus" style="width:100%;max-width:630px;height:630px;border-radius:8px;display:block;margin:0 auto;"></div>
+            <p class="fig-label"><span class="fig-code">TRIG·3</span>Figure 3 — Loi des sinus et cercle circonscrit</p>
         </div>
 
         <div class="compare-grid">
@@ -790,6 +741,12 @@
             $$a^2 = b^2 + c^2 - 2bc\cos A \qquad b^2 = a^2 + c^2 - 2ac\cos B$$
             <p style="margin-bottom:0;">Pour trouver un angle connaissant les trois côtés :</p>
             $$\cos C = \frac{a^2 + b^2 - c^2}{2ab} \qquad \cos A = \frac{b^2 + c^2 - a^2}{2bc} \qquad \cos B = \frac{a^2 + c^2 - b^2}{2ac}$$
+        </div>
+
+        <div class="desmos-wrap" id="fig-4">
+            <p class="desmos-caption">Loi des cosinus — ajustez les côtés <strong>b</strong> (AC), <strong>c</strong> (AB) et l'angle <strong>A</strong> entre eux (cas SAS). Le côté opposé $a = \sqrt{b^2+c^2-2bc\cos A}$ se recalcule en temps réel.</p>
+            <div id="desmos-cosinus" style="width:100%;max-width:630px;height:630px;border-radius:8px;display:block;margin:0 auto;"></div>
+            <p class="fig-label"><span class="fig-code">TRIG·4</span>Figure 4 — Loi des cosinus</p>
         </div>
 
         <div class="tip-box">
@@ -992,5 +949,309 @@
     <footer style="text-align:center; padding:30px 20px; color:#64748b; font-size:0.88em; border-top:1px solid #e2e8f0; margin-top:40px;">
         &copy; 2026 MathHub Global &mdash; Contenu éducatif gratuit pour le secondaire québécois.
     </footer>
+
+    <script>
+    // ── Graphique 1 : Cercle unité — rapports trigonométriques ───────────────
+    (function() {
+        var elt = document.getElementById('desmos-triangle');
+        if (!elt) return;
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            keypad: false, lockViewport: false, aspectRatio: 1
+        });
+        // Bounds carrés identiques sur x et y → cercle parfait
+        calc.setMathBounds({ left: -1.6, right: 1.6, bottom: -1.6, top: 1.6 });
+
+        // Curseur θ (0 → 2π, tous les quadrants)
+        calc.setExpression({ id: 'theta', latex: '\\theta=0.9', sliderBounds: { min: 0, max: 6.2832, step: 0.01 } });
+
+        // Cercle unité x²+y²=1
+        calc.setExpression({ id: 'circle', latex: 'x^2+y^2=1', color: '#1e3a5f', lineWidth: 2 });
+
+        // Rayon (segment de l'origine au point) — polygon fonctionne dans tous les quadrants
+        calc.setExpression({ id: 'radius', latex: '\\polygon((0,0),(\\cos(\\theta),\\sin(\\theta)))', color: '#2563eb', lineWidth: 2.5 });
+
+        // Côté adjacent : segment (0,0) → (cosθ, 0) — vert
+        calc.setExpression({ id: 'adj', latex: '\\polygon((0,0),(\\cos(\\theta),0))', color: '#166534', lineWidth: 2.5 });
+
+        // Côté opposé : segment (cosθ, 0) → (cosθ, sinθ) — rouge
+        calc.setExpression({ id: 'opp', latex: '\\polygon((\\cos(\\theta),0),(\\cos(\\theta),\\sin(\\theta)))', color: '#dc2626', lineWidth: 2.5 });
+
+        // Point mobile sur le cercle
+        calc.setExpression({ id: 'pt', latex: '(\\cos(\\theta),\\sin(\\theta))', color: '#f59e0b', pointSize: 15 });
+
+        // Label du point : coordonnées dynamiques
+        calc.setExpression({ id: 'ptLabel', latex: '(\\cos(\\theta),\\sin(\\theta))',
+            label: 'x=cosθ, y=sinθ', showLabel: true, color: '#f59e0b', labelSize: Desmos.LabelSizes.MEDIUM });
+
+        // 4 points cardinaux avec coordonnées
+        calc.setExpression({ id: 'c1', latex: '(1,0)',   label: '(1, 0)',   showLabel: true, color: '#475569', pointSize: 10, labelOrientation: Desmos.LabelOrientations.RIGHT });
+        calc.setExpression({ id: 'c2', latex: '(0,1)',   label: '(0, 1)',   showLabel: true, color: '#475569', pointSize: 10, labelOrientation: Desmos.LabelOrientations.ABOVE });
+        calc.setExpression({ id: 'c3', latex: '(-1,0)',  label: '(-1, 0)',  showLabel: true, color: '#475569', pointSize: 10, labelOrientation: Desmos.LabelOrientations.LEFT });
+        calc.setExpression({ id: 'c4', latex: '(0,-1)',  label: '(0, -1)', showLabel: true, color: '#475569', pointSize: 10, labelOrientation: Desmos.LabelOrientations.BELOW });
+
+        // Texte fixe dans le coin — pointSize:0 masque le point, showLabel affiche le texte
+        calc.setExpression({ id: 'txt1', latex: '(-1.55, 1.42)', label: 'x = cos θ', showLabel: true, color: '#166534', pointSize: 0 });
+        calc.setExpression({ id: 'txt2', latex: '(-1.55, 1.22)', label: 'y = sin θ',  showLabel: true, color: '#dc2626', pointSize: 0 });
+    })();
+
+    // ── Graphique 2 : Triangle rectangle avec cercle — x=r·cosθ, y=r·sinθ ──
+    // Point P draggable sur le cercle à la souris
+    (function() {
+        var elt = document.getElementById('desmos-cercle');
+        if (!elt) return;
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            keypad: false, lockViewport: true   // verrou : le drag ne scrolle pas
+        });
+        calc.setMathBounds({ left: -4.5, right: 4.5, bottom: -4.5, top: 4.5 });
+
+        // Curseurs — variable "q" (neutre, évite tout conflit avec variables réservées Desmos)
+        calc.setExpression({ id: 'sr2', latex: 'r=2.5', sliderBounds: { min: 0.5, max: 3.5, step: 0.1 } });
+        calc.setExpression({ id: 'sq2', latex: 'q=0.7', sliderBounds: { min: 0, max: 6.283, step: 0.001 } });
+
+        // Coordonnées du point P
+        calc.setExpression({ id: 'P2x', latex: 'P_{2x}=r\\cos\\left(q\\right)' });
+        calc.setExpression({ id: 'P2y', latex: 'P_{2y}=r\\sin\\left(q\\right)' });
+
+        // Cercle de rayon r (pointillé gris) — le point P se déplace dessus
+        calc.setExpression({ id: 'circle2', latex: 'x^2+y^2=r^2', color: '#94a3b8', lineWidth: 1.5, lineStyle: Desmos.Styles.DASHED });
+
+        // Triangle : hypoténuse (bleu), composante x (vert), composante y (rouge)
+        calc.setExpression({ id: 'hyp2', latex: '\\polygon\\left((0,0),(P_{2x},P_{2y})\\right)', color: '#2563eb', lineWidth: 3 });
+        calc.setExpression({ id: 'adj2', latex: '\\polygon\\left((0,0),(P_{2x},0)\\right)',       color: '#059669', lineWidth: 3 });
+        calc.setExpression({ id: 'opp2', latex: '\\polygon\\left((P_{2x},0),(P_{2x},P_{2y})\\right)', color: '#dc2626', lineWidth: 3 });
+
+        // Pointillé vers l'axe y (pour montrer la hauteur y sur l'axe)
+        calc.setExpression({ id: 'proj_y', latex: '\\polygon\\left((P_{2x},P_{2y}),(0,P_{2y})\\right)', color: '#059669', lineWidth: 1, lineStyle: Desmos.Styles.DASHED });
+
+        // === Arc de l'angle : canvas HTML transparent superposé ===
+        // Desmos ne re-rend pas fiablement les arcs paramétriques via setExpression.
+        // Solution : canvas transparent positionné en absolu sur l'élément Desmos.
+        var arcCanvas = document.createElement('canvas');
+        arcCanvas.style.cssText = 'position:absolute;top:0;left:0;pointer-events:none;z-index:2';
+        elt.style.position = 'relative';
+        elt.appendChild(arcCanvas);
+
+        function drawArc(q) {
+            var w = elt.offsetWidth, h = elt.offsetHeight;
+            if (w <= 0 || h <= 0) return;
+            arcCanvas.width = w; arcCanvas.height = h;
+            var ctx = arcCanvas.getContext('2d');
+            ctx.clearRect(0, 0, w, h);
+            if (!isFinite(q) || q <= 0) return;
+            // Convertir math(0,0) → pixels via pixelsToMath aux coins
+            var tl = calc.pixelsToMath({x: 0, y: 0});
+            var br = calc.pixelsToMath({x: w, y: h});
+            var ppu = w / (br.x - tl.x);                    // pixels par unité math
+            var ox  = (0 - tl.x) / (br.x - tl.x) * w;     // pixel x de l'origine
+            var oy  = (tl.y - 0) / (tl.y - br.y) * h;     // pixel y de l'origine
+            var arcR = 0.55 * ppu;
+            // Canvas : y vers le bas → angle canvas = –angle math (trigonométrique)
+            ctx.beginPath();
+            ctx.arc(ox, oy, arcR, 0, -q, true);  // anticlockwise=true → sens trigo
+            ctx.strokeStyle = '#f59e0b'; ctx.lineWidth = 3; ctx.lineCap = 'round';
+            ctx.stroke();
+            // Point terminal de l'arc
+            ctx.beginPath();
+            ctx.arc(ox + arcR * Math.cos(q), oy - arcR * Math.sin(q), 4.5, 0, 2 * Math.PI);
+            ctx.fillStyle = '#f59e0b'; ctx.fill();
+        }
+        drawArc(0.7);
+
+        // Point P (grand point bleu, sur le cercle)
+        calc.setExpression({ id: 'ptP2', latex: '(P_{2x},P_{2y})', color: '#2563eb', pointSize: 20, showLabel: false });
+
+        // Origine O
+        calc.setExpression({ id: 'ptO2', latex: '(0,0)', label: 'O', showLabel: true, color: '#1e3a5f', pointSize: 10 });
+
+        // Pied de perpendiculaire (sans point visible)
+        calc.setExpression({ id: 'ptB2', latex: '(P_{2x},0)', showLabel: false, color: '#475569', pointSize: 0 });
+
+        // ── Étiquettes positionnées sur les côtés du triangle ──
+        // r : perpendiculaire à l'hypoténuse (côté gauche du vecteur O→P)
+        calc.setExpression({ id: 'lr2',
+            latex: '(P_{2x}/2-0.45\\sin\\left(q\\right), P_{2y}/2+0.45\\cos\\left(q\\right))',
+            label: 'r', showLabel: true, color: '#2563eb', pointSize: 0 });
+
+        // r cosθ : centré sous la base horizontale (juste en dessous de y=0)
+        calc.setExpression({ id: 'ladj2',
+            latex: '(P_{2x}/2, -0.45)',
+            label: 'r cosθ', showLabel: true, color: '#059669', pointSize: 0 });
+
+        // r sinθ : centré sur la hauteur verticale (à droite du segment rouge)
+        calc.setExpression({ id: 'lopp2',
+            latex: '(P_{2x}+0.55, P_{2y}/2)',
+            label: 'r sinθ', showLabel: true, color: '#dc2626', pointSize: 0 });
+
+        // θ : au milieu de l'arc, juste au-delà du rayon 0.55
+        calc.setExpression({ id: 'ang2',
+            latex: '(0.9\\cos\\left(q/2\\right), 0.9\\sin\\left(q/2\\right))',
+            label: 'θ', showLabel: true, color: '#f59e0b', pointSize: 0 });
+
+        // === Drag-to-rotate : glisser le point bleu sur le cercle ===
+        // Suivi des valeurs courantes pour détecter la proximité du point P
+        var curR = 2.5, curQ = 0.7;
+        var rH = calc.HelperExpression({ latex: 'r' });
+        rH.observe('numericValue', function() { if (isFinite(rH.numericValue)) curR = rH.numericValue; });
+        var qH = calc.HelperExpression({ latex: 'q' });
+        qH.observe('numericValue', function() {
+            if (isFinite(qH.numericValue)) { curQ = qH.numericValue; drawArc(curQ); }
+        });
+
+        var dragging = false;
+
+        function getMath(e) {
+            var rect = elt.getBoundingClientRect();
+            return calc.pixelsToMath({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+        }
+        function getAngle(e) {
+            var m = getMath(e);
+            var a = Math.atan2(m.y, m.x);
+            return a < 0 ? a + 2 * Math.PI : a;
+        }
+        function setQ(e) {
+            var a = getAngle(e).toFixed(4);
+            calc.setExpression({ id: 'sq2', latex: 'q=' + a, sliderBounds: { min: 0, max: 6.283, step: 0.001 } });
+            drawArc(parseFloat(a));   // mise à jour immédiate du canvas arc
+        }
+
+        // Attendre que Desmos ait fini de s'initialiser avant d'écouter
+        var ready = false;
+        setTimeout(function() { ready = true; }, 300);
+
+        elt.addEventListener('pointerdown', function(e) {
+            // Ignorer les événements synthétiques (init Desmos) et les clics loin du point P
+            if (!ready || !e.isTrusted) return;
+            var m = getMath(e);
+            var px = curR * Math.cos(curQ), py = curR * Math.sin(curQ);
+            var dist = Math.sqrt(Math.pow(m.x - px, 2) + Math.pow(m.y - py, 2));
+            if (dist > 1.0) return;   // seuil : 1 unité mathématique autour de P
+            dragging = true;
+            elt.setPointerCapture(e.pointerId);
+            setQ(e);
+        });
+        elt.addEventListener('pointermove', function(e) {
+            if (!dragging) return;
+            setQ(e);
+        });
+        elt.addEventListener('pointerup',     function() { dragging = false; });
+        elt.addEventListener('pointercancel', function() { dragging = false; });
+    })();
+
+    // ── Graphique 3 : Loi des sinus avec cercle circonscrit ──────────────────
+    // Triangle centré sur le cercle circonscrit (cercle centré à l'origine)
+    (function() {
+        var elt = document.getElementById('desmos-sinus');
+        if (!elt) return;
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            keypad: false, lockViewport: false
+        });
+        calc.setMathBounds({ left: -5.5, right: 5.5, bottom: -5.5, top: 5.5 });
+
+        // Sliders : angle A, angle B (en degrés), côté a
+        calc.setExpression({ id: 'A', latex: 'A=40', sliderBounds: { min: 20, max: 140, step: 1 } });
+        calc.setExpression({ id: 'B', latex: 'B=65', sliderBounds: { min: 20, max: 140, step: 1 } });
+        calc.setExpression({ id: 'a', latex: 'a=4',  sliderBounds: { min: 1, max: 7, step: 0.1 } });
+
+        // C = 180 - A - B (en degrés), convertis en radians pour le calcul
+        calc.setExpression({ id: 'Ar', latex: 'A_r = A \\cdot \\pi / 180' });
+        calc.setExpression({ id: 'Br', latex: 'B_r = B \\cdot \\pi / 180' });
+        calc.setExpression({ id: 'Cr', latex: 'C_r = \\pi - A_r - B_r' });
+
+        // Loi des sinus : b = a·sinB/sinA, c = a·sinC/sinA, R = a/(2sinA)
+        calc.setExpression({ id: 'b', latex: 'b = a \\cdot \\sin(B_r) / \\sin(A_r)' });
+        calc.setExpression({ id: 'c', latex: 'c = a \\cdot \\sin(C_r) / \\sin(A_r)' });
+        calc.setExpression({ id: 'R', latex: 'R = a / (2 \\cdot \\sin(A_r))' });
+
+        // Décalage pour centrer le cercle à l'origine
+        calc.setExpression({ id: 'Ox', latex: 'O_x = c / 2' });
+        calc.setExpression({ id: 'Oy', latex: 'O_y = \\sqrt{R^2 - (c/2)^2}' });
+
+        // Positions des sommets (centrés sur le cercle circonscrit)
+        calc.setExpression({ id: 'Ax', latex: 'A_x = -O_x' });
+        calc.setExpression({ id: 'Ay', latex: 'A_y = -O_y' });
+        calc.setExpression({ id: 'Bx', latex: 'B_x = c - O_x' });
+        calc.setExpression({ id: 'By', latex: 'B_y = -O_y' });
+        calc.setExpression({ id: 'Cx', latex: 'C_x = b \\cdot \\cos(A_r) - O_x' });
+        calc.setExpression({ id: 'Cy', latex: 'C_y = b \\cdot \\sin(A_r) - O_y' });
+
+        // Triangle ABC (polygon)
+        calc.setExpression({ id: 'tri', latex: '\\polygon((A_x,A_y),(B_x,B_y),(C_x,C_y))', color: '#1e3a5f', lineWidth: 2.5 });
+
+        // Cercle circonscrit centré à l'origine
+        calc.setExpression({ id: 'circ', latex: 'x^2+y^2=R^2', color: '#9333ea', lineWidth: 1.5, lineStyle: Desmos.Styles.DASHED });
+
+        // Sommets
+        calc.setExpression({ id: 'ptA', latex: '(A_x,A_y)', label: 'A', showLabel: true, color: '#dc2626', pointSize: 12 });
+        calc.setExpression({ id: 'ptB', latex: '(B_x,B_y)', label: 'B', showLabel: true, color: '#dc2626', pointSize: 12 });
+        calc.setExpression({ id: 'ptC', latex: '(C_x,C_y)', label: 'C', showLabel: true, color: '#dc2626', pointSize: 12 });
+
+        // Centre O à l'origine
+        calc.setExpression({ id: 'ptO', latex: '(0,0)', label: 'O', showLabel: true, color: '#9333ea', pointSize: 9 });
+
+        // Rayon O→C (segment violet) avec étiquette R au milieu
+        calc.setExpression({ id: 'radOC', latex: '\\polygon((0,0),(C_x,C_y))', color: '#9333ea', lineWidth: 2, lineStyle: Desmos.Styles.DASHED });
+        calc.setExpression({ id: 'lblR',  latex: '(C_x/2-0.3, C_y/2)', label: 'R', showLabel: true, color: '#9333ea', pointSize: 0 });
+
+        // Légendes côtés (milieux des segments)
+        calc.setExpression({ id: 'la', latex: '((B_x+C_x)/2+0.2,(B_y+C_y)/2)', label: 'a', showLabel: true, color: '#2563eb', pointSize: 0 });
+        calc.setExpression({ id: 'lb', latex: '((A_x+C_x)/2-0.2,(A_y+C_y)/2)', label: 'b', showLabel: true, color: '#2563eb', pointSize: 0 });
+        calc.setExpression({ id: 'lc', latex: '((A_x+B_x)/2,(A_y+B_y)/2-0.3)', label: 'c', showLabel: true, color: '#2563eb', pointSize: 0 });
+    })();
+
+    // ── Graphique 4 : Loi des cosinus ─────────────────────────────────────────
+    // Triangle ABC : A à l'origine, B sur l'axe x, angle A = Ad (degrés)
+    // Côtés connus : b = AC, c = AB  →  côté inconnu : a = BC
+    // Formule : a² = b² + c² − 2bc·cos(A)
+    (function() {
+        var elt = document.getElementById('desmos-cosinus');
+        if (!elt) return;
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            keypad: false, lockViewport: false
+        });
+        calc.setMathBounds({ left: -1.5, right: 10, bottom: -1.5, top: 6 });
+
+        // Curseurs : b (AC), c (AB), Ad = angle A en degrés
+        calc.setExpression({ id: 'sb',  latex: 'b=5',    sliderBounds: { min: 1, max: 8, step: 0.1 } });
+        calc.setExpression({ id: 'sc',  latex: 'c=7',    sliderBounds: { min: 1, max: 8, step: 0.1 } });
+        calc.setExpression({ id: 'sAd', latex: 'A_d=60', sliderBounds: { min: 10, max: 170, step: 1 } });
+
+        // Conversion degrés → radians
+        calc.setExpression({ id: 'Ar', latex: 'A_r=A_d\\cdot\\frac{\\pi}{180}' });
+
+        // Côté calculé a = BC  (loi des cosinus)
+        calc.setExpression({ id: 'sa', latex: 'a=\\sqrt{b^{2}+c^{2}-2bc\\cos\\left(A_r\\right)}' });
+
+        // Coordonnées des sommets
+        // A = (0, 0)  B = (c, 0)  C = (b·cosAr, b·sinAr)
+        calc.setExpression({ id: 'Cx', latex: 'C_{x}=b\\cos\\left(A_r\\right)' });
+        calc.setExpression({ id: 'Cy', latex: 'C_{y}=b\\sin\\left(A_r\\right)' });
+
+        // Triangle
+        calc.setExpression({ id: 'tri', latex: '\\polygon\\left((0,0),(c,0),(C_{x},C_{y})\\right)', color: '#1e3a5f', lineWidth: 2.5 });
+
+        // Arc d'angle en A
+        calc.setExpression({ id: 'arc', latex: '(1.1\\cos(t),1.1\\sin(t))\\left\\{0\\le t\\le A_r\\right\\}', color: '#f59e0b', lineWidth: 2 });
+
+        // Sommets
+        calc.setExpression({ id: 'ptA', latex: '(0,0)',       label: 'A', showLabel: true, color: '#dc2626', pointSize: 12 });
+        calc.setExpression({ id: 'ptB', latex: '(c,0)',       label: 'B', showLabel: true, color: '#dc2626', pointSize: 12 });
+        calc.setExpression({ id: 'ptC', latex: '(C_{x},C_{y})', label: 'C', showLabel: true, color: '#dc2626', pointSize: 12 });
+
+        // Étiquettes des côtés (milieu de chaque côté)
+        // a = BC  (côté calculé — orange)
+        calc.setExpression({ id: 'la', latex: '\\left(\\frac{c+C_{x}}{2},\\frac{C_{y}}{2}\\right)', label: 'a', showLabel: true, color: '#e05c00', pointSize: 3 });
+        // b = AC  (vert)
+        calc.setExpression({ id: 'lb', latex: '\\left(\\frac{C_{x}}{2},\\frac{C_{y}}{2}\\right)', label: 'b', showLabel: true, color: '#059669', pointSize: 3 });
+        // c = AB  (bleu)
+        calc.setExpression({ id: 'lc', latex: '\\left(\\frac{c}{2},0\\right)', label: 'c', showLabel: true, color: '#2563eb', pointSize: 3 });
+
+        // Étiquette de l'angle A
+        calc.setExpression({ id: 'angA', latex: '\\left(1.6\\cos\\left(\\frac{A_r}{2}\\right),1.6\\sin\\left(\\frac{A_r}{2}\\right)\\right)', label: 'A', showLabel: true, color: '#f59e0b', pointSize: 0 });
+    })();
+    </script>
 </body>
 </html>

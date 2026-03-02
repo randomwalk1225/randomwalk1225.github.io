@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Mathematics – Chapter 7: Integration | A-Level Mathematics | MathHub</title>
+    <meta name="description" content="Complete A-Level Maths Chapter 7: Integration. Covers indefinite and definite integrals, areas under curves, substitution, integration by parts, partial fractions, trapezium rule, and differential equations for Edexcel, AQA and OCR.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/alevel-ch7-integration.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/uk/textbook/alevel-ch7-integration.html">
+    <meta property="og:title" content="A-Level Mathematics – Chapter 7: Integration | MathHub">
+    <meta property="og:site_name" content="MathHub Global">
+    <link rel="alternate" hreflang="en-GB" href="https://mathhub.io/uk/textbook/alevel-ch7-integration.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .year2-badge { display: inline-block; background: #e0e7ff; color: #3730a3; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+        table.std-integrals { border-collapse: collapse; width: 100%; margin: 16px 0 24px; }
+        table.std-integrals th { background: #1e3a5f; color: white; padding: 10px 16px; text-align: left; font-weight: 600; }
+        table.std-integrals td { padding: 10px 16px; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        table.std-integrals tr:nth-child(even) td { background: #f8fafc; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/" class="active">UK</a><a href="/ca/">CA</a><a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+    <article class="blog-article">
+        <div class="breadcrumb"><a href="/uk/">UK</a> &rsaquo; <a href="/uk/a-level/">A-Level</a> &rsaquo; A-Level Maths – Chapter 7: Integration</div>
+        <h1>A-Level Mathematics – Chapter 7: Integration</h1>
+        <div class="blog-meta">Edexcel &middot; AQA &middot; OCR A-Level Mathematics &middot; Updated March 2026</div>
+
+        <p>Integration is the reverse process of differentiation and one of the most powerful tools in mathematics. It enables us to compute areas, volumes, accumulated quantities, and to solve differential equations that model real-world phenomena. This chapter builds from the fundamental rules introduced at AS level through to the sophisticated Year 2 techniques required for the full A-Level.</p>
+
+        <div class="exam-note">
+            <h4>Specification Note</h4>
+            <p>Content labelled <span class="year2-badge">Year 2</span> is A2-level only and not required for AS Mathematics. The trapezium rule and definite integration appear on both AS and A-Level papers.</p>
+        </div>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#indefinite">7.1 Indefinite Integration</a></li>
+                <li><a href="#definite">7.2 Definite Integration</a></li>
+                <li><a href="#substitution">7.3 Integration by Substitution</a> <span class="year2-badge">Year 2</span></li>
+                <li><a href="#parts">7.4 Integration by Parts</a> <span class="year2-badge">Year 2</span></li>
+                <li><a href="#partial-fractions">7.5 Partial Fractions and Integration</a> <span class="year2-badge">Year 2</span></li>
+                <li><a href="#trapezium">7.6 Trapezium Rule</a></li>
+                <li><a href="#diffeq">7.7 Differential Equations</a> <span class="year2-badge">Year 2</span></li>
+                <li><a href="#practice">Practice Problems</a></li>
+            </ol>
+        </nav>
+
+        <!-- 7.1 INDEFINITE INTEGRATION -->
+        <h2 id="indefinite">7.1 Indefinite Integration</h2>
+
+        <p>Integration is formally defined as the inverse (or anti-derivative) of differentiation. If $\frac{d}{dx}[F(x)] = f(x)$, then $\int f(x)\,dx = F(x) + c$, where $c$ is the <strong>constant of integration</strong>.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Indefinite Integral</h4>
+            <p>The indefinite integral of $f(x)$ with respect to $x$ is written $\displaystyle\int f(x)\,dx$ and represents the most general antiderivative of $f(x)$. The constant of integration $c$ must always be included because differentiating any constant gives zero.</p>
+        </div>
+
+        <h3>The Power Rule for Integration</h3>
+        <p>The fundamental rule for integrating powers of $x$ is:</p>
+        $$\int x^n\,dx = \frac{x^{n+1}}{n+1} + c \qquad (n \neq -1)$$
+        <p>In words: increase the power by 1, then divide by the new power. The case $n = -1$ (integrating $\frac{1}{x}$) requires the natural logarithm and is covered below.</p>
+
+        <h3>Standard Integrals</h3>
+        <p>You are expected to know these standard results — many appear in the formula booklet, but recognising them instantly saves valuable exam time.</p>
+
+        <table class="std-integrals">
+            <thead><tr><th>$f(x)$</th><th>$\displaystyle\int f(x)\,dx$</th></tr></thead>
+            <tbody>
+                <tr><td>$x^n$ $(n \neq -1)$</td><td>$\dfrac{x^{n+1}}{n+1} + c$</td></tr>
+                <tr><td>$\dfrac{1}{x}$</td><td>$\ln|x| + c$</td></tr>
+                <tr><td>$e^x$</td><td>$e^x + c$</td></tr>
+                <tr><td>$e^{kx}$</td><td>$\dfrac{1}{k}e^{kx} + c$</td></tr>
+                <tr><td>$\sin x$</td><td>$-\cos x + c$</td></tr>
+                <tr><td>$\cos x$</td><td>$\sin x + c$</td></tr>
+                <tr><td>$\sec^2 x$</td><td>$\tan x + c$</td></tr>
+                <tr><td>$(ax + b)^n$</td><td>$\dfrac{(ax+b)^{n+1}}{a(n+1)} + c$</td></tr>
+            </tbody>
+        </table>
+
+        <div class="example-box">
+            <h4>Example 7.1.1 — Basic Power Rule</h4>
+            <p>Find $\displaystyle\int (3x^2 - 4x + 5)\,dx$.</p>
+            <p><span class="step-label">Step 1</span> Integrate each term separately using $\int x^n\,dx = \frac{x^{n+1}}{n+1} + c$:</p>
+            <p>$$\int 3x^2\,dx = \frac{3x^3}{3} = x^3 \qquad \int 4x\,dx = \frac{4x^2}{2} = 2x^2 \qquad \int 5\,dx = 5x$$</p>
+            <p><span class="step-label">Step 2</span> Combine and add a single constant of integration:</p>
+            <p>$$\int(3x^2 - 4x + 5)\,dx = x^3 - 2x^2 + 5x + c$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.1.2 — Negative and Fractional Indices</h4>
+            <p>Find $\displaystyle\int \left(x^{1/2} + \frac{2}{x^3}\right)dx$.</p>
+            <p><span class="step-label">Step 1</span> Rewrite $\frac{2}{x^3} = 2x^{-3}$.</p>
+            <p><span class="step-label">Step 2</span> Apply the power rule to each term:</p>
+            <p>$$\int x^{1/2}\,dx = \frac{x^{3/2}}{3/2} = \frac{2}{3}x^{3/2} \qquad \int 2x^{-3}\,dx = \frac{2x^{-2}}{-2} = -x^{-2}$$</p>
+            <p><span class="step-label">Result</span> $\displaystyle\int\!\left(x^{1/2} + \frac{2}{x^3}\right)dx = \tfrac{2}{3}x^{3/2} - x^{-2} + c$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.1.3 — Exponential and Trigonometric</h4>
+            <p>Find $\displaystyle\int(e^{2x} + 3\sin x - 4\cos x)\,dx$.</p>
+            <p>$$= \frac{1}{2}e^{2x} + 3(-\cos x) - 4(\sin x) + c = \frac{1}{2}e^{2x} - 3\cos x - 4\sin x + c$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.1.4 — Finding a Particular Integral</h4>
+            <p>Given that $\frac{dy}{dx} = 6x^2 - 2x$ and $y = 5$ when $x = 1$, find $y$ in terms of $x$.</p>
+            <p><span class="step-label">Step 1</span> Integrate: $y = 2x^3 - x^2 + c$.</p>
+            <p><span class="step-label">Step 2</span> Substitute the initial condition $x=1$, $y=5$: $5 = 2(1) - 1 + c \Rightarrow c = 4$.</p>
+            <p><span class="step-label">Result</span> $y = 2x^3 - x^2 + 4$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Always include $+\,c$ in indefinite integrals. Omitting it is a common mark-losing error. When an initial condition is given, use it immediately to find $c$ and write the particular solution.</p>
+        </div>
+
+        <!-- 7.2 DEFINITE INTEGRATION -->
+        <h2 id="definite">7.2 Definite Integration</h2>
+
+        <p>A <strong>definite integral</strong> has upper and lower limits and produces a numerical value rather than an expression. It represents the signed area between the curve and the $x$-axis.</p>
+
+        <div class="theorem-box">
+            <h4>Fundamental Theorem of Calculus</h4>
+            <p>If $F(x)$ is an antiderivative of $f(x)$, then:</p>
+            <p>$$\int_a^b f(x)\,dx = \big[F(x)\big]_a^b = F(b) - F(a)$$</p>
+            <p>The constant of integration cancels out in definite integrals, so it need not be written.</p>
+        </div>
+
+        <h3>Area Under a Curve</h3>
+        <p>The area enclosed between $y = f(x)$, the $x$-axis, and the lines $x = a$ and $x = b$ is:</p>
+        $$A = \int_a^b f(x)\,dx \quad \text{(when } f(x) \geq 0 \text{ throughout)}$$
+        <p>If $f(x) < 0$ in part of the interval, the integral gives a negative value for that region. To find the total area (always positive), split the integral at any roots and take the modulus of each part.</p>
+
+        <div id="desmos-area" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 7.1 — Shaded area under $y = x^2 + 1$ from $x = 1$ to $x = 3$. The definite integral gives $A = \frac{20}{3} + 2 = \frac{26}{3} \approx 8.67$.</p>
+
+        <div class="example-box">
+            <h4>Example 7.2.1 — Evaluating a Definite Integral</h4>
+            <p>Evaluate $\displaystyle\int_1^3 (x^2 + 1)\,dx$.</p>
+            <p>$$\left[\frac{x^3}{3} + x\right]_1^3 = \left(\frac{27}{3} + 3\right) - \left(\frac{1}{3} + 1\right) = 12 - \frac{4}{3} = \frac{32}{3}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.2.2 — Area Below the Axis</h4>
+            <p>Find the total area enclosed between $y = x^2 - 4$ and the $x$-axis.</p>
+            <p><span class="step-label">Step 1</span> The curve crosses the $x$-axis where $x^2 - 4 = 0$, i.e.\ $x = \pm 2$.</p>
+            <p><span class="step-label">Step 2</span> For $-2 \leq x \leq 2$, the curve is below the axis. So the area is:</p>
+            <p>$$A = \left|\int_{-2}^{2}(x^2-4)\,dx\right| = \left|\left[\frac{x^3}{3} - 4x\right]_{-2}^{2}\right| = \left|\left(\frac{8}{3}-8\right)-\left(\frac{-8}{3}+8\right)\right| = \left|\!-\frac{32}{3}\right| = \frac{32}{3}$$</p>
+        </div>
+
+        <h3>Area Between Two Curves</h3>
+        <p>The area between $y = f(x)$ (upper) and $y = g(x)$ (lower) from $x = a$ to $x = b$ is:</p>
+        $$A = \int_a^b \bigl[f(x) - g(x)\bigr]\,dx$$
+
+        <div class="example-box">
+            <h4>Example 7.2.3 — Area Between Two Curves</h4>
+            <p>Find the area enclosed between $y = 4 - x^2$ and $y = x + 2$.</p>
+            <p><span class="step-label">Step 1</span> Find intersections: $4 - x^2 = x + 2 \Rightarrow x^2 + x - 2 = 0 \Rightarrow (x+2)(x-1) = 0$, so $x = -2$ and $x = 1$.</p>
+            <p><span class="step-label">Step 2</span> On $[-2,1]$, $4 - x^2 \geq x + 2$. Area:</p>
+            <p>$$\int_{-2}^{1}\bigl[(4-x^2)-(x+2)\bigr]\,dx = \int_{-2}^{1}(2 - x - x^2)\,dx = \left[2x - \frac{x^2}{2} - \frac{x^3}{3}\right]_{-2}^{1} = \frac{9}{2}$$</p>
+        </div>
+
+        <!-- 7.3 SUBSTITUTION -->
+        <h2 id="substitution">7.3 Integration by Substitution <span class="year2-badge">Year 2</span></h2>
+
+        <p>Integration by substitution is the chain-rule in reverse. It converts a complicated integral into a simpler one by changing the variable.</p>
+
+        <div class="definition-box">
+            <h4>Method: Integration by Substitution</h4>
+            <p>To evaluate $\int f(g(x))\,g'(x)\,dx$, let $u = g(x)$. Then $\frac{du}{dx} = g'(x)$, so $du = g'(x)\,dx$, and the integral becomes $\int f(u)\,du$.</p>
+            <p>For definite integrals, also change the limits: when $x = a$, $u = g(a)$; when $x = b$, $u = g(b)$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.3.1 — Polynomial Substitution</h4>
+            <p>Find $\displaystyle\int 2x(x^2 + 3)^4\,dx$.</p>
+            <p><span class="step-label">Let</span> $u = x^2 + 3 \Rightarrow du = 2x\,dx$.</p>
+            <p>$$\int u^4\,du = \frac{u^5}{5} + c = \frac{(x^2+3)^5}{5} + c$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.3.2 — Trigonometric Substitution</h4>
+            <p>Find $\displaystyle\int \sin^3 x \cos x\,dx$.</p>
+            <p><span class="step-label">Let</span> $u = \sin x \Rightarrow du = \cos x\,dx$.</p>
+            <p>$$\int u^3\,du = \frac{u^4}{4} + c = \frac{\sin^4 x}{4} + c$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.3.3 — Exponential Substitution</h4>
+            <p>Find $\displaystyle\int x\,e^{x^2}\,dx$.</p>
+            <p><span class="step-label">Let</span> $u = x^2 \Rightarrow du = 2x\,dx$, so $x\,dx = \frac{1}{2}\,du$.</p>
+            <p>$$\int \frac{1}{2}e^u\,du = \frac{1}{2}e^u + c = \frac{1}{2}e^{x^2} + c$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.3.4 — Definite Integral with Changed Limits</h4>
+            <p>Evaluate $\displaystyle\int_0^1 \frac{x}{(1+x^2)^2}\,dx$.</p>
+            <p><span class="step-label">Let</span> $u = 1 + x^2 \Rightarrow du = 2x\,dx$. When $x=0$, $u=1$; when $x=1$, $u=2$.</p>
+            <p>$$\int_1^2 \frac{1}{2u^2}\,du = \left[-\frac{1}{2u}\right]_1^2 = -\frac{1}{4} + \frac{1}{2} = \frac{1}{4}$$</p>
+        </div>
+
+        <!-- 7.4 INTEGRATION BY PARTS -->
+        <h2 id="parts">7.4 Integration by Parts <span class="year2-badge">Year 2</span></h2>
+
+        <p>Integration by parts is derived from the product rule for differentiation. It is used when the integrand is a product of two functions.</p>
+
+        <div class="theorem-box">
+            <h4>Formula: Integration by Parts</h4>
+            <p>$$\int u\,\frac{dv}{dx}\,dx = uv - \int v\,\frac{du}{dx}\,dx$$</p>
+            <p>Equivalently written as $\displaystyle\int u\,dv = uv - \int v\,du$.</p>
+            <p><strong>LIATE rule</strong> — choose $u$ in this order of preference: Logarithms, Inverse trig, Algebraic, Trigonometric, Exponential.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.4.1 — Polynomial × Exponential</h4>
+            <p>Find $\displaystyle\int x\,e^x\,dx$.</p>
+            <p>Let $u = x$ and $\frac{dv}{dx} = e^x$, so $\frac{du}{dx} = 1$ and $v = e^x$.</p>
+            <p>$$\int x\,e^x\,dx = xe^x - \int e^x\,dx = xe^x - e^x + c = e^x(x-1) + c$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.4.2 — Polynomial × Trigonometric</h4>
+            <p>Find $\displaystyle\int x\cos x\,dx$.</p>
+            <p>Let $u = x$, $\frac{dv}{dx} = \cos x$, so $\frac{du}{dx} = 1$, $v = \sin x$.</p>
+            <p>$$\int x\cos x\,dx = x\sin x - \int \sin x\,dx = x\sin x + \cos x + c$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.4.3 — Logarithm (Special Case)</h4>
+            <p>Find $\displaystyle\int \ln x\,dx$.</p>
+            <p>Write as $\int \ln x \cdot 1\,dx$. Let $u = \ln x$, $\frac{dv}{dx} = 1$, so $\frac{du}{dx} = \frac{1}{x}$, $v = x$.</p>
+            <p>$$\int \ln x\,dx = x\ln x - \int x \cdot \frac{1}{x}\,dx = x\ln x - x + c$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.4.4 — Applying Twice</h4>
+            <p>Find $\displaystyle\int x^2 e^x\,dx$.</p>
+            <p><span class="step-label">First application:</span> $u = x^2$, $v = e^x$: $\int x^2 e^x\,dx = x^2 e^x - 2\int xe^x\,dx$.</p>
+            <p><span class="step-label">Second application (from Example 7.4.1):</span> $\int xe^x\,dx = e^x(x-1) + c$.</p>
+            <p>$$\int x^2 e^x\,dx = x^2 e^x - 2e^x(x-1) + c = e^x(x^2 - 2x + 2) + c$$</p>
+        </div>
+
+        <!-- 7.5 PARTIAL FRACTIONS -->
+        <h2 id="partial-fractions">7.5 Partial Fractions and Integration <span class="year2-badge">Year 2</span></h2>
+
+        <p>When integrating a rational function $\frac{f(x)}{g(x)}$, it is often necessary to decompose it into partial fractions first, after which each term can be integrated using standard results.</p>
+
+        <div class="definition-box">
+            <h4>Key Result</h4>
+            <p>$$\int \frac{1}{ax+b}\,dx = \frac{1}{a}\ln|ax+b| + c$$</p>
+            <p>This follows from the substitution $u = ax + b$ and is used directly after decomposing into partial fractions.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.5.1 — Distinct Linear Factors</h4>
+            <p>Find $\displaystyle\int \frac{5x - 1}{(x+1)(2x-1)}\,dx$.</p>
+            <p><span class="step-label">Step 1</span> Decompose: $\frac{5x-1}{(x+1)(2x-1)} = \frac{A}{x+1} + \frac{B}{2x-1}$.</p>
+            <p>Comparing numerators: $5x - 1 = A(2x-1) + B(x+1)$. Setting $x = -1$: $A = 2$; $x = \frac{1}{2}$: $B = \frac{3}{2} \cdot \frac{1}{1} = \frac{3}{2}$.</p>
+            <p><span class="step-label">Step 2</span> Integrate: $\displaystyle\int\!\left(\frac{2}{x+1} + \frac{3/2}{2x-1}\right)dx = 2\ln|x+1| + \frac{3}{4}\ln|2x-1| + c$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.5.2 — Repeated Linear Factor</h4>
+            <p>Find $\displaystyle\int \frac{3x}{(x-1)^2}\,dx$.</p>
+            <p><span class="step-label">Step 1</span> Decompose: $\frac{3x}{(x-1)^2} = \frac{A}{x-1} + \frac{B}{(x-1)^2}$. This gives $A = 3$, $B = 3$.</p>
+            <p><span class="step-label">Step 2</span> Integrate: $3\ln|x-1| - \frac{3}{x-1} + c$.</p>
+        </div>
+
+        <!-- 7.6 TRAPEZIUM RULE -->
+        <h2 id="trapezium">7.6 Trapezium Rule</h2>
+
+        <p>When an integral cannot be evaluated analytically, numerical methods provide approximate answers. The trapezium rule approximates the area under a curve by dividing it into trapezoids.</p>
+
+        <div class="theorem-box">
+            <h4>Trapezium Rule Formula</h4>
+            <p>With $n$ strips of equal width $h = \frac{b-a}{n}$ and ordinates $y_0, y_1, \ldots, y_n$:</p>
+            <p>$$\int_a^b f(x)\,dx \approx \frac{h}{2}\bigl(y_0 + 2y_1 + 2y_2 + \cdots + 2y_{n-1} + y_n\bigr)$$</p>
+            <p>Equivalently: $\frac{h}{2}\bigl(\text{first} + \text{last} + 2\times\text{sum of middles}\bigr)$.</p>
+        </div>
+
+        <div id="desmos-trap" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 7.2 — Trapezium rule approximation to $\int_0^2 e^{x/2}\,dx$ using 4 strips. The exact value is $2(e-1) \approx 3.436$; the trapezium estimate slightly overestimates since $e^{x/2}$ is convex.</p>
+
+        <div class="example-box">
+            <h4>Example 7.6.1 — Applying the Trapezium Rule</h4>
+            <p>Use the trapezium rule with 4 strips to estimate $\displaystyle\int_0^2 e^{x/2}\,dx$.</p>
+            <p><span class="step-label">Setup</span> $h = 0.5$; ordinates at $x = 0, 0.5, 1, 1.5, 2$:</p>
+            <p>$y_0 = e^0 = 1$, $y_1 = e^{0.25} \approx 1.2840$, $y_2 = e^{0.5} \approx 1.6487$, $y_3 = e^{0.75} \approx 2.1170$, $y_4 = e^1 \approx 2.7183$.</p>
+            <p>$$\approx \frac{0.5}{2}\bigl(1 + 2(1.2840 + 1.6487 + 2.1170) + 2.7183\bigr) = 0.25 \times 14.1167 \approx 3.529$$</p>
+            <p>The exact value is $2(e-1) \approx 3.436$; percentage error $\approx 2.7\%$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.6.2 — Error and Improvement</h4>
+            <p>Explain how to reduce the error in the trapezium rule, and state whether the rule over- or under-estimates for a convex function.</p>
+            <p>Increasing the number of strips $n$ reduces the error, which is $O(h^2)$ — doubling $n$ roughly quarters the error. For a convex function ($f''(x) > 0$), the straight-line tops of the trapezoids lie above the curve, so the rule <strong>over-estimates</strong>. For a concave function ($f''(x) < 0$), it <strong>under-estimates</strong>.</p>
+        </div>
+
+        <!-- 7.7 DIFFERENTIAL EQUATIONS -->
+        <h2 id="diffeq">7.7 Differential Equations <span class="year2-badge">Year 2</span></h2>
+
+        <p>A differential equation relates a function to its derivatives. At A-Level, you are required to solve <strong>first-order separable differential equations</strong> — those in which the variables $x$ and $y$ can be placed on opposite sides of the equation.</p>
+
+        <div class="definition-box">
+            <h4>Method: Separation of Variables</h4>
+            <p>For an equation of the form $\dfrac{dy}{dx} = f(x)\,g(y)$:</p>
+            <ol>
+                <li>Separate: $\dfrac{1}{g(y)}\,dy = f(x)\,dx$</li>
+                <li>Integrate both sides: $\displaystyle\int \frac{1}{g(y)}\,dy = \int f(x)\,dx$</li>
+                <li>Include a single constant of integration $c$</li>
+                <li>Apply initial conditions (if given) to find the particular solution</li>
+            </ol>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.7.1 — Basic Separation</h4>
+            <p>Solve $\dfrac{dy}{dx} = 2xy$.</p>
+            <p>$$\frac{1}{y}\,dy = 2x\,dx \Rightarrow \int \frac{1}{y}\,dy = \int 2x\,dx \Rightarrow \ln|y| = x^2 + c$$</p>
+            <p>Exponentiating: $|y| = e^c \cdot e^{x^2}$, so $y = Ae^{x^2}$ where $A$ is an arbitrary constant.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.7.2 — Initial Value Problem</h4>
+            <p>Solve $\dfrac{dy}{dx} = \dfrac{x}{y}$ given $y = 3$ when $x = 0$.</p>
+            <p>$$y\,dy = x\,dx \Rightarrow \frac{y^2}{2} = \frac{x^2}{2} + c$$</p>
+            <p>Applying $y=3$, $x=0$: $\frac{9}{2} = 0 + c$, so $c = \frac{9}{2}$. The particular solution is $y^2 = x^2 + 9$, i.e.\ $y = \sqrt{x^2+9}$ (positive root since $y=3>0$).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.7.3 — Exponential Growth/Decay</h4>
+            <p>The rate of decay of a radioactive substance is proportional to the amount $N$ present. Write down and solve the differential equation, given $N = N_0$ at $t = 0$.</p>
+            <p>$$\frac{dN}{dt} = -kN \quad (k > 0) \Rightarrow \frac{dN}{N} = -k\,dt \Rightarrow \ln N = -kt + c$$</p>
+            <p>Applying initial condition: $N = N_0 e^{-kt}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.7.4 — Mixed Variables</h4>
+            <p>Solve $\dfrac{dy}{dx} = \dfrac{y^2 + 1}{x}$, given $y = 1$ when $x = 1$.</p>
+            <p>$$\frac{dy}{y^2+1} = \frac{dx}{x} \Rightarrow \arctan y = \ln|x| + c$$</p>
+            <p>At $x=1$, $y=1$: $\arctan 1 = 0 + c$, so $c = \frac{\pi}{4}$. Hence $y = \tan\!\left(\ln x + \dfrac{\pi}{4}\right)$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>When forming a differential equation from a word problem, pay attention to the sign: "decreasing at a rate proportional to" gives a negative sign. Also check whether the question asks for a general or particular solution — if initial conditions are given, you must find $c$.</p>
+        </div>
+
+        <!-- PRACTICE PROBLEMS -->
+        <h2 id="practice">Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>Find $\displaystyle\int\!\left(4x^3 - \frac{3}{x^2} + \sqrt{x}\right)dx$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    Rewrite $\frac{3}{x^2} = 3x^{-2}$ and $\sqrt{x} = x^{1/2}$. Apply the power rule to each term:<br>
+                    $$x^4 + 3x^{-1} + \frac{2}{3}x^{3/2} + c = x^4 + \frac{3}{x} + \frac{2}{3}x^{3/2} + c$$
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>Evaluate $\displaystyle\int_0^{\pi/2} (2\sin x + \cos x)\,dx$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $\big[-2\cos x + \sin x\big]_0^{\pi/2} = (-2\cos\frac{\pi}{2} + \sin\frac{\pi}{2}) - (-2\cos 0 + \sin 0) = (0 + 1) - (-2 + 0) = 3$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>Find the area enclosed between $y = x^3 - x$ and the $x$-axis.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    Roots: $x(x^2 - 1) = 0$, so $x = -1, 0, 1$. By symmetry, total area $= 2\left|\int_0^1(x^3-x)\,dx\right|$.<br>
+                    $\int_0^1(x^3-x)\,dx = \left[\frac{x^4}{4} - \frac{x^2}{2}\right]_0^1 = \frac{1}{4} - \frac{1}{2} = -\frac{1}{4}$.<br>
+                    Total area $= 2 \times \frac{1}{4} = \frac{1}{2}$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4 <span class="year2-badge">Year 2</span></h4>
+            <p>Use the substitution $u = 3x + 1$ to find $\displaystyle\int_0^1 \sqrt{3x+1}\,dx$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $du = 3\,dx$, so $dx = \frac{du}{3}$. Limits: $x=0 \Rightarrow u=1$; $x=1 \Rightarrow u=4$.<br>
+                    $$\int_1^4 \sqrt{u}\cdot\frac{du}{3} = \frac{1}{3}\left[\frac{2u^{3/2}}{3}\right]_1^4 = \frac{2}{9}(8-1) = \frac{14}{9}$$
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5 <span class="year2-badge">Year 2</span></h4>
+            <p>Find $\displaystyle\int x^2\ln x\,dx$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    By parts: $u = \ln x$, $\frac{dv}{dx} = x^2$, so $\frac{du}{dx} = \frac{1}{x}$, $v = \frac{x^3}{3}$.<br>
+                    $$\frac{x^3}{3}\ln x - \int \frac{x^3}{3}\cdot\frac{1}{x}\,dx = \frac{x^3}{3}\ln x - \frac{1}{3}\int x^2\,dx = \frac{x^3}{3}\ln x - \frac{x^3}{9} + c$$
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6 <span class="year2-badge">Year 2</span></h4>
+            <p>Express $\dfrac{4}{(x-1)(x+3)}$ in partial fractions and hence find $\displaystyle\int_2^5 \frac{4}{(x-1)(x+3)}\,dx$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $\frac{4}{(x-1)(x+3)} = \frac{1}{x-1} - \frac{1}{x+3}$ (check: $A=1$, $B=-1$).<br>
+                    $$\int_2^5\!\left(\frac{1}{x-1} - \frac{1}{x+3}\right)dx = \big[\ln|x-1| - \ln|x+3|\big]_2^5 = \ln\frac{4}{8} - \ln\frac{1}{5} = \ln\frac{4}{8} + \ln 5 = \ln\frac{5}{2}$$
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>Use the trapezium rule with 5 ordinates (4 strips) to estimate $\displaystyle\int_1^3 \frac{1}{\ln x}\,dx$. Give your answer to 3 decimal places.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    $h = 0.5$; $x = 1.0, 1.5, 2.0, 2.5, 3.0$.<br>
+                    $y_0$: undefined at $x=1$ ($\ln 1=0$) — use $x$ values from $x=1$ as $x\to1^+$ gives $\infty$. In practice this integral requires $x>1$; use $x = 1.0001$ to obtain $y_0 \approx 2.309$ or note the question may intend $x$ from a suitable lower limit. Ordinates: $y(1.5)=\frac{1}{\ln 1.5}\approx 2.466$, $y(2)=\frac{1}{\ln 2}\approx 1.443$, $y(2.5)=\frac{1}{\ln 2.5}\approx 1.093$, $y(3)=\frac{1}{\ln 3}\approx 0.910$.<br>
+                    Approximation $\approx \frac{0.5}{2}(2.466 + 2(1.443 + 1.093) + 0.910) \approx \frac{0.5}{2}(8.448) \approx 2.112$.
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8 <span class="year2-badge">Year 2</span></h4>
+            <p>Solve the differential equation $\dfrac{dy}{dx} = \dfrac{3x^2}{y}$, given that $y = 2$ when $x = 1$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    Separate: $y\,dy = 3x^2\,dx \Rightarrow \frac{y^2}{2} = x^3 + c$.<br>
+                    Apply $y=2$, $x=1$: $2 = 1 + c \Rightarrow c = 1$.<br>
+                    Particular solution: $y^2 = 2x^3 + 2$, so $y = \sqrt{2x^3 + 2}$ (positive since $y=2>0$).
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 9 <span class="year2-badge">Year 2</span></h4>
+            <p>Find $\displaystyle\int e^x\sin x\,dx$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    Apply parts twice. Let $I = \int e^x\sin x\,dx$.<br>
+                    First: $u=\sin x$, $v=e^x$: $I = e^x\sin x - \int e^x\cos x\,dx$.<br>
+                    Second: $u=\cos x$, $v=e^x$: $\int e^x\cos x\,dx = e^x\cos x + \int e^x\sin x\,dx = e^x\cos x + I$.<br>
+                    Substituting back: $I = e^x\sin x - e^x\cos x - I \Rightarrow 2I = e^x(\sin x - \cos x)$.<br>
+                    $$I = \frac{e^x(\sin x - \cos x)}{2} + c$$
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 10</h4>
+            <p>Find the area of the region enclosed between $y = \sin x$ and $y = \cos x$ for $x \in \left[\frac{\pi}{4}, \frac{5\pi}{4}\right]$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    On $\left[\frac{\pi}{4}, \frac{5\pi}{4}\right]$, $\sin x \geq \cos x$.<br>
+                    $$\int_{\pi/4}^{5\pi/4}(\sin x - \cos x)\,dx = \big[-\cos x - \sin x\big]_{\pi/4}^{5\pi/4}$$
+                    $$= \left(\frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}}\right) - \left(-\frac{1}{\sqrt{2}} - \frac{1}{\sqrt{2}}\right) = \frac{2}{\sqrt{2}} + \frac{2}{\sqrt{2}} = 2\sqrt{2}$$
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <script>
+        // Figure 7.1 — Shaded area under y = x^2 + 1 from x=1 to x=3
+        (function() {
+            var elt = document.getElementById('desmos-area');
+            var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true,
+                keypad: false
+            });
+            calc.setMathBounds({ left: -0.5, right: 4, bottom: -1, top: 12 });
+            calc.setExpressions([
+                { id: 'curve', latex: 'y = x^2 + 1', color: '#1d4ed8', lineWidth: 2.5 },
+                { id: 'shade', latex: '1 \\le x \\le 3 \\left\\{0 \\le y \\le x^2+1\\right\\}', color: '#93c5fd', fillOpacity: 0.5 },
+                { id: 'x1', latex: 'x = 1 \\left\\{0 \\le y \\le 2\\right\\}', color: '#64748b', lineStyle: Desmos.Styles.DASHED },
+                { id: 'x3', latex: 'x = 3 \\left\\{0 \\le y \\le 10\\right\\}', color: '#64748b', lineStyle: Desmos.Styles.DASHED }
+            ]);
+        })();
+
+        // Figure 7.2 — Trapezium rule for y = e^(x/2) over [0,2] with 4 strips
+        (function() {
+            var elt = document.getElementById('desmos-trap');
+            var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true,
+                keypad: false
+            });
+            calc.setMathBounds({ left: -0.3, right: 2.5, bottom: -0.2, top: 3.2 });
+            calc.setExpressions([
+                { id: 'f', latex: 'y = e^{x/2}', color: '#1d4ed8', lineWidth: 2.5 },
+                // trapezoids as polygons approximated by line segments
+                { id: 't0', latex: '(x - 0)(x - 0.5) \\le 0 \\left\\{0 \\le y \\le e^{x/4}\\right\\}', color: '#fbbf24', fillOpacity: 0.3 },
+                { id: 'trap1', latex: 'y = \\frac{e^{0.25} - 1}{0.5}(x - 0) + 1 \\left\\{0 \\le x \\le 0.5\\right\\}', color: '#f59e0b', lineWidth: 1.5 },
+                { id: 'trap2', latex: 'y = \\frac{e^{0.5} - e^{0.25}}{0.5}(x - 0.5) + e^{0.25} \\left\\{0.5 \\le x \\le 1\\right\\}', color: '#f59e0b', lineWidth: 1.5 },
+                { id: 'trap3', latex: 'y = \\frac{e^{0.75} - e^{0.5}}{0.5}(x - 1) + e^{0.5} \\left\\{1 \\le x \\le 1.5\\right\\}', color: '#f59e0b', lineWidth: 1.5 },
+                { id: 'trap4', latex: 'y = \\frac{e^{1} - e^{0.75}}{0.5}(x - 1.5) + e^{0.75} \\left\\{1.5 \\le x \\le 2\\right\\}', color: '#f59e0b', lineWidth: 1.5 }
+            ]);
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 5 — Relationships Within Triangles — Geometry | MathHub</title>
+    <meta name="description" content="Explore midsegments, perpendicular bisectors, angle bisectors, medians, altitudes, and triangle inequality theorems with clear explanations and examples.">
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 820px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.1em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #64748b; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .definition-box { background: #e7f3ff; border-left: 4px solid #3b82f6; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .definition-box h4 { color: #1e40af; margin-bottom: 10px; font-size: 1.05em; }
+        .theorem-box { background: #fff8e7; border-left: 4px solid #f59e0b; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .theorem-box h4 { color: #92400e; margin-bottom: 10px; font-size: 1.05em; }
+        .example-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .example-box h4 { color: #0369a1; margin-bottom: 10px; font-size: 1.05em; }
+        .tip-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .tip-box h4 { color: #166534; margin-bottom: 10px; }
+        .warning-box { background: #fff1f2; border-left: 4px solid #f43f5e; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .warning-box h4 { color: #be123c; margin-bottom: 10px; }
+        .practice-box { background: #fdf4ff; border-left: 4px solid #a855f7; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .practice-box h4 { color: #7e22ce; margin-bottom: 10px; }
+        .figure-wrap { display: flex; justify-content: center; align-items: flex-start; gap: 28px; margin: 24px 0; flex-wrap: wrap; }
+        .figure-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); overflow: hidden; }
+        .figure-card figcaption { font-size: 0.85em; color: #64748b; margin-top: 10px; max-width: 220px; }
+        .figure-label { font-weight: 700; font-size: 1em; color: #1e3a5f; margin-bottom: 8px; }
+        .unit-nav { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 20px; border-top: 1px solid #e2e8f0; }
+        .unit-nav a { color: #3b82f6; text-decoration: none; font-size: .9em; }
+    </style>
+</head>
+<body>
+<header class="site-header"></header>
+<script src="../../assets/js/common.js"></script>
+<article class="blog-article">
+
+    <div class="breadcrumb">
+        <a href="/test-geometry/index.html">Geometry</a> › Unit 5
+    </div>
+
+    <h1>Unit 5 — Relationships Within Triangles</h1>
+    <div class="blog-meta">Grade 9–10 · Geometry · Topics: Midsegments, Triangle Centers, Triangle Inequality</div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <h2>5.1 Midsegments of a Triangle</h2>
+
+    <div class="definition-box">
+        <h4>Definition — Midsegment</h4>
+        <p>A <strong>midsegment</strong> of a triangle connects the <strong>midpoints of two sides</strong> of the triangle. Every triangle has exactly three midsegments.</p>
+    </div>
+
+    <div class="theorem-box">
+        <h4>Theorem — Triangle Midsegment Theorem</h4>
+        <p>A midsegment is <strong>parallel to the third side</strong> and exactly <strong>half its length</strong>.</p>
+        <p>If $D$ is the midpoint of $\overline{AB}$ and $E$ is the midpoint of $\overline{AC}$, then:</p>
+        $$\overline{DE} \parallel \overline{BC} \quad \text{and} \quad DE = \tfrac{1}{2}\,BC$$
+    </div>
+
+    <div class="figure-wrap">
+        <figure class="figure-card">
+            <div class="figure-label">Figure 5.1 — Midsegment DE of △ABC</div>
+            <svg width="330" height="270" viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+                <!-- Triangle ABC -->
+                <polygon points="110,20 20,160 200,160" fill="#e7f3ff" stroke="#3b82f6" stroke-width="2"/>
+                <!-- Midsegment DE: D midpoint of AB, E midpoint of AC -->
+                <!-- A=110,20  B=20,160  C=200,160 -->
+                <!-- D = midpoint(A,B) = (65,90)   E = midpoint(A,C) = (155,90) -->
+                <line x1="65" y1="90" x2="155" y2="90" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="6,3"/>
+                <!-- tick marks on DA, DB, EA, EC -->
+                <line x1="91" y1="40" x2="99" y2="46" stroke="#3b82f6" stroke-width="1.5"/>
+                <line x1="76" y1="64" x2="84" y2="70" stroke="#3b82f6" stroke-width="1.5"/>
+                <line x1="46" y1="110" x2="54" y2="116" stroke="#3b82f6" stroke-width="1.5"/>
+                <line x1="31" y1="134" x2="39" y2="140" stroke="#3b82f6" stroke-width="1.5"/>
+                <!-- Vertices labels -->
+                <text x="107" y="14" font-size="14" font-family="serif" font-style="italic" fill="#1e3a5f">A</text>
+                <text x="6" y="170" font-size="14" font-family="serif" font-style="italic" fill="#1e3a5f">B</text>
+                <text x="202" y="170" font-size="14" font-family="serif" font-style="italic" fill="#1e3a5f">C</text>
+                <!-- D and E labels -->
+                <text x="49" y="87" font-size="13" font-family="serif" font-style="italic" fill="#92400e">D</text>
+                <text x="158" y="87" font-size="13" font-family="serif" font-style="italic" fill="#92400e">E</text>
+                <!-- Parallel annotation -->
+                <text x="95" y="82" font-size="11" font-family="sans-serif" fill="#92400e">DE ∥ BC</text>
+                <text x="80" y="108" font-size="11" font-family="sans-serif" fill="#92400e">DE = ½BC</text>
+            </svg>
+            <figcaption>D and E are midpoints of AB and AC. The dashed segment DE is the midsegment parallel to BC.</figcaption>
+        </figure>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 5.1</h4>
+        <p>In $\triangle ABC$, $\overline{DE}$ is a midsegment parallel to $\overline{BC}$, where $D$ is the midpoint of $\overline{AB}$ and $E$ is the midpoint of $\overline{AC}$. If $BC = 14$, find $DE$.</p>
+        <p><strong>Solution:</strong> By the Midsegment Theorem, $DE = \tfrac{1}{2} \cdot BC = \tfrac{1}{2} \cdot 14 = \boxed{7}$.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <h2>5.2 Perpendicular Bisectors and the Circumcenter</h2>
+
+    <div class="definition-box">
+        <h4>Definition — Perpendicular Bisector</h4>
+        <p>The <strong>perpendicular bisector</strong> of a segment is a line that is perpendicular to the segment <em>and</em> passes through its midpoint.</p>
+    </div>
+
+    <div class="theorem-box">
+        <h4>Theorem — Perpendicular Bisector Theorem</h4>
+        <p>A point lies on the perpendicular bisector of a segment <strong>if and only if</strong> it is equidistant from the two endpoints of the segment.</p>
+        <p>If $P$ is on the ⊥ bisector of $\overline{AB}$, then $PA = PB$.</p>
+    </div>
+
+    <div class="definition-box">
+        <h4>Definition — Circumcenter</h4>
+        <p>The <strong>circumcenter</strong> is the point where the three perpendicular bisectors of a triangle meet. It is the center of the <em>circumscribed circle</em> (the circle passing through all three vertices).</p>
+        <p>The circumcenter is equidistant from all three vertices: $CA = CB = CC'$ (circumradius).</p>
+    </div>
+
+    <div class="tip-box">
+        <h4>Tip — Location of the Circumcenter</h4>
+        <ul>
+            <li><strong>Acute triangle:</strong> Circumcenter is <em>inside</em> the triangle.</li>
+            <li><strong>Right triangle:</strong> Circumcenter lies <em>on the hypotenuse</em> (at its midpoint).</li>
+            <li><strong>Obtuse triangle:</strong> Circumcenter is <em>outside</em> the triangle.</li>
+        </ul>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <h2>5.3 Angle Bisectors and the Incenter</h2>
+
+    <div class="theorem-box">
+        <h4>Theorem — Angle Bisector Theorem</h4>
+        <p>A point lies on the bisector of an angle <strong>if and only if</strong> it is equidistant from the two sides of the angle (measured perpendicularly).</p>
+    </div>
+
+    <div class="definition-box">
+        <h4>Definition — Incenter</h4>
+        <p>The <strong>incenter</strong> is the point where the three <em>angle bisectors</em> of a triangle meet. It is the center of the <em>inscribed circle</em> (the largest circle that fits inside the triangle).</p>
+        <p>The incenter is <strong>always inside</strong> the triangle, regardless of triangle type.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <h2>5.4 Medians and the Centroid</h2>
+
+    <div class="definition-box">
+        <h4>Definition — Median</h4>
+        <p>A <strong>median</strong> of a triangle connects a <strong>vertex</strong> to the <strong>midpoint of the opposite side</strong>. Every triangle has three medians.</p>
+    </div>
+
+    <div class="theorem-box">
+        <h4>Theorem — Centroid Theorem</h4>
+        <p>The three medians of a triangle meet at the <strong>centroid</strong>, which divides each median in a ratio of <strong>2 : 1</strong> from the vertex to the opposite side.</p>
+        $$\frac{\text{vertex to centroid}}{\text{centroid to midpoint}} = \frac{2}{1}$$
+        <p>Equivalently: the centroid is $\frac{2}{3}$ of the way along each median from the vertex.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 5.4</h4>
+        <p>Centroid $G$ lies on median $\overline{AM}$. If $AG = 16$, find $GM$.</p>
+        <p><strong>Solution:</strong> By the Centroid Theorem, $AG : GM = 2 : 1$, so:</p>
+        $$GM = \frac{AG}{2} = \frac{16}{2} = \boxed{8}$$
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <h2>5.5 Altitudes and the Orthocenter</h2>
+
+    <div class="definition-box">
+        <h4>Definition — Altitude</h4>
+        <p>An <strong>altitude</strong> of a triangle is a perpendicular segment from a <strong>vertex</strong> to the line containing the <strong>opposite side</strong> (or its extension). It represents the "height" of the triangle from that vertex.</p>
+    </div>
+
+    <div class="definition-box">
+        <h4>Definition — Orthocenter</h4>
+        <p>The <strong>orthocenter</strong> is the point where the three altitudes (or their extensions) meet.</p>
+        <ul>
+            <li><strong>Acute triangle:</strong> Orthocenter is <em>inside</em> the triangle.</li>
+            <li><strong>Right triangle:</strong> Orthocenter is at the <em>vertex of the right angle</em>.</li>
+            <li><strong>Obtuse triangle:</strong> Orthocenter is <em>outside</em> the triangle.</li>
+        </ul>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <h2>5.6 Triangle Inequality Theorem</h2>
+
+    <div class="theorem-box">
+        <h4>Theorem — Triangle Inequality</h4>
+        <p>The sum of the lengths of any two sides of a triangle must be <strong>greater than</strong> the length of the third side.</p>
+        $$a + b > c, \quad a + c > b, \quad b + c > a$$
+    </div>
+
+    <div class="example-box">
+        <h4>Example 5.6a — Can Three Lengths Form a Triangle?</h4>
+        <p>Can sides of length 5, 7, and 13 form a triangle?</p>
+        <p><strong>Check the critical inequality</strong> (smallest two vs. largest):</p>
+        $$5 + 7 = 12 < 13$$
+        <p>Since $12 < 13$, the condition fails. <strong>No</strong>, these lengths cannot form a triangle.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 5.6b — Range for the Third Side</h4>
+        <p>Two sides of a triangle have lengths 4 and 9. Find all possible values for the third side $x$.</p>
+        <p><strong>Solution:</strong> The third side must satisfy both:</p>
+        $$x + 4 > 9 \implies x > 5$$
+        $$4 + 9 > x \implies x < 13$$
+        <p>Therefore: $\boxed{5 < x < 13}$.</p>
+        <p><em>Quick formula:</em> $|b - a| < x < a + b$, so $|9 - 4| < x < 9 + 4 \implies 5 < x < 13$.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <h2>5.7 Inequalities in Triangles</h2>
+
+    <div class="theorem-box">
+        <h4>Theorem — Side-Angle Inequality</h4>
+        <p>In any triangle:</p>
+        <ul>
+            <li>The <strong>longest side</strong> is opposite the <strong>largest angle</strong>.</li>
+            <li>The <strong>shortest side</strong> is opposite the <strong>smallest angle</strong>.</li>
+            <li>Equal sides are opposite equal angles (isosceles triangle property).</li>
+        </ul>
+        <p>In $\triangle ABC$: if $\angle A > \angle B > \angle C$, then $BC > AC > AB$.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <h2>Practice Problems</h2>
+
+    <div class="practice-box">
+        <h4>Unit 5 Practice — 10 Problems</h4>
+        <ol>
+            <li>In $\triangle PQR$, midsegment $\overline{ST}$ is parallel to $\overline{QR}$. If $QR = 22$, find $ST$.</li>
+            <li>Midsegment $\overline{MN}$ of $\triangle ABC$ has length 9. Find $BC$.</li>
+            <li>Point $P$ is on the perpendicular bisector of $\overline{XY}$ where $XY = 10$. If $PX = 13$, find $PY$.</li>
+            <li>The circumcenter of a triangle is located outside the triangle. What type of triangle is it?</li>
+            <li>Centroid $G$ of $\triangle ABC$ lies on median $\overline{BM}$. If $GM = 5$, find $BG$ and $BM$.</li>
+            <li>Centroid $G$ divides median $\overline{CF}$. If $CF = 24$, find $CG$ and $GF$.</li>
+            <li>Can a triangle have sides of length 3, 8, and 12? Explain.</li>
+            <li>Can a triangle have sides of length 6, 9, and 14? Explain.</li>
+            <li>Two sides of a triangle are 7 and 11. Write an inequality for the third side $x$.</li>
+            <li>In $\triangle DEF$, $\angle D = 80°$, $\angle E = 60°$, $\angle F = 40°$. List the sides from shortest to longest.</li>
+        </ol>
+    </div>
+
+    <div class="unit-nav">
+        <a href="/test-geometry/unit04-congruent-triangles.html">← Previous Unit</a>
+        <a href="/test-geometry/index.html">All Units</a>
+        <a href="/test-geometry/unit06-transformations.html">Next Unit →</a>
+    </div>
+</article>
+<footer style="text-align:center;padding:24px 20px;color:#94a3b8;font-size:.85em;border-top:1px solid #e2e8f0;margin-top:40px">
+    Geometry · MathHub · Grade 9–10
+</footer>
+</body>
+</html>

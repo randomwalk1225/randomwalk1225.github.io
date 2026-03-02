@@ -62,10 +62,11 @@
         };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 
     <link rel="stylesheet" href="../../assets/css/common.css">
     <style>
-        .blog-article { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
         .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
         .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
         .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; }
@@ -103,6 +104,8 @@
         .toc a { color: #3b82f6; text-decoration: none; }
         .toc a:hover { text-decoration: underline; }
         .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .desmos-fig { width: 100%; height: 260px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 20px 0 8px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; margin: 4px 0 24px; font-style: italic; }
     </style>
 </head>
 <body>
@@ -273,6 +276,24 @@
             <p>From the Pythagorean identity: $1 + \tan^2\theta = \sec^2\theta$ and $\cot^2\theta + 1 = \csc^2\theta$.</p>
         </div>
 
+        <div id="fig-pure1" class="desmos-fig"></div>
+        <p class="fig-caption">PURE·1 &mdash; Graphs of $y = \sin x$ (blue) and $y = \cos x$ (purple) on $[-2\pi,\, 2\pi]$. Both oscillate between $-1$ and $1$ with period $2\pi$; the cosine curve is the sine curve shifted left by $\tfrac{\pi}{2}$.</p>
+        <script>(function(){
+            var OPT = {keypad:false, expressions:false, settingsMenu:false, zoomButtons:false, lockViewport:true, showGrid:true};
+            var c = Desmos.GraphingCalculator(document.getElementById('fig-pure1'), OPT);
+            c.setMathBounds({left:-7.4, right:7.4, bottom:-1.75, top:1.75});
+            c.setExpression({id:'sinx', latex:'y=\\sin x', color:'#2563eb', lineWidth:2.5});
+            c.setExpression({id:'cosx', latex:'y=\\cos x', color:'#7c3aed', lineWidth:2.5});
+            // Label curves
+            c.setExpression({id:'lsin', latex:'(-5.8,0.72)', label:'y = sin x', showLabel:true, color:'#2563eb', pointSize:0, pointOpacity:0});
+            c.setExpression({id:'lcos', latex:'(-5.8,-0.5)', label:'y = cos x', showLabel:true, color:'#7c3aed', pointSize:0, pointOpacity:0});
+            // π tick markers
+            c.setExpression({id:'pi',   latex:'(3.14159,0)',  label:'π',   showLabel:true, color:'#64748b', pointSize:5});
+            c.setExpression({id:'pi2',  latex:'(6.28318,0)',  label:'2π',  showLabel:true, color:'#64748b', pointSize:5});
+            c.setExpression({id:'npi',  latex:'(-3.14159,0)', label:'-π',  showLabel:true, color:'#64748b', pointSize:5});
+            c.setExpression({id:'npi2', latex:'(-6.28318,0)', label:'-2π', showLabel:true, color:'#64748b', pointSize:5});
+        })();</script>
+
         <div class="example-box">
             <h4>Worked Example 5.1 &mdash; Solving Trigonometric Equations</h4>
             <p>Solve $2\sin^2\theta - \sin\theta - 1 = 0$ for $0 \leq \theta \leq 2\pi$.</p>
@@ -357,6 +378,18 @@
         <h3>Applications of Differentiation</h3>
         <p>The derivative gives the gradient of the tangent at a point. Setting $f'(x) = 0$ finds stationary points. The second derivative test: if $f''(x) > 0$ it is a minimum; if $f''(x) < 0$ it is a maximum.</p>
 
+        <div id="fig-pure2" class="desmos-fig"></div>
+        <p class="fig-caption">PURE·2 &mdash; The curve $y = x^2 + 3x$ (blue) and its tangent at $x = 1$ (red, dashed). Since $f'(1) = 2(1)+3 = 5$, the tangent has gradient $5$ and equation $y = 5x - 1$. Stationary point occurs where $f'(x) = 0$, i.e.\ at $x = -\tfrac{3}{2}$.</p>
+        <script>(function(){
+            var OPT = {keypad:false, expressions:false, settingsMenu:false, zoomButtons:false, lockViewport:true, showGrid:true};
+            var c = Desmos.GraphingCalculator(document.getElementById('fig-pure2'), OPT);
+            c.setMathBounds({left:-4.5, right:4, bottom:-5, top:16});
+            c.setExpression({id:'curve',   latex:'y=x^2+3x',    color:'#2563eb', lineWidth:2.5});
+            c.setExpression({id:'tangent', latex:'y=5x-1',       color:'#dc2626', lineWidth:2, lineStyle:'DASHED'});
+            c.setExpression({id:'pt',      latex:'(1,4)',         label:'(1, 4)',  showLabel:true, color:'#dc2626', pointSize:8});
+            c.setExpression({id:'stat',    latex:'(-1.5,-2.25)', label:'min (−³⁄₂, −²·²⁵)', showLabel:true, color:'#2563eb', pointSize:7});
+        })();</script>
+
         <!-- ============================================================ -->
         <h2 id="section-8">8. Integration</h2>
 
@@ -378,6 +411,26 @@
             <p><span class="step-label">Step 3</span> $\displaystyle\int_0^2 (x^3 - 4x)\,dx = \left[\frac{x^4}{4} - 2x^2\right]_0^2 = (4 - 8) - 0 = -4$. Area $= |-{-4}| = 4$.</p>
             <p>By symmetry, the area from $-2$ to $0$ is also $4$. Total area $= 8$.</p>
         </div>
+
+        <div id="fig-pure3" class="desmos-fig"></div>
+        <p class="fig-caption">PURE·3 &mdash; The curve $y = x^3 - 4x$ crosses the $x$-axis at $x = -2, 0, 2$. The green region (area $= 4$) lies above the axis on $[-2, 0]$; the red region (area $= 4$) lies below the axis on $[0, 2]$. Total area $= 8$.</p>
+        <script>(function(){
+            var OPT = {keypad:false, expressions:false, settingsMenu:false, zoomButtons:false, lockViewport:true, showGrid:true};
+            var c = Desmos.GraphingCalculator(document.getElementById('fig-pure3'), OPT);
+            c.setMathBounds({left:-3.4, right:3.4, bottom:-5.5, top:5.5});
+            c.setExpression({id:'curve',  latex:'y=x^3-4x', color:'#2563eb', lineWidth:2.5});
+            // Green shade: curve above x-axis on [-2, 0]
+            c.setExpression({id:'shade1', latex:'0\\le y\\le x^3-4x\\left\\{-2\\le x\\le0\\right\\}', color:'#16a34a', lineWidth:0, fillOpacity:0.35});
+            // Red shade: curve below x-axis on [0, 2]
+            c.setExpression({id:'shade2', latex:'x^3-4x\\le y\\le0\\left\\{0\\le x\\le2\\right\\}', color:'#dc2626', lineWidth:0, fillOpacity:0.35});
+            // Root markers
+            c.setExpression({id:'r1', latex:'(-2,0)', label:'-2', showLabel:true, color:'#2563eb', pointSize:6});
+            c.setExpression({id:'r2', latex:'(0,0)',  label:'0',  showLabel:true, color:'#2563eb', pointSize:6});
+            c.setExpression({id:'r3', latex:'(2,0)',  label:'2',  showLabel:true, color:'#2563eb', pointSize:6});
+            // Area labels
+            c.setExpression({id:'la1', latex:'(-1.1,1.2)', label:'A = 4', showLabel:true, color:'#16a34a', pointSize:0, pointOpacity:0});
+            c.setExpression({id:'la2', latex:'(1.1,-1.2)', label:'A = 4', showLabel:true, color:'#dc2626', pointSize:0, pointOpacity:0});
+        })();</script>
 
         <!-- ============================================================ -->
         <h2 id="section-9">9. Practice Problems</h2>

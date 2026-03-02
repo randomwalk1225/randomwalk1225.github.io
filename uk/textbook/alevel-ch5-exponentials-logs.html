@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Mathematics – Chapter 5: Exponentials and Logarithms | A-Level Mathematics | MathHub</title>
+    <meta name="description" content="Complete A-Level Maths Chapter 5: Exponentials and Logarithms. Covers exponential functions, log laws, natural logarithm, exponential models, and data linearisation for Edexcel, AQA, and OCR.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/alevel-ch5-exponentials-logs.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/uk/textbook/alevel-ch5-exponentials-logs.html">
+    <meta property="og:title" content="A-Level Mathematics – Chapter 5: Exponentials and Logarithms | MathHub">
+    <meta property="og:site_name" content="MathHub Global">
+    <link rel="alternate" hreflang="en-GB" href="https://mathhub.io/uk/textbook/alevel-ch5-exponentials-logs.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .year2-badge { display: inline-block; background: #e0e7ff; color: #3730a3; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/" class="active">UK</a><a href="/ca/">CA</a><a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+    <article class="blog-article">
+        <div class="breadcrumb"><a href="/uk/">UK</a> &rsaquo; <a href="/uk/a-level/">A-Level Maths</a> &rsaquo; Chapter 5: Exponentials and Logarithms</div>
+        <h1>A-Level Mathematics – Chapter 5: Exponentials and Logarithms</h1>
+        <div class="blog-meta">Edexcel &middot; AQA &middot; OCR A-Level Mathematics &middot; Updated March 2026</div>
+
+        <p>Exponentials and logarithms appear throughout pure mathematics, statistics, mechanics, and the physical sciences. This chapter develops a deep understanding of exponential functions — from the basic graph of $y = a^x$ through to Euler's number $e$ — and establishes the laws of logarithms needed to solve a wide range of equations. Real-world applications from radioactive decay to data linearisation are woven throughout.</p>
+
+        <div class="exam-note">
+            <h4>Specification Note</h4>
+            <p>Content labelled <span class="year2-badge">Year 2</span> is A2-level only and is not assessed at AS. Sections 5.1–5.4 are required for both AS and full A-Level. Section 5.5 is Year 2 only.</p>
+        </div>
+
+        <div class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#s51">5.1 Exponential Functions</a></li>
+                <li><a href="#s52">5.2 Logarithms</a></li>
+                <li><a href="#s53">5.3 Natural Logarithms</a></li>
+                <li><a href="#s54">5.4 Exponential Models</a></li>
+                <li><a href="#s55">5.5 Data Linearisation <span class="year2-badge">Year 2</span></a></li>
+                <li><a href="#practice">Practice Problems</a></li>
+            </ol>
+        </div>
+
+        <!-- ===== SECTION 5.1 ===== -->
+        <h2 id="s51">5.1 Exponential Functions</h2>
+
+        <p>An <strong>exponential function</strong> has the variable in the exponent rather than the base. The standard form is $f(x) = a^x$, where $a > 0$ and $a \neq 1$. These functions grow (or decay) more rapidly than any polynomial for large $|x|$.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Exponential Function</h4>
+            <p>A function of the form $f(x) = a^x$, where $a > 0$ and $a \neq 1$, is called an <strong>exponential function</strong> with base $a$.</p>
+            <ul>
+                <li><strong>Domain:</strong> all real numbers, $x \in \mathbb{R}$</li>
+                <li><strong>Range:</strong> all positive reals, $f(x) > 0$</li>
+                <li><strong>$y$-intercept:</strong> $(0,1)$ for any base (since $a^0 = 1$)</li>
+                <li><strong>Asymptote:</strong> the $x$-axis, $y = 0$</li>
+                <li>If $a > 1$: function is <strong>increasing</strong> (exponential growth)</li>
+                <li>If $0 < a < 1$: function is <strong>decreasing</strong> (exponential decay)</li>
+            </ul>
+        </div>
+
+        <h3>The Natural Base $e$</h3>
+        <p>The most important base in mathematics is Euler's number $e \approx 2.71828\ldots$, defined by:</p>
+        $$e = \lim_{n \to \infty}\!\left(1 + \frac{1}{n}\right)^n$$
+        <p>The function $y = e^x$ is uniquely self-referential under differentiation: $\dfrac{d}{dx}(e^x) = e^x$. Its gradient at $(0, 1)$ is exactly $1$, and it is the natural choice for all continuous-change models.</p>
+
+        <p>The interactive figure below compares $y = 2^x$, $y = e^x$, and $y = 3^x$. All three pass through $(0,1)$; a larger base produces a steeper graph for $x > 0$ and a shallower decay for $x < 0$.</p>
+
+        <div id="desmos-exp-compare" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 5.1 — Comparing $y = 2^x$ (blue), $y = e^x$ (purple), and $y = 3^x$ (red). All pass through $(0,1)$.</p>
+
+        <div class="example-box">
+            <h4>Example 5.1.1 — Evaluating Exponential Expressions</h4>
+            <p>Evaluate, giving exact values where possible: (a) $e^0$ &ensp; (b) $e^{-1}$ &ensp; (c) $e^{0.5}$ &ensp; (d) $2e^2$.</p>
+            <p><span class="step-label">a</span> $e^0 = 1$</p>
+            <p><span class="step-label">b</span> $e^{-1} = \dfrac{1}{e} \approx 0.368$</p>
+            <p><span class="step-label">c</span> $e^{0.5} = \sqrt{e} \approx 1.649$</p>
+            <p><span class="step-label">d</span> $2e^2 \approx 2 \times 7.389 = 14.78$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.1.2 — Key Properties from a Graph</h4>
+            <p>State the $y$-intercept, asymptote, and whether the following represent growth or decay.</p>
+            <p>(a) $y = 5^x$ &ensp; (b) $y = (0.3)^x$ &ensp; (c) $y = e^{-x}$</p>
+            <p><span class="step-label">a</span> $y$-intercept $(0,1)$; asymptote $y=0$; base $5 > 1$ so <strong>growth</strong>.</p>
+            <p><span class="step-label">b</span> $y$-intercept $(0,1)$; asymptote $y=0$; base $0.3 < 1$ so <strong>decay</strong>.</p>
+            <p><span class="step-label">c</span> $y$-intercept $(0,1)$; asymptote $y=0$; since the exponent is negative, this is <strong>decay</strong> (same as base $1/e < 1$).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.1.3 — Transformations of $y = e^x$</h4>
+            <p>Describe each transformation from $y = e^x$ and state the asymptote.</p>
+            <p>(a) $y = e^{x+3}$ &ensp; (b) $y = e^x - 4$ &ensp; (c) $y = 2e^x$ &ensp; (d) $y = -e^x$</p>
+            <p><span class="step-label">a</span> Translation $\begin{pmatrix}-3\\0\end{pmatrix}$ (left 3). Asymptote: $y = 0$.</p>
+            <p><span class="step-label">b</span> Translation $\begin{pmatrix}0\\-4\end{pmatrix}$ (down 4). Asymptote: $y = -4$. The $y$-intercept moves to $(0,-3)$.</p>
+            <p><span class="step-label">c</span> Stretch in the $y$-direction by factor 2. $y$-intercept becomes $(0,2)$. Asymptote: $y = 0$.</p>
+            <p><span class="step-label">d</span> Reflection in the $x$-axis; graph lies entirely below $y=0$. Asymptote: $y = 0$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.1.4 — Sketching with a Shifted Asymptote</h4>
+            <p>Sketch $y = 3e^{-x} + 1$, stating the asymptote, $y$-intercept, and behaviour as $x \to +\infty$ and $x \to -\infty$.</p>
+            <p><span class="step-label">1</span> Asymptote: as $x \to +\infty$, $e^{-x} \to 0$, so $y \to 1$. Asymptote: $y = 1$.</p>
+            <p><span class="step-label">2</span> $y$-intercept: $x=0 \Rightarrow y = 3(1)+1 = 4$. Point $(0,4)$.</p>
+            <p><span class="step-label">3</span> As $x \to -\infty$: $e^{-x} \to +\infty$, so $y \to +\infty$. The curve rises steeply to the left.</p>
+            <p><span class="step-label">4</span> The graph is a reflection of $y = 3e^x$ in the $y$-axis, then shifted up 1 unit.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>When sketching any exponential, mark three things: the $y$-intercept, the equation of the asymptote, and the direction of approach. Examiners award a mark specifically for a correctly stated asymptote — do not omit it.</p>
+        </div>
+
+        <!-- ===== SECTION 5.2 ===== -->
+        <h2 id="s52">5.2 Logarithms</h2>
+
+        <p>The logarithm is the inverse operation of exponentiation. If $a^y = x$, we write $y = \log_a x$. Logarithms allow us to "bring down" exponents, which is essential for solving equations where the unknown is in a power.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Logarithm</h4>
+            <p>For $a > 0$, $a \neq 1$, and $x > 0$:</p>
+            $$\log_a x = y \iff a^y = x$$
+            <p>Key identities: $\log_a 1 = 0$ (since $a^0 = 1$) and $\log_a a = 1$ (since $a^1 = a$).</p>
+            <p>The <strong>common logarithm</strong> $\log_{10} x$ is written $\lg x$ or simply $\log x$.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Laws of Logarithms</h4>
+            <p>For $a > 0$, $a \neq 1$, and positive values $x$, $y$:</p>
+            <ul>
+                <li><strong>Product rule:</strong> $\log_a(xy) = \log_a x + \log_a y$</li>
+                <li><strong>Quotient rule:</strong> $\log_a\!\left(\dfrac{x}{y}\right) = \log_a x - \log_a y$</li>
+                <li><strong>Power rule:</strong> $\log_a(x^n) = n\log_a x$</li>
+                <li><strong>Change of base:</strong> $\log_a x = \dfrac{\log_b x}{\log_b a} = \dfrac{\ln x}{\ln a}$</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.2.1 — Applying the Log Laws</h4>
+            <p>Write $3\log 2 + \log 5 - \log 4$ as a single logarithm and evaluate it.</p>
+            <p><span class="step-label">1</span> Power rule: $3\log 2 = \log 8$</p>
+            <p><span class="step-label">2</span> Product rule: $\log 8 + \log 5 = \log 40$</p>
+            <p><span class="step-label">3</span> Quotient rule: $\log 40 - \log 4 = \log\!\left(\tfrac{40}{4}\right) = \log 10 = 1$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.2.2 — Solving $a^x = b$ Using Logs</h4>
+            <p>Solve $3^x = 20$, giving your answer to 3 significant figures.</p>
+            <p><span class="step-label">1</span> Take $\log$ of both sides: $\log(3^x) = \log 20$</p>
+            <p><span class="step-label">2</span> Power rule: $x\log 3 = \log 20$</p>
+            <p><span class="step-label">3</span> Divide: $x = \dfrac{\log 20}{\log 3} \approx \dfrac{1.3010}{0.4771} \approx 2.73$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.2.3 — Change of Base</h4>
+            <p>Evaluate $\log_5 17$ to 4 decimal places.</p>
+            <p><span class="step-label">1</span> $\log_5 17 = \dfrac{\log 17}{\log 5} = \dfrac{1.2304}{0.6990} \approx 1.7603$</p>
+            <p>Alternatively using natural log: $\dfrac{\ln 17}{\ln 5} = \dfrac{2.8332}{1.6094} \approx 1.7603$ ✓</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.2.4 — Solving a Log Equation (Disguised Quadratic)</h4>
+            <p>Solve $\log_3 x = 4 - \log_3(x-8)$.</p>
+            <p><span class="step-label">1</span> Rearrange: $\log_3 x + \log_3(x-8) = 4$</p>
+            <p><span class="step-label">2</span> Product rule: $\log_3[x(x-8)] = 4$</p>
+            <p><span class="step-label">3</span> Exponentiate: $x(x-8) = 3^4 = 81$</p>
+            <p><span class="step-label">4</span> Expand: $x^2 - 8x - 81 = 0 \Rightarrow (x-9)(x+9) = 0$</p>
+            <p><span class="step-label">5</span> Domain check: $x > 0$ and $x > 8$, so reject $x = -9$. Answer: $x = 9$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.2.5 — Simultaneous Log Equations</h4>
+            <p>Given $\log_2 x + \log_2 y = 5$ and $\log_2 x - \log_2 y = 1$, find $x$ and $y$.</p>
+            <p><span class="step-label">1</span> Add: $2\log_2 x = 6 \Rightarrow \log_2 x = 3 \Rightarrow x = 8$</p>
+            <p><span class="step-label">2</span> Subtract: $2\log_2 y = 4 \Rightarrow \log_2 y = 2 \Rightarrow y = 4$</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Always check that solutions satisfy the domain conditions for the original logarithms — each argument must be strictly positive. Examiners regularly award a mark for correctly rejecting an invalid solution.</p>
+        </div>
+
+        <!-- ===== SECTION 5.3 ===== -->
+        <h2 id="s53">5.3 Natural Logarithms</h2>
+
+        <p>The <strong>natural logarithm</strong> $\ln x = \log_e x$ is the logarithm to base $e$. Because $\ln$ and $e^x$ are inverse functions, each "undoes" the other. This makes $\ln x$ indispensable when solving equations involving $e^x$, and it arises naturally in calculus.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Natural Logarithm</h4>
+            $$\ln x = \log_e x \iff e^y = x \quad (y = \ln x)$$
+            <p>Key identities and properties:</p>
+            <ul>
+                <li>$\ln(e^x) = x$ for all $x \in \mathbb{R}$</li>
+                <li>$e^{\ln x} = x$ for all $x > 0$</li>
+                <li>$\ln 1 = 0$ and $\ln e = 1$</li>
+                <li><strong>Domain:</strong> $x > 0$; <strong>Range:</strong> $y \in \mathbb{R}$</li>
+                <li>The graph $y = \ln x$ passes through $(1, 0)$ and $(e, 1)$</li>
+                <li>The $y$-axis ($x = 0$) is a vertical asymptote</li>
+            </ul>
+        </div>
+
+        <h3>Calculus Connection</h3>
+        <p>Two fundamental results (developed fully in Chapters 6 and 7) are:</p>
+        <ul>
+            <li>$\dfrac{d}{dx}(\ln x) = \dfrac{1}{x}$ and $\dfrac{d}{dx}(e^x) = e^x$</li>
+            <li>$\displaystyle\int \frac{1}{x}\,dx = \ln|x| + c$ and $\displaystyle\int e^x\,dx = e^x + c$</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Example 5.3.1 — Simplifying with $\ln$ and $e$</h4>
+            <p>Simplify: (a) $\ln e^5$ &ensp; (b) $e^{3\ln 2}$ &ensp; (c) $\ln\sqrt{e}$ &ensp; (d) $e^{\ln 7 - \ln 2}$</p>
+            <p><span class="step-label">a</span> $\ln e^5 = 5$</p>
+            <p><span class="step-label">b</span> $e^{3\ln 2} = e^{\ln 2^3} = e^{\ln 8} = 8$</p>
+            <p><span class="step-label">c</span> $\ln\sqrt{e} = \ln e^{1/2} = \tfrac{1}{2}$</p>
+            <p><span class="step-label">d</span> $e^{\ln 7 - \ln 2} = e^{\ln(7/2)} = \tfrac{7}{2}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.3.2 — Solving $Ae^{kt} = B$</h4>
+            <p>A radioactive sample has initial mass $200\,\text{g}$ and decays by $m = 200e^{-0.03t}$, where $t$ is in years. Find the time for the mass to fall to $80\,\text{g}$.</p>
+            <p><span class="step-label">1</span> Set $m = 80$: $200e^{-0.03t} = 80$</p>
+            <p><span class="step-label">2</span> Divide: $e^{-0.03t} = 0.4$</p>
+            <p><span class="step-label">3</span> Take $\ln$: $-0.03t = \ln 0.4$</p>
+            <p><span class="step-label">4</span> Solve: $t = \dfrac{-\ln 0.4}{0.03} = \dfrac{0.9163}{0.03} \approx 30.5\,\text{years}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.3.3 — Solving a Natural Log Equation</h4>
+            <p>Solve $\ln(x+3) - \ln x = \ln 4$.</p>
+            <p><span class="step-label">1</span> Quotient rule: $\ln\!\left(\dfrac{x+3}{x}\right) = \ln 4$</p>
+            <p><span class="step-label">2</span> Exponentiate: $\dfrac{x+3}{x} = 4$</p>
+            <p><span class="step-label">3</span> $x + 3 = 4x \Rightarrow 3 = 3x \Rightarrow x = 1$</p>
+            <p><span class="step-label">4</span> Check: $\ln 4 - \ln 1 = \ln 4$ ✓ and both arguments are positive ✓</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>The identity $e^{\ln f(x)} = f(x)$ is extremely useful for simplification. Similarly, $\ln(e^{f(x)}) = f(x)$. When you see either form, simplify immediately rather than leaving it unsimplified in your final answer.</p>
+        </div>
+
+        <!-- ===== SECTION 5.4 ===== -->
+        <h2 id="s54">5.4 Exponential Models</h2>
+
+        <p>Exponential functions model many natural processes: population growth, radioactive decay, drug absorption, compound interest, and cooling. The key feature is that the <em>rate of change is proportional to the current value</em> — which leads directly to the exponential form.</p>
+
+        <div class="definition-box">
+            <h4>General Exponential Model</h4>
+            $$P = P_0\,e^{kt} \quad \text{or equivalently} \quad P = P_0\,a^t \text{ where } a = e^k$$
+            <ul>
+                <li>$P_0$: initial value at $t = 0$</li>
+                <li>$k > 0$: growth constant; $k < 0$: decay constant</li>
+                <li><strong>Doubling time:</strong> $T_2 = \dfrac{\ln 2}{k}$ (when $k > 0$)</li>
+                <li><strong>Half-life:</strong> $T_{1/2} = \dfrac{\ln 2}{|k|}$ (when $k < 0$)</li>
+            </ul>
+        </div>
+
+        <p>The figure below shows $P = 100e^{-kt}$ with an adjustable decay constant. Move the slider to observe how the half-life changes with $k$.</p>
+
+        <div id="desmos-decay" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 5.2 — Exponential decay $P = 100e^{-kt}$. The dashed line at $P = 50$ marks the half-life. Adjust $k$ to change the rate of decay.</p>
+
+        <div class="example-box">
+            <h4>Example 5.4.1 — Population Growth</h4>
+            <p>A bacterial population is modelled by $N = 500e^{0.4t}$, where $t$ is in hours. Find: (a) the initial population, (b) the population after 3 hours, (c) the doubling time.</p>
+            <p><span class="step-label">a</span> At $t=0$: $N = 500e^0 = 500$ bacteria.</p>
+            <p><span class="step-label">b</span> $N = 500e^{1.2} \approx 500 \times 3.320 \approx 1660$ bacteria.</p>
+            <p><span class="step-label">c</span> $T_2 = \dfrac{\ln 2}{0.4} \approx \dfrac{0.6931}{0.4} \approx 1.73$ hours.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.4.2 — Radioactive Decay and Half-Life</h4>
+            <p>Carbon-14 has a half-life of 5730 years. Find the decay constant and hence the percentage remaining after 10 000 years.</p>
+            <p><span class="step-label">1</span> $5730 = \dfrac{\ln 2}{k} \Rightarrow k = \dfrac{\ln 2}{5730} \approx 1.210 \times 10^{-4}$</p>
+            <p><span class="step-label">2</span> Model: $m = m_0 e^{-1.210 \times 10^{-4}\,t}$</p>
+            <p><span class="step-label">3</span> At $t = 10\,000$: $\dfrac{m}{m_0} = e^{-1.210} \approx 0.298$, i.e. approximately $\mathbf{29.8\%}$ remains.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.4.3 — Fitting an Exponential Curve $y = ab^x$</h4>
+            <p>A model $y = ab^x$ passes through $(2, 12)$ and $(5, 96)$. Find $a$ and $b$.</p>
+            <p><span class="step-label">1</span> Substitute: $ab^2 = 12$ and $ab^5 = 96$.</p>
+            <p><span class="step-label">2</span> Divide: $b^3 = \dfrac{96}{12} = 8 \Rightarrow b = 2$.</p>
+            <p><span class="step-label">3</span> Back-substitute: $a = \dfrac{12}{4} = 3$. So $y = 3 \times 2^x$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.4.4 — Newton's Law of Cooling</h4>
+            <p>A cup of coffee at $90\,^\circ\text{C}$ cools in a room at $20\,^\circ\text{C}$. The excess temperature follows $\theta = 70e^{-0.05t}$ (°C), where $t$ is in minutes. Find when the coffee reaches $50\,^\circ\text{C}$.</p>
+            <p><span class="step-label">1</span> Excess temperature at $50\,^\circ\text{C}$: $\theta = 50 - 20 = 30$.</p>
+            <p><span class="step-label">2</span> $30 = 70e^{-0.05t} \Rightarrow e^{-0.05t} = \dfrac{3}{7}$</p>
+            <p><span class="step-label">3</span> $-0.05t = \ln\!\left(\tfrac{3}{7}\right) \Rightarrow t = \dfrac{-\ln(3/7)}{0.05} \approx \dfrac{0.8473}{0.05} \approx 16.9\,\text{min}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.4.5 — Compound Interest</h4>
+            <p>£3000 is invested at $4\%$ per annum, compounded continuously (i.e. $A = Pe^{rt}$). Find: (a) the amount after 10 years; (b) the time to double the investment.</p>
+            <p><span class="step-label">a</span> $A = 3000e^{0.04 \times 10} = 3000e^{0.4} \approx 3000 \times 1.4918 = \pounds 4475$.</p>
+            <p><span class="step-label">b</span> $6000 = 3000e^{0.04t} \Rightarrow e^{0.04t} = 2 \Rightarrow t = \dfrac{\ln 2}{0.04} \approx 17.3\,\text{years}$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>In modelling questions, identify $P_0$ (the value at $t = 0$) first — it often falls out immediately without algebra. Also, always state the units of $t$ in your final answer.</p>
+        </div>
+
+        <!-- ===== SECTION 5.5 ===== -->
+        <h2 id="s55">5.5 Data Linearisation <span class="year2-badge">Year 2</span></h2>
+
+        <p>Real data rarely fits a perfect exponential or power law. The technique of <strong>linearisation</strong> transforms a non-linear relationship into a straight-line form, allowing the parameters to be read directly from a graph. Two common models are treated below.</p>
+
+        <div class="theorem-box">
+            <h4>Linearising $y = ax^n$ (Power Law)</h4>
+            <p>Take $\log_{10}$ of both sides:</p>
+            $$\log y = n\log x + \log a$$
+            <p>Plot $Y = \log y$ against $X = \log x$. The result is a straight line:</p>
+            <ul>
+                <li><strong>Gradient</strong> $= n$</li>
+                <li><strong>$Y$-intercept</strong> $= \log a$, so $a = 10^{\text{intercept}}$</li>
+            </ul>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Linearising $y = ab^x$ (Exponential)</h4>
+            <p>Take $\log_{10}$ of both sides:</p>
+            $$\log y = x\log b + \log a$$
+            <p>Plot $Y = \log y$ against $X = x$. The result is a straight line:</p>
+            <ul>
+                <li><strong>Gradient</strong> $= \log b$, so $b = 10^{\text{gradient}}$</li>
+                <li><strong>$Y$-intercept</strong> $= \log a$, so $a = 10^{\text{intercept}}$</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.5.1 — Power Law from a Log-Log Graph</h4>
+            <p>A $\log y$ vs $\log x$ graph passes through $(0.3, 0.9)$ and $(1.1, 2.5)$. Find $a$ and $n$ in $y = ax^n$.</p>
+            <p><span class="step-label">1</span> Gradient: $n = \dfrac{2.5 - 0.9}{1.1 - 0.3} = \dfrac{1.6}{0.8} = 2$</p>
+            <p><span class="step-label">2</span> Line equation: $\log y = 2\log x + c$. Substitute $(0.3, 0.9)$: $c = 0.9 - 0.6 = 0.3$.</p>
+            <p><span class="step-label">3</span> $\log a = 0.3 \Rightarrow a = 10^{0.3} \approx 2.00$. So $y \approx 2x^2$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.5.2 — Exponential Law from a Log-Linear Graph</h4>
+            <p>A $\log y$ vs $x$ graph has gradient $0.15$ and $Y$-intercept $1.2$. Find $a$ and $b$ in $y = ab^x$.</p>
+            <p><span class="step-label">1</span> $\log b = 0.15 \Rightarrow b = 10^{0.15} \approx 1.41$</p>
+            <p><span class="step-label">2</span> $\log a = 1.2 \Rightarrow a = 10^{1.2} \approx 15.8$</p>
+            <p>So $y \approx 15.8 \times 1.41^x$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.5.3 — Verifying a Power Law from Data</h4>
+            <p>Data pairs $(t, P)$: $(2, 5.66)$, $(4, 16.0)$, $(8, 45.3)$. Verify a power law $P = at^n$ and estimate $a$ and $n$.</p>
+            <p><span class="step-label">1</span> Compute $(\log t, \log P)$: $(0.301, 0.753)$, $(0.602, 1.204)$, $(0.903, 1.656)$.</p>
+            <p><span class="step-label">2</span> Gradient between 1st and 3rd: $\dfrac{1.656 - 0.753}{0.903 - 0.301} = \dfrac{0.903}{0.602} \approx 1.5$ — consistent, confirming a power law.</p>
+            <p><span class="step-label">3</span> $n \approx 1.5$. Using $(0.301, 0.753)$: $0.753 = 1.5(0.301) + \log a \Rightarrow \log a \approx 0.302 \Rightarrow a \approx 2.00$.</p>
+            <p>Model: $P \approx 2t^{1.5}$.</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>In data linearisation questions, write down the linearised equation explicitly (e.g. $\log y = n\log x + \log a$) before reading off the gradient and intercept. Mixing up which quantity gives $n$ versus $\log a$ is the most common error in this topic.</p>
+        </div>
+
+        <!-- ===== PRACTICE PROBLEMS ===== -->
+        <h2 id="practice">Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>Sketch $y = 2e^x - 1$, labelling the $y$-intercept and the equation of the asymptote.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>$y$-intercept:</strong> $x=0 \Rightarrow y = 2(1)-1 = 1$. Point $(0,1)$.</p>
+                    <p><strong>Asymptote:</strong> as $x \to -\infty$, $e^x \to 0$, so $y \to -1$. Asymptote: $y = -1$.</p>
+                    <p>The graph is a vertical stretch of $y = e^x$ by 2, then translated down by 1.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>Solve $5^{2x-1} = 40$, giving your answer to 3 significant figures.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$(2x-1)\log 5 = \log 40$</p>
+                    <p>$2x - 1 = \dfrac{\log 40}{\log 5} \approx \dfrac{1.6021}{0.6990} \approx 2.292$</p>
+                    <p>$x \approx \dfrac{3.292}{2} \approx 1.65$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>Write $\log_6 9 + 2\log_6 4 - \log_6 16$ as a single logarithm in its simplest form.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\log_6 9 + \log_6 16 - \log_6 16 = \log_6 9$</p>
+                    <p>(Note: $2\log_6 4 = \log_6 16$.)</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4</h4>
+            <p>A population of insects grows according to $P = 300e^{0.12t}$, where $t$ is in weeks. Find the number of weeks for the population to reach 2000, giving your answer to the nearest week.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$2000 = 300e^{0.12t} \Rightarrow e^{0.12t} = \dfrac{20}{3}$</p>
+                    <p>$0.12t = \ln\!\left(\dfrac{20}{3}\right) \approx 1.897$</p>
+                    <p>$t \approx 15.8 \Rightarrow$ <strong>16 weeks</strong></p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5</h4>
+            <p>Solve $2\ln x - \ln(x+6) = \ln 3$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\ln\!\left(\dfrac{x^2}{x+6}\right) = \ln 3 \Rightarrow \dfrac{x^2}{x+6} = 3$</p>
+                    <p>$x^2 = 3x + 18 \Rightarrow x^2 - 3x - 18 = 0 \Rightarrow (x-6)(x+3) = 0$</p>
+                    <p>Reject $x = -3$ (domain). So $x = 6$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6</h4>
+            <p>A curve has equation $y = Ae^{kt}$. Given $y = 4$ when $t = 0$ and $y = 10$ when $t = 3$, find $A$ and $k$ exactly.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$t=0$: $A = 4$.</p>
+                    <p>$t=3$: $10 = 4e^{3k} \Rightarrow 3k = \ln\!\left(\tfrac{5}{2}\right) \Rightarrow k = \dfrac{\ln(5/2)}{3} = \dfrac{\ln 2.5}{3}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>Solve $e^{2x} - 5e^x + 6 = 0$, giving exact answers.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Let $u = e^x$: $u^2 - 5u + 6 = 0 \Rightarrow (u-2)(u-3) = 0$</p>
+                    <p>$e^x = 2 \Rightarrow x = \ln 2$ &nbsp; or &nbsp; $e^x = 3 \Rightarrow x = \ln 3$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8</h4>
+            <p>The value $V$ (in £thousands) of a car after $t$ years is $V = 18 \times 0.82^t$. Find the number of years until the car falls below £5000.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$18 \times 0.82^t < 5 \Rightarrow 0.82^t < \dfrac{5}{18}$</p>
+                    <p>$t\log 0.82 < \log\!\left(\tfrac{5}{18}\right)$. Since $\log 0.82 < 0$, the inequality reverses when dividing:</p>
+                    <p>$t > \dfrac{\log(5/18)}{\log 0.82} \approx \dfrac{-0.5563}{-0.0862} \approx 6.45$</p>
+                    <p>So after <strong>7 years</strong>.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 9 <span class="year2-badge">Year 2</span></h4>
+            <p>Data follows $y = ax^n$. A plot of $\log y$ against $\log x$ gives a straight line through $(0, 1.5)$ and $(2, 4.1)$. Find $a$ and $n$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Gradient $= n = \dfrac{4.1 - 1.5}{2 - 0} = 1.3$</p>
+                    <p>$Y$-intercept $= \log a = 1.5 \Rightarrow a = 10^{1.5} \approx 31.6$</p>
+                    <p>$y \approx 31.6\,x^{1.3}$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 10 <span class="year2-badge">Year 2</span></h4>
+            <p>It is given that $y = ab^x$. A plot of $\log y$ against $x$ has gradient $0.2$ and passes through $(0, 0.6)$. Find $a$ and $b$ to 3 significant figures.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\log b = 0.2 \Rightarrow b = 10^{0.2} \approx 1.58$</p>
+                    <p>$\log a = 0.6 \Rightarrow a = 10^{0.6} \approx 3.98$</p>
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <script>
+    (function() {
+        // Figure 5.1 — Comparing exponential bases (non-interactive)
+        var el1 = document.getElementById('desmos-exp-compare');
+        if (el1) {
+            var calc1 = Desmos.GraphingCalculator(el1, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: true
+            });
+            calc1.setMathBounds({ left: -4, right: 4, bottom: -0.5, top: 12 });
+            calc1.setExpressions([
+                { id: 'e1', latex: 'y=2^x',   color: '#3b82f6', lineWidth: 2.5, label: 'y=2^x', showLabel: true },
+                { id: 'e2', latex: 'y=e^x',   color: '#8b5cf6', lineWidth: 2.5, label: 'y=e^x', showLabel: true },
+                { id: 'e3', latex: 'y=3^x',   color: '#ef4444', lineWidth: 2.5, label: 'y=3^x', showLabel: true },
+                { id: 'p0', latex: '(0,1)',    color: '#334155', pointSize: 9,  label: '(0,1)',  showLabel: true }
+            ]);
+        }
+
+        // Figure 5.2 — Exponential decay with half-life slider
+        var el2 = document.getElementById('desmos-decay');
+        if (el2) {
+            var calc2 = Desmos.GraphingCalculator(el2, {
+                expressions: true,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: false
+            });
+            calc2.setMathBounds({ left: -1, right: 30, bottom: -10, top: 110 });
+            calc2.setExpressions([
+                { id: 'k',    latex: 'k=0.1',
+                  sliderBounds: { min: 0.02, max: 0.5, step: 0.01 } },
+                { id: 'curve', latex: 'y=100e^{-kx}',  color: '#ef4444', lineWidth: 2.5,
+                  label: 'P=100e^{-kt}', showLabel: true },
+                { id: 'half',  latex: 'y=50',           color: '#94a3b8',
+                  lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5 }
+            ]);
+        }
+    })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Further Mathematics – Chapter 10: Second-Order Differential Equations | Further Mathematics | MathHub</title>
+    <meta name="description" content="Complete guide to second-order differential equations for A-Level Further Mathematics. Covers auxiliary equations, complementary functions, particular integrals, initial value problems and substitution methods. Edexcel, AQA, OCR.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/textbook/further-ch10-differential-equations.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; border-top: 2px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box li { color: #334155; line-height: 1.8; }
+        .exam-note { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .exam-note h4 { color: #b45309; margin: 0 0 8px; font-size: 1em; }
+        .exam-note p { color: #334155; line-height: 1.7; margin: 0; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        .further-badge { display: inline-block; background: #fce7f3; color: #9d174d; font-size: 0.75em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+        .desmos-fig { width: 100%; height: 320px; border: 1px solid #e2e8f0; border-radius: 8px; margin: 16px 0 4px; }
+        .fig-caption { text-align: center; font-size: 0.82em; color: #64748b; font-style: italic; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a><a href="/us/">US</a><a href="/uk/" class="active">UK</a><a href="/ca/">CA</a><a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+    <article class="blog-article">
+        <div class="breadcrumb"><a href="/uk/">UK</a> › <a href="/uk/">Textbook</a> › Further Maths – Chapter 10: Second-Order Differential Equations</div>
+        <h1>A-Level Further Mathematics – Chapter 10: Second-Order Differential Equations <span class="further-badge">Further Pure</span></h1>
+        <div class="blog-meta">Edexcel · AQA · OCR A-Level Further Mathematics &middot; Updated March 2026</div>
+
+        <div class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#intro">10.1 Introduction to Second-Order ODEs</a></li>
+                <li><a href="#homogeneous">10.2 Homogeneous Second-Order ODEs</a></li>
+                <li><a href="#nonhomogeneous">10.3 Non-Homogeneous ODEs and Particular Integrals</a></li>
+                <li><a href="#ivp">10.4 Initial Value Problems</a></li>
+                <li><a href="#substitution">10.5 Substitution Methods</a></li>
+                <li><a href="#practice">Practice Problems</a></li>
+            </ol>
+        </div>
+
+        <!-- ─── SECTION 10.1 ─── -->
+        <h2 id="intro">10.1 Introduction to Second-Order ODEs</h2>
+
+        <p>A <strong>second-order ordinary differential equation (ODE)</strong> involves a second derivative $\dfrac{d^2y}{dx^2}$. The <em>order</em> of an ODE is the highest derivative present; the <em>degree</em> is the power to which that highest derivative is raised (when the equation is polynomial in its derivatives).</p>
+
+        <div class="definition-box">
+            <h4>Definition — Second-Order Linear ODE</h4>
+            <p>The general second-order linear ODE with constant coefficients has the form:</p>
+            <p>$$a\frac{d^2y}{dx^2} + b\frac{dy}{dx} + cy = f(x)$$</p>
+            <p>where $a, b, c$ are real constants with $a \neq 0$ and $f(x)$ is a given function of $x$.</p>
+            <ul>
+                <li>When $f(x) = 0$, the equation is <strong>homogeneous</strong>.</li>
+                <li>When $f(x) \neq 0$, the equation is <strong>non-homogeneous</strong>.</li>
+            </ul>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Theorem — Structure of the General Solution</h4>
+            <p>The general solution to a non-homogeneous second-order linear ODE is:</p>
+            <p>$$y = y_{\text{CF}} + y_{\text{PI}}$$</p>
+            <p>where:</p>
+            <ul>
+                <li>$y_{\text{CF}}$ is the <strong>Complementary Function</strong> — the general solution to the associated homogeneous equation $ay'' + by' + cy = 0$. It contains two arbitrary constants.</li>
+                <li>$y_{\text{PI}}$ is a <strong>Particular Integral</strong> — any one solution to the full non-homogeneous equation. It contains no arbitrary constants.</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.1.1 — Identifying Order and Degree</h4>
+            <p>Classify each ODE and state whether it is homogeneous:</p>
+            <ol type="a">
+                <li>$y'' + 3y' - 4y = 0$ &nbsp;→&nbsp; Order 2, degree 1, <strong>homogeneous</strong>.</li>
+                <li>$y'' - 5y' + 6y = e^{2x}$ &nbsp;→&nbsp; Order 2, degree 1, <strong>non-homogeneous</strong>.</li>
+                <li>$(y'')^2 + y = x$ &nbsp;→&nbsp; Order 2, degree 2 (non-linear; not covered by the CF+PI method).</li>
+                <li>$y'' + \omega^2 y = \cos\omega x$ &nbsp;→&nbsp; Order 2, degree 1, non-homogeneous; this is the <em>resonance</em> case.</li>
+            </ol>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Always identify the order before attempting a solution. A second-order equation has a general solution with <em>exactly two</em> arbitrary constants; boundary conditions are needed to determine both.</p>
+        </div>
+
+        <!-- ─── SECTION 10.2 ─── -->
+        <h2 id="homogeneous">10.2 Homogeneous Second-Order ODEs</h2>
+
+        <p>To solve $ay'' + by' + cy = 0$, try $y = e^{mx}$. Substituting gives the <strong>auxiliary equation</strong>:</p>
+        <p>$$am^2 + bm + c = 0$$</p>
+        <p>The nature of the roots of this quadratic determines the form of the complementary function.</p>
+
+        <div class="theorem-box">
+            <h4>Theorem — Three Cases for the Complementary Function</h4>
+            <p><strong>Case 1 — Two real distinct roots $m_1 \neq m_2$:</strong></p>
+            <p>$$y_{\text{CF}} = Ae^{m_1 x} + Be^{m_2 x}$$</p>
+            <p><strong>Case 2 — Repeated root $m_1 = m_2 = m$:</strong></p>
+            <p>$$y_{\text{CF}} = (A + Bx)e^{mx}$$</p>
+            <p><strong>Case 3 — Complex roots $m = \alpha \pm \beta i$:</strong></p>
+            <p>$$y_{\text{CF}} = e^{\alpha x}(A\cos\beta x + B\sin\beta x)$$</p>
+            <p>In all cases, $A$ and $B$ are arbitrary real constants determined by boundary conditions.</p>
+        </div>
+
+        <div id="desmos-fig1" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 10.1 — Family of solutions $y = Ae^{-x} + Be^{-3x}$ (auxiliary roots $m = -1, -3$) for various values of $A$ and $B$, illustrating overdamped behaviour.</p>
+
+        <div class="example-box">
+            <h4>Example 10.2.1 — Case 1: Two Real Distinct Roots</h4>
+            <p>Solve $y'' + 4y' + 3y = 0$.</p>
+            <p><span class="step-label">Step 1</span> Write the auxiliary equation: $m^2 + 4m + 3 = 0$.</p>
+            <p><span class="step-label">Step 2</span> Factorise: $(m+1)(m+3) = 0$, giving $m = -1$ or $m = -3$.</p>
+            <p><span class="step-label">Step 3</span> Two distinct real roots, so the general solution is:</p>
+            <p>$$y = Ae^{-x} + Be^{-3x}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.2.2 — Case 2: Repeated Root</h4>
+            <p>Solve $y'' - 6y' + 9y = 0$.</p>
+            <p><span class="step-label">Step 1</span> Auxiliary equation: $m^2 - 6m + 9 = 0$.</p>
+            <p><span class="step-label">Step 2</span> Factorise: $(m-3)^2 = 0$, giving $m = 3$ (repeated).</p>
+            <p><span class="step-label">Step 3</span> Repeated root, so:</p>
+            <p>$$y = (A + Bx)e^{3x}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.2.3 — Case 3: Complex Roots</h4>
+            <p>Solve $y'' + 2y' + 5y = 0$.</p>
+            <p><span class="step-label">Step 1</span> Auxiliary equation: $m^2 + 2m + 5 = 0$.</p>
+            <p><span class="step-label">Step 2</span> Quadratic formula: $m = \dfrac{-2 \pm \sqrt{4 - 20}}{2} = -1 \pm 2i$.</p>
+            <p><span class="step-label">Step 3</span> $\alpha = -1$, $\beta = 2$, so:</p>
+            <p>$$y = e^{-x}(A\cos 2x + B\sin 2x)$$</p>
+            <p>This represents a damped oscillation — the amplitude decays exponentially as $x \to \infty$.</p>
+        </div>
+
+        <div id="desmos-fig2" class="desmos-fig"></div>
+        <p class="fig-caption">Figure 10.2 — Underdamped solution $y = e^{-x}(\cos 2x + \sin 2x)$ (i.e.\ $A = B = 1$) with dashed exponential envelopes $\pm\sqrt{2}\,e^{-x}$, showing oscillation with decaying amplitude.</p>
+
+        <div class="example-box">
+            <h4>Example 10.2.4 — Pure Imaginary Roots (Simple Harmonic)</h4>
+            <p>Solve $y'' + 9y = 0$.</p>
+            <p><span class="step-label">Step 1</span> Auxiliary equation: $m^2 + 9 = 0 \Rightarrow m = \pm 3i$.</p>
+            <p><span class="step-label">Step 2</span> $\alpha = 0$, $\beta = 3$, so:</p>
+            <p>$$y = A\cos 3x + B\sin 3x$$</p>
+            <p>This is undamped oscillation (simple harmonic motion with angular frequency $3$).</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>For Case 3, always write the complex roots as $\alpha \pm \beta i$ and read off $\alpha$ (for the exponential) and $\beta$ (for the trig functions). Do not confuse $\alpha$ and $\beta$ with the roots themselves.</p>
+        </div>
+
+        <!-- ─── SECTION 10.3 ─── -->
+        <h2 id="nonhomogeneous">10.3 Non-Homogeneous ODEs and Particular Integrals</h2>
+
+        <p>For $ay'' + by' + cy = f(x)$ with $f(x) \neq 0$, we need a <strong>Particular Integral</strong> $y_{\text{PI}}$. The trial function (also called the <em>method of undetermined coefficients</em>) chooses a form for $y_{\text{PI}}$ that mirrors $f(x)$.</p>
+
+        <div class="theorem-box">
+            <h4>Table of Trial Functions</h4>
+            <ul>
+                <li>$f(x) = $ polynomial of degree $n$ &nbsp;&rarr;&nbsp; Try $y_{\text{PI}} = p_n x^n + \cdots + p_1 x + p_0$ (full polynomial of degree $n$).</li>
+                <li>$f(x) = ke^{px}$ &nbsp;&rarr;&nbsp; Try $y_{\text{PI}} = \lambda e^{px}$, <em>provided $p$ is not a root of the auxiliary equation</em>.</li>
+                <li>$f(x) = k\cos nx$ or $k\sin nx$ &nbsp;&rarr;&nbsp; Try $y_{\text{PI}} = \lambda\cos nx + \mu\sin nx$.</li>
+                <li><strong>Resonance:</strong> If the trial function duplicates part of $y_{\text{CF}}$, multiply by $x$ (or $x^2$ for a repeated root). </li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.3.1 — Exponential Right-Hand Side</h4>
+            <p>Find the general solution of $y'' - 5y' + 6y = e^{4x}$.</p>
+            <p><span class="step-label">CF</span> Auxiliary equation: $m^2 - 5m + 6 = 0 \Rightarrow (m-2)(m-3) = 0$.<br>
+            Roots $m = 2, 3$, so $y_{\text{CF}} = Ae^{2x} + Be^{3x}$.</p>
+            <p><span class="step-label">PI</span> Try $y_{\text{PI}} = \lambda e^{4x}$. Then $y'' = 16\lambda e^{4x}$, $y' = 4\lambda e^{4x}$.<br>
+            Substituting: $16\lambda - 20\lambda + 6\lambda = 1 \Rightarrow 2\lambda = 1 \Rightarrow \lambda = \tfrac{1}{2}$.<br>
+            So $y_{\text{PI}} = \tfrac{1}{2}e^{4x}$.</p>
+            <p><span class="step-label">GS</span> $$y = Ae^{2x} + Be^{3x} + \tfrac{1}{2}e^{4x}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.3.2 — Polynomial Right-Hand Side</h4>
+            <p>Find the general solution of $y'' + y' - 2y = 4x + 1$.</p>
+            <p><span class="step-label">CF</span> $m^2 + m - 2 = 0 \Rightarrow (m+2)(m-1) = 0$, roots $m = -2, 1$.<br>
+            $y_{\text{CF}} = Ae^{-2x} + Be^{x}$.</p>
+            <p><span class="step-label">PI</span> Try $y_{\text{PI}} = px + q$. Then $y'' = 0$, $y' = p$.<br>
+            Substituting: $0 + p - 2(px + q) = 4x + 1$<br>
+            $\Rightarrow -2px + (p - 2q) = 4x + 1$.<br>
+            Comparing coefficients: $-2p = 4 \Rightarrow p = -2$; $\;p - 2q = 1 \Rightarrow -2 - 2q = 1 \Rightarrow q = -\tfrac{3}{2}$.<br>
+            $y_{\text{PI}} = -2x - \tfrac{3}{2}$.</p>
+            <p><span class="step-label">GS</span> $$y = Ae^{-2x} + Be^{x} - 2x - \tfrac{3}{2}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.3.3 — Trigonometric Right-Hand Side</h4>
+            <p>Solve $y'' + 4y = \sin 3x$.</p>
+            <p><span class="step-label">CF</span> $m^2 + 4 = 0 \Rightarrow m = \pm 2i$, so $y_{\text{CF}} = A\cos 2x + B\sin 2x$.</p>
+            <p><span class="step-label">PI</span> Try $y_{\text{PI}} = \lambda\cos 3x + \mu\sin 3x$.<br>
+            $y'' = -9\lambda\cos 3x - 9\mu\sin 3x$.<br>
+            Substituting: $(-9\lambda + 4\lambda)\cos 3x + (-9\mu + 4\mu)\sin 3x = \sin 3x$<br>
+            $\Rightarrow -5\lambda = 0$ and $-5\mu = 1$, giving $\lambda = 0$, $\mu = -\tfrac{1}{5}$.<br>
+            $y_{\text{PI}} = -\tfrac{1}{5}\sin 3x$.</p>
+            <p><span class="step-label">GS</span> $$y = A\cos 2x + B\sin 2x - \tfrac{1}{5}\sin 3x$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.3.4 — Resonance Case</h4>
+            <p>Solve $y'' - 3y' + 2y = e^{2x}$.</p>
+            <p><span class="step-label">CF</span> $m^2 - 3m + 2 = 0 \Rightarrow (m-1)(m-2) = 0$, roots $m = 1, 2$.<br>
+            $y_{\text{CF}} = Ae^{x} + Be^{2x}$.</p>
+            <p><span class="step-label">PI</span> $e^{2x}$ appears in the CF (since $m = 2$ is a root), so try $y_{\text{PI}} = \lambda x e^{2x}$.<br>
+            $y' = \lambda e^{2x} + 2\lambda xe^{2x}$, $\;y'' = 4\lambda e^{2x} + 4\lambda xe^{2x}$.<br>
+            Substituting: $(4\lambda + 4\lambda x) - 3(\lambda + 2\lambda x) + 2\lambda x = 1$ (coefficient of $e^{2x}$)<br>
+            $\Rightarrow 4\lambda - 3\lambda = 1 \Rightarrow \lambda = 1$.<br>
+            $y_{\text{PI}} = xe^{2x}$.</p>
+            <p><span class="step-label">GS</span> $$y = Ae^{x} + Be^{2x} + xe^{2x}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.3.5 — Mixed Right-Hand Side</h4>
+            <p>Find the general solution of $y'' - 2y' + y = x + e^{x}$. Note $m = 1$ is a <em>repeated</em> root.</p>
+            <p><span class="step-label">CF</span> $m^2 - 2m + 1 = (m-1)^2 = 0$, repeated root $m = 1$.<br>
+            $y_{\text{CF}} = (A + Bx)e^{x}$.</p>
+            <p><span class="step-label">PI for $x$</span> Try $y_1 = px + q$: $0 - 2p + (px + q) = x \Rightarrow p = 1$, $q - 2p = 0 \Rightarrow q = 2$.<br>
+            $y_1 = x + 2$.</p>
+            <p><span class="step-label">PI for $e^x$</span> Since $e^x$ duplicates the CF with a repeated root, try $y_2 = \lambda x^2 e^x$.<br>
+            Substituting gives $2\lambda = 1 \Rightarrow \lambda = \tfrac{1}{2}$, so $y_2 = \tfrac{1}{2}x^2 e^x$.</p>
+            <p><span class="step-label">GS</span> $$y = (A + Bx)e^x + x + 2 + \tfrac{1}{2}x^2 e^x$$</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Always check whether your trial PI matches any term in the CF <em>before</em> substituting. Forgetting to multiply by $x$ in the resonance case is one of the most common errors in this topic.</p>
+        </div>
+
+        <!-- ─── SECTION 10.4 ─── -->
+        <h2 id="ivp">10.4 Initial Value Problems</h2>
+
+        <p>The general solution contains two arbitrary constants $A$ and $B$. An <strong>initial value problem (IVP)</strong> specifies the values of $y$ and $y'$ at a given point (usually $x = 0$), allowing us to determine $A$ and $B$ uniquely.</p>
+
+        <div class="example-box">
+            <h4>Example 10.4.1 — Applying Initial Conditions</h4>
+            <p>Solve $y'' + 2y' - 3y = 0$ subject to $y(0) = 1$ and $y'(0) = -1$.</p>
+            <p><span class="step-label">CF</span> $m^2 + 2m - 3 = (m+3)(m-1) = 0$, roots $m = -3, 1$.<br>
+            General solution: $y = Ae^{-3x} + Be^{x}$.</p>
+            <p><span class="step-label">ICs</span> $y(0) = A + B = 1$.<br>
+            $y' = -3Ae^{-3x} + Be^{x} \Rightarrow y'(0) = -3A + B = -1$.</p>
+            <p><span class="step-label">Solve</span> Subtracting: $4A = 2 \Rightarrow A = \tfrac{1}{2}$, $B = \tfrac{1}{2}$.<br>
+            $$y = \tfrac{1}{2}e^{-3x} + \tfrac{1}{2}e^{x}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.4.2 — IVP with Particular Integral</h4>
+            <p>Solve $y'' + 4y = 8\cos 2x$ subject to $y(0) = 0$, $y'(0) = 2$.</p>
+            <p><span class="step-label">CF</span> $m^2 + 4 = 0 \Rightarrow m = \pm 2i$, so $y_{\text{CF}} = A\cos 2x + B\sin 2x$.</p>
+            <p><span class="step-label">PI</span> $\cos 2x$ is in the CF (resonance). Try $y_{\text{PI}} = x(\lambda\cos 2x + \mu\sin 2x)$.<br>
+            After differentiating twice and substituting, comparing coefficients gives $\lambda = 0$, $\mu = 2$.<br>
+            $y_{\text{PI}} = 2x\sin 2x$.</p>
+            <p><span class="step-label">GS</span> $y = A\cos 2x + B\sin 2x + 2x\sin 2x$.</p>
+            <p><span class="step-label">ICs</span> $y(0) = A = 0$.<br>
+            $y' = -2A\sin 2x + 2B\cos 2x + 2\sin 2x + 4x\cos 2x$.<br>
+            $y'(0) = 2B = 2 \Rightarrow B = 1$.<br>
+            $$y = \sin 2x + 2x\sin 2x = (1 + 2x)\sin 2x$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.4.3 — Boundary Conditions at Two Points</h4>
+            <p>Solve $y'' + \pi^2 y = 0$ with $y(0) = 0$ and $y(1) = 0$.</p>
+            <p><span class="step-label">CF</span> $m = \pm \pi i$, so $y = A\cos\pi x + B\sin\pi x$.</p>
+            <p><span class="step-label">BCs</span> $y(0) = A = 0$. Then $y = B\sin\pi x$.<br>
+            $y(1) = B\sin\pi = 0$ — satisfied for <em>any</em> $B$.<br>
+            So the solution $y = B\sin\pi x$ is valid for any constant $B$ (an eigenvalue problem).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.4.3 — Interpreting the Solution Physically</h4>
+            <p>The equation $y'' + 2y' + 5y = 10$ models a damped spring system driven by a constant force. Find the general solution and describe the long-term behaviour.</p>
+            <p><span class="step-label">CF</span> $m^2 + 2m + 5 = 0 \Rightarrow m = -1 \pm 2i$. $y_{\text{CF}} = e^{-x}(A\cos 2x + B\sin 2x)$.</p>
+            <p><span class="step-label">PI</span> Try $y_{\text{PI}} = k$ (constant). Substituting: $0 + 0 + 5k = 10 \Rightarrow k = 2$.</p>
+            <p><span class="step-label">GS</span> $y = e^{-x}(A\cos 2x + B\sin 2x) + 2$.</p>
+            <p>As $x \to \infty$, the CF decays to zero (transient response). The long-term behaviour is $y \to 2$ — the particle settles to the <em>equilibrium position</em> $y = 2$ determined by the PI (steady-state response).</p>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>Always differentiate the <em>complete</em> general solution (CF + PI) before substituting initial conditions. A common error is differentiating only the CF and forgetting the PI term.</p>
+        </div>
+
+        <!-- ─── SECTION 10.5 ─── -->
+        <h2 id="substitution">10.5 Substitution Methods</h2>
+
+        <p>Some second-order ODEs can be reduced in order or simplified by a substitution. Two important techniques are: (i) letting $v = \dfrac{dy}{dx}$ to reduce to a first-order equation in $v$, and (ii) changing the independent variable to convert an <strong>Euler–Cauchy</strong> equation into one with constant coefficients.</p>
+
+        <div class="definition-box">
+            <h4>Definition — Euler–Cauchy Equation</h4>
+            <p>An equation of the form:</p>
+            <p>$$ax^2y'' + bxy' + cy = f(x)$$</p>
+            <p>is called an <strong>Euler–Cauchy</strong> (or <em>equidimensional</em>) equation. The substitution $x = e^t$ (i.e. $t = \ln x$) transforms it into a second-order ODE with constant coefficients in $t$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.5.1 — Reduction of Order Using $v = dy/dx$</h4>
+            <p>Solve $y'' + 2(y')^2 = 0$ (a non-linear ODE but reducible).</p>
+            <p>Let $v = y'$, so $y'' = v\,\dfrac{dv}{dy}$ (using the chain rule: $y'' = \dfrac{dv}{dx} = \dfrac{dv}{dy}\cdot\dfrac{dy}{dx} = v\dfrac{dv}{dy}$).</p>
+            <p>Substituting: $v\dfrac{dv}{dy} + 2v^2 = 0$. Dividing by $v$ (assuming $v \neq 0$): $\dfrac{dv}{dy} + 2v = 0$.</p>
+            <p>Separating variables: $\dfrac{dv}{v} = -2\,dy \Rightarrow \ln|v| = -2y + C_1 \Rightarrow v = Ke^{-2y}$.</p>
+            <p>Since $v = \dfrac{dy}{dx}$: $\dfrac{dy}{dx} = Ke^{-2y} \Rightarrow e^{2y}\,dy = K\,dx \Rightarrow \tfrac{1}{2}e^{2y} = Kx + C_2$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.5.2 — Euler–Cauchy Equation</h4>
+            <p>Solve $x^2y'' + xy' - 4y = 0$ for $x > 0$.</p>
+            <p><span class="step-label">Substitution</span> Let $x = e^t$, so $t = \ln x$. Using the standard results:<br>
+            $xy' = \dfrac{dy}{dt}$ and $x^2y'' = \dfrac{d^2y}{dt^2} - \dfrac{dy}{dt}$.</p>
+            <p><span class="step-label">Transform</span> The equation becomes:<br>
+            $\left(\dfrac{d^2y}{dt^2} - \dfrac{dy}{dt}\right) + \dfrac{dy}{dt} - 4y = 0 \Rightarrow \dfrac{d^2y}{dt^2} - 4y = 0$.</p>
+            <p><span class="step-label">Solve</span> Auxiliary equation: $m^2 - 4 = 0 \Rightarrow m = \pm 2$.<br>
+            $y = Ae^{2t} + Be^{-2t}$. Substituting back $t = \ln x$:<br>
+            $$y = Ax^2 + Bx^{-2}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.5.3 — Given One Solution, Find Another</h4>
+            <p>Given that $y_1 = x$ is a solution of $x^2y'' - xy' - 3y = 0$, find the general solution.</p>
+            <p>Try $y = x \cdot u(x)$. Then $y' = u + xu'$ and $y'' = 2u' + xu''$.</p>
+            <p>Substituting: $x^2(2u' + xu'') - x(u + xu') - 3xu = 0$<br>
+            $\Rightarrow x^3u'' + (2x^2 - x^2)u' + (-x - 3x)u = 0$<br>
+            $\Rightarrow x^3u'' + x^2u' - 4xu = 0$.<br>
+            Since $y_1 = x$ is a solution, the terms in $u$ vanish (they must), leaving a first-order ODE in $w = u'$. Solving gives the second independent solution $y_2 = x^{-3}$, so:<br>
+            $$y = Ax + Bx^{-3}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.5.4 — Substitution to Decouple Variables</h4>
+            <p>Use the substitution $z = \dfrac{dy}{dx}$ to solve $y'' = 2y\,y'$ (treating $y$ as the independent variable).</p>
+            <p>Let $z = y'$. Since $y'' = z\dfrac{dz}{dy}$ (chain rule), the equation becomes: $z\dfrac{dz}{dy} = 2yz$.</p>
+            <p>Dividing by $z$ (assuming $z \neq 0$): $\dfrac{dz}{dy} = 2y \Rightarrow z = y^2 + C_1$.</p>
+            <p>So $\dfrac{dy}{dx} = y^2 + C_1$. This is a separable first-order ODE: $\displaystyle\int \frac{dy}{y^2 + C_1} = x + C_2$.</p>
+            <p>If $C_1 = k^2 > 0$: $\dfrac{1}{k}\arctan\dfrac{y}{k} = x + C_2$, giving $y = k\tan(kx + D)$.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Summary — Choosing the Right Method</h4>
+            <ul>
+                <li><strong>Constant coefficients, homogeneous:</strong> Use the auxiliary equation (three CF cases).</li>
+                <li><strong>Constant coefficients, non-homogeneous:</strong> CF + PI (trial function method).</li>
+                <li><strong>Variable coefficients (Euler–Cauchy $x^2y'' + \ldots$):</strong> Substitute $x = e^t$.</li>
+                <li><strong>One solution known:</strong> Use reduction of order (substitute $y = y_1 \cdot u(x)$).</li>
+                <li><strong>Second-order reducible to first-order:</strong> Substitute $v = y'$ or $v = y'$ as a function of $y$.</li>
+            </ul>
+        </div>
+
+        <div class="exam-note">
+            <h4>Exam Tip</h4>
+            <p>For Euler–Cauchy equations, the key formulas are $xy' = \dot{y}$ and $x^2y'' = \ddot{y} - \dot{y}$ where dots denote derivatives with respect to $t = \ln x$. Write these on your working before substituting.</p>
+        </div>
+
+        <!-- ─── PRACTICE PROBLEMS ─── -->
+        <h2 id="practice">Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1</h4>
+            <p>Find the general solution of $y'' - 7y' + 12y = 0$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Auxiliary equation: $m^2 - 7m + 12 = (m-3)(m-4) = 0$, roots $m = 3, 4$.</p>
+                    <p>$$y = Ae^{3x} + Be^{4x}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2</h4>
+            <p>Find the general solution of $y'' + 4y' + 4y = 0$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Auxiliary equation: $(m+2)^2 = 0$, repeated root $m = -2$.</p>
+                    <p>$$y = (A + Bx)e^{-2x}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3</h4>
+            <p>Find the general solution of $y'' - 4y' + 13y = 0$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>Auxiliary equation: $m = \dfrac{4 \pm \sqrt{16 - 52}}{2} = 2 \pm 3i$.</p>
+                    <p>$$y = e^{2x}(A\cos 3x + B\sin 3x)$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4</h4>
+            <p>Find the general solution of $y'' + 3y' + 2y = 6e^{x}$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>CF: $(m+1)(m+2) = 0$, roots $-1, -2$. $y_{\text{CF}} = Ae^{-x} + Be^{-2x}$.</p>
+                    <p>PI: Try $\lambda e^x$. Substituting: $\lambda - 3\lambda(-) + \ldots$: $(\lambda + 3\lambda + 2\lambda)e^x = 6e^x \Rightarrow 6\lambda = 6 \Rightarrow \lambda = 1$. $y_{\text{PI}} = e^x$.</p>
+                    <p>$$y = Ae^{-x} + Be^{-2x} + e^{x}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5</h4>
+            <p>Solve $y'' - 2y' - 3y = 9x^2$ finding the general solution.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>CF: $(m-3)(m+1) = 0$, roots $3, -1$. $y_{\text{CF}} = Ae^{3x} + Be^{-x}$.</p>
+                    <p>PI: Try $px^2 + qx + r$. Substituting: $2p - 2(2px + q) - 3(px^2 + qx + r) = 9x^2$.<br>
+                    Coefficient of $x^2$: $-3p = 9 \Rightarrow p = -3$.<br>
+                    Coefficient of $x$: $-4p - 3q = 0 \Rightarrow 12 - 3q = 0 \Rightarrow q = 4$.<br>
+                    Constant: $2p - 2q - 3r = 0 \Rightarrow -6 - 8 - 3r = 0 \Rightarrow r = -\tfrac{14}{3}$.</p>
+                    <p>$$y = Ae^{3x} + Be^{-x} - 3x^2 + 4x - \tfrac{14}{3}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6</h4>
+            <p>Solve $y'' + y = \cos x$ (resonance case).</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>CF: $m = \pm i$, so $y_{\text{CF}} = A\cos x + B\sin x$.<br>
+                    $\cos x$ is in the CF, so try $y_{\text{PI}} = x(\lambda\cos x + \mu\sin x)$.<br>
+                    Differentiating twice and substituting: $-2\lambda\sin x + 2\mu\cos x = \cos x$.<br>
+                    So $\lambda = 0$, $\mu = \tfrac{1}{2}$. $y_{\text{PI}} = \tfrac{1}{2}x\sin x$.</p>
+                    <p>$$y = A\cos x + B\sin x + \tfrac{1}{2}x\sin x$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7</h4>
+            <p>Solve $y'' - 4y = 0$ with $y(0) = 3$ and $y'(0) = -2$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$m = \pm 2$, so $y = Ae^{2x} + Be^{-2x}$.<br>
+                    $y(0): A + B = 3$. $y' = 2Ae^{2x} - 2Be^{-2x} \Rightarrow y'(0): 2A - 2B = -2 \Rightarrow A - B = -1$.<br>
+                    Adding: $2A = 2 \Rightarrow A = 1$, $B = 2$.</p>
+                    <p>$$y = e^{2x} + 2e^{-2x}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8</h4>
+            <p>Solve $y'' + 2y' + 2y = 0$ with $y(0) = 0$ and $y'(0) = 1$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>$m = -1 \pm i$, so $y = e^{-x}(A\cos x + B\sin x)$.<br>
+                    $y(0) = A = 0$. Then $y = Be^{-x}\sin x$.<br>
+                    $y' = Be^{-x}(\cos x - \sin x)$. $y'(0) = B = 1$.</p>
+                    <p>$$y = e^{-x}\sin x$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 9</h4>
+            <p>Find the general solution of $x^2y'' - 2y = 0$ for $x > 0$ using the Euler–Cauchy method.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>The equation is $x^2y'' + 0 \cdot xy' - 2y = 0$. Substituting $x = e^t$:<br>
+                    $(\ddot{y} - \dot{y}) - 2y = 0 \Rightarrow \ddot{y} - \dot{y} - 2y = 0$.<br>
+                    Auxiliary equation: $m^2 - m - 2 = (m-2)(m+1) = 0$, roots $m = 2, -1$.<br>
+                    $y = Ae^{2t} + Be^{-t} = Ax^2 + Bx^{-1}$.</p>
+                    <p>$$y = Ax^2 + \dfrac{B}{x}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 10</h4>
+            <p>Solve $y'' + 5y' + 6y = 2e^{-2x}$ and hence find the particular solution with $y(0) = 1$, $y'(0) = 0$.</p>
+            <details class="solution">
+                <summary>Show solution</summary>
+                <div class="solution-content">
+                    <p>CF: $(m+2)(m+3) = 0$, roots $-2, -3$. $y_{\text{CF}} = Ae^{-2x} + Be^{-3x}$.<br>
+                    $e^{-2x}$ is in the CF, so try $y_{\text{PI}} = \lambda xe^{-2x}$.<br>
+                    $y' = \lambda e^{-2x} - 2\lambda xe^{-2x}$, $y'' = -4\lambda e^{-2x} + 4\lambda xe^{-2x}$.<br>
+                    Substituting: $(-4\lambda + 4\lambda x) + 5(\lambda - 2\lambda x) + 6\lambda x = 2$<br>
+                    $\Rightarrow \lambda(-4 + 5) = 2 \Rightarrow \lambda = 2$.<br>
+                    GS: $y = Ae^{-2x} + Be^{-3x} + 2xe^{-2x}$.</p>
+                    <p>$y(0) = A + B = 1$.<br>
+                    $y' = -2Ae^{-2x} - 3Be^{-3x} + 2e^{-2x} - 4xe^{-2x}$.<br>
+                    $y'(0) = -2A - 3B + 2 = 0 \Rightarrow 2A + 3B = 2$.<br>
+                    From $A + B = 1$: $A = 1 - B$. Substituting: $2 - 2B + 3B = 2 \Rightarrow B = 0$, $A = 1$.</p>
+                    <p>$$y = e^{-2x} + 2xe^{-2x} = (1 + 2x)e^{-2x}$$</p>
+                </div>
+            </details>
+        </div>
+    </article>
+
+    <script>
+    (function() {
+        // Figure 1: Family of overdamped solutions y = Ae^{-x} + Be^{-3x}
+        var elt1 = document.getElementById('desmos-fig1');
+        var calc1 = Desmos.GraphingCalculator(elt1, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            border: false
+        });
+        calc1.setMathBounds({ left: -0.5, right: 4, bottom: -0.5, top: 3 });
+        calc1.setExpressions([
+            { id: 'f1', latex: 'y = e^{-x} + e^{-3x}', color: '#3b82f6', label: 'A=1,B=1' },
+            { id: 'f2', latex: 'y = 2e^{-x} + e^{-3x}', color: '#ef4444', label: 'A=2,B=1' },
+            { id: 'f3', latex: 'y = e^{-x} + 2e^{-3x}', color: '#22c55e', label: 'A=1,B=2' },
+            { id: 'f4', latex: 'y = 0.5e^{-x} + 0.5e^{-3x}', color: '#f59e0b', label: 'A=½,B=½' },
+            { id: 'f5', latex: 'y = 3e^{-x} + 0.5e^{-3x}', color: '#8b5cf6', label: 'A=3,B=½' }
+        ]);
+
+        // Figure 2: Underdamped solution y = e^{-x}(cos 2x + sin 2x) with envelopes
+        var elt2 = document.getElementById('desmos-fig2');
+        var calc2 = Desmos.GraphingCalculator(elt2, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            border: false
+        });
+        calc2.setMathBounds({ left: -0.3, right: 5, bottom: -2, top: 2 });
+        calc2.setExpressions([
+            { id: 'g1', latex: 'y = e^{-x}(\\cos(2x) + \\sin(2x))', color: '#3b82f6', lineWidth: 2.5 },
+            { id: 'g2', latex: 'y = \\sqrt{2}e^{-x}', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED },
+            { id: 'g3', latex: 'y = -\\sqrt{2}e^{-x}', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED }
+        ]);
+    })();
+    </script>
+</body>
+</html>
