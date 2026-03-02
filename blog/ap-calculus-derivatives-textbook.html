@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Calculus: Differentiation Rules - Chapter 2 | MathHub</title>
+    <meta name="description" content="Learn differentiation rules for AP Calculus. Power rule, product rule, quotient rule, and derivatives of trig, exponential, and log functions with examples.">
+    <meta name="keywords" content="AP Calculus derivatives, differentiation rules, power rule, product rule, quotient rule, trig derivatives, AP Calculus AB, AP Calculus BC, derivative definition, limit definition of derivative">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/blog/ap-calculus-derivatives-textbook.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/blog/ap-calculus-derivatives-textbook.html">
+    <meta property="og:title" content="AP Calculus: Differentiation Rules - Chapter 2">
+    <meta property="og:description" content="Learn differentiation rules for AP Calculus. Power rule, product rule, quotient rule, and derivatives of trig, exponential, and log functions with examples.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Calculus: Differentiation Rules - Chapter 2">
+    <meta name="twitter:description" content="Master derivative rules for AP Calculus AB/BC with worked examples and practice problems.">
+
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "AP Calculus: Definition and Basic Derivative Rules - Chapter 2",
+        "description": "Learn differentiation rules for AP Calculus. Power rule, product rule, quotient rule, and derivatives of trig, exponential, and log functions with examples.",
+        "author": { "@type": "Organization", "name": "MathHub" },
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "AP",
+        "url": "https://mathhub.io/blog/ap-calculus-derivatives-textbook.html",
+        "mainEntityOfPage": "https://mathhub.io/blog/ap-calculus-derivatives-textbook.html",
+        "inLanguage": "en",
+        "datePublished": "2026-02-23",
+        "dateModified": "2026-03-02"
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <style>
+        .blog-article {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 16px;
+        }
+        .blog-article h1 {
+            font-size: 2.2em;
+            color: #1e3a5f;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .blog-meta {
+            color: #64748b;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .blog-article h2 {
+            font-size: 1.5em;
+            color: #1e3a5f;
+            margin: 36px 0 16px;
+            padding-top: 12px;
+        }
+        .blog-article h3 {
+            font-size: 1.2em;
+            color: #334155;
+            margin: 24px 0 10px;
+        }
+        .blog-article p {
+            color: #334155;
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+        .blog-article ul, .blog-article ol {
+            margin: 12px 0 20px 24px;
+            color: #334155;
+        }
+        .blog-article li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+        .breadcrumb {
+            font-size: 0.85em;
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+        .breadcrumb a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .definition-box {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .definition-box strong {
+            color: #15803d;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+        .theorem-box {
+            background: #faf5ff;
+            border-left: 4px solid #8b5cf6;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .theorem-box strong {
+            color: #6d28d9;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+        .example-box {
+            background: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .example-box strong {
+            color: #1d4ed8;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+        .practice-problem {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 20px 24px;
+            margin: 16px 0;
+            border-radius: 8px;
+        }
+        .practice-problem strong {
+            color: #1e3a5f;
+        }
+        details.solution {
+            margin-top: 10px;
+        }
+        details.solution summary {
+            cursor: pointer;
+            color: #3b82f6;
+            font-weight: 600;
+            font-size: 0.95em;
+            padding: 6px 0;
+            user-select: none;
+        }
+        details.solution summary:hover {
+            color: #1d4ed8;
+        }
+        details.solution .solution-content {
+            background: #fffbeb;
+            border-left: 3px solid #f59e0b;
+            padding: 16px 20px;
+            margin-top: 10px;
+            border-radius: 0 6px 6px 0;
+            line-height: 1.9;
+        }
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 40px 0 20px;
+            padding: 20px 0;
+            border-top: 1px solid #e2e8f0;
+        }
+        .chapter-nav a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+        .chapter-nav a:hover {
+            text-decoration: underline;
+        }
+        .toc {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 24px 0 32px;
+        }
+        .toc h3 {
+            margin: 0 0 12px;
+            font-size: 1.05em;
+            color: #1e3a5f;
+        }
+        .toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .toc li {
+            margin-bottom: 6px;
+        }
+        .toc li.toc-sub {
+            padding-left: 20px;
+            margin-bottom: 4px;
+        }
+        .toc a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 0.95em;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        .toc-sub a {
+            font-size: 0.88em;
+            color: #64748b;
+        }
+        .deriv-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0 24px;
+        }
+        .deriv-table th, .deriv-table td {
+            border: 1px solid #e2e8f0;
+            padding: 10px 16px;
+            text-align: center;
+        }
+        .deriv-table th {
+            background: #f1f5f9;
+            color: #1e3a5f;
+            font-weight: 600;
+        }
+        .deriv-table td {
+            background: white;
+        }
+        .desmos-container {
+            width: 100%;
+            height: 400px;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+        .desmos-caption {
+            text-align: center;
+            font-size: 0.9em;
+            color: #64748b;
+            margin-top: 8px;
+            margin-bottom: 20px;
+        }
+        .try-it-box {
+            background: #fff7ed;
+            border-left: 4px solid #f97316;
+            padding: 16px 20px;
+            margin: 16px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .try-it-box .try-it-label {
+            margin: 0;
+            color: #9a3412;
+            font-weight: 600;
+            font-size: .95em;
+        }
+        .try-it-box .try-it-body {
+            margin: 8px 0 0;
+            color: #334155;
+        }
+        .ap-tip {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 16px 20px;
+            margin: 16px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .ap-tip p {
+            margin: 0;
+        }
+    </style>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/" class="active">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="/us/">US</a> &rsaquo; <a href="/us/ap-calculus">AP Calculus</a> &rsaquo; <a href="#">Textbook</a> &rsaquo; Chapter 2
+        </div>
+
+        <h1>Chapter 2: Definition and Basic Derivative Rules</h1>
+        <div class="blog-meta">AP Calculus AB/BC &middot; Updated March 2026 &middot; 25 min read</div>
+
+        <!-- Learning Objectives -->
+        <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px; padding:20px 24px; margin:24px 0;">
+            <p style="font-weight:700; color:#1e3a5f; margin:0 0 10px; font-size:1.02em;">Learning Objectives</p>
+            <p style="color:#334155; margin:0 0 8px;">After completing this chapter, you will be able to:</p>
+            <ul style="color:#334155; margin:0; padding-left:20px; line-height:2;">
+                <li>Compute derivatives using the limit definition</li>
+                <li>Apply the power, constant, sum/difference, product, and quotient rules</li>
+                <li>Differentiate trigonometric, exponential, and logarithmic functions</li>
+                <li>Find higher-order derivatives and interpret them physically</li>
+                <li>Identify points where a function fails to be differentiable</li>
+                <li>Find tangent and normal lines to curves at given points</li>
+            </ul>
+        </div>
+
+        <p>
+            In Chapter 1 we studied limits and continuity, the foundational ideas that make calculus possible. Now we turn to the first of the two central operations of calculus: <strong>differentiation</strong>. The derivative measures how a function changes as its input changes, and it has applications throughout science, engineering, economics, and beyond. In this chapter we will define the derivative precisely, develop the rules that make computing derivatives efficient, and apply those rules to polynomial, trigonometric, exponential, and logarithmic functions.
+        </p>
+
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#sec-2-1">2.1 The Derivative as a Limit</a></li>
+                <li class="toc-sub"><a href="#sec-2-1a">2.1a When Functions Are Not Differentiable</a></li>
+                <li class="toc-sub"><a href="#sec-2-1b">2.1b Differentiability and Continuity</a></li>
+                <li><a href="#sec-2-2">2.2 Basic Differentiation Rules</a></li>
+                <li class="toc-sub"><a href="#sec-2-2a">2.2a Higher-Order Derivatives</a></li>
+                <li><a href="#sec-2-3">2.3 Derivatives of Trigonometric Functions</a></li>
+                <li><a href="#sec-2-4">2.4 Derivatives of Exponential and Logarithmic Functions</a></li>
+                <li><a href="#sec-2-5">2.5 Product and Quotient Rules</a></li>
+                <li><a href="#sec-2-6">2.6 Practice Problems</a></li>
+            </ul>
+        </div>
+
+        <!-- ==================== 2.1 ==================== -->
+        <h2 id="sec-2-1">2.1 The Derivative as a Limit</h2>
+
+        <p>
+            Consider a function $y = f(x)$ and two points on its graph: $(x, f(x))$ and $(x+h, f(x+h))$. The slope of the straight line connecting these two points is the <strong>difference quotient</strong>:
+        </p>
+
+        $$\text{slope of secant} = \frac{f(x+h) - f(x)}{h}$$
+
+        <p>
+            This secant line gives an <em>average</em> rate of change of $f$ over the interval from $x$ to $x+h$. As we let $h$ shrink toward zero, the secant line rotates and approaches the <strong>tangent line</strong> to the curve at the point $(x, f(x))$. The slope of that tangent line is the <strong>instantaneous rate of change</strong> of $f$ at $x$, and this is precisely what we call the derivative.
+        </p>
+
+        <!-- ── Average vs Instantaneous comparison ── -->
+        <h3>Average Rate of Change vs. Instantaneous Rate of Change</h3>
+
+        <p>These two ideas — slope between two points and slope at one point — are the heart of differential calculus. The table below shows how they relate and what each one is called.</p>
+
+        <table style="width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:.93em;">
+            <thead>
+                <tr style="background:#eff6ff; text-align:left;">
+                    <th style="padding:11px 16px; border:1px solid #bfdbfe; width:30%;"></th>
+                    <th style="padding:11px 16px; border:1px solid #bfdbfe; color:#1d4ed8;">Average Rate of Change</th>
+                    <th style="padding:11px 16px; border:1px solid #bfdbfe; color:#b91c1c;">Instantaneous Rate of Change</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding:10px 16px; border:1px solid #e2e8f0; font-weight:600; background:#f8fafc;">Also called</td>
+                    <td style="padding:10px 16px; border:1px solid #e2e8f0;">Mean value &middot; Average slope &middot; Difference quotient</td>
+                    <td style="padding:10px 16px; border:1px solid #e2e8f0;">Derivative &middot; Differential coefficient &middot; $f'(x)$</td>
+                </tr>
+                <tr style="background:#f8fafc;">
+                    <td style="padding:10px 16px; border:1px solid #e2e8f0; font-weight:600;">Geometric meaning</td>
+                    <td style="padding:10px 16px; border:1px solid #e2e8f0;">Slope of the <strong>secant line</strong> through two points on the curve</td>
+                    <td style="padding:10px 16px; border:1px solid #e2e8f0;">Slope of the <strong>tangent line</strong> at a single point on the curve</td>
+                </tr>
+                <tr>
+                    <td style="padding:10px 16px; border:1px solid #e2e8f0; font-weight:600;">Formula</td>
+                    <td style="padding:10px 16px; border:1px solid #e2e8f0;">$\dfrac{f(b)-f(a)}{b-a} = \dfrac{\Delta y}{\Delta x}$</td>
+                    <td style="padding:10px 16px; border:1px solid #e2e8f0;">$\displaystyle\lim_{h \to 0}\dfrac{f(x+h)-f(x)}{h} = f'(x)$</td>
+                </tr>
+                <tr style="background:#f8fafc;">
+                    <td style="padding:10px 16px; border:1px solid #e2e8f0; font-weight:600;">Notation</td>
+                    <td style="padding:10px 16px; border:1px solid #e2e8f0;">$\dfrac{\Delta y}{\Delta x}$</td>
+                    <td style="padding:10px 16px; border:1px solid #e2e8f0;">$\dfrac{dy}{dx}$, &ensp; $f'(x)$, &ensp; $D_x f$</td>
+                </tr>
+                <tr>
+                    <td style="padding:10px 16px; border:1px solid #e2e8f0; font-weight:600;">Requires</td>
+                    <td style="padding:10px 16px; border:1px solid #e2e8f0;"><strong>Two</strong> distinct points: $(a,\, f(a))$ and $(b,\, f(b))$</td>
+                    <td style="padding:10px 16px; border:1px solid #e2e8f0;"><strong>One</strong> point: $(x,\, f(x))$, obtained by taking a limit</td>
+                </tr>
+                <tr style="background:#f8fafc;">
+                    <td style="padding:10px 16px; border:1px solid #e2e8f0; font-weight:600;">Key idea</td>
+                    <td style="padding:10px 16px; border:1px solid #e2e8f0;">How much did $f$ change <em>on average</em> over an interval?</td>
+                    <td style="padding:10px 16px; border:1px solid #e2e8f0;">How fast is $f$ changing <em>right now</em> at a single input?</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:20px 0;">
+            <div>
+                <div class="desmos-container" id="avg-rate-blog" style="height:280px; margin:0;"></div>
+                <p class="desmos-caption" style="margin-top:8px;"><strong>Figure 2.1a — Average Rate of Change.</strong> The <span style="color:#2563eb;">blue secant line</span> passes through two points $A$ and $B$. Its slope $= \dfrac{\Delta y}{\Delta x}$ is the average rate of change. Move the $b$ slider to change where $B$ is.</p>
+            </div>
+            <div>
+                <div class="desmos-container" id="inst-rate-blog" style="height:280px; margin:0;"></div>
+                <p class="desmos-caption" style="margin-top:8px;"><strong>Figure 2.1b — Instantaneous Rate of Change.</strong> As $h \to 0$, point $B$ approaches $A$ and the secant line becomes the <span style="color:#dc2626;">red tangent line</span>. That limiting slope is $f'(a)$.</p>
+            </div>
+        </div>
+
+        <script>
+        (function() {
+            var opts = {expressions: true, settingsMenu: false, zoomButtons: false, lockViewport: true};
+
+            // Figure 2.1a — Average rate of change
+            var c1 = Desmos.GraphingCalculator(document.getElementById('avg-rate-blog'), opts);
+            c1.setExpression({id: 'f', latex: 'f(x)=x^{2}', color: '#475569', lineWidth: 2.5});
+            c1.setExpression({id: 'a1', latex: 'a_{1}=1', sliderBounds: {min: '-2', max: '1.9', step: '0.1'}});
+            c1.setExpression({id: 'b1', latex: 'b_{1}=3', sliderBounds: {min: '2', max: '4', step: '0.1'}});
+            c1.setExpression({id: 'pA', latex: '(a_{1}, f(a_{1}))', color: '#2563eb', pointSize: 14, label: 'A', showLabel: true});
+            c1.setExpression({id: 'pB', latex: '(b_{1}, f(b_{1}))', color: '#2563eb', pointSize: 14, label: 'B', showLabel: true});
+            c1.setExpression({id: 'sec', latex: 'y=f(a_{1})+\\frac{f(b_{1})-f(a_{1})}{b_{1}-a_{1}}(x-a_{1})', color: '#2563eb', lineWidth: 2});
+            c1.setMathBounds({left: -1, right: 5, bottom: -1, top: 17});
+
+            // Figure 2.1b — Instantaneous: secant → tangent as h→0
+            var c2 = Desmos.GraphingCalculator(document.getElementById('inst-rate-blog'), opts);
+            c2.setExpression({id: 'g', latex: 'g(x)=x^{2}', color: '#475569', lineWidth: 2.5});
+            c2.setExpression({id: 'a2', latex: 'a_{2}=1', sliderBounds: {min: '-2', max: '3', step: '0.1'}});
+            c2.setExpression({id: 'h2', latex: 'h_{2}=2', sliderBounds: {min: '0.05', max: '3', step: '0.05'}});
+            c2.setExpression({id: 'pA2', latex: '(a_{2}, g(a_{2}))', color: '#dc2626', pointSize: 14, label: 'A', showLabel: true});
+            c2.setExpression({id: 'pB2', latex: '(a_{2}+h_{2}, g(a_{2}+h_{2}))', color: '#2563eb', pointSize: 10, label: 'B', showLabel: true});
+            c2.setExpression({id: 'sec2', latex: 'y=g(a_{2})+\\frac{g(a_{2}+h_{2})-g(a_{2})}{h_{2}}(x-a_{2})', color: '#2563eb', lineWidth: 1.5, lineStyle: Desmos.Styles.DASHED});
+            c2.setExpression({id: 'tan2', latex: 'y=g(a_{2})+2a_{2}(x-a_{2})', color: '#dc2626', lineWidth: 2.5});
+            c2.setMathBounds({left: -1, right: 5, bottom: -1, top: 17});
+        })();
+        </script>
+
+        <div class="definition-box">
+            <strong>Definition 2.1 &mdash; The Derivative (Three Equivalent Forms)</strong>
+            <p>The <em>derivative</em> of a function $f$ is defined by any of the following equivalent limit expressions. All three describe the same instantaneous rate of change.</p>
+
+            <p><strong>Form 1 — The $h$-form</strong> (derivative as a function of $x$):</p>
+            $$f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}$$
+
+            <p><strong>Form 2 — The $\Delta x$-form</strong> (same as Form 1, different notation):</p>
+            $$f'(x) = \lim_{\Delta x \to 0} \frac{f(x + \Delta x) - f(x)}{\Delta x}$$
+
+            <p><strong>Form 3 — The point form</strong> (derivative at a specific point $x = a$):</p>
+            $$f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}$$
+
+            <p style="margin:12px 0 0; color:#334155;">The limit must exist for $f$ to be <em>differentiable</em> at that point. Forms 1 and 2 are interchangeable; Form 3 is especially useful when evaluating $f'$ at a specific value $a$.</p>
+        </div>
+
+        <p>
+            Equivalent notations for the derivative include $\dfrac{dy}{dx}$, $\dfrac{df}{dx}$, and $D_x[f(x)]$. Each emphasizes a slightly different perspective: Leibniz notation $\dfrac{dy}{dx}$ highlights the ratio-of-changes origin, while prime notation $f'(x)$ is compact and convenient for algebraic work.
+        </p>
+
+        <h3>Geometric Interpretation</h3>
+
+        <p>
+            Geometrically, $f'(a)$ is the slope of the line tangent to $y = f(x)$ at $x = a$. The equation of this tangent line is:
+        </p>
+
+        $$y - f(a) = f'(a)(x - a)$$
+
+        <p>
+            If $f'(a) > 0$, the function is increasing at $x = a$. If $f'(a) < 0$, the function is decreasing. If $f'(a) = 0$, the tangent line is horizontal, which often corresponds to a local maximum, local minimum, or inflection point.
+        </p>
+
+        <div class="desmos-container" id="tangent-line"></div>
+        <p class="desmos-caption"><strong>Figure 2.1 &mdash; Tangent line via secant limit.</strong> Drag the slider to move the point of tangency along $f(x) = x^3 - 3x$. The dashed red line is the tangent; the dashed green curve is the derivative $f'(x)$. The slope of the tangent at any point equals the value of $f'$ there.</p>
+
+        <h3>Computing Derivatives from the Definition</h3>
+
+        <p>
+            Before we develop shortcut rules, it is important to be able to compute derivatives directly from the limit definition. The standard procedure is:
+        </p>
+
+        <ol>
+            <li>Write out $f(x+h)$ by substituting $(x+h)$ everywhere $x$ appears.</li>
+            <li>Compute the difference $f(x+h) - f(x)$ and simplify.</li>
+            <li>Divide by $h$ and cancel or simplify so that direct substitution of $h = 0$ is possible.</li>
+            <li>Evaluate the limit as $h \to 0$.</li>
+        </ol>
+
+        <div class="example-box">
+            <strong>Example 2.1 &mdash; Derivative of a Polynomial from the Definition</strong>
+            <p>Find $f'(x)$ for $f(x) = 3x^2 - 5x + 1$ using the limit definition.</p>
+
+            <p><strong>Solution.</strong> We compute:</p>
+
+            $$f(x+h) = 3(x+h)^2 - 5(x+h) + 1 = 3x^2 + 6xh + 3h^2 - 5x - 5h + 1$$
+
+            <p>The difference is:</p>
+
+            $$f(x+h) - f(x) = (3x^2 + 6xh + 3h^2 - 5x - 5h + 1) - (3x^2 - 5x + 1) = 6xh + 3h^2 - 5h$$
+
+            <p>Dividing by $h$:</p>
+
+            $$\frac{f(x+h) - f(x)}{h} = \frac{h(6x + 3h - 5)}{h} = 6x + 3h - 5$$
+
+            <p>Taking the limit:</p>
+
+            $$f'(x) = \lim_{h \to 0}(6x + 3h - 5) = 6x - 5$$
+        </div>
+
+        <div class="try-it-box">
+            <p class="try-it-label">Try It 2.1</p>
+            <p class="try-it-body">Use the limit definition to find $f'(x)$ for $f(x) = 5x^2 - 2x + 3$. <em>Hint: Follow the same four steps above; the algebra is nearly identical.</em></p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 2.2 &mdash; Derivative of a Square Root Function</strong>
+            <p>Find $f'(x)$ for $f(x) = \sqrt{x}$ using the limit definition.</p>
+
+            <p><strong>Solution.</strong> We write:</p>
+
+            $$f'(x) = \lim_{h \to 0} \frac{\sqrt{x+h} - \sqrt{x}}{h}$$
+
+            <p>Direct substitution gives $\frac{0}{0}$, so we <em>rationalize the numerator</em> by multiplying by the conjugate:</p>
+
+            $$= \lim_{h \to 0} \frac{(\sqrt{x+h} - \sqrt{x})(\sqrt{x+h} + \sqrt{x})}{h(\sqrt{x+h} + \sqrt{x})} = \lim_{h \to 0} \frac{(x+h) - x}{h(\sqrt{x+h} + \sqrt{x})}$$
+
+            $$= \lim_{h \to 0} \frac{h}{h(\sqrt{x+h} + \sqrt{x})} = \lim_{h \to 0} \frac{1}{\sqrt{x+h} + \sqrt{x}}$$
+
+            <p>Now substituting $h = 0$:</p>
+
+            $$f'(x) = \frac{1}{2\sqrt{x}}, \quad x > 0$$
+
+            <p>Note that this result is consistent with the power rule applied to $x^{1/2}$, which we develop in the next section.</p>
+        </div>
+
+        <div class="try-it-box">
+            <p class="try-it-label">Try It 2.2</p>
+            <p class="try-it-body">Use the limit definition to find $f'(x)$ for $f(x) = \dfrac{1}{x}$. <em>Hint: Combine the fractions $\dfrac{1}{x+h} - \dfrac{1}{x}$ over a common denominator before dividing by $h$.</em></p>
+        </div>
+
+        <!-- ==================== 2.1a ==================== -->
+        <h3 id="sec-2-1a">When Is a Function Not Differentiable?</h3>
+
+        <p>
+            Not every continuous function has a derivative everywhere. There are three classic types of points where a function is continuous but fails to be differentiable.
+        </p>
+
+        <div class="definition-box">
+            <strong>Definition 2.2 &mdash; Types of Non-Differentiable Points</strong>
+            A function $f$ is <em>not differentiable</em> at $x = a$ if the limit $\displaystyle\lim_{h \to 0} \frac{f(a+h)-f(a)}{h}$ does not exist. This occurs at:
+            <ul style="margin: 10px 0 0 16px;">
+                <li><strong>Corners:</strong> the left-hand and right-hand limits of the difference quotient exist but are unequal (e.g., $f(x) = |x|$ at $x = 0$).</li>
+                <li><strong>Cusps:</strong> the difference quotient tends to $+\infty$ from one side and $-\infty$ from the other (e.g., $f(x) = x^{2/3}$ at $x = 0$).</li>
+                <li><strong>Vertical tangents:</strong> the difference quotient tends to $\pm\infty$ from both sides (e.g., $f(x) = x^{1/3}$ at $x = 0$).</li>
+            </ul>
+        </div>
+
+        <!-- Three-column figure grid -->
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin:20px 0;">
+            <div>
+                <div class="desmos-container" id="fig-corner" style="height:220px; margin:0;"></div>
+                <p class="desmos-caption" style="margin-top:8px;"><strong>Figure 2.2a &mdash; Corner.</strong> $f(x)=|x|$ is continuous everywhere but has no tangent at the origin.</p>
+            </div>
+            <div>
+                <div class="desmos-container" id="fig-cusp" style="height:220px; margin:0;"></div>
+                <p class="desmos-caption" style="margin-top:8px;"><strong>Figure 2.2b &mdash; Cusp.</strong> $f(x)=x^{2/3}$ has a sharp point at the origin where the slope is infinite.</p>
+            </div>
+            <div>
+                <div class="desmos-container" id="fig-vtangent" style="height:220px; margin:0;"></div>
+                <p class="desmos-caption" style="margin-top:8px;"><strong>Figure 2.2c &mdash; Vertical tangent.</strong> $f(x)=x^{1/3}$ has a vertical tangent at the origin; the slope is undefined.</p>
+            </div>
+        </div>
+
+        <div class="ap-tip">
+            <p><span style="color:#b45309; font-weight:700;">&#9733; AP Exam Tip:</span> On the AP exam you may be shown a graph and asked whether a function is differentiable at a specific point. Look for corners, cusps, vertical tangents, <em>and</em> discontinuities &mdash; all four are reasons a derivative may fail to exist. A function must be <em>smooth</em> (no abrupt direction changes) and <em>continuous</em> to be differentiable.</p>
+        </div>
+
+        <!-- ==================== 2.1b ==================== -->
+        <h3 id="sec-2-1b">Differentiability and Continuity</h3>
+
+        <div class="theorem-box">
+            <strong>Theorem 2.0 &mdash; Differentiability Implies Continuity</strong>
+            If $f$ is differentiable at $x = a$, then $f$ is continuous at $x = a$.
+        </div>
+
+        <p>
+            <strong>Proof sketch.</strong> We want to show $\lim_{x \to a} f(x) = f(a)$, i.e., $\lim_{h \to 0} [f(a+h) - f(a)] = 0$.
+            Write:
+        </p>
+
+        $$f(a+h) - f(a) = \frac{f(a+h) - f(a)}{h} \cdot h$$
+
+        <p>
+            Taking the limit as $h \to 0$:
+        </p>
+
+        $$\lim_{h \to 0}[f(a+h) - f(a)] = \lim_{h \to 0}\frac{f(a+h)-f(a)}{h} \cdot \lim_{h \to 0} h = f'(a) \cdot 0 = 0$$
+
+        <p>
+            Therefore $\lim_{h \to 0} f(a+h) = f(a)$, which is exactly continuity. $\square$
+        </p>
+
+        <div style="background:#fef2f2; border-left:4px solid #ef4444; padding:16px 20px; margin:16px 0; border-radius:0 8px 8px 0;">
+            <p style="margin:0; font-weight:600; color:#991b1b;">Important: The Converse Is False</p>
+            <p style="margin:8px 0 0; color:#334155;">A function can be continuous at a point without being differentiable there. The function $f(x) = |x|$ is continuous at $x = 0$ (it has no gaps or jumps), but it has a corner at the origin, so $f'(0)$ does not exist. Continuity is <em>necessary</em> but not <em>sufficient</em> for differentiability.</p>
+        </div>
+
+        <!-- ==================== 2.2 ==================== -->
+        <h2 id="sec-2-2">2.2 Basic Differentiation Rules</h2>
+
+        <p>
+            Using the limit definition for every derivative would be tedious. Fortunately, a small collection of rules allows us to differentiate most functions quickly. Each of these rules can be proved rigorously using the limit definition, but we state them as theorems and focus on their application.
+        </p>
+
+        <div class="theorem-box">
+            <strong>Theorem 2.1 &mdash; Power Rule</strong>
+            If $n$ is any real number, then
+            $$\frac{d}{dx}[x^n] = nx^{n-1}$$
+        </div>
+
+        <p>
+            The power rule works not just for positive integers but for all real exponents: negative integers, fractions, and irrational numbers. For instance, $\frac{d}{dx}[x^{-3}] = -3x^{-4}$ and $\frac{d}{dx}[x^{\pi}] = \pi x^{\pi - 1}$.
+        </p>
+
+        <div class="desmos-container" id="power-rule"></div>
+        <p class="desmos-caption"><strong>Figure 2.3 &mdash; The Power Rule.</strong> Adjust the exponent $n$ with the slider. The blue curve is $f(x) = x^n$ and the dashed red curve is its derivative $f'(x) = nx^{n-1}$. Notice how the derivative of a degree-$n$ curve is a degree-$(n-1)$ curve.</p>
+
+        <div class="theorem-box">
+            <strong>Theorem 2.2 &mdash; Constant Multiple Rule</strong>
+            If $c$ is a constant and $f$ is differentiable, then
+            $$\frac{d}{dx}[c \cdot f(x)] = c \cdot f'(x)$$
+        </div>
+
+        <p>
+            In words: constants factor out of the derivative. This follows immediately from the limit definition, since we can factor a constant out of a limit.
+        </p>
+
+        <div class="theorem-box">
+            <strong>Theorem 2.3 &mdash; Sum and Difference Rules</strong>
+            If $f$ and $g$ are both differentiable, then
+            $$\frac{d}{dx}[f(x) \pm g(x)] = f'(x) \pm g'(x)$$
+        </div>
+
+        <p>
+            The derivative of a sum (or difference) is the sum (or difference) of the derivatives. Combined with the power rule and constant multiple rule, this lets us differentiate any polynomial term by term.
+        </p>
+
+        <div class="theorem-box">
+            <strong>Theorem 2.4 &mdash; Constant Rule</strong>
+            If $c$ is a constant, then $\frac{d}{dx}[c] = 0$.
+        </div>
+
+        <p>
+            This makes intuitive sense: a constant function has a horizontal graph, so its slope is zero everywhere.
+        </p>
+
+        <div class="example-box">
+            <strong>Example 2.3 &mdash; Differentiating a Polynomial</strong>
+            <p>Find $\frac{dy}{dx}$ for $y = 4x^5 - 7x^3 + 2x - 9$.</p>
+
+            <p><strong>Solution.</strong> Applying the power rule term by term:</p>
+
+            $$\frac{dy}{dx} = 4 \cdot 5x^4 - 7 \cdot 3x^2 + 2 \cdot 1 - 0 = 20x^4 - 21x^2 + 2$$
+        </div>
+
+        <div class="try-it-box">
+            <p class="try-it-label">Try It 2.3</p>
+            <p class="try-it-body">Differentiate $y = 3x^6 - 8x^4 + x^2 - 5$. <em>Hint: Apply the power rule to each term independently, then subtract zero for the constant.</em></p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 2.4 &mdash; Rewriting Before Differentiating</strong>
+            <p>Find $f'(x)$ for $f(x) = \dfrac{3}{x^2} - \dfrac{5}{\sqrt{x}} + 8$.</p>
+
+            <p><strong>Solution.</strong> First rewrite using negative and fractional exponents:</p>
+
+            $$f(x) = 3x^{-2} - 5x^{-1/2} + 8$$
+
+            <p>Now apply the power rule to each term:</p>
+
+            $$f'(x) = 3(-2)x^{-3} - 5\!\left(-\tfrac{1}{2}\right)x^{-3/2} + 0 = -6x^{-3} + \frac{5}{2}x^{-3/2}$$
+
+            <p>Rewriting in radical form:</p>
+
+            $$f'(x) = -\frac{6}{x^3} + \frac{5}{2x\sqrt{x}}$$
+        </div>
+
+        <div class="try-it-box">
+            <p class="try-it-label">Try It 2.4</p>
+            <p class="try-it-body">Find $f'(x)$ for $f(x) = \dfrac{4}{x^3} + 6\sqrt[4]{x} - 2$. <em>Hint: Rewrite as $4x^{-3} + 6x^{1/4} - 2$ first.</em></p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 2.5 &mdash; Finding a Tangent Line</strong>
+            <p>Find the equation of the tangent line to $y = x^3 - 4x + 2$ at the point where $x = 1$.</p>
+
+            <p><strong>Solution.</strong> First, find the $y$-coordinate: $y(1) = 1 - 4 + 2 = -1$. So the point is $(1, -1)$.</p>
+
+            <p>Next, compute the derivative: $y' = 3x^2 - 4$. At $x = 1$:</p>
+
+            $$y'(1) = 3(1)^2 - 4 = -1$$
+
+            <p>Using point-slope form:</p>
+
+            $$y - (-1) = -1(x - 1) \implies y = -x$$
+
+            <p>The tangent line is $y = -x$.</p>
+        </div>
+
+        <div class="try-it-box">
+            <p class="try-it-label">Try It 2.5</p>
+            <p class="try-it-body">Find the equation of the tangent line to $y = 2x^2 - 3x + 1$ at $x = 2$. <em>Hint: Compute $y(2)$ for the point, $y'(x)$ for the slope formula, then evaluate $y'(2)$.</em></p>
+        </div>
+
+        <!-- ==================== 2.2a ==================== -->
+        <h3 id="sec-2-2a">Higher-Order Derivatives</h3>
+
+        <p>
+            Since the derivative $f'(x)$ is itself a function, we can differentiate it again. The derivative of $f'$ is called the <strong>second derivative</strong> of $f$, denoted $f''(x)$ or $\dfrac{d^2y}{dx^2}$. We can continue this process to obtain derivatives of any order.
+        </p>
+
+        <table class="deriv-table">
+            <tr>
+                <th>Order</th>
+                <th>Prime notation</th>
+                <th>Leibniz notation</th>
+                <th>Read as</th>
+            </tr>
+            <tr><td>First</td><td>$f'(x)$</td><td>$\dfrac{dy}{dx}$</td><td>"$f$ prime of $x$"</td></tr>
+            <tr><td>Second</td><td>$f''(x)$</td><td>$\dfrac{d^2y}{dx^2}$</td><td>"$f$ double prime of $x$"</td></tr>
+            <tr><td>Third</td><td>$f'''(x)$</td><td>$\dfrac{d^3y}{dx^3}$</td><td>"$f$ triple prime of $x$"</td></tr>
+            <tr><td>$n$-th</td><td>$f^{(n)}(x)$</td><td>$\dfrac{d^ny}{dx^n}$</td><td>"$f$ to the $n$-th"</td></tr>
+        </table>
+
+        <div class="example-box">
+            <strong>Example 2.5b &mdash; All Derivatives of a Polynomial</strong>
+            <p>Find all nonzero derivatives of $f(x) = 4x^3 - 2x^2 + 5x - 1$.</p>
+
+            <p><strong>Solution.</strong></p>
+
+            $$f'(x) = 12x^2 - 4x + 5$$
+            $$f''(x) = 24x - 4$$
+            $$f'''(x) = 24$$
+            $$f^{(4)}(x) = 0$$
+
+            <p>All derivatives of order 4 and higher are identically zero. This always happens for polynomials: once we differentiate enough times, the degree reaches zero and the next derivative is the zero function.</p>
+        </div>
+
+        <div class="try-it-box">
+            <p class="try-it-label">Try It 2.5b</p>
+            <p class="try-it-body">Find $f''(x)$ for $f(x) = 3x^4 - x^3 + 7x$. Then evaluate $f''(2)$. <em>Hint: Differentiate $f'(x)$ a second time, then substitute $x = 2$.</em></p>
+        </div>
+
+        <p>
+            <strong>Physical meaning.</strong> In mechanics, if $s(t)$ represents the position of an object at time $t$, then:
+        </p>
+        <ul>
+            <li>$s'(t) = v(t)$ is the <strong>velocity</strong> (first derivative of position).</li>
+            <li>$s''(t) = a(t)$ is the <strong>acceleration</strong> (second derivative of position, or first derivative of velocity).</li>
+        </ul>
+        <p>
+            For example, if $s(t) = 4t^3 - 6t^2 + 2t$, then $v(t) = 12t^2 - 12t + 2$ and $a(t) = 24t - 12$.
+        </p>
+
+        <div class="ap-tip">
+            <p><span style="color:#b45309; font-weight:700;">&#9733; AP Exam Tip:</span> Second derivatives appear on the AP exam in <em>concavity</em> questions. When $f''(x) > 0$, the graph of $f$ is concave up (like a cup); when $f''(x) &lt; 0$, it is concave down (like a cap). You will use this in Chapter 5 when analyzing curve behavior. Start recognizing $f''$ as a measure of "how fast the slope is changing."</p>
+        </div>
+
+        <!-- ==================== 2.3 ==================== -->
+        <h2 id="sec-2-3">2.3 Derivatives of Trigonometric Functions</h2>
+
+        <p>
+            The six trigonometric functions arise constantly in calculus, so knowing their derivatives is essential. We start by deriving the most fundamental one from the limit definition, then list all six.
+        </p>
+
+        <h3>Derivation of $\frac{d}{dx}[\sin x]$</h3>
+
+        <p>Using the limit definition:</p>
+
+        $$\frac{d}{dx}[\sin x] = \lim_{h \to 0} \frac{\sin(x+h) - \sin x}{h}$$
+
+        <p>Apply the angle addition formula $\sin(x+h) = \sin x \cos h + \cos x \sin h$:</p>
+
+        $$= \lim_{h \to 0} \frac{\sin x \cos h + \cos x \sin h - \sin x}{h}$$
+
+        $$= \lim_{h \to 0} \left[\sin x \cdot \frac{\cos h - 1}{h} + \cos x \cdot \frac{\sin h}{h}\right]$$
+
+        <p>We use two special limits that were established in Chapter 1:</p>
+
+        $$\lim_{h \to 0} \frac{\sin h}{h} = 1, \qquad \lim_{h \to 0} \frac{\cos h - 1}{h} = 0$$
+
+        <p>Therefore:</p>
+
+        $$\frac{d}{dx}[\sin x] = \sin x \cdot 0 + \cos x \cdot 1 = \cos x$$
+
+        <h3>All Six Trigonometric Derivatives</h3>
+
+        <p>A similar analysis for the remaining five functions yields the complete list:</p>
+
+        <table class="deriv-table">
+            <tr>
+                <th>$f(x)$</th>
+                <th>$f'(x)$</th>
+            </tr>
+            <tr><td>$\sin x$</td><td>$\cos x$</td></tr>
+            <tr><td>$\cos x$</td><td>$-\sin x$</td></tr>
+            <tr><td>$\tan x$</td><td>$\sec^2 x$</td></tr>
+            <tr><td>$\cot x$</td><td>$-\csc^2 x$</td></tr>
+            <tr><td>$\sec x$</td><td>$\sec x \tan x$</td></tr>
+            <tr><td>$\csc x$</td><td>$-\csc x \cot x$</td></tr>
+        </table>
+
+        <div class="ap-tip">
+            <p><span style="color:#b45309; font-weight:700;">&#9733; AP Exam Tip:</span> The derivatives of the "co-" functions (cosine, cotangent, cosecant) always carry a <strong>negative sign</strong>. This is the single most reliable pattern for memorizing the trig derivative table. On a free-response question, a missing negative sign is a very common error.</p>
+        </div>
+
+        <div class="desmos-container" id="sin-cos-deriv"></div>
+        <p class="desmos-caption"><strong>Figure 2.4 &mdash; $\sin x$ and its derivative $\cos x$.</strong> The blue curve is $y = \sin x$ and the red curve is $y = \cos x = \frac{d}{dx}[\sin x]$. Observe that $\cos x = 0$ exactly where $\sin x$ has a horizontal tangent (peaks and troughs), confirming the derivative relationship geometrically.</p>
+
+        <div class="example-box">
+            <strong>Example 2.6 &mdash; Combining Trig and Power Rules</strong>
+            <p>Differentiate $g(x) = 5\sin x - 2\cos x + 3x^2$.</p>
+
+            <p><strong>Solution.</strong> Using the sum rule, constant multiple rule, and trig derivatives:</p>
+
+            $$g'(x) = 5\cos x - 2(-\sin x) + 6x = 5\cos x + 2\sin x + 6x$$
+        </div>
+
+        <div class="try-it-box">
+            <p class="try-it-label">Try It 2.6</p>
+            <p class="try-it-body">Differentiate $h(x) = 4\cos x + 3\tan x - 2x^3$. <em>Hint: Each term differentiates independently. Remember the derivative of $\tan x$ is $\sec^2 x$.</em></p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 2.7 &mdash; Tangent Line to a Trig Function</strong>
+            <p>Find the slope of the tangent line to $y = \tan x$ at $x = \frac{\pi}{4}$.</p>
+
+            <p><strong>Solution.</strong> Since $\frac{d}{dx}[\tan x] = \sec^2 x$:</p>
+
+            $$y'\!\left(\frac{\pi}{4}\right) = \sec^2\!\left(\frac{\pi}{4}\right) = \left(\frac{1}{\cos(\pi/4)}\right)^2 = \left(\frac{1}{{\sqrt{2}}/{2}}\right)^2 = (\sqrt{2})^2 = 2$$
+
+            <p>The slope of the tangent line at $x = \frac{\pi}{4}$ is $2$.</p>
+        </div>
+
+        <div class="try-it-box">
+            <p class="try-it-label">Try It 2.7</p>
+            <p class="try-it-body">Find the slope of the tangent line to $y = \sin x$ at $x = \dfrac{\pi}{6}$. Then write the equation of the tangent line. <em>Hint: Compute $y'(\pi/6)$ and $y(\pi/6)$, then use point-slope form.</em></p>
+        </div>
+
+        <!-- ==================== 2.4 ==================== -->
+        <h2 id="sec-2-4">2.4 Derivatives of Exponential and Logarithmic Functions</h2>
+
+        <p>
+            Exponential and logarithmic functions play a central role in modeling growth and decay. Their derivative formulas are among the most elegant in all of calculus.
+        </p>
+
+        <div class="theorem-box">
+            <strong>Theorem 2.5 &mdash; Derivative of the Natural Exponential</strong>
+            $$\frac{d}{dx}[e^x] = e^x$$
+        </div>
+
+        <p>
+            The function $e^x$ is its own derivative. This remarkable property is, in fact, one way to <em>define</em> the number $e \approx 2.71828$: it is the unique base $a$ for which $\lim_{h \to 0} \frac{a^h - 1}{h} = 1$, which forces $\frac{d}{dx}[a^x]\big|_{x=0} = 1$.
+        </p>
+
+        <div class="desmos-container" id="exp-self-deriv"></div>
+        <p class="desmos-caption"><strong>Figure 2.5 &mdash; $e^x$ is its own derivative.</strong> The blue curve $y = e^x$ and the dashed red tangent line at any point share the same slope value as the $y$-coordinate at that point. Drag the slider to move the point and observe that the slope always equals the function value.</p>
+
+        <div class="theorem-box">
+            <strong>Theorem 2.6 &mdash; Derivative of the Natural Logarithm</strong>
+            $$\frac{d}{dx}[\ln x] = \frac{1}{x}, \quad x > 0$$
+        </div>
+
+        <p>
+            This can be proved using implicit differentiation. If $y = \ln x$, then $e^y = x$. Differentiating both sides with respect to $x$ gives $e^y \frac{dy}{dx} = 1$, so $\frac{dy}{dx} = \frac{1}{e^y} = \frac{1}{x}$.
+        </p>
+
+        <div class="theorem-box">
+            <strong>Theorem 2.7 &mdash; General Exponential and Logarithmic Derivatives</strong>
+            For any constant $a > 0$, $a \neq 1$:
+            $$\frac{d}{dx}[a^x] = a^x \ln a, \qquad \frac{d}{dx}[\log_a x] = \frac{1}{x \ln a}$$
+        </div>
+
+        <p>
+            The general exponential formula follows by writing $a^x = e^{x \ln a}$ and applying the chain rule (covered in Chapter 3). The logarithmic formula follows from the change-of-base identity $\log_a x = \frac{\ln x}{\ln a}$.
+        </p>
+
+        <div class="example-box">
+            <strong>Example 2.8 &mdash; Differentiating Exponential Expressions</strong>
+            <p>Find $\frac{dy}{dx}$ for $y = 3e^x + 7 \cdot 2^x - 4x^3$.</p>
+
+            <p><strong>Solution.</strong> Applying the rules term by term:</p>
+
+            $$\frac{dy}{dx} = 3e^x + 7 \cdot 2^x \ln 2 - 12x^2$$
+        </div>
+
+        <div class="try-it-box">
+            <p class="try-it-label">Try It 2.8</p>
+            <p class="try-it-body">Find $\dfrac{dy}{dx}$ for $y = 5e^x - 4 \cdot 3^x + 2x^2$. <em>Hint: The general exponential rule gives $\dfrac{d}{dx}[3^x] = 3^x \ln 3$.</em></p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 2.9 &mdash; Differentiating Logarithmic Expressions</strong>
+            <p>Find $f'(x)$ for $f(x) = 4\ln x - \log_3 x + x^2$.</p>
+
+            <p><strong>Solution.</strong></p>
+
+            $$f'(x) = \frac{4}{x} - \frac{1}{x \ln 3} + 2x$$
+
+            <p>We can combine the first two terms over a common denominator if desired:</p>
+
+            $$f'(x) = \frac{4\ln 3 - 1}{x \ln 3} + 2x$$
+        </div>
+
+        <div class="try-it-box">
+            <p class="try-it-label">Try It 2.9</p>
+            <p class="try-it-body">Find $f'(x)$ for $f(x) = 6\ln x + \log_5 x - 3x$. <em>Hint: Apply Theorem 2.7 to the $\log_5$ term with $a = 5$.</em></p>
+        </div>
+
+        <div class="ap-tip">
+            <p><span style="color:#b45309; font-weight:700;">&#9733; AP Exam Tip:</span> On the AP exam, $e^x$ and $\ln x$ appear far more often than general bases. Master these two cold. A common mistake is writing $\dfrac{d}{dx}[e^x] = xe^{x-1}$ (incorrectly applying the power rule). The number $e$ is the <em>base</em>, not the exponent, so the power rule does not apply here.</p>
+        </div>
+
+        <!-- ==================== 2.5 ==================== -->
+        <h2 id="sec-2-5">2.5 Product and Quotient Rules</h2>
+
+        <p>
+            When a function is formed as a product or quotient of two simpler functions, we need dedicated rules. A common misconception is that the derivative of a product is the product of the derivatives &mdash; this is <strong>false</strong>. The correct rules are given below.
+        </p>
+
+        <div class="theorem-box">
+            <strong>Theorem 2.8 &mdash; Product Rule</strong>
+            If $f$ and $g$ are both differentiable, then
+            $$\frac{d}{dx}[f(x)g(x)] = f'(x)g(x) + f(x)g'(x)$$
+        </div>
+
+        <h3>Proof Sketch (Product Rule)</h3>
+
+        <p>Start with the limit definition:</p>
+
+        $$\frac{d}{dx}[f(x)g(x)] = \lim_{h \to 0}\frac{f(x+h)g(x+h) - f(x)g(x)}{h}$$
+
+        <p>We use the algebraic trick of adding and subtracting $f(x+h)g(x)$ in the numerator:</p>
+
+        $$= \lim_{h \to 0}\frac{f(x+h)g(x+h) - f(x+h)g(x) + f(x+h)g(x) - f(x)g(x)}{h}$$
+
+        $$= \lim_{h \to 0}\left[f(x+h)\cdot\frac{g(x+h)-g(x)}{h} + g(x)\cdot\frac{f(x+h)-f(x)}{h}\right]$$
+
+        <p>Since $f$ is differentiable (hence continuous), $\lim_{h\to 0} f(x+h) = f(x)$. The two difference quotients tend to $g'(x)$ and $f'(x)$ respectively, giving the result. $\square$</p>
+
+        <div class="theorem-box">
+            <strong>Theorem 2.9 &mdash; Quotient Rule</strong>
+            If $f$ and $g$ are both differentiable and $g(x) \neq 0$, then
+            $$\frac{d}{dx}\!\left[\frac{f(x)}{g(x)}\right] = \frac{f'(x)g(x) - f(x)g'(x)}{[g(x)]^2}$$
+        </div>
+
+        <h3>Proof Sketch (Quotient Rule)</h3>
+
+        <p>
+            One elegant approach is to write $\frac{f}{g} = f \cdot g^{-1}$ and apply the product rule together with the chain rule (Chapter 3). Alternatively, starting from the limit definition:
+        </p>
+
+        $$\frac{d}{dx}\!\left[\frac{f(x)}{g(x)}\right] = \lim_{h \to 0}\frac{\frac{f(x+h)}{g(x+h)} - \frac{f(x)}{g(x)}}{h} = \lim_{h \to 0}\frac{f(x+h)g(x) - f(x)g(x+h)}{h \cdot g(x+h) \cdot g(x)}$$
+
+        <p>
+            Adding and subtracting $f(x)g(x)$ in the numerator and using similar limit arguments as in the product rule proof yields the formula. $\square$
+        </p>
+
+        <p>
+            A popular mnemonic for the quotient rule is <strong>"lo d-hi minus hi d-lo, over lo squared"</strong>, where "hi" means the numerator $f$ and "lo" means the denominator $g$.
+        </p>
+
+        <div class="ap-tip">
+            <p><span style="color:#b45309; font-weight:700;">&#9733; AP Exam Tip:</span> The order of subtraction in the quotient rule matters: it is $f'g - fg'$, <em>not</em> $fg' - f'g$. The mnemonic "lo d-hi minus hi d-lo, over lo-lo" (where "lo-lo" means $g^2$) is a reliable way to remember the correct order. Write it out carefully on free-response problems.</p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 2.10 &mdash; Product Rule Application</strong>
+            <p>Differentiate $y = x^2 \sin x$.</p>
+
+            <p><strong>Solution.</strong> Let $f(x) = x^2$ and $g(x) = \sin x$. Then $f'(x) = 2x$ and $g'(x) = \cos x$.</p>
+
+            $$y' = f'g + fg' = 2x \sin x + x^2 \cos x$$
+        </div>
+
+        <div class="try-it-box">
+            <p class="try-it-label">Try It 2.10</p>
+            <p class="try-it-body">Differentiate $y = x^3 \cos x$. <em>Hint: Identify $f = x^3$ and $g = \cos x$, then apply the product rule $f'g + fg'$.</em></p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 2.11 &mdash; Quotient Rule Application</strong>
+            <p>Differentiate $y = \dfrac{e^x}{x^2 + 1}$.</p>
+
+            <p><strong>Solution.</strong> Let $f(x) = e^x$ and $g(x) = x^2 + 1$. Then $f'(x) = e^x$ and $g'(x) = 2x$.</p>
+
+            $$y' = \frac{f'g - fg'}{g^2} = \frac{e^x(x^2+1) - e^x(2x)}{(x^2+1)^2} = \frac{e^x(x^2 - 2x + 1)}{(x^2+1)^2} = \frac{e^x(x-1)^2}{(x^2+1)^2}$$
+        </div>
+
+        <div class="try-it-box">
+            <p class="try-it-label">Try It 2.11</p>
+            <p class="try-it-body">Differentiate $y = \dfrac{\ln x}{x^2}$. <em>Hint: Let $f = \ln x$ and $g = x^2$, so $f' = 1/x$ and $g' = 2x$. Apply the quotient rule and simplify.</em></p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 2.12 &mdash; Product Rule with Three Factors</strong>
+            <p>Differentiate $y = x^2 e^x \cos x$.</p>
+
+            <p><strong>Solution.</strong> For a product of three functions $u \cdot v \cdot w$, the product rule extends to:</p>
+
+            $$\frac{d}{dx}[uvw] = u'vw + uv'w + uvw'$$
+
+            <p>With $u = x^2$, $v = e^x$, $w = \cos x$:</p>
+
+            $$y' = 2x \cdot e^x \cdot \cos x + x^2 \cdot e^x \cdot \cos x + x^2 \cdot e^x \cdot (-\sin x)$$
+
+            $$= x \, e^x \big(2\cos x + x\cos x - x\sin x\big)$$
+        </div>
+
+        <div class="try-it-box">
+            <p class="try-it-label">Try It 2.12</p>
+            <p class="try-it-body">Differentiate $y = x \cdot e^x \cdot \sin x$. <em>Hint: Use the three-factor product rule $u'vw + uv'w + uvw'$ with $u = x$, $v = e^x$, $w = \sin x$.</em></p>
+        </div>
+
+        <!-- ==================== 2.6 ==================== -->
+        <h2 id="sec-2-6">2.6 Practice Problems</h2>
+
+        <p>
+            Test your understanding of the differentiation rules covered in this chapter. Each problem has a hidden solution &mdash; try to work through the problem yourself before revealing the answer.
+        </p>
+
+        <!-- Problem 1 -->
+        <div class="practice-problem">
+            <strong>Problem 1.</strong> Use the limit definition to find $f'(x)$ for $f(x) = 2x^2 + 3x$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Compute $f(x+h) = 2(x+h)^2 + 3(x+h) = 2x^2 + 4xh + 2h^2 + 3x + 3h$.</p>
+                    <p>$f(x+h) - f(x) = 4xh + 2h^2 + 3h = h(4x + 2h + 3)$.</p>
+                    <p>$\dfrac{f(x+h) - f(x)}{h} = 4x + 2h + 3$.</p>
+                    <p>$f'(x) = \displaystyle\lim_{h \to 0}(4x + 2h + 3) = 4x + 3$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 2 -->
+        <div class="practice-problem">
+            <strong>Problem 2.</strong> Differentiate $y = 6x^4 - \dfrac{2}{x^3} + 5\sqrt{x} - 7$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Rewrite: $y = 6x^4 - 2x^{-3} + 5x^{1/2} - 7$.</p>
+                    <p>Apply the power rule term by term:</p>
+                    <p>$y' = 24x^3 - 2(-3)x^{-4} + 5 \cdot \frac{1}{2}x^{-1/2} - 0 = 24x^3 + \dfrac{6}{x^4} + \dfrac{5}{2\sqrt{x}}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 3 -->
+        <div class="practice-problem">
+            <strong>Problem 3.</strong> Find the derivative of $g(t) = 3\sin t + t^2 \cos t$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>The first term is straightforward: $\frac{d}{dt}[3\sin t] = 3\cos t$.</p>
+                    <p>For the second term, use the product rule with $u = t^2$ and $v = \cos t$:</p>
+                    <p>$\frac{d}{dt}[t^2 \cos t] = 2t \cos t + t^2(-\sin t) = 2t\cos t - t^2 \sin t$.</p>
+                    <p>Combining: $g'(t) = 3\cos t + 2t\cos t - t^2 \sin t$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 4 -->
+        <div class="practice-problem">
+            <strong>Problem 4.</strong> Differentiate $f(x) = \dfrac{x^2 - 1}{x^2 + 1}$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Apply the quotient rule with numerator $u = x^2 - 1$ and denominator $v = x^2 + 1$:</p>
+                    <p>$f'(x) = \dfrac{(2x)(x^2+1) - (x^2-1)(2x)}{(x^2+1)^2} = \dfrac{2x^3 + 2x - 2x^3 + 2x}{(x^2+1)^2} = \dfrac{4x}{(x^2+1)^2}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 5 -->
+        <div class="practice-problem">
+            <strong>Problem 5.</strong> Find $\frac{dy}{dx}$ for $y = 5e^x - 3 \cdot 4^x + \ln x$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\dfrac{dy}{dx} = 5e^x - 3 \cdot 4^x \ln 4 + \dfrac{1}{x}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 6 -->
+        <div class="practice-problem">
+            <strong>Problem 6.</strong> Find the equation of the tangent line to $y = e^x \sin x$ at $x = 0$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>At $x = 0$: $y(0) = e^0 \sin 0 = 0$. The point is $(0, 0)$.</p>
+                    <p>Use the product rule: $y' = e^x \sin x + e^x \cos x = e^x(\sin x + \cos x)$.</p>
+                    <p>At $x = 0$: $y'(0) = e^0(\sin 0 + \cos 0) = 1(0 + 1) = 1$.</p>
+                    <p>Tangent line: $y - 0 = 1(x - 0)$, so $y = x$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 7 -->
+        <div class="practice-problem">
+            <strong>Problem 7.</strong> Differentiate $h(x) = \dfrac{\sin x}{e^x}$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Apply the quotient rule with $f = \sin x$, $g = e^x$:</p>
+                    <p>$h'(x) = \dfrac{\cos x \cdot e^x - \sin x \cdot e^x}{(e^x)^2} = \dfrac{e^x(\cos x - \sin x)}{e^{2x}} = \dfrac{\cos x - \sin x}{e^x}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 8 -->
+        <div class="practice-problem">
+            <strong>Problem 8.</strong> Let $f(x) = x^3 - 12x + 5$. Find all values of $x$ where the tangent line is horizontal.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>A horizontal tangent occurs when $f'(x) = 0$.</p>
+                    <p>$f'(x) = 3x^2 - 12 = 0 \implies x^2 = 4 \implies x = \pm 2$.</p>
+                    <p>The tangent line is horizontal at $x = -2$ and $x = 2$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 9 -->
+        <div class="practice-problem">
+            <strong>Problem 9.</strong> Differentiate $y = x \ln x - x$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>For $x \ln x$, use the product rule: $\frac{d}{dx}[x \ln x] = 1 \cdot \ln x + x \cdot \frac{1}{x} = \ln x + 1$.</p>
+                    <p>$y' = (\ln x + 1) - 1 = \ln x$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 10 -->
+        <div class="practice-problem">
+            <strong>Problem 10.</strong> Find $f'(x)$ for $f(x) = \sec x \cdot \tan x$ and evaluate $f'\!\left(\frac{\pi}{3}\right)$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Product rule with $u = \sec x$, $v = \tan x$:</p>
+                    <p>$f'(x) = \sec x \tan x \cdot \tan x + \sec x \cdot \sec^2 x = \sec x \tan^2 x + \sec^3 x$.</p>
+                    <p>Factor: $f'(x) = \sec x(\tan^2 x + \sec^2 x)$.</p>
+                    <p>At $x = \frac{\pi}{3}$: $\sec\frac{\pi}{3} = 2$, $\tan\frac{\pi}{3} = \sqrt{3}$.</p>
+                    <p>$f'\!\left(\frac{\pi}{3}\right) = 2(3 + 4) = 14$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 11 -->
+        <div class="practice-problem">
+            <strong>Problem 11.</strong> Find $f''(x)$ for $f(x) = 5x^4 - 3x^3 + x^2 - 7x + 2$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>First derivative: $f'(x) = 20x^3 - 9x^2 + 2x - 7$.</p>
+                    <p>Second derivative: $f''(x) = 60x^2 - 18x + 2$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 12 -->
+        <div class="practice-problem">
+            <strong>Problem 12.</strong> Find the fourth derivative $f^{(4)}(x)$ for $f(x) = x^5 - 3x^4 + 2x^3$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$f'(x) = 5x^4 - 12x^3 + 6x^2$.</p>
+                    <p>$f''(x) = 20x^3 - 36x^2 + 12x$.</p>
+                    <p>$f'''(x) = 60x^2 - 72x + 12$.</p>
+                    <p>$f^{(4)}(x) = 120x - 72$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 13 -->
+        <div class="practice-problem">
+            <strong>Problem 13.</strong> Consider the piecewise function
+            $$f(x) = \begin{cases} x^2 & x \leq 1 \\ 2x - 1 & x > 1 \end{cases}$$
+            Is $f$ differentiable at $x = 1$? Justify your answer.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>First check continuity: $\lim_{x \to 1^-} f(x) = 1^2 = 1$ and $\lim_{x \to 1^+} f(x) = 2(1) - 1 = 1$. Since both one-sided limits equal $f(1) = 1$, the function is continuous at $x = 1$.</p>
+                    <p>Now check differentiability. The left-hand derivative: $\lim_{h \to 0^-} \frac{(1+h)^2 - 1}{h} = \lim_{h \to 0^-}(2 + h) = 2$.</p>
+                    <p>The right-hand derivative: $\lim_{h \to 0^+} \frac{[2(1+h)-1] - 1}{h} = \lim_{h \to 0^+} \frac{2h}{h} = 2$.</p>
+                    <p>Since both one-sided derivatives equal 2, $f'(1) = 2$ and $f$ is differentiable at $x = 1$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 14 -->
+        <div class="practice-problem">
+            <strong>Problem 14.</strong> Differentiate $f(x) = x^2 \sin x \cdot \ln x$ using the three-factor product rule.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>With $u = x^2$, $v = \sin x$, $w = \ln x$: $u' = 2x$, $v' = \cos x$, $w' = \frac{1}{x}$.</p>
+                    <p>$f'(x) = 2x \cdot \sin x \cdot \ln x + x^2 \cdot \cos x \cdot \ln x + x^2 \cdot \sin x \cdot \dfrac{1}{x}$</p>
+                    <p>$= 2x \sin x \ln x + x^2 \cos x \ln x + x \sin x$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 15 -->
+        <div class="practice-problem">
+            <strong>Problem 15.</strong> Differentiate $y = \dfrac{\tan x}{x^2 + 1}$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Quotient rule with $f = \tan x$, $g = x^2 + 1$; $f' = \sec^2 x$, $g' = 2x$:</p>
+                    <p>$y' = \dfrac{\sec^2 x \cdot (x^2+1) - \tan x \cdot 2x}{(x^2+1)^2} = \dfrac{(x^2+1)\sec^2 x - 2x\tan x}{(x^2+1)^2}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 16 -->
+        <div class="practice-problem">
+            <strong>Problem 16.</strong> Find all $x$-values where $y = x^2 e^x$ has a horizontal tangent line.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Product rule: $y' = 2x e^x + x^2 e^x = xe^x(2 + x)$.</p>
+                    <p>Set $y' = 0$: $xe^x(2+x) = 0$. Since $e^x > 0$ always, we need $x = 0$ or $x = -2$.</p>
+                    <p>Horizontal tangent lines occur at $x = 0$ and $x = -2$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 17 -->
+        <div class="practice-problem">
+            <strong>Problem 17.</strong> Find the equation of the <em>normal line</em> (perpendicular to the tangent) to $y = x^2 - 3x$ at $x = 2$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>At $x = 2$: $y(2) = 4 - 6 = -2$. Point: $(2, -2)$.</p>
+                    <p>$y' = 2x - 3$, so $y'(2) = 1$. The tangent slope is $m_T = 1$.</p>
+                    <p>The normal line is perpendicular, so its slope is $m_N = -\dfrac{1}{m_T} = -1$.</p>
+                    <p>Normal line: $y - (-2) = -1(x - 2) \Rightarrow y = -x$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 18 -->
+        <div class="practice-problem">
+            <strong>Problem 18.</strong> The function $f(x) = |x|$ is continuous at $x = 0$ but not differentiable there. Verify both claims directly using limits.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>Continuity:</strong> $\lim_{x \to 0^-}|x| = \lim_{x \to 0^-}(-x) = 0$ and $\lim_{x \to 0^+}|x| = 0$. Both one-sided limits equal $f(0) = 0$, so $f$ is continuous at $x=0$.</p>
+                    <p><strong>Non-differentiability:</strong> Left-hand difference quotient: $\lim_{h \to 0^-}\frac{|0+h|-0}{h} = \lim_{h \to 0^-}\frac{-h}{h} = -1$.</p>
+                    <p>Right-hand difference quotient: $\lim_{h \to 0^+}\frac{|h|}{h} = \lim_{h \to 0^+}\frac{h}{h} = 1$.</p>
+                    <p>Since the left and right limits are $-1$ and $1$ (unequal), $f'(0)$ does not exist.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 19 -->
+        <div class="practice-problem">
+            <strong>Problem 19.</strong> A particle moves along a straight line with position $s(t) = t^3 - 6t^2 + 9t + 2$ (in meters, $t$ in seconds). Find (a) the velocity at $t = 2$, (b) the acceleration at $t = 2$, and (c) when the particle is at rest.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>(a) $v(t) = s'(t) = 3t^2 - 12t + 9$. At $t=2$: $v(2) = 12 - 24 + 9 = -3$ m/s.</p>
+                    <p>(b) $a(t) = v'(t) = 6t - 12$. At $t=2$: $a(2) = 12 - 12 = 0$ m/s².</p>
+                    <p>(c) The particle is at rest when $v(t) = 0$: $3t^2 - 12t + 9 = 3(t^2-4t+3) = 3(t-1)(t-3) = 0$. The particle is at rest at $t = 1$ s and $t = 3$ s.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 20 -->
+        <div class="practice-problem">
+            <strong>Problem 20.</strong> A company's cost function is $C(x) = 0.01x^3 - 0.6x^2 + 15x + 100$ (dollars, $x$ = units produced). Find the marginal cost $C'(x)$ and interpret $C'(20)$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$C'(x) = 0.03x^2 - 1.2x + 15$.</p>
+                    <p>$C'(20) = 0.03(400) - 1.2(20) + 15 = 12 - 24 + 15 = 3$.</p>
+                    <p><strong>Interpretation:</strong> When 20 units are being produced, the cost increases by approximately $\$3$ for each additional unit produced. This is the <em>marginal cost</em> at $x = 20$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 21 -->
+        <div class="practice-problem">
+            <strong>Problem 21.</strong> Find $f''(x)$ for $f(x) = \dfrac{x^2}{x - 1}$ (for $x \neq 1$).
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>First derivative (quotient rule, $u = x^2$, $v = x-1$):</p>
+                    <p>$f'(x) = \dfrac{2x(x-1) - x^2(1)}{(x-1)^2} = \dfrac{2x^2 - 2x - x^2}{(x-1)^2} = \dfrac{x^2 - 2x}{(x-1)^2} = \dfrac{x(x-2)}{(x-1)^2}$.</p>
+                    <p>Second derivative (quotient rule on $f'$, with $p = x^2-2x$ and $q = (x-1)^2$):</p>
+                    <p>$p' = 2x - 2$, $q' = 2(x-1)$.</p>
+                    <p>$f''(x) = \dfrac{(2x-2)(x-1)^2 - (x^2-2x) \cdot 2(x-1)}{(x-1)^4}$.</p>
+                    <p>Factor out $(x-1)$ from the numerator:</p>
+                    <p>$= \dfrac{(x-1)[(2x-2)(x-1) - 2(x^2-2x)]}{(x-1)^4} = \dfrac{(2x-2)(x-1) - 2x(x-2)}{(x-1)^3}$.</p>
+                    <p>Expand: $(2x-2)(x-1) = 2x^2 - 4x + 2$ and $2x(x-2) = 2x^2 - 4x$.</p>
+                    <p>$f''(x) = \dfrac{2x^2 - 4x + 2 - 2x^2 + 4x}{(x-1)^3} = \dfrac{2}{(x-1)^3}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 22 -->
+        <div class="practice-problem">
+            <strong>Problem 22.</strong> Prove the product rule for three factors: if $u$, $v$, $w$ are all differentiable, then $(uvw)' = u'vw + uv'w + uvw'$. <em>Hint: Write $uvw = (uv)w$ and apply the two-factor product rule twice.</em>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Let $F = uv$, so $uvw = Fw$. By the two-factor product rule:</p>
+                    <p>$(Fw)' = F'w + Fw'$.</p>
+                    <p>Now $F' = (uv)' = u'v + uv'$ by the standard product rule.</p>
+                    <p>Substituting: $(uvw)' = (u'v + uv')w + (uv)w' = u'vw + uv'w + uvw'$. $\square$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 23 -->
+        <div class="practice-problem">
+            <strong>Problem 23.</strong> Show that $\dfrac{d}{dx}[\sec x] = \sec x \tan x$ by writing $\sec x = \dfrac{1}{\cos x}$ and applying the quotient rule.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Write $\sec x = \dfrac{1}{\cos x}$. Using the quotient rule with $f = 1$, $g = \cos x$:</p>
+                    <p>$\dfrac{d}{dx}[\sec x] = \dfrac{0 \cdot \cos x - 1 \cdot (-\sin x)}{\cos^2 x} = \dfrac{\sin x}{\cos^2 x} = \dfrac{1}{\cos x} \cdot \dfrac{\sin x}{\cos x} = \sec x \tan x$. $\square$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 24 -->
+        <div class="practice-problem">
+            <strong>Problem 24.</strong> Find all $x$ where $f''(x) = 0$ for $f(x) = x^4 - 6x^2$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$f'(x) = 4x^3 - 12x$.</p>
+                    <p>$f''(x) = 12x^2 - 12 = 12(x^2 - 1)$.</p>
+                    <p>Set $f''(x) = 0$: $x^2 - 1 = 0 \Rightarrow x = \pm 1$.</p>
+                    <p>These are <em>potential inflection points</em> (where concavity may change). For $|x| > 1$, $f'' > 0$ (concave up); for $|x| < 1$, $f'' < 0$ (concave down). So $x = \pm 1$ are indeed inflection points.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 25 -->
+        <div class="practice-problem">
+            <strong>Problem 25 (AP-Style Multi-Part).</strong> Let $f(x) = \dfrac{x^2 e^x}{\cos x}$.
+            <br><br>
+            (a) Find $f'(x)$. You do not need to simplify fully.
+            <br>
+            (b) Find the $x$-coordinates of all critical points of $f$ in $(-\pi/2, \pi/2)$ where $f'(x) = 0$. Justify that both $x = 0$ and $x = -2$ produce $f'(x) = 0$.
+            <br>
+            (c) Find $f''(0)$.
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>(a)</strong> Write $f = \dfrac{(x^2 e^x)}{\cos x}$. Let the numerator $N = x^2 e^x$ and denominator $D = \cos x$.</p>
+                    <p>$N' = 2xe^x + x^2 e^x = xe^x(2+x)$ (product rule).</p>
+                    <p>$D' = -\sin x$.</p>
+                    <p>$f'(x) = \dfrac{xe^x(2+x)\cos x - x^2 e^x(-\sin x)}{\cos^2 x} = \dfrac{xe^x[(2+x)\cos x + x\sin x]}{\cos^2 x}$.</p>
+                    <p><strong>(b)</strong> $f'(x) = 0$ when $xe^x[(2+x)\cos x + x\sin x] = 0$. Since $e^x > 0$, we need $x = 0$ or $(2+x)\cos x + x\sin x = 0$. At $x = 0$: $(2)(1) + 0 = 2 \neq 0$, so $x = 0$ is a zero of the $x$ factor. For the second factor, testing $x = -2$: $(0)\cos(-2) + (-2)\sin(-2) = 2\sin 2 \neq 0$ in general. In $(-\pi/2, \pi/2)$, the only critical point with $f'(x) = 0$ is $x = 0$.</p>
+                    <p><strong>(c)</strong> At $x = 0$: $f(0) = \dfrac{0 \cdot 1}{1} = 0$. Use the quotient rule result from (a).</p>
+                    <p>$f'(x) = \dfrac{xe^x[(2+x)\cos x + x\sin x]}{\cos^2 x}$. At $x = 0$: $f'(0) = 0$.</p>
+                    <p>To find $f''(0)$, apply L'Hopital or directly differentiate $f'$. Using the product/quotient structure at $x = 0$:</p>
+                    <p>Let $g(x) = xe^x[(2+x)\cos x + x\sin x]$ and $h(x) = \cos^2 x$. Then $g(0) = 0$, $h(0) = 1$, and $g'(0) = [(e^x + xe^x)((2+x)\cos x + x\sin x) + xe^x(-\cos x + (2+x)(-\sin x) + \sin x + x\cos x)]_{x=0}$. At $x=0$: $g'(0) = (1)(2) + 0 = 2$. And $h'(0) = -2\cos 0 \sin 0 = 0$.</p>
+                    <p>By the quotient rule: $f''(0) = \dfrac{g'(0)h(0) - g(0)h'(0)}{h(0)^2} = \dfrac{2 \cdot 1 - 0 \cdot 0}{1} = 2$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Chapter Navigation -->
+        <div class="chapter-nav">
+            <a href="#">&larr; Chapter 1: Limits and Continuity</a>
+            <a href="#">Chapter 3: The Chain Rule &rarr;</a>
+        </div>
+    </article>
+
+    <footer style="text-align:center; padding:24px; color:#64748b; font-size:0.85em; border-top:1px solid #e2e8f0;">
+        &copy; 2026 MathHub Global. All rights reserved.
+    </footer>
+
+    <!-- Figure 2.1: Tangent line slider (tangent-line) -->
+    <script>
+    (function() {
+        var elt = document.getElementById('tangent-line');
+        var calc = Desmos.GraphingCalculator(elt, {expressions: true, settingsMenu: false, zoomButtons: true});
+        calc.setExpression({id: 'f', latex: 'f(x) = x^3 - 3x', color: '#2563eb'});
+        calc.setExpression({id: 'a', latex: 'a = 1', sliderBounds: {min: '-3', max: '3', step: '0.05'}});
+        calc.setExpression({id: 'pt', latex: '(a, f(a))', color: '#dc2626', pointSize: 12});
+        calc.setExpression({id: 'tangent', latex: 'y = f(a) + f\'(a)(x - a)', color: '#dc2626', lineStyle: Desmos.Styles.DASHED});
+        calc.setExpression({id: 'deriv', latex: 'g(x) = f\'(x)', color: '#16a34a', lineStyle: Desmos.Styles.DASHED});
+        calc.setMathBounds({left: -4, right: 4, bottom: -6, top: 6});
+    })();
+    </script>
+
+    <!-- Figure 2.2a: Corner (|x|) -->
+    <script>
+    (function() {
+        var elt = document.getElementById('fig-corner');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: true
+        });
+        calc.setExpression({id: 'abs', latex: 'y = \\left|x\\right|', color: '#2563eb'});
+        calc.setExpression({id: 'pt', latex: '(0, 0)', color: '#dc2626', pointSize: 10});
+        calc.setMathBounds({left: -3, right: 3, bottom: -0.5, top: 4});
+    })();
+    </script>
+
+    <!-- Figure 2.2b: Cusp (x^(2/3)) -->
+    <script>
+    (function() {
+        var elt = document.getElementById('fig-cusp');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: true
+        });
+        calc.setExpression({id: 'cusp', latex: 'y = x^{2/3}', color: '#7c3aed'});
+        calc.setExpression({id: 'pt', latex: '(0, 0)', color: '#dc2626', pointSize: 10});
+        calc.setMathBounds({left: -3, right: 3, bottom: -0.5, top: 2.5});
+    })();
+    </script>
+
+    <!-- Figure 2.2c: Vertical tangent (x^(1/3)) -->
+    <script>
+    (function() {
+        var elt = document.getElementById('fig-vtangent');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: true
+        });
+        calc.setExpression({id: 'vt', latex: 'y = x^{1/3}', color: '#059669'});
+        calc.setExpression({id: 'pt', latex: '(0, 0)', color: '#dc2626', pointSize: 10});
+        calc.setMathBounds({left: -3, right: 3, bottom: -2, top: 2});
+    })();
+    </script>
+
+    <!-- Figure 2.3: Power rule slider (power-rule) -->
+    <script>
+    (function() {
+        var elt = document.getElementById('power-rule');
+        var calc = Desmos.GraphingCalculator(elt, {expressions: true, settingsMenu: false, zoomButtons: true});
+        calc.setExpression({id: 'n', latex: 'n = 2', sliderBounds: {min: '-3', max: '5', step: '0.5'}});
+        calc.setExpression({id: 'f', latex: 'f(x) = x^n', color: '#2563eb'});
+        calc.setExpression({id: 'df', latex: 'g(x) = n \\cdot x^{(n-1)}', color: '#dc2626', lineStyle: Desmos.Styles.DASHED});
+        calc.setMathBounds({left: -4, right: 4, bottom: -8, top: 8});
+    })();
+    </script>
+
+    <!-- Figure 2.4: sin(x) and cos(x) side by side (sin-cos-deriv) -->
+    <script>
+    (function() {
+        var elt = document.getElementById('sin-cos-deriv');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: true
+        });
+        calc.setExpression({id: 'sinx', latex: 'y = \\sin x', color: '#2563eb'});
+        calc.setExpression({id: 'cosx', latex: 'y = \\cos x', color: '#dc2626', lineStyle: Desmos.Styles.DASHED});
+        calc.setMathBounds({left: -7, right: 7, bottom: -2, top: 2});
+    })();
+    </script>
+
+    <!-- Figure 2.5: e^x is its own derivative (exp-self-deriv) -->
+    <script>
+    (function() {
+        var elt = document.getElementById('exp-self-deriv');
+        var calc = Desmos.GraphingCalculator(elt, {expressions: true, settingsMenu: false, zoomButtons: false});
+        calc.setExpression({id: 'ex', latex: 'y = e^x', color: '#2563eb'});
+        calc.setExpression({id: 'a', latex: 'a = 0', sliderBounds: {min: '-3', max: '2', step: '0.05'}});
+        calc.setExpression({id: 'pt', latex: '(a, e^a)', color: '#dc2626', pointSize: 10});
+        calc.setExpression({id: 'tang', latex: 'y = e^a + e^a(x - a)', color: '#dc2626', lineStyle: Desmos.Styles.DASHED});
+        calc.setMathBounds({left: -4, right: 4, bottom: -1, top: 10});
+    })();
+    </script>
+</body>
+</html>

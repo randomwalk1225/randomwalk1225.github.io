@@ -1,0 +1,2057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Calculus: Limits and Continuity - Chapter 1 | MathHub</title>
+    <meta name="description" content="AP Calculus limits and continuity. Learn limit evaluation, squeeze theorem, and continuity with worked examples and practice problems.">
+    <meta name="keywords" content="AP Calculus, limits, continuity, squeeze theorem, IVT, limit evaluation, AP Calculus AB, AP Calculus BC, intermediate value theorem">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/ap-calculus/limits.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/ap-calculus/limits.html">
+    <meta property="og:title" content="AP Calculus: Limits and Continuity - Chapter 1">
+    <meta property="og:description" content="Comprehensive chapter on limits and continuity for AP Calculus AB/BC. Includes worked examples, the squeeze theorem, IVT, and practice problems with solutions.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Calculus: Limits and Continuity - Chapter 1">
+    <meta name="twitter:description" content="Learn limits and continuity for AP Calculus with worked examples and practice problems.">
+
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "AP Calculus: Limits and Continuity - Chapter 1",
+        "description": "AP Calculus limits and continuity. Learn limit evaluation, squeeze theorem, and continuity with worked examples and practice problems.",
+        "url": "https://mathhub.io/us/textbook/ap-calculus/limits.html",
+        "datePublished": "2025-06-01",
+        "dateModified": "2026-03-02",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "AP",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Limits" },
+            { "@type": "Thing", "name": "Continuity" },
+            { "@type": "Thing", "name": "AP Calculus" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        .blog-article {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 16px;
+        }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        /* ── Learning Objectives ── */
+        .learning-objectives {
+            background: #fff7ed;
+            border-left: 4px solid #f97316;
+            padding: 20px 24px;
+            margin: 24px 0 32px;
+            border-radius: 0 10px 10px 0;
+        }
+        .learning-objectives h4 { color: #c2410c; margin: 0 0 12px; font-size: 1em; font-weight: 700; letter-spacing: .3px; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #431407; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        /* ── Content Boxes ── */
+        .example-box {
+            background: #f0f7ff; border-left: 4px solid #3b82f6;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box {
+            background: #f0fdf4; border-left: 4px solid #22c55e;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box {
+            background: #faf5ff; border-left: 4px solid #8b5cf6;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p { color: #334155; line-height: 1.8; }
+
+        /* ── Try It ── */
+        .try-it-box {
+            background: #f0fdf4;
+            border: 1.5px dashed #86efac;
+            padding: 16px 20px;
+            margin: -4px 0 24px;
+            border-radius: 0 0 8px 8px;
+        }
+        .try-it-box .try-it-label {
+            display: inline-block; background: #22c55e; color: white;
+            font-size: 0.75em; font-weight: 700; padding: 2px 10px;
+            border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px;
+        }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary {
+            cursor: pointer; color: #16a34a; font-weight: 600;
+            font-size: 0.9em; user-select: none;
+        }
+        .try-it-answer {
+            padding: 10px 14px; background: white; border-radius: 6px;
+            margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7;
+        }
+
+        /* ── AP Exam Tip ── */
+        .ap-tip {
+            background: #fefce8; border-left: 4px solid #eab308;
+            padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0;
+            display: flex; gap: 12px; align-items: flex-start;
+        }
+        .ap-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #92400e; }
+
+        /* ── Enrichment / Optional Preview ── */
+        .enrichment-block {
+            margin: 36px 0;
+            border: 2px solid #0d9488;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .enrichment-header {
+            background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+            color: white;
+            padding: 14px 22px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .enrichment-icon {
+            font-size: 1.6em;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+        .enrichment-header-text { flex: 1; }
+        .enrichment-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            color: white;
+            font-size: 0.68em;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 2px 9px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.4);
+            margin-bottom: 4px;
+        }
+        .enrichment-title {
+            font-size: 1.05em;
+            font-weight: 700;
+            margin: 2px 0 0;
+        }
+        .enrichment-note {
+            font-size: 0.82em;
+            opacity: 0.88;
+            margin-top: 3px;
+            font-style: italic;
+        }
+        .enrichment-skip {
+            flex-shrink: 0;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.35);
+            color: white;
+            font-size: 0.78em;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 1.35;
+            white-space: nowrap;
+        }
+        .enrichment-body {
+            background: #f0fdfa;
+            padding: 24px 28px;
+        }
+        .enrichment-body h3 {
+            color: #0f766e;
+            margin-top: 0;
+        }
+        @media (max-width: 600px) {
+            .enrichment-skip { display: none; }
+        }
+
+        /* ── Practice Problems ── */
+        .practice-section-header {
+            display: flex; align-items: center; gap: 12px;
+            margin: 36px 0 20px; flex-wrap: wrap;
+        }
+        .practice-section-header h2 { margin: 0; border: none; padding: 0; }
+        .difficulty-legend { display: flex; gap: 8px; flex-wrap: wrap; }
+        .practice-problem {
+            background: #f8fafc; border: 1px solid #e2e8f0;
+            padding: 20px 24px; margin: 12px 0; border-radius: 8px;
+        }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        .practice-problem p { margin-bottom: 12px; }
+        .difficulty-badge {
+            display: inline-block; font-size: 0.72em; font-weight: 700;
+            padding: 2px 8px; border-radius: 4px; margin-left: 8px; vertical-align: middle;
+        }
+        .badge-basic { background: #dcfce7; color: #166534; }
+        .badge-intermediate { background: #fef3c7; color: #92400e; }
+        .badge-challenge { background: #fce7f3; color: #9d174d; }
+        details.solution { margin-top: 12px; }
+        details.solution summary {
+            cursor: pointer; color: #3b82f6; font-weight: 600;
+            font-size: 0.95em; padding: 6px 0; user-select: none;
+        }
+        details.solution summary:hover { color: #1d4ed8; }
+        .solution-content {
+            padding: 16px 20px; background: #f0f7ff; border-radius: 6px;
+            margin-top: 8px; line-height: 1.8; color: #334155;
+        }
+        .solution-content p { margin-bottom: 10px; }
+
+        /* ── Section Summary ── */
+        .section-summary {
+            background: #f8fafc; border: 2px solid #e2e8f0;
+            padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px;
+        }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;
+        }
+        .summary-card {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 14px 18px;
+        }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+
+        /* ── Key Terms ── */
+        .key-terms-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 10px; margin: 16px 0;
+        }
+        .key-term-item {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 12px 16px;
+        }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
+
+        /* ── Misc ── */
+        .step-label {
+            display: inline-block; background: #3b82f6; color: white;
+            font-size: 0.8em; font-weight: 700; padding: 2px 10px;
+            border-radius: 4px; margin-right: 6px;
+        }
+        .desmos-container {
+            width: 100%; height: 400px; margin: 20px 0;
+            border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0;
+        }
+        .desmos-caption {
+            text-align: center; font-size: 0.9em; color: #64748b;
+            margin-top: 8px; margin-bottom: 20px;
+        }
+        .toc {
+            background: #f8fafc; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px;
+        }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .chapter-nav {
+            display: flex; justify-content: space-between; align-items: center;
+            margin: 48px 0 20px; padding: 20px 0; border-top: 2px solid #e2e8f0;
+        }
+        .chapter-nav a { color: #3b82f6; text-decoration: none; font-weight: 600; font-size: 0.95em; }
+        .chapter-nav a:hover { text-decoration: underline; }
+        .chapter-nav .disabled { color: #cbd5e1; cursor: default; }
+
+        @media (max-width: 640px) {
+            .summary-grid { grid-template-columns: 1fr; }
+            .blog-article h1 { font-size: 1.7em; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/" class="active">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="/">MathHub</a> &rsaquo; <a href="/us/">US</a> &rsaquo; <a href="/us/ap-calculus/">AP Calculus</a> &rsaquo; <a href="/us/textbook/ap-calculus/">Textbook</a> &rsaquo; Chapter 1
+        </div>
+
+        <h1>Chapter 1: Limits and Continuity</h1>
+        <div class="blog-meta">AP Calculus AB / BC &middot; Updated March 2026 &middot; 25 min read</div>
+
+        <p>Limits are the foundation upon which all of calculus is built. Before you can understand derivatives or integrals, you need a solid grasp of what it means for a function to <em>approach</em> a value. In this chapter, we develop the concept of a limit from intuition to formal definition, explore techniques for evaluating limits, and then use limits to define what it means for a function to be continuous.</p>
+
+        <!-- ── Learning Objectives ── -->
+        <div class="learning-objectives">
+            <h4>&#127919; Learning Objectives</h4>
+            <p style="margin:0 0 10px;color:#7c2d12;font-size:.9em;">After completing this chapter, you will be able to:</p>
+            <ul>
+                <li>State the informal and formal definition of a limit and evaluate limits numerically</li>
+                <li>Compute one-sided limits and determine whether a two-sided limit exists</li>
+                <li>Evaluate limits using direct substitution, factoring, and rationalization</li>
+                <li>Find limits at infinity and identify horizontal and vertical asymptotes</li>
+                <li>Apply the Squeeze Theorem to evaluate limits involving oscillating functions</li>
+                <li>Test continuity at a point, classify types of discontinuity, and apply the Intermediate Value Theorem</li>
+            </ul>
+        </div>
+
+        <nav class="toc">
+            <h3>Chapter Contents</h3>
+            <ol>
+                <li><a href="#section-1-1">1.1 Convergence, Divergence &amp; Sequences</a></li>
+                <li><a href="#section-1-2">1.2 Limits of Functions</a></li>
+                <li><a href="#section-1-3">1.3 Evaluating Limits</a></li>
+                <li><a href="#section-1-4">1.4 Limits Involving Infinity</a></li>
+                <li><a href="#section-1-5">1.5 The Squeeze Theorem</a></li>
+                <li><a href="#section-1-6">1.6 Continuity</a></li>
+                <li><a href="#section-1-7">1.7 Practice Problems</a></li>
+                <li><a href="#section-summary">Chapter Summary</a></li>
+                <li><a href="#key-terms">Key Terms</a></li>
+            </ol>
+        </nav>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 1.1 -->
+        <!-- ============================================================ -->
+        <h2 id="section-1-1">1.1 Convergence, Divergence &amp; the Language of Limits</h2>
+
+        <p>Before defining limits of functions formally, we build the vocabulary through <strong>sequences</strong> — infinite lists of numbers. Two facts are so fundamental they can be treated as common sense, and virtually every other limit result in this chapter reduces to them:</p>
+
+        <div class="theorem-box">
+            <h4>The Two Foundational Limits</h4>
+            <p>$$\lim_{n \to \infty} n = \infty \qquad \text{(grows without bound — diverges)}$$</p>
+            <p>$$\lim_{n \to \infty} \frac{1}{n} = 0 \qquad \text{(shrinks to nothing — converges to } 0\text{)}$$</p>
+            <p>These are the <em>atoms</em> of limit reasoning. Every technique in Sections 1.3–1.5 ultimately reduces to one of these two patterns.</p>
+        </div>
+
+        <p>Think of them as common sense: if you keep counting ($n = 1, 2, 3, \ldots$), the numbers grow forever. If you take the reciprocal ($1, \tfrac{1}{2}, \tfrac{1}{3}, \ldots$), they shrink toward zero. We will use these two facts constantly to build every other limit result.</p>
+
+        <h3>Two Types of Sequence Behavior</h3>
+
+        <div class="definition-box">
+            <h4>Definition: Convergence and Divergence</h4>
+            <p>A <strong>sequence</strong> $\{a_n\}$ is an ordered list $a_1, a_2, a_3, \ldots$ indexed by positive integers. As $n \to \infty$, every sequence either <strong>converges</strong> or <strong>diverges</strong> — determined by whether a limit value exists:</p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:14px;">
+                <div style="background:#f0fdf4; border:2px solid #16a34a; border-radius:8px; padding:14px;">
+                    <p style="font-weight:700; color:#15803d; margin:0 0 8px; font-size:1.02em;">Converges &mdash; Limit <em>EXISTS</em></p>
+                    <p style="margin:0 0 6px; color:#334155;">Terms approach a fixed value $L$:</p>
+                    <p style="text-align:center; margin:8px 0 0;">$\displaystyle\lim_{n\to\infty} a_n = L$</p>
+                </div>
+                <div style="background:#fef2f2; border:2px solid #dc2626; border-radius:8px; padding:14px;">
+                    <p style="font-weight:700; color:#b91c1c; margin:0 0 8px; font-size:1.02em;">Diverges &mdash; Limit <em>DNE</em></p>
+                    <p style="margin:0 0 6px; color:#334155;">Two sub-types:</p>
+                    <ul style="margin:4px 0 0; padding-left:18px; color:#334155; line-height:1.9;">
+                        <li><strong>Diverges to $\pm\infty$</strong> &mdash; terms grow without bound</li>
+                        <li><strong>Oscillates</strong> &mdash; terms alternate without settling</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <table style="width:100%; border-collapse:collapse; margin:20px 0; font-size:.92em;">
+            <thead>
+                <tr style="background:#eff6ff; text-align:left;">
+                    <th style="padding:10px 14px; border:1px solid #dbeafe;">Sequence $\{a_n\}$</th>
+                    <th style="padding:10px 14px; border:1px solid #dbeafe;">First few terms</th>
+                    <th style="padding:10px 14px; border:1px solid #dbeafe;">Behavior</th>
+                    <th style="padding:10px 14px; border:1px solid #dbeafe;">$\lim_{n\to\infty} a_n$</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding:9px 14px; border:1px solid #e2e8f0;">$\{n\}$</td>
+                    <td style="padding:9px 14px; border:1px solid #e2e8f0;">$1,\ 2,\ 3,\ 4,\ \ldots$</td>
+                    <td style="padding:9px 14px; border:1px solid #e2e8f0;">Diverges to $+\infty$</td>
+                    <td style="padding:9px 14px; border:1px solid #e2e8f0; font-weight:700;">$\infty$</td>
+                </tr>
+                <tr style="background:#f8fafc;">
+                    <td style="padding:9px 14px; border:1px solid #e2e8f0;">$\{1/n\}$</td>
+                    <td style="padding:9px 14px; border:1px solid #e2e8f0;">$1,\ \tfrac{1}{2},\ \tfrac{1}{3},\ \tfrac{1}{4},\ \ldots$</td>
+                    <td style="padding:9px 14px; border:1px solid #e2e8f0;">Converges</td>
+                    <td style="padding:9px 14px; border:1px solid #e2e8f0; font-weight:700; color:#15803d;">$0$</td>
+                </tr>
+                <tr>
+                    <td style="padding:9px 14px; border:1px solid #e2e8f0;">$\left\{\dfrac{n}{n+1}\right\}$</td>
+                    <td style="padding:9px 14px; border:1px solid #e2e8f0;">$\tfrac{1}{2},\ \tfrac{2}{3},\ \tfrac{3}{4},\ \tfrac{4}{5},\ \ldots$</td>
+                    <td style="padding:9px 14px; border:1px solid #e2e8f0;">Converges</td>
+                    <td style="padding:9px 14px; border:1px solid #e2e8f0; font-weight:700; color:#15803d;">$1$</td>
+                </tr>
+                <tr style="background:#f8fafc;">
+                    <td style="padding:9px 14px; border:1px solid #e2e8f0;">$\{(-1)^n\}$</td>
+                    <td style="padding:9px 14px; border:1px solid #e2e8f0;">$-1,\ 1,\ -1,\ 1,\ \ldots$</td>
+                    <td style="padding:9px 14px; border:1px solid #e2e8f0;">Diverges (oscillates)</td>
+                    <td style="padding:9px 14px; border:1px solid #e2e8f0; font-weight:700; color:#dc2626;">DNE</td>
+                </tr>
+                <tr>
+                    <td style="padding:9px 14px; border:1px solid #e2e8f0;">$\{n^2\}$</td>
+                    <td style="padding:9px 14px; border:1px solid #e2e8f0;">$1,\ 4,\ 9,\ 16,\ \ldots$</td>
+                    <td style="padding:9px 14px; border:1px solid #e2e8f0;">Diverges to $+\infty$</td>
+                    <td style="padding:9px 14px; border:1px solid #e2e8f0; font-weight:700;">$\infty$</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin:20px 0;">
+            <div>
+                <div class="desmos-container" id="fig-converge" style="height:220px; margin:0;"></div>
+                <p class="desmos-caption" style="margin-top:8px;"><strong>Figure 1.1a — Convergence.</strong> <span style="color:#2563eb">$\{1/n\}\to 0$</span> and <span style="color:#16a34a">$\{n/(n+1)\}\to 1$</span>. Limit <strong>exists</strong>.</p>
+            </div>
+            <div>
+                <div class="desmos-container" id="fig-diverge-inf" style="height:220px; margin:0;"></div>
+                <p class="desmos-caption" style="margin-top:8px;"><strong>Figure 1.1b — Divergence to $+\infty$.</strong> <span style="color:#f97316">$\{n\}$</span> grows without bound. Limit <strong>DNE</strong>.</p>
+            </div>
+            <div>
+                <div class="desmos-container" id="fig-oscillate" style="height:220px; margin:0;"></div>
+                <p class="desmos-caption" style="margin-top:8px;"><strong>Figure 1.1c — Oscillation</strong> (a sub-type of divergence). <span style="color:#dc2626">$\{(-1)^n\}$</span> bounces between $\pm 1$. Limit <strong>DNE</strong>.</p>
+            </div>
+        </div>
+        <script>
+        (function() {
+            var opts = {expressions: false, settingsMenu: false, zoomButtons: false, lockViewport: true};
+
+            // Figure 1.1a — Convergence
+            var c1 = Desmos.GraphingCalculator(document.getElementById('fig-converge'), opts);
+            c1.setExpression({id: 'ns', latex: 'n_{s}=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]'});
+            c1.setExpression({id: 'p1', latex: '(n_{s}, \\frac{1}{n_{s}})', color: '#2563eb', pointStyle: Desmos.Styles.POINT, pointSize: 9});
+            c1.setExpression({id: 'p2', latex: '(n_{s}, \\frac{n_{s}}{n_{s}+1})', color: '#16a34a', pointStyle: Desmos.Styles.POINT, pointSize: 9});
+            c1.setExpression({id: 'l0', latex: 'y=0', color: '#2563eb', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5});
+            c1.setExpression({id: 'l1', latex: 'y=1', color: '#16a34a', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5});
+            c1.setMathBounds({left: 0, right: 16, bottom: -0.3, top: 1.5});
+
+            // Figure 1.1b — Divergence to Infinity
+            var c2 = Desmos.GraphingCalculator(document.getElementById('fig-diverge-inf'), opts);
+            c2.setExpression({id: 'nd', latex: 'n_{d}=[1,2,3,4,5,6,7,8,9,10]'});
+            c2.setExpression({id: 'pd', latex: '(n_{d}, n_{d})', color: '#f97316', pointStyle: Desmos.Styles.POINT, pointSize: 9});
+            c2.setMathBounds({left: 0, right: 11, bottom: 0, top: 11});
+
+            // Figure 1.1c — Oscillation: zigzag segments between consecutive ±1 points
+            var c3 = Desmos.GraphingCalculator(document.getElementById('fig-oscillate'), opts);
+            // Nine segments connecting (n, (-1)^n) to (n+1, (-1)^(n+1))
+            // Odd n: slope +2 upward; Even n: slope -2 downward
+            var zsegs = [
+                {id:'zs1', latex:'y=2x-3\\left\\{1\\le x\\le2\\right\\}'},
+                {id:'zs2', latex:'y=-2x+5\\left\\{2\\le x\\le3\\right\\}'},
+                {id:'zs3', latex:'y=2x-7\\left\\{3\\le x\\le4\\right\\}'},
+                {id:'zs4', latex:'y=-2x+9\\left\\{4\\le x\\le5\\right\\}'},
+                {id:'zs5', latex:'y=2x-11\\left\\{5\\le x\\le6\\right\\}'},
+                {id:'zs6', latex:'y=-2x+13\\left\\{6\\le x\\le7\\right\\}'},
+                {id:'zs7', latex:'y=2x-15\\left\\{7\\le x\\le8\\right\\}'},
+                {id:'zs8', latex:'y=-2x+17\\left\\{8\\le x\\le9\\right\\}'},
+                {id:'zs9', latex:'y=2x-19\\left\\{9\\le x\\le10\\right\\}'}
+            ];
+            zsegs.forEach(function(s) {
+                c3.setExpression({id: s.id, latex: s.latex, color: '#dc2626', lineWidth: 2});
+            });
+            // Dots at each integer: odd n at y=-1, even n at y=1
+            c3.setExpression({id: 'po', latex: '([1,3,5,7,9],-1)', color: '#dc2626', pointStyle: Desmos.Styles.POINT, pointSize: 10});
+            c3.setExpression({id: 'pe', latex: '([2,4,6,8,10],1)', color: '#dc2626', pointStyle: Desmos.Styles.POINT, pointSize: 10});
+            // Dashed guide lines at ±1
+            c3.setExpression({id: 'lp', latex: 'y=1',  color: '#dc2626', lineStyle: Desmos.Styles.DASHED, lineWidth: 1});
+            c3.setExpression({id: 'lm', latex: 'y=-1', color: '#dc2626', lineStyle: Desmos.Styles.DASHED, lineWidth: 1});
+            c3.setMathBounds({left: 0, right: 11, bottom: -1.8, top: 1.8});
+        })();
+        </script>
+
+        <h3>Indeterminate vs. Determinate Forms</h3>
+
+        <p>When you substitute a value into a limit expression and get an ambiguous result, you have an <strong>indeterminate form</strong>. The word "indeterminate" means: from the expression alone, you <em>cannot</em> determine the limit's value — the true answer could be any number, or DNE.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Indeterminate and Determinate Forms</h4>
+            <p><strong>Indeterminate forms</strong> — further algebraic or calculus work is required:</p>
+            <p style="text-align:center; font-size:1.1em; margin:10px 0; letter-spacing:.05em;">$\dfrac{0}{0}$ &emsp; $\dfrac{\infty}{\infty}$ &emsp; $0 \cdot \infty$ &emsp; $\infty - \infty$ &emsp; $1^\infty$ &emsp; $0^0$ &emsp; $\infty^0$</p>
+            <p style="margin-top: 14px;"><strong>Determinate forms</strong> — the limit value is clear and unambiguous:</p>
+            <table style="border-collapse:collapse; margin:8px 0 0 4px; font-size:.9em;">
+                <tr><td style="padding:4px 20px 4px 0;">$\dfrac{c}{\infty} = 0$</td><td style="color:#64748b;">finite divided by infinity</td></tr>
+                <tr><td style="padding:4px 20px 4px 0;">$c + \infty = \infty$</td><td style="color:#64748b;">finite plus infinity</td></tr>
+                <tr><td style="padding:4px 20px 4px 0;">$c \cdot \infty = \infty$</td><td style="color:#64748b;">positive finite times infinity</td></tr>
+                <tr><td style="padding:4px 20px 4px 0;">$\dfrac{c}{0^+} = +\infty$</td><td style="color:#64748b;">positive constant over positive infinitesimal</td></tr>
+            </table>
+        </div>
+
+        <div class="ap-tip">
+            <span class="ap-tip-icon">&#9733;</span>
+            <p><strong>AP Exam Tip:</strong> When substitution gives $\dfrac{0}{0}$, <strong>do not</strong> conclude the limit is $0$, $1$, or undefined. This is an indeterminate form — the actual limit could be anything. Proceed to factor, rationalize, or apply another technique from Section 1.3.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 1.1 &mdash; Classifying Sequence Behavior</h4>
+            <p>Classify each sequence as convergent, divergent, or oscillating, and state the limit (or DNE).</p>
+            <ol type="a">
+                <li>$\displaystyle\lim_{n \to \infty} \frac{5}{n}$</li>
+                <li>$\displaystyle\lim_{n \to \infty} \frac{n^2 + 1}{n^2}$</li>
+                <li>$\displaystyle\lim_{n \to \infty} (-1)^n$</li>
+            </ol>
+            <p><span class="step-label">Solutions</span></p>
+            <ol type="a">
+                <li>$\dfrac{5}{n} = 5 \cdot \dfrac{1}{n} \to 5 \cdot 0 = 0$. &ensp;<strong>Converges to 0.</strong> ($c/\infty$ — determinate.)</li>
+                <li>$\dfrac{n^2+1}{n^2} = 1 + \dfrac{1}{n^2} \to 1 + 0 = 1$. &ensp;<strong>Converges to 1.</strong></li>
+                <li>Terms: $-1, +1, -1, +1, \ldots$ &ensp;<strong>Oscillates — DNE.</strong></li>
+            </ol>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Classify the form of each limit, then find the limit if it exists.</p>
+            <ol type="a">
+                <li>$\displaystyle\lim_{n\to\infty} \frac{3n+1}{n}$</li>
+                <li>$\displaystyle\lim_{n\to\infty} \frac{7}{n^3}$</li>
+            </ol>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <p><strong>(a)</strong> $\dfrac{\infty}{\infty}$ — indeterminate. Divide by $n$: $3 + \dfrac{1}{n} \to 3$. Converges to $\boxed{3}$.</p>
+                    <p><strong>(b)</strong> $\dfrac{7}{\infty}$ — determinate ($c/\infty$). Converges to $\boxed{0}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <h3>Limit Calculation Properties</h3>
+
+        <p>The examples above used intuition: we could <em>see</em> that $5/n$ shrinks toward zero, or that $(-1)^n$ flips back and forth. But most sequences you will encounter in calculus are <strong>not</strong> so transparent. Consider</p>
+        $$\lim_{n\to\infty}\frac{n^3+n^2+1}{n^3+1}, \qquad \lim_{n\to\infty}\!\bigl(\sqrt{n^2+1}-n\bigr), \qquad \lim_{n\to\infty}\frac{1+2+\cdots+n}{n^2}.$$
+        <p>None of these can be read off by inspection — substituting $n=\infty$ directly produces an indeterminate form. To move beyond intuition and <em>calculate</em> limits rigorously, we rely on a small set of arithmetic rules that hold whenever the individual limits exist and are finite.</p>
+
+        <div class="theorem-box">
+            <h4>Theorem: Limit Calculation Properties</h4>
+            <p>Let $\{a_n\}$ and $\{b_n\}$ be sequences with $\displaystyle\lim_{n\to\infty}a_n = L$ and $\displaystyle\lim_{n\to\infty}b_n = M$, where $L$ and $M$ are <strong>finite</strong> real numbers. Then:</p>
+            <table style="width:100%; border-collapse:collapse; margin:14px 0; font-size:.93em;">
+                <thead>
+                    <tr style="background:#f3f0ff; text-align:left;">
+                        <th style="padding:9px 14px; border:1px solid #ddd8fe;">Property</th>
+                        <th style="padding:9px 14px; border:1px solid #ddd8fe;">Rule</th>
+                        <th style="padding:9px 14px; border:1px solid #ddd8fe;">In words</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding:8px 14px; border:1px solid #e8e4ff;"><strong>Sum</strong></td>
+                        <td style="padding:8px 14px; border:1px solid #e8e4ff;">$\lim(a_n + b_n) = L + M$</td>
+                        <td style="padding:8px 14px; border:1px solid #e8e4ff; color:#4b5563;">Limit of a sum = sum of limits</td>
+                    </tr>
+                    <tr style="background:#faf9ff;">
+                        <td style="padding:8px 14px; border:1px solid #e8e4ff;"><strong>Difference</strong></td>
+                        <td style="padding:8px 14px; border:1px solid #e8e4ff;">$\lim(a_n - b_n) = L - M$</td>
+                        <td style="padding:8px 14px; border:1px solid #e8e4ff; color:#4b5563;">Limit of a difference = difference of limits</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:8px 14px; border:1px solid #e8e4ff;"><strong>Scalar multiple</strong></td>
+                        <td style="padding:8px 14px; border:1px solid #e8e4ff;">$\lim(c \cdot a_n) = c \cdot L$</td>
+                        <td style="padding:8px 14px; border:1px solid #e8e4ff; color:#4b5563;">Constants factor out of limits</td>
+                    </tr>
+                    <tr style="background:#faf9ff;">
+                        <td style="padding:8px 14px; border:1px solid #e8e4ff;"><strong>Product</strong></td>
+                        <td style="padding:8px 14px; border:1px solid #e8e4ff;">$\lim(a_n \cdot b_n) = L \cdot M$</td>
+                        <td style="padding:8px 14px; border:1px solid #e8e4ff; color:#4b5563;">Limit of a product = product of limits</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:8px 14px; border:1px solid #e8e4ff;"><strong>Quotient</strong></td>
+                        <td style="padding:8px 14px; border:1px solid #e8e4ff;">$\lim\dfrac{a_n}{b_n} = \dfrac{L}{M}$ &ensp;$(M\neq 0)$</td>
+                        <td style="padding:8px 14px; border:1px solid #e8e4ff; color:#4b5563;">Limit of a quotient = quotient of limits <em>(denominator limit nonzero)</em></td>
+                    </tr>
+                    <tr style="background:#faf9ff;">
+                        <td style="padding:8px 14px; border:1px solid #e8e4ff;"><strong>Power</strong></td>
+                        <td style="padding:8px 14px; border:1px solid #e8e4ff;">$\lim(a_n)^p = L^p$</td>
+                        <td style="padding:8px 14px; border:1px solid #e8e4ff; color:#4b5563;">Exponent passes through the limit</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:8px 14px; border:1px solid #e8e4ff;"><strong>Root</strong></td>
+                        <td style="padding:8px 14px; border:1px solid #e8e4ff;">$\lim\sqrt[p]{a_n} = \sqrt[p]{L}$ &ensp;$(L\geq 0)$</td>
+                        <td style="padding:8px 14px; border:1px solid #e8e4ff; color:#4b5563;">Radical passes through the limit</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top:4px;"><strong>Critical condition:</strong> All properties require both limits $L$ and $M$ to be finite. Arithmetic on $\infty$ is not covered by these rules — that is exactly when an indeterminate form arises and additional technique is needed.</p>
+        </div>
+
+        <div class="ap-tip">
+            <span class="ap-tip-icon">&#9733;</span>
+            <p><strong>Why these matter:</strong> These rules are the engine behind every algebraic manipulation in this chapter. When you "divide by $n^2$" or "multiply by the conjugate," you are applying combinations of these properties step by step — breaking an indeterminate limit into a chain of simpler limits, each of which has a finite, knowable value.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 1.2 &mdash; Using Properties Step by Step</h4>
+            <p>Find $\displaystyle\lim_{n\to\infty}\left(\frac{3}{n} + 2\right)^2$ by citing limit properties explicitly.</p>
+            <p><span class="step-label">Step 1 — Scalar + foundational limit.</span> $\displaystyle\lim_{n\to\infty}\frac{3}{n} = 3\cdot\lim_{n\to\infty}\frac{1}{n} = 3\cdot 0 = 0$ &ensp;(scalar multiple, then $1/n\to 0$).</p>
+            <p><span class="step-label">Step 2 — Sum.</span> $\displaystyle\lim_{n\to\infty}\!\left(\frac{3}{n}+2\right) = 0 + 2 = 2$ &ensp;(sum property; $\lim 2 = 2$ since constants are fixed).</p>
+            <p><span class="step-label">Step 3 — Power.</span> $\displaystyle\lim_{n\to\infty}\!\left(\frac{3}{n}+2\right)^2 = 2^2 = \boxed{4}$ &ensp;(power property with $p=2$).</p>
+            <p>Notice that at each step, the limit we were using was <em>finite</em>, so each property applied legally.</p>
+        </div>
+
+        <h3>Six Standard Techniques for Sequence Limits</h3>
+
+        <p>Armed with the calculation properties, we can now tackle the indeterminate cases. The core strategy is always the same: <strong>transform the expression algebraically until each piece has a finite limit, then apply the properties above.</strong> The following six worked examples each demonstrate one key transformation technique.</p>
+
+        <div class="example-box">
+            <h4>Worked Example 1.3 &mdash; Divide by the Highest Power (Finite Limit)</h4>
+            <p>Find $\displaystyle\lim_{n\to\infty} \frac{n^3 + n^2 + 1}{n^3 + 1}$.</p>
+            <p><span class="step-label">Step 1 — Identify the form.</span> Both numerator and denominator grow like $n^3$, so the raw form is $\dfrac{\infty}{\infty}$ — indeterminate.</p>
+            <p><span class="step-label">Step 2 — Divide every term by $n^3$</span>, the highest power present in the expression:</p>
+            $$\frac{n^3 + n^2 + 1}{n^3 + 1} = \frac{1 + \dfrac{1}{n} + \dfrac{1}{n^3}}{1 + \dfrac{1}{n^3}}$$
+            <p><span class="step-label">Step 3 — Take the limit.</span> Every term with $n$ in the denominator satisfies $\tfrac{1}{n^k} \to 0$:</p>
+            $$\longrightarrow\; \frac{1 + 0 + 0}{1 + 0} = \boxed{1}$$
+            <p><strong>Rule of thumb:</strong> Same leading degree in numerator and denominator $\Rightarrow$ limit equals the ratio of the leading coefficients.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 1.4 &mdash; Divide by the Highest Power (Limit = 0)</h4>
+            <p>Find $\displaystyle\lim_{n\to\infty} \frac{n}{n^2 + 1}$.</p>
+            <p><span class="step-label">Step 1 — Identify the form.</span> Numerator has degree 1, denominator degree 2. Raw form: $\dfrac{\infty}{\infty}$.</p>
+            <p><span class="step-label">Step 2 — Divide every term by $n^2$</span> (the higher degree):</p>
+            $$\frac{n}{n^2 + 1} = \frac{\dfrac{1}{n}}{1 + \dfrac{1}{n^2}}$$
+            <p><span class="step-label">Step 3 — Take the limit:</span></p>
+            $$\longrightarrow\; \frac{0}{1 + 0} = \boxed{0}$$
+            <p><strong>Rule of thumb:</strong> Numerator degree &lt; denominator degree $\Rightarrow$ limit $= 0$. The denominator "wins the race" to infinity.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 1.5 &mdash; Numerator Degree &gt; Denominator (Diverges to $\infty$)</h4>
+            <p>Find $\displaystyle\lim_{n\to\infty} \frac{n^2}{n + 1}$.</p>
+            <p><span class="step-label">Step 1 — Identify the form.</span> Numerator degree 2, denominator degree 1. Raw form: $\dfrac{\infty}{\infty}$.</p>
+            <p><span class="step-label">Step 2 — Divide every term by $n$</span> (the highest degree in the denominator):</p>
+            $$\frac{n^2}{n + 1} = \frac{n}{1 + \dfrac{1}{n}}$$
+            <p><span class="step-label">Step 3 — Take the limit.</span> The numerator $\to \infty$, denominator $\to 1$:</p>
+            $$\longrightarrow\; \frac{\infty}{1} = \boxed{\infty} \quad \text{(diverges)}$$
+            <p><strong>Rule of thumb:</strong> Numerator degree &gt; denominator degree $\Rightarrow$ the sequence diverges to $\pm\infty$. The numerator "wins."</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 1.6 &mdash; Factor out the Highest Power ($\infty - \infty$ Form)</h4>
+            <p>Find $\displaystyle\lim_{n\to\infty} (n^2 - n^3)$.</p>
+            <p><span class="step-label">Step 1 — Identify the form.</span> Both terms blow up as $n\to\infty$: $\infty - \infty$ — indeterminate. <em>Never</em> try to subtract or cancel infinities directly.</p>
+            <p><span class="step-label">Step 2 — Factor out the highest power of $n$</span>, which is $n^3$:</p>
+            $$n^2 - n^3 = n^3\!\left(\frac{1}{n} - 1\right)$$
+            <p><span class="step-label">Step 3 — Evaluate each factor separately as $n\to\infty$:</span></p>
+            <ul style="margin:8px 0 8px 20px; line-height:2.2;">
+                <li>$n^3 \;\longrightarrow\; +\infty$</li>
+                <li>$\dfrac{1}{n} - 1 \;\longrightarrow\; 0 - 1 = -1$</li>
+            </ul>
+            $$n^3 \cdot (-1) \;\longrightarrow\; \boxed{-\infty} \quad \text{(diverges to }{-\infty}\text{)}$$
+            <p><strong>Rule of thumb:</strong> Factor out the dominant power; the sign of the remaining bracket determines whether the sequence diverges to $+\infty$ or $-\infty$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 1.7 &mdash; Rationalize Using the Conjugate ($\infty - \infty$ with Roots)</h4>
+            <p>Find $\displaystyle\lim_{n\to\infty} \bigl(\sqrt{n^2 + 1} - n\bigr)$.</p>
+            <p><span class="step-label">Step 1 — Identify the form.</span> For large $n$, $\sqrt{n^2+1} \approx n$, so this is $\infty - \infty$ — indeterminate. Factoring alone won't help because of the square root.</p>
+            <p><span class="step-label">Step 2 — Multiply numerator and denominator by the conjugate</span> $\bigl(\sqrt{n^2+1}+n\bigr)$:</p>
+            $$\bigl(\sqrt{n^2+1}-n\bigr) \cdot \frac{\sqrt{n^2+1}+n}{\sqrt{n^2+1}+n} = \frac{(n^2+1) - n^2}{\sqrt{n^2+1}+n} = \frac{1}{\sqrt{n^2+1}+n}$$
+            <p><span class="step-label">Step 3 — Take the limit.</span> The denominator grows without bound:</p>
+            $$\frac{1}{\sqrt{n^2+1}+n} \;\longrightarrow\; \frac{1}{\infty} = \boxed{0}$$
+            <p><strong>Rule of thumb:</strong> Whenever you see $\sqrt{\text{polynomial}} - \text{polynomial}$, multiply by the conjugate. The difference of squares in the numerator collapses the indeterminate form.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 1.8 &mdash; Apply a Summation Formula</h4>
+            <p>Find $\displaystyle\lim_{n\to\infty} \frac{1 + 2 + 3 + \cdots + n}{n^2}$.</p>
+            <p><span class="step-label">Step 1 — Identify the form.</span> The numerator grows with $n$; raw form is $\dfrac{\infty}{\infty}$.</p>
+            <p><span class="step-label">Step 2 — Replace the sum with its closed-form formula.</span> The arithmetic series identity gives:</p>
+            $$1 + 2 + 3 + \cdots + n = \frac{n(n+1)}{2}$$
+            <p><span class="step-label">Step 3 — Substitute and simplify:</span></p>
+            $$\frac{n(n+1)/2}{n^2} = \frac{n+1}{2n} = \frac{1}{2} + \frac{1}{2n}$$
+            <p><span class="step-label">Step 4 — Take the limit:</span></p>
+            $$\frac{1}{2} + \frac{1}{2n} \;\longrightarrow\; \frac{1}{2} + 0 = \boxed{\dfrac{1}{2}}$$
+            <p><strong>Rule of thumb:</strong> Any expression written with "$\cdots$" must be converted to a closed-form expression before taking limits. Two formulas to memorize:</p>
+            <ul style="margin:6px 0 0 20px; line-height:2.2;">
+                <li>$\displaystyle\sum_{k=1}^n k = \frac{n(n+1)}{2}$</li>
+                <li>$\displaystyle\sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}$</li>
+            </ul>
+            <p style="margin-top:8px;">These appear again in Riemann sum problems in Chapter 4.</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Apply the appropriate technique to each limit.</p>
+            <ol type="a">
+                <li>$\displaystyle\lim_{n\to\infty} \frac{2n^2 + 3n}{n^2 - 1}$</li>
+                <li>$\displaystyle\lim_{n\to\infty} \bigl(\sqrt{n^2 + 4n} - n\bigr)$</li>
+                <li>$\displaystyle\lim_{n\to\infty} \frac{1^2 + 2^2 + \cdots + n^2}{n^3}$ &ensp;<em>(use $\textstyle\sum_{k=1}^n k^2 = \tfrac{n(n+1)(2n+1)}{6}$)</em></li>
+            </ol>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <p><strong>(a)</strong> Same degree (2). Divide by $n^2$: $\dfrac{2+3/n}{1-1/n^2}\to\dfrac{2}{1}=\boxed{2}$.</p>
+                    <p><strong>(b)</strong> Conjugate: $\dfrac{n^2+4n-n^2}{\sqrt{n^2+4n}+n}=\dfrac{4n}{\sqrt{n^2+4n}+n}$. Divide by $n$: $\dfrac{4}{\sqrt{1+4/n}+1}\to\dfrac{4}{1+1}=\boxed{2}$.</p>
+                    <p><strong>(c)</strong> $\dfrac{n(n+1)(2n+1)/6}{n^3}=\dfrac{(n+1)(2n+1)}{6n^2}=\dfrac{2n^2+3n+1}{6n^2}\to\dfrac{2}{6}=\boxed{\dfrac{1}{3}}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 1.2 -->
+        <!-- ============================================================ -->
+        <h2 id="section-1-2">1.2 Limits of Functions</h2>
+
+        <p>Consider the function $f(x) = \dfrac{x^2 - 1}{x - 1}$. If you try to evaluate $f(1)$ directly, you get $\frac{0}{0}$, which is undefined. But what happens to the values of $f(x)$ as $x$ gets closer and closer to $1$?</p>
+
+        <p>If we plug in values near $1$, something interesting emerges:</p>
+
+        <ul>
+            <li>$f(0.9) = 1.9$</li>
+            <li>$f(0.99) = 1.99$</li>
+            <li>$f(0.999) = 1.999$</li>
+            <li>$f(1.001) = 2.001$</li>
+            <li>$f(1.01) = 2.01$</li>
+            <li>$f(1.1) = 2.1$</li>
+        </ul>
+
+        <p>Even though $f(1)$ is undefined, the output values clearly approach $2$ as $x$ approaches $1$. This is the core idea of a limit: we care about what value the function is <em>heading toward</em>, not necessarily what value (if any) the function actually takes.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Limit of a Function</h4>
+            <p>We write</p>
+            <p>$$\lim_{x \to a} f(x) = L$$</p>
+            <p>and say "the limit of $f(x)$ as $x$ approaches $a$ equals $L$" if we can make the values of $f(x)$ arbitrarily close to $L$ by taking $x$ sufficiently close to $a$ (but not equal to $a$).</p>
+        </div>
+
+        <p>A crucial point: the limit depends on what happens <em>near</em> $a$, not <em>at</em> $a$. The function does not even need to be defined at $x = a$ for the limit to exist.</p>
+
+        <div class="desmos-container" id="limit-explorer"></div>
+        <p class="desmos-caption">Explore limits: observe how $f(x) = \sin(x)/x$ approaches 1 as $x \to 0$, even though $f(0)$ is undefined. Drag the slider to move the point along the curve.</p>
+        <script>
+        (function() {
+            var elt = document.getElementById('limit-explorer');
+            var calc = Desmos.GraphingCalculator(elt, {expressions: true, settingsMenu: false, zoomButtons: true});
+            calc.setExpression({id: 'f', latex: 'f(x) = \\frac{\\sin(x)}{x}', color: '#2563eb'});
+            calc.setExpression({id: 'pt', latex: '(a, f(a))', color: '#dc2626', pointStyle: Desmos.Styles.POINT, pointSize: 12});
+            calc.setExpression({id: 'slider', latex: 'a = 0.5', sliderBounds: {min: '-3', max: '3', step: '0.01'}});
+            calc.setExpression({id: 'hole', latex: '(0, 1)', color: '#dc2626', pointStyle: Desmos.Styles.OPEN, pointSize: 12});
+            calc.setMathBounds({left: -8, right: 8, bottom: -0.5, top: 1.5});
+        })();
+        </script>
+
+        <h3>One-Sided Limits</h3>
+
+        <p>Sometimes a function approaches different values depending on whether $x$ approaches from the left or from the right. We distinguish between these with one-sided limits.</p>
+
+        <div class="definition-box">
+            <h4>Definition: One-Sided Limits</h4>
+            <p><strong>Left-hand limit:</strong> $\displaystyle\lim_{x \to a^-} f(x) = L$ means $f(x) \to L$ as $x$ approaches $a$ from values <em>less than</em> $a$.</p>
+            <p><strong>Right-hand limit:</strong> $\displaystyle\lim_{x \to a^+} f(x) = L$ means $f(x) \to L$ as $x$ approaches $a$ from values <em>greater than</em> $a$.</p>
+            <p>The two-sided limit $\displaystyle\lim_{x \to a} f(x) = L$ exists if and only if both one-sided limits exist and are equal:</p>
+            <p>$$\lim_{x \to a^-} f(x) = \lim_{x \to a^+} f(x) = L$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 1.2 &mdash; One-Sided Limits</h4>
+            <p>Consider the piecewise function</p>
+            <p>$$g(x) = \begin{cases} x + 1, & x < 2 \\ 5, & x = 2 \\ 7 - x, & x > 2 \end{cases}$$</p>
+            <p>Find $\displaystyle\lim_{x \to 2} g(x)$, if it exists.</p>
+
+            <p><span class="step-label">Step 1</span> Find the left-hand limit. For $x < 2$, we use $g(x) = x + 1$:</p>
+            <p>$$\lim_{x \to 2^-} g(x) = \lim_{x \to 2^-} (x + 1) = 3$$</p>
+
+            <p><span class="step-label">Step 2</span> Find the right-hand limit. For $x > 2$, we use $g(x) = 7 - x$:</p>
+            <p>$$\lim_{x \to 2^+} g(x) = \lim_{x \to 2^+} (7 - x) = 5$$</p>
+
+            <p><span class="step-label">Step 3</span> Compare. Since $3 \neq 5$, the one-sided limits are not equal. Therefore, $\displaystyle\lim_{x \to 2} g(x)$ <strong>does not exist</strong>.</p>
+
+            <p><em>Note: $g(2) = 5$, but this is irrelevant to whether the limit exists. The limit fails because the function approaches different values from the left and right.</em></p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Consider $h(x) = \begin{cases} 3x - 1, & x < 2 \\ x^2 - 1, & x \geq 2 \end{cases}$. &nbsp;Does $\displaystyle\lim_{x \to 2} h(x)$ exist? If so, find it.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <p>Left-hand limit: $\lim_{x \to 2^-}(3x-1) = 5$.</p>
+                    <p>Right-hand limit: $\lim_{x \to 2^+}(x^2-1) = 4-1 = 3$.</p>
+                    <p>Since $5 \neq 3$, the two-sided limit <strong>does not exist</strong>.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 1.3 -->
+        <!-- ============================================================ -->
+        <h2 id="section-1-3">1.3 Evaluating Limits</h2>
+
+        <p>Now that we understand what limits mean, we need reliable techniques for computing them. The AP Calculus exam tests several core methods, which we cover here in increasing order of sophistication.</p>
+
+        <h3>Direct Substitution</h3>
+
+        <p>The simplest and most powerful technique: if the function is continuous at $x = a$ (we will formalize this in Section 1.6), then</p>
+        <p>$$\lim_{x \to a} f(x) = f(a)$$</p>
+        <p>This works for all polynomials, rational functions (where the denominator is nonzero), trigonometric functions, exponentials, and logarithms at points in their domains. <strong>Always try direct substitution first.</strong></p>
+
+        <div class="ap-tip">
+            <span class="ap-tip-icon">&#9733;</span>
+            <p><strong>AP Exam Tip:</strong> On the exam, if direct substitution gives a real number (not $\frac{0}{0}$ or $\frac{\infty}{\infty}$), that <em>is</em> the answer — no further work needed. Save time by trying substitution before anything else.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 1.3a &mdash; Direct Substitution</h4>
+            <p>Evaluate $\displaystyle\lim_{x \to 3} (2x^2 - 5x + 1)$.</p>
+            <p><span class="step-label">Solution</span> Since polynomials are continuous everywhere, we substitute directly:</p>
+            <p>$$\lim_{x \to 3} (2x^2 - 5x + 1) = 2(3)^2 - 5(3) + 1 = 18 - 15 + 1 = \boxed{4}$$</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Evaluate $\displaystyle\lim_{x \to -2} (x^3 + 3x - 1)$.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <p>$(-2)^3 + 3(-2) - 1 = -8 - 6 - 1 = \mathbf{-15}$</p>
+                </div>
+            </details>
+        </div>
+
+        <h3>Factoring and Canceling</h3>
+
+        <p>When direct substitution yields the indeterminate form $\frac{0}{0}$, the numerator and denominator share a common factor of $(x - a)$. Factor it out, cancel, and then substitute.</p>
+
+        <div class="example-box">
+            <h4>Worked Example 1.3b &mdash; Factoring</h4>
+            <p>Evaluate $\displaystyle\lim_{x \to 4} \frac{x^2 - 16}{x - 4}$.</p>
+
+            <p><span class="step-label">Step 1</span> Try direct substitution: $\dfrac{16 - 16}{4 - 4} = \dfrac{0}{0}$. Indeterminate — we need another approach.</p>
+
+            <p><span class="step-label">Step 2</span> Factor the numerator using the difference of squares:</p>
+            <p>$$\frac{x^2 - 16}{x - 4} = \frac{(x-4)(x+4)}{x-4}$$</p>
+
+            <p><span class="step-label">Step 3</span> Cancel the common factor (valid for $x \neq 4$):</p>
+            <p>$$= x + 4$$</p>
+
+            <p><span class="step-label">Step 4</span> Now substitute:</p>
+            <p>$$\lim_{x \to 4} (x + 4) = \boxed{8}$$</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Evaluate $\displaystyle\lim_{x \to -3} \frac{x^2 + x - 6}{x + 3}$.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <p>Factor: $\dfrac{(x+3)(x-2)}{x+3} = x-2$ for $x \neq -3$.</p>
+                    <p>Substitute: $-3 - 2 = \mathbf{-5}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <h3>Rationalization (Conjugate Method)</h3>
+
+        <p>When you encounter $\frac{0}{0}$ and the expression involves square roots, multiply by the <strong>conjugate</strong> of the expression containing the radical. The conjugate of $\sqrt{a} - b$ is $\sqrt{a} + b$.</p>
+
+        <div class="example-box">
+            <h4>Worked Example 1.3c &mdash; Rationalization</h4>
+            <p>Evaluate $\displaystyle\lim_{x \to 0} \frac{\sqrt{x+9} - 3}{x}$.</p>
+
+            <p><span class="step-label">Step 1</span> Direct substitution gives $\dfrac{0}{0}$. Indeterminate.</p>
+
+            <p><span class="step-label">Step 2</span> Multiply by the conjugate of the numerator:</p>
+            <p>$$\frac{\sqrt{x+9} - 3}{x} \cdot \frac{\sqrt{x+9} + 3}{\sqrt{x+9} + 3} = \frac{(x+9) - 9}{x(\sqrt{x+9} + 3)} = \frac{x}{x(\sqrt{x+9} + 3)}$$</p>
+
+            <p><span class="step-label">Step 3</span> Cancel $x$ (valid for $x \neq 0$) and substitute:</p>
+            <p>$$\lim_{x \to 0} \frac{1}{\sqrt{x+9} + 3} = \frac{1}{3 + 3} = \boxed{\dfrac{1}{6}}$$</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Evaluate $\displaystyle\lim_{x \to 0} \frac{\sqrt{4+x} - 2}{x}$.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <p>Multiply by conjugate: $\dfrac{(4+x)-4}{x(\sqrt{4+x}+2)} = \dfrac{1}{\sqrt{4+x}+2}$.</p>
+                    <p>Substitute $x=0$: $\dfrac{1}{2+2} = \mathbf{\dfrac{1}{4}}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 1.4 -->
+        <!-- ============================================================ -->
+        <h2 id="section-1-4">1.4 Limits Involving Infinity</h2>
+
+        <p>So far we have considered limits where $x$ approaches a finite number. We now extend the concept in two important ways: what happens as $x$ grows without bound, and what happens when function values grow without bound.</p>
+
+        <h3>Limits at Infinity and Horizontal Asymptotes</h3>
+
+        <div class="definition-box">
+            <h4>Definition: Limit at Infinity</h4>
+            <p>We write $\displaystyle\lim_{x \to \infty} f(x) = L$ if the values of $f(x)$ can be made arbitrarily close to $L$ by taking $x$ sufficiently large. If this limit exists, then $y = L$ is a <strong>horizontal asymptote</strong> of the graph of $f$.</p>
+        </div>
+
+        <p>For rational functions $\dfrac{p(x)}{q(x)}$, the behavior as $x \to \infty$ follows a simple rule based on degrees:</p>
+        <ul>
+            <li><strong>deg$(p)$ &lt; deg$(q)$:</strong> the limit is $0$.</li>
+            <li><strong>deg$(p)$ = deg$(q)$:</strong> the limit is the ratio of leading coefficients.</li>
+            <li><strong>deg$(p)$ &gt; deg$(q)$:</strong> the limit is $\pm\infty$ (no horizontal asymptote).</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Worked Example 1.4a &mdash; Horizontal Asymptote</h4>
+            <p>Evaluate $\displaystyle\lim_{x \to \infty} \frac{5x^2 - 3x + 1}{2x^2 + 7}$.</p>
+
+            <p><span class="step-label">Step 1</span> Both numerator and denominator have degree 2. Divide every term by $x^2$:</p>
+            <p>$$\frac{5 - \frac{3}{x} + \frac{1}{x^2}}{2 + \frac{7}{x^2}}$$</p>
+
+            <p><span class="step-label">Step 2</span> As $x \to \infty$, all terms with $x$ in the denominator approach $0$:</p>
+            <p>$$\lim_{x \to \infty} \frac{5 - 0 + 0}{2 + 0} = \boxed{\dfrac{5}{2}}$$</p>
+            <p>Therefore $y = \dfrac{5}{2}$ is a horizontal asymptote.</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Evaluate $\displaystyle\lim_{x \to \infty} \frac{3x^2 - 1}{x^3 + 2x}$.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <p>deg(numerator) = 2 &lt; deg(denominator) = 3, so the limit is $\mathbf{0}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <h3>Infinite Limits and Vertical Asymptotes</h3>
+
+        <div class="definition-box">
+            <h4>Definition: Vertical Asymptote</h4>
+            <p>The line $x = a$ is a <strong>vertical asymptote</strong> of $f$ if at least one of the following is true:</p>
+            <p>$$\lim_{x \to a^+} f(x) = \pm\infty \quad \text{or} \quad \lim_{x \to a^-} f(x) = \pm\infty$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 1.4b &mdash; Vertical Asymptote</h4>
+            <p>Find all vertical asymptotes of $f(x) = \dfrac{x + 1}{x^2 - 4}$ and evaluate the one-sided limits at $x = 2$.</p>
+
+            <p><span class="step-label">Step 1</span> Factor the denominator: $x^2 - 4 = (x-2)(x+2)$. Zeros at $x = 2$ and $x = -2$.</p>
+
+            <p><span class="step-label">Step 2</span> Check the numerator at these points. At $x = 2$: numerator $= 3 \neq 0$. At $x = -2$: numerator $= -1 \neq 0$. Neither cancels, so <strong>both are vertical asymptotes</strong>.</p>
+
+            <p><span class="step-label">Step 3</span> Analyze the sign near $x = 2$. The numerator $\to 3 > 0$ and $(x+2) \to 4 > 0$ on both sides.</p>
+            <ul>
+                <li>As $x \to 2^+$: $(x-2) \to 0^+$, so $f(x) \to +\infty$.</li>
+                <li>As $x \to 2^-$: $(x-2) \to 0^-$, so $f(x) \to -\infty$.</li>
+            </ul>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Find the vertical asymptote(s) of $g(x) = \dfrac{x-1}{x^2 - x - 6}$. Are there any holes?</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <p>Factor denominator: $x^2 - x - 6 = (x-3)(x+2)$. Zeros at $x = 3$ and $x = -2$.</p>
+                    <p>Numerator $x - 1$ is nonzero at both. So vertical asymptotes at $x = 3$ and $x = -2$. No holes.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 1.5 -->
+        <!-- ============================================================ -->
+        <h2 id="section-1-5">1.5 The Squeeze Theorem</h2>
+
+        <p>Some limits cannot be evaluated by direct substitution or algebraic manipulation. The Squeeze Theorem provides a way to evaluate limits by trapping the function between two simpler functions whose limits we already know.</p>
+
+        <div class="theorem-box">
+            <h4>Theorem: The Squeeze Theorem</h4>
+            <p>Suppose $g(x) \leq f(x) \leq h(x)$ for all $x$ in some open interval containing $a$ (except possibly at $a$ itself). If</p>
+            <p>$$\lim_{x \to a} g(x) = \lim_{x \to a} h(x) = L$$</p>
+            <p>then $\displaystyle\lim_{x \to a} f(x) = L$ as well.</p>
+        </div>
+
+        <div class="desmos-container" id="squeeze-theorem"></div>
+        <p class="desmos-caption">The Squeeze Theorem: $x\sin(1/x)$ (blue) is trapped between $-|x|$ and $|x|$ (red dashed), forcing the limit to $0$ as $x \to 0$.</p>
+        <script>
+        (function() {
+            var elt = document.getElementById('squeeze-theorem');
+            var calc = Desmos.GraphingCalculator(elt, {expressions: true, settingsMenu: false, zoomButtons: true});
+            calc.setExpression({id: 'upper', latex: 'y = |x|', color: '#dc2626', lineStyle: Desmos.Styles.DASHED});
+            calc.setExpression({id: 'lower', latex: 'y = -|x|', color: '#dc2626', lineStyle: Desmos.Styles.DASHED});
+            calc.setExpression({id: 'middle', latex: 'y = x\\sin\\left(\\frac{1}{x}\\right)', color: '#2563eb'});
+            calc.setMathBounds({left: -1, right: 1, bottom: -1, top: 1});
+        })();
+        </script>
+
+        <h3>The Most Important Trigonometric Limits</h3>
+
+        <div class="theorem-box">
+            <h4>Theorem 1.5 &mdash; Fundamental Trigonometric Limits</h4>
+            <p>$$\lim_{x \to 0} \frac{\sin x}{x} = 1 \qquad \lim_{x \to 0} \frac{1 - \cos x}{x} = 0 \qquad \lim_{x \to 0} \frac{\tan x}{x} = 1$$</p>
+        </div>
+
+        <p><strong>Proof of $\displaystyle\lim_{x \to 0} \frac{\sin x}{x} = 1$ (Squeeze Theorem).</strong></p>
+        <p>Assume $0 < x < \dfrac{\pi}{2}$. Consider a unit circle centered at the origin with a point $A = (1, 0)$, $B = (\cos x, \sin x)$ on the circle, and $T = (1, \tan x)$ where the tangent line meets the $x = 1$ line. Compare three areas:</p>
+        <ul style="margin: 8px 0 8px 20px; line-height: 1.9;">
+            <li>$\text{Area}(\triangle OAB) = \dfrac{1}{2}(1)(\sin x) = \dfrac{\sin x}{2}$</li>
+            <li>$\text{Area(sector } OAB) = \dfrac{1}{2}(1)^2 x = \dfrac{x}{2}$</li>
+            <li>$\text{Area}(\triangle OAT) = \dfrac{1}{2}(1)(\tan x) = \dfrac{\tan x}{2}$</li>
+        </ul>
+        <p>Since triangle $\subseteq$ sector $\subseteq$ triangle:</p>
+        <p>$$\frac{\sin x}{2} \leq \frac{x}{2} \leq \frac{\tan x}{2}$$</p>
+        <p>Divide through by $\dfrac{\sin x}{2} > 0$:</p>
+        <p>$$1 \leq \frac{x}{\sin x} \leq \frac{1}{\cos x}$$</p>
+        <p>Take reciprocals (reversing inequalities):</p>
+        <p>$$\cos x \leq \frac{\sin x}{x} \leq 1$$</p>
+        <p>As $x \to 0^+$, $\cos x \to 1$ and $1 \to 1$. By the <strong>Squeeze Theorem</strong>:</p>
+        <p>$$\lim_{x \to 0^+} \frac{\sin x}{x} = 1$$</p>
+        <p>For $x < 0$, write $x = -t$ with $t > 0$: $\dfrac{\sin x}{x} = \dfrac{\sin(-t)}{-t} = \dfrac{-\sin t}{-t} = \dfrac{\sin t}{t} \to 1$. Therefore $\displaystyle\lim_{x \to 0} \frac{\sin x}{x} = 1$. $\square$</p>
+
+        <p><strong>Proof of $\displaystyle\lim_{x \to 0} \frac{1 - \cos x}{x} = 0$ (Rationalization).</strong></p>
+        <p>Multiply numerator and denominator by the conjugate $1 + \cos x$:</p>
+        <p>$$\frac{1 - \cos x}{x} = \frac{(1 - \cos x)(1 + \cos x)}{x(1 + \cos x)} = \frac{1 - \cos^2 x}{x(1 + \cos x)} = \frac{\sin^2 x}{x(1 + \cos x)}$$</p>
+        <p>Rewrite by splitting the fraction:</p>
+        <p>$$= \frac{\sin x}{x} \cdot \frac{\sin x}{1 + \cos x}$$</p>
+        <p>Taking the limit as $x \to 0$:</p>
+        <p>$$\lim_{x \to 0} \frac{\sin x}{x} \cdot \lim_{x \to 0} \frac{\sin x}{1 + \cos x} = 1 \cdot \frac{0}{1 + 1} = 1 \cdot 0 = 0 \qquad \square$$</p>
+
+        <p><strong>Proof of $\displaystyle\lim_{x \to 0} \frac{\tan x}{x} = 1$.</strong></p>
+        <p>Write $\tan x = \dfrac{\sin x}{\cos x}$ and split:</p>
+        <p>$$\frac{\tan x}{x} = \frac{\sin x}{x} \cdot \frac{1}{\cos x}$$</p>
+        <p>$$\lim_{x \to 0} \frac{\tan x}{x} = \lim_{x \to 0}\frac{\sin x}{x} \cdot \lim_{x \to 0}\frac{1}{\cos x} = 1 \cdot \frac{1}{1} = 1 \qquad \square$$</p>
+
+        <div class="theorem-box">
+            <h4>Theorem 1.6 &mdash; General Trigonometric Limit Formulas</h4>
+            <p>For constants $a \neq 0$ and $b$:</p>
+            <p>$$\lim_{x \to 0} \frac{\sin(bx)}{ax} = \frac{b}{a} \qquad \text{and} \qquad \lim_{x \to 0} \frac{\tan(bx)}{ax} = \frac{b}{a}$$</p>
+            <p><em>Proof.</em> Let $u = bx$, so $u \to 0$ as $x \to 0$, and $x = u/b$:</p>
+            <p>$$\frac{\sin(bx)}{ax} = \frac{\sin u}{a \cdot (u/b)} = \frac{b}{a} \cdot \frac{\sin u}{u} \;\longrightarrow\; \frac{b}{a} \cdot 1 = \frac{b}{a}$$</p>
+            <p>The same substitution applies to $\tan(bx)/(ax)$. $\square$</p>
+        </div>
+
+        <div class="ap-tip">
+            <span class="ap-tip-icon">&#9733;</span>
+            <p><strong>AP Exam Tip:</strong> When you see $\dfrac{\sin(\text{something})}{x}$ or $\dfrac{\tan(\text{something})}{x}$, rewrite using the formula $\dfrac{b}{a}$ by matching the "something" to $bx$. For example: $\dfrac{\sin(3x)}{5x} = \dfrac{3}{5}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 1.5 &mdash; Squeeze Theorem</h4>
+            <p>Evaluate $\displaystyle\lim_{x \to 0}\, x^2 \cos\!\left(\frac{1}{x}\right)$.</p>
+
+            <p><span class="step-label">Step 1</span> Direct substitution fails because $\cos(1/x)$ oscillates wildly near $0$. However, we know $-1 \leq \cos\!\left(\frac{1}{x}\right) \leq 1$ for all $x \neq 0$.</p>
+
+            <p><span class="step-label">Step 2</span> Multiply by $x^2 \geq 0$:</p>
+            <p>$$-x^2 \leq x^2 \cos\!\left(\frac{1}{x}\right) \leq x^2$$</p>
+
+            <p><span class="step-label">Step 3</span> Both bounds $\to 0$ as $x \to 0$. By the Squeeze Theorem:</p>
+            <p>$$\lim_{x \to 0}\, x^2 \cos\!\left(\frac{1}{x}\right) = \boxed{0}$$</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Evaluate $\displaystyle\lim_{x \to 0} \frac{\sin(5x)}{x}$.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <p>Rewrite: $\dfrac{\sin(5x)}{x} = 5 \cdot \dfrac{\sin(5x)}{5x}$. Let $u = 5x \to 0$.</p>
+                    <p>$= 5 \cdot \lim_{u \to 0} \dfrac{\sin u}{u} = 5 \cdot 1 = \mathbf{5}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 1.6 -->
+        <!-- ============================================================ -->
+        <h2 id="section-1-6">1.6 Continuity</h2>
+
+        <p>We now use limits to make precise the intuitive idea that a function is "continuous" if you can draw its graph without lifting your pen. But before we can state the definition of continuity, we need one essential tool: the ability to approach a point from a single direction.</p>
+
+        <!-- ── One-Sided Limits ─────────────────────────── -->
+        <h3>One-Sided Limits</h3>
+
+        <p>For most functions at most points, the limit is the same whether you approach from the left or the right. But at boundaries, corners, or abrupt changes, the two sides may behave very differently. The <strong>one-sided limits</strong> capture each side separately.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Left-Hand and Right-Hand Limits</h4>
+            <p>The <strong>left-hand limit</strong> of $f$ at $x = a$, written
+            $$\lim_{x \to a^-} f(x) = L,$$
+            is the value that $f(x)$ approaches as $x$ approaches $a$ from values <em>strictly less than</em> $a$ (from the left side of $a$ on the number line).</p>
+            <p style="margin-top:12px;">The <strong>right-hand limit</strong> of $f$ at $x = a$, written
+            $$\lim_{x \to a^+} f(x) = M,$$
+            is the value that $f(x)$ approaches as $x$ approaches $a$ from values <em>strictly greater than</em> $a$ (from the right side).</p>
+            <p style="margin-top:12px; border-top:1px solid #bfdbfe; padding-top:12px;"><strong>Key Theorem:</strong> The two-sided limit exists if and only if both one-sided limits exist <em>and agree</em>:
+            $$\lim_{x \to a} f(x) = L \quad\iff\quad \lim_{x \to a^-} f(x) = L \;\;\text{and}\;\; \lim_{x \to a^+} f(x) = L.$$
+            If the left and right limits are different, the two-sided limit does not exist (DNE).</p>
+        </div>
+
+        <div class="desmos-container" id="onesided-graph"></div>
+        <p class="desmos-caption">Figure 1.6a — One-sided limits. The blue curve approaches <strong>3</strong> from the left ($x \to 2^-$) and the green curve approaches <strong>5</strong> from the right ($x \to 2^+$). Because $3 \neq 5$, the two-sided limit at $x = 2$ does not exist.</p>
+        <script>
+        (function() {
+            var elt = document.getElementById('onesided-graph');
+            var calc = Desmos.GraphingCalculator(elt, {expressions: false, settingsMenu: false, zoomButtons: true, lockViewport: false});
+            // Left branch: y = x+1 for x < 2  →  approaches 3 from left
+            calc.setExpression({id: 'left_curve', latex: 'y=x+1\\left\\{x<2\\right\\}', color: '#2563eb', lineWidth: 2.5});
+            // Right branch: y = x+3 for x > 2  →  approaches 5 from right
+            calc.setExpression({id: 'right_curve', latex: 'y=x+3\\left\\{x>2\\right\\}', color: '#16a34a', lineWidth: 2.5});
+            // Open circles at x=2 for each branch
+            calc.setExpression({id: 'left_open', latex: '(2,3)', color: '#2563eb', pointStyle: Desmos.Styles.OPEN, pointSize: 12, showLabel: true, label: 'L⁻ = 3'});
+            calc.setExpression({id: 'right_open', latex: '(2,5)', color: '#16a34a', pointStyle: Desmos.Styles.OPEN, pointSize: 12, showLabel: true, label: 'L⁺ = 5'});
+            // Vertical line x=2 dashed
+            calc.setExpression({id: 'vline', latex: 'x=2', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5});
+            // Horizontal dashed lines at y=3 and y=5
+            calc.setExpression({id: 'h3', latex: 'y=3\\left\\{1\\le x\\le2\\right\\}', color: '#2563eb', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5});
+            calc.setExpression({id: 'h5', latex: 'y=5\\left\\{2\\le x\\le3\\right\\}', color: '#16a34a', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5});
+            calc.setMathBounds({left: -1, right: 5, bottom: -0.5, top: 8});
+        })();
+        </script>
+
+        <div class="example-box">
+            <h4>Worked Example 1.6.0 &mdash; Evaluating One-Sided Limits</h4>
+            <p>Let $f(x) = \begin{cases} x^2 - 1, & x < 2 \\ 5, & x = 2 \\ 2x - 1, & x > 2 \end{cases}$. Find $\displaystyle\lim_{x\to 2^-}f(x)$, $\displaystyle\lim_{x\to 2^+}f(x)$, $f(2)$, and $\displaystyle\lim_{x\to 2}f(x)$.</p>
+
+            <p><span class="step-label">Left-hand limit.</span> For $x < 2$, use the first piece $f(x) = x^2 - 1$:
+            $$\lim_{x\to 2^-} f(x) = (2)^2 - 1 = 3.$$</p>
+
+            <p><span class="step-label">Right-hand limit.</span> For $x > 2$, use the third piece $f(x) = 2x - 1$:
+            $$\lim_{x\to 2^+} f(x) = 2(2) - 1 = 3.$$</p>
+
+            <p><span class="step-label">Function value.</span> At $x = 2$ exactly, use the middle piece: $f(2) = 5$.</p>
+
+            <p><span class="step-label">Two-sided limit.</span> Since $\lim_{x\to 2^-} f(x) = \lim_{x\to 2^+} f(x) = 3$, the two-sided limit exists:
+            $$\lim_{x\to 2} f(x) = 3.$$</p>
+
+            <p><strong>Conclusion:</strong> The limit is $3$, but $f(2) = 5 \neq 3$. The two-sided limit exists but does not equal the function value — this is a <em>removable discontinuity</em>, as we will see in the next section.</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>For $g(x) = \begin{cases} 3x + 1, & x \leq 1 \\ x^2 + 3, & x > 1 \end{cases}$, find $\lim_{x\to 1^-}g(x)$, $\lim_{x\to 1^+}g(x)$, and $\lim_{x\to 1}g(x)$ if it exists.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <p>$\lim_{x\to 1^-}g(x) = 3(1)+1 = 4$. &ensp; $\lim_{x\to 1^+}g(x) = 1^2+3 = 4$. &ensp; Since both equal $4$, $\lim_{x\to 1}g(x) = \boxed{4}$. Also $g(1) = 4$, so $g$ is continuous at $x = 1$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ── Continuity Definition ──────────────────────── -->
+        <h3>Continuity at a Point</h3>
+
+        <p>With one-sided limits in hand, we can state continuity precisely. A function is continuous at $x = a$ when three things happen simultaneously: the function is defined there, the limit exists there, and those two values agree.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Continuity at a Point</h4>
+            <p>A function $f$ is <strong>continuous at $x = a$</strong> if all three of the following conditions hold:</p>
+            <ol>
+                <li>$f(a)$ is defined ($a$ is in the domain of $f$).</li>
+                <li>$\displaystyle\lim_{x \to a} f(x)$ exists (equivalently, $\lim_{x\to a^-}f(x) = \lim_{x\to a^+}f(x)$).</li>
+                <li>$\displaystyle\lim_{x \to a} f(x) = f(a)$.</li>
+            </ol>
+            <p>If any one condition fails, $f$ is <strong>discontinuous</strong> at $x = a$.</p>
+        </div>
+
+        <!-- ── Types of Discontinuities ──────────────────── -->
+        <h3>Types of Discontinuities</h3>
+
+        <p>Not all discontinuities look alike. Depending on which condition fails — and how — we classify them into three types. Knowing the type tells you exactly what the graph looks like and whether the discontinuity can be "repaired."</p>
+
+        <!-- Removable -->
+        <div class="definition-box">
+            <h4>Type 1: Removable Discontinuity (Hole)</h4>
+            <p>Both one-sided limits agree — the two-sided limit $\lim_{x\to a}f(x) = L$ <em>exists</em> — but either:</p>
+            <ul style="margin:6px 0 6px 16px; line-height:2;">
+                <li>$f(a)$ is undefined (hole with no point), or</li>
+                <li>$f(a)$ is defined but $f(a) \neq L$ (hole plugged at the wrong height).</li>
+            </ul>
+            <p>It is called "removable" because redefining $f(a) = L$ <strong>repairs</strong> the discontinuity.</p>
+            <p style="margin-top:8px;">One-sided picture: $\lim_{x\to a^-}f(x) = \lim_{x\to a^+}f(x) = L$, &ensp; but &ensp; $f(a) \neq L$ (or undefined).</p>
+        </div>
+
+        <div class="desmos-container" id="disc-removable"></div>
+        <p class="desmos-caption">Figure 1.6b — Removable discontinuity at $x = 2$. Both the left and right limits equal $3$ (open circle), but the function is defined at $f(2) = 5$ (filled red dot). The "hole" at $(2, 3)$ could be removed by redefining $f(2) = 3$.</p>
+        <script>
+        (function() {
+            var elt = document.getElementById('disc-removable');
+            var calc = Desmos.GraphingCalculator(elt, {expressions: false, settingsMenu: false, zoomButtons: false, lockViewport: true});
+            // f(x) = x+1 for x≠2, with a hole at (2,3) and f(2)=5
+            // Split into two segments to avoid the hole
+            calc.setExpression({id: 'curve_left',  latex: 'y=x+1\\left\\{x<2\\right\\}',  color: '#2563eb', lineWidth: 2.5});
+            calc.setExpression({id: 'curve_right', latex: 'y=x+1\\left\\{x>2\\right\\}',  color: '#2563eb', lineWidth: 2.5});
+            calc.setExpression({id: 'hole', latex: '(2,3)', color: '#2563eb', pointStyle: Desmos.Styles.OPEN,  pointSize: 14, showLabel: true, label: '(2, 3) — hole'});
+            calc.setExpression({id: 'dot',  latex: '(2,5)', color: '#dc2626', pointStyle: Desmos.Styles.POINT, pointSize: 14, showLabel: true, label: 'f(2) = 5'});
+            calc.setMathBounds({left: -1, right: 5, bottom: -1, top: 7});
+        })();
+        </script>
+
+        <!-- Jump -->
+        <div class="definition-box">
+            <h4>Type 2: Jump Discontinuity</h4>
+            <p>Both one-sided limits exist and are <em>finite</em>, but they are <strong>unequal</strong>:</p>
+            $$\lim_{x\to a^-}f(x) = L \;\neq\; M = \lim_{x\to a^+}f(x).$$
+            <p style="margin-top:8px;">The graph literally "jumps" from one height to another. The two-sided limit does not exist. Common in piecewise-defined functions and step functions. The value $f(a)$ may equal either one-sided limit, or neither.</p>
+        </div>
+
+        <div class="desmos-container" id="disc-jump"></div>
+        <p class="desmos-caption">Figure 1.6c — Jump discontinuity at $x = 2$. The left-hand limit is $2$ (blue open circle) and the right-hand limit is $5$ (green open circle). The graph "jumps" by $3$ units. The filled dot shows $f(2) = 2$ (left value used).</p>
+        <script>
+        (function() {
+            var elt = document.getElementById('disc-jump');
+            var calc = Desmos.GraphingCalculator(elt, {expressions: false, settingsMenu: false, zoomButtons: false, lockViewport: true});
+            calc.setExpression({id: 'left_b', latex: 'y=x\\left\\{x<2\\right\\}', color: '#2563eb', lineWidth: 2.5});
+            calc.setExpression({id: 'right_b', latex: 'y=x+3\\left\\{x>2\\right\\}', color: '#16a34a', lineWidth: 2.5});
+            calc.setExpression({id: 'lo', latex: '(2,2)', color: '#2563eb', pointStyle: Desmos.Styles.OPEN, pointSize: 12, showLabel: true, label: 'L⁻ = 2'});
+            calc.setExpression({id: 'ro', latex: '(2,5)', color: '#16a34a', pointStyle: Desmos.Styles.OPEN, pointSize: 12, showLabel: true, label: 'L⁺ = 5'});
+            calc.setExpression({id: 'fd', latex: '(2,2)', color: '#dc2626', pointStyle: Desmos.Styles.POINT, pointSize: 14, showLabel: true, label: 'f(2) = 2'});
+            calc.setExpression({id: 'arr', latex: 'x=2\\left\\{2\\le y\\le5\\right\\}', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5});
+            calc.setMathBounds({left: -1, right: 5, bottom: -1, top: 8});
+        })();
+        </script>
+
+        <!-- Essential / Infinite -->
+        <div class="definition-box">
+            <h4>Type 3: Essential (Infinite) Discontinuity</h4>
+            <p>At least one one-sided limit is $\pm\infty$ — the function <strong>blows up</strong> near $x = a$. This creates a vertical asymptote on the graph. The discontinuity cannot be repaired by redefining $f(a)$.</p>
+            $$\lim_{x\to a^-}f(x) = \pm\infty \quad\text{or}\quad \lim_{x\to a^+}f(x) = \pm\infty.$$
+            <p style="margin-top:8px;">The word "essential" means the singularity is intrinsic to the function — there is no way to extend or redefine $f$ to make it continuous at $x = a$.</p>
+        </div>
+
+        <div class="desmos-container" id="disc-infinite"></div>
+        <p class="desmos-caption">Figure 1.6d — Essential (infinite) discontinuity at $x = 2$ for $f(x) = \dfrac{1}{x-2}$. The left-hand limit is $-\infty$ and the right-hand limit is $+\infty$. The vertical dashed line $x = 2$ is the asymptote.</p>
+        <script>
+        (function() {
+            var elt = document.getElementById('disc-infinite');
+            var calc = Desmos.GraphingCalculator(elt, {expressions: false, settingsMenu: false, zoomButtons: false, lockViewport: true});
+            calc.setExpression({id: 'hyp', latex: 'y=\\frac{1}{x-2}', color: '#9333ea', lineWidth: 2.5});
+            calc.setExpression({id: 'asym', latex: 'x=2', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED, lineWidth: 2});
+            calc.setMathBounds({left: -1, right: 5, bottom: -8, top: 8});
+        })();
+        </script>
+
+        <div style="overflow-x:auto; margin: 20px 0;">
+            <table style="width:100%; border-collapse:collapse; font-size:.92em;">
+                <thead>
+                    <tr style="background:#eff6ff; text-align:left;">
+                        <th style="padding:10px 14px; border:1px solid #dbeafe;">Type</th>
+                        <th style="padding:10px 14px; border:1px solid #dbeafe;">$\lim_{x\to a^-}f(x)$</th>
+                        <th style="padding:10px 14px; border:1px solid #dbeafe;">$\lim_{x\to a^+}f(x)$</th>
+                        <th style="padding:10px 14px; border:1px solid #dbeafe;">Two-sided limit</th>
+                        <th style="padding:10px 14px; border:1px solid #dbeafe;">Graph looks like</th>
+                        <th style="padding:10px 14px; border:1px solid #dbeafe;">Repairable?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding:9px 14px; border:1px solid #e2e8f0;"><strong>Removable</strong></td>
+                        <td style="padding:9px 14px; border:1px solid #e2e8f0;">$L$</td>
+                        <td style="padding:9px 14px; border:1px solid #e2e8f0;">$L$</td>
+                        <td style="padding:9px 14px; border:1px solid #e2e8f0; color:#15803d;">Exists ($= L$)</td>
+                        <td style="padding:9px 14px; border:1px solid #e2e8f0;">Single hole (open circle)</td>
+                        <td style="padding:9px 14px; border:1px solid #e2e8f0; color:#15803d;">✓ Yes — redefine $f(a)$</td>
+                    </tr>
+                    <tr style="background:#f8fafc;">
+                        <td style="padding:9px 14px; border:1px solid #e2e8f0;"><strong>Jump</strong></td>
+                        <td style="padding:9px 14px; border:1px solid #e2e8f0;">$L$</td>
+                        <td style="padding:9px 14px; border:1px solid #e2e8f0;">$M \neq L$</td>
+                        <td style="padding:9px 14px; border:1px solid #e2e8f0; color:#dc2626;">DNE</td>
+                        <td style="padding:9px 14px; border:1px solid #e2e8f0;">Step / gap in graph</td>
+                        <td style="padding:9px 14px; border:1px solid #e2e8f0; color:#dc2626;">✗ No</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:9px 14px; border:1px solid #e2e8f0;"><strong>Essential (infinite)</strong></td>
+                        <td style="padding:9px 14px; border:1px solid #e2e8f0;">$\pm\infty$</td>
+                        <td style="padding:9px 14px; border:1px solid #e2e8f0;">$\pm\infty$</td>
+                        <td style="padding:9px 14px; border:1px solid #e2e8f0; color:#dc2626;">DNE</td>
+                        <td style="padding:9px 14px; border:1px solid #e2e8f0;">Vertical asymptote</td>
+                        <td style="padding:9px 14px; border:1px solid #e2e8f0; color:#dc2626;">✗ No</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 1.6a &mdash; Testing Continuity</h4>
+            <p>Determine whether $f(x) = \begin{cases} \dfrac{x^2 - 9}{x - 3}, & x \neq 3 \\[6pt] 7, & x = 3 \end{cases}$ is continuous at $x = 3$.</p>
+
+            <p><span class="step-label">Step 1</span> Is $f(3)$ defined? Yes, $f(3) = 7$. &#10003;</p>
+
+            <p><span class="step-label">Step 2</span> Does the limit exist?</p>
+            <p>$$\frac{x^2 - 9}{x - 3} = \frac{(x-3)(x+3)}{x-3} = x + 3 \quad (x \neq 3)$$</p>
+            <p>$$\lim_{x \to 3} f(x) = 6 \quad \checkmark$$</p>
+
+            <p><span class="step-label">Step 3</span> Does limit = function value? We need $6 = 7$. <strong>False. &#10007;</strong></p>
+
+            <p>Conclusion: $f$ is <strong>not continuous</strong> at $x = 3$. This is a <strong>removable discontinuity</strong> — redefining $f(3) = 6$ would fix it.</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Find the value of $c$ so that $f(x) = \begin{cases} x^2 + 1, & x \leq 2 \\ cx - 1, & x > 2 \end{cases}$ is continuous at $x = 2$.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <p>Left-hand limit: $\lim_{x \to 2^-}(x^2+1) = 5$. Right-hand limit: $\lim_{x \to 2^+}(cx-1) = 2c-1$.</p>
+                    <p>Set equal: $2c - 1 = 5 \Rightarrow c = 3$. Also $f(2) = 5 = $ limit. &#10003;</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ╔══════════════════════════════════════════════════════════╗ -->
+        <!-- ║  ENRICHMENT PREVIEW — IVT                               ║ -->
+        <!-- ╚══════════════════════════════════════════════════════════╝ -->
+        <div class="enrichment-block">
+            <div class="enrichment-header">
+                <div class="enrichment-icon">🔭</div>
+                <div class="enrichment-header-text">
+                    <div class="enrichment-badge">✦ Enrichment Preview</div>
+                    <div class="enrichment-title">The Intermediate Value Theorem</div>
+                    <div class="enrichment-note">Full treatment coming in a later section — explore now if you feel ready, or skip and return later.</div>
+                </div>
+                <div class="enrichment-skip">Skip for now<br>↓ continue</div>
+            </div>
+            <div class="enrichment-body">
+
+        <h3>The Intermediate Value Theorem</h3>
+
+        <p>Continuous functions cannot skip over values — they must pass through every intermediate value between their endpoints. This is one of the most tested theorems on the AP exam.</p>
+
+        <div class="theorem-box">
+            <h4>Theorem: Intermediate Value Theorem (IVT)</h4>
+            <p>If $f$ is continuous on the closed interval $[a, b]$ and $N$ is any number strictly between $f(a)$ and $f(b)$, then there exists at least one value $c \in (a, b)$ such that $f(c) = N$.</p>
+        </div>
+
+        <div class="ap-tip">
+            <span class="ap-tip-icon">&#9733;</span>
+            <p><strong>AP Exam Tip:</strong> IVT questions always follow the same four-step structure: (1) define $f$, (2) verify $f$ is continuous on $[a,b]$, (3) show $N$ is between $f(a)$ and $f(b)$, (4) conclude by IVT. Always state "by the IVT" explicitly.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 1.6b &mdash; Applying the IVT</h4>
+            <p>Show that the equation $x^3 + x - 1 = 0$ has a solution in the interval $(0, 1)$.</p>
+
+            <p><span class="step-label">Step 1</span> Define $f(x) = x^3 + x - 1$. As a polynomial, $f$ is continuous everywhere, including on $[0,1]$.</p>
+
+            <p><span class="step-label">Step 2</span> Evaluate at endpoints:
+                $f(0) = -1 < 0$ and $f(1) = 1 > 0$.</p>
+
+            <p><span class="step-label">Step 3</span> Since $f(0) < 0 < f(1)$, the value $N = 0$ lies strictly between $f(0)$ and $f(1)$.</p>
+
+            <p><span class="step-label">Step 4</span> By the IVT, there exists at least one $c \in (0, 1)$ such that $f(c) = 0$, i.e., $x^3 + x - 1 = 0$ has a solution in $(0, 1)$. $\square$</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Show that $f(x) = e^x - 2$ has at least one zero on $(0, 1)$.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <p>$f$ is continuous on $[0,1]$. $f(0) = 1 - 2 = -1 < 0$ and $f(1) = e - 2 \approx 0.718 > 0$.</p>
+                    <p>Since $f(0) < 0 < f(1)$, by the IVT there exists $c \in (0,1)$ with $f(c) = 0$, i.e., $e^c = 2$. &#9633;</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 1.6c &mdash; Classifying All Discontinuities</h4>
+            <p>Find all values of $x$ where $\displaystyle f(x) = \frac{x^2 - x - 6}{x^2 - 4}$ is discontinuous, and classify each.</p>
+
+            <p><span class="step-label">Step 1</span> Set the denominator to zero: $x^2 - 4 = 0 \Rightarrow x = \pm 2$. These are the only candidates.</p>
+
+            <p><span class="step-label">Step 2</span> Factor the numerator: $x^2 - x - 6 = (x - 3)(x + 2)$.</p>
+
+            <p><span class="step-label">Step 3</span> Check each candidate:</p>
+            <ul style="margin: 6px 0 10px 22px; line-height: 2.1;">
+                <li><strong>At $x = -2$:</strong> Numerator $= (-2-3)(-2+2) = 0 \Rightarrow \tfrac{0}{0}$. Cancel the common factor $(x+2)$:
+                $$f(x) = \frac{(x-3)(x+2)}{(x-2)(x+2)} = \frac{x-3}{x-2} \quad (x \neq -2) \qquad \Rightarrow \qquad \lim_{x \to -2} f(x) = \frac{-5}{-4} = \frac{5}{4}$$
+                Limit exists but $f(-2)$ is undefined: <strong>removable discontinuity</strong> at $x = -2$.</li>
+                <li><strong>At $x = 2$:</strong> Numerator $= (2-3)(2+2) = -4 \neq 0$. Denominator $\to 0$ while numerator $\to -4$, so $f(x) \to \pm\infty$: <strong>infinite discontinuity</strong> (vertical asymptote) at $x = 2$.</li>
+            </ul>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Find all discontinuities of $\displaystyle g(x) = \frac{x^2 - 5x + 6}{x^2 - 9}$ and classify each.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <p>Denominator $= 0$ at $x = \pm 3$. Numerator $= (x-2)(x-3)$.</p>
+                    <p><strong>At $x = 3$:</strong> $\tfrac{0}{0}$. Cancel: $\dfrac{x-2}{x+3}$. Limit $= \dfrac{1}{6}$. <strong>Removable discontinuity.</strong></p>
+                    <p><strong>At $x = -3$:</strong> Numerator $= 9+15+6 = 30 \neq 0$. <strong>Infinite discontinuity</strong> (vertical asymptote $x = -3$).</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 1.6d &mdash; IVT with a Transcendental Equation</h4>
+            <p>Show that $2\sin x = x$ has at least one positive solution.</p>
+
+            <p><span class="step-label">Step 1</span> Let $f(x) = 2\sin x - x$. Since $\sin x$ and $x$ are continuous everywhere, so is $f$.</p>
+
+            <p><span class="step-label">Step 2</span> Note $f(0) = 0$, so $x = 0$ is already a solution. For a <em>positive</em> solution, use the interval $\left[\dfrac{\pi}{2},\, \pi\right]$:</p>
+            <p>$$f\!\left(\tfrac{\pi}{2}\right) = 2(1) - \tfrac{\pi}{2} = 2 - \tfrac{\pi}{2} \approx 0.43 > 0 \qquad f(\pi) = 2(0) - \pi = -\pi \approx -3.14 < 0$$</p>
+
+            <p><span class="step-label">Step 3</span> Since $f\!\left(\tfrac{\pi}{2}\right) > 0 > f(\pi)$, the target value $N = 0$ lies strictly between the endpoint values.</p>
+
+            <p><span class="step-label">Step 4</span> By the IVT, $\exists\, c \in \left(\dfrac{\pi}{2},\, \pi\right)$ with $f(c) = 0$, i.e., $2\sin c = c$. Since $c > 0$, this is a positive solution. $\square$</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Show that $\cos x = x$ has a solution in $\left(0,\, \dfrac{\pi}{2}\right)$.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <p>Let $f(x) = \cos x - x$. $f(0) = 1 > 0$ and $f\!\left(\dfrac{\pi}{2}\right) = 0 - \dfrac{\pi}{2} < 0$. $f$ is continuous.</p>
+                    <p>Since $f(0) > 0 > f\!\left(\dfrac{\pi}{2}\right)$, by the IVT $\exists\, c \in \left(0,\, \dfrac{\pi}{2}\right)$ with $\cos c = c$. $\square$</p>
+                </div>
+            </details>
+        </div>
+
+            </div><!-- /.enrichment-body -->
+        </div><!-- /.enrichment-block -->
+
+        <!-- ============================================================ -->
+        <!-- SECTION 1.7 — PRACTICE PROBLEMS -->
+        <!-- ============================================================ -->
+        <div class="practice-section-header">
+            <h2 id="section-1-7" style="border:none;padding:0;margin:0;">1.7 Practice Problems</h2>
+            <div class="difficulty-legend">
+                <span class="difficulty-badge badge-basic">Basic</span>
+                <span class="difficulty-badge badge-intermediate">Intermediate</span>
+                <span class="difficulty-badge badge-challenge">Challenge</span>
+            </div>
+        </div>
+
+        <p>Attempt each problem before revealing the solution. Problems are ordered from basic to challenging.</p>
+
+        <!-- Problem 1 — Basic -->
+        <div class="practice-problem">
+            <h4>Problem 1 <span class="difficulty-badge badge-basic">Basic</span></h4>
+            <p>Evaluate $\displaystyle\lim_{x \to 5} \frac{x^2 - 25}{x - 5}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Direct substitution gives $\frac{0}{0}$. Factor:</p>
+                    <p>$$\frac{x^2 - 25}{x - 5} = \frac{(x-5)(x+5)}{x-5} = x + 5 \quad (x \neq 5)$$</p>
+                    <p>$$\lim_{x \to 5} (x + 5) = \mathbf{10}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 2 — Basic -->
+        <div class="practice-problem">
+            <h4>Problem 2 <span class="difficulty-badge badge-basic">Basic</span></h4>
+            <p>Evaluate $\displaystyle\lim_{x \to 0} \frac{\sqrt{1+x} - 1}{x}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Direct substitution gives $\frac{0}{0}$. Multiply by the conjugate:</p>
+                    <p>$$\frac{\sqrt{1+x} - 1}{x} \cdot \frac{\sqrt{1+x} + 1}{\sqrt{1+x} + 1} = \frac{1}{\sqrt{1+x} + 1}$$</p>
+                    <p>$$\lim_{x \to 0} \frac{1}{\sqrt{1+x} + 1} = \frac{1}{2} = \mathbf{\dfrac{1}{2}}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 3 — Basic -->
+        <div class="practice-problem">
+            <h4>Problem 3 <span class="difficulty-badge badge-basic">Basic</span></h4>
+            <p>Evaluate $\displaystyle\lim_{x \to \infty} \frac{3x^3 - 2x}{7x^3 + 4x^2 - 1}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Equal degrees (both 3). Divide by $x^3$:</p>
+                    <p>$$\frac{3 - \frac{2}{x^2}}{7 + \frac{4}{x} - \frac{1}{x^3}} \to \frac{3}{7} \quad \text{as } x \to \infty$$</p>
+                    <p>$$\text{Answer: } \mathbf{\dfrac{3}{7}}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 4 — Intermediate -->
+        <div class="practice-problem">
+            <h4>Problem 4 <span class="difficulty-badge badge-intermediate">Intermediate</span></h4>
+            <p>Evaluate $\displaystyle\lim_{x \to 0} \frac{\sin(3x)}{x}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Rewrite by multiplying and dividing by $3$:</p>
+                    <p>$$\frac{\sin(3x)}{x} = 3 \cdot \frac{\sin(3x)}{3x}$$</p>
+                    <p>Let $u = 3x \to 0$ as $x \to 0$:</p>
+                    <p>$$= 3 \cdot \lim_{u \to 0} \frac{\sin u}{u} = 3 \cdot 1 = \mathbf{3}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 5 — Intermediate -->
+        <div class="practice-problem">
+            <h4>Problem 5 <span class="difficulty-badge badge-intermediate">Intermediate</span></h4>
+            <p>Let $f(x) = \begin{cases} 2x + 1, & x < 1 \\ x^2 + c, & x \geq 1 \end{cases}$. Find the value of $c$ that makes $f$ continuous at $x = 1$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>Left-hand limit:</strong> $\lim_{x \to 1^-}(2x + 1) = 3$.</p>
+                    <p><strong>Right-hand limit:</strong> $\lim_{x \to 1^+}(x^2 + c) = 1 + c$. Also $f(1) = 1 + c$.</p>
+                    <p>Set equal: $1 + c = 3$, so $\mathbf{c = 2}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 6 — Intermediate -->
+        <div class="practice-problem">
+            <h4>Problem 6 <span class="difficulty-badge badge-intermediate">Intermediate</span></h4>
+            <p>Evaluate $\displaystyle\lim_{x \to 2} \frac{x^3 - 8}{x^2 - 4}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Direct substitution gives $\frac{0}{0}$. Factor both:</p>
+                    <p>$$x^3 - 8 = (x-2)(x^2+2x+4), \quad x^2-4 = (x-2)(x+2)$$</p>
+                    <p>$$\frac{(x-2)(x^2+2x+4)}{(x-2)(x+2)} = \frac{x^2+2x+4}{x+2} \quad (x \neq 2)$$</p>
+                    <p>$$\lim_{x \to 2} \frac{x^2+2x+4}{x+2} = \frac{4+4+4}{4} = \mathbf{3}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 7 — Intermediate -->
+        <div class="practice-problem">
+            <h4>Problem 7 <span class="difficulty-badge badge-intermediate">Intermediate</span></h4>
+            <p>Use the Squeeze Theorem to evaluate $\displaystyle\lim_{x \to \infty} \frac{\sin x}{x}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Since $-1 \leq \sin x \leq 1$, dividing by $x > 0$:</p>
+                    <p>$$-\frac{1}{x} \leq \frac{\sin x}{x} \leq \frac{1}{x}$$</p>
+                    <p>Both bounds $\to 0$ as $x \to \infty$. By the Squeeze Theorem:</p>
+                    <p>$$\lim_{x \to \infty} \frac{\sin x}{x} = \mathbf{0}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 8 — Challenge -->
+        <div class="practice-problem">
+            <h4>Problem 8 <span class="difficulty-badge badge-challenge">Challenge</span></h4>
+            <p>Show that the equation $e^x = 3 - x$ has at least one solution on the interval $(0, 1)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Define $f(x) = e^x + x - 3$. As a sum of continuous functions, $f$ is continuous on $[0,1]$.</p>
+                    <p>$f(0) = 1 - 3 = -2 < 0$ and $f(1) = e - 2 \approx 0.718 > 0$.</p>
+                    <p>Since $f(0) < 0 < f(1)$, by the IVT there exists $c \in (0,1)$ with $f(c) = 0$, i.e., $e^c = 3 - c$. $\square$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 9 — Challenge -->
+        <div class="practice-problem">
+            <h4>Problem 9 <span class="difficulty-badge badge-challenge">Challenge</span></h4>
+            <p>Evaluate $\displaystyle\lim_{h \to 0} \frac{(2+h)^3 - 8}{h}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Expand $(2+h)^3 = 8 + 12h + 6h^2 + h^3$:</p>
+                    <p>$$\frac{12h + 6h^2 + h^3}{h} = 12 + 6h + h^2$$</p>
+                    <p>$$\lim_{h \to 0}(12 + 6h + h^2) = \mathbf{12}$$</p>
+                    <p><em>This is the derivative of $x^3$ at $x = 2$ — a preview of Chapter 2.</em></p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 10 — Challenge -->
+        <div class="practice-problem">
+            <h4>Problem 10 <span class="difficulty-badge badge-challenge">Challenge</span></h4>
+            <p>Find all vertical and horizontal asymptotes of $f(x) = \dfrac{2x^2 + 3}{x^2 - 1}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>Vertical asymptotes:</strong> $x^2 - 1 = 0 \Rightarrow x = \pm 1$. Numerator at these points: $2(1)+3 = 5 \neq 0$. So <strong>$x = 1$ and $x = -1$</strong> are both vertical asymptotes.</p>
+                    <p><strong>Horizontal asymptote:</strong> Equal degrees, ratio of leading coefficients $= \frac{2}{1} = 2$.</p>
+                    <p>$$\lim_{x \to \pm\infty} f(x) = 2 \quad \Rightarrow \quad \textbf{y = 2}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 11 — Basic / Graph -->
+        <div class="practice-problem">
+            <h4>Problem 11 <span class="difficulty-badge badge-basic">Basic</span></h4>
+            <p>The graph below shows the function $f$. Use it to answer parts (a)–(d).</p>
+            <div class="desmos-container" id="graph-p11"></div>
+            <p class="desmos-caption">Figure 1.7 — Graph of $f$. Open circle at $(2,\,1)$; filled circle at $(2,\,3)$.</p>
+            <script>
+            (function() {
+                var elt = document.getElementById('graph-p11');
+                var calc = Desmos.GraphingCalculator(elt, {expressions:false, settingsMenu:false, zoomButtons:true, lockViewport:true});
+                calc.setExpression({id:'c1', latex:'y=\\frac{x^2}{4}\\{x<2\\}', color:'#2563eb'});
+                calc.setExpression({id:'c2', latex:'y=x-1\\{x>2\\}', color:'#2563eb'});
+                calc.setExpression({id:'p1', latex:'(2,3)', color:'#16a34a', pointStyle:Desmos.Styles.POINT, pointSize:12});
+                calc.setExpression({id:'p2', latex:'(2,1)', color:'#2563eb', pointStyle:Desmos.Styles.OPEN, pointSize:12});
+                calc.setMathBounds({left:-1, right:5, bottom:-1, top:5});
+            })();
+            </script>
+            <ol type="a" style="margin-top:10px;">
+                <li>Find $\displaystyle\lim_{x \to 2^-} f(x)$.</li>
+                <li>Find $\displaystyle\lim_{x \to 2^+} f(x)$.</li>
+                <li>Find $\displaystyle\lim_{x \to 2} f(x)$, or state DNE.</li>
+                <li>Is $f$ continuous at $x = 2$? Classify any discontinuity.</li>
+            </ol>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>(a)</strong> As $x \to 2^-$, $f(x) = x^2/4 \to 4/4 = \mathbf{1}$.</p>
+                    <p><strong>(b)</strong> As $x \to 2^+$, $f(x) = x - 1 \to 1$. Answer: $\mathbf{1}$.</p>
+                    <p><strong>(c)</strong> Both one-sided limits equal $1$, so $\displaystyle\lim_{x \to 2} f(x) = \mathbf{1}$.</p>
+                    <p><strong>(d)</strong> $f(2) = 3 \neq 1 = \lim$. Condition 3 fails: <strong>not continuous</strong>. This is a <strong>removable discontinuity</strong> — redefine $f(2) = 1$ to repair it.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 12 — Basic -->
+        <div class="practice-problem">
+            <h4>Problem 12 <span class="difficulty-badge badge-basic">Basic</span></h4>
+            <p>Evaluate $\displaystyle\lim_{x \to 0} \frac{\sin(4x)}{2x}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Apply the general formula with $b = 4$, $a = 2$:</p>
+                    <p>$$\frac{\sin(4x)}{2x} = 2 \cdot \frac{\sin(4x)}{4x} \;\longrightarrow\; 2 \cdot 1 = \mathbf{2}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 13 — Basic -->
+        <div class="practice-problem">
+            <h4>Problem 13 <span class="difficulty-badge badge-basic">Basic</span></h4>
+            <p>Let $f(x) = \begin{cases} 2x + 3, & x < 1 \\ 5, & x = 1 \\ x^2 + 1, & x > 1 \end{cases}$. Find the one-sided limits at $x = 1$, the two-sided limit, and state whether $f$ is continuous at $x = 1$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\lim_{x \to 1^-}(2x+3) = 5$. &emsp; $\lim_{x \to 1^+}(x^2+1) = 2$.</p>
+                    <p>Since $5 \neq 2$, the two-sided limit <strong>does not exist</strong>.</p>
+                    <p>$f$ is not continuous at $x = 1$ — <strong>jump discontinuity</strong>.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 14 — Intermediate / Graph -->
+        <div class="practice-problem">
+            <h4>Problem 14 <span class="difficulty-badge badge-intermediate">Intermediate</span></h4>
+            <p>The graph below shows $h(x)$. Identify and justify the type of discontinuity at each labeled point.</p>
+            <div class="desmos-container" id="graph-p14"></div>
+            <p class="desmos-caption">Figure 1.8 — Graph of $h(x)$. Open circle at $(0,2)$; filled circle at $(0,-1)$; vertical asymptote at $x = 3$.</p>
+            <script>
+            (function() {
+                var elt = document.getElementById('graph-p14');
+                var calc = Desmos.GraphingCalculator(elt, {expressions:false, settingsMenu:false, zoomButtons:true, lockViewport:true});
+                calc.setExpression({id:'a', latex:'y=2\\{x<0\\}', color:'#2563eb'});
+                calc.setExpression({id:'b', latex:'y=-1\\{0\\le x<3\\}', color:'#2563eb'});
+                calc.setExpression({id:'c', latex:'y=\\frac{1}{x-3}\\{x>3\\}', color:'#2563eb'});
+                calc.setExpression({id:'p1', latex:'(0,2)', color:'#2563eb', pointStyle:Desmos.Styles.OPEN, pointSize:12});
+                calc.setExpression({id:'p2', latex:'(0,-1)', color:'#16a34a', pointStyle:Desmos.Styles.POINT, pointSize:12});
+                calc.setMathBounds({left:-3, right:6, bottom:-4, top:4});
+            })();
+            </script>
+            <ol type="a" style="margin-top:10px;">
+                <li>What type of discontinuity at $x = 0$?</li>
+                <li>What type of discontinuity at $x = 3$?</li>
+            </ol>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>(a)</strong> $\lim_{x\to 0^-} h = 2$, $\lim_{x\to 0^+} h = -1$. Limits exist but are unequal: <strong>jump discontinuity</strong>.</p>
+                    <p><strong>(b)</strong> As $x \to 3^+$, $\tfrac{1}{x-3} \to +\infty$: <strong>infinite discontinuity</strong> (vertical asymptote $x = 3$).</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 15 — Intermediate -->
+        <div class="practice-problem">
+            <h4>Problem 15 <span class="difficulty-badge badge-intermediate">Intermediate</span></h4>
+            <p>Evaluate $\displaystyle\lim_{x \to 0} \frac{\sin(3x)}{\tan(2x)}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Split into standard forms:</p>
+                    <p>$$\frac{\sin(3x)}{\tan(2x)} = \frac{\sin(3x)}{3x} \cdot \frac{3x}{2x} \cdot \frac{2x}{\tan(2x)} = \frac{3}{2} \cdot \frac{\sin(3x)}{3x} \cdot \frac{2x}{\tan(2x)}$$</p>
+                    <p>As $x \to 0$: each trigonometric ratio $\to 1$.</p>
+                    <p>$$\lim_{x\to 0} \frac{\sin(3x)}{\tan(2x)} = \frac{3}{2} \cdot 1 \cdot 1 = \mathbf{\dfrac{3}{2}}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 16 — Intermediate -->
+        <div class="practice-problem">
+            <h4>Problem 16 <span class="difficulty-badge badge-intermediate">Intermediate</span></h4>
+            <p>On what set is $f(x) = \sqrt{x^2 - 9}$ continuous?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Require $x^2 - 9 \geq 0 \Rightarrow (x-3)(x+3) \geq 0 \Rightarrow x \leq -3$ or $x \geq 3$.</p>
+                    <p>$f$ is a composition of continuous functions on its domain, so $f$ is continuous on $\mathbf{(-\infty,\,-3]\cup[3,\,\infty)}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 17 — Intermediate -->
+        <div class="practice-problem">
+            <h4>Problem 17 <span class="difficulty-badge badge-intermediate">Intermediate</span></h4>
+            <p>Evaluate $\displaystyle\lim_{x \to 0} \frac{\sqrt{x+4} - 2}{x}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Rationalize by multiplying by the conjugate:</p>
+                    <p>$$\frac{\sqrt{x+4}-2}{x} \cdot \frac{\sqrt{x+4}+2}{\sqrt{x+4}+2} = \frac{(x+4)-4}{x(\sqrt{x+4}+2)} = \frac{1}{\sqrt{x+4}+2}$$</p>
+                    <p>$$\lim_{x \to 0} \frac{1}{\sqrt{x+4}+2} = \frac{1}{2+2} = \mathbf{\dfrac{1}{4}}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 18 — Intermediate -->
+        <div class="practice-problem">
+            <h4>Problem 18 <span class="difficulty-badge badge-intermediate">Intermediate</span></h4>
+            <p>Find $a$ and $b$ so that $f$ is continuous everywhere:
+            $$f(x) = \begin{cases} 3x + a, & x < -1 \\ bx^2 - 1, & -1 \leq x \leq 2 \\ x + 5, & x > 2 \end{cases}$$</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>At $x = 2$:</strong> $b(4)-1 = 2+5 \Rightarrow 4b = 8 \Rightarrow \mathbf{b = 2}$.</p>
+                    <p><strong>At $x = -1$:</strong> $3(-1)+a = 2(1)-1 \Rightarrow a-3 = 1 \Rightarrow \mathbf{a = 4}$.</p>
+                    <p><em>Verify:</em> Left at $-1$: $3(-1)+4=1$; right: $2(1)-1=1$. ✓ &ensp; Left at $2$: $2(4)-1=7$; right: $7$. ✓</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 19 — Intermediate -->
+        <div class="practice-problem">
+            <h4>Problem 19 <span class="difficulty-badge badge-intermediate">Intermediate</span></h4>
+            <p>Evaluate $\displaystyle\lim_{x \to \infty} \frac{x}{\sqrt{x^2 + 1}}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Divide top and bottom by $x > 0$ (so $\sqrt{x^2+1}/x = \sqrt{1+1/x^2}$):</p>
+                    <p>$$\frac{x}{\sqrt{x^2+1}} = \frac{1}{\sqrt{1 + \dfrac{1}{x^2}}} \;\longrightarrow\; \frac{1}{\sqrt{1+0}} = \mathbf{1}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 20 — Intermediate -->
+        <div class="practice-problem">
+            <h4>Problem 20 <span class="difficulty-badge badge-intermediate">Intermediate</span></h4>
+            <p>Use the IVT to show that $x^5 - 2x - 1 = 0$ has at least one solution on $(1,\, 2)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Let $f(x) = x^5 - 2x - 1$. Polynomial, so continuous on $[1,2]$.</p>
+                    <p>$f(1) = 1-2-1 = -2 < 0$. &ensp; $f(2) = 32-4-1 = 27 > 0$.</p>
+                    <p>By the IVT, $\exists\, c \in (1,2)$ with $f(c) = 0$. $\square$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 21 — Intermediate -->
+        <div class="practice-problem">
+            <h4>Problem 21 <span class="difficulty-badge badge-intermediate">Intermediate</span></h4>
+            <p>Evaluate $\displaystyle\lim_{x \to 0}\, x\sin\!\left(\tfrac{1}{x}\right)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Since $-1 \leq \sin(1/x) \leq 1$, multiply by $|x|$:</p>
+                    <p>$$-|x| \leq x\sin\!\left(\tfrac{1}{x}\right) \leq |x|$$</p>
+                    <p>Both bounds $\to 0$ as $x \to 0$. By the Squeeze Theorem: $\mathbf{0}$.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 22 — Intermediate -->
+        <div class="practice-problem">
+            <h4>Problem 22 <span class="difficulty-badge badge-intermediate">Intermediate</span></h4>
+            <p>Evaluate $\displaystyle\lim_{x \to 3^-} \frac{|x - 3|}{x - 3}$, or state DNE.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>As $x \to 3^-$, $x < 3$ so $x - 3 < 0$, and $|x-3| = -(x-3)$.</p>
+                    <p>$$\frac{|x-3|}{x-3} = \frac{-(x-3)}{x-3} = -1$$</p>
+                    <p>Answer: $\mathbf{-1}$. (The right-hand limit equals $+1$, so the two-sided limit DNE.)</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 23 — Challenge / Graph -->
+        <div class="practice-problem">
+            <h4>Problem 23 <span class="difficulty-badge badge-challenge">Challenge</span></h4>
+            <p>The graph below shows a continuous function $k$ on $[0,4]$, with $k(0) = 5$ and $k(4) = 5$. A student claims the IVT guarantees $k(c) = 0$ for some $c \in (0,4)$. Is the student correct? Explain fully.</p>
+            <div class="desmos-container" id="graph-p23"></div>
+            <p class="desmos-caption">Figure 1.9 — Continuous function $k(x) = x^2-4x+5$ on $[0,4]$. Green dots: endpoints. Purple dot: minimum at $(2,1)$. Red dashed line: $y = 0$.</p>
+            <script>
+            (function() {
+                var elt = document.getElementById('graph-p23');
+                var calc = Desmos.GraphingCalculator(elt, {expressions:false, settingsMenu:false, zoomButtons:true, lockViewport:true});
+                calc.setExpression({id:'f', latex:'y=x^2-4x+5\\{0\\le x\\le 4\\}', color:'#2563eb'});
+                calc.setExpression({id:'z', latex:'y=0', color:'#dc2626', lineStyle:Desmos.Styles.DASHED, lineWidth:2});
+                calc.setExpression({id:'p1', latex:'(0,5)', color:'#16a34a', pointStyle:Desmos.Styles.POINT, pointSize:12});
+                calc.setExpression({id:'p2', latex:'(4,5)', color:'#16a34a', pointStyle:Desmos.Styles.POINT, pointSize:12});
+                calc.setExpression({id:'m', latex:'(2,1)', color:'#7c3aed', pointStyle:Desmos.Styles.POINT, pointSize:12});
+                calc.setMathBounds({left:-0.5, right:5, bottom:-1, top:8});
+            })();
+            </script>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>The student is <strong>incorrect</strong>. The IVT requires $N$ to lie <em>strictly between</em> $k(a)$ and $k(b)$. Here $k(0) = k(4) = 5$, so $N = 0$ is <strong>not</strong> between $5$ and $5$ — the IVT does not apply.</p>
+                    <p>In this specific case $k(x) = x^2 - 4x + 5$ has minimum $k(2) = 1 > 0$, so $k$ never reaches $0$ on $[0,4]$. The claim is false.</p>
+                    <p><strong>Lesson:</strong> The IVT requires endpoint values of <em>opposite sign</em>. Continuity alone is not enough.</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 24 — Challenge -->
+        <div class="practice-problem">
+            <h4>Problem 24 <span class="difficulty-badge badge-challenge">Challenge</span></h4>
+            <p>Evaluate $\displaystyle\lim_{x \to 0} \frac{\sin^2 x}{x\tan x}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Write $\tan x = \sin x / \cos x$:</p>
+                    <p>$$\frac{\sin^2 x}{x \cdot \dfrac{\sin x}{\cos x}} = \frac{\sin^2 x \cos x}{x\sin x} = \frac{\sin x}{x} \cdot \cos x$$</p>
+                    <p>$$\lim_{x\to 0} \frac{\sin x}{x} \cdot \cos x = 1 \cdot 1 = \mathbf{1}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 25 — Challenge -->
+        <div class="practice-problem">
+            <h4>Problem 25 <span class="difficulty-badge badge-challenge">Challenge</span></h4>
+            <p>Evaluate $\displaystyle\lim_{h \to 0} \frac{\sqrt{9+h} - 3}{h}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Rationalize:</p>
+                    <p>$$\frac{\sqrt{9+h}-3}{h} \cdot \frac{\sqrt{9+h}+3}{\sqrt{9+h}+3} = \frac{h}{h(\sqrt{9+h}+3)} = \frac{1}{\sqrt{9+h}+3}$$</p>
+                    <p>$$\lim_{h \to 0} \frac{1}{\sqrt{9+h}+3} = \frac{1}{6} = \mathbf{\dfrac{1}{6}}$$</p>
+                    <p><em>This equals $\tfrac{d}{dx}\sqrt{x}\big|_{x=9}$ — a preview of derivatives.</em></p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 26 — Challenge -->
+        <div class="practice-problem">
+            <h4>Problem 26 <span class="difficulty-badge badge-challenge">Challenge</span></h4>
+            <p>Find $a$ and $b$ so that $g$ is continuous on $(-\infty, \infty)$:
+            $$g(x) = \begin{cases} ax - 2, & x < 1 \\ b, & x = 1 \\ 3x^2 - a, & x > 1 \end{cases}$$</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Set all three equal at $x = 1$: $a - 2 = b = 3 - a$.</p>
+                    <p>From $a - 2 = 3 - a$: $2a = 5 \Rightarrow \mathbf{a = \tfrac{5}{2}}$.</p>
+                    <p>Then $b = a - 2 = \mathbf{\tfrac{1}{2}}$.</p>
+                    <p><em>Verify:</em> Left $= \tfrac{5}{2}-2 = \tfrac{1}{2}$; Right $= 3-\tfrac{5}{2} = \tfrac{1}{2}$; $g(1) = \tfrac{1}{2}$. ✓</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 27 — Challenge -->
+        <div class="practice-problem">
+            <h4>Problem 27 <span class="difficulty-badge badge-challenge">Challenge</span></h4>
+            <p>Evaluate $\displaystyle\lim_{x \to \pi} \frac{\sin x}{x - \pi}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Substitute $u = x - \pi$ (so $x = u + \pi$, $u \to 0$):</p>
+                    <p>$$\sin x = \sin(u + \pi) = \sin u\cos\pi + \cos u\sin\pi = -\sin u$$</p>
+                    <p>$$\lim_{u \to 0} \frac{-\sin u}{u} = -\lim_{u\to 0}\frac{\sin u}{u} = -1 \cdot 1 = \mathbf{-1}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 28 — Challenge -->
+        <div class="practice-problem">
+            <h4>Problem 28 <span class="difficulty-badge badge-challenge">Challenge</span></h4>
+            <p>Evaluate $\displaystyle\lim_{h \to 0} \dfrac{\sin\!\left(\dfrac{\pi}{6} + h\right) - \sin\!\left(\dfrac{\pi}{6}\right)}{h}$.
+            <em>(Hint: expand with the sine addition formula.)</em></p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\sin\!\left(\tfrac{\pi}{6}+h\right) = \tfrac{1}{2}\cos h + \tfrac{\sqrt{3}}{2}\sin h$. Substitute:</p>
+                    <p>$$\frac{\tfrac{1}{2}\cos h + \tfrac{\sqrt{3}}{2}\sin h - \tfrac{1}{2}}{h} = \frac{1}{2}\cdot\frac{\cos h - 1}{h} + \frac{\sqrt{3}}{2}\cdot\frac{\sin h}{h}$$</p>
+                    <p>As $h\to0$: first term $\to 0$, second $\to \dfrac{\sqrt{3}}{2}$.</p>
+                    <p>$$\text{Answer: } \mathbf{\dfrac{\sqrt{3}}{2}}$$</p>
+                    <p><em>This is $\cos(\pi/6)$ — confirming $(\sin x)' = \cos x$.</em></p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 29 — Challenge -->
+        <div class="practice-problem">
+            <h4>Problem 29 <span class="difficulty-badge badge-challenge">Challenge</span></h4>
+            <p>Show that $f(x) = x^2 - \cos x$ has at least one zero in $(-1,\, 0)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$f$ is continuous on $[-1,0]$ (sum of continuous functions).</p>
+                    <p>$f(-1) = 1 - \cos(-1) = 1 - \cos 1 \approx 1 - 0.540 = 0.460 > 0$.</p>
+                    <p>$f(0) = 0 - \cos 0 = -1 < 0$.</p>
+                    <p>Since $f(-1) > 0 > f(0)$, by the IVT $\exists\, c \in (-1,0)$ with $c^2 = \cos c$. $\square$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Problem 30 — Challenge -->
+        <div class="practice-problem">
+            <h4>Problem 30 <span class="difficulty-badge badge-challenge">Challenge</span></h4>
+            <p>Prove that every polynomial of odd degree has at least one real root. <em>(Hint: consider the end behavior as $x \to \pm\infty$.)</em></p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Let $p(x) = a_n x^n + \cdots + a_0$ with $n$ odd, $a_n > 0$ (WLOG). End behavior:</p>
+                    <ul style="margin:6px 0 6px 20px;">
+                        <li>$x \to +\infty$: $p(x) \to +\infty$</li>
+                        <li>$x \to -\infty$: $p(x) \to -\infty$ (odd degree)</li>
+                    </ul>
+                    <p>Choose $M > 0$ large enough that $p(M) > 0$ and $p(-M) < 0$. Since $p$ is continuous on $[-M, M]$ and $p(-M) < 0 < p(M)$, by the IVT $\exists\, c \in (-M,M)$ with $p(c) = 0$. $\square$</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION SUMMARY -->
+        <!-- ============================================================ -->
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+
+            <h4>Core Definitions</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Limit</strong>
+                    <p>$\lim_{x \to a} f(x) = L$ means $f(x)$ can be made arbitrarily close to $L$ by taking $x$ close to $a$ (but $\neq a$).</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Two-sided limit exists when</strong>
+                    <p>$\lim_{x \to a^-} f(x) = \lim_{x \to a^+} f(x) = L$</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Continuity at $x = a$</strong>
+                    <p>$f(a)$ defined, limit exists, and $\lim_{x \to a} f(x) = f(a)$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Horizontal asymptote rule</strong>
+                    <p>Compare degrees of numerator and denominator. Equal degrees → ratio of leading coefficients.</p>
+                </div>
+            </div>
+
+            <h4>Key Formulas</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Trigonometric limits</strong>
+                    <p>$\displaystyle\lim_{x \to 0} \frac{\sin x}{x} = 1 \qquad \lim_{x \to 0} \frac{1-\cos x}{x} = 0$</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Squeeze Theorem</strong>
+                    <p>$g \leq f \leq h$ and $\lim g = \lim h = L$ $\Rightarrow \lim f = L$</p>
+                </div>
+            </div>
+
+            <h4>Evaluation Strategies (in order)</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Direct substitution</strong> — always try first</li>
+                <li><strong>Factor and cancel</strong> — when you get $\frac{0}{0}$ and no radicals</li>
+                <li><strong>Rationalize</strong> — when $\frac{0}{0}$ involves square roots</li>
+                <li><strong>Squeeze Theorem</strong> — when the function oscillates</li>
+                <li><strong>Divide by highest power</strong> — for limits at infinity</li>
+            </ol>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- KEY TERMS -->
+        <!-- ============================================================ -->
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item">
+                    <strong>Limit</strong>
+                    <span>The value a function approaches as the input approaches some point, regardless of what happens at that point.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>One-sided limit</strong>
+                    <span>A limit where $x$ approaches from only one direction: left ($a^-$) or right ($a^+$).</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Indeterminate form</strong>
+                    <span>A form such as $\frac{0}{0}$ or $\frac{\infty}{\infty}$ that does not directly determine the limit's value.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Horizontal asymptote</strong>
+                    <span>A line $y = L$ that the function approaches as $x \to \pm\infty$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Vertical asymptote</strong>
+                    <span>A line $x = a$ where the function grows without bound.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Squeeze Theorem</strong>
+                    <span>If a function is trapped between two functions that converge to $L$, it must also converge to $L$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Continuity</strong>
+                    <span>A function is continuous at $a$ when $f(a)$ is defined, the limit exists, and they are equal.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Removable discontinuity</strong>
+                    <span>A "hole" where the limit exists but the function value is missing or wrong. Can be fixed by redefining $f(a)$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Jump discontinuity</strong>
+                    <span>The left and right limits both exist but are unequal, creating a "jump" in the graph.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Intermediate Value Theorem</strong>
+                    <span>A continuous function on $[a,b]$ takes on every value between $f(a)$ and $f(b)$. Used to prove existence of solutions.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chapter Navigation -->
+        <div class="chapter-nav">
+            <span class="disabled">&larr; Previous Chapter</span>
+            <a href="./derivatives.html">Chapter 2: Derivatives &rarr;</a>
+        </div>
+    </article>
+
+    <div class="footer">
+        <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+    </div>
+
+</body>
+</html>
