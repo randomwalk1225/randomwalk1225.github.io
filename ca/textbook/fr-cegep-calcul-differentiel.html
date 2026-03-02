@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcul différentiel — Cégep | MathHub</title>
+    <meta name="description" content="Cours complet de calcul différentiel pour le Cégep : limites, continuité, dérivées, règles de dérivation et applications.">
+    <meta name="keywords" content="calcul différentiel Cégep Québec, limites, dérivées, règle de la chaîne, optimisation, taux de variation">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/ca/textbook/fr-cegep-calcul-differentiel.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/ca/textbook/fr-cegep-calcul-differentiel.html">
+    <meta property="og:title" content="Calcul différentiel — Cégep | MathHub">
+    <meta property="og:description" content="Cours complet de calcul différentiel pour le Cégep : limites, continuité, dérivées, règles de dérivation et applications.">
+    <meta property="og:site_name" content="MathHub Global">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Calcul différentiel — Cégep",
+        "description": "Cours complet de calcul différentiel pour le Cégep : limites, continuité, dérivées, règles de dérivation et applications.",
+        "author": {"@type": "Organization", "name": "MathHub Global"},
+        "publisher": {"@type": "Organization", "name": "MathHub Global"},
+        "datePublished": "2026-03-01",
+        "dateModified": "2026-03-01",
+        "educationalLevel": "Cégep / Collégial",
+        "inLanguage": "fr-CA",
+        "mainEntityOfPage": "https://mathhub.io/ca/textbook/fr-cegep-calcul-differentiel.html"
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article{max-width:800px;margin:0 auto;padding:40px 20px;font-family:Arial,sans-serif;font-size:1.02em;line-height:1.8;}
+        .blog-article h1{font-size:2.1em;color:#1e3a5f;margin-bottom:12px;line-height:1.3;}
+        .blog-meta{color:#64748b;font-size:0.9em;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid #e2e8f0;}
+        .blog-article h2{font-size:1.5em;color:#1e3a5f;margin:40px 0 16px;padding-top:12px;border-top:2px solid #e2e8f0;}
+        .blog-article h3{font-size:1.2em;color:#334155;margin:24px 0 10px;}
+        .blog-article p{color:#334155;margin-bottom:16px;}
+        .blog-article ul,.blog-article ol{margin:12px 0 20px 24px;color:#334155;}
+        .blog-article li{margin-bottom:8px;}
+        .breadcrumb{font-size:0.85em;color:#64748b;margin-bottom:16px;}
+        .breadcrumb a{color:#1d4ed8;text-decoration:none;}
+        .definition-box{background:#e7f3ff;border-left:4px solid #1d4ed8;padding:20px;margin:20px 0;border-radius:8px;}
+        .definition-box h4{color:#1e40af;margin-bottom:10px;font-size:1.05em;}
+        .theorem-box{background:#fff3cd;border-left:4px solid #f59e0b;padding:20px;margin:20px 0;border-radius:8px;}
+        .theorem-box h4{color:#92400e;margin-bottom:10px;font-size:1.05em;}
+        .example-box{background:#f0f9ff;border-left:4px solid #0ea5e9;padding:20px;margin:20px 0;border-radius:8px;}
+        .example-box h4{color:#0369a1;margin-bottom:10px;font-size:1.05em;}
+        .example-box .solution{margin-top:14px;padding-top:12px;border-top:1px solid #bae6fd;}
+        .tip-box{background:#f0fdf4;border-left:4px solid #22c55e;padding:20px;margin:20px 0;border-radius:8px;}
+        .tip-box h4{color:#166534;margin-bottom:10px;font-size:1.05em;}
+        .practice-box{background:#fdf4ff;border-left:4px solid #a855f7;padding:20px;margin:20px 0;border-radius:8px;}
+        .practice-box h4{color:#7e22ce;margin-bottom:10px;font-size:1.05em;}
+        .warning-box{background:#fff1f2;border-left:4px solid #f43f5e;padding:20px;margin:20px 0;border-radius:8px;}
+        .warning-box h4{color:#be123c;margin-bottom:10px;font-size:1.05em;}
+        .step{background:#f8fafc;border-radius:6px;padding:10px 14px;margin:6px 0;border:1px solid #e2e8f0;}
+        .step-num{color:#1d4ed8;font-weight:bold;margin-right:8px;}
+        .niveau-badge{display:inline-block;background:#1e3a5f;color:white;font-size:0.78em;font-weight:700;padding:3px 10px;border-radius:12px;margin-left:8px;vertical-align:middle;}
+        table{width:100%;border-collapse:collapse;margin:20px 0;font-size:0.95em;}
+        th{background:#1e3a5f;color:white;padding:10px 14px;text-align:left;}
+        td{padding:8px 14px;border-bottom:1px solid #e2e8f0;color:#334155;}
+        tr:nth-child(even) td{background:#f8fafc;}
+        .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
+        .compare-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:16px;}
+        .compare-card h5{color:#1e3a5f;margin-bottom:8px;font-size:0.95em;}
+        .graph-container{text-align:center;margin:24px 0;}
+        .graph-caption{font-size:0.9em;color:#64748b;margin-top:8px;font-style:italic;}
+        .chapter-nav{display:flex;justify-content:space-between;margin-top:50px;padding-top:20px;border-top:1px solid #e2e8f0;}
+        .chapter-nav a{color:#1d4ed8;text-decoration:none;font-weight:500;}
+        .chapter-nav a:hover{text-decoration:underline;}
+        details.solution-box{margin-top:16px;}
+        details.solution-box summary{cursor:pointer;color:#1d4ed8;font-weight:600;padding:10px 14px;background:#eff6ff;border-radius:6px;list-style:none;user-select:none;}
+        details.solution-box summary::-webkit-details-marker{display:none;}
+        details.solution-box summary::before{content:"📖 ";}
+        details.solution-box[open] summary{background:#dbeafe;border-radius:6px 6px 0 0;}
+        .solution-content{padding:18px;background:#f8fafc;border:1px solid #dbeafe;border-radius:0 0 8px 8px;}
+        .solution-content .sol-item{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #e2e8f0;}
+        .solution-content .sol-item:last-child{border-bottom:none;margin-bottom:0;}
+        .sign-chart{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.92em;}
+        .sign-chart th{background:#334155;color:white;padding:7px 12px;text-align:center;}
+        .sign-chart td{padding:7px 12px;text-align:center;border:1px solid #cbd5e1;}
+        .sign-chart .pos{color:#16a34a;font-weight:700;}
+        .sign-chart .neg{color:#dc2626;font-weight:700;}
+        .sign-chart .zero{color:#7c3aed;font-weight:700;}
+        @media(max-width:640px){.compare-grid{grid-template-columns:1fr;}.blog-article h1{font-size:1.6em;}}
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/" class="active">CA</a>
+            <a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+            <a href="/ca/">MathHub Canada</a> &rsaquo;
+            <a href="/ca/">Manuels en ligne</a> &rsaquo;
+            Calcul différentiel (Cégep)
+        </nav>
+
+        <h1>Calcul différentiel</h1>
+        <div class="blog-meta">
+            Cégep &mdash; Sciences de la nature &mdash; Mise à jour&nbsp;: mars 2026
+        </div>
+
+        <!-- Table des matières -->
+        <div class="tip-box">
+            <h4>&#x1F4CB; Table des matières</h4>
+            <ol>
+                <li><a href="#limites">Limites</a> <span class="niveau-badge">Cégep</span></li>
+                <li><a href="#continuite">Continuité</a> <span class="niveau-badge">Cégep</span></li>
+                <li><a href="#definition-derivee">Définition de la dérivée</a> <span class="niveau-badge">Cégep</span></li>
+                <li><a href="#regles-derivation">Règles de dérivation</a> <span class="niveau-badge">Cégep</span></li>
+                <li><a href="#derivees-superieures">Dérivées d'ordre supérieur</a> <span class="niveau-badge">Cégep</span></li>
+                <li><a href="#applications">Applications de la dérivée</a> <span class="niveau-badge">Cégep</span></li>
+                <li><a href="#resume">Résumé des formules</a></li>
+            </ol>
+        </div>
+
+        <!-- ─────────────────────────────────────────── -->
+        <!-- Section 1 : Limites                        -->
+        <!-- ─────────────────────────────────────────── -->
+        <h2 id="limites">1. Limites <span class="niveau-badge">Cégep</span></h2>
+
+        <p>La notion de <strong>limite</strong> est la pierre angulaire du calcul différentiel et intégral. Elle permet de décrire le comportement d'une fonction lorsqu'une variable se rapproche d'une valeur donnée, sans nécessairement l'atteindre.</p>
+
+        <div class="definition-box">
+            <h4>&#x1F4D6; Définition intuitive — Limite</h4>
+            <p>On dit que la limite de $f(x)$ lorsque $x$ tend vers $a$ est $L$, et on écrit :</p>
+            $$\lim_{x \to a} f(x) = L$$
+            <p>si $f(x)$ peut être rendue aussi proche de $L$ que l'on veut, en choisissant $x$ suffisamment près de $a$ (sans que $x$ soit égal à $a$).</p>
+        </div>
+
+        <h3>Limites unilatérales</h3>
+        <p>Il est souvent utile de distinguer le comportement d'une fonction selon le côté dont on s'approche :</p>
+        <ul>
+            <li><strong>Limite à gauche :</strong> $\displaystyle\lim_{x \to a^-} f(x) = L^-$ &nbsp;&mdash;&nbsp; $x$ s'approche de $a$ par valeurs inférieures.</li>
+            <li><strong>Limite à droite :</strong> $\displaystyle\lim_{x \to a^+} f(x) = L^+$ &nbsp;&mdash;&nbsp; $x$ s'approche de $a$ par valeurs supérieures.</li>
+        </ul>
+
+        <div class="theorem-box">
+            <h4>&#x1F4D9; Théorème — Existence de la limite</h4>
+            <p>La limite $\displaystyle\lim_{x \to a} f(x)$ existe si et seulement si les deux limites unilatérales existent et sont égales :</p>
+            $$\lim_{x \to a} f(x) = L \quad \Longleftrightarrow \quad \lim_{x \to a^-} f(x) = \lim_{x \to a^+} f(x) = L$$
+        </div>
+
+        <!-- SVG : limite avec trou -->
+        <div class="graph-container">
+            <svg width="380" height="220" viewBox="0 0 380 220" aria-label="Graphique montrant une limite avec trou en x=a">
+                <!-- Axes -->
+                <line x1="30" y1="190" x2="370" y2="190" stroke="#94a3b8" stroke-width="1.5"/>
+                <line x1="30" y1="10" x2="30" y2="190" stroke="#94a3b8" stroke-width="1.5"/>
+                <!-- Flèches axes -->
+                <polygon points="370,187 376,190 370,193" fill="#94a3b8"/>
+                <polygon points="27,10 30,4 33,10" fill="#94a3b8"/>
+                <!-- Labels axes -->
+                <text x="372" y="194" font-size="12" fill="#64748b">x</text>
+                <text x="20" y="8" font-size="12" fill="#64748b">y</text>
+                <!-- Courbe gauche (x < a = 200) -->
+                <path d="M 50,160 C 80,150 120,120 160,100 C 175,93 188,88 198,84" stroke="#1d4ed8" stroke-width="2.5" fill="none"/>
+                <!-- Courbe droite (x > a) -->
+                <path d="M 204,84 C 214,80 230,76 260,72 C 300,67 340,60 360,55" stroke="#1d4ed8" stroke-width="2.5" fill="none"/>
+                <!-- Trou à x=a (200, 84) -->
+                <circle cx="201" cy="84" r="6" fill="white" stroke="#1d4ed8" stroke-width="2.5"/>
+                <!-- Point hors limite (valeur de f(a)) -->
+                <circle cx="201" cy="150" r="5" fill="#1d4ed8"/>
+                <!-- Ligne pointillée verticale -->
+                <line x1="201" y1="190" x2="201" y2="60" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5,4"/>
+                <!-- Ligne pointillée horizontale vers L -->
+                <line x1="30" y1="84" x2="201" y2="84" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="5,4"/>
+                <!-- Labels -->
+                <text x="194" y="205" font-size="12" fill="#f59e0b" font-weight="bold">a</text>
+                <text x="8" y="88" font-size="12" fill="#22c55e" font-weight="bold">L</text>
+                <text x="206" y="153" font-size="11" fill="#1d4ed8">f(a)</text>
+                <!-- Annotation trou -->
+                <text x="210" y="78" font-size="11" fill="#94a3b8" font-style="italic">trou</text>
+                <!-- Accolade / flèche vers trou -->
+                <line x1="209" y1="80" x2="205" y2="84" stroke="#94a3b8" stroke-width="1" marker-end="url(#arr)"/>
+            </svg>
+            <p class="graph-caption">La limite $\lim_{x \to a} f(x) = L$ existe même si $f(a)$ est indéfinie ou différente de $L$.</p>
+        </div>
+
+        <h3>Propriétés des limites</h3>
+        <p>Si $\displaystyle\lim_{x \to a} f(x) = L$ et $\displaystyle\lim_{x \to a} g(x) = M$, alors :</p>
+        <table>
+            <tr><th>Propriété</th><th>Formule</th></tr>
+            <tr><td>Somme / différence</td><td>$\displaystyle\lim_{x \to a}[f(x) \pm g(x)] = L \pm M$</td></tr>
+            <tr><td>Produit</td><td>$\displaystyle\lim_{x \to a}[f(x) \cdot g(x)] = L \cdot M$</td></tr>
+            <tr><td>Quotient</td><td>$\displaystyle\lim_{x \to a}\dfrac{f(x)}{g(x)} = \dfrac{L}{M}$, si $M \neq 0$</td></tr>
+            <tr><td>Puissance</td><td>$\displaystyle\lim_{x \to a}[f(x)]^n = L^n$</td></tr>
+            <tr><td>Constante</td><td>$\displaystyle\lim_{x \to a} c = c$</td></tr>
+            <tr><td>Identité</td><td>$\displaystyle\lim_{x \to a} x = a$</td></tr>
+        </table>
+
+        <h3>Formes indéterminées et techniques algébriques</h3>
+        <p>Certaines substitutions directes donnent des formes indéterminées comme $\dfrac{0}{0}$ ou $\dfrac{\infty}{\infty}$. Il faut alors utiliser des manipulations algébriques :</p>
+        <div class="compare-grid">
+            <div class="compare-card">
+                <h5>Factorisation</h5>
+                <p>Factoriser numérateur et dénominateur, puis simplifier les facteurs communs.</p>
+                <p style="font-size:0.88em;color:#64748b;">Utile quand : $\frac{0}{0}$ avec polynômes.</p>
+            </div>
+            <div class="compare-card">
+                <h5>Conjugué</h5>
+                <p>Multiplier par le conjugué $\frac{\sqrt{A}+B}{\sqrt{A}+B}$ pour éliminer les radicaux.</p>
+                <p style="font-size:0.88em;color:#64748b;">Utile quand : racine carrée au numérateur ou dénominateur.</p>
+            </div>
+        </div>
+
+        <h3>Limites à l'infini</h3>
+        <p>Lorsque $x \to \pm\infty$, on divise numérateur et dénominateur par la plus haute puissance de $x$ présente. Le résultat donne les <strong>asymptotes horizontales</strong>.</p>
+        <div class="tip-box">
+            <h4>&#x1F4A1; Règle pratique — Degré des polynômes</h4>
+            <p>Pour $\displaystyle\lim_{x\to\infty}\frac{a_n x^n + \cdots}{b_m x^m + \cdots}$ :</p>
+            <ul>
+                <li>$n < m$ : limite $= 0$ (asymptote horizontale $y=0$)</li>
+                <li>$n = m$ : limite $= \dfrac{a_n}{b_m}$</li>
+                <li>$n > m$ : limite $= \pm\infty$ (pas d'asymptote horizontale)</li>
+            </ul>
+        </div>
+
+        <!-- Exemples travaillés -->
+        <h3>Exemples résolus</h3>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 1 — Substitution directe</h4>
+            <p>Calculer $\displaystyle\lim_{x \to 3}(x^2 - 2x + 1)$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <p>La fonction $f(x) = x^2 - 2x + 1$ est un polynôme, continu partout. On substitue directement :</p>
+                $$\lim_{x \to 3}(x^2 - 2x + 1) = (3)^2 - 2(3) + 1 = 9 - 6 + 1 = \boxed{4}$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 2 — Factorisation</h4>
+            <p>Calculer $\displaystyle\lim_{x \to 2}\dfrac{x^2 - 4}{x - 2}$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <p>Substitution directe donne $\frac{0}{0}$, une forme indéterminée. On factorise :</p>
+                $$\lim_{x \to 2}\frac{x^2 - 4}{x - 2} = \lim_{x \to 2}\frac{(x-2)(x+2)}{x-2} = \lim_{x \to 2}(x+2) = 2 + 2 = \boxed{4}$$
+                <p style="color:#64748b;font-size:0.9em;">On peut simplifier $(x-2)$ car $x \neq 2$ (on s'approche de 2, sans l'atteindre).</p>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 3 — Conjugué (rationalisation)</h4>
+            <p>Calculer $\displaystyle\lim_{x \to 0}\dfrac{\sqrt{x+4} - 2}{x}$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <p>Substitution donne $\frac{0}{0}$. On multiplie par le conjugué :</p>
+                $$\lim_{x \to 0}\frac{\sqrt{x+4}-2}{x} \cdot \frac{\sqrt{x+4}+2}{\sqrt{x+4}+2} = \lim_{x \to 0}\frac{(x+4)-4}{x(\sqrt{x+4}+2)} = \lim_{x \to 0}\frac{x}{x(\sqrt{x+4}+2)}$$
+                $$= \lim_{x \to 0}\frac{1}{\sqrt{x+4}+2} = \frac{1}{\sqrt{4}+2} = \frac{1}{2+2} = \boxed{\dfrac{1}{4}}$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 4 — Limite à l'infini</h4>
+            <p>Calculer $\displaystyle\lim_{x \to \infty}\dfrac{3x^2 - x}{2x^2 + 5}$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <p>Degrés égaux ($n = m = 2$). On divise par $x^2$ :</p>
+                $$\lim_{x \to \infty}\frac{3x^2 - x}{2x^2 + 5} = \lim_{x \to \infty}\frac{3 - \frac{1}{x}}{2 + \frac{5}{x^2}} = \frac{3 - 0}{2 + 0} = \boxed{\dfrac{3}{2}}$$
+                <p>L'asymptote horizontale est $y = \dfrac{3}{2}$.</p>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 5 — Limite unilatérale</h4>
+            <p>Soit $f(x) = \begin{cases} x + 1 & \text{si } x < 2 \\ x^2 - 1 & \text{si } x \geq 2 \end{cases}$. Calculer $\displaystyle\lim_{x \to 2} f(x)$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">Étape 1</span> Limite à gauche : $\displaystyle\lim_{x \to 2^-} f(x) = \lim_{x \to 2^-}(x+1) = 2+1 = 3$</div>
+                <div class="step"><span class="step-num">Étape 2</span> Limite à droite : $\displaystyle\lim_{x \to 2^+} f(x) = \lim_{x \to 2^+}(x^2-1) = 4-1 = 3$</div>
+                <div class="step"><span class="step-num">Étape 3</span> Puisque $\displaystyle\lim_{x \to 2^-} f(x) = \lim_{x \to 2^+} f(x) = 3$, la limite existe : $\displaystyle\lim_{x \to 2} f(x) = \boxed{3}$</div>
+            </div>
+        </div>
+
+        <!-- Exercices section 1 -->
+        <div class="practice-box">
+            <h4>&#x1F4DD; Exercices — Limites <span class="niveau-badge">Cégep</span></h4>
+            <ol>
+                <li>$\displaystyle\lim_{x \to 4}(2x^2 - 3x + 1)$</li>
+                <li>$\displaystyle\lim_{x \to 1}\dfrac{x^2 - 1}{x - 1}$</li>
+                <li>$\displaystyle\lim_{x \to 3}\dfrac{x^2 - 9}{x^2 - 5x + 6}$</li>
+                <li>$\displaystyle\lim_{x \to 0}\dfrac{\sqrt{9 + x} - 3}{x}$</li>
+                <li>$\displaystyle\lim_{x \to \infty}\dfrac{5x^3 - 2x}{x^3 + 4x^2}$</li>
+                <li>$\displaystyle\lim_{x \to -\infty}\dfrac{2x^2 + x}{x^3 - 1}$</li>
+                <li>$\displaystyle\lim_{x \to 0^+}\dfrac{|x|}{x}$</li>
+                <li>Soit $g(x) = \begin{cases} 2x + 3 & x < 1 \\ x^2 + 4 & x \geq 1 \end{cases}$. La limite $\displaystyle\lim_{x \to 1} g(x)$ existe-t-elle&nbsp;? Justifier.</li>
+            </ol>
+        </div>
+
+        <details class="solution-box">
+            <summary>Solutions — Limites</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong> Substitution directe : $2(4)^2 - 3(4) + 1 = 32 - 12 + 1 = \mathbf{21}$
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong> $\dfrac{x^2-1}{x-1} = \dfrac{(x-1)(x+1)}{x-1} = x+1 \;\to\; \mathbf{2}$
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong> Factoriser : $\dfrac{(x-3)(x+3)}{(x-3)(x-2)} = \dfrac{x+3}{x-2} \;\to\; \dfrac{6}{1} = \mathbf{6}$
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong> Conjugué : $\dfrac{\sqrt{9+x}-3}{x} \cdot \dfrac{\sqrt{9+x}+3}{\sqrt{9+x}+3} = \dfrac{x}{x(\sqrt{9+x}+3)} = \dfrac{1}{\sqrt{9}+3} = \mathbf{\dfrac{1}{6}}$
+                </div>
+                <div class="sol-item">
+                    <strong>5.</strong> Diviser par $x^3$ : $\dfrac{5 - 2/x^2}{1 + 4/x} \to \mathbf{5}$
+                </div>
+                <div class="sol-item">
+                    <strong>6.</strong> Diviser par $x^3$ : $\dfrac{2/x + 1/x^2}{1 - 1/x^3} \to \dfrac{0}{1} = \mathbf{0}$
+                </div>
+                <div class="sol-item">
+                    <strong>7.</strong> Pour $x > 0$, $|x| = x$, donc $\dfrac{|x|}{x} = 1 \;\to\; \lim_{x\to 0^+} = \mathbf{1}$
+                </div>
+                <div class="sol-item">
+                    <strong>8.</strong> Limite à gauche : $2(1)+3 = 5$. Limite à droite : $1^2+4 = 5$. Les deux sont égales, donc $\displaystyle\lim_{x\to 1} g(x) = \mathbf{5}$ (la limite existe).
+                </div>
+            </div>
+        </details>
+
+        <!-- ─────────────────────────────────────────── -->
+        <!-- Section 2 : Continuité                     -->
+        <!-- ─────────────────────────────────────────── -->
+        <h2 id="continuite">2. Continuité <span class="niveau-badge">Cégep</span></h2>
+
+        <div class="definition-box">
+            <h4>&#x1F4D6; Définition — Continuité en un point</h4>
+            <p>Une fonction $f$ est <strong>continue en $x = a$</strong> si et seulement si les trois conditions suivantes sont satisfaites :</p>
+            <ol>
+                <li>$f(a)$ est définie (le point existe).</li>
+                <li>$\displaystyle\lim_{x \to a} f(x)$ existe.</li>
+                <li>$\displaystyle\lim_{x \to a} f(x) = f(a)$ (la limite égale la valeur de la fonction).</li>
+            </ol>
+            <p>Si l'une de ces conditions est violée, $f$ est <strong>discontinue en $a$</strong>.</p>
+        </div>
+
+        <h3>Types de discontinuité</h3>
+        <div class="compare-grid">
+            <div class="compare-card">
+                <h5>Discontinuité évitable (trou)</h5>
+                <p>La limite existe, mais $f(a)$ n'est pas définie ou $f(a) \neq L$.</p>
+                <p style="font-size:0.88em;color:#64748b;">Exemple : $\dfrac{x^2-4}{x-2}$ en $x=2$.</p>
+            </div>
+            <div class="compare-card">
+                <h5>Discontinuité de saut</h5>
+                <p>Les limites unilatérales existent mais sont différentes : $L^- \neq L^+$.</p>
+                <p style="font-size:0.88em;color:#64748b;">Exemple : fonctions définies par morceaux.</p>
+            </div>
+            <div class="compare-card">
+                <h5>Discontinuité infinie</h5>
+                <p>La limite est $\pm\infty$ en $x=a$ : présence d'une asymptote verticale.</p>
+                <p style="font-size:0.88em;color:#64748b;">Exemple : $\dfrac{1}{x}$ en $x=0$.</p>
+            </div>
+            <div class="compare-card">
+                <h5>Fonctions continues partout</h5>
+                <p>Polynômes, fonctions trigonométriques, exponentielles et logarithmes (sur leur domaine).</p>
+            </div>
+        </div>
+
+        <div class="theorem-box">
+            <h4>&#x1F4D9; Théorème — Valeur intermédiaire (TVI)</h4>
+            <p>Si $f$ est continue sur l'intervalle fermé $[a, b]$ et si $k$ est un nombre compris entre $f(a)$ et $f(b)$, alors il existe au moins un $c \in (a, b)$ tel que $f(c) = k$.</p>
+            <p><strong>Corollaire :</strong> Si $f(a)$ et $f(b)$ ont des signes opposés, l'équation $f(x) = 0$ a au moins une racine dans $(a, b)$.</p>
+        </div>
+
+        <h3>Exemples résolus</h3>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 1 — Vérifier la continuité</h4>
+            <p>Soit $f(x) = \dfrac{x^2 - 9}{x - 3}$. $f$ est-elle continue en $x = 3$ ?</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span> $f(3)$ : $f(3) = \dfrac{9-9}{3-3} = \dfrac{0}{0}$ — indéfini. <em>Condition 1 violée.</em></div>
+                <p>$f$ est <strong>discontinue en $x = 3$</strong> (discontinuité évitable). La limite vaut $\displaystyle\lim_{x\to 3}\frac{(x-3)(x+3)}{x-3} = 6$, mais $f(3)$ n'existe pas.</p>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 2 — Continuité d'une fonction définie par morceaux</h4>
+            <p>Trouver la valeur de $k$ qui rend $f$ continue en $x = 2$, sachant que
+            $f(x) = \begin{cases} 3x + k & x < 2 \\ x^2 + 1 & x \geq 2 \end{cases}$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <p>Pour la continuité, on doit avoir $\displaystyle\lim_{x\to 2^-} f(x) = f(2)$.</p>
+                <div class="step"><span class="step-num">1</span> $f(2) = (2)^2 + 1 = 5$</div>
+                <div class="step"><span class="step-num">2</span> $\displaystyle\lim_{x\to 2^-}(3x+k) = 6 + k$</div>
+                <div class="step"><span class="step-num">3</span> On pose $6 + k = 5 \;\Rightarrow\; k = \boxed{-1}$</div>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 3 — Application du TVI</h4>
+            <p>Montrer que $f(x) = x^3 - x - 1$ a au moins une racine dans l'intervalle $[1, 2]$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <p>$f$ est un polynôme, donc continue sur $[1, 2]$.</p>
+                <div class="step"><span class="step-num">1</span> $f(1) = 1 - 1 - 1 = -1 < 0$</div>
+                <div class="step"><span class="step-num">2</span> $f(2) = 8 - 2 - 1 = 5 > 0$</div>
+                <div class="step"><span class="step-num">3</span> Par le TVI, puisque $f(1) < 0 < f(2)$, il existe $c \in (1, 2)$ tel que $f(c) = 0$. &#x2713;</div>
+            </div>
+        </div>
+
+        <div class="practice-box">
+            <h4>&#x1F4DD; Exercices — Continuité <span class="niveau-badge">Cégep</span></h4>
+            <ol>
+                <li>Déterminer les points de discontinuité de $f(x) = \dfrac{x+1}{x^2 - x - 2}$ et préciser leur type.</li>
+                <li>Trouver la valeur de $a$ qui rend $f$ continue : $f(x) = \begin{cases} ax^2 - 2 & x \leq 1 \\ 3x + 1 & x > 1 \end{cases}$</li>
+                <li>Montrer que $g(x) = \cos x - x$ a une racine dans $\left(0, \dfrac{\pi}{2}\right)$.</li>
+                <li>Vrai ou faux : si $f$ est continue en $a$, alors $f$ est dérivable en $a$. Justifier avec un exemple.</li>
+            </ol>
+        </div>
+
+        <details class="solution-box">
+            <summary>Solutions — Continuité</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong> $x^2 - x - 2 = (x-2)(x+1)$. Discontinuités en $x = 2$ et $x = -1$.<br>
+                    En $x = -1$ : $f(-1) = \dfrac{0}{0}$ — discontinuité <em>évitable</em> (facteur commun $(x+1)$).<br>
+                    En $x = 2$ : $f(2) = \dfrac{3}{0}$ — discontinuité <em>infinie</em> (asymptote verticale).
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong> $f(1) = a(1)^2 - 2 = a - 2$ (valeur de la fonction). Limite à droite : $3(1)+1 = 4$. On pose $a - 2 = 4 \Rightarrow \mathbf{a = 6}$.
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong> $g$ est continue. $g(0) = \cos 0 - 0 = 1 > 0$. $g\!\left(\dfrac{\pi}{2}\right) = 0 - \dfrac{\pi}{2} < 0$. Par le TVI, $\exists\, c \in \left(0,\dfrac{\pi}{2}\right)$ tel que $g(c) = 0$.
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong> <strong>Faux.</strong> Contre-exemple : $f(x) = |x|$ est continue en $x = 0$ mais non dérivable en $x = 0$ (coin anguleux).
+                </div>
+            </div>
+        </details>
+
+        <!-- ─────────────────────────────────────────── -->
+        <!-- Section 3 : Définition de la dérivée       -->
+        <!-- ─────────────────────────────────────────── -->
+        <h2 id="definition-derivee">3. Définition de la dérivée <span class="niveau-badge">Cégep</span></h2>
+
+        <div class="definition-box">
+            <h4>&#x1F4D6; Définition — Dérivée d'une fonction</h4>
+            <p>La <strong>dérivée</strong> de $f$ en $x$, notée $f'(x)$, est définie par :</p>
+            $$f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}$$
+            <p>à condition que cette limite existe. La dérivée en un point $a$ est :</p>
+            $$f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}$$
+        </div>
+
+        <h3>Interprétation géométrique</h3>
+        <p>Le taux de variation $\dfrac{f(x+h)-f(x)}{h}$ représente la <strong>pente de la sécante</strong> entre les points $(x, f(x))$ et $(x+h, f(x+h))$. Quand $h \to 0$, cette sécante tend vers la <strong>tangente</strong> à la courbe en $(x, f(x))$.</p>
+
+        <!-- SVG : tangente -->
+        <div class="graph-container">
+            <svg width="380" height="220" viewBox="0 0 380 220" aria-label="Tangente à une courbe">
+                <!-- Axes -->
+                <line x1="30" y1="190" x2="370" y2="190" stroke="#94a3b8" stroke-width="1.5"/>
+                <line x1="30" y1="10" x2="30" y2="190" stroke="#94a3b8" stroke-width="1.5"/>
+                <polygon points="370,187 376,190 370,193" fill="#94a3b8"/>
+                <polygon points="27,10 30,4 33,10" fill="#94a3b8"/>
+                <text x="372" y="194" font-size="12" fill="#64748b">x</text>
+                <text x="20" y="8" font-size="12" fill="#64748b">y</text>
+                <!-- Parabole f(x) = x^2 / 60 + 100 (scaled) -->
+                <!-- Points: x=50->y=173, x=100->y=151, x=150->y=120, x=190->y=96, x=230->y=77, x=280->y=62, x=330->y=55 -->
+                <path d="M 50,173 C 90,155 130,128 190,96 C 240,70 290,58 340,52" stroke="#1d4ed8" stroke-width="2.5" fill="none"/>
+                <!-- Point de tangence à x=190, y=96 -->
+                <circle cx="190" cy="96" r="5" fill="#f59e0b"/>
+                <!-- Ligne tangente (pente ~-1) : y - 96 = -1.2(x - 190) -->
+                <line x1="90" y1="216" x2="310" y2="−28" stroke="#22c55e" stroke-width="2" stroke-dasharray="0"/>
+                <!-- Recalcul tangente visible : pass through (190,96), slope ≈ -1.1 -->
+                <line x1="80" y1="207" x2="320" y2="-37" stroke="#22c55e" stroke-width="2"/>
+                <!-- Visible portion clipped -->
+                <line x1="80" y1="207" x2="310" y2="45" stroke="#22c55e" stroke-width="2"/>
+                <!-- Label point -->
+                <text x="196" y="92" font-size="11" fill="#f59e0b" font-weight="bold">(a, f(a))</text>
+                <!-- Label tangente -->
+                <text x="316" y="42" font-size="11" fill="#22c55e">tangente</text>
+                <!-- Label courbe -->
+                <text x="344" y="56" font-size="11" fill="#1d4ed8">f(x)</text>
+                <!-- Ligne pointillée verticale -->
+                <line x1="190" y1="190" x2="190" y2="96" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3"/>
+                <text x="184" y="204" font-size="11" fill="#64748b">a</text>
+            </svg>
+            <p class="graph-caption">La dérivée $f'(a)$ est la pente de la droite tangente à la courbe $y = f(x)$ au point $(a, f(a))$.</p>
+        </div>
+
+        <h3>Notations de la dérivée</h3>
+        <table>
+            <tr><th>Notation</th><th>Signification</th></tr>
+            <tr><td>$f'(x)$</td><td>Notation de Lagrange (prime)</td></tr>
+            <tr><td>$\dfrac{dy}{dx}$</td><td>Notation de Leibniz</td></tr>
+            <tr><td>$\dfrac{d}{dx}[f(x)]$</td><td>Opérateur de dérivation</td></tr>
+            <tr><td>$\dot{y}$</td><td>Notation de Newton (souvent utilisée en physique)</td></tr>
+        </table>
+
+        <div class="warning-box">
+            <h4>&#x26A0;&#xFE0F; Dérivabilité implique continuité</h4>
+            <p>Si $f$ est dérivable en $a$, alors $f$ est nécessairement continue en $a$. La réciproque est <strong>fausse</strong> : une fonction peut être continue sans être dérivable (ex. : angle, point de rebroussement).</p>
+        </div>
+
+        <h3>Exemples résolus — Calcul par définition</h3>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 1 — Dérivée de $f(x) = x^2$</h4>
+            <div class="solution">
+                <strong>Solution :</strong>
+                $$f'(x) = \lim_{h \to 0}\frac{(x+h)^2 - x^2}{h} = \lim_{h \to 0}\frac{x^2 + 2xh + h^2 - x^2}{h} = \lim_{h \to 0}\frac{2xh + h^2}{h}$$
+                $$= \lim_{h \to 0}(2x + h) = \boxed{2x}$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 2 — Dérivée de $f(x) = \sqrt{x}$</h4>
+            <div class="solution">
+                <strong>Solution :</strong>
+                $$f'(x) = \lim_{h \to 0}\frac{\sqrt{x+h} - \sqrt{x}}{h} \cdot \frac{\sqrt{x+h}+\sqrt{x}}{\sqrt{x+h}+\sqrt{x}} = \lim_{h \to 0}\frac{(x+h)-x}{h(\sqrt{x+h}+\sqrt{x})}$$
+                $$= \lim_{h \to 0}\frac{1}{\sqrt{x+h}+\sqrt{x}} = \frac{1}{2\sqrt{x}} = \boxed{\dfrac{1}{2\sqrt{x}}}$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 3 — Dérivée de $f(x) = \dfrac{1}{x}$</h4>
+            <div class="solution">
+                <strong>Solution :</strong>
+                $$f'(x) = \lim_{h \to 0}\frac{\frac{1}{x+h} - \frac{1}{x}}{h} = \lim_{h \to 0}\frac{\frac{x - (x+h)}{x(x+h)}}{h} = \lim_{h \to 0}\frac{-h}{h \cdot x(x+h)}$$
+                $$= \lim_{h \to 0}\frac{-1}{x(x+h)} = \boxed{-\dfrac{1}{x^2}}$$
+            </div>
+        </div>
+
+        <div class="practice-box">
+            <h4>&#x1F4DD; Exercices — Définition de la dérivée <span class="niveau-badge">Cégep</span></h4>
+            <ol>
+                <li>Calculer $f'(x)$ par définition pour $f(x) = 3x^2 - 2x$.</li>
+                <li>Calculer $f'(1)$ par définition pour $f(x) = x^3$.</li>
+                <li>Calculer $f'(x)$ par définition pour $f(x) = \sqrt{2x + 1}$.</li>
+                <li>Une fonction $f$ vérifie $f(2) = 5$ et $\displaystyle\lim_{h\to 0}\frac{f(2+h)-5}{h} = -3$. Que vaut $f'(2)$ ? Quelle est l'équation de la tangente en $x = 2$ ?</li>
+            </ol>
+        </div>
+
+        <details class="solution-box">
+            <summary>Solutions — Définition de la dérivée</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong>
+                    $f'(x) = \lim_{h\to 0}\dfrac{3(x+h)^2-2(x+h) - (3x^2-2x)}{h} = \lim_{h\to 0}\dfrac{6xh+3h^2-2h}{h} = \lim_{h\to 0}(6x+3h-2) = \mathbf{6x-2}$
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong>
+                    $f'(1) = \lim_{h\to 0}\dfrac{(1+h)^3 - 1}{h} = \lim_{h\to 0}\dfrac{3h+3h^2+h^3}{h} = \lim_{h\to 0}(3+3h+h^2) = \mathbf{3}$
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong>
+                    Multiplier par le conjugué : $f'(x) = \lim_{h\to 0}\dfrac{\sqrt{2(x+h)+1}-\sqrt{2x+1}}{h} \cdot \dfrac{\sqrt{2(x+h)+1}+\sqrt{2x+1}}{\cdots} = \dfrac{2}{2\sqrt{2x+1}} = \mathbf{\dfrac{1}{\sqrt{2x+1}}}$
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong> La limite donnée est exactement la définition de $f'(2)$, donc $f'(2) = \mathbf{-3}$. Équation de la tangente : $y - 5 = -3(x - 2) \;\Rightarrow\; y = -3x + 11$.
+                </div>
+            </div>
+        </details>
+
+        <!-- ─────────────────────────────────────────── -->
+        <!-- Section 4 : Règles de dérivation           -->
+        <!-- ─────────────────────────────────────────── -->
+        <h2 id="regles-derivation">4. Règles de dérivation <span class="niveau-badge">Cégep</span></h2>
+
+        <p>En pratique, on utilise des règles générales plutôt que la définition pour calculer des dérivées. Ces règles s'obtiennent à partir de la définition.</p>
+
+        <table>
+            <tr><th>Règle</th><th>Formule</th><th>Exemple</th></tr>
+            <tr>
+                <td><strong>Constante</strong></td>
+                <td>$\dfrac{d}{dx}[c] = 0$</td>
+                <td>$(7)' = 0$</td>
+            </tr>
+            <tr>
+                <td><strong>Puissance</strong></td>
+                <td>$\dfrac{d}{dx}[x^n] = nx^{n-1}$</td>
+                <td>$(x^5)' = 5x^4$</td>
+            </tr>
+            <tr>
+                <td><strong>Constante × fonction</strong></td>
+                <td>$(cf)' = c\,f'$</td>
+                <td>$(3x^4)' = 12x^3$</td>
+            </tr>
+            <tr>
+                <td><strong>Somme / différence</strong></td>
+                <td>$(f \pm g)' = f' \pm g'$</td>
+                <td>$(x^3 + 2x)' = 3x^2+2$</td>
+            </tr>
+            <tr>
+                <td><strong>Produit</strong></td>
+                <td>$(fg)' = f'g + fg'$</td>
+                <td>$(x^2 \sin x)' = 2x\sin x + x^2\cos x$</td>
+            </tr>
+            <tr>
+                <td><strong>Quotient</strong></td>
+                <td>$\left(\dfrac{f}{g}\right)' = \dfrac{f'g - fg'}{g^2}$</td>
+                <td>$\left(\dfrac{x}{x+1}\right)' = \dfrac{1}{(x+1)^2}$</td>
+            </tr>
+            <tr>
+                <td><strong>Chaîne</strong></td>
+                <td>$[f(g(x))]' = f'(g(x))\cdot g'(x)$</td>
+                <td>$(\sin(x^2))' = \cos(x^2)\cdot 2x$</td>
+            </tr>
+            <tr>
+                <td><strong>$e^x$</strong></td>
+                <td>$(e^x)' = e^x$</td>
+                <td>$(e^x)' = e^x$</td>
+            </tr>
+            <tr>
+                <td><strong>$a^x$</strong></td>
+                <td>$(a^x)' = a^x \ln a$</td>
+                <td>$(2^x)' = 2^x \ln 2$</td>
+            </tr>
+            <tr>
+                <td><strong>$\ln x$</strong></td>
+                <td>$(\ln x)' = \dfrac{1}{x}$</td>
+                <td>$(\ln(3x))' = \dfrac{1}{x}$ (règle chaîne)</td>
+            </tr>
+            <tr>
+                <td><strong>$\log_a x$</strong></td>
+                <td>$(\log_a x)' = \dfrac{1}{x \ln a}$</td>
+                <td>$(\log_2 x)' = \dfrac{1}{x\ln 2}$</td>
+            </tr>
+            <tr>
+                <td><strong>$\sin x$</strong></td>
+                <td>$(\sin x)' = \cos x$</td>
+                <td>$(\sin x)' = \cos x$</td>
+            </tr>
+            <tr>
+                <td><strong>$\cos x$</strong></td>
+                <td>$(\cos x)' = -\sin x$</td>
+                <td>$(\cos x)' = -\sin x$</td>
+            </tr>
+            <tr>
+                <td><strong>$\tan x$</strong></td>
+                <td>$(\tan x)' = \sec^2 x$</td>
+                <td>$(\tan x)' = \dfrac{1}{\cos^2 x}$</td>
+            </tr>
+        </table>
+
+        <h3>Exemples résolus</h3>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 1 — Règle de puissance</h4>
+            <p>Calculer $f'(x)$ pour $f(x) = 4x^5 - 3x^3 + 7x - 2$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                $$f'(x) = 4(5x^4) - 3(3x^2) + 7(1) - 0 = \boxed{20x^4 - 9x^2 + 7}$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 2 — Règle du produit</h4>
+            <p>Calculer $\dfrac{d}{dx}[x^3 \cos x]$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <p>Poser $f = x^3$, $g = \cos x$. Alors $f' = 3x^2$, $g' = -\sin x$.</p>
+                $$(x^3 \cos x)' = 3x^2 \cos x + x^3(-\sin x) = \boxed{3x^2 \cos x - x^3 \sin x}$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 3 — Règle du quotient</h4>
+            <p>Calculer $\dfrac{d}{dx}\left[\dfrac{e^x}{x^2 + 1}\right]$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <p>$f = e^x$, $g = x^2+1$, $f' = e^x$, $g' = 2x$.</p>
+                $$\left(\frac{e^x}{x^2+1}\right)' = \frac{e^x(x^2+1) - e^x(2x)}{(x^2+1)^2} = \frac{e^x(x^2+1-2x)}{(x^2+1)^2} = \boxed{\frac{e^x(x-1)^2}{(x^2+1)^2}}$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 4 — Règle de la chaîne</h4>
+            <p>Calculer $\dfrac{d}{dx}[(3x^2 + 1)^7]$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <p>Poser $u = 3x^2+1$ (la fonction intérieure). Alors $f(u) = u^7$ et $u' = 6x$.</p>
+                $$\frac{d}{dx}[(3x^2+1)^7] = 7(3x^2+1)^6 \cdot 6x = \boxed{42x(3x^2+1)^6}$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 5 — Fonctions trigonométriques</h4>
+            <p>Calculer $\dfrac{d}{dx}[\sin(5x^3)]$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <p>Règle de la chaîne avec $u = 5x^3$, $f(u) = \sin u$ :</p>
+                $$\frac{d}{dx}[\sin(5x^3)] = \cos(5x^3) \cdot 15x^2 = \boxed{15x^2 \cos(5x^3)}$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 6 — Logarithme et exponentielle</h4>
+            <p>Calculer $\dfrac{d}{dx}[\ln(x^2+3)]$ et $\dfrac{d}{dx}[e^{-2x}]$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                $$\frac{d}{dx}[\ln(x^2+3)] = \frac{1}{x^2+3} \cdot 2x = \boxed{\frac{2x}{x^2+3}}$$
+                $$\frac{d}{dx}[e^{-2x}] = e^{-2x} \cdot (-2) = \boxed{-2e^{-2x}}$$
+            </div>
+        </div>
+
+        <div class="practice-box">
+            <h4>&#x1F4DD; Exercices — Règles de dérivation <span class="niveau-badge">Cégep</span></h4>
+            <ol>
+                <li>$f(x) = 6x^4 - 5x^2 + 9$</li>
+                <li>$g(x) = \sqrt{x} + \dfrac{3}{x^2}$ (écrire en forme puissance d'abord)</li>
+                <li>$h(x) = (2x+1)(x^3-4)$ (règle du produit)</li>
+                <li>$p(x) = \dfrac{x^2-1}{x^2+1}$ (règle du quotient)</li>
+                <li>$q(x) = (x^4 + 3x)^5$ (règle de la chaîne)</li>
+                <li>$r(x) = \sin(3x)\cos(3x)$ (produit + chaîne)</li>
+                <li>$s(x) = e^{x^2-1}$</li>
+                <li>$t(x) = \ln(\sin x)$</li>
+                <li>$u(x) = x^2 e^{-x}$ (produit)</li>
+                <li>$v(x) = \tan(x^2 + 1)$ (chaîne)</li>
+            </ol>
+        </div>
+
+        <details class="solution-box">
+            <summary>Solutions — Règles de dérivation</summary>
+            <div class="solution-content">
+                <div class="sol-item"><strong>1.</strong> $f'(x) = 24x^3 - 10x$</div>
+                <div class="sol-item"><strong>2.</strong> $g(x) = x^{1/2} + 3x^{-2}$, donc $g'(x) = \dfrac{1}{2}x^{-1/2} - 6x^{-3} = \dfrac{1}{2\sqrt{x}} - \dfrac{6}{x^3}$</div>
+                <div class="sol-item"><strong>3.</strong> $h'(x) = 2(x^3-4) + (2x+1)(3x^2) = 2x^3 - 8 + 6x^3 + 3x^2 = 8x^3 + 3x^2 - 8$</div>
+                <div class="sol-item"><strong>4.</strong> $p'(x) = \dfrac{2x(x^2+1) - (x^2-1)(2x)}{(x^2+1)^2} = \dfrac{4x}{(x^2+1)^2}$</div>
+                <div class="sol-item"><strong>5.</strong> $q'(x) = 5(x^4+3x)^4 \cdot (4x^3+3)$</div>
+                <div class="sol-item"><strong>6.</strong> $r'(x) = 3\cos(3x)\cos(3x) + \sin(3x)(-3\sin(3x)) = 3\cos^2(3x) - 3\sin^2(3x) = 3\cos(6x)$</div>
+                <div class="sol-item"><strong>7.</strong> $s'(x) = e^{x^2-1} \cdot 2x = 2xe^{x^2-1}$</div>
+                <div class="sol-item"><strong>8.</strong> $t'(x) = \dfrac{\cos x}{\sin x} = \cot x$</div>
+                <div class="sol-item"><strong>9.</strong> $u'(x) = 2xe^{-x} + x^2(-e^{-x}) = e^{-x}(2x - x^2) = xe^{-x}(2-x)$</div>
+                <div class="sol-item"><strong>10.</strong> $v'(x) = \sec^2(x^2+1) \cdot 2x = 2x\sec^2(x^2+1)$</div>
+            </div>
+        </details>
+
+        <!-- ─────────────────────────────────────────── -->
+        <!-- Section 5 : Dérivées d'ordre supérieur     -->
+        <!-- ─────────────────────────────────────────── -->
+        <h2 id="derivees-superieures">5. Dérivées d'ordre supérieur <span class="niveau-badge">Cégep</span></h2>
+
+        <div class="definition-box">
+            <h4>&#x1F4D6; Définition — Dérivée seconde</h4>
+            <p>La <strong>dérivée seconde</strong> de $f$, notée $f''(x)$ ou $\dfrac{d^2y}{dx^2}$, est la dérivée de la dérivée :</p>
+            $$f''(x) = \frac{d}{dx}[f'(x)]$$
+            <p>Elle mesure le <strong>taux de variation de la dérivée</strong>, c'est-à-dire la <em>concavité</em> de la courbe.</p>
+        </div>
+
+        <h3>Concavité et points d'inflexion</h3>
+        <table>
+            <tr><th>Signe de $f''(x)$</th><th>Comportement de $f$</th></tr>
+            <tr><td>$f''(x) > 0$</td><td>$f$ est <strong>concave vers le haut</strong> (cuvette &#x1F350;)</td></tr>
+            <tr><td>$f''(x) < 0$</td><td>$f$ est <strong>concave vers le bas</strong> (dôme &#x2229;)</td></tr>
+            <tr><td>$f''(c) = 0$ et changement de signe</td><td>Point d'inflexion en $x = c$</td></tr>
+        </table>
+
+        <h3>Exemples résolus</h3>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 1 — Dérivée seconde d'un polynôme</h4>
+            <p>Pour $f(x) = x^4 - 6x^2 + 2$, trouver $f''(x)$ et les intervalles de concavité.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span> $f'(x) = 4x^3 - 12x$</div>
+                <div class="step"><span class="step-num">2</span> $f''(x) = 12x^2 - 12 = 12(x^2-1) = 12(x-1)(x+1)$</div>
+                <div class="step"><span class="step-num">3</span> $f''(x) = 0$ pour $x = \pm 1$. Tableau de signes :</div>
+                <table class="sign-chart">
+                    <tr><th>Intervalle</th><th>$(-\infty,-1)$</th><th>$x=-1$</th><th>$(-1,1)$</th><th>$x=1$</th><th>$(1,+\infty)$</th></tr>
+                    <tr><td>$f''(x)$</td><td class="pos">+</td><td class="zero">0</td><td class="neg">&minus;</td><td class="zero">0</td><td class="pos">+</td></tr>
+                    <tr><td>Concavité</td><td>&#x2229; vers le haut</td><td>Inflexion</td><td>&#x2229; vers le bas</td><td>Inflexion</td><td>&#x2229; vers le haut</td></tr>
+                </table>
+                <p>Points d'inflexion : $x = -1$ et $x = 1$.</p>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 2 — Dérivée seconde avec chaîne</h4>
+            <p>Pour $g(x) = e^{-x^2}$, calculer $g''(x)$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span> $g'(x) = e^{-x^2} \cdot (-2x) = -2xe^{-x^2}$</div>
+                <div class="step"><span class="step-num">2</span> Règle du produit : $g''(x) = (-2)(e^{-x^2}) + (-2x)(e^{-x^2})(-2x) = -2e^{-x^2} + 4x^2e^{-x^2}$</div>
+                $$g''(x) = e^{-x^2}(4x^2 - 2) = \boxed{2e^{-x^2}(2x^2-1)}$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 3 — Dérivée $n$-ième</h4>
+            <p>Trouver la formule générale pour $\dfrac{d^n}{dx^n}[e^{kx}]$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <p>$(e^{kx})' = ke^{kx}$, $(e^{kx})'' = k^2 e^{kx}$, $(e^{kx})''' = k^3 e^{kx}$, d'où :</p>
+                $$\frac{d^n}{dx^n}[e^{kx}] = \boxed{k^n e^{kx}}$$
+            </div>
+        </div>
+
+        <div class="practice-box">
+            <h4>&#x1F4DD; Exercices — Dérivées d'ordre supérieur <span class="niveau-badge">Cégep</span></h4>
+            <ol>
+                <li>Calculer $f''(x)$ pour $f(x) = 3x^5 - 10x^3 + 6x$. Trouver les intervalles de concavité.</li>
+                <li>Calculer $g''(x)$ pour $g(x) = \sin(2x)$.</li>
+                <li>Calculer $h''(x)$ pour $h(x) = x \cdot \ln x$ ($x > 0$).</li>
+                <li>Trouver le(s) point(s) d'inflexion de $f(x) = x^3 - 3x^2 + 2$.</li>
+            </ol>
+        </div>
+
+        <details class="solution-box">
+            <summary>Solutions — Dérivées d'ordre supérieur</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong> $f'(x) = 15x^4 - 30x^2 + 6$. $f''(x) = 60x^3 - 60x = 60x(x^2-1) = 60x(x-1)(x+1)$.<br>
+                    $f'' > 0$ sur $(-1,0)$ et $(1,+\infty)$ : concave vers le haut.<br>
+                    $f'' < 0$ sur $(-\infty,-1)$ et $(0,1)$ : concave vers le bas.<br>
+                    Points d'inflexion : $x = -1, 0, 1$.
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong> $g'(x) = 2\cos(2x)$. $g''(x) = -4\sin(2x)$.
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong> $h'(x) = \ln x + x \cdot \dfrac{1}{x} = \ln x + 1$. $h''(x) = \dfrac{1}{x}$.
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong> $f'(x) = 3x^2 - 6x$. $f''(x) = 6x - 6 = 6(x-1)$. $f''(1) = 0$ et changement de signe. Point d'inflexion en $x = 1$ : $(1, f(1)) = (1, 0)$.
+                </div>
+            </div>
+        </details>
+
+        <!-- ─────────────────────────────────────────── -->
+        <!-- Section 6 : Applications de la dérivée     -->
+        <!-- ─────────────────────────────────────────── -->
+        <h2 id="applications">6. Applications de la dérivée <span class="niveau-badge">Cégep</span></h2>
+
+        <!-- 6.1 Équation de la tangente -->
+        <h3>6.1 Équation de la droite tangente</h3>
+
+        <div class="definition-box">
+            <h4>&#x1F4D6; Formule — Droite tangente</h4>
+            <p>La droite tangente à $y = f(x)$ au point $(a, f(a))$ a pour équation :</p>
+            $$y - f(a) = f'(a)\,(x - a)$$
+            <p>où $f'(a)$ est la pente de la tangente.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 1 — Tangente à une parabole</h4>
+            <p>Trouver l'équation de la tangente à $f(x) = x^2 - 3x + 2$ en $x = 1$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span> Point : $f(1) = 1 - 3 + 2 = 0 \;\Rightarrow\; (1, 0)$</div>
+                <div class="step"><span class="step-num">2</span> Pente : $f'(x) = 2x - 3 \;\Rightarrow\; f'(1) = -1$</div>
+                <div class="step"><span class="step-num">3</span> Équation : $y - 0 = -1(x - 1) \;\Rightarrow\; \boxed{y = -x + 1}$</div>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 2 — Tangente à une fonction exponentielle</h4>
+            <p>Trouver l'équation de la tangente à $g(x) = e^{2x}$ en $x = 0$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span> $g(0) = e^0 = 1 \;\Rightarrow\; (0, 1)$</div>
+                <div class="step"><span class="step-num">2</span> $g'(x) = 2e^{2x} \;\Rightarrow\; g'(0) = 2$</div>
+                <div class="step"><span class="step-num">3</span> $y - 1 = 2(x - 0) \;\Rightarrow\; \boxed{y = 2x + 1}$</div>
+            </div>
+        </div>
+
+        <!-- 6.2 Extrema -->
+        <h3>6.2 Maxima et minima (extrema)</h3>
+
+        <div class="definition-box">
+            <h4>&#x1F4D6; Points critiques</h4>
+            <p>Un <strong>point critique</strong> de $f$ est un $c$ dans le domaine de $f$ tel que $f'(c) = 0$ ou $f'(c)$ est indéfinie.</p>
+            <p>Les extrema locaux ne peuvent se produire qu'aux points critiques.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>&#x1F4D9; Test de la dérivée première (tableau de signes)</h4>
+            <p>Soit $c$ un point critique de $f$ :</p>
+            <ul>
+                <li>Si $f'$ change de $+$ à $-$ en $c$ : <strong>maximum local</strong> en $c$.</li>
+                <li>Si $f'$ change de $-$ à $+$ en $c$ : <strong>minimum local</strong> en $c$.</li>
+                <li>Si $f'$ ne change pas de signe : ni maximum, ni minimum.</li>
+            </ul>
+        </div>
+
+        <div class="theorem-box">
+            <h4>&#x1F4D9; Test de la dérivée seconde</h4>
+            <p>Soit $f'(c) = 0$ :</p>
+            <ul>
+                <li>$f''(c) > 0$ : minimum local en $c$.</li>
+                <li>$f''(c) < 0$ : maximum local en $c$.</li>
+                <li>$f''(c) = 0$ : test non concluant (revenir au test de la dérivée première).</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple — Trouver et classifier les extrema</h4>
+            <p>Trouver et classifier les extrema locaux de $f(x) = x^3 - 3x^2 - 9x + 5$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span> $f'(x) = 3x^2 - 6x - 9 = 3(x^2-2x-3) = 3(x-3)(x+1)$</div>
+                <div class="step"><span class="step-num">2</span> Points critiques : $x = 3$ et $x = -1$</div>
+                <div class="step"><span class="step-num">3</span> Tableau de signes de $f'$ :</div>
+                <table class="sign-chart">
+                    <tr><th>Intervalle</th><th>$(-\infty,-1)$</th><th>$x=-1$</th><th>$(-1,3)$</th><th>$x=3$</th><th>$(3,+\infty)$</th></tr>
+                    <tr><td>$f'(x)$</td><td class="pos">+</td><td class="zero">0</td><td class="neg">&minus;</td><td class="zero">0</td><td class="pos">+</td></tr>
+                    <tr><td>$f$</td><td>&#x2197; croissant</td><td><strong>max local</strong></td><td>&#x2198; décroissant</td><td><strong>min local</strong></td><td>&#x2197; croissant</td></tr>
+                </table>
+                <div class="step"><span class="step-num">4</span> Valeurs : $f(-1) = -1-3+9+5 = 10$ (maximum local) ; $f(3) = 27-27-27+5 = -22$ (minimum local)</div>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple — Extrema absolus sur $[a,b]$</h4>
+            <p>Trouver les extrema absolus de $f(x) = x^3 - 12x$ sur $[-3, 5]$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span> $f'(x) = 3x^2 - 12 = 3(x-2)(x+2)$. Points critiques dans $[-3,5]$ : $x = 2$ (et $x=-2$).</div>
+                <div class="step"><span class="step-num">2</span> Évaluer aux points critiques et aux extrémités :
+                    <ul>
+                        <li>$f(-3) = -27 + 36 = 9$</li>
+                        <li>$f(-2) = -8 + 24 = 16$</li>
+                        <li>$f(2) = 8 - 24 = -16$</li>
+                        <li>$f(5) = 125 - 60 = 65$</li>
+                    </ul>
+                </div>
+                <div class="step"><span class="step-num">3</span> Maximum absolu : $\boxed{65}$ en $x = 5$. Minimum absolu : $\boxed{-16}$ en $x = 2$.</div>
+            </div>
+        </div>
+
+        <!-- 6.3 Optimisation -->
+        <h3>6.3 Problèmes d'optimisation</h3>
+
+        <div class="tip-box">
+            <h4>&#x1F4A1; Méthode générale — Optimisation</h4>
+            <div class="step"><span class="step-num">1</span> Lire et comprendre le problème. Identifier la quantité à optimiser.</div>
+            <div class="step"><span class="step-num">2</span> Définir les variables et écrire la <strong>fonction objectif</strong> $Q = f(x)$.</div>
+            <div class="step"><span class="step-num">3</span> Trouver le <strong>domaine</strong> de $f$ (valeurs réalistes de $x$).</div>
+            <div class="step"><span class="step-num">4</span> Calculer $f'(x)$ et résoudre $f'(x) = 0$.</div>
+            <div class="step"><span class="step-num">5</span> Vérifier que c'est bien un maximum/minimum (test de la 1re ou 2e dérivée).</div>
+            <div class="step"><span class="step-num">6</span> Répondre à la question avec unités.</div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 1 — Boîte sans couvercle</h4>
+            <p>On découpe des carrés de côté $x$ aux coins d'une feuille de carton de 40 cm × 40 cm, puis on replie pour former une boîte sans couvercle. Quelle valeur de $x$ maximise le volume ?</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span> Dimensions de la boîte : longueur $= 40-2x$, largeur $= 40-2x$, hauteur $= x$.</div>
+                <div class="step"><span class="step-num">2</span> Volume : $V(x) = x(40-2x)^2$, domaine $x \in (0, 20)$.</div>
+                <div class="step"><span class="step-num">3</span> Développer : $V(x) = x(1600 - 160x + 4x^2) = 4x^3 - 160x^2 + 1600x$</div>
+                <div class="step"><span class="step-num">4</span> $V'(x) = 12x^2 - 320x + 1600 = 4(3x^2 - 80x + 400) = 4(3x-20)(x-20)$</div>
+                <div class="step"><span class="step-num">5</span> $V'(x) = 0 \;\Rightarrow\; x = \dfrac{20}{3}$ ou $x = 20$. Seul $x = \dfrac{20}{3} \approx 6{,}67$ cm est dans $(0,20)$.</div>
+                <div class="step"><span class="step-num">6</span> $V''(x) = 24x - 320$. $V''\!\left(\dfrac{20}{3}\right) = 160 - 320 = -160 < 0$ : maximum confirmé.</div>
+                <p>Le volume maximal est obtenu pour $x = \boxed{\dfrac{20}{3} \approx 6{,}67 \text{ cm}}$. $V_{\max} = \dfrac{20}{3}\left(40-\dfrac{40}{3}\right)^2 \approx 4741 \text{ cm}^3$.</p>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 2 — Rectangle de périmètre fixé</h4>
+            <p>Parmi tous les rectangles de périmètre 40 m, trouver celui qui a la plus grande aire.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span> Soit $x$ la largeur. Périmètre : $2x + 2y = 40 \;\Rightarrow\; y = 20 - x$.</div>
+                <div class="step"><span class="step-num">2</span> Aire : $A(x) = x(20-x) = 20x - x^2$, $x \in (0, 20)$.</div>
+                <div class="step"><span class="step-num">3</span> $A'(x) = 20 - 2x = 0 \;\Rightarrow\; x = 10$.</div>
+                <div class="step"><span class="step-num">4</span> $A''(x) = -2 < 0$ : maximum. $y = 20 - 10 = 10$ m.</div>
+                <p>Le rectangle de périmètre maximal est le <strong>carré</strong> de côté $\boxed{10 \text{ m}}$, avec une aire de 100 m².</p>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 3 — Prix optimal pour maximiser le revenu</h4>
+            <p>Un magasin vend 200 articles par semaine à 10 $ l'unité. Une étude montre que pour chaque augmentation de 1 $, les ventes diminuent de 10 articles. Quel prix maximise le revenu ?</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span> Soit $x$ le nombre de dollars d'augmentation. Prix $= 10 + x$, quantité $= 200 - 10x$.</div>
+                <div class="step"><span class="step-num">2</span> Revenu : $R(x) = (10+x)(200-10x) = 2000 - 100x + 200x - 10x^2 = 2000 + 100x - 10x^2$</div>
+                <div class="step"><span class="step-num">3</span> $R'(x) = 100 - 20x = 0 \;\Rightarrow\; x = 5$</div>
+                <div class="step"><span class="step-num">4</span> $R''(x) = -20 < 0$ : maximum.</div>
+                <p>Prix optimal : $10 + 5 = \boxed{\$15}$. Revenu maximal : $R(5) = 2000 + 500 - 250 = \$2250$/semaine.</p>
+            </div>
+        </div>
+
+        <div class="practice-box">
+            <h4>&#x1F4DD; Exercices — Optimisation <span class="niveau-badge">Cégep</span></h4>
+            <ol>
+                <li>Trouver l'équation de la tangente à $f(x) = x^3 - 4x + 2$ en $x = 2$.</li>
+                <li>Trouver les extrema locaux de $g(x) = 2x^3 - 9x^2 + 12x - 1$ à l'aide d'un tableau de signes.</li>
+                <li>Trouver les extrema absolus de $h(x) = x^4 - 8x^2$ sur $[-3, 3]$.</li>
+                <li>On souhaite enclore un espace rectangulaire avec 120 m de clôture. Quelle est l'aire maximale que l'on peut enclore ?</li>
+                <li>La demande pour un produit est $q = 400 - 2p$ (où $p$ est le prix). Quel prix maximise le revenu total $R = p \cdot q$ ?</li>
+                <li>Un cylindre droit ouvert (sans dessus) doit avoir un volume de $500\pi$ cm³. Trouver les dimensions (rayon et hauteur) qui minimisent la quantité de matériau utilisée.</li>
+            </ol>
+        </div>
+
+        <details class="solution-box">
+            <summary>Solutions — Optimisation</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong> $f'(x) = 3x^2-4$. $f'(2) = 8$. $f(2) = 8-8+2 = 2$. Tangente : $y - 2 = 8(x-2) \;\Rightarrow\; y = 8x - 14$.
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong> $g'(x) = 6x^2-18x+12 = 6(x-1)(x-2)$. Points critiques : $x=1$ et $x=2$.<br>
+                    $g'$ : $+$ sur $(-\infty,1)$, $-$ sur $(1,2)$, $+$ sur $(2,\infty)$.<br>
+                    Maximum local en $x=1$ : $g(1) = 2-9+12-1 = 4$.<br>
+                    Minimum local en $x=2$ : $g(2) = 16-36+24-1 = 3$.
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong> $h'(x) = 4x^3-16x = 4x(x-2)(x+2)$. Points critiques dans $[-3,3]$: $x = -2, 0, 2$.<br>
+                    $h(-3)=81-72=9$, $h(-2)=16-32=-16$, $h(0)=0$, $h(2)=-16$, $h(3)=9$.<br>
+                    Maximum absolu : $\mathbf{9}$ (en $x=\pm 3$). Minimum absolu : $\mathbf{-16}$ (en $x=\pm 2$).
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong> Périmètre : $2x+2y=120 \Rightarrow y=60-x$. Aire $A = x(60-x) = 60x-x^2$. $A'=60-2x=0 \Rightarrow x=30$. Aire max $= 30\times 30 = \mathbf{900 \text{ m}^2}$.
+                </div>
+                <div class="sol-item">
+                    <strong>5.</strong> $R = p(400-2p) = 400p - 2p^2$. $R' = 400-4p = 0 \Rightarrow p = \mathbf{100}$. $q = 200$, $R_{\max} = 20\,000$.
+                </div>
+                <div class="sol-item">
+                    <strong>6.</strong> $V = \pi r^2 h = 500\pi \Rightarrow h = \dfrac{500}{r^2}$.<br>
+                    Matériau : $S = \pi r^2 + 2\pi r h = \pi r^2 + \dfrac{1000\pi}{r}$.<br>
+                    $S' = 2\pi r - \dfrac{1000\pi}{r^2} = 0 \Rightarrow 2r^3 = 1000 \Rightarrow r = \sqrt[3]{500} \approx 7{,}94$ cm.<br>
+                    $h = \dfrac{500}{r^2} \approx 7{,}94$ cm. Le rayon et la hauteur sont égaux.
+                </div>
+            </div>
+        </details>
+
+        <!-- 6.4 Analyse complète -->
+        <h3>6.4 Analyse complète d'une fonction</h3>
+
+        <div class="tip-box">
+            <h4>&#x1F4A1; Étapes d'une analyse complète</h4>
+            <ol>
+                <li><strong>Domaine</strong> de définition.</li>
+                <li><strong>Parité</strong> : paire ($f(-x)=f(x)$), impaire ($f(-x)=-f(x)$), ou ni l'un ni l'autre.</li>
+                <li><strong>Zéros</strong> : résoudre $f(x)=0$.</li>
+                <li><strong>Asymptotes</strong> : verticales ($\lim_{x\to a}\!=\!\pm\infty$), horizontales ($\lim_{x\to\pm\infty}$).</li>
+                <li><strong>Croissance/décroissance</strong> : tableau de signes de $f'$.</li>
+                <li><strong>Extrema locaux</strong> : points critiques, test de la 1re dérivée.</li>
+                <li><strong>Concavité</strong> : tableau de signes de $f''$.</li>
+                <li><strong>Points d'inflexion</strong> : où $f''=0$ avec changement de signe.</li>
+                <li><strong>Esquisse</strong> de la courbe.</li>
+            </ol>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 1 — Analyse complète d'une fonction rationnelle</h4>
+            <p>Analyser complètement $f(x) = \dfrac{x^2}{x^2 - 4}$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">Dom.</span> $x \neq \pm 2$ : $\mathbb{R} \setminus \{-2, 2\}$.</div>
+                <div class="step"><span class="step-num">Parité</span> $f(-x) = \dfrac{(-x)^2}{(-x)^2-4} = f(x)$ : fonction <strong>paire</strong> (symétrie par rapport à l'axe $y$).</div>
+                <div class="step"><span class="step-num">Zéros</span> $f(x)=0 \Rightarrow x^2=0 \Rightarrow x=0$.</div>
+                <div class="step"><span class="step-num">Asymptotes</span>
+                    <ul>
+                        <li>Verticales : $x=2$ et $x=-2$ (dénominateur nul).</li>
+                        <li>Horizontale : $\displaystyle\lim_{x\to\infty}\frac{x^2}{x^2-4} = 1$ : asymptote $y=1$.</li>
+                    </ul>
+                </div>
+                <div class="step"><span class="step-num">$f'$</span> $f'(x) = \dfrac{2x(x^2-4) - x^2(2x)}{(x^2-4)^2} = \dfrac{-8x}{(x^2-4)^2}$</div>
+                <table class="sign-chart">
+                    <tr><th>$x$</th><th>$(-\infty,-2)$</th><th>$-2$</th><th>$(-2,0)$</th><th>$0$</th><th>$(0,2)$</th><th>$2$</th><th>$(2,\infty)$</th></tr>
+                    <tr><td>$f'$</td><td class="pos">+</td><td>—</td><td class="pos">+</td><td class="zero">0</td><td class="neg">&minus;</td><td>—</td><td class="neg">&minus;</td></tr>
+                    <tr><td>$f$</td><td>&#x2197;</td><td>A.V.</td><td>&#x2197;</td><td>max</td><td>&#x2198;</td><td>A.V.</td><td>&#x2198;</td></tr>
+                </table>
+                <div class="step"><span class="step-num">Ext.</span> Maximum local en $x=0$ : $f(0) = 0$.</div>
+                <div class="step"><span class="step-num">$f''$</span> $f''(x) = \dfrac{8(3x^2+4)}{(x^2-4)^3}$. Concave vers le haut sur $(-\infty,-2)\cup(2,\infty)$, vers le bas sur $(-2,2)$. Pas de point d'inflexion (discontinuités en $\pm2$).</div>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x1F4CC; Exemple 2 — Analyse d'un polynôme cubique</h4>
+            <p>Analyser complètement $g(x) = x^3 - 3x + 2$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">Dom.</span> $\mathbb{R}$.</div>
+                <div class="step"><span class="step-num">Zéros</span> $g(x) = (x-1)^2(x+2)$. Zéros : $x = 1$ (double) et $x = -2$.</div>
+                <div class="step"><span class="step-num">$g'$</span> $g'(x) = 3x^2-3 = 3(x-1)(x+1)$. Points critiques : $x=\pm 1$.</div>
+                <table class="sign-chart">
+                    <tr><th>$x$</th><th>$(-\infty,-1)$</th><th>$-1$</th><th>$(-1,1)$</th><th>$1$</th><th>$(1,\infty)$</th></tr>
+                    <tr><td>$g'$</td><td class="pos">+</td><td class="zero">0</td><td class="neg">&minus;</td><td class="zero">0</td><td class="pos">+</td></tr>
+                    <tr><td>$g$</td><td>&#x2197;</td><td>max $g(-1)=4$</td><td>&#x2198;</td><td>min $g(1)=0$</td><td>&#x2197;</td></tr>
+                </table>
+                <div class="step"><span class="step-num">$g''$</span> $g''(x) = 6x$. Concave vers le haut sur $(0,\infty)$, vers le bas sur $(-\infty,0)$. Point d'inflexion en $x=0$ : $(0, 2)$.</div>
+            </div>
+        </div>
+
+        <!-- ─────────────────────────────────────────── -->
+        <!-- Section 7 : Résumé des formules            -->
+        <!-- ─────────────────────────────────────────── -->
+        <h2 id="resume">7. Résumé des formules de dérivation <span class="niveau-badge">Cégep</span></h2>
+
+        <table>
+            <tr><th>Fonction $f(x)$</th><th>Dérivée $f'(x)$</th></tr>
+            <tr><td>$c$ (constante)</td><td>$0$</td></tr>
+            <tr><td>$x^n$</td><td>$nx^{n-1}$</td></tr>
+            <tr><td>$e^x$</td><td>$e^x$</td></tr>
+            <tr><td>$a^x$</td><td>$a^x \ln a$</td></tr>
+            <tr><td>$\ln x$</td><td>$\dfrac{1}{x}$</td></tr>
+            <tr><td>$\log_a x$</td><td>$\dfrac{1}{x \ln a}$</td></tr>
+            <tr><td>$\sin x$</td><td>$\cos x$</td></tr>
+            <tr><td>$\cos x$</td><td>$-\sin x$</td></tr>
+            <tr><td>$\tan x$</td><td>$\sec^2 x$</td></tr>
+            <tr><td>$\csc x$</td><td>$-\csc x \cot x$</td></tr>
+            <tr><td>$\sec x$</td><td>$\sec x \tan x$</td></tr>
+            <tr><td>$\cot x$</td><td>$-\csc^2 x$</td></tr>
+        </table>
+
+        <table>
+            <tr><th colspan="2">Règles de combinaison</th></tr>
+            <tr><td>Produit</td><td>$(fg)' = f'g + fg'$</td></tr>
+            <tr><td>Quotient</td><td>$\left(\dfrac{f}{g}\right)' = \dfrac{f'g - fg'}{g^2}$</td></tr>
+            <tr><td>Chaîne</td><td>$[f(g(x))]' = f'(g(x))\cdot g'(x)$</td></tr>
+        </table>
+
+        <table>
+            <tr><th colspan="2">Analyse de la fonction</th></tr>
+            <tr><td>$f'(x) > 0$</td><td>$f$ est croissante</td></tr>
+            <tr><td>$f'(x) < 0$</td><td>$f$ est décroissante</td></tr>
+            <tr><td>$f''(x) > 0$</td><td>$f$ est concave vers le haut</td></tr>
+            <tr><td>$f''(x) < 0$</td><td>$f$ est concave vers le bas</td></tr>
+            <tr><td>$f'(c) = 0$, $f'$ change de signe</td><td>extremum local en $c$</td></tr>
+            <tr><td>$f''(c) = 0$, $f''$ change de signe</td><td>point d'inflexion en $c$</td></tr>
+        </table>
+
+        <!-- Navigation -->
+        <div class="chapter-nav">
+            <a href="/ca/textbook/fr-sec5-fonctions-avancees.html">&#x2190; Fonctions avancées (Sec 5)</a>
+            <a href="/ca/textbook/fr-cegep-calcul-integral.html">Calcul intégral &#x2192;</a>
+        </div>
+
+    </article>
+
+    <footer style="text-align:center; padding:30px 20px; color:#64748b; font-size:0.88em; border-top:1px solid #e2e8f0; margin-top:40px;">
+        &copy; 2026 MathHub Global &mdash; Contenu éducatif gratuit pour le Cégep.
+    </footer>
+</body>
+</html>

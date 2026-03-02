@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suites et dénombrement — Secondaire 5 | MathHub</title>
+    <meta name="description" content="Cours complet de suites arithmétiques et géométriques, permutations, combinaisons et triangle de Pascal pour le Secondaire 5 au Québec.">
+    <meta name="keywords" content="suites arithmétiques géométriques secondaire 5 Québec, permutations combinaisons, triangle Pascal, dénombrement, PFEQ">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/ca/textbook/fr-sec5-suites-combinatoire.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/ca/textbook/fr-sec5-suites-combinatoire.html">
+    <meta property="og:title" content="Suites et dénombrement — Secondaire 5 | MathHub">
+    <meta property="og:description" content="Cours complet de suites arithmétiques et géométriques, permutations, combinaisons et triangle de Pascal pour le Secondaire 5 au Québec.">
+    <meta property="og:site_name" content="MathHub Global">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Suites et dénombrement — Secondaire 5",
+        "description": "Cours complet de suites arithmétiques et géométriques, permutations, combinaisons et triangle de Pascal pour le Secondaire 5 au Québec.",
+        "author": {"@type": "Organization", "name": "MathHub Global"},
+        "publisher": {"@type": "Organization", "name": "MathHub Global"},
+        "datePublished": "2026-03-01",
+        "dateModified": "2026-03-01",
+        "educationalLevel": "Secondary 5",
+        "inLanguage": "fr-CA",
+        "mainEntityOfPage": "https://mathhub.io/ca/textbook/fr-sec5-suites-combinatoire.html"
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article{max-width:800px;margin:0 auto;padding:40px 20px;font-family:Arial,sans-serif;font-size:1.02em;line-height:1.8;}
+        .blog-article h1{font-size:2.1em;color:#1e3a5f;margin-bottom:12px;line-height:1.3;}
+        .blog-meta{color:#64748b;font-size:0.9em;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid #e2e8f0;}
+        .blog-article h2{font-size:1.5em;color:#1e3a5f;margin:40px 0 16px;padding-top:12px;border-top:2px solid #e2e8f0;}
+        .blog-article h3{font-size:1.2em;color:#334155;margin:24px 0 10px;}
+        .blog-article p{color:#334155;margin-bottom:16px;}
+        .blog-article ul,.blog-article ol{margin:12px 0 20px 24px;color:#334155;}
+        .blog-article li{margin-bottom:8px;}
+        .breadcrumb{font-size:0.85em;color:#64748b;margin-bottom:16px;}
+        .breadcrumb a{color:#1d4ed8;text-decoration:none;}
+        .definition-box{background:#e7f3ff;border-left:4px solid #1d4ed8;padding:20px;margin:20px 0;border-radius:8px;}
+        .definition-box h4{color:#1e40af;margin-bottom:10px;font-size:1.05em;}
+        .theorem-box{background:#fff3cd;border-left:4px solid #f59e0b;padding:20px;margin:20px 0;border-radius:8px;}
+        .theorem-box h4{color:#92400e;margin-bottom:10px;font-size:1.05em;}
+        .example-box{background:#f0f9ff;border-left:4px solid #0ea5e9;padding:20px;margin:20px 0;border-radius:8px;}
+        .example-box h4{color:#0369a1;margin-bottom:10px;font-size:1.05em;}
+        .example-box .solution{margin-top:14px;padding-top:12px;border-top:1px solid #bae6fd;}
+        .tip-box{background:#f0fdf4;border-left:4px solid #22c55e;padding:20px;margin:20px 0;border-radius:8px;}
+        .tip-box h4{color:#166534;margin-bottom:10px;font-size:1.05em;}
+        .practice-box{background:#fdf4ff;border-left:4px solid #a855f7;padding:20px;margin:20px 0;border-radius:8px;}
+        .practice-box h4{color:#7e22ce;margin-bottom:10px;font-size:1.05em;}
+        .warning-box{background:#fff1f2;border-left:4px solid #f43f5e;padding:20px;margin:20px 0;border-radius:8px;}
+        .warning-box h4{color:#be123c;margin-bottom:10px;font-size:1.05em;}
+        .step{background:#f8fafc;border-radius:6px;padding:10px 14px;margin:6px 0;border:1px solid #e2e8f0;}
+        .step-num{color:#1d4ed8;font-weight:bold;margin-right:8px;}
+        .niveau-badge{display:inline-block;background:#dbeafe;color:#1e40af;font-size:0.78em;font-weight:700;padding:3px 10px;border-radius:12px;margin-left:8px;vertical-align:middle;}
+        table{width:100%;border-collapse:collapse;margin:20px 0;font-size:0.95em;}
+        th{background:#1e3a5f;color:white;padding:10px 14px;text-align:left;}
+        td{padding:8px 14px;border-bottom:1px solid #e2e8f0;color:#334155;}
+        tr:nth-child(even) td{background:#f8fafc;}
+        .chapter-nav{display:flex;justify-content:space-between;margin-top:50px;padding-top:20px;border-top:1px solid #e2e8f0;}
+        .chapter-nav a{color:#1d4ed8;text-decoration:none;font-weight:500;}
+        .pascal-grid{display:flex;flex-direction:column;align-items:center;margin:16px 0;}
+        .pascal-row{display:flex;gap:8px;margin:3px 0;}
+        .pascal-cell{width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:#dbeafe;border-radius:6px;font-size:0.9em;font-weight:600;color:#1e40af;}
+        details.solution-box{margin-top:16px;}
+        details.solution-box summary{cursor:pointer;color:#1d4ed8;font-weight:600;padding:10px 14px;background:#eff6ff;border-radius:6px;list-style:none;user-select:none;}
+        details.solution-box summary::-webkit-details-marker{display:none;}
+        details.solution-box summary::before{content:"📖 ";}
+        details.solution-box[open] summary{background:#dbeafe;border-radius:6px 6px 0 0;}
+        .solution-content{padding:18px;background:#f8fafc;border:1px solid #dbeafe;border-radius:0 0 8px 8px;}
+        .solution-content .sol-item{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #e2e8f0;}
+        .solution-content .sol-item:last-child{border-bottom:none;margin-bottom:0;}
+        @media(max-width:640px){.blog-article h1{font-size:1.6em;}}
+        .chapter-nav a:hover{text-decoration:underline;}
+    </style>
+</head>
+<body>
+<div class="blog-article">
+    <div class="breadcrumb">
+        <a href="/index.html">MathHub</a> &rsaquo;
+        <a href="/ca/index.html">Canada</a> &rsaquo;
+        <a href="/ca/blog/index.html">Secondaire Québec</a> &rsaquo;
+        Suites et dénombrement — Sec 5
+    </div>
+
+    <h1>Suites et dénombrement<br><small style="font-size:0.6em;color:#64748b;">Secondaire 5 — Québec (PFEQ)</small></h1>
+    <div class="blog-meta">
+        Niveau : Secondaire 5 &nbsp;|&nbsp; Curriculum : PFEQ Québec &nbsp;|&nbsp; Mis à jour : mars 2026
+    </div>
+
+    <p>Ce chapitre couvre les <strong>suites arithmétiques et géométriques</strong>, les <strong>principes de dénombrement</strong> (factorielle, permutations, combinaisons) et le <strong>triangle de Pascal</strong> avec le binôme de Newton. Ces notions figurent explicitement dans le programme de formation de l'école québécoise (PFEQ) pour le Secondaire 5.</p>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SECTION 1 : SUITES ARITHMÉTIQUES                       -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <h2>1. Suites arithmétiques <span class="niveau-badge">Sec 5</span></h2>
+
+    <div class="definition-box">
+        <h4>Définition — Suite arithmétique</h4>
+        <p>Une <strong>suite arithmétique</strong> est une suite dans laquelle chaque terme s'obtient en ajoutant une constante $d$, appelée <strong>raison</strong>, au terme précédent.</p>
+        <p>$$a_1,\; a_2 = a_1 + d,\; a_3 = a_1 + 2d,\; \ldots$$</p>
+        <p><strong>Terme général :</strong> $a_n = a_1 + (n-1)d$</p>
+        <p><strong>Somme des $n$ premiers termes :</strong>
+        $$S_n = \frac{n}{2}(a_1 + a_n) = \frac{n}{2}\bigl(2a_1 + (n-1)d\bigr)$$</p>
+    </div>
+
+    <h3>Moyenne arithmétique</h3>
+    <p>La <strong>moyenne arithmétique</strong> de deux termes $a$ et $b$ est $\dfrac{a+b}{2}$. Si trois termes $a$, $m$, $b$ forment une suite arithmétique, alors $m = \dfrac{a+b}{2}$.</p>
+
+    <h3>Exemples résolus</h3>
+
+    <div class="example-box">
+        <h4>Exemple 1 — Trouver le 20<sup>e</sup> terme</h4>
+        <p>Trouver le 20<sup>e</sup> terme de la suite $3, 7, 11, 15, \ldots$</p>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> Identifier $a_1 = 3$ et $d = 7 - 3 = 4$.</div>
+            <div class="step"><span class="step-num">2.</span> Appliquer la formule : $a_n = a_1 + (n-1)d$.</div>
+            <div class="step"><span class="step-num">3.</span> $a_{20} = 3 + (20-1)(4) = 3 + 76 = \mathbf{79}$.</div>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 2 — Trouver $d$ et $a_1$</h4>
+        <p>Sachant que $a_5 = 17$ et $a_{12} = 52$, trouver la raison $d$ et le premier terme $a_1$.</p>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> $a_{12} - a_5 = (12-5)d \Rightarrow 52 - 17 = 7d \Rightarrow d = 5$.</div>
+            <div class="step"><span class="step-num">2.</span> $a_5 = a_1 + 4d \Rightarrow 17 = a_1 + 20 \Rightarrow a_1 = -3$.</div>
+            <p style="margin-top:10px;">Donc $d = 5$ et $a_1 = -3$. Vérification : $a_{12} = -3 + 11(5) = 52$ ✓</p>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 3 — Formule de Gauss</h4>
+        <p>Trouver la somme des 50 premiers nombres naturels : $1 + 2 + 3 + \cdots + 50$.</p>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> $a_1 = 1$, $a_{50} = 50$, $n = 50$.</div>
+            <div class="step"><span class="step-num">2.</span> $S_{50} = \dfrac{50}{2}(1 + 50) = 25 \times 51 = \mathbf{1275}$.</div>
+            <p style="margin-top:10px;font-style:italic;">Anecdote : le jeune Gauss aurait résolu ce problème en quelques secondes à l'âge de 7 ans !</p>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 4 — Problème concret : sièges dans un théâtre</h4>
+        <p>Un théâtre a 30 rangées. La première rangée contient 20 sièges, et chaque rangée suivante en contient 3 de plus. Combien de sièges y a-t-il au total ?</p>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> Suite arithmétique : $a_1 = 20$, $d = 3$, $n = 30$.</div>
+            <div class="step"><span class="step-num">2.</span> Dernier terme : $a_{30} = 20 + 29(3) = 20 + 87 = 107$.</div>
+            <div class="step"><span class="step-num">3.</span> $S_{30} = \dfrac{30}{2}(20 + 107) = 15 \times 127 = \mathbf{1905}$ sièges.</div>
+        </div>
+    </div>
+
+    <div class="practice-box">
+        <h4>Exercices — Suites arithmétiques</h4>
+        <ol>
+            <li>La suite $5, 9, 13, \ldots$ est arithmétique. Trouver le 15<sup>e</sup> terme.</li>
+            <li>Trouver la raison et le premier terme si $a_3 = 11$ et $a_8 = 31$.</li>
+            <li>Calculer $S_{100}$ pour la suite $2, 5, 8, \ldots$</li>
+            <li>La somme des 12 premiers termes d'une suite arithmétique est 174. Si $a_1 = 3$, trouver $d$.</li>
+            <li>Insérer deux moyennes arithmétiques entre 4 et 22.</li>
+            <li>Un emprunt est remboursé en versements qui forment une suite arithmétique. Le 1<sup>er</sup> versement est 500 \$ et le 10<sup>e</sup> est 950 \$. Quel est le montant total remboursé ?</li>
+        </ol>
+        <details class="solution-box">
+            <summary>Voir les solutions</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong> $d = 4$, $a_{15} = 5 + 14(4) = 5 + 56 = \mathbf{61}$.
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong> $a_8 - a_3 = 5d \Rightarrow 31 - 11 = 5d \Rightarrow d = 4$. Puis $a_3 = a_1 + 2(4) \Rightarrow a_1 = 3$.
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong> $a_1 = 2$, $d = 3$, $a_{100} = 2 + 99(3) = 299$. $S_{100} = \dfrac{100}{2}(2 + 299) = 50 \times 301 = \mathbf{15\,050}$.
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong> $S_{12} = \dfrac{12}{2}(2a_1 + 11d) = 6(6 + 11d) = 174 \Rightarrow 6 + 11d = 29 \Rightarrow d = \mathbf{\frac{23}{11}} \approx 2{,}09$.
+                    <br>Note : si $d$ doit être entier, revérifier les données.
+                </div>
+                <div class="sol-item">
+                    <strong>5.</strong> On cherche $m_1$ et $m_2$ tels que $4, m_1, m_2, 22$ soit arithmétique. $d = \dfrac{22-4}{3} = 6$. Donc $m_1 = 10$ et $m_2 = 16$.
+                </div>
+                <div class="sol-item">
+                    <strong>6.</strong> $a_1 = 500$, $a_{10} = 950$, $d = \dfrac{950-500}{9} = 50$. $S_{10} = \dfrac{10}{2}(500 + 950) = 5 \times 1450 = \mathbf{7250\,\$}$.
+                </div>
+            </div>
+        </details>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SECTION 2 : SUITES GÉOMÉTRIQUES                        -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <h2>2. Suites géométriques <span class="niveau-badge">Sec 5</span></h2>
+
+    <div class="definition-box">
+        <h4>Définition — Suite géométrique</h4>
+        <p>Une <strong>suite géométrique</strong> est une suite dans laquelle chaque terme s'obtient en multipliant le terme précédent par une constante $r$, appelée <strong>raison</strong> (ou rapport commun).</p>
+        <p>$$a_1,\; a_2 = a_1 r,\; a_3 = a_1 r^2,\; \ldots$$</p>
+        <p><strong>Terme général :</strong> $a_n = a_1 \cdot r^{n-1}$</p>
+        <p><strong>Somme des $n$ premiers termes</strong> (si $r \neq 1$) :</p>
+        $$S_n = a_1 \cdot \frac{r^n - 1}{r - 1}$$
+        <p><strong>Série géométrique infinie</strong> (si $|r| &lt; 1$) :</p>
+        $$S_\infty = \frac{a_1}{1 - r}$$
+    </div>
+
+    <div class="tip-box">
+        <h4>Astuce — Reconnaître une suite géométrique</h4>
+        <p>Dans une suite géométrique, le rapport de deux termes consécutifs est constant : $\dfrac{a_{n+1}}{a_n} = r$ pour tout $n$. Si ce rapport change, la suite n'est pas géométrique.</p>
+    </div>
+
+    <h3>Exemples résolus</h3>
+
+    <div class="example-box">
+        <h4>Exemple 1 — Trouver $r$ et $a_5$</h4>
+        <p>Sachant que $a_2 = 6$ et $a_5 = 48$, trouver la raison $r$ et le terme $a_5$.</p>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> $\dfrac{a_5}{a_2} = r^3 \Rightarrow \dfrac{48}{6} = r^3 \Rightarrow r^3 = 8 \Rightarrow r = 2$.</div>
+            <div class="step"><span class="step-num">2.</span> $a_2 = a_1 \cdot r \Rightarrow 6 = a_1 \cdot 2 \Rightarrow a_1 = 3$.</div>
+            <div class="step"><span class="step-num">3.</span> $a_5 = 3 \cdot 2^4 = 3 \cdot 16 = \mathbf{48}$ ✓</div>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 2 — Somme d'une suite finie</h4>
+        <p>Calculer $1 + 2 + 4 + 8 + \cdots + 1024$.</p>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> $a_1 = 1$, $r = 2$. Trouver $n$ : $1024 = 2^{n-1} \Rightarrow n-1 = 10 \Rightarrow n = 11$.</div>
+            <div class="step"><span class="step-num">2.</span> $S_{11} = 1 \cdot \dfrac{2^{11} - 1}{2 - 1} = 2048 - 1 = \mathbf{2047}$.</div>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 3 — Série infinie</h4>
+        <p>Calculer la somme $1 + \dfrac{1}{3} + \dfrac{1}{9} + \dfrac{1}{27} + \cdots$</p>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> $a_1 = 1$, $r = \dfrac{1}{3}$. Puisque $|r| = \dfrac{1}{3} &lt; 1$, la série converge.</div>
+            <div class="step"><span class="step-num">2.</span> $S_\infty = \dfrac{1}{1 - \frac{1}{3}} = \dfrac{1}{\frac{2}{3}} = \dfrac{3}{2} = \mathbf{1{,}5}$.</div>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 4 — Problème concret : prolifération bactérienne</h4>
+        <p>Une colonie de bactéries double de taille toutes les 3 heures. Si la population initiale est de 500 bactéries, combien y en aura-t-il après 24 heures ?</p>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> Après 24 h, il y a $\dfrac{24}{3} = 8$ doublements, donc $n = 9$ termes (incluant $a_1$).</div>
+            <div class="step"><span class="step-num">2.</span> $a_1 = 500$, $r = 2$, $a_9 = 500 \cdot 2^8 = 500 \cdot 256 = \mathbf{128\,000}$ bactéries.</div>
+        </div>
+    </div>
+
+    <div class="practice-box">
+        <h4>Exercices — Suites géométriques</h4>
+        <ol>
+            <li>La suite $2, 6, 18, 54, \ldots$ est géométrique. Trouver le 8<sup>e</sup> terme.</li>
+            <li>Sachant $a_1 = 5$ et $r = -2$, calculer $S_6$.</li>
+            <li>Calculer la somme de la série géométrique infinie : $12 + 4 + \dfrac{4}{3} + \cdots$</li>
+            <li>Trouver $r$ et $a_1$ si $a_3 = 20$ et $a_6 = 160$.</li>
+            <li>Un capital de 1000 \$ est placé à 5 % d'intérêts composés annuels. Quelle est sa valeur après 10 ans ?</li>
+            <li>Quelles valeurs de $r$ permettent à la série $\sum_{n=1}^{\infty} a_1 r^{n-1}$ de converger ?</li>
+        </ol>
+        <details class="solution-box">
+            <summary>Voir les solutions</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong> $r = 3$, $a_8 = 2 \cdot 3^7 = 2 \cdot 2187 = \mathbf{4374}$.
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong> $S_6 = 5 \cdot \dfrac{(-2)^6 - 1}{-2 - 1} = 5 \cdot \dfrac{64 - 1}{-3} = 5 \cdot \dfrac{63}{-3} = 5 \times (-21) = \mathbf{-105}$.
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong> $r = \dfrac{4}{12} = \dfrac{1}{3}$, $S_\infty = \dfrac{12}{1 - \frac{1}{3}} = \dfrac{12}{\frac{2}{3}} = 12 \times \dfrac{3}{2} = \mathbf{18}$.
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong> $\dfrac{a_6}{a_3} = r^3 \Rightarrow \dfrac{160}{20} = 8 \Rightarrow r = 2$. Puis $a_3 = a_1 \cdot 4 \Rightarrow a_1 = 5$.
+                </div>
+                <div class="sol-item">
+                    <strong>5.</strong> Suite géométrique avec $a_1 = 1000$, $r = 1{,}05$, $n = 11$. $a_{11} = 1000 \cdot (1{,}05)^{10} \approx 1000 \times 1{,}6289 \approx \mathbf{1628{,}89\,\$}$.
+                </div>
+                <div class="sol-item">
+                    <strong>6.</strong> La série converge si et seulement si $\mathbf{|r| &lt; 1}$, c'est-à-dire $-1 &lt; r &lt; 1$.
+                </div>
+            </div>
+        </details>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SECTION 3 : FACTORIELLE ET PRINCIPE FONDAMENTAL        -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <h2>3. Factorielle et principe fondamental de dénombrement <span class="niveau-badge">Sec 5</span></h2>
+
+    <div class="definition-box">
+        <h4>Définition — Factorielle</h4>
+        <p>Pour tout entier positif $n$, la <strong>factorielle</strong> de $n$ est :</p>
+        $$n! = n \times (n-1) \times (n-2) \times \cdots \times 2 \times 1$$
+        <p>Par convention : $0! = 1$</p>
+        <table>
+            <tr><th>$n$</th><th>$n!$</th></tr>
+            <tr><td>0</td><td>1</td></tr>
+            <tr><td>1</td><td>1</td></tr>
+            <tr><td>2</td><td>2</td></tr>
+            <tr><td>3</td><td>6</td></tr>
+            <tr><td>4</td><td>24</td></tr>
+            <tr><td>5</td><td>120</td></tr>
+            <tr><td>6</td><td>720</td></tr>
+            <tr><td>10</td><td>3 628 800</td></tr>
+        </table>
+    </div>
+
+    <div class="theorem-box">
+        <h4>Principe fondamental de dénombrement</h4>
+        <p>Si une tâche A peut être accomplie de $m$ façons et une tâche B de $n$ façons (indépendamment de A), alors les deux tâches peuvent être accomplies ensemble de $m \times n$ façons.</p>
+        <p>Ce principe se généralise : si des tâches $T_1, T_2, \ldots, T_k$ ont respectivement $n_1, n_2, \ldots, n_k$ façons d'être réalisées, le nombre total est $n_1 \times n_2 \times \cdots \times n_k$.</p>
+    </div>
+
+    <div class="tip-box">
+        <h4>Dénombrement par complémentaire</h4>
+        <p>Parfois, il est plus simple de compter ce qu'on <em>ne veut pas</em> et de soustraire du total :</p>
+        $$\text{Nombre de cas favorables} = \text{Total} - \text{Nombre de cas indésirables}$$
+    </div>
+
+    <h3>Exemples résolus</h3>
+
+    <div class="example-box">
+        <h4>Exemple 1 — Mots de passe</h4>
+        <p>Un mot de passe est composé de 3 lettres (A–Z) suivies de 2 chiffres (0–9), les répétitions étant permises. Combien de mots de passe différents sont possibles ?</p>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> 3 lettres : $26 \times 26 \times 26 = 26^3 = 17\,576$ façons.</div>
+            <div class="step"><span class="step-num">2.</span> 2 chiffres : $10 \times 10 = 10^2 = 100$ façons.</div>
+            <div class="step"><span class="step-num">3.</span> Total : $17\,576 \times 100 = \mathbf{1\,757\,600}$ mots de passe.</div>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 2 — Choix d'un comité</h4>
+        <p>Un club de 5 membres doit élire un président, un vice-président et un trésorier (tous différents). Combien de façons y a-t-il de former ce bureau ?</p>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> Président : 5 choix.</div>
+            <div class="step"><span class="step-num">2.</span> Vice-président : 4 choix (parmi les restants).</div>
+            <div class="step"><span class="step-num">3.</span> Trésorier : 3 choix.</div>
+            <div class="step"><span class="step-num">4.</span> Total : $5 \times 4 \times 3 = \mathbf{60}$ façons.</div>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 3 — Dénombrement par complémentaire</h4>
+        <p>Combien de nombres à 3 chiffres (de 100 à 999) sont pairs ?</p>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> Total des nombres à 3 chiffres : $999 - 100 + 1 = 900$.</div>
+            <div class="step"><span class="step-num">2.</span> Nombres à 3 chiffres impairs : premier chiffre $\in \{1,\ldots,9\}$ (9 choix), deuxième chiffre $\in \{0,\ldots,9\}$ (10 choix), dernier chiffre $\in \{1,3,5,7,9\}$ (5 choix) : $9 \times 10 \times 5 = 450$.</div>
+            <div class="step"><span class="step-num">3.</span> Nombres pairs : $900 - 450 = \mathbf{450}$.</div>
+        </div>
+    </div>
+
+    <div class="practice-box">
+        <h4>Exercices — Factorielle et principe fondamental</h4>
+        <ol>
+            <li>Calculer $\dfrac{8!}{5! \cdot 3!}$.</li>
+            <li>Un restaurant propose 4 entrées, 6 plats principaux et 3 desserts. Combien de repas à 3 services différents peut-on composer ?</li>
+            <li>Un code PIN est composé de 4 chiffres (0–9, répétitions permises). Combien de codes sont possibles ? Combien n'ont aucun 0 ?</li>
+            <li>Combien de plaques d'immatriculation comportant 3 lettres suivies de 3 chiffres (répétitions permises) peut-on former ?</li>
+            <li>Parmi les nombres à 4 chiffres distincts formés avec $\{1, 2, 3, 4, 5\}$, combien sont supérieurs à 3000 ?</li>
+        </ol>
+        <details class="solution-box">
+            <summary>Voir les solutions</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong> $\dfrac{8!}{5! \cdot 3!} = \dfrac{8 \times 7 \times 6}{3!} = \dfrac{336}{6} = \mathbf{56}$.
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong> $4 \times 6 \times 3 = \mathbf{72}$ repas.
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong> Total : $10^4 = \mathbf{10\,000}$. Sans zéro : $9^4 = \mathbf{6561}$.
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong> $26^3 \times 10^3 = 17\,576 \times 1000 = \mathbf{17\,576\,000}$ plaques.
+                </div>
+                <div class="sol-item">
+                    <strong>5.</strong> Premier chiffre $\in \{3,4,5\}$ (3 choix). Puis 4 chiffres distincts restants parmi les 4 restants : $3 \times 4 \times 3 \times 2 = \mathbf{72}$ nombres.
+                </div>
+            </div>
+        </details>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SECTION 4 : PERMUTATIONS                               -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <h2>4. Permutations <span class="niveau-badge">Sec 5</span></h2>
+
+    <div class="definition-box">
+        <h4>Définition — Permutation</h4>
+        <p>Une <strong>permutation</strong> est un arrangement <em>ordonné</em> d'éléments. L'ordre compte !</p>
+        <p><strong>Permutations de $r$ éléments parmi $n$ :</strong>
+        $$P(n, r) = \frac{n!}{(n-r)!}$$</p>
+        <p><strong>Permutations avec répétition</strong> (on peut réutiliser chaque élément) : $n^r$</p>
+        <p><strong>Permutations avec objets identiques :</strong> Si parmi $n$ objets il y en a $n_1$ identiques d'un type, $n_2$ d'un autre, etc. :
+        $$\frac{n!}{n_1!\, n_2!\, \cdots\, n_k!}$$</p>
+        <p><strong>Permutations circulaires</strong> de $n$ éléments distincts : $(n-1)!$</p>
+    </div>
+
+    <div class="warning-box">
+        <h4>Attention — Ordre et distinction</h4>
+        <p>La permutation tient compte de l'ordre. Choisir Marie puis Jean est <em>différent</em> de choisir Jean puis Marie. Si l'ordre n'importe pas, il faut utiliser les <strong>combinaisons</strong> (section suivante).</p>
+    </div>
+
+    <h3>Exemples résolus</h3>
+
+    <div class="example-box">
+        <h4>Exemple 1 — Arranger des lettres</h4>
+        <p>De combien de façons peut-on arranger 3 lettres parmi les 26 de l'alphabet (sans répétition) ?</p>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> $n = 26$, $r = 3$.</div>
+            <div class="step"><span class="step-num">2.</span> $P(26, 3) = \dfrac{26!}{23!} = 26 \times 25 \times 24 = \mathbf{15\,600}$.</div>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 2 — Ordre d'arrivée dans une course</h4>
+        <p>Dans une course de 8 coureurs, combien de podiums (1<sup>er</sup>, 2<sup>e</sup>, 3<sup>e</sup>) différents sont possibles ?</p>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> $P(8, 3) = \dfrac{8!}{5!} = 8 \times 7 \times 6 = \mathbf{336}$.</div>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 3 — Anagrammes avec lettres répétées</h4>
+        <p>Combien d'anagrammes distincts le mot « MISSISSIPPI » possède-t-il ? (M:1, I:4, S:4, P:2)</p>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> Total de lettres : $n = 11$. Répétitions : I×4, S×4, P×2, M×1.</div>
+            <div class="step"><span class="step-num">2.</span> $\dfrac{11!}{4!\, 4!\, 2!\, 1!} = \dfrac{39\,916\,800}{24 \times 24 \times 2 \times 1} = \dfrac{39\,916\,800}{1152} = \mathbf{34\,650}$.</div>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 4 — Arrangements à une table ronde</h4>
+        <p>De combien de façons peut-on placer 6 personnes autour d'une table ronde ?</p>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> Permutation circulaire : $(n-1)! = (6-1)! = 5! = \mathbf{120}$.</div>
+            <p style="margin-top:8px;font-style:italic;">On fixe une personne pour éliminer les rotations équivalentes.</p>
+        </div>
+    </div>
+
+    <div class="practice-box">
+        <h4>Exercices — Permutations</h4>
+        <ol>
+            <li>Calculer $P(9, 4)$.</li>
+            <li>Combien de façons peut-on choisir et ordonner 5 livres parmi 12 pour les disposer sur une étagère ?</li>
+            <li>Combien d'anagrammes distincts le mot « CALCUL » possède-t-il ? (C:2, L:2, A:1, U:1)</li>
+            <li>Un code secret à 4 chiffres distincts est formé avec les chiffres 1 à 9. Combien de codes sont possibles si le premier chiffre est impair ?</li>
+            <li>5 hommes et 3 femmes s'assoient à une table ronde. Combien d'arrangements sont possibles si les 3 femmes doivent rester ensemble ?</li>
+            <li>Combien de mots de 5 lettres (avec ou sans sens) peuvent être formés avec les lettres de « PIANO » sans répétition ?</li>
+        </ol>
+        <details class="solution-box">
+            <summary>Voir les solutions</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong> $P(9,4) = 9 \times 8 \times 7 \times 6 = \mathbf{3024}$.
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong> $P(12,5) = 12 \times 11 \times 10 \times 9 \times 8 = \mathbf{95\,040}$.
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong> CALCUL a 6 lettres : C×2, A×1, L×2, U×1. $\dfrac{6!}{2!\,2!} = \dfrac{720}{4} = \mathbf{180}$.
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong> Premier chiffre impair : 5 choix (1,3,5,7,9). Les 3 chiffres suivants sont distincts parmi les 8 restants : $5 \times 8 \times 7 \times 6 = \mathbf{1680}$.
+                </div>
+                <div class="sol-item">
+                    <strong>5.</strong> Regrouper les 3 femmes en un bloc : 6 entités à table ronde → $(6-1)! = 120$. Les femmes peuvent s'arranger entre elles : $3! = 6$. Total : $120 \times 6 = \mathbf{720}$.
+                </div>
+                <div class="sol-item">
+                    <strong>6.</strong> « PIANO » a 5 lettres toutes distinctes. $P(5,5) = 5! = \mathbf{120}$.
+                </div>
+            </div>
+        </details>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SECTION 5 : COMBINAISONS                               -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <h2>5. Combinaisons <span class="niveau-badge">Sec 5</span></h2>
+
+    <div class="definition-box">
+        <h4>Définition — Combinaison</h4>
+        <p>Une <strong>combinaison</strong> est une sélection <em>non ordonnée</em> d'éléments. L'ordre n'importe pas !</p>
+        $$C(n, r) = \binom{n}{r} = \frac{n!}{r!\,(n-r)!}$$
+        <p><strong>Identité clé :</strong> $\dbinom{n}{r} = \dbinom{n}{n-r}$ (choisir $r$ éléments revient à en exclure $n-r$).</p>
+    </div>
+
+    <div class="theorem-box">
+        <h4>Permutation vs Combinaison</h4>
+        <table>
+            <tr><th>Critère</th><th>Permutation $P(n,r)$</th><th>Combinaison $C(n,r)$</th></tr>
+            <tr><td>L'ordre compte ?</td><td>Oui</td><td>Non</td></tr>
+            <tr><td>Formule</td><td>$\dfrac{n!}{(n-r)!}$</td><td>$\dfrac{n!}{r!(n-r)!}$</td></tr>
+            <tr><td>Relation</td><td colspan="2">$P(n,r) = r! \times C(n,r)$</td></tr>
+            <tr><td>Exemple</td><td>Podium d'une course</td><td>Équipe de projet</td></tr>
+        </table>
+    </div>
+
+    <h3>Exemples résolus</h3>
+
+    <div class="example-box">
+        <h4>Exemple 1 — Choisir une équipe</h4>
+        <p>De combien de façons peut-on former une équipe de 4 joueurs parmi 10 candidats ?</p>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> L'ordre ne compte pas (ce sont des équipiers équivalents).</div>
+            <div class="step"><span class="step-num">2.</span> $C(10,4) = \dfrac{10!}{4!\,6!} = \dfrac{10 \times 9 \times 8 \times 7}{4!} = \dfrac{5040}{24} = \mathbf{210}$.</div>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 2 — Comité avec restrictions (inclusion)</h4>
+        <p>Dans un groupe de 8 personnes dont Alice et Bob, de combien de façons forme-t-on un comité de 3 membres si Alice <em>doit</em> en faire partie ?</p>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> Alice est déjà choisie. Il reste à choisir 2 parmi les 7 autres.</div>
+            <div class="step"><span class="step-num">2.</span> $C(7,2) = \dfrac{7!}{2!\,5!} = \dfrac{7 \times 6}{2} = \mathbf{21}$.</div>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 3 — Comité avec restrictions (exclusion)</h4>
+        <p>Même groupe de 8, mais Bob <em>ne peut pas</em> faire partie du comité de 3.</p>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> Bob est exclu. Il reste 7 personnes parmi lesquelles choisir 3.</div>
+            <div class="step"><span class="step-num">2.</span> $C(7,3) = \dfrac{7!}{3!\,4!} = \dfrac{7 \times 6 \times 5}{6} = \mathbf{35}$.</div>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 4 — Main de poker</h4>
+        <p>Combien de mains de 5 cartes peut-on distribuer à partir d'un jeu de 52 cartes standard ?</p>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> L'ordre des cartes dans la main n'importe pas.</div>
+            <div class="step"><span class="step-num">2.</span> $C(52,5) = \dfrac{52!}{5!\,47!} = \dfrac{52 \times 51 \times 50 \times 49 \times 48}{120} = \mathbf{2\,598\,960}$.</div>
+        </div>
+    </div>
+
+    <div class="practice-box">
+        <h4>Exercices — Combinaisons</h4>
+        <ol>
+            <li>Calculer $\dbinom{12}{5}$.</li>
+            <li>De combien de façons peut-on choisir 3 représentants parmi 15 étudiants ?</li>
+            <li>Un groupe de 10 personnes veut former un comité de 4 membres, dont au moins 2 femmes (6 femmes et 4 hommes au total). Combien de comités sont possibles ?</li>
+            <li>De combien de façons peut-on choisir 2 cartes rouges et 3 cartes noires dans un jeu de 52 cartes ?</li>
+            <li>Prouver l'identité $\dbinom{n}{r} = \dbinom{n}{n-r}$ algébriquement.</li>
+            <li>Un sous-ensemble de 3 lettres est choisi parmi $\{A, B, C, D, E, F\}$. Combien contiennent la lettre A mais pas la lettre F ?</li>
+        </ol>
+        <details class="solution-box">
+            <summary>Voir les solutions</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong> $\dbinom{12}{5} = \dfrac{12!}{5!\,7!} = \dfrac{12 \times 11 \times 10 \times 9 \times 8}{120} = \dfrac{95040}{120} = \mathbf{792}$.
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong> $C(15,3) = \dfrac{15 \times 14 \times 13}{6} = \dfrac{2730}{6} = \mathbf{455}$.
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong> Exactement 2 femmes : $C(6,2)\times C(4,2) = 15 \times 6 = 90$. Exactement 3 femmes : $C(6,3)\times C(4,1) = 20 \times 4 = 80$. Exactement 4 femmes : $C(6,4)\times C(4,0) = 15 \times 1 = 15$. Total : $90 + 80 + 15 = \mathbf{185}$.
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong> 26 cartes rouges et 26 noires. $C(26,2) \times C(26,3) = 325 \times 2600 = \mathbf{845\,000}$.
+                </div>
+                <div class="sol-item">
+                    <strong>5.</strong> $\dbinom{n}{n-r} = \dfrac{n!}{(n-r)!\,r!} = \dfrac{n!}{r!(n-r)!} = \dbinom{n}{r}$ ✓ (les dénominateurs sont les mêmes).
+                </div>
+                <div class="sol-item">
+                    <strong>6.</strong> A est incluse, F est exclue → choisir 2 parmi $\{B, C, D, E\}$ : $C(4,2) = \mathbf{6}$.
+                </div>
+            </div>
+        </details>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SECTION 6 : TRIANGLE DE PASCAL & BINÔME DE NEWTON     -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <h2>6. Triangle de Pascal et binôme de Newton <span class="niveau-badge">Sec 5</span></h2>
+
+    <p>Le <strong>triangle de Pascal</strong> est une disposition triangulaire des coefficients binomiaux $\dbinom{n}{r}$. Chaque entrée est égale à la somme des deux entrées directement au-dessus d'elle.</p>
+
+    <h3>Triangle de Pascal (lignes 0 à 6)</h3>
+
+    <div class="pascal-grid">
+        <div class="pascal-row">
+            <div class="pascal-cell">1</div>
+        </div>
+        <div class="pascal-row">
+            <div class="pascal-cell">1</div>
+            <div class="pascal-cell">1</div>
+        </div>
+        <div class="pascal-row">
+            <div class="pascal-cell">1</div>
+            <div class="pascal-cell">2</div>
+            <div class="pascal-cell">1</div>
+        </div>
+        <div class="pascal-row">
+            <div class="pascal-cell">1</div>
+            <div class="pascal-cell">3</div>
+            <div class="pascal-cell">3</div>
+            <div class="pascal-cell">1</div>
+        </div>
+        <div class="pascal-row">
+            <div class="pascal-cell">1</div>
+            <div class="pascal-cell">4</div>
+            <div class="pascal-cell">6</div>
+            <div class="pascal-cell">4</div>
+            <div class="pascal-cell">1</div>
+        </div>
+        <div class="pascal-row">
+            <div class="pascal-cell">1</div>
+            <div class="pascal-cell">5</div>
+            <div class="pascal-cell">10</div>
+            <div class="pascal-cell">10</div>
+            <div class="pascal-cell">5</div>
+            <div class="pascal-cell">1</div>
+        </div>
+        <div class="pascal-row">
+            <div class="pascal-cell">1</div>
+            <div class="pascal-cell">6</div>
+            <div class="pascal-cell">15</div>
+            <div class="pascal-cell">20</div>
+            <div class="pascal-cell">15</div>
+            <div class="pascal-cell">6</div>
+            <div class="pascal-cell">1</div>
+        </div>
+    </div>
+
+    <p>La ligne $n$ (en commençant à 0) contient les valeurs $\dbinom{n}{0}, \dbinom{n}{1}, \ldots, \dbinom{n}{n}$. Par exemple, la ligne 4 donne $1, 4, 6, 4, 1$, qui correspondent à $\dbinom{4}{0}$ à $\dbinom{4}{4}$.</p>
+
+    <div class="tip-box">
+        <h4>Propriétés remarquables du triangle de Pascal</h4>
+        <ul>
+            <li>Symétrie : chaque ligne est symétrique.</li>
+            <li>La somme des éléments de la ligne $n$ est $2^n$.</li>
+            <li>Identité de Pascal : $\dbinom{n}{r} = \dbinom{n-1}{r-1} + \dbinom{n-1}{r}$.</li>
+            <li>Les diagonales correspondent aux nombres triangulaires, carrés, etc.</li>
+        </ul>
+    </div>
+
+    <div class="theorem-box">
+        <h4>Théorème du binôme de Newton</h4>
+        $$(a + b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k$$
+        <p>Le terme général (terme $(k+1)$) est :</p>
+        $$T_{k+1} = \binom{n}{k} a^{n-k} b^k$$
+    </div>
+
+    <h3>Exemples résolus</h3>
+
+    <div class="example-box">
+        <h4>Exemple 1 — Développer $(2x - 3)^4$</h4>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> $n = 4$, $a = 2x$, $b = -3$. Les coefficients (ligne 4 de Pascal) : $1, 4, 6, 4, 1$.</div>
+            <div class="step"><span class="step-num">2.</span>
+                $\binom{4}{0}(2x)^4(-3)^0 = 1 \cdot 16x^4 \cdot 1 = 16x^4$<br>
+                $\binom{4}{1}(2x)^3(-3)^1 = 4 \cdot 8x^3 \cdot (-3) = -96x^3$<br>
+                $\binom{4}{2}(2x)^2(-3)^2 = 6 \cdot 4x^2 \cdot 9 = 216x^2$<br>
+                $\binom{4}{3}(2x)^1(-3)^3 = 4 \cdot 2x \cdot (-27) = -216x$<br>
+                $\binom{4}{4}(2x)^0(-3)^4 = 1 \cdot 1 \cdot 81 = 81$
+            </div>
+            <p style="margin-top:10px;"><strong>Résultat :</strong> $(2x-3)^4 = \mathbf{16x^4 - 96x^3 + 216x^2 - 216x + 81}$</p>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 2 — Trouver un terme spécifique</h4>
+        <p>Trouver le 4<sup>e</sup> terme du développement de $(x + 2)^7$.</p>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> Le terme $T_{k+1}$ avec $k = 3$ (4<sup>e</sup> terme) : $T_4 = \dbinom{7}{3} x^{7-3} \cdot 2^3$.</div>
+            <div class="step"><span class="step-num">2.</span> $T_4 = 35 \cdot x^4 \cdot 8 = \mathbf{280x^4}$.</div>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 3 — Trouver le coefficient de $x^3$</h4>
+        <p>Dans le développement de $(3x - 1)^5$, trouver le coefficient de $x^3$.</p>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> $T_{k+1} = \dbinom{5}{k}(3x)^{5-k}(-1)^k$. On veut $5 - k = 3 \Rightarrow k = 2$.</div>
+            <div class="step"><span class="step-num">2.</span> $T_3 = \dbinom{5}{2}(3)^3 x^3 (-1)^2 = 10 \cdot 27 \cdot 1 \cdot x^3 = \mathbf{270x^3}$.</div>
+            <p style="margin-top:8px;">Le coefficient de $x^3$ est $\mathbf{270}$.</p>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 4 — Utiliser Pascal pour calculer des puissances</h4>
+        <p>Utiliser le binôme de Newton pour calculer $1{,}01^4$ rapidement.</p>
+        <div class="solution">
+            <div class="step"><span class="step-num">1.</span> Écrire $1{,}01 = 1 + 0{,}01$, donc $(1 + 0{,}01)^4$. $a = 1$, $b = 0{,}01$, $n = 4$.</div>
+            <div class="step"><span class="step-num">2.</span> $= 1 + 4(0{,}01) + 6(0{,}01)^2 + 4(0{,}01)^3 + (0{,}01)^4$</div>
+            <div class="step"><span class="step-num">3.</span> $= 1 + 0{,}04 + 0{,}0006 + 0{,}000004 + \ldots \approx \mathbf{1{,}040604}$.</div>
+        </div>
+    </div>
+
+    <div class="practice-box">
+        <h4>Exercices — Triangle de Pascal et binôme de Newton</h4>
+        <ol>
+            <li>En utilisant le triangle de Pascal, écrire la ligne 7 (commençant à $n = 7$).</li>
+            <li>Développer $(a + b)^5$ à l'aide du binôme de Newton.</li>
+            <li>Trouver le 5<sup>e</sup> terme du développement de $(2x + y)^8$.</li>
+            <li>Trouver le coefficient de $x^2 y^4$ dans $(x + y)^6$.</li>
+            <li>Montrer que la somme des éléments de la ligne $n$ du triangle de Pascal vaut $2^n$. (Indice : poser $a = b = 1$.)</li>
+        </ol>
+        <details class="solution-box">
+            <summary>Voir les solutions</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong> Ligne 7 : $\dbinom{7}{0}$ à $\dbinom{7}{7}$ = $\mathbf{1,\ 7,\ 21,\ 35,\ 35,\ 21,\ 7,\ 1}$.
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong> $(a+b)^5 = a^5 + 5a^4b + 10a^3b^2 + 10a^2b^3 + 5ab^4 + b^5$.
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong> $T_{k+1}$ avec $k = 4$ : $T_5 = \dbinom{8}{4}(2x)^4 y^4 = 70 \cdot 16x^4 y^4 = \mathbf{1120\,x^4 y^4}$.
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong> $T_{k+1} = \dbinom{6}{k} x^{6-k} y^k$. On veut $6-k = 2$ et $k = 4$. Coefficient : $\dbinom{6}{4} = \mathbf{15}$.
+                </div>
+                <div class="sol-item">
+                    <strong>5.</strong> $(a+b)^n = \displaystyle\sum_{k=0}^{n}\dbinom{n}{k}a^{n-k}b^k$. Poser $a = 1$, $b = 1$ : $(1+1)^n = 2^n = \displaystyle\sum_{k=0}^{n}\dbinom{n}{k}$. La somme des éléments de la ligne $n$ est donc $2^n$. ✓
+                </div>
+            </div>
+        </details>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- TABLEAU RÉCAPITULATIF                                   -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <h2>Tableau récapitulatif des formules <span class="niveau-badge">Sec 5</span></h2>
+
+    <table>
+        <tr>
+            <th>Concept</th>
+            <th>Formule</th>
+            <th>Remarque</th>
+        </tr>
+        <tr>
+            <td><strong>Suite arithmétique</strong> — terme $n$</td>
+            <td>$a_n = a_1 + (n-1)d$</td>
+            <td>$d$ = raison (différence commune)</td>
+        </tr>
+        <tr>
+            <td><strong>Suite arithmétique</strong> — somme $n$ termes</td>
+            <td>$S_n = \dfrac{n}{2}(a_1 + a_n)$</td>
+            <td>Aussi : $\dfrac{n}{2}(2a_1 + (n-1)d)$</td>
+        </tr>
+        <tr>
+            <td><strong>Suite géométrique</strong> — terme $n$</td>
+            <td>$a_n = a_1 \cdot r^{n-1}$</td>
+            <td>$r$ = raison (rapport commun)</td>
+        </tr>
+        <tr>
+            <td><strong>Suite géométrique</strong> — somme $n$ termes</td>
+            <td>$S_n = a_1 \cdot \dfrac{r^n - 1}{r - 1}$</td>
+            <td>Valide pour $r \neq 1$</td>
+        </tr>
+        <tr>
+            <td><strong>Série géométrique infinie</strong></td>
+            <td>$S_\infty = \dfrac{a_1}{1 - r}$</td>
+            <td>Seulement si $|r| &lt; 1$</td>
+        </tr>
+        <tr>
+            <td><strong>Factorielle</strong></td>
+            <td>$n! = n(n-1)\cdots 2 \cdot 1$</td>
+            <td>$0! = 1$</td>
+        </tr>
+        <tr>
+            <td><strong>Permutation</strong> (sans répétition)</td>
+            <td>$P(n,r) = \dfrac{n!}{(n-r)!}$</td>
+            <td>L'ordre compte</td>
+        </tr>
+        <tr>
+            <td><strong>Permutation circulaire</strong></td>
+            <td>$(n-1)!$</td>
+            <td>$n$ éléments distincts</td>
+        </tr>
+        <tr>
+            <td><strong>Permutation avec répétitions</strong></td>
+            <td>$\dfrac{n!}{n_1!\, n_2!\, \cdots\, n_k!}$</td>
+            <td>$n_i$ = nombre d'éléments identiques de type $i$</td>
+        </tr>
+        <tr>
+            <td><strong>Combinaison</strong></td>
+            <td>$C(n,r) = \dbinom{n}{r} = \dfrac{n!}{r!(n-r)!}$</td>
+            <td>L'ordre ne compte pas</td>
+        </tr>
+        <tr>
+            <td><strong>Identité de Pascal</strong></td>
+            <td>$\dbinom{n}{r} = \dbinom{n-1}{r-1} + \dbinom{n-1}{r}$</td>
+            <td>Génère le triangle de Pascal</td>
+        </tr>
+        <tr>
+            <td><strong>Binôme de Newton</strong></td>
+            <td>$(a+b)^n = \displaystyle\sum_{k=0}^{n}\dbinom{n}{k}a^{n-k}b^k$</td>
+            <td>Terme $(k+1)$ : $T_{k+1} = \dbinom{n}{k}a^{n-k}b^k$</td>
+        </tr>
+    </table>
+
+    <div class="tip-box">
+        <h4>Conseils pour les examens</h4>
+        <ul>
+            <li><strong>Suites :</strong> Identifier $a_1$, $d$ ou $r$ en premier. Vérifier si la série géométrique converge avant d'utiliser $S_\infty$.</li>
+            <li><strong>Permutation ou combinaison ?</strong> Se demander : « L'ordre change-t-il le résultat ? » Si oui → permutation. Si non → combinaison.</li>
+            <li><strong>Restrictions :</strong> Traiter les contraintes en priorité (fixer les éléments imposés, éliminer les éléments exclus).</li>
+            <li><strong>Binôme de Newton :</strong> Identifier correctement $a$, $b$ et $n$. Ne pas oublier le signe de $b$ si l'expression est $a - b$.</li>
+            <li><strong>Triangle de Pascal :</strong> Utile pour de petites puissances ($n \leq 6$). Pour de grandes puissances, utiliser directement la formule.</li>
+        </ul>
+    </div>
+
+    <div class="chapter-nav">
+        <a href="/ca/textbook/fr-sec5-fonctions-avancees.html">&larr; Fonctions avancées</a>
+        <a href="/ca/textbook/fr-cegep-calcul-differentiel.html">Calcul différentiel &rarr;</a>
+    </div>
+
+    <footer style="margin-top:60px;padding-top:20px;border-top:1px solid #e2e8f0;text-align:center;color:#94a3b8;font-size:0.85em;">
+        &copy; 2026 MathHub Global &mdash; Contenu éducatif gratuit pour le secondaire québécois.
+    </footer>
+</div>
+</body>
+</html>

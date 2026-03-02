@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcul intégral — Cégep | MathHub</title>
+    <meta name="description" content="Cours complet de calcul intégral pour le Cégep : antidérivées, intégrale définie, théorème fondamental, techniques d'intégration et applications.">
+    <meta name="keywords" content="calcul intégral Cégep Québec, antidérivée, intégrale définie, substitution, intégration par parties, aire sous courbe">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/ca/textbook/fr-cegep-calcul-integral.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/ca/textbook/fr-cegep-calcul-integral.html">
+    <meta property="og:title" content="Calcul intégral — Cégep | MathHub">
+    <meta property="og:description" content="Cours complet de calcul intégral pour le Cégep : antidérivées, intégrale définie, théorème fondamental, techniques d'intégration et applications.">
+    <meta property="og:site_name" content="MathHub Global">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Calcul intégral — Cégep",
+        "description": "Cours complet de calcul intégral pour le Cégep : antidérivées, intégrale définie, théorème fondamental, techniques d'intégration et applications.",
+        "author": {"@type": "Organization", "name": "MathHub Global"},
+        "publisher": {"@type": "Organization", "name": "MathHub Global"},
+        "datePublished": "2026-03-01",
+        "dateModified": "2026-03-01",
+        "educationalLevel": "Cégep",
+        "inLanguage": "fr-CA",
+        "mainEntityOfPage": "https://mathhub.io/ca/textbook/fr-cegep-calcul-integral.html"
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article{max-width:800px;margin:0 auto;padding:40px 20px;font-family:Arial,sans-serif;font-size:1.02em;line-height:1.8;}
+        .blog-article h1{font-size:2.1em;color:#1e3a5f;margin-bottom:12px;line-height:1.3;}
+        .blog-meta{color:#64748b;font-size:0.9em;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid #e2e8f0;}
+        .blog-article h2{font-size:1.5em;color:#1e3a5f;margin:40px 0 16px;padding-top:12px;border-top:2px solid #e2e8f0;}
+        .blog-article h3{font-size:1.2em;color:#334155;margin:24px 0 10px;}
+        .blog-article p{color:#334155;margin-bottom:16px;}
+        .blog-article ul,.blog-article ol{margin:12px 0 20px 24px;color:#334155;}
+        .blog-article li{margin-bottom:8px;}
+        .breadcrumb{font-size:0.85em;color:#64748b;margin-bottom:16px;}
+        .breadcrumb a{color:#1d4ed8;text-decoration:none;}
+        .definition-box{background:#e7f3ff;border-left:4px solid #1d4ed8;padding:20px;margin:20px 0;border-radius:8px;}
+        .definition-box h4{color:#1e40af;margin-bottom:10px;font-size:1.05em;}
+        .theorem-box{background:#fff3cd;border-left:4px solid #f59e0b;padding:20px;margin:20px 0;border-radius:8px;}
+        .theorem-box h4{color:#92400e;margin-bottom:10px;font-size:1.05em;}
+        .example-box{background:#f0f9ff;border-left:4px solid #0ea5e9;padding:20px;margin:20px 0;border-radius:8px;}
+        .example-box h4{color:#0369a1;margin-bottom:10px;font-size:1.05em;}
+        .example-box .solution{margin-top:14px;padding-top:12px;border-top:1px solid #bae6fd;}
+        .tip-box{background:#f0fdf4;border-left:4px solid #22c55e;padding:20px;margin:20px 0;border-radius:8px;}
+        .tip-box h4{color:#166534;margin-bottom:10px;font-size:1.05em;}
+        .practice-box{background:#fdf4ff;border-left:4px solid #a855f7;padding:20px;margin:20px 0;border-radius:8px;}
+        .practice-box h4{color:#7e22ce;margin-bottom:10px;font-size:1.05em;}
+        .warning-box{background:#fff1f2;border-left:4px solid #f43f5e;padding:20px;margin:20px 0;border-radius:8px;}
+        .warning-box h4{color:#be123c;margin-bottom:10px;font-size:1.05em;}
+        .step{background:#f8fafc;border-radius:6px;padding:10px 14px;margin:6px 0;border:1px solid #e2e8f0;}
+        .step-num{color:#1d4ed8;font-weight:bold;margin-right:8px;}
+        .niveau-badge{display:inline-block;background:#1e3a5f;color:white;font-size:0.78em;font-weight:700;padding:3px 10px;border-radius:12px;margin-left:8px;vertical-align:middle;}
+        table{width:100%;border-collapse:collapse;margin:20px 0;font-size:0.95em;}
+        th{background:#1e3a5f;color:white;padding:10px 14px;text-align:left;}
+        td{padding:8px 14px;border-bottom:1px solid #e2e8f0;color:#334155;}
+        tr:nth-child(even) td{background:#f8fafc;}
+        .chapter-nav{display:flex;justify-content:space-between;margin-top:50px;padding-top:20px;border-top:1px solid #e2e8f0;}
+        .chapter-nav a{color:#1d4ed8;text-decoration:none;font-weight:500;}
+        .chapter-nav a:hover{text-decoration:underline;}
+        .graph-container{text-align:center;margin:24px 0;}
+        .graph-container svg{max-width:100%;}
+        .graph-caption{font-size:0.9em;color:#64748b;margin-top:8px;font-style:italic;}
+        details.solution-box{margin-top:16px;}
+        details.solution-box summary{cursor:pointer;color:#1d4ed8;font-weight:600;padding:10px 14px;background:#eff6ff;border-radius:6px;list-style:none;user-select:none;}
+        details.solution-box summary::-webkit-details-marker{display:none;}
+        details.solution-box summary::before{content:"📖 ";}
+        details.solution-box[open] summary{background:#dbeafe;border-radius:6px 6px 0 0;}
+        .solution-content{padding:18px;background:#f8fafc;border:1px solid #dbeafe;border-radius:0 0 8px 8px;}
+        .solution-content .sol-item{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #e2e8f0;}
+        .solution-content .sol-item:last-child{border-bottom:none;margin-bottom:0;}
+        @media(max-width:640px){.blog-article h1{font-size:1.6em;}}
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/" class="active">CA</a>
+            <a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+            <a href="/ca/">MathHub Canada</a> &rsaquo;
+            <a href="/ca/">Manuels en ligne</a> &rsaquo;
+            Calcul intégral (Cégep)
+        </nav>
+
+        <h1>Calcul intégral</h1>
+        <div class="blog-meta">Cégep &mdash; Sciences de la nature &mdash; Mise à jour&nbsp;: mars 2026</div>
+
+        <!-- Table des matières -->
+        <div class="tip-box">
+            <h4>&#x1F4CB; Table des matières</h4>
+            <ol>
+                <li><a href="#antiderivees">Antidérivées (primitives)</a> <span class="niveau-badge">Cégep</span></li>
+                <li><a href="#integrale-definie">Intégrale définie et Théorème fondamental du calcul</a> <span class="niveau-badge">Cégep</span></li>
+                <li><a href="#substitution">Substitution (changement de variable)</a> <span class="niveau-badge">Cégep</span></li>
+                <li><a href="#par-parties">Intégration par parties</a> <span class="niveau-badge">Cégep</span></li>
+                <li><a href="#applications">Applications de l'intégrale</a> <span class="niveau-badge">Cégep</span></li>
+                <li><a href="#resume">Résumé des formules essentielles</a></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════ -->
+        <!-- Section 1 : Antidérivées                              -->
+        <!-- ══════════════════════════════════════════════════════ -->
+        <h2 id="antiderivees">1. Antidérivées (primitives) <span class="niveau-badge">Cégep</span></h2>
+
+        <div class="definition-box">
+            <h4>&#x1F4D6; Définition — Antidérivée</h4>
+            <p>Une fonction $F$ est une <strong>antidérivée</strong> (ou <strong>primitive</strong>) de $f$ sur un intervalle $I$ si</p>
+            $$F'(x) = f(x) \quad \text{pour tout } x \in I.$$
+            <p>L'ensemble de toutes les antidérivées de $f$ s'écrit</p>
+            $$\int f(x)\,dx = F(x) + C$$
+            <p>où $C \in \mathbb{R}$ est la <strong>constante d'intégration</strong>, qui représente l'infinité de fonctions dont la dérivée est $f$.</p>
+        </div>
+
+        <h3>Pourquoi la constante $C$ ?</h3>
+        <p>Si $F'(x) = f(x)$, alors $(F(x) + C)' = f(x)$ pour tout réel $C$. Deux antidérivées d'une même fonction ne diffèrent que par une constante. La constante $C$ est déterminée lorsqu'une <em>condition initiale</em> est donnée.</p>
+
+        <h3>Table des antidérivées de base</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Fonction $f(x)$</th>
+                    <th>Antidérivée $F(x) + C$</th>
+                    <th>Condition</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>$x^n$</td><td>$\dfrac{x^{n+1}}{n+1} + C$</td><td>$n \neq -1$</td></tr>
+                <tr><td>$\dfrac{1}{x}$</td><td>$\ln|x| + C$</td><td>$x \neq 0$</td></tr>
+                <tr><td>$e^x$</td><td>$e^x + C$</td><td>&mdash;</td></tr>
+                <tr><td>$a^x$</td><td>$\dfrac{a^x}{\ln a} + C$</td><td>$a > 0,\; a \neq 1$</td></tr>
+                <tr><td>$\sin x$</td><td>$-\cos x + C$</td><td>&mdash;</td></tr>
+                <tr><td>$\cos x$</td><td>$\sin x + C$</td><td>&mdash;</td></tr>
+                <tr><td>$\sec^2 x$</td><td>$\tan x + C$</td><td>&mdash;</td></tr>
+                <tr><td>$\dfrac{1}{\sqrt{1-x^2}}$</td><td>$\arcsin x + C$</td><td>$|x| < 1$</td></tr>
+                <tr><td>$\dfrac{1}{1+x^2}$</td><td>$\arctan x + C$</td><td>&mdash;</td></tr>
+            </tbody>
+        </table>
+
+        <div class="tip-box">
+            <h4>&#x1F4A1; Propriétés de linéarité</h4>
+            <p>Pour tous réels $k$, $\alpha$, $\beta$ et fonctions $f$, $g$ :</p>
+            <ul>
+                <li>$\displaystyle\int k\,f(x)\,dx = k\int f(x)\,dx$</li>
+                <li>$\displaystyle\int \bigl[f(x) \pm g(x)\bigr]\,dx = \int f(x)\,dx \pm \int g(x)\,dx$</li>
+            </ul>
+        </div>
+
+        <h3>Exemples résolus</h3>
+
+        <div class="example-box">
+            <h4>Exemple 1 — Polynôme</h4>
+            <p>Calculez $\displaystyle\int (3x^4 - 5x^2 + 2)\,dx$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>Appliquer la règle de la puissance terme par terme.</div>
+                $$\int (3x^4 - 5x^2 + 2)\,dx = 3\cdot\frac{x^5}{5} - 5\cdot\frac{x^3}{3} + 2x + C = \frac{3x^5}{5} - \frac{5x^3}{3} + 2x + C$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 2 — Fonctions trigonométriques</h4>
+            <p>Calculez $\displaystyle\int (4\cos x - 3\sin x)\,dx$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                $$\int (4\cos x - 3\sin x)\,dx = 4\sin x + 3\cos x + C$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 3 — Exponentielle et puissance</h4>
+            <p>Calculez $\displaystyle\int \left(e^x + \frac{1}{x} + \sqrt{x}\right)dx$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>Réécrire $\sqrt{x} = x^{1/2}$.</div>
+                $$\int \left(e^x + \frac{1}{x} + x^{1/2}\right)dx = e^x + \ln|x| + \frac{x^{3/2}}{3/2} + C = e^x + \ln|x| + \frac{2}{3}x^{3/2} + C$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 4 — Simplification avant intégration</h4>
+            <p>Calculez $\displaystyle\int \frac{x^3 - 2x + 1}{x}\,dx$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>Diviser chaque terme par $x$ avant d'intégrer.</div>
+                $$\int \left(x^2 - 2 + \frac{1}{x}\right)dx = \frac{x^3}{3} - 2x + \ln|x| + C$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 5 — Combinaison</h4>
+            <p>Calculez $\displaystyle\int \left(3e^x - \frac{4}{1+x^2} + 5\sec^2 x\right)dx$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                $$3e^x - 4\arctan x + 5\tan x + C$$
+            </div>
+        </div>
+
+        <h3>Problèmes à valeur initiale</h3>
+
+        <div class="definition-box">
+            <h4>&#x1F4D6; Problème à valeur initiale</h4>
+            <p>Étant donné $F'(x) = f(x)$ et une condition $F(a) = b$, on détermine $C$ en substituant $x = a$ dans $F(x) = \int f(x)\,dx + C$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple — Valeur initiale</h4>
+            <p>Trouvez $F(x)$ tel que $F'(x) = 6x^2 - 4x + 1$ et $F(0) = 3$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>Calculer l'antidérivée générale : $F(x) = 2x^3 - 2x^2 + x + C$.</div>
+                <div class="step"><span class="step-num">2</span>Appliquer $F(0) = 3$ : $2(0)^3 - 2(0)^2 + 0 + C = 3$, donc $C = 3$.</div>
+                <div class="step"><span class="step-num">3</span>Conclure : $F(x) = 2x^3 - 2x^2 + x + 3$.</div>
+            </div>
+        </div>
+
+        <!-- Exercices Section 1 -->
+        <div class="practice-box">
+            <h4>&#x270D; Exercices — Antidérivées</h4>
+            <ol>
+                <li>$\displaystyle\int (7x^3 - 4x + 9)\,dx$</li>
+                <li>$\displaystyle\int \left(\frac{2}{\sqrt{x}} + 3x^{4/3}\right)dx$</li>
+                <li>$\displaystyle\int (5\sin x + 2\cos x)\,dx$</li>
+                <li>$\displaystyle\int \left(4e^x - \frac{3}{x}\right)dx$</li>
+                <li>$\displaystyle\int \frac{x^4 - x^2 + 3}{x^2}\,dx$</li>
+                <li>$\displaystyle\int \left(\frac{5}{1+x^2} + 2e^x\right)dx$</li>
+                <li>Trouvez $F(x)$ si $F'(x) = 4x^3 - 6x$ et $F(1) = 2$.</li>
+                <li>Trouvez $G(x)$ si $G'(x) = \cos x$ et $G(\pi) = 0$.</li>
+            </ol>
+            <details class="solution-box">
+                <summary>Afficher les solutions</summary>
+                <div class="solution-content">
+                    <div class="sol-item"><strong>1.</strong> $\dfrac{7x^4}{4} - 2x^2 + 9x + C$</div>
+                    <div class="sol-item"><strong>2.</strong> $\displaystyle\int 2x^{-1/2}\,dx + \int 3x^{4/3}\,dx = 4x^{1/2} + \frac{9}{7}x^{7/3} + C$</div>
+                    <div class="sol-item"><strong>3.</strong> $-5\cos x + 2\sin x + C$</div>
+                    <div class="sol-item"><strong>4.</strong> $4e^x - 3\ln|x| + C$</div>
+                    <div class="sol-item"><strong>5.</strong> Diviser : $\displaystyle\int \left(x^2 - 1 + \frac{3}{x^2}\right)dx = \frac{x^3}{3} - x - \frac{3}{x} + C$</div>
+                    <div class="sol-item"><strong>6.</strong> $5\arctan x + 2e^x + C$</div>
+                    <div class="sol-item"><strong>7.</strong> $F(x) = x^4 - 3x^2 + C$. $F(1) = 1 - 3 + C = 2 \Rightarrow C = 4$. Donc $F(x) = x^4 - 3x^2 + 4$.</div>
+                    <div class="sol-item"><strong>8.</strong> $G(x) = \sin x + C$. $G(\pi) = \sin\pi + C = 0 + C = 0 \Rightarrow C = 0$. Donc $G(x) = \sin x$.</div>
+                </div>
+            </details>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════ -->
+        <!-- Section 2 : Intégrale définie et TFC                  -->
+        <!-- ══════════════════════════════════════════════════════ -->
+        <h2 id="integrale-definie">2. Intégrale définie et Théorème fondamental du calcul <span class="niveau-badge">Cégep</span></h2>
+
+        <h3>Idée intuitive : sommes de Riemann</h3>
+        <p>L'<strong>intégrale définie</strong> $\displaystyle\int_a^b f(x)\,dx$ représente l'<em>aire algébrique</em> comprise entre la courbe $y = f(x)$ et l'axe des $x$ sur l'intervalle $[a, b]$. On l'approche par des rectangles de plus en plus fins (sommes de Riemann) dont la largeur $\Delta x \to 0$.</p>
+
+        <!-- SVG : aire sous courbe -->
+        <div class="graph-container">
+            <svg viewBox="0 0 420 260" width="420" height="260" aria-label="Aire sous la courbe entre a et b">
+                <!-- Axes -->
+                <line x1="40" y1="220" x2="390" y2="220" stroke="#334155" stroke-width="2"/>
+                <line x1="40" y1="20" x2="40" y2="225" stroke="#334155" stroke-width="2"/>
+                <!-- Flèches -->
+                <polygon points="390,215 400,220 390,225" fill="#334155"/>
+                <polygon points="35,20 40,10 45,20" fill="#334155"/>
+                <!-- Axe labels -->
+                <text x="405" y="224" font-size="14" fill="#334155" font-family="Arial">x</text>
+                <text x="30" y="10" font-size="14" fill="#334155" font-family="Arial">y</text>
+                <!-- Courbe f(x) = 80 + 60*sin((x-40)/55) dessinée manuellement via polyline -->
+                <!-- Points calculés pour une courbe de type arche sur [a,b] = [100,310] -->
+                <defs>
+                    <clipPath id="curve-clip">
+                        <rect x="100" y="0" width="210" height="220"/>
+                    </clipPath>
+                </defs>
+                <!-- Zone ombragée sous la courbe -->
+                <polygon
+                    points="100,220 120,172 140,138 160,115 180,107 200,110 220,123 240,143 260,165 280,186 300,203 310,220"
+                    fill="#bfdbfe" stroke="none" opacity="0.8"/>
+                <!-- Courbe complète (de x=50 à x=380) -->
+                <polyline
+                    points="50,218 70,200 90,178 100,167 110,155 120,143 140,119 160,105 180,97 200,100 220,113 240,133 260,155 280,177 300,196 310,207 330,216 350,220 370,220"
+                    fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+                <!-- Bornes a et b -->
+                <line x1="100" y1="220" x2="100" y2="167" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4,3"/>
+                <line x1="310" y1="220" x2="310" y2="207" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4,3"/>
+                <text x="95" y="234" font-size="13" fill="#1e3a5f" font-family="Arial" text-anchor="middle">$a$</text>
+                <text x="310" y="234" font-size="13" fill="#1e3a5f" font-family="Arial" text-anchor="middle">$b$</text>
+                <!-- Label aire -->
+                <text x="205" y="175" font-size="13" fill="#1e40af" font-family="Arial" text-anchor="middle" font-style="italic">Aire</text>
+                <!-- Label courbe -->
+                <text x="155" y="90" font-size="13" fill="#1d4ed8" font-family="Arial" font-style="italic">y = f(x)</text>
+            </svg>
+            <p class="graph-caption">Figure 1 — L'intégrale définie $\int_a^b f(x)\,dx$ correspond à l'aire algébrique de la région ombragée.</p>
+        </div>
+
+        <div class="definition-box">
+            <h4>&#x1F4D6; Intégrale définie</h4>
+            <p>Si $f$ est continue sur $[a, b]$, alors</p>
+            $$\int_a^b f(x)\,dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i^*)\,\Delta x, \quad \Delta x = \frac{b-a}{n}.$$
+            <p>L'aire est <em>positive</em> quand $f(x) > 0$ et <em>négative</em> quand $f(x) < 0$.</p>
+        </div>
+
+        <h3>Propriétés de l'intégrale définie</h3>
+        <ul>
+            <li><strong>Linéarité :</strong> $\displaystyle\int_a^b [\alpha f(x) + \beta g(x)]\,dx = \alpha\int_a^b f(x)\,dx + \beta\int_a^b g(x)\,dx$</li>
+            <li><strong>Additivité :</strong> $\displaystyle\int_a^b f(x)\,dx + \int_b^c f(x)\,dx = \int_a^c f(x)\,dx$</li>
+            <li><strong>Inversion des bornes :</strong> $\displaystyle\int_a^b f(x)\,dx = -\int_b^a f(x)\,dx$</li>
+            <li><strong>Borne identique :</strong> $\displaystyle\int_a^a f(x)\,dx = 0$</li>
+        </ul>
+
+        <div class="theorem-box">
+            <h4>&#x1F3C6; Théorème fondamental du calcul (TFC)</h4>
+            <p><strong>Partie 1 — Dérivée d'une intégrale à borne variable :</strong></p>
+            <p>Si $f$ est continue sur $[a, b]$ et $G(x) = \displaystyle\int_a^x f(t)\,dt$, alors</p>
+            $$G'(x) = \frac{d}{dx}\left[\int_a^x f(t)\,dt\right] = f(x).$$
+            <p style="margin-top:14px;"><strong>Partie 2 — Calcul d'une intégrale définie :</strong></p>
+            <p>Si $F$ est une antidérivée de $f$ sur $[a,b]$, alors</p>
+            $$\int_a^b f(x)\,dx = F(b) - F(a) = \Big[F(x)\Big]_a^b.$$
+        </div>
+
+        <h3>Exemples résolus</h3>
+
+        <div class="example-box">
+            <h4>Exemple 1 — Intégrale d'un polynôme</h4>
+            <p>Calculez $\displaystyle\int_1^3 (2x^2 - x + 4)\,dx$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>Trouver une antidérivée : $F(x) = \dfrac{2x^3}{3} - \dfrac{x^2}{2} + 4x$.</div>
+                <div class="step"><span class="step-num">2</span>Appliquer le TFC (Partie 2).</div>
+                $$\left[\frac{2x^3}{3} - \frac{x^2}{2} + 4x\right]_1^3 = \left(18 - \frac{9}{2} + 12\right) - \left(\frac{2}{3} - \frac{1}{2} + 4\right)$$
+                $$= \frac{57}{2} - \frac{25}{6} = \frac{171}{6} - \frac{25}{6} = \frac{146}{6} = \frac{73}{3}$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 2 — Fonctions trigonométriques</h4>
+            <p>Calculez $\displaystyle\int_0^{\pi/2} \cos x\,dx$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                $$\Big[\sin x\Big]_0^{\pi/2} = \sin\frac{\pi}{2} - \sin 0 = 1 - 0 = 1$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 3 — Exponentielle</h4>
+            <p>Calculez $\displaystyle\int_0^2 3e^x\,dx$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                $$3\Big[e^x\Big]_0^2 = 3(e^2 - e^0) = 3(e^2 - 1) \approx 3(7{,}389 - 1) = 3(6{,}389) \approx 19{,}17$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 4 — TFC Partie 1</h4>
+            <p>Soit $G(x) = \displaystyle\int_1^x (t^2 + \sin t)\,dt$. Trouvez $G'(x)$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <p>Par le TFC Partie 1, $G'(x) = x^2 + \sin x$.</p>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 5 — TFC Partie 1 avec règle en chaîne</h4>
+            <p>Soit $H(x) = \displaystyle\int_0^{x^2} e^{t}\,dt$. Trouvez $H'(x)$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>Poser $u = x^2$, donc $H(x) = G(u)$ avec $G'(u) = e^u$.</div>
+                <div class="step"><span class="step-num">2</span>Par la règle en chaîne : $H'(x) = e^{x^2} \cdot 2x$.</div>
+            </div>
+        </div>
+
+        <!-- Exercices Section 2 -->
+        <div class="practice-box">
+            <h4>&#x270D; Exercices — Intégrale définie et TFC</h4>
+            <ol>
+                <li>$\displaystyle\int_0^4 (3x - 1)\,dx$</li>
+                <li>$\displaystyle\int_1^4 \sqrt{x}\,dx$</li>
+                <li>$\displaystyle\int_0^{\pi} \sin x\,dx$</li>
+                <li>$\displaystyle\int_{-1}^{1} (x^3 - x)\,dx$</li>
+                <li>$\displaystyle\int_1^e \frac{1}{x}\,dx$</li>
+                <li>$\displaystyle\int_0^1 (e^x + 2x)\,dx$</li>
+                <li>Soit $F(x) = \displaystyle\int_0^x (t^3 - 2t)\,dt$. Trouvez $F'(x)$.</li>
+                <li>Soit $G(x) = \displaystyle\int_0^{\sqrt{x}} \cos t\,dt$. Trouvez $G'(x)$.</li>
+            </ol>
+            <details class="solution-box">
+                <summary>Afficher les solutions</summary>
+                <div class="solution-content">
+                    <div class="sol-item"><strong>1.</strong> $\left[\dfrac{3x^2}{2} - x\right]_0^4 = (24 - 4) - 0 = 20$</div>
+                    <div class="sol-item"><strong>2.</strong> $\left[\dfrac{2}{3}x^{3/2}\right]_1^4 = \dfrac{2}{3}(8) - \dfrac{2}{3}(1) = \dfrac{14}{3}$</div>
+                    <div class="sol-item"><strong>3.</strong> $\Big[-\cos x\Big]_0^\pi = -\cos\pi + \cos 0 = 1 + 1 = 2$</div>
+                    <div class="sol-item"><strong>4.</strong> $f$ est impaire sur $[-1,1]$ donc l'intégrale vaut $0$.</div>
+                    <div class="sol-item"><strong>5.</strong> $\Big[\ln x\Big]_1^e = \ln e - \ln 1 = 1 - 0 = 1$</div>
+                    <div class="sol-item"><strong>6.</strong> $\Big[e^x + x^2\Big]_0^1 = (e + 1) - (1 + 0) = e$</div>
+                    <div class="sol-item"><strong>7.</strong> Par TFC Partie 1 : $F'(x) = x^3 - 2x$</div>
+                    <div class="sol-item"><strong>8.</strong> Règle en chaîne : $G'(x) = \cos(\sqrt{x}) \cdot \dfrac{1}{2\sqrt{x}}$</div>
+                </div>
+            </details>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════ -->
+        <!-- Section 3 : Substitution                              -->
+        <!-- ══════════════════════════════════════════════════════ -->
+        <h2 id="substitution">3. Substitution (changement de variable) <span class="niveau-badge">Cégep</span></h2>
+
+        <div class="definition-box">
+            <h4>&#x1F4D6; Méthode de substitution</h4>
+            <p>Si l'intégrale contient une composition de fonctions $f(g(x)) \cdot g'(x)$, on pose $u = g(x)$ :</p>
+            $$du = g'(x)\,dx \quad \Longrightarrow \quad \int f(g(x))\,g'(x)\,dx = \int f(u)\,du.$$
+            <p>Pour une intégrale définie, les bornes changent : si $u = g(x)$, alors $x = a \to u = g(a)$ et $x = b \to u = g(b)$.</p>
+        </div>
+
+        <div class="tip-box">
+            <h4>&#x1F4A1; Comment choisir $u$ ?</h4>
+            <ul>
+                <li>Chercher une expression dont la dérivée apparaît comme facteur dans l'intégrale.</li>
+                <li>Souvent : l'argument d'une puissance, d'une racine, d'une exponentielle, d'une fonction trigonométrique.</li>
+                <li>Vérifier que $du$ absorbe les termes restants (à une constante près).</li>
+            </ul>
+        </div>
+
+        <h3>Exemples résolus</h3>
+
+        <div class="example-box">
+            <h4>Exemple 1 — Puissance composée</h4>
+            <p>Calculez $\displaystyle\int (2x+1)^5\,dx$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>Poser $u = 2x+1$, donc $du = 2\,dx$, soit $dx = \dfrac{du}{2}$.</div>
+                <div class="step"><span class="step-num">2</span>Substituer.</div>
+                $$\int u^5 \cdot \frac{du}{2} = \frac{1}{2} \cdot \frac{u^6}{6} + C = \frac{(2x+1)^6}{12} + C$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 2 — Racine carrée</h4>
+            <p>Calculez $\displaystyle\int x\sqrt{x^2+3}\,dx$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>Poser $u = x^2 + 3$, donc $du = 2x\,dx$, soit $x\,dx = \dfrac{du}{2}$.</div>
+                $$\int \sqrt{u}\cdot\frac{du}{2} = \frac{1}{2}\cdot\frac{2}{3}u^{3/2} + C = \frac{(x^2+3)^{3/2}}{3} + C$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 3 — Fraction</h4>
+            <p>Calculez $\displaystyle\int \frac{2x}{x^2+1}\,dx$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>Poser $u = x^2+1$, donc $du = 2x\,dx$.</div>
+                $$\int \frac{du}{u} = \ln|u| + C = \ln(x^2+1) + C$$
+                <p>(Ici $x^2+1 > 0$ toujours, donc $\ln(x^2+1) + C$.)</p>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 4 — Puissance de sinus</h4>
+            <p>Calculez $\displaystyle\int \sin^3 x \cos x\,dx$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>Poser $u = \sin x$, donc $du = \cos x\,dx$.</div>
+                $$\int u^3\,du = \frac{u^4}{4} + C = \frac{\sin^4 x}{4} + C$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 5 — Intégrale définie avec substitution</h4>
+            <p>Calculez $\displaystyle\int_0^1 2x(x^2+1)^3\,dx$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>Poser $u = x^2+1$, $du = 2x\,dx$.</div>
+                <div class="step"><span class="step-num">2</span>Changer les bornes : $x = 0 \Rightarrow u = 1$ ; $x = 1 \Rightarrow u = 2$.</div>
+                $$\int_1^2 u^3\,du = \left[\frac{u^4}{4}\right]_1^2 = \frac{16}{4} - \frac{1}{4} = \frac{15}{4}$$
+            </div>
+        </div>
+
+        <!-- Exercices Section 3 -->
+        <div class="practice-box">
+            <h4>&#x270D; Exercices — Substitution</h4>
+            <ol>
+                <li>$\displaystyle\int (3x-2)^4\,dx$</li>
+                <li>$\displaystyle\int \frac{x}{\sqrt{1+x^2}}\,dx$</li>
+                <li>$\displaystyle\int e^{5x}\,dx$</li>
+                <li>$\displaystyle\int \cos(3x+1)\,dx$</li>
+                <li>$\displaystyle\int x^2(x^3-1)^6\,dx$</li>
+                <li>$\displaystyle\int \frac{\ln x}{x}\,dx$</li>
+                <li>$\displaystyle\int_0^2 x e^{x^2}\,dx$</li>
+                <li>$\displaystyle\int_0^{\pi/6} \cos x \sin^2 x\,dx$</li>
+            </ol>
+            <details class="solution-box">
+                <summary>Afficher les solutions</summary>
+                <div class="solution-content">
+                    <div class="sol-item"><strong>1.</strong> $u = 3x-2$, $du = 3\,dx$ : $\dfrac{(3x-2)^5}{15} + C$</div>
+                    <div class="sol-item"><strong>2.</strong> $u = 1+x^2$, $du = 2x\,dx$ : $\sqrt{1+x^2} + C$</div>
+                    <div class="sol-item"><strong>3.</strong> $u = 5x$, $du = 5\,dx$ : $\dfrac{e^{5x}}{5} + C$</div>
+                    <div class="sol-item"><strong>4.</strong> $u = 3x+1$, $du = 3\,dx$ : $\dfrac{\sin(3x+1)}{3} + C$</div>
+                    <div class="sol-item"><strong>5.</strong> $u = x^3-1$, $du = 3x^2\,dx$ : $\dfrac{(x^3-1)^7}{21} + C$</div>
+                    <div class="sol-item"><strong>6.</strong> $u = \ln x$, $du = \frac{1}{x}\,dx$ : $\dfrac{(\ln x)^2}{2} + C$</div>
+                    <div class="sol-item"><strong>7.</strong> $u = x^2$, $du = 2x\,dx$ ; bornes $0 \to 0$, $2 \to 4$ : $\dfrac{1}{2}\left[e^u\right]_0^4 = \dfrac{e^4 - 1}{2}$</div>
+                    <div class="sol-item"><strong>8.</strong> $u = \sin x$, $du = \cos x\,dx$ ; bornes $0 \to 0$, $\pi/6 \to 1/2$ : $\left[\dfrac{u^3}{3}\right]_0^{1/2} = \dfrac{1}{24}$</div>
+                </div>
+            </details>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════ -->
+        <!-- Section 4 : Intégration par parties                   -->
+        <!-- ══════════════════════════════════════════════════════ -->
+        <h2 id="par-parties">4. Intégration par parties <span class="niveau-badge">Cégep</span></h2>
+
+        <div class="theorem-box">
+            <h4>&#x1F3C6; Formule — Intégration par parties</h4>
+            $$\int u\,dv = uv - \int v\,du$$
+            <p>Découle de la règle de dérivation du produit : $(uv)' = u'v + uv'$, intégrée des deux côtés.</p>
+        </div>
+
+        <div class="tip-box">
+            <h4>&#x1F4A1; Règle LIATE — Comment choisir $u$ ?</h4>
+            <p>Choisir $u$ selon la priorité suivante (du premier au dernier) :</p>
+            <ol>
+                <li><strong>L</strong>ogarithmique (ex. $\ln x$, $\log x$)</li>
+                <li><strong>I</strong>nverse trigonométrique (ex. $\arctan x$, $\arcsin x$)</li>
+                <li><strong>A</strong>lgébrique (ex. $x^n$, polynôme)</li>
+                <li><strong>T</strong>rigonométrique (ex. $\sin x$, $\cos x$)</li>
+                <li><strong>E</strong>xponentielle (ex. $e^x$, $a^x$)</li>
+            </ol>
+            <p>Le choix de $dv$ est tout ce qui reste.</p>
+        </div>
+
+        <h3>Exemples résolus</h3>
+
+        <div class="example-box">
+            <h4>Exemple 1 — $x e^x$</h4>
+            <p>Calculez $\displaystyle\int x e^x\,dx$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>LIATE : $u = x$ (algébrique), $dv = e^x\,dx$.</div>
+                <div class="step"><span class="step-num">2</span>Donc $du = dx$ et $v = e^x$.</div>
+                $$\int x e^x\,dx = x e^x - \int e^x\,dx = x e^x - e^x + C = e^x(x - 1) + C$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 2 — $x \sin x$</h4>
+            <p>Calculez $\displaystyle\int x \sin x\,dx$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>$u = x$, $dv = \sin x\,dx$ donc $du = dx$, $v = -\cos x$.</div>
+                $$\int x \sin x\,dx = -x\cos x + \int \cos x\,dx = -x\cos x + \sin x + C$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 3 — $\ln x$</h4>
+            <p>Calculez $\displaystyle\int \ln x\,dx$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>LIATE : $u = \ln x$, $dv = dx$ donc $du = \dfrac{1}{x}\,dx$, $v = x$.</div>
+                $$\int \ln x\,dx = x\ln x - \int x\cdot\frac{1}{x}\,dx = x\ln x - \int 1\,dx = x\ln x - x + C$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 4 — Intégration par parties répétée</h4>
+            <p>Calculez $\displaystyle\int x^2 e^x\,dx$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>Premier tour : $u = x^2$, $dv = e^x\,dx$, donc $du = 2x\,dx$, $v = e^x$.</div>
+                $$\int x^2 e^x\,dx = x^2 e^x - 2\int x e^x\,dx$$
+                <div class="step"><span class="step-num">2</span>Deuxième tour (Exemple 1) : $\int x e^x\,dx = e^x(x-1) + C$.</div>
+                $$\int x^2 e^x\,dx = x^2 e^x - 2e^x(x-1) + C = e^x(x^2 - 2x + 2) + C$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 5 — Intégration cyclique</h4>
+            <p>Calculez $\displaystyle\int e^x \sin x\,dx$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>Premier tour : $u = e^x$, $dv = \sin x\,dx$, donc $du = e^x\,dx$, $v = -\cos x$.</div>
+                $$I = -e^x\cos x + \int e^x\cos x\,dx$$
+                <div class="step"><span class="step-num">2</span>Deuxième tour : $u = e^x$, $dv = \cos x\,dx$, $v = \sin x$.</div>
+                $$I = -e^x\cos x + e^x\sin x - \int e^x\sin x\,dx = -e^x\cos x + e^x\sin x - I$$
+                <div class="step"><span class="step-num">3</span>Résoudre pour $I$ : $2I = e^x(\sin x - \cos x)$.</div>
+                $$\int e^x\sin x\,dx = \frac{e^x(\sin x - \cos x)}{2} + C$$
+            </div>
+        </div>
+
+        <!-- Exercices Section 4 -->
+        <div class="practice-box">
+            <h4>&#x270D; Exercices — Intégration par parties</h4>
+            <ol>
+                <li>$\displaystyle\int x e^{-x}\,dx$</li>
+                <li>$\displaystyle\int x \cos x\,dx$</li>
+                <li>$\displaystyle\int x \ln x\,dx$</li>
+                <li>$\displaystyle\int \arctan x\,dx$</li>
+                <li>$\displaystyle\int x^2 \sin x\,dx$</li>
+                <li>$\displaystyle\int_1^e (\ln x)^2\,dx$</li>
+            </ol>
+            <details class="solution-box">
+                <summary>Afficher les solutions</summary>
+                <div class="solution-content">
+                    <div class="sol-item"><strong>1.</strong> $u = x$, $dv = e^{-x}dx$, $v = -e^{-x}$ : $-xe^{-x} + \int e^{-x}dx = -xe^{-x} - e^{-x} + C = -e^{-x}(x+1)+C$</div>
+                    <div class="sol-item"><strong>2.</strong> $u = x$, $dv = \cos x\,dx$, $v = \sin x$ : $x\sin x - \int\sin x\,dx = x\sin x + \cos x + C$</div>
+                    <div class="sol-item"><strong>3.</strong> $u = \ln x$, $dv = x\,dx$, $v = x^2/2$ : $\dfrac{x^2\ln x}{2} - \dfrac{x^2}{4} + C$</div>
+                    <div class="sol-item"><strong>4.</strong> $u = \arctan x$, $dv = dx$, $v = x$ : $x\arctan x - \dfrac{\ln(1+x^2)}{2} + C$</div>
+                    <div class="sol-item"><strong>5.</strong> Deux intégrations : $-x^2\cos x + 2x\sin x + 2\cos x + C$</div>
+                    <div class="sol-item"><strong>6.</strong> $u = (\ln x)^2$, $dv = dx$ ; puis $u = \ln x$, $dv = dx$ : $\left[x(\ln x)^2 - 2x\ln x + 2x\right]_1^e = (e - 2e + 2e) - (0 - 0 + 2) = e - 2$</div>
+                </div>
+            </details>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════ -->
+        <!-- Section 5 : Applications                              -->
+        <!-- ══════════════════════════════════════════════════════ -->
+        <h2 id="applications">5. Applications de l'intégrale <span class="niveau-badge">Cégep</span></h2>
+
+        <!-- 5.1 Aire entre deux courbes -->
+        <h3>5.1 Aire entre deux courbes</h3>
+
+        <div class="definition-box">
+            <h4>&#x1F4D6; Formule — Aire entre $f$ et $g$</h4>
+            <p>Si $f(x) \geq g(x)$ sur $[a, b]$, l'aire de la région comprise entre les deux courbes est</p>
+            $$A = \int_a^b \bigl[f(x) - g(x)\bigr]\,dx.$$
+            <p>Si les courbes se croisent sur $[a,b]$, on subdivise l'intervalle aux points d'intersection et on prend la valeur absolue de chaque partie.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 1 — Deux paraboles</h4>
+            <p>Trouvez l'aire entre $f(x) = x+2$ et $g(x) = x^2$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>Trouver les intersections : $x+2 = x^2 \Rightarrow x^2 - x - 2 = 0 \Rightarrow (x-2)(x+1)=0$, donc $x = -1$ et $x = 2$.</div>
+                <div class="step"><span class="step-num">2</span>Sur $[-1, 2]$, $x+2 \geq x^2$.</div>
+                $$A = \int_{-1}^{2} (x+2-x^2)\,dx = \left[\frac{x^2}{2} + 2x - \frac{x^3}{3}\right]_{-1}^{2}$$
+                $$= \left(2 + 4 - \frac{8}{3}\right) - \left(\frac{1}{2} - 2 + \frac{1}{3}\right) = \frac{10}{3} - \left(-\frac{7}{6}\right) = \frac{20}{6} + \frac{7}{6} = \frac{27}{6} = \frac{9}{2}$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 2 — Parabole et droite</h4>
+            <p>Trouvez l'aire entre $y = 4 - x^2$ et $y = 0$ (l'axe des $x$).</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>Intersections : $4-x^2=0 \Rightarrow x = \pm 2$.</div>
+                $$A = \int_{-2}^{2}(4-x^2)\,dx = \left[4x - \frac{x^3}{3}\right]_{-2}^{2} = \left(8 - \frac{8}{3}\right) - \left(-8 + \frac{8}{3}\right) = \frac{32}{3}$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 3 — Intégration selon $y$</h4>
+            <p>Trouvez l'aire de la région délimitée par $x = y^2$ et $x = y + 2$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>Intersections : $y^2 = y+2 \Rightarrow y^2 - y - 2 = 0 \Rightarrow y = -1,\; 2$.</div>
+                <div class="step"><span class="step-num">2</span>Sur $[-1,2]$, $y+2 \geq y^2$.</div>
+                $$A = \int_{-1}^{2}(y+2-y^2)\,dy = \left[\frac{y^2}{2}+2y-\frac{y^3}{3}\right]_{-1}^{2} = \frac{9}{2}$$
+            </div>
+        </div>
+
+        <!-- Exercices 5.1 -->
+        <div class="practice-box">
+            <h4>&#x270D; Exercices — Aire entre deux courbes</h4>
+            <ol>
+                <li>Aire entre $y = x^2$ et $y = 2x$.</li>
+                <li>Aire entre $y = \sin x$ et $y = \cos x$ sur $[0, \pi/4]$.</li>
+                <li>Aire entre $y = x^3$ et $y = x$ pour $x \in [-1, 1]$.</li>
+                <li>Aire entre $y = e^x$ et $y = x + 1$ sur $[0, 1]$.</li>
+            </ol>
+            <details class="solution-box">
+                <summary>Afficher les solutions</summary>
+                <div class="solution-content">
+                    <div class="sol-item"><strong>1.</strong> Intersections : $x=0, 2$. $A = \int_0^2(2x-x^2)dx = \left[x^2 - x^3/3\right]_0^2 = 4 - 8/3 = \mathbf{4/3}$</div>
+                    <div class="sol-item"><strong>2.</strong> Sur $[0,\pi/4]$, $\cos x \geq \sin x$. $A = \int_0^{\pi/4}(\cos x - \sin x)dx = \left[\sin x + \cos x\right]_0^{\pi/4} = \sqrt{2} - 1$</div>
+                    <div class="sol-item"><strong>3.</strong> $x^3 - x \leq 0$ sur $[0,1]$ et $\geq 0$ sur $[-1,0]$. Par symétrie de fonction impaire : $A = 2\int_0^1(x-x^3)dx = 2\left[x^2/2-x^4/4\right]_0^1 = 2(1/4) = \mathbf{1/2}$</div>
+                    <div class="sol-item"><strong>4.</strong> $e^x \geq x+1$ sur $[0,1]$. $A = \int_0^1(e^x-x-1)dx = \left[e^x - x^2/2 - x\right]_0^1 = (e-1/2-1)-1 = e - 5/2 \approx 0{,}218$</div>
+                </div>
+            </details>
+        </div>
+
+        <!-- 5.2 Volumes de révolution -->
+        <h3>5.2 Volume de solides de révolution</h3>
+
+        <div class="definition-box">
+            <h4>&#x1F4D6; Méthode des disques et des rondelles</h4>
+            <p><strong>Disques (rotation autour de l'axe des $x$) :</strong></p>
+            $$V = \pi \int_a^b \bigl[f(x)\bigr]^2\,dx$$
+            <p><strong>Rondelles (washer method) :</strong> Si la région est comprise entre $f(x)$ (courbe externe) et $g(x)$ (courbe interne), $f(x) \geq g(x) \geq 0$ :</p>
+            $$V = \pi \int_a^b \Bigl(\bigl[f(x)\bigr]^2 - \bigl[g(x)\bigr]^2\Bigr)\,dx$$
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 1 — Méthode des disques</h4>
+            <p>Calculez le volume du solide engendré par la rotation de $y = \sqrt{x}$, pour $0 \leq x \leq 4$, autour de l'axe des $x$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                $$V = \pi\int_0^4 (\sqrt{x})^2\,dx = \pi\int_0^4 x\,dx = \pi\left[\frac{x^2}{2}\right]_0^4 = \pi \cdot 8 = 8\pi$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 2 — Méthode des rondelles</h4>
+            <p>Trouvez le volume du solide obtenu en faisant tourner autour de l'axe des $x$ la région entre $y = x$ et $y = x^2$ sur $[0,1]$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>Sur $[0,1]$, $x \geq x^2$.</div>
+                $$V = \pi\int_0^1\bigl(x^2 - x^4\bigr)\,dx = \pi\left[\frac{x^3}{3} - \frac{x^5}{5}\right]_0^1 = \pi\left(\frac{1}{3}-\frac{1}{5}\right) = \frac{2\pi}{15}$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 3 — Rotation autour de l'axe des $y$</h4>
+            <p>Volume du solide engendré par $y = x^2$, $0 \leq y \leq 4$, autour de l'axe des $y$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>Exprimer $x$ en fonction de $y$ : $x = \sqrt{y}$.</div>
+                $$V = \pi\int_0^4 (\sqrt{y})^2\,dy = \pi\int_0^4 y\,dy = \pi\left[\frac{y^2}{2}\right]_0^4 = 8\pi$$
+            </div>
+        </div>
+
+        <!-- Exercices 5.2 -->
+        <div class="practice-box">
+            <h4>&#x270D; Exercices — Volumes de révolution</h4>
+            <ol>
+                <li>Volume du solide obtenu en faisant tourner $y = x^2$ sur $[0,3]$ autour de l'axe des $x$.</li>
+                <li>Volume du solide obtenu en faisant tourner $y = e^x$ sur $[0,1]$ autour de l'axe des $x$.</li>
+                <li>Volume entre $y = \sqrt{x}$ et $y = x$ sur $[0,1]$, rotation autour de l'axe des $x$ (rondelles).</li>
+                <li>Volume du solide obtenu en faisant tourner $y = \sin x$ sur $[0,\pi]$ autour de l'axe des $x$.</li>
+            </ol>
+            <details class="solution-box">
+                <summary>Afficher les solutions</summary>
+                <div class="solution-content">
+                    <div class="sol-item"><strong>1.</strong> $\pi\int_0^3 x^4\,dx = \pi\left[x^5/5\right]_0^3 = \dfrac{243\pi}{5}$</div>
+                    <div class="sol-item"><strong>2.</strong> $\pi\int_0^1 e^{2x}\,dx = \pi\left[\dfrac{e^{2x}}{2}\right]_0^1 = \dfrac{\pi(e^2-1)}{2}$</div>
+                    <div class="sol-item"><strong>3.</strong> Sur $[0,1]$, $\sqrt{x} \geq x$. $V = \pi\int_0^1(x - x^2)\,dx = \pi\left[x^2/2-x^3/3\right]_0^1 = \dfrac{\pi}{6}$</div>
+                    <div class="sol-item"><strong>4.</strong> $\pi\int_0^\pi \sin^2 x\,dx = \pi\int_0^\pi \dfrac{1-\cos 2x}{2}\,dx = \pi\left[\dfrac{x}{2}-\dfrac{\sin 2x}{4}\right]_0^\pi = \dfrac{\pi^2}{2}$</div>
+                </div>
+            </details>
+        </div>
+
+        <!-- 5.3 Équations différentielles à variables séparables -->
+        <h3>5.3 Équations différentielles à variables séparables</h3>
+
+        <div class="definition-box">
+            <h4>&#x1F4D6; Équations à variables séparables</h4>
+            <p>Une équation différentielle (ED) de la forme</p>
+            $$\frac{dy}{dx} = f(x)\,g(y)$$
+            <p>est dite <strong>à variables séparables</strong>. On résout en isolant les variables :</p>
+            $$\frac{dy}{g(y)} = f(x)\,dx \quad \Longrightarrow \quad \int \frac{dy}{g(y)} = \int f(x)\,dx.$$
+            <p>On obtient d'abord la <em>solution générale</em> (avec constante $C$), puis la <em>solution particulière</em> en appliquant une condition initiale.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 1 — Solution générale</h4>
+            <p>Résoudre $\dfrac{dy}{dx} = 2xy$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>Séparer : $\dfrac{dy}{y} = 2x\,dx$.</div>
+                <div class="step"><span class="step-num">2</span>Intégrer : $\ln|y| = x^2 + C_1$.</div>
+                <div class="step"><span class="step-num">3</span>Exponentier : $|y| = e^{x^2 + C_1} = e^{C_1}e^{x^2}$, soit $y = Ce^{x^2}$ ($C \in \mathbb{R}$).</div>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 2 — Solution particulière (croissance exponentielle)</h4>
+            <p>Résoudre $\dfrac{dy}{dx} = 3y$ avec $y(0) = 5$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>Séparer et intégrer : $\ln|y| = 3x + C_1$, donc $y = Ce^{3x}$.</div>
+                <div class="step"><span class="step-num">2</span>Appliquer $y(0)=5$ : $C = 5$.</div>
+                <div class="step"><span class="step-num">3</span>Solution : $y = 5e^{3x}$.</div>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>Exemple 3 — Refroidissement de Newton</h4>
+            <p>La loi de refroidissement de Newton dit que $\dfrac{dT}{dt} = -k(T - T_{\text{amb}})$, avec $T_{\text{amb}} = 20°\text{C}$, $k = 0{,}1\,\text{min}^{-1}$ et $T(0) = 80°\text{C}$. Trouvez $T(t)$.</p>
+            <div class="solution">
+                <strong>Solution :</strong>
+                <div class="step"><span class="step-num">1</span>Poser $u = T - 20$, donc $\dfrac{du}{dt} = -0{,}1\,u$.</div>
+                <div class="step"><span class="step-num">2</span>Solution générale : $u = Ce^{-0{,}1t}$, soit $T = 20 + Ce^{-0{,}1t}$.</div>
+                <div class="step"><span class="step-num">3</span>$T(0) = 80$ : $C = 60$. Donc $T(t) = 20 + 60e^{-0{,}1t}$.</div>
+            </div>
+        </div>
+
+        <!-- Exercices 5.3 -->
+        <div class="practice-box">
+            <h4>&#x270D; Exercices — Équations différentielles</h4>
+            <ol>
+                <li>Résoudre $\dfrac{dy}{dx} = -5y$ avec $y(0) = 3$.</li>
+                <li>Résoudre $\dfrac{dy}{dx} = \dfrac{x}{y}$ avec $y(0) = 2$.</li>
+                <li>Résoudre $\dfrac{dy}{dx} = y^2 x$ (solution générale).</li>
+                <li>Une population croît à un taux proportionnel à sa taille. Si $P(0) = 1000$ et $P(2) = 1600$, trouvez $P(t)$.</li>
+            </ol>
+            <details class="solution-box">
+                <summary>Afficher les solutions</summary>
+                <div class="solution-content">
+                    <div class="sol-item"><strong>1.</strong> $dy/y = -5\,dx \Rightarrow \ln|y| = -5x + C_1 \Rightarrow y = Ce^{-5x}$. $y(0) = 3 \Rightarrow C = 3$. Solution : $y = 3e^{-5x}$.</div>
+                    <div class="sol-item"><strong>2.</strong> $y\,dy = x\,dx \Rightarrow y^2/2 = x^2/2 + C$. $y(0)=2 \Rightarrow C = 2$. Solution : $y^2 = x^2 + 4$, soit $y = \sqrt{x^2+4}$ (branche positive).</div>
+                    <div class="sol-item"><strong>3.</strong> $dy/y^2 = x\,dx \Rightarrow -1/y = x^2/2 + C \Rightarrow y = -\dfrac{1}{x^2/2+C} = \dfrac{-2}{x^2 + K}$ où $K = 2C$.</div>
+                    <div class="sol-item"><strong>4.</strong> $P(t) = 1000e^{kt}$. $P(2) = 1600 \Rightarrow e^{2k} = 1{,}6 \Rightarrow k = \dfrac{\ln 1{,}6}{2} \approx 0{,}235$. Solution : $P(t) = 1000e^{0{,}235t}$.</div>
+                </div>
+            </details>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════ -->
+        <!-- Section 6 : Résumé                                    -->
+        <!-- ══════════════════════════════════════════════════════ -->
+        <h2 id="resume">6. Résumé des formules essentielles <span class="niveau-badge">Cégep</span></h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Formule</th>
+                    <th>Expression</th>
+                    <th>Remarque</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Antidérivée — puissance</td>
+                    <td>$\displaystyle\int x^n\,dx = \dfrac{x^{n+1}}{n+1}+C$</td>
+                    <td>$n \neq -1$</td>
+                </tr>
+                <tr>
+                    <td>Antidérivée — $1/x$</td>
+                    <td>$\displaystyle\int \frac{1}{x}\,dx = \ln|x|+C$</td>
+                    <td>&mdash;</td>
+                </tr>
+                <tr>
+                    <td>TFC Partie 2</td>
+                    <td>$\displaystyle\int_a^b f(x)\,dx = F(b)-F(a)$</td>
+                    <td>$F' = f$</td>
+                </tr>
+                <tr>
+                    <td>TFC Partie 1</td>
+                    <td>$\dfrac{d}{dx}\left[\displaystyle\int_a^x f(t)\,dt\right] = f(x)$</td>
+                    <td>&mdash;</td>
+                </tr>
+                <tr>
+                    <td>Substitution</td>
+                    <td>$\displaystyle\int f(g(x))g'(x)\,dx = \int f(u)\,du$</td>
+                    <td>$u = g(x)$</td>
+                </tr>
+                <tr>
+                    <td>Intégration par parties</td>
+                    <td>$\displaystyle\int u\,dv = uv - \int v\,du$</td>
+                    <td>Règle LIATE</td>
+                </tr>
+                <tr>
+                    <td>Aire entre deux courbes</td>
+                    <td>$A = \displaystyle\int_a^b [f(x)-g(x)]\,dx$</td>
+                    <td>$f \geq g$</td>
+                </tr>
+                <tr>
+                    <td>Volume — disques</td>
+                    <td>$V = \pi\displaystyle\int_a^b [f(x)]^2\,dx$</td>
+                    <td>Rotation / axe $x$</td>
+                </tr>
+                <tr>
+                    <td>Volume — rondelles</td>
+                    <td>$V = \pi\displaystyle\int_a^b \left([f(x)]^2-[g(x)]^2\right)dx$</td>
+                    <td>$f \geq g \geq 0$</td>
+                </tr>
+                <tr>
+                    <td>Variables séparables</td>
+                    <td>$\dfrac{dy}{g(y)} = f(x)\,dx$, puis intégrer</td>
+                    <td>$dy/dx = f(x)g(y)$</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="warning-box">
+            <h4>&#x26A0; Erreurs fréquentes à éviter</h4>
+            <ul>
+                <li><strong>Oublier la constante $C$</strong> dans les intégrales indéfinies.</li>
+                <li><strong>Ne pas changer les bornes</strong> lors d'une substitution dans une intégrale définie.</li>
+                <li><strong>Confondre le signe</strong> : $\displaystyle\int \sin x\,dx = -\cos x + C$ (et non $+\cos x$).</li>
+                <li><strong>Mauvais choix de $u$</strong> en intégration par parties : toujours vérifier avec LIATE.</li>
+                <li><strong>Intégrale de $1/x$</strong> : $\displaystyle\int \frac{1}{x}\,dx = \ln|x| + C$, pas $\dfrac{x^0}{0}$ (indéfini).</li>
+                <li><strong>Signe de l'aire</strong> : si $f(x) < 0$, l'intégrale est négative. Prendre la valeur absolue pour l'aire géométrique.</li>
+            </ul>
+        </div>
+
+        <!-- Navigation entre chapitres -->
+        <div class="chapter-nav">
+            <a href="/ca/textbook/fr-cegep-calcul-differentiel.html">&larr; Calcul différentiel</a>
+            <a href="/ca/textbook/fr-cegep-algebre-lineaire.html">Algèbre linéaire &rarr;</a>
+        </div>
+
+    </article>
+
+    <footer style="text-align:center;padding:30px 20px;color:#64748b;font-size:0.88em;border-top:1px solid #e2e8f0;margin-top:40px;">
+        &copy; 2026 MathHub Global &mdash; Contenu éducatif gratuit pour le Cégep.
+    </footer>
+
+</body>
+</html>
