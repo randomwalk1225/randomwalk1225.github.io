@@ -426,3 +426,52 @@ CTA 배너/팝업 → 문제은행 사이트 가입
 ## 다음 단계
 
 기획 확정. Phase 1 구현 시작 준비 완료.
+
+---
+
+## 📌 대기 중인 작업 (Backlog)
+
+### [BLOG-001] 섹션별 블로그 + YouTube 추천 기능
+
+**우선순위**: 중
+**상태**: 🟡 대기 중 (2026-03-02 등록)
+
+#### 배경
+- 현재 `kr/blog/`만 실질적으로 운영 중 (수학 포스트 다수)
+- `us/blog/`, `uk/blog/`, `ca/blog/` 은 index.html만 있고 내용 없음
+- `ib/blog/` 디렉토리 자체가 없음
+- 각 섹션에서 블로그로 이동하는 링크가 내비게이션에 없음
+
+#### 목표
+1. **US / UK / CA / IB 각 섹션에 블로그 페이지 완성**
+   - 각 섹션의 학습 수준에 맞는 수학 포스트 게시 가능한 구조
+   - 한국 kr/blog/ 스타일처럼 카드형 목록 + 카테고리 필터
+   - `ib/blog/` 디렉토리 및 `index.html` 신규 생성
+
+2. **각 섹션 내비게이션에 Blog 링크 추가**
+   - `us/index.html`, `uk/index.html`, `ca/index.html`, `ib/index.html` 상단 탭에 "Blog" 메뉴
+   - 현재 KR만 있는 Blog 탭을 전 섹션에 확장
+
+3. **YouTube 교육 콘텐츠 추천 섹션 추가**
+   - 각 블로그 index.html 에 "추천 YouTube" 섹션 추가
+   - 섹션별 큐레이션:
+     - **US**: 3Blue1Brown, Khan Academy, Art of Problem Solving, PatrickJMT
+     - **UK**: ExamSolutions, Math with Mr. J, TLMaths (A-Level)
+     - **CA**: 퀘벡 PFEQ 관련 프랑스어 채널 + 영어 채널 혼합
+     - **IB**: RevisionVillage, IB Math Tutor, InThinking
+   - 채널 카드 형태 (썸네일 이미지 + 채널명 + 한 줄 설명 + 링크)
+
+#### 작업 체크리스트
+- [ ] `ib/blog/index.html` 생성 (IB AA/AI/HL/SL 카테고리)
+- [ ] `us/blog/index.html` 내용 채우기 (AP/SAT/AMC 카테고리 + YouTube 섹션)
+- [ ] `uk/blog/index.html` 내용 채우기 (A-Level/IGCSE/MAT/TMUA + YouTube 섹션)
+- [ ] `ca/blog/index.html` YouTube 섹션 추가
+- [ ] 각 섹션 main index.html 내비게이션에 Blog 탭 추가
+  - `us/index.html`
+  - `uk/index.html`
+  - `ca/index.html`
+  - `ib/index.html`
+- [ ] YouTube 카드 컴포넌트 스타일 CSS 작성
+
+#### 재개 방법
+이 작업을 재개하려면: **"BLOG-001 시작해줘"** 라고 말하면 바로 이어서 진행.
