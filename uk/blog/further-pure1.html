@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A-Level Further Mathematics: Further Pure 1 | MathHub</title>
+    <meta name="description" content="Comprehensive A-Level Further Pure 1 guide covering complex numbers, matrices, proof by induction, series, and roots of polynomials. Includes worked examples and practice problems for Edexcel, AQA, and OCR.">
+    <meta name="keywords" content="A-Level Further Maths, Further Pure 1, complex numbers, Argand diagram, De Moivre's theorem, matrices, eigenvalues, eigenvectors, proof by induction, Maclaurin series, Vieta's formulas, Edexcel Further Pure, AQA Further Maths, OCR Further Maths, CIE Further Mathematics">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/blog/further-pure1.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/uk/blog/further-pure1.html">
+    <meta property="og:title" content="A-Level Further Mathematics: Further Pure 1 | MathHub">
+    <meta property="og:description" content="Master Further Pure 1 topics including complex numbers, matrices, proof by induction, and series for A-Level Further Mathematics.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="A-Level Further Mathematics: Further Pure 1 | MathHub">
+    <meta name="twitter:description" content="Complete Further Pure 1 guide for A-Level Further Maths with worked examples and practice problems.">
+
+    <link rel="alternate" hreflang="en-GB" href="https://mathhub.io/uk/blog/further-pure1.html">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "A-Level Further Mathematics: Further Pure 1",
+        "description": "Comprehensive guide to Further Pure 1 for A-Level Further Mathematics, covering complex numbers, matrices, proof by induction, and series.",
+        "url": "https://mathhub.io/uk/blog/further-pure1.html",
+        "datePublished": "2026-03-02",
+        "dateModified": "2026-03-02",
+        "publisher": {
+            "@type": "Organization",
+            "name": "MathHub Global"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "MathHub Global"
+        },
+        "educationalLevel": "A-Level Further Mathematics",
+        "learningResourceType": "Study Guide",
+        "about": [
+            { "@type": "Thing", "name": "Complex Numbers" },
+            { "@type": "Thing", "name": "Matrices" },
+            { "@type": "Thing", "name": "Proof by Induction" },
+            { "@type": "Thing", "name": "De Moivre's Theorem" },
+            { "@type": "Thing", "name": "Eigenvalues and Eigenvectors" }
+        ]
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .blog-article h1 {
+            font-size: 2.2em;
+            color: #1e3a5f;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .blog-meta {
+            color: #64748b;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .blog-article h2 {
+            font-size: 1.5em;
+            color: #1e3a5f;
+            margin: 36px 0 16px;
+            padding-top: 12px;
+        }
+        .blog-article h3 {
+            font-size: 1.2em;
+            color: #334155;
+            margin: 24px 0 10px;
+        }
+        .blog-article p {
+            color: #334155;
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+        .blog-article ul, .blog-article ol {
+            margin: 12px 0 20px 24px;
+            color: #334155;
+        }
+        .blog-article li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+        .breadcrumb {
+            font-size: 0.85em;
+            color: #94a3b8;
+            margin-bottom: 16px;
+        }
+        .breadcrumb a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box {
+            background: #f0f7ff;
+            border-left: 4px solid #3b82f6;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .example-box h4 {
+            color: #1d4ed8;
+            margin: 0 0 12px;
+            font-size: 1.05em;
+        }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p { color: #334155; line-height: 1.8; }
+        .theorem-box {
+            background: #faf5ff;
+            border-left: 4px solid #8b5cf6;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p { color: #334155; line-height: 1.8; }
+        .info-box {
+            background: #fff7ed;
+            border-left: 4px solid #f97316;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .info-box h4 { color: #c2410c; margin: 0 0 12px; font-size: 1.05em; }
+        .info-box p, .info-box li { color: #334155; line-height: 1.8; }
+        .practice-problem {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 20px 24px;
+            margin: 16px 0;
+            border-radius: 8px;
+        }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        .practice-problem p { margin-bottom: 12px; }
+        details.solution { margin-top: 12px; }
+        details.solution summary {
+            cursor: pointer;
+            color: #3b82f6;
+            font-weight: 600;
+            font-size: 0.95em;
+            padding: 6px 0;
+            user-select: none;
+        }
+        details.solution summary:hover { color: #1d4ed8; }
+        .solution-content {
+            padding: 16px 20px;
+            background: #f0f7ff;
+            border-radius: 6px;
+            margin-top: 8px;
+            line-height: 1.8;
+            color: #334155;
+        }
+        .solution-content p { margin-bottom: 10px; }
+        .toc {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px 28px;
+            margin: 24px 0 36px;
+        }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            font-size: 0.8em;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 4px;
+            margin-right: 6px;
+        }
+        .key-concepts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+        }
+        .concept-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 14px 16px;
+        }
+        .concept-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; }
+        .concept-card span { color: #64748b; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/">US</a>
+            <a href="/uk/" class="active">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="/uk/">UK</a> &rsaquo; <a href="/uk/blog/">Blog</a> &rsaquo; Further Pure 1
+        </div>
+
+        <h1>A-Level Further Mathematics: Further Pure 1</h1>
+        <div class="blog-meta">A-Level Further Mathematics &middot; Edexcel / AQA / OCR / CIE &middot; Updated March 2026 &middot; 35 min read</div>
+
+        <div class="info-box">
+            <h4>Exam Board Note</h4>
+            <p>Further Pure 1 content is examined across all major UK exam boards, though organisation varies. <strong>Edexcel</strong> covers this material in Further Pure 1 (FP1/8FM0:01). <strong>AQA</strong> includes most topics in its Further Mathematics Core modules. <strong>OCR A</strong> covers these topics in Further Pure A (Y541). <strong>CIE</strong> includes complex numbers and matrices in Further Mathematics Paper 1. The content on this page aligns with all four specifications &mdash; check your specific board's syllabus for exact topic listings.</p>
+        </div>
+
+        <p>Further Pure 1 forms the theoretical backbone of A-Level Further Mathematics. It extends the pure mathematics of A-Level with powerful new algebraic and analytical tools. Mastery of this material is essential before progressing to Further Pure 2 and the optional applied modules.</p>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#complex-numbers">Complex Numbers</a></li>
+                <li><a href="#argand-diagram">The Argand Diagram and Modulus-Argument Form</a></li>
+                <li><a href="#demoivre">De Moivre's Theorem</a></li>
+                <li><a href="#matrices">Matrices: Operations, Determinants, Inverses</a></li>
+                <li><a href="#transformations">Matrix Transformations</a></li>
+                <li><a href="#eigenvalues">Eigenvalues and Eigenvectors</a></li>
+                <li><a href="#induction">Proof by Mathematical Induction</a></li>
+                <li><a href="#series">Series: Method of Differences and Maclaurin Series</a></li>
+                <li><a href="#roots">Roots of Polynomials (Vieta's Formulas)</a></li>
+                <li><a href="#practice">Practice Problems</a></li>
+            </ol>
+        </nav>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 1: COMPLEX NUMBERS -->
+        <!-- ============================================================ -->
+        <h2 id="complex-numbers">1. Complex Numbers</h2>
+
+        <p>The need for complex numbers arises from attempting to solve equations like $x^2 + 1 = 0$. No real number satisfies this, because $x^2 \geq 0$ for all real $x$. We introduce the <strong>imaginary unit</strong> $i$ defined by $i^2 = -1$.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Complex Number</h4>
+            <p>A <strong>complex number</strong> is an expression of the form $z = a + bi$, where $a, b \in \mathbb{R}$ and $i^2 = -1$. The number $a = \text{Re}(z)$ is the <strong>real part</strong> and $b = \text{Im}(z)$ is the <strong>imaginary part</strong>.</p>
+            <p>The <strong>complex conjugate</strong> of $z = a + bi$ is $\bar{z} = a - bi$. Note that $z\bar{z} = a^2 + b^2 = |z|^2$.</p>
+        </div>
+
+        <h3>Arithmetic of Complex Numbers</h3>
+        <ul>
+            <li><strong>Addition:</strong> $(a + bi) + (c + di) = (a+c) + (b+d)i$</li>
+            <li><strong>Subtraction:</strong> $(a + bi) - (c + di) = (a-c) + (b-d)i$</li>
+            <li><strong>Multiplication:</strong> $(a + bi)(c + di) = (ac - bd) + (ad + bc)i$</li>
+            <li><strong>Division:</strong> $\dfrac{a+bi}{c+di} = \dfrac{(a+bi)(c-di)}{c^2+d^2} = \dfrac{ac+bd}{c^2+d^2} + \dfrac{bc-ad}{c^2+d^2}i$</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Worked Example 1.1 &mdash; Complex Arithmetic</h4>
+            <p>Given $z_1 = 3 + 2i$ and $z_2 = 1 - 4i$, find (a) $z_1 z_2$ and (b) $\dfrac{z_1}{z_2}$.</p>
+
+            <p><span class="step-label">Part (a)</span></p>
+            <p>$$z_1 z_2 = (3 + 2i)(1 - 4i) = 3(1) + 3(-4i) + 2i(1) + 2i(-4i)$$
+            $$= 3 - 12i + 2i - 8i^2 = 3 - 10i - 8(-1) = 11 - 10i$$</p>
+
+            <p><span class="step-label">Part (b)</span> Multiply numerator and denominator by $\bar{z}_2 = 1 + 4i$:</p>
+            <p>$$\frac{z_1}{z_2} = \frac{3 + 2i}{1 - 4i} \cdot \frac{1 + 4i}{1 + 4i} = \frac{(3 + 2i)(1 + 4i)}{1^2 + 4^2}$$</p>
+            <p>Numerator: $(3+2i)(1+4i) = 3 + 12i + 2i + 8i^2 = 3 + 14i - 8 = -5 + 14i$</p>
+            <p>Denominator: $1 + 16 = 17$</p>
+            <p>$$\frac{z_1}{z_2} = \frac{-5 + 14i}{17} = -\frac{5}{17} + \frac{14}{17}i$$</p>
+        </div>
+
+        <h3>Complex Roots of Polynomials</h3>
+        <p>A key theorem in further mathematics: if the polynomial has <strong>real coefficients</strong>, then complex roots always occur in <strong>conjugate pairs</strong>. If $\alpha = a + bi$ is a root, then $\bar{\alpha} = a - bi$ is also a root.</p>
+
+        <div class="example-box">
+            <h4>Worked Example 1.2 &mdash; Finding Complex Roots</h4>
+            <p>Given that $2 + i$ is a root of $p(x) = x^3 - 5x^2 + 9x - 5$, find all roots.</p>
+
+            <p><span class="step-label">Step 1</span> Since the coefficients are real, $2 - i$ is also a root. So $(x - (2+i))(x - (2-i))$ is a factor.</p>
+            <p>$$(x - 2 - i)(x - 2 + i) = (x-2)^2 + 1 = x^2 - 4x + 5$$</p>
+
+            <p><span class="step-label">Step 2</span> Divide $p(x)$ by $x^2 - 4x + 5$:</p>
+            <p>$$x^3 - 5x^2 + 9x - 5 = (x^2 - 4x + 5)(x - 1)$$</p>
+            <p>Check: $(x^2 - 4x + 5)(x-1) = x^3 - x^2 - 4x^2 + 4x + 5x - 5 = x^3 - 5x^2 + 9x - 5$ ✓</p>
+
+            <p><span class="step-label">Step 3</span> The roots are $x = 2 + i$, $x = 2 - i$, and $x = 1$.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 2: ARGAND DIAGRAM -->
+        <!-- ============================================================ -->
+        <h2 id="argand-diagram">2. The Argand Diagram and Modulus-Argument Form</h2>
+
+        <p>Complex numbers can be represented geometrically. The <strong>Argand diagram</strong> places the complex number $z = a + bi$ at the point $(a, b)$ in the complex plane, with the real axis horizontal and the imaginary axis vertical.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Modulus and Argument</h4>
+            <p>For $z = a + bi$:</p>
+            <ul>
+                <li>The <strong>modulus</strong> is $|z| = \sqrt{a^2 + b^2}$ (distance from the origin).</li>
+                <li>The <strong>argument</strong> $\arg(z) = \theta$ is the angle from the positive real axis, measured anticlockwise, where $-\pi < \theta \leq \pi$ (principal argument).</li>
+            </ul>
+            <p>$$\tan\theta = \frac{b}{a} \quad \text{(adjust quadrant using signs of } a \text{ and } b\text{)}$$</p>
+        </div>
+
+        <p>The <strong>modulus-argument form</strong> (also called <strong>polar form</strong>) is:</p>
+        $$z = r(\cos\theta + i\sin\theta)$$
+        <p>where $r = |z|$ and $\theta = \arg(z)$. This is often abbreviated $r\,\text{cis}\,\theta$.</p>
+
+        <p><strong>Key properties of modulus and argument:</strong></p>
+        <ul>
+            <li>$|z_1 z_2| = |z_1|\,|z_2|$</li>
+            <li>$\arg(z_1 z_2) = \arg(z_1) + \arg(z_2)$ (mod $2\pi$)</li>
+            <li>$\left|\dfrac{z_1}{z_2}\right| = \dfrac{|z_1|}{|z_2|}$</li>
+            <li>$\arg\!\left(\dfrac{z_1}{z_2}\right) = \arg(z_1) - \arg(z_2)$ (mod $2\pi$)</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Worked Example 2.1 &mdash; Modulus-Argument Form</h4>
+            <p>Express $z = -1 + \sqrt{3}\,i$ in modulus-argument form.</p>
+
+            <p><span class="step-label">Step 1</span> Find the modulus:
+            $$|z| = \sqrt{(-1)^2 + (\sqrt{3})^2} = \sqrt{1 + 3} = 2$$</p>
+
+            <p><span class="step-label">Step 2</span> Find the argument. Since $a = -1 < 0$ and $b = \sqrt{3} > 0$, $z$ is in the second quadrant.
+            $$\tan\alpha = \frac{\sqrt{3}}{1} = \sqrt{3} \implies \alpha = \frac{\pi}{3}$$
+            Therefore $\theta = \pi - \frac{\pi}{3} = \frac{2\pi}{3}$.</p>
+
+            <p><span class="step-label">Step 3</span> Write in polar form:
+            $$z = 2\!\left(\cos\frac{2\pi}{3} + i\sin\frac{2\pi}{3}\right)$$</p>
+        </div>
+
+        <h3>Loci in the Complex Plane</h3>
+        <p>Equations and inequalities involving $|z - a|$ and $\arg(z - a)$ describe geometric loci:</p>
+        <ul>
+            <li>$|z - z_0| = r$: circle with centre $z_0$ and radius $r$.</li>
+            <li>$|z - z_1| = |z - z_2|$: perpendicular bisector of the segment $z_1z_2$.</li>
+            <li>$\arg(z - z_0) = \theta$: ray from $z_0$ at angle $\theta$ (half-line).</li>
+        </ul>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 3: DE MOIVRE -->
+        <!-- ============================================================ -->
+        <h2 id="demoivre">3. De Moivre's Theorem</h2>
+
+        <div class="theorem-box">
+            <h4>Theorem: De Moivre's Theorem</h4>
+            <p>For any integer $n$ and $\theta \in \mathbb{R}$:</p>
+            <p>$$(\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta)$$</p>
+            <p>Equivalently, if $z = r(\cos\theta + i\sin\theta)$, then $z^n = r^n(\cos n\theta + i\sin n\theta)$.</p>
+        </div>
+
+        <p>De Moivre's theorem has two principal applications in A-Level Further Mathematics:</p>
+        <ol>
+            <li><strong>Multiple angle identities:</strong> expressing $\sin(n\theta)$ and $\cos(n\theta)$ in terms of powers of $\sin\theta$ and $\cos\theta$.</li>
+            <li><strong>$n$th roots of complex numbers:</strong> finding all $n$ values of $z^{1/n}$.</li>
+        </ol>
+
+        <div class="example-box">
+            <h4>Worked Example 3.1 &mdash; Triple Angle Formula</h4>
+            <p>Use De Moivre's theorem to show that $\cos 3\theta = 4\cos^3\theta - 3\cos\theta$.</p>
+
+            <p><span class="step-label">Step 1</span> By De Moivre's theorem, $\cos 3\theta + i\sin 3\theta = (\cos\theta + i\sin\theta)^3$.</p>
+
+            <p><span class="step-label">Step 2</span> Expand using the binomial theorem:
+            $$(\cos\theta + i\sin\theta)^3 = \cos^3\theta + 3\cos^2\theta(i\sin\theta) + 3\cos\theta(i\sin\theta)^2 + (i\sin\theta)^3$$
+            $$= \cos^3\theta + 3i\cos^2\theta\sin\theta - 3\cos\theta\sin^2\theta - i\sin^3\theta$$</p>
+
+            <p><span class="step-label">Step 3</span> Collect real and imaginary parts:
+            $$\text{Real: } \cos^3\theta - 3\cos\theta\sin^2\theta = \cos\theta(\cos^2\theta - 3\sin^2\theta)$$
+            Use $\sin^2\theta = 1 - \cos^2\theta$:
+            $$= \cos\theta(\cos^2\theta - 3(1-\cos^2\theta)) = \cos\theta(4\cos^2\theta - 3) = 4\cos^3\theta - 3\cos\theta$$</p>
+
+            <p>Therefore $\cos 3\theta = 4\cos^3\theta - 3\cos\theta$ as required.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 3.2 &mdash; Cube Roots of Unity</h4>
+            <p>Find all cube roots of $-8$.</p>
+
+            <p><span class="step-label">Step 1</span> Write $-8 = 8(\cos\pi + i\sin\pi)$ in polar form.</p>
+
+            <p><span class="step-label">Step 2</span> The cube roots have modulus $8^{1/3} = 2$ and arguments $\dfrac{\pi + 2k\pi}{3}$ for $k = 0, 1, 2$:
+            <ul>
+                <li>$k = 0$: $\theta = \dfrac{\pi}{3}$, giving $z_0 = 2\!\left(\cos\dfrac{\pi}{3} + i\sin\dfrac{\pi}{3}\right) = 2\!\left(\dfrac{1}{2} + \dfrac{\sqrt{3}}{2}i\right) = 1 + \sqrt{3}i$</li>
+                <li>$k = 1$: $\theta = \pi$, giving $z_1 = 2(\cos\pi + i\sin\pi) = -2$</li>
+                <li>$k = 2$: $\theta = \dfrac{5\pi}{3}$, giving $z_2 = 2\!\left(\cos\dfrac{5\pi}{3} + i\sin\dfrac{5\pi}{3}\right) = 1 - \sqrt{3}i$</li>
+            </ul>
+            The three cube roots of $-8$ are $\mathbf{-2}$, $\mathbf{1 + \sqrt{3}\,i}$, and $\mathbf{1 - \sqrt{3}\,i}$.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 4: MATRICES -->
+        <!-- ============================================================ -->
+        <h2 id="matrices">4. Matrices: Operations, Determinants, and Inverses</h2>
+
+        <p>A matrix is a rectangular array of numbers arranged in rows and columns. We write an $m \times n$ matrix $A$ for one with $m$ rows and $n$ columns, and denote its $(i,j)$ entry by $a_{ij}$.</p>
+
+        <h3>Matrix Multiplication</h3>
+        <p>The product $AB$ of an $m \times n$ matrix $A$ and an $n \times p$ matrix $B$ is the $m \times p$ matrix $C$ where:
+        $$c_{ij} = \sum_{k=1}^n a_{ik} b_{kj}$$
+        Note that matrix multiplication is generally <strong>not commutative</strong>: $AB \neq BA$ in general.</p>
+
+        <div class="example-box">
+            <h4>Worked Example 4.1 &mdash; Matrix Multiplication</h4>
+            <p>Compute $AB$ where $A = \begin{pmatrix} 2 & -1 \\ 3 & 4 \end{pmatrix}$ and $B = \begin{pmatrix} 1 & 0 \\ -2 & 3 \end{pmatrix}$.</p>
+
+            <p>$$AB = \begin{pmatrix} 2(1)+(-1)(-2) & 2(0)+(-1)(3) \\ 3(1)+4(-2) & 3(0)+4(3) \end{pmatrix} = \begin{pmatrix} 4 & -3 \\ -5 & 12 \end{pmatrix}$$</p>
+        </div>
+
+        <h3>The Determinant</h3>
+        <div class="definition-box">
+            <h4>Definition: 2&times;2 and 3&times;3 Determinants</h4>
+            <p>For a $2 \times 2$ matrix: $\det\begin{pmatrix} a & b \\ c & d \end{pmatrix} = ad - bc$</p>
+            <p>For a $3 \times 3$ matrix, expand along the first row:
+            $$\det\begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \end{pmatrix} = a(ei - fh) - b(di - fg) + c(dh - eg)$$</p>
+            <p>A matrix is <strong>singular</strong> (non-invertible) if and only if its determinant is zero.</p>
+        </div>
+
+        <h3>The Inverse Matrix</h3>
+        <p>For a non-singular $2 \times 2$ matrix:
+        $$\begin{pmatrix} a & b \\ c & d \end{pmatrix}^{-1} = \frac{1}{ad-bc}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$$
+        For $3 \times 3$ matrices, the inverse is found using the matrix of cofactors transposed (the adjugate), divided by the determinant.</p>
+
+        <div class="example-box">
+            <h4>Worked Example 4.2 &mdash; Inverse of a 3&times;3 Matrix</h4>
+            <p>Find the inverse of $M = \begin{pmatrix} 1 & 2 & 0 \\ -1 & 3 & 1 \\ 2 & 0 & 4 \end{pmatrix}$.</p>
+
+            <p><span class="step-label">Step 1</span> Find $\det(M)$ expanding along row 1:
+            $$\det(M) = 1\det\begin{pmatrix}3&1\\0&4\end{pmatrix} - 2\det\begin{pmatrix}-1&1\\2&4\end{pmatrix} + 0$$
+            $$= 1(12 - 0) - 2(-4 - 2) = 12 + 12 = 24$$</p>
+
+            <p><span class="step-label">Step 2</span> Compute the matrix of cofactors $C$ where $C_{ij} = (-1)^{i+j}M_{ij}$:
+            $$C = \begin{pmatrix} 12 & 6 & -6 \\ -8 & 4 & 4 \\ 2 & -1 & 5 \end{pmatrix}$$</p>
+
+            <p><span class="step-label">Step 3</span> The inverse is $M^{-1} = \dfrac{1}{24}C^T$:
+            $$M^{-1} = \frac{1}{24}\begin{pmatrix} 12 & -8 & 2 \\ 6 & 4 & -1 \\ -6 & 4 & 5 \end{pmatrix}$$</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 5: TRANSFORMATIONS -->
+        <!-- ============================================================ -->
+        <h2 id="transformations">5. Matrix Transformations</h2>
+
+        <p>In 2D, geometric transformations of the plane can be represented by $2 \times 2$ matrices. A transformation $T$ maps the point $\mathbf{x} = (x, y)^T$ to $T\mathbf{x}$.</p>
+
+        <div class="key-concepts">
+            <div class="concept-card">
+                <strong>Rotation by $\theta$ (anticlockwise)</strong>
+                <span>$\begin{pmatrix}\cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{pmatrix}$</span>
+            </div>
+            <div class="concept-card">
+                <strong>Reflection in $y = x$</strong>
+                <span>$\begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}$</span>
+            </div>
+            <div class="concept-card">
+                <strong>Reflection in $x$-axis</strong>
+                <span>$\begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}$</span>
+            </div>
+            <div class="concept-card">
+                <strong>Enlargement scale factor $k$</strong>
+                <span>$\begin{pmatrix}k & 0 \\ 0 & k\end{pmatrix}$</span>
+            </div>
+            <div class="concept-card">
+                <strong>Shear (parallel to $x$-axis)</strong>
+                <span>$\begin{pmatrix}1 & k \\ 0 & 1\end{pmatrix}$</span>
+            </div>
+        </div>
+
+        <p>When applying two transformations in succession, the <strong>combined matrix</strong> is the product. If $T_1$ is applied first then $T_2$, the combined transformation matrix is $M = T_2 T_1$ (note the order: the first transformation is on the right).</p>
+
+        <p>The <strong>area scale factor</strong> of a linear transformation represented by matrix $M$ equals $|\det(M)|$. If $\det(M) < 0$, the transformation involves a reflection.</p>
+
+        <div class="example-box">
+            <h4>Worked Example 5.1 &mdash; Combining Transformations</h4>
+            <p>Find the matrix representing a rotation of $90°$ anticlockwise followed by a reflection in the $y$-axis. Apply this to the point $(3, 1)$.</p>
+
+            <p><span class="step-label">Step 1</span> Rotation by $90°$: $R = \begin{pmatrix}0 & -1 \\ 1 & 0\end{pmatrix}$</p>
+            <p><span class="step-label">Step 2</span> Reflection in $y$-axis: $S = \begin{pmatrix}-1 & 0 \\ 0 & 1\end{pmatrix}$</p>
+            <p><span class="step-label">Step 3</span> Combined matrix (rotation first, so $R$ on right):
+            $$M = SR = \begin{pmatrix}-1 & 0 \\ 0 & 1\end{pmatrix}\begin{pmatrix}0 & -1 \\ 1 & 0\end{pmatrix} = \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}$$
+            This is the reflection in $y = x$!</p>
+            <p><span class="step-label">Step 4</span> Apply to $(3, 1)^T$:
+            $$\begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}\begin{pmatrix}3 \\ 1\end{pmatrix} = \begin{pmatrix}1 \\ 3\end{pmatrix}$$
+            The image is $(1, 3)$, as expected from the reflection $y = x$.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 6: EIGENVALUES/EIGENVECTORS -->
+        <!-- ============================================================ -->
+        <h2 id="eigenvalues">6. Eigenvalues and Eigenvectors</h2>
+
+        <div class="definition-box">
+            <h4>Definition: Eigenvalues and Eigenvectors</h4>
+            <p>A non-zero vector $\mathbf{v}$ is an <strong>eigenvector</strong> of matrix $A$ with corresponding <strong>eigenvalue</strong> $\lambda$ if:
+            $$A\mathbf{v} = \lambda\mathbf{v}$$
+            Geometrically, $A$ scales $\mathbf{v}$ by $\lambda$ without changing its direction (though it may reverse it if $\lambda < 0$).</p>
+        </div>
+
+        <p><strong>Finding eigenvalues:</strong> Rearrange $A\mathbf{v} = \lambda\mathbf{v}$ as $(A - \lambda I)\mathbf{v} = \mathbf{0}$. For non-trivial solutions, we need $\det(A - \lambda I) = 0$. This is the <strong>characteristic equation</strong>.</p>
+
+        <p><strong>Finding eigenvectors:</strong> Once $\lambda$ is known, solve $(A - \lambda I)\mathbf{v} = \mathbf{0}$ to find the corresponding eigenvector(s).</p>
+
+        <div class="example-box">
+            <h4>Worked Example 6.1 &mdash; Eigenvalues and Eigenvectors</h4>
+            <p>Find the eigenvalues and eigenvectors of $A = \begin{pmatrix} 5 & 2 \\ 2 & 2 \end{pmatrix}$.</p>
+
+            <p><span class="step-label">Step 1</span> Form and solve the characteristic equation:
+            $$\det(A - \lambda I) = \det\begin{pmatrix}5-\lambda & 2 \\ 2 & 2-\lambda\end{pmatrix} = (5-\lambda)(2-\lambda) - 4$$
+            $$= \lambda^2 - 7\lambda + 10 - 4 = \lambda^2 - 7\lambda + 6 = (\lambda - 1)(\lambda - 6) = 0$$
+            Eigenvalues: $\lambda_1 = 1$, $\lambda_2 = 6$.</p>
+
+            <p><span class="step-label">Step 2</span> For $\lambda = 1$: solve $(A - I)\mathbf{v} = \mathbf{0}$:
+            $$\begin{pmatrix}4 & 2 \\ 2 & 1\end{pmatrix}\begin{pmatrix}x \\ y\end{pmatrix} = \begin{pmatrix}0 \\ 0\end{pmatrix}$$
+            Row 1 gives $4x + 2y = 0$, so $y = -2x$. Eigenvector: $\mathbf{v}_1 = \begin{pmatrix}1 \\ -2\end{pmatrix}$.</p>
+
+            <p><span class="step-label">Step 3</span> For $\lambda = 6$: solve $(A - 6I)\mathbf{v} = \mathbf{0}$:
+            $$\begin{pmatrix}-1 & 2 \\ 2 & -4\end{pmatrix}\begin{pmatrix}x \\ y\end{pmatrix} = \begin{pmatrix}0 \\ 0\end{pmatrix}$$
+            Row 1 gives $-x + 2y = 0$, so $x = 2y$. Eigenvector: $\mathbf{v}_2 = \begin{pmatrix}2 \\ 1\end{pmatrix}$.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 7: PROOF BY INDUCTION -->
+        <!-- ============================================================ -->
+        <h2 id="induction">7. Proof by Mathematical Induction</h2>
+
+        <div class="definition-box">
+            <h4>The Method of Mathematical Induction</h4>
+            <p>To prove a statement $P(n)$ is true for all integers $n \geq n_0$:</p>
+            <ol>
+                <li><strong>Base case:</strong> Verify $P(n_0)$ is true.</li>
+                <li><strong>Inductive step:</strong> Assume $P(k)$ is true (the inductive hypothesis). Show that $P(k+1)$ must also be true.</li>
+                <li><strong>Conclusion:</strong> By the principle of induction, $P(n)$ is true for all $n \geq n_0$.</li>
+            </ol>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 7.1 &mdash; Summation Formula</h4>
+            <p>Prove by induction that $\displaystyle\sum_{r=1}^n r^2 = \frac{n(n+1)(2n+1)}{6}$ for all $n \geq 1$.</p>
+
+            <p><span class="step-label">Base case</span> $n = 1$: LHS $= 1^2 = 1$. RHS $= \dfrac{1 \cdot 2 \cdot 3}{6} = 1$. ✓</p>
+
+            <p><span class="step-label">Inductive step</span> Assume the result holds for $n = k$:
+            $$\sum_{r=1}^k r^2 = \frac{k(k+1)(2k+1)}{6}$$
+            We must show it holds for $n = k+1$, i.e., $\displaystyle\sum_{r=1}^{k+1} r^2 = \dfrac{(k+1)(k+2)(2k+3)}{6}$.</p>
+
+            <p>$$\sum_{r=1}^{k+1} r^2 = \sum_{r=1}^k r^2 + (k+1)^2 = \frac{k(k+1)(2k+1)}{6} + (k+1)^2$$
+            $$= \frac{k(k+1)(2k+1) + 6(k+1)^2}{6} = \frac{(k+1)[k(2k+1) + 6(k+1)]}{6}$$
+            $$= \frac{(k+1)(2k^2 + 7k + 6)}{6} = \frac{(k+1)(k+2)(2k+3)}{6}$$</p>
+
+            <p><span class="step-label">Conclusion</span> The result holds for $n = 1$, and if it holds for $n = k$ it holds for $n = k+1$. By the principle of mathematical induction, the result is true for all integers $n \geq 1$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 7.2 &mdash; Divisibility Proof</h4>
+            <p>Prove by induction that $5^n - 1$ is divisible by 4 for all $n \geq 1$.</p>
+
+            <p><span class="step-label">Base case</span> $n = 1$: $5^1 - 1 = 4 = 4 \times 1$. Divisible by 4. ✓</p>
+
+            <p><span class="step-label">Inductive step</span> Assume $5^k - 1 = 4m$ for some integer $m$. Then $5^k = 4m + 1$.
+            $$5^{k+1} - 1 = 5 \cdot 5^k - 1 = 5(4m + 1) - 1 = 20m + 5 - 1 = 20m + 4 = 4(5m + 1)$$
+            Since $5m + 1$ is an integer, $5^{k+1} - 1$ is divisible by 4.</p>
+
+            <p><span class="step-label">Conclusion</span> By mathematical induction, $5^n - 1$ is divisible by 4 for all $n \geq 1$.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 8: SERIES -->
+        <!-- ============================================================ -->
+        <h2 id="series">8. Series: Method of Differences and Maclaurin Series</h2>
+
+        <h3>Method of Differences</h3>
+        <p>The method of differences is used to evaluate finite sums by expressing the general term as a difference of a function: $f(r) = u(r) - u(r-1)$ (or $u(r+1) - u(r)$). The sum then telescopes:</p>
+        $$\sum_{r=1}^n f(r) = \sum_{r=1}^n [u(r) - u(r-1)] = u(n) - u(0)$$
+
+        <div class="example-box">
+            <h4>Worked Example 8.1 &mdash; Method of Differences</h4>
+            <p>Show that $\dfrac{1}{r(r+1)} = \dfrac{1}{r} - \dfrac{1}{r+1}$, and hence find $\displaystyle\sum_{r=1}^n \frac{1}{r(r+1)}$.</p>
+
+            <p><span class="step-label">Step 1</span> Partial fractions: $\dfrac{1}{r} - \dfrac{1}{r+1} = \dfrac{(r+1) - r}{r(r+1)} = \dfrac{1}{r(r+1)}$ ✓</p>
+
+            <p><span class="step-label">Step 2</span> Telescope the sum:
+            $$\sum_{r=1}^n \frac{1}{r(r+1)} = \sum_{r=1}^n\!\left(\frac{1}{r} - \frac{1}{r+1}\right)$$
+            $$= \left(1 - \frac{1}{2}\right) + \left(\frac{1}{2} - \frac{1}{3}\right) + \cdots + \left(\frac{1}{n} - \frac{1}{n+1}\right)$$
+            $$= 1 - \frac{1}{n+1} = \frac{n}{n+1}$$</p>
+        </div>
+
+        <h3>Maclaurin Series</h3>
+        <p>The <strong>Maclaurin series</strong> expresses a function as an infinite power series centred at $x = 0$:</p>
+        $$f(x) = f(0) + f'(0)x + \frac{f''(0)}{2!}x^2 + \frac{f'''(0)}{3!}x^3 + \cdots = \sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n!}x^n$$
+
+        <p>Standard Maclaurin series (valid for the stated values of $x$):</p>
+        $$e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots \quad (\text{all } x)$$
+        $$\sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots \quad (\text{all } x)$$
+        $$\cos x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \cdots \quad (\text{all } x)$$
+        $$\ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \cdots \quad (-1 < x \leq 1)$$
+        $$(1+x)^n = 1 + nx + \frac{n(n-1)}{2!}x^2 + \cdots \quad (|x| < 1 \text{ if } n \notin \mathbb{Z}^+)$$
+
+        <!-- ============================================================ -->
+        <!-- SECTION 9: ROOTS OF POLYNOMIALS -->
+        <!-- ============================================================ -->
+        <h2 id="roots">9. Roots of Polynomials (Vieta's Formulas)</h2>
+
+        <p>Vieta's formulas relate the coefficients of a polynomial to symmetric functions of its roots, without requiring us to find the roots explicitly.</p>
+
+        <div class="theorem-box">
+            <h4>Vieta's Formulas</h4>
+            <p>For the quadratic $ax^2 + bx + c = 0$ with roots $\alpha, \beta$:</p>
+            <p>$$\alpha + \beta = -\frac{b}{a}, \qquad \alpha\beta = \frac{c}{a}$$</p>
+            <p>For the cubic $ax^3 + bx^2 + cx + d = 0$ with roots $\alpha, \beta, \gamma$:</p>
+            <p>$$\alpha+\beta+\gamma = -\frac{b}{a}, \quad \alpha\beta+\beta\gamma+\gamma\alpha = \frac{c}{a}, \quad \alpha\beta\gamma = -\frac{d}{a}$$</p>
+            <p>For the quartic $ax^4 + bx^3 + cx^2 + dx + e = 0$ with roots $\alpha, \beta, \gamma, \delta$:</p>
+            <p>$$\sum\alpha = -\frac{b}{a},\quad \sum\alpha\beta = \frac{c}{a},\quad \sum\alpha\beta\gamma = -\frac{d}{a},\quad \alpha\beta\gamma\delta = \frac{e}{a}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 9.1 &mdash; Symmetric Functions of Roots</h4>
+            <p>The cubic $2x^3 - 5x^2 + x + 3 = 0$ has roots $\alpha, \beta, \gamma$. Find (a) $\alpha^2 + \beta^2 + \gamma^2$ and (b) $\alpha^3 + \beta^3 + \gamma^3$.</p>
+
+            <p><span class="step-label">Vieta's formulas</span> $\alpha+\beta+\gamma = \dfrac{5}{2}$, $\alpha\beta+\beta\gamma+\gamma\alpha = \dfrac{1}{2}$, $\alpha\beta\gamma = -\dfrac{3}{2}$.</p>
+
+            <p><span class="step-label">Part (a)</span> Use the identity $\alpha^2+\beta^2+\gamma^2 = (\alpha+\beta+\gamma)^2 - 2(\alpha\beta+\beta\gamma+\gamma\alpha)$:
+            $$= \left(\frac{5}{2}\right)^2 - 2\cdot\frac{1}{2} = \frac{25}{4} - 1 = \frac{21}{4}$$</p>
+
+            <p><span class="step-label">Part (b)</span> Use Newton's identity: $p_3 = (\alpha+\beta+\gamma)p_2 - (\alpha\beta+\beta\gamma+\gamma\alpha)p_1 + 3\alpha\beta\gamma$ where $p_k = \alpha^k+\beta^k+\gamma^k$ and $p_1 = \frac{5}{2}$, $p_2 = \frac{21}{4}$:
+            $$\alpha^3+\beta^3+\gamma^3 = \frac{5}{2}\cdot\frac{21}{4} - \frac{1}{2}\cdot\frac{5}{2} + 3\cdot\left(-\frac{3}{2}\right) = \frac{105}{8} - \frac{5}{4} - \frac{9}{2} = \frac{105-10-36}{8} = \frac{59}{8}$$</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 10: PRACTICE PROBLEMS -->
+        <!-- ============================================================ -->
+        <h2 id="practice">10. Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1 &mdash; Complex Numbers</h4>
+            <p>Find the complex number $z$ satisfying $z^2 = -5 + 12i$. Give your answer in the form $a + bi$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Let $z = a + bi$. Then $z^2 = a^2 - b^2 + 2abi = -5 + 12i$.</p>
+                    <p>Equating real parts: $a^2 - b^2 = -5$. Equating imaginary parts: $2ab = 12$, so $b = 6/a$.</p>
+                    <p>Substituting: $a^2 - 36/a^2 = -5$. Multiply by $a^2$: $a^4 + 5a^2 - 36 = 0$, so $(a^2 - 4)(a^2 + 9) = 0$.</p>
+                    <p>Since $a \in \mathbb{R}$, we have $a^2 = 4$, so $a = \pm 2$. If $a = 2$, $b = 3$; if $a = -2$, $b = -3$.</p>
+                    <p>$$z = 2 + 3i \quad \text{or} \quad z = -2 - 3i$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2 &mdash; Argand Diagram / Loci</h4>
+            <p>Sketch the locus of $z$ satisfying $|z - 3| = |z + i|$ and find its Cartesian equation.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Let $z = x + iy$. Then $|z - 3| = |(x-3) + iy| = \sqrt{(x-3)^2 + y^2}$ and $|z + i| = |x + i(y+1)| = \sqrt{x^2 + (y+1)^2}$.</p>
+                    <p>Setting equal and squaring: $(x-3)^2 + y^2 = x^2 + (y+1)^2$</p>
+                    <p>$x^2 - 6x + 9 + y^2 = x^2 + y^2 + 2y + 1$</p>
+                    <p>$-6x + 9 = 2y + 1$, giving $6x + 2y = 8$, i.e., $\mathbf{3x + y = 4}$.</p>
+                    <p>This is the perpendicular bisector of the segment joining $(3, 0)$ to $(0, -1)$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3 &mdash; De Moivre's Theorem</h4>
+            <p>Use De Moivre's theorem to find all fifth roots of $32$ and plot them on an Argand diagram.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Write $32 = 32(\cos 0 + i\sin 0)$. The fifth roots have modulus $32^{1/5} = 2$ and arguments $\dfrac{0 + 2k\pi}{5} = \dfrac{2k\pi}{5}$ for $k = 0, 1, 2, 3, 4$.</p>
+                    <p>$k=0$: $z = 2(\cos 0 + i\sin 0) = 2$</p>
+                    <p>$k=1$: $z = 2\!\left(\cos\dfrac{2\pi}{5} + i\sin\dfrac{2\pi}{5}\right) \approx 0.618 + 1.902i$</p>
+                    <p>$k=2$: $z = 2\!\left(\cos\dfrac{4\pi}{5} + i\sin\dfrac{4\pi}{5}\right) \approx -1.618 + 1.176i$</p>
+                    <p>$k=3$: $z = 2\!\left(\cos\dfrac{6\pi}{5} + i\sin\dfrac{6\pi}{5}\right) \approx -1.618 - 1.176i$</p>
+                    <p>$k=4$: $z = 2\!\left(\cos\dfrac{8\pi}{5} + i\sin\dfrac{8\pi}{5}\right) \approx 0.618 - 1.902i$</p>
+                    <p>These 5 points lie equally spaced on a circle of radius 2 in the Argand diagram.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4 &mdash; Matrices</h4>
+            <p>The matrix $A = \begin{pmatrix} 3 & 1 \\ k & 2 \end{pmatrix}$ is singular. Find $k$ and hence explain the geometric significance.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$A$ is singular when $\det(A) = 0$: $3(2) - (1)(k) = 6 - k = 0$, so $k = 6$.</p>
+                    <p>When $k = 6$, $A = \begin{pmatrix}3 & 1 \\ 6 & 2\end{pmatrix}$. Since $\det(A) = 0$, the area scale factor is zero. Geometrically, the transformation maps the entire plane onto a line (or the origin), meaning all points are mapped to a 1-dimensional set — the transformation collapses the plane.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5 &mdash; Eigenvalues</h4>
+            <p>Matrix $B = \begin{pmatrix} 4 & 1 \\ 3 & 2 \end{pmatrix}$ has eigenvalues $\lambda_1$ and $\lambda_2$. Find the eigenvalues, their corresponding eigenvectors, and verify that $\text{tr}(B) = \lambda_1 + \lambda_2$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Characteristic equation: $(4-\lambda)(2-\lambda) - 3 = \lambda^2 - 6\lambda + 5 = (\lambda-1)(\lambda-5) = 0$.</p>
+                    <p>Eigenvalues: $\lambda_1 = 1$, $\lambda_2 = 5$.</p>
+                    <p>For $\lambda = 1$: $(B - I)\mathbf{v} = \begin{pmatrix}3 & 1 \\ 3 & 1\end{pmatrix}\mathbf{v} = \mathbf{0}$, giving $3x + y = 0$. Eigenvector: $\mathbf{v}_1 = \begin{pmatrix}1 \\ -3\end{pmatrix}$.</p>
+                    <p>For $\lambda = 5$: $(B - 5I)\mathbf{v} = \begin{pmatrix}-1 & 1 \\ 3 & -3\end{pmatrix}\mathbf{v} = \mathbf{0}$, giving $x = y$. Eigenvector: $\mathbf{v}_2 = \begin{pmatrix}1 \\ 1\end{pmatrix}$.</p>
+                    <p>$\text{tr}(B) = 4 + 2 = 6 = 1 + 5 = \lambda_1 + \lambda_2$ ✓</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6 &mdash; Proof by Induction</h4>
+            <p>Prove by induction that $\displaystyle\sum_{r=1}^n r \cdot r! = (n+1)! - 1$ for all positive integers $n$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>Base case</strong> ($n=1$): LHS $= 1 \cdot 1! = 1$. RHS $= 2! - 1 = 2 - 1 = 1$. ✓</p>
+                    <p><strong>Inductive step:</strong> Assume $\displaystyle\sum_{r=1}^k r \cdot r! = (k+1)! - 1$. Then:</p>
+                    <p>$$\sum_{r=1}^{k+1} r \cdot r! = (k+1)! - 1 + (k+1)(k+1)! = (k+1)!\bigl(1 + (k+1)\bigr) - 1 = (k+2)! - 1$$</p>
+                    <p>This is exactly the formula with $n = k+1$. By induction, the result holds for all $n \geq 1$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7 &mdash; Series / Method of Differences</h4>
+            <p>Show that $\dfrac{4}{r(r+2)} = \dfrac{2}{r} - \dfrac{2}{r+2}$, and hence find $\displaystyle\sum_{r=1}^n \frac{4}{r(r+2)}$ in simplified form.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\dfrac{2}{r} - \dfrac{2}{r+2} = \dfrac{2(r+2) - 2r}{r(r+2)} = \dfrac{4}{r(r+2)}$ ✓</p>
+                    <p>Writing out the telescoping sum:
+                    $$\sum_{r=1}^n \frac{4}{r(r+2)} = 2\sum_{r=1}^n\!\left(\frac{1}{r} - \frac{1}{r+2}\right)$$
+                    $$= 2\left[\left(1 - \frac{1}{3}\right) + \left(\frac{1}{2} - \frac{1}{4}\right) + \left(\frac{1}{3} - \frac{1}{5}\right) + \cdots\right]$$
+                    Most terms cancel. The surviving terms are $1 + \dfrac{1}{2} - \dfrac{1}{n+1} - \dfrac{1}{n+2}$:
+                    $$= 2\left(\frac{3}{2} - \frac{1}{n+1} - \frac{1}{n+2}\right) = 3 - \frac{2}{n+1} - \frac{2}{n+2}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8 &mdash; Roots of Polynomials</h4>
+            <p>The quartic $x^4 - 6x^3 + 11x^2 - 2x - 4 = 0$ has roots $\alpha, \beta, \gamma, \delta$. Find $\alpha^2+\beta^2+\gamma^2+\delta^2$ and $\dfrac{1}{\alpha}+\dfrac{1}{\beta}+\dfrac{1}{\gamma}+\dfrac{1}{\delta}$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>From Vieta's formulas: $\sum\alpha = 6$, $\sum\alpha\beta = 11$, $\sum\alpha\beta\gamma = 2$, $\alpha\beta\gamma\delta = -4$.</p>
+                    <p>$\alpha^2+\beta^2+\gamma^2+\delta^2 = (\sum\alpha)^2 - 2\sum\alpha\beta = 36 - 22 = \mathbf{14}$</p>
+                    <p>$\dfrac{1}{\alpha}+\dfrac{1}{\beta}+\dfrac{1}{\gamma}+\dfrac{1}{\delta} = \dfrac{\sum\alpha\beta\gamma}{\alpha\beta\gamma\delta} = \dfrac{2}{-4} = -\dfrac{1}{2}$</p>
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <div class="footer">
+        <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+    </div>
+
+    <script src="../../assets/js/common.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A-Level Further Mathematics: Further Pure 2 | MathHub</title>
+    <meta name="description" content="Comprehensive A-Level Further Pure 2 guide covering polar coordinates, hyperbolic functions, further calculus (reduction formulae, arc length, surface of revolution), second-order differential equations, and the t-substitution. Includes worked examples for Edexcel, AQA, and OCR.">
+    <meta name="keywords" content="A-Level Further Maths, Further Pure 2, polar coordinates, hyperbolic functions, sinh cosh tanh, reduction formulae, arc length, surface of revolution, second order differential equations, t-substitution, Edexcel FP2, AQA Further Maths, OCR Further Pure, CIE Further Mathematics">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/blog/further-pure2.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/uk/blog/further-pure2.html">
+    <meta property="og:title" content="A-Level Further Mathematics: Further Pure 2 | MathHub">
+    <meta property="og:description" content="Master Further Pure 2 topics including polar coordinates, hyperbolic functions, and advanced integration techniques for A-Level Further Mathematics.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="A-Level Further Mathematics: Further Pure 2 | MathHub">
+    <meta name="twitter:description" content="Complete Further Pure 2 study guide for A-Level Further Maths with worked examples and practice problems.">
+
+    <link rel="alternate" hreflang="en-GB" href="https://mathhub.io/uk/blog/further-pure2.html">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "A-Level Further Mathematics: Further Pure 2",
+        "description": "Comprehensive guide to Further Pure 2 covering polar coordinates, hyperbolic functions, advanced integration, and second-order differential equations.",
+        "url": "https://mathhub.io/uk/blog/further-pure2.html",
+        "datePublished": "2026-03-02",
+        "dateModified": "2026-03-02",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "A-Level Further Mathematics",
+        "learningResourceType": "Study Guide",
+        "about": [
+            { "@type": "Thing", "name": "Polar Coordinates" },
+            { "@type": "Thing", "name": "Hyperbolic Functions" },
+            { "@type": "Thing", "name": "Reduction Formulae" },
+            { "@type": "Thing", "name": "Differential Equations" }
+        ]
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p { color: #334155; line-height: 1.8; }
+        .info-box { background: #fff7ed; border-left: 4px solid #f97316; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .info-box h4 { color: #c2410c; margin: 0 0 12px; font-size: 1.05em; }
+        .info-box p, .info-box li { color: #334155; line-height: 1.8; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        .practice-problem p { margin-bottom: 12px; }
+        details.solution { margin-top: 12px; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        details.solution summary:hover { color: #1d4ed8; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .solution-content p { margin-bottom: 10px; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/">US</a>
+            <a href="/uk/" class="active">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="/uk/">UK</a> &rsaquo; <a href="/uk/blog/">Blog</a> &rsaquo; Further Pure 2
+        </div>
+
+        <h1>A-Level Further Mathematics: Further Pure 2</h1>
+        <div class="blog-meta">A-Level Further Mathematics &middot; Edexcel / AQA / OCR / CIE &middot; Updated March 2026 &middot; 40 min read</div>
+
+        <div class="info-box">
+            <h4>Exam Board Note</h4>
+            <p>Further Pure 2 content is found in <strong>Edexcel</strong> FP2 (8FM0:02), <strong>AQA</strong> Further Mathematics options, <strong>OCR A</strong> Further Pure B (Y542), and <strong>CIE</strong> Further Mathematics Paper 2. Polar coordinates and hyperbolic functions appear on all boards; the t-substitution is particularly prominent on Edexcel. Check your specification for exact topic coverage, as some boards integrate these topics across different papers.</p>
+        </div>
+
+        <p>Further Pure 2 extends the calculus and analysis of Further Pure 1. You will encounter elegant new coordinate systems, an analogy of the trigonometric functions built from exponentials, and advanced techniques that appear in undergraduate mathematics. Many of the techniques here appear in A-Level examinations as multi-part questions worth 8&ndash;12 marks.</p>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#polar">Polar Coordinates and Curves</a></li>
+                <li><a href="#polar-area">Area in Polar Coordinates</a></li>
+                <li><a href="#hyperbolic">Hyperbolic Functions</a></li>
+                <li><a href="#hyperbolic-identities">Hyperbolic Identities and Inverse Functions</a></li>
+                <li><a href="#reduction">Reduction Formulae</a></li>
+                <li><a href="#arc-length">Arc Length and Surface of Revolution</a></li>
+                <li><a href="#odes">Second-Order Differential Equations</a></li>
+                <li><a href="#t-sub">The $t$-Substitution (Weierstrass)</a></li>
+                <li><a href="#practice">Practice Problems</a></li>
+            </ol>
+        </nav>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 1: POLAR COORDINATES -->
+        <!-- ============================================================ -->
+        <h2 id="polar">1. Polar Coordinates and Curves</h2>
+
+        <div class="definition-box">
+            <h4>Definition: Polar Coordinates</h4>
+            <p>A point $P$ in the plane is described by polar coordinates $(r, \theta)$ where $r \geq 0$ is the distance from the origin (the <strong>pole</strong>) and $\theta$ is the angle from the positive $x$-axis (the <strong>initial line</strong>), measured anticlockwise.</p>
+            <p>Conversion between Cartesian and polar:</p>
+            <p>$$x = r\cos\theta, \quad y = r\sin\theta \qquad \longleftrightarrow \qquad r = \sqrt{x^2+y^2}, \quad \tan\theta = \frac{y}{x}$$</p>
+        </div>
+
+        <h3>Common Polar Curves</h3>
+        <p>You should be able to recognise and sketch the following families of polar curves:</p>
+        <ul>
+            <li><strong>Circle:</strong> $r = a$ (circle of radius $a$ centred at origin), $r = 2a\cos\theta$ (circle through origin), $r = 2a\sin\theta$ (circle through origin).</li>
+            <li><strong>Cardioid:</strong> $r = a(1 + \cos\theta)$ &mdash; heart-shaped curve passing through the origin.</li>
+            <li><strong>Rose curves:</strong> $r = a\cos(n\theta)$ or $r = a\sin(n\theta)$ &mdash; $n$ petals if $n$ is odd, $2n$ petals if $n$ is even.</li>
+            <li><strong>Lemniscate:</strong> $r^2 = a^2\cos(2\theta)$ &mdash; figure-of-eight shape.</li>
+            <li><strong>Archimedean spiral:</strong> $r = a\theta$.</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Worked Example 1.1 &mdash; Sketching a Polar Curve</h4>
+            <p>Sketch the cardioid $r = 2(1 + \cos\theta)$ for $0 \leq \theta \leq 2\pi$ and state its Cartesian equation.</p>
+
+            <p><span class="step-label">Step 1</span> Tabulate key values:</p>
+            <p>
+            $\theta = 0$: $r = 4$ &nbsp;|&nbsp;
+            $\theta = \frac{\pi}{2}$: $r = 2$ &nbsp;|&nbsp;
+            $\theta = \pi$: $r = 0$ &nbsp;|&nbsp;
+            $\theta = \frac{3\pi}{2}$: $r = 2$ &nbsp;|&nbsp;
+            $\theta = 2\pi$: $r = 4$
+            </p>
+            <p>The curve passes through the origin at $\theta = \pi$, has maximum radius 4 along the positive $x$-axis, and is symmetric about the initial line.</p>
+
+            <p><span class="step-label">Step 2</span> For the Cartesian equation, note $r = 2 + 2\cos\theta = 2 + 2\cdot\dfrac{x}{r}$, so $r^2 = 2r + 2x$, giving:
+            $$x^2 + y^2 = 2\sqrt{x^2+y^2} + 2x$$
+            $$(x^2+y^2-2x)^2 = 4(x^2+y^2)$$</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 2: POLAR AREA -->
+        <!-- ============================================================ -->
+        <h2 id="polar-area">2. Area in Polar Coordinates</h2>
+
+        <div class="theorem-box">
+            <h4>Area Formula in Polar Coordinates</h4>
+            <p>The area enclosed by the polar curve $r = f(\theta)$ between $\theta = \alpha$ and $\theta = \beta$ is:</p>
+            <p>$$A = \frac{1}{2}\int_{\alpha}^{\beta} r^2 \, d\theta$$</p>
+            <p>This formula counts the area swept out by the radius vector from angle $\alpha$ to $\beta$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 2.1 &mdash; Area of a Cardioid</h4>
+            <p>Find the area enclosed by the cardioid $r = a(1 + \cos\theta)$.</p>
+
+            <p><span class="step-label">Step 1</span> The cardioid is traced once as $\theta$ goes from $0$ to $2\pi$. By symmetry about $\theta = 0$:
+            $$A = \frac{1}{2}\int_0^{2\pi} a^2(1+\cos\theta)^2\,d\theta = a^2\int_0^{\pi}(1+\cos\theta)^2\,d\theta$$</p>
+
+            <p><span class="step-label">Step 2</span> Expand $(1+\cos\theta)^2 = 1 + 2\cos\theta + \cos^2\theta = 1 + 2\cos\theta + \dfrac{1+\cos 2\theta}{2}$.</p>
+
+            <p><span class="step-label">Step 3</span> Integrate:
+            $$\int_0^{\pi}\!\left(\frac{3}{2} + 2\cos\theta + \frac{\cos 2\theta}{2}\right)d\theta = \left[\frac{3\theta}{2} + 2\sin\theta + \frac{\sin 2\theta}{4}\right]_0^{\pi}$$
+            $$= \frac{3\pi}{2} + 0 + 0 - 0 = \frac{3\pi}{2}$$</p>
+
+            <p><span class="step-label">Result</span> $A = a^2 \cdot \dfrac{3\pi}{2} = \dfrac{3\pi a^2}{2}$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 2.2 &mdash; Area Between Two Polar Curves</h4>
+            <p>Find the area of the region inside $r = 3\cos\theta$ but outside $r = 1 + \cos\theta$.</p>
+
+            <p><span class="step-label">Step 1</span> Find intersection: $3\cos\theta = 1+\cos\theta$, so $2\cos\theta = 1$, giving $\theta = \pm\dfrac{\pi}{3}$.</p>
+
+            <p><span class="step-label">Step 2</span> The required area (using symmetry):
+            $$A = 2 \cdot \frac{1}{2}\int_0^{\pi/3}\!\left[(3\cos\theta)^2 - (1+\cos\theta)^2\right]d\theta$$
+            $$= \int_0^{\pi/3}(9\cos^2\theta - 1 - 2\cos\theta - \cos^2\theta)\,d\theta$$
+            $$= \int_0^{\pi/3}(8\cos^2\theta - 2\cos\theta - 1)\,d\theta$$</p>
+
+            <p><span class="step-label">Step 3</span> Use $\cos^2\theta = \dfrac{1+\cos 2\theta}{2}$:
+            $$= \int_0^{\pi/3}\!\left(4 + 4\cos 2\theta - 2\cos\theta - 1\right)d\theta = \left[3\theta + 2\sin 2\theta - 2\sin\theta\right]_0^{\pi/3}$$
+            $$= \pi + 2\cdot\frac{\sqrt{3}}{2}\cdot 2 - 2\cdot\frac{\sqrt{3}}{2} = \pi + 2\sqrt{3} - \sqrt{3} = \pi + \sqrt{3}$$</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 3: HYPERBOLIC FUNCTIONS -->
+        <!-- ============================================================ -->
+        <h2 id="hyperbolic">3. Hyperbolic Functions</h2>
+
+        <p>The hyperbolic functions are defined using exponentials. They satisfy identities that closely mirror the trigonometric identities, but arise from the hyperbola $x^2 - y^2 = 1$ rather than the unit circle.</p>
+
+        <div class="definition-box">
+            <h4>Definitions</h4>
+            <p>$$\sinh x = \frac{e^x - e^{-x}}{2}, \qquad \cosh x = \frac{e^x + e^{-x}}{2}, \qquad \tanh x = \frac{\sinh x}{\cosh x} = \frac{e^x - e^{-x}}{e^x + e^{-x}}$$</p>
+            <p>Also: $\text{sech}\,x = \dfrac{1}{\cosh x}$, $\text{cosech}\,x = \dfrac{1}{\sinh x}$, $\text{coth}\,x = \dfrac{1}{\tanh x}$.</p>
+        </div>
+
+        <p><strong>Key differences from trigonometric functions:</strong></p>
+        <ul>
+            <li>$\cosh x \geq 1$ for all $x$; $\sinh x$ can take any real value.</li>
+            <li>$\tanh x \in (-1, 1)$ for all $x$ (bounded, unlike $\tan$).</li>
+            <li>Neither $\sinh$ nor $\cosh$ is periodic.</li>
+        </ul>
+
+        <p><strong>Derivatives:</strong>
+        $$\frac{d}{dx}\sinh x = \cosh x, \quad \frac{d}{dx}\cosh x = \sinh x, \quad \frac{d}{dx}\tanh x = \text{sech}^2 x$$</p>
+        <p>Note: the derivative of $\cosh x$ is $\sinh x$ (not $-\sinh x$, unlike $\cos x \to -\sin x$).</p>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 4: HYPERBOLIC IDENTITIES -->
+        <!-- ============================================================ -->
+        <h2 id="hyperbolic-identities">4. Hyperbolic Identities and Inverse Functions</h2>
+
+        <h3>Osborn's Rule</h3>
+        <p>Osborn's Rule provides a systematic way to convert trigonometric identities to hyperbolic ones: replace every $\sin$ with $\sinh$, every $\cos$ with $\cosh$, and change the sign of every term containing a product of two $\sinh$ functions.</p>
+
+        <div class="theorem-box">
+            <h4>Key Hyperbolic Identities</h4>
+            <p>$$\cosh^2 x - \sinh^2 x = 1 \quad \text{(fundamental identity)}$$</p>
+            <p>$$\sinh(x \pm y) = \sinh x \cosh y \pm \cosh x \sinh y$$</p>
+            <p>$$\cosh(x \pm y) = \cosh x \cosh y \pm \sinh x \sinh y$$</p>
+            <p>$$\sinh 2x = 2\sinh x \cosh x, \qquad \cosh 2x = \cosh^2 x + \sinh^2 x = 2\cosh^2 x - 1$$</p>
+        </div>
+
+        <h3>Inverse Hyperbolic Functions</h3>
+        <p>The inverse hyperbolic functions can be expressed in terms of natural logarithms:</p>
+        $$\sinh^{-1} x = \ln\!\left(x + \sqrt{x^2+1}\right), \quad x \in \mathbb{R}$$
+        $$\cosh^{-1} x = \ln\!\left(x + \sqrt{x^2-1}\right), \quad x \geq 1$$
+        $$\tanh^{-1} x = \frac{1}{2}\ln\!\left(\frac{1+x}{1-x}\right), \quad |x| < 1$$
+
+        <p><strong>Derivatives of inverse hyperbolic functions:</strong>
+        $$\frac{d}{dx}\sinh^{-1}\!\left(\frac{x}{a}\right) = \frac{1}{\sqrt{x^2+a^2}}, \qquad \frac{d}{dx}\cosh^{-1}\!\left(\frac{x}{a}\right) = \frac{1}{\sqrt{x^2-a^2}}, \quad x > a$$</p>
+        <p>These lead to important integration results:
+        $$\int \frac{1}{\sqrt{x^2+a^2}}\,dx = \sinh^{-1}\!\left(\frac{x}{a}\right) + C = \ln\!\left(x+\sqrt{x^2+a^2}\right)+C$$
+        $$\int \frac{1}{\sqrt{x^2-a^2}}\,dx = \cosh^{-1}\!\left(\frac{x}{a}\right) + C = \ln\!\left(x+\sqrt{x^2-a^2}\right)+C, \quad x > a$$</p>
+
+        <div class="example-box">
+            <h4>Worked Example 4.1 &mdash; Solving a Hyperbolic Equation</h4>
+            <p>Solve $5\cosh x - 3\sinh x = 7$.</p>
+
+            <p><span class="step-label">Step 1</span> Substitute the definitions $\cosh x = \dfrac{e^x + e^{-x}}{2}$ and $\sinh x = \dfrac{e^x - e^{-x}}{2}$:
+            $$5\cdot\frac{e^x+e^{-x}}{2} - 3\cdot\frac{e^x - e^{-x}}{2} = 7$$
+            $$\frac{5e^x + 5e^{-x} - 3e^x + 3e^{-x}}{2} = 7$$
+            $$2e^x + 8e^{-x} = 14$$
+            $$e^x + 4e^{-x} = 7$$</p>
+
+            <p><span class="step-label">Step 2</span> Multiply through by $e^x$: $e^{2x} - 7e^x + 4 = 0$ (quadratic in $e^x$):
+            $$e^x = \frac{7 \pm \sqrt{49-16}}{2} = \frac{7 \pm \sqrt{33}}{2}$$
+            Both values are positive, so both give real solutions:
+            $$x = \ln\!\left(\frac{7+\sqrt{33}}{2}\right) \approx 1.622 \quad \text{or} \quad x = \ln\!\left(\frac{7-\sqrt{33}}{2}\right) \approx -0.622$$</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 5: REDUCTION FORMULAE -->
+        <!-- ============================================================ -->
+        <h2 id="reduction">5. Reduction Formulae</h2>
+
+        <p>A <strong>reduction formula</strong> is a recurrence relation connecting $I_n$ (an integral depending on a parameter $n$) to $I_{n-1}$ or $I_{n-2}$. They are derived by applying integration by parts strategically.</p>
+
+        <div class="example-box">
+            <h4>Worked Example 5.1 &mdash; Reduction Formula for $I_n = \int_0^{\pi/2}\sin^n x\,dx$</h4>
+            <p>Show that $I_n = \dfrac{n-1}{n}I_{n-2}$ for $n \geq 2$, and use it to evaluate $I_5$.</p>
+
+            <p><span class="step-label">Step 1</span> Write $\sin^n x = \sin^{n-1}x \cdot \sin x$ and integrate by parts with $u = \sin^{n-1}x$, $dv = \sin x\,dx$:</p>
+            <p>$u = \sin^{n-1}x \Rightarrow du = (n-1)\sin^{n-2}x\cos x\,dx$</p>
+            <p>$dv = \sin x\,dx \Rightarrow v = -\cos x$</p>
+            <p>$$I_n = \left[-\cos x\sin^{n-1}x\right]_0^{\pi/2} + (n-1)\int_0^{\pi/2}\cos^2 x\sin^{n-2}x\,dx$$</p>
+
+            <p><span class="step-label">Step 2</span> The boundary term is zero at both limits. Use $\cos^2 x = 1 - \sin^2 x$:
+            $$I_n = (n-1)\int_0^{\pi/2}(1-\sin^2 x)\sin^{n-2}x\,dx = (n-1)(I_{n-2} - I_n)$$</p>
+
+            <p><span class="step-label">Step 3</span> Solve for $I_n$: $I_n + (n-1)I_n = (n-1)I_{n-2}$, so:
+            $$I_n = \frac{n-1}{n}I_{n-2}$$</p>
+
+            <p><span class="step-label">Step 4</span> Apply repeatedly with $I_1 = \displaystyle\int_0^{\pi/2}\sin x\,dx = 1$:
+            $$I_5 = \frac{4}{5}I_3 = \frac{4}{5}\cdot\frac{2}{3}I_1 = \frac{4}{5}\cdot\frac{2}{3}\cdot 1 = \frac{8}{15}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 5.2 &mdash; Reduction Formula for $I_n = \int x^n e^x\,dx$</h4>
+            <p>Find a reduction formula for $I_n = \displaystyle\int x^n e^x\,dx$.</p>
+
+            <p>Integrate by parts: $u = x^n$, $dv = e^x\,dx$, so $du = nx^{n-1}\,dx$, $v = e^x$:
+            $$I_n = x^n e^x - n\int x^{n-1}e^x\,dx = x^n e^x - nI_{n-1}$$
+            With base case $I_0 = e^x + C$.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 6: ARC LENGTH AND SURFACE OF REVOLUTION -->
+        <!-- ============================================================ -->
+        <h2 id="arc-length">6. Arc Length and Surface of Revolution</h2>
+
+        <div class="theorem-box">
+            <h4>Arc Length Formulae</h4>
+            <p>For a Cartesian curve $y = f(x)$ from $x = a$ to $x = b$:
+            $$L = \int_a^b \sqrt{1 + \left(\frac{dy}{dx}\right)^2}\,dx$$</p>
+            <p>For a parametric curve $x = x(t)$, $y = y(t)$ from $t = t_1$ to $t = t_2$:
+            $$L = \int_{t_1}^{t_2}\sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2}\,dt$$</p>
+            <p>For a polar curve $r = f(\theta)$ from $\theta = \alpha$ to $\theta = \beta$:
+            $$L = \int_{\alpha}^{\beta}\sqrt{r^2 + \left(\frac{dr}{d\theta}\right)^2}\,d\theta$$</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Surface of Revolution</h4>
+            <p>When the curve $y = f(x)$, $a \leq x \leq b$, is rotated through $2\pi$ about the $x$-axis, the surface area is:
+            $$S = 2\pi\int_a^b y\sqrt{1 + \left(\frac{dy}{dx}\right)^2}\,dx$$</p>
+            <p>For rotation about the $y$-axis: $S = 2\pi\displaystyle\int_a^b x\sqrt{1 + \left(\frac{dy}{dx}\right)^2}\,dx$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 6.1 &mdash; Arc Length</h4>
+            <p>Find the length of the curve $y = \cosh x$ from $x = 0$ to $x = \ln 2$.</p>
+
+            <p><span class="step-label">Step 1</span> $\dfrac{dy}{dx} = \sinh x$, so $1 + \left(\dfrac{dy}{dx}\right)^2 = 1 + \sinh^2 x = \cosh^2 x$.</p>
+
+            <p><span class="step-label">Step 2</span> $$L = \int_0^{\ln 2}\sqrt{\cosh^2 x}\,dx = \int_0^{\ln 2}\cosh x\,dx = \left[\sinh x\right]_0^{\ln 2} = \sinh(\ln 2) - 0$$</p>
+
+            <p><span class="step-label">Step 3</span> $\sinh(\ln 2) = \dfrac{e^{\ln 2} - e^{-\ln 2}}{2} = \dfrac{2 - \frac{1}{2}}{2} = \dfrac{3}{4}$</p>
+
+            <p>$$L = \frac{3}{4}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 6.2 &mdash; Surface of Revolution</h4>
+            <p>Find the surface area generated when $y = \sqrt{x}$ for $1 \leq x \leq 4$ is rotated $2\pi$ about the $x$-axis.</p>
+
+            <p><span class="step-label">Step 1</span> $y = x^{1/2}$, so $\dfrac{dy}{dx} = \dfrac{1}{2\sqrt{x}}$, and $1 + \left(\dfrac{dy}{dx}\right)^2 = 1 + \dfrac{1}{4x} = \dfrac{4x+1}{4x}$.</p>
+
+            <p><span class="step-label">Step 2</span> $$S = 2\pi\int_1^4 \sqrt{x}\cdot\sqrt{\frac{4x+1}{4x}}\,dx = 2\pi\int_1^4\frac{\sqrt{4x+1}}{2}\,dx = \pi\int_1^4\sqrt{4x+1}\,dx$$</p>
+
+            <p><span class="step-label">Step 3</span> Let $u = 4x+1$, $du = 4\,dx$:
+            $$= \pi\int_5^{17}\frac{\sqrt{u}}{4}\,du = \frac{\pi}{4}\cdot\frac{2}{3}\left[u^{3/2}\right]_5^{17} = \frac{\pi}{6}\left(17^{3/2} - 5^{3/2}\right) = \frac{\pi}{6}\left(17\sqrt{17} - 5\sqrt{5}\right)$$</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 7: DIFFERENTIAL EQUATIONS -->
+        <!-- ============================================================ -->
+        <h2 id="odes">7. Second-Order Differential Equations</h2>
+
+        <p>Second-order linear ODEs with constant coefficients have the general form:
+        $$a\frac{d^2y}{dx^2} + b\frac{dy}{dx} + cy = f(x)$$
+        The <strong>general solution</strong> is the sum of the <strong>complementary function</strong> (CF) and a <strong>particular integral</strong> (PI).</p>
+
+        <h3>Complementary Function</h3>
+        <p>Solve the <strong>auxiliary equation</strong> $am^2 + bm + c = 0$. The CF depends on the nature of the roots:</p>
+        <ul>
+            <li><strong>Two distinct real roots</strong> $m_1, m_2$: $y_{CF} = Ae^{m_1 x} + Be^{m_2 x}$</li>
+            <li><strong>Repeated real root</strong> $m$: $y_{CF} = (A + Bx)e^{mx}$</li>
+            <li><strong>Complex conjugate roots</strong> $m = p \pm qi$: $y_{CF} = e^{px}(A\cos qx + B\sin qx)$</li>
+        </ul>
+
+        <h3>Particular Integral</h3>
+        <p>The PI is a specific solution to the full equation. Choose a trial PI of the same form as $f(x)$:</p>
+        <ul>
+            <li>$f(x) = ke^{nx}$: try $\lambda e^{nx}$ (unless $e^{nx}$ appears in CF; if so, try $\lambda x e^{nx}$).</li>
+            <li>$f(x) = a\cos kx + b\sin kx$: try $\lambda\cos kx + \mu\sin kx$.</li>
+            <li>$f(x) = $ polynomial of degree $n$: try a polynomial of degree $n$.</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Worked Example 7.1 &mdash; Second-Order ODE</h4>
+            <p>Solve $\dfrac{d^2y}{dx^2} - 3\dfrac{dy}{dx} + 2y = 4e^{3x}$, given $y(0) = 1$ and $y'(0) = 0$.</p>
+
+            <p><span class="step-label">Step 1: CF</span> Auxiliary equation: $m^2 - 3m + 2 = (m-1)(m-2) = 0$, so $m = 1, 2$.
+            $$y_{CF} = Ae^x + Be^{2x}$$</p>
+
+            <p><span class="step-label">Step 2: PI</span> Try $y_p = \lambda e^{3x}$. Then $y_p'' - 3y_p' + 2y_p = 9\lambda e^{3x} - 9\lambda e^{3x} + 2\lambda e^{3x} = 2\lambda e^{3x} = 4e^{3x}$, so $\lambda = 2$.
+            $$y_p = 2e^{3x}$$</p>
+
+            <p><span class="step-label">Step 3: General Solution</span>
+            $$y = Ae^x + Be^{2x} + 2e^{3x}$$</p>
+
+            <p><span class="step-label">Step 4: Apply Conditions</span> $y(0) = A + B + 2 = 1 \Rightarrow A + B = -1$.</p>
+            <p>$y' = Ae^x + 2Be^{2x} + 6e^{3x}$, so $y'(0) = A + 2B + 6 = 0 \Rightarrow A + 2B = -6$.</p>
+            <p>Subtracting: $B = -5$, $A = 4$.
+            $$\boxed{y = 4e^x - 5e^{2x} + 2e^{3x}}$$</p>
+        </div>
+
+        <h3>Integrating Factor for First-Order ODEs</h3>
+        <p>The first-order linear ODE $\dfrac{dy}{dx} + P(x)y = Q(x)$ is solved using the integrating factor $\mu(x) = e^{\int P(x)\,dx}$:</p>
+        $$\frac{d}{dx}[\mu y] = \mu Q(x) \implies \mu y = \int \mu Q(x)\,dx$$
+
+        <div class="example-box">
+            <h4>Worked Example 7.2 &mdash; Integrating Factor</h4>
+            <p>Solve $x\dfrac{dy}{dx} + 2y = x^3$, $x > 0$.</p>
+
+            <p><span class="step-label">Step 1</span> Rewrite in standard form: $\dfrac{dy}{dx} + \dfrac{2}{x}y = x^2$.</p>
+
+            <p><span class="step-label">Step 2</span> Integrating factor: $\mu = e^{\int (2/x)\,dx} = e^{2\ln x} = x^2$.</p>
+
+            <p><span class="step-label">Step 3</span> Multiply through by $x^2$: $\dfrac{d}{dx}[x^2 y] = x^4$.</p>
+
+            <p><span class="step-label">Step 4</span> Integrate: $x^2 y = \dfrac{x^5}{5} + C$, so $y = \dfrac{x^3}{5} + Cx^{-2}$.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 8: T-SUBSTITUTION -->
+        <!-- ============================================================ -->
+        <h2 id="t-sub">8. The $t$-Substitution (Weierstrass Substitution)</h2>
+
+        <p>The Weierstrass substitution $t = \tan\!\left(\dfrac{x}{2}\right)$ converts rational expressions in $\sin x$ and $\cos x$ into rational expressions in $t$, which can then be integrated by standard methods.</p>
+
+        <div class="definition-box">
+            <h4>The Weierstrass Substitution Formulae</h4>
+            <p>Let $t = \tan\!\left(\dfrac{x}{2}\right)$. Then:</p>
+            <p>$$\sin x = \frac{2t}{1+t^2}, \qquad \cos x = \frac{1-t^2}{1+t^2}, \qquad \tan x = \frac{2t}{1-t^2}, \qquad dx = \frac{2}{1+t^2}\,dt$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 8.1 &mdash; $t$-Substitution</h4>
+            <p>Evaluate $\displaystyle\int \frac{1}{3 + 5\cos x}\,dx$.</p>
+
+            <p><span class="step-label">Step 1</span> Substitute $\cos x = \dfrac{1-t^2}{1+t^2}$ and $dx = \dfrac{2}{1+t^2}\,dt$:
+            $$\int\frac{1}{3 + 5\cdot\frac{1-t^2}{1+t^2}}\cdot\frac{2}{1+t^2}\,dt = \int\frac{1}{\frac{3(1+t^2)+5(1-t^2)}{1+t^2}}\cdot\frac{2}{1+t^2}\,dt$$</p>
+
+            <p><span class="step-label">Step 2</span> Simplify the denominator: $3 + 3t^2 + 5 - 5t^2 = 8 - 2t^2$:
+            $$= \int\frac{2}{8-2t^2}\,dt = \int\frac{1}{4-t^2}\,dt = \int\frac{1}{(2-t)(2+t)}\,dt$$</p>
+
+            <p><span class="step-label">Step 3</span> Partial fractions: $\dfrac{1}{(2-t)(2+t)} = \dfrac{1/4}{2+t} + \dfrac{1/4}{2-t}$:
+            $$= \frac{1}{4}\ln\!\left|\frac{2+t}{2-t}\right| + C = \frac{1}{4}\ln\!\left|\frac{2+\tan(x/2)}{2-\tan(x/2)}\right| + C$$</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 9: PRACTICE -->
+        <!-- ============================================================ -->
+        <h2 id="practice">9. Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1 &mdash; Polar Area</h4>
+            <p>Find the area enclosed by one loop of the rose curve $r = 4\cos 2\theta$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>The curve $r = 4\cos 2\theta$ has 4 petals. One petal in the positive $x$-direction occurs for $-\pi/4 \leq \theta \leq \pi/4$ (where $r \geq 0$).</p>
+                    <p>$$A = \frac{1}{2}\int_{-\pi/4}^{\pi/4}(4\cos 2\theta)^2\,d\theta = 8\int_0^{\pi/4}16\cos^2 2\theta\cdot\frac{1}{2}\,d\theta$$</p>
+                    <p>Wait, let us be careful: $A = \frac{1}{2}\int_{-\pi/4}^{\pi/4}16\cos^2 2\theta\,d\theta = 8\int_0^{\pi/4}\cos^2 2\theta\,d\theta \cdot 2 = 16\int_0^{\pi/4}\frac{1+\cos 4\theta}{2}\,d\theta$</p>
+                    <p>$= 8\left[\theta + \frac{\sin 4\theta}{4}\right]_0^{\pi/4} = 8\left(\frac{\pi}{4} + 0\right) = 2\pi$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2 &mdash; Hyperbolic Functions</h4>
+            <p>Prove that $\cosh^2 x - \sinh^2 x = 1$ using the exponential definitions, and verify that $(\tanh x)' = \text{sech}^2 x$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\cosh^2 x - \sinh^2 x = \left(\dfrac{e^x+e^{-x}}{2}\right)^2 - \left(\dfrac{e^x-e^{-x}}{2}\right)^2$</p>
+                    <p>$= \dfrac{(e^x+e^{-x})^2 - (e^x-e^{-x})^2}{4} = \dfrac{4e^x e^{-x}}{4} = 1$ ✓</p>
+                    <p>$\dfrac{d}{dx}\tanh x = \dfrac{d}{dx}\!\left(\dfrac{\sinh x}{\cosh x}\right) = \dfrac{\cosh x \cdot \cosh x - \sinh x \cdot \sinh x}{\cosh^2 x} = \dfrac{1}{\cosh^2 x} = \text{sech}^2 x$ ✓</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3 &mdash; Reduction Formula</h4>
+            <p>Let $I_n = \displaystyle\int_0^1 x^n e^x\,dx$. Show that $I_n = e - nI_{n-1}$, and hence evaluate $I_3$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Integrate by parts with $u = x^n$, $dv = e^x\,dx$:
+                    $I_n = [x^n e^x]_0^1 - n\int_0^1 x^{n-1}e^x\,dx = e - nI_{n-1}$ ✓</p>
+                    <p>$I_0 = [e^x]_0^1 = e - 1$</p>
+                    <p>$I_1 = e - I_0 = e - (e-1) = 1$</p>
+                    <p>$I_2 = e - 2I_1 = e - 2$</p>
+                    <p>$I_3 = e - 3I_2 = e - 3(e-2) = e - 3e + 6 = 6 - 2e$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4 &mdash; Second-Order ODE</h4>
+            <p>Find the general solution of $\dfrac{d^2y}{dx^2} + 4y = \sin 2x$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p><strong>CF:</strong> Auxiliary equation $m^2 + 4 = 0$, so $m = \pm 2i$. Thus $y_{CF} = A\cos 2x + B\sin 2x$.</p>
+                    <p><strong>PI:</strong> Since $\sin 2x$ is in the CF, try $y_p = x(\lambda\cos 2x + \mu\sin 2x)$.</p>
+                    <p>$y_p' = \lambda\cos 2x + \mu\sin 2x + x(-2\lambda\sin 2x + 2\mu\cos 2x)$</p>
+                    <p>$y_p'' = -4\lambda\sin 2x + 4\mu\cos 2x + x(-4\lambda\cos 2x - 4\mu\sin 2x)$</p>
+                    <p>$y_p'' + 4y_p = -4\lambda\sin 2x + 4\mu\cos 2x = \sin 2x$</p>
+                    <p>So $\mu = 0$ and $\lambda = -\dfrac{1}{4}$. PI: $y_p = -\dfrac{x\cos 2x}{4}$.</p>
+                    <p>$$y = A\cos 2x + B\sin 2x - \frac{x\cos 2x}{4}$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5 &mdash; Inverse Hyperbolic Integration</h4>
+            <p>Evaluate $\displaystyle\int_0^2 \frac{1}{\sqrt{x^2+9}}\,dx$, giving your answer in terms of $\ln$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Using the standard result $\displaystyle\int\frac{1}{\sqrt{x^2+a^2}}\,dx = \ln(x+\sqrt{x^2+a^2}) + C$ with $a = 3$:</p>
+                    <p>$$\left[\ln(x+\sqrt{x^2+9})\right]_0^2 = \ln(2+\sqrt{13}) - \ln(0+3) = \ln\!\left(\frac{2+\sqrt{13}}{3}\right)$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6 &mdash; Arc Length (Parametric)</h4>
+            <p>Find the length of the curve $x = 3t^2$, $y = 2t^3$ for $0 \leq t \leq 1$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$\dfrac{dx}{dt} = 6t$, $\dfrac{dy}{dt} = 6t^2$, so $\left(\dfrac{dx}{dt}\right)^2 + \left(\dfrac{dy}{dt}\right)^2 = 36t^2 + 36t^4 = 36t^2(1+t^2)$.</p>
+                    <p>$$L = \int_0^1\sqrt{36t^2(1+t^2)}\,dt = 6\int_0^1 t\sqrt{1+t^2}\,dt$$</p>
+                    <p>Let $u = 1+t^2$, $du = 2t\,dt$:
+                    $$= 6\int_1^2\frac{\sqrt{u}}{2}\,du = 3\cdot\frac{2}{3}\left[u^{3/2}\right]_1^2 = 2(2\sqrt{2}-1) = 4\sqrt{2}-2$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7 &mdash; $t$-Substitution</h4>
+            <p>Evaluate $\displaystyle\int_0^{\pi/2}\frac{1}{1+\sin x}\,dx$ using the Weierstrass substitution.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Let $t = \tan(x/2)$. When $x = 0$, $t = 0$; when $x = \pi/2$, $t = 1$.</p>
+                    <p>$\sin x = \dfrac{2t}{1+t^2}$, $dx = \dfrac{2}{1+t^2}\,dt$.</p>
+                    <p>$$\int_0^1\frac{1}{1+\frac{2t}{1+t^2}}\cdot\frac{2}{1+t^2}\,dt = \int_0^1\frac{2}{1+t^2+2t}\,dt = \int_0^1\frac{2}{(1+t)^2}\,dt$$</p>
+                    <p>$$= 2\left[-\frac{1}{1+t}\right]_0^1 = 2\left(-\frac{1}{2}+1\right) = 1$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8 &mdash; Polar Curve Identification</h4>
+            <p>Convert the Cartesian equation $x^2 + y^2 = 4x$ to polar form. Identify and describe the curve.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Substitute $x = r\cos\theta$ and $x^2 + y^2 = r^2$:</p>
+                    <p>$r^2 = 4r\cos\theta$, so dividing by $r$ (for $r \neq 0$): $r = 4\cos\theta$.</p>
+                    <p>This is a circle with centre $(2, 0)$ in Cartesian coordinates and radius 2, passing through the origin. In polar form $r = 2a\cos\theta$ with $a = 2$, this confirms it is a circle passing through the pole with diameter along the initial line.</p>
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <div class="footer">
+        <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+    </div>
+
+    <script src="../../assets/js/common.js" defer></script>
+</body>
+</html>

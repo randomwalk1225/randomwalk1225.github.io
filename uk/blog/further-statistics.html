@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A-Level Further Mathematics: Further Statistics | MathHub</title>
+    <meta name="description" content="Comprehensive A-Level Further Statistics guide covering geometric and negative binomial distributions, Poisson processes, chi-squared tests, non-parametric tests, the central limit theorem, confidence intervals, and probability generating functions. Worked examples for Edexcel, AQA, OCR, and CIE.">
+    <meta name="keywords" content="A-Level Further Maths, Further Statistics, geometric distribution, negative binomial, Poisson distribution, chi-squared test, contingency table, Spearman rank correlation, Wilcoxon signed rank, central limit theorem, confidence intervals, probability generating functions, Edexcel FS1, AQA Further Statistics, OCR Further Maths, CIE Further Mathematics">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/uk/blog/further-statistics.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/uk/blog/further-statistics.html">
+    <meta property="og:title" content="A-Level Further Mathematics: Further Statistics | MathHub">
+    <meta property="og:description" content="Master Further Statistics for A-Level Further Mathematics including advanced probability distributions, hypothesis testing, and non-parametric methods.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="A-Level Further Mathematics: Further Statistics | MathHub">
+    <meta name="twitter:description" content="Complete Further Statistics study guide for A-Level Further Maths with worked examples and practice problems.">
+
+    <link rel="alternate" hreflang="en-GB" href="https://mathhub.io/uk/blog/further-statistics.html">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "A-Level Further Mathematics: Further Statistics",
+        "description": "Comprehensive guide to Further Statistics including advanced probability distributions, chi-squared tests, non-parametric tests, and probability generating functions.",
+        "url": "https://mathhub.io/uk/blog/further-statistics.html",
+        "datePublished": "2026-03-02",
+        "dateModified": "2026-03-02",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "A-Level Further Mathematics",
+        "learningResourceType": "Study Guide",
+        "about": [
+            { "@type": "Thing", "name": "Probability Distributions" },
+            { "@type": "Thing", "name": "Chi-Squared Test" },
+            { "@type": "Thing", "name": "Non-Parametric Statistics" },
+            { "@type": "Thing", "name": "Central Limit Theorem" },
+            { "@type": "Thing", "name": "Probability Generating Functions" }
+        ]
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 36px 0 16px; padding-top: 12px; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 24px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #3b82f6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p { color: #334155; line-height: 1.8; }
+        .info-box { background: #fff7ed; border-left: 4px solid #f97316; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .info-box h4 { color: #c2410c; margin: 0 0 12px; font-size: 1.05em; }
+        .info-box p, .info-box li { color: #334155; line-height: 1.8; }
+        .practice-problem { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px 24px; margin: 16px 0; border-radius: 8px; }
+        .practice-problem h4 { color: #1e3a5f; margin: 0 0 10px; font-size: 1em; }
+        .practice-problem p { margin-bottom: 12px; }
+        details.solution { margin-top: 12px; }
+        details.solution summary { cursor: pointer; color: #3b82f6; font-weight: 600; font-size: 0.95em; padding: 6px 0; user-select: none; }
+        details.solution summary:hover { color: #1d4ed8; }
+        .solution-content { padding: 16px 20px; background: #f0f7ff; border-radius: 6px; margin-top: 8px; line-height: 1.8; color: #334155; }
+        .solution-content p { margin-bottom: 10px; }
+        .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0 36px; }
+        .toc h3 { color: #1e3a5f; margin: 0 0 12px; font-size: 1.1em; }
+        .toc ol { margin: 0; padding-left: 20px; }
+        .toc li { margin-bottom: 6px; }
+        .toc a { color: #3b82f6; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .step-label { display: inline-block; background: #3b82f6; color: white; font-size: 0.8em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-right: 6px; }
+        table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 0.95em; }
+        th, td { border: 1px solid #e2e8f0; padding: 8px 12px; text-align: center; color: #334155; }
+        th { background: #f0f7ff; font-weight: 600; color: #1e3a5f; }
+        tr:nth-child(even) { background: #f8fafc; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/">US</a>
+            <a href="/uk/" class="active">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="/uk/">UK</a> &rsaquo; <a href="/uk/blog/">Blog</a> &rsaquo; Further Statistics
+        </div>
+
+        <h1>A-Level Further Mathematics: Further Statistics</h1>
+        <div class="blog-meta">A-Level Further Mathematics &middot; Edexcel / AQA / OCR / CIE &middot; Updated March 2026 &middot; 40 min read</div>
+
+        <div class="info-box">
+            <h4>Exam Board Note</h4>
+            <p>Further Statistics is an optional module available in all major UK specifications. <strong>Edexcel</strong> offers Further Statistics 1 (FS1/8FM0:27) and FS2. <strong>AQA</strong> covers these topics in its Statistics options. <strong>OCR A</strong> includes this material in Statistics A (Y532). <strong>CIE</strong> examines probability distributions and tests in Further Mathematics Papers 5 and 6. Spearman's rank correlation and the Wilcoxon test appear primarily on Edexcel; check your board's specification for exact topic requirements.</p>
+        </div>
+
+        <p>Further Statistics builds on the A-Level Statistics core with more sophisticated probability distributions, rigorous hypothesis testing techniques, and non-parametric methods. These tools are essential for data analysis in science, engineering, economics, and beyond.</p>
+
+        <nav class="toc">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#geometric">Geometric Distribution</a></li>
+                <li><a href="#negative-binomial">Negative Binomial Distribution</a></li>
+                <li><a href="#poisson">Poisson Distribution</a></li>
+                <li><a href="#pgf">Probability Generating Functions</a></li>
+                <li><a href="#clt">Central Limit Theorem</a></li>
+                <li><a href="#confidence">Confidence Intervals</a></li>
+                <li><a href="#chi-squared">Chi-Squared Tests</a></li>
+                <li><a href="#nonparametric">Non-Parametric Tests</a></li>
+                <li><a href="#practice">Practice Problems</a></li>
+            </ol>
+        </nav>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 1: GEOMETRIC -->
+        <!-- ============================================================ -->
+        <h2 id="geometric">1. Geometric Distribution</h2>
+
+        <div class="definition-box">
+            <h4>Definition: Geometric Distribution</h4>
+            <p>If repeated independent Bernoulli trials each have probability $p$ of success, the number of trials $X$ needed to obtain the first success follows the <strong>geometric distribution</strong> $X \sim \text{Geo}(p)$:</p>
+            <p>$$P(X = r) = (1-p)^{r-1}p, \quad r = 1, 2, 3, \ldots$$</p>
+            <p>$$E(X) = \frac{1}{p}, \qquad \text{Var}(X) = \frac{1-p}{p^2}$$</p>
+        </div>
+
+        <p>The geometric distribution has the <strong>memoryless property</strong>: given that the first $k$ trials failed, the distribution of the remaining waiting time is still $\text{Geo}(p)$. Formally: $P(X > m + n \mid X > n) = P(X > m)$.</p>
+
+        <div class="example-box">
+            <h4>Worked Example 1.1 &mdash; Geometric Distribution</h4>
+            <p>A biased coin has $P(\text{Heads}) = 0.3$. Let $X$ be the toss number of the first Head. Find (a) $P(X = 4)$, (b) $P(X \leq 3)$, (c) $E(X)$ and $\text{Var}(X)$.</p>
+
+            <p><span class="step-label">Part (a)</span> $P(X = 4) = (0.7)^3(0.3) = 0.343 \times 0.3 = 0.1029$</p>
+
+            <p><span class="step-label">Part (b)</span>
+            $$P(X \leq 3) = P(X=1) + P(X=2) + P(X=3)$$
+            $$= 0.3 + 0.7(0.3) + 0.7^2(0.3) = 0.3 + 0.21 + 0.147 = 0.657$$
+            Alternatively: $P(X \leq 3) = 1 - P(X > 3) = 1 - (1-p)^3 = 1 - 0.343 = 0.657$ ✓</p>
+
+            <p><span class="step-label">Part (c)</span> $E(X) = \dfrac{1}{0.3} = \dfrac{10}{3} \approx 3.33$, $\quad\text{Var}(X) = \dfrac{0.7}{0.09} = \dfrac{70}{9} \approx 7.78$</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 2: NEGATIVE BINOMIAL -->
+        <!-- ============================================================ -->
+        <h2 id="negative-binomial">2. Negative Binomial Distribution</h2>
+
+        <div class="definition-box">
+            <h4>Definition: Negative Binomial Distribution</h4>
+            <p>The number of trials $X$ needed to obtain exactly $r$ successes (where each trial independently succeeds with probability $p$) follows the <strong>negative binomial distribution</strong> $X \sim \text{NB}(r, p)$:</p>
+            <p>$$P(X = n) = \binom{n-1}{r-1} p^r (1-p)^{n-r}, \quad n = r, r+1, r+2, \ldots$$</p>
+            <p>$$E(X) = \frac{r}{p}, \qquad \text{Var}(X) = \frac{r(1-p)}{p^2}$$</p>
+            <p>When $r = 1$, this reduces to the geometric distribution.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 2.1 &mdash; Negative Binomial</h4>
+            <p>A sharpshooter hits a target with probability $p = 0.6$ independently on each shot. Let $X$ be the number of shots to achieve the 3rd hit. Find $P(X = 5)$ and $E(X)$.</p>
+
+            <p><span class="step-label">Step 1</span> $X \sim \text{NB}(3, 0.6)$. For $X = 5$: among the first 4 shots, exactly 2 must be hits, then the 5th shot must be a hit:
+            $$P(X = 5) = \binom{4}{2}(0.6)^2(0.4)^2 \times 0.6 = 6 \times 0.36 \times 0.16 \times 0.6$$
+            $$= 6 \times 0.03456 = 0.20736 \approx 0.207$$</p>
+
+            <p><span class="step-label">Step 2</span> $E(X) = \dfrac{3}{0.6} = 5$ shots.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 3: POISSON -->
+        <!-- ============================================================ -->
+        <h2 id="poisson">3. Poisson Distribution</h2>
+
+        <div class="definition-box">
+            <h4>Definition: Poisson Distribution</h4>
+            <p>The <strong>Poisson distribution</strong> $X \sim \text{Po}(\lambda)$ models the number of events in a fixed time or space, where events occur independently at a constant average rate $\lambda > 0$:</p>
+            <p>$$P(X = x) = \frac{e^{-\lambda}\lambda^x}{x!}, \quad x = 0, 1, 2, \ldots$$</p>
+            <p>$$E(X) = \lambda, \qquad \text{Var}(X) = \lambda$$</p>
+            <p><strong>Key property:</strong> If $X \sim \text{Po}(\lambda)$ and $Y \sim \text{Po}(\mu)$ are independent, then $X + Y \sim \text{Po}(\lambda + \mu)$.</p>
+        </div>
+
+        <p><strong>Poisson approximation to Binomial:</strong> If $X \sim B(n, p)$ with $n$ large and $p$ small (typically $n > 50$, $p < 0.1$), then $X \approx \text{Po}(\lambda)$ where $\lambda = np$.</p>
+
+        <div class="example-box">
+            <h4>Worked Example 3.1 &mdash; Poisson Process</h4>
+            <p>Cars arrive at a toll booth at an average rate of 3 per minute. Assuming a Poisson process, find (a) $P(X = 5)$ in a given minute, and (b) the probability that at least 2 cars arrive in a 30-second interval.</p>
+
+            <p><span class="step-label">Part (a)</span> $X \sim \text{Po}(3)$:
+            $$P(X = 5) = \frac{e^{-3} \cdot 3^5}{5!} = \frac{e^{-3} \cdot 243}{120} = \frac{243e^{-3}}{120} \approx \frac{243 \times 0.04979}{120} \approx 0.1008$$</p>
+
+            <p><span class="step-label">Part (b)</span> In 30 seconds (half a minute), the rate is $\lambda = 1.5$. Let $Y \sim \text{Po}(1.5)$:
+            $$P(Y \geq 2) = 1 - P(Y = 0) - P(Y = 1) = 1 - e^{-1.5} - 1.5e^{-1.5}$$
+            $$= 1 - 2.5e^{-1.5} \approx 1 - 2.5(0.2231) \approx 1 - 0.5578 = 0.442$$</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 4: PGF -->
+        <!-- ============================================================ -->
+        <h2 id="pgf">4. Probability Generating Functions</h2>
+
+        <div class="definition-box">
+            <h4>Definition: Probability Generating Function</h4>
+            <p>For a discrete random variable $X$ taking non-negative integer values, the <strong>probability generating function (PGF)</strong> is:
+            $$G_X(t) = E(t^X) = \sum_{x=0}^{\infty} P(X = x)\,t^x$$</p>
+            <p>The PGF encodes all the probabilities: $P(X = r) = \dfrac{G^{(r)}(0)}{r!}$ where $G^{(r)}$ denotes the $r$th derivative.</p>
+            <p><strong>Moments:</strong> $E(X) = G'(1)$ and $\text{Var}(X) = G''(1) + G'(1) - [G'(1)]^2$.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>PGFs of Standard Distributions</h4>
+            <p><strong>Bernoulli</strong> $B(1,p)$: $G(t) = q + pt$ where $q = 1 - p$</p>
+            <p><strong>Binomial</strong> $B(n,p)$: $G(t) = (q + pt)^n$</p>
+            <p><strong>Geometric</strong> $\text{Geo}(p)$: $G(t) = \dfrac{pt}{1 - qt}$</p>
+            <p><strong>Poisson</strong> $\text{Po}(\lambda)$: $G(t) = e^{\lambda(t-1)}$</p>
+            <p><strong>Sums:</strong> If $X$ and $Y$ are independent, $G_{X+Y}(t) = G_X(t) \cdot G_Y(t)$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 4.1 &mdash; Using a PGF</h4>
+            <p>A random variable $X$ has PGF $G(t) = \dfrac{1}{3-2t}$. Find $P(X = r)$ for $r \geq 0$ and compute $E(X)$.</p>
+
+            <p><span class="step-label">Step 1</span> Rewrite as a power series. Factor out $\frac{1}{3}$:
+            $$G(t) = \frac{1}{3\left(1 - \frac{2t}{3}\right)} = \frac{1}{3}\sum_{r=0}^{\infty}\left(\frac{2}{3}\right)^r t^r$$
+            $$= \sum_{r=0}^{\infty}\frac{1}{3}\left(\frac{2}{3}\right)^r t^r$$
+            So $P(X = r) = \dfrac{1}{3}\left(\dfrac{2}{3}\right)^r$ for $r = 0, 1, 2, \ldots$ This is a geometric-type distribution.</p>
+
+            <p><span class="step-label">Step 2</span> $G'(t) = \dfrac{2}{(3-2t)^2}$, so $E(X) = G'(1) = \dfrac{2}{(3-2)^2} = 2$.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 5: CLT -->
+        <!-- ============================================================ -->
+        <h2 id="clt">5. Central Limit Theorem</h2>
+
+        <div class="theorem-box">
+            <h4>Theorem: Central Limit Theorem (CLT)</h4>
+            <p>Let $X_1, X_2, \ldots, X_n$ be i.i.d. random variables with mean $\mu$ and variance $\sigma^2 < \infty$. Then as $n \to \infty$, the sample mean $\bar{X} = \dfrac{1}{n}\sum_{i=1}^n X_i$ satisfies:</p>
+            <p>$$\bar{X} \sim N\!\left(\mu, \frac{\sigma^2}{n}\right) \quad \text{approximately, for large } n$$</p>
+            <p>Equivalently, $Z = \dfrac{\bar{X} - \mu}{\sigma/\sqrt{n}} \sim N(0, 1)$ approximately.</p>
+        </div>
+
+        <p>The CLT is remarkable because it applies regardless of the distribution of the individual $X_i$, as long as the variance is finite. As a rule of thumb, $n \geq 30$ is usually sufficient for the approximation to be good, though fewer may suffice for near-symmetric distributions.</p>
+
+        <div class="example-box">
+            <h4>Worked Example 5.1 &mdash; Central Limit Theorem</h4>
+            <p>The time to serve one customer at a bank follows an exponential distribution with mean 4 minutes. Find the probability that the total service time for 50 customers exceeds 215 minutes.</p>
+
+            <p><span class="step-label">Step 1</span> Let $X_i \sim \text{Exp}(1/4)$, so $E(X_i) = 4$ and $\text{Var}(X_i) = 16$.</p>
+
+            <p><span class="step-label">Step 2</span> Total time $T = X_1 + \cdots + X_{50}$. By the CLT:
+            $$T \approx N(50 \times 4,\; 50 \times 16) = N(200,\; 800)$$</p>
+
+            <p><span class="step-label">Step 3</span>
+            $$P(T > 215) = P\!\left(Z > \frac{215 - 200}{\sqrt{800}}\right) = P\!\left(Z > \frac{15}{20\sqrt{2}}\right) = P(Z > 0.530)$$
+            $$\approx 1 - \Phi(0.530) \approx 1 - 0.7019 = 0.298$$</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 6: CONFIDENCE INTERVALS -->
+        <!-- ============================================================ -->
+        <h2 id="confidence">6. Confidence Intervals</h2>
+
+        <p>A <strong>confidence interval</strong> is a range of values constructed from sample data that, with a stated probability (the confidence level), contains the true population parameter. A 95% CI does not mean "95% probability the parameter is in this interval"; rather, if the procedure is repeated many times, 95% of such intervals will contain the true parameter.</p>
+
+        <div class="theorem-box">
+            <h4>Confidence Interval for a Population Mean</h4>
+            <p>For a sample of size $n$ with sample mean $\bar{x}$ from a $N(\mu, \sigma^2)$ population (or large $n$ by CLT):</p>
+            <p>$$\bar{x} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}$$</p>
+            <p>where $z_{\alpha/2}$ is the critical value from the standard normal: $z_{0.025} = 1.96$ for a 95% CI, $z_{0.005} = 2.576$ for a 99% CI.</p>
+            <p>If $\sigma$ is unknown and $n$ is small, use the $t$-distribution with $n-1$ degrees of freedom:
+            $$\bar{x} \pm t_{n-1,\alpha/2} \cdot \frac{s}{\sqrt{n}}$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 6.1 &mdash; Confidence Interval</h4>
+            <p>A sample of 36 measurements of a physical constant gives $\bar{x} = 8.42$ with standard deviation $s = 0.60$. Construct a 95% confidence interval for the true mean.</p>
+
+            <p><span class="step-label">Step 1</span> $n = 36$ is large enough to use the normal approximation. Standard error $= \dfrac{s}{\sqrt{n}} = \dfrac{0.60}{6} = 0.10$.</p>
+
+            <p><span class="step-label">Step 2</span> $z_{0.025} = 1.96$. The 95% CI is:
+            $$8.42 \pm 1.96 \times 0.10 = 8.42 \pm 0.196$$
+            $$\Rightarrow (8.224,\; 8.616)$$</p>
+
+            <p>We are 95% confident that the true mean lies between 8.224 and 8.616.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 7: CHI-SQUARED -->
+        <!-- ============================================================ -->
+        <h2 id="chi-squared">7. Chi-Squared Tests</h2>
+
+        <p>The chi-squared ($\chi^2$) test is used to test whether observed frequency data differs significantly from expected frequencies under some hypothesis. The test statistic is:
+        $$\chi^2 = \sum_{\text{all cells}} \frac{(O - E)^2}{E}$$
+        where $O$ is the observed frequency and $E$ is the expected frequency. Under $H_0$, $\chi^2$ follows (approximately) a chi-squared distribution with degrees of freedom $\nu$.</p>
+
+        <h3>Goodness-of-Fit Test</h3>
+        <p>Tests whether a sample comes from a specified distribution. Degrees of freedom: $\nu = k - 1 - p$, where $k$ = number of categories and $p$ = number of parameters estimated from the data. Any expected frequency below 5 should be merged with an adjacent cell.</p>
+
+        <div class="example-box">
+            <h4>Worked Example 7.1 &mdash; Goodness-of-Fit Test</h4>
+            <p>A die is rolled 120 times with the following results. Test at the 5% level whether the die is fair.</p>
+
+            <table>
+                <tr><th>Score</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr>
+                <tr><td>Observed</td><td>25</td><td>17</td><td>21</td><td>23</td><td>14</td><td>20</td></tr>
+            </table>
+
+            <p><span class="step-label">H$_0$</span> The die is fair (each face has probability 1/6).</p>
+            <p><span class="step-label">Expected</span> Each $E_i = 120 \times \frac{1}{6} = 20$.</p>
+            <p><span class="step-label">Test Statistic</span>
+            $$\chi^2 = \frac{(25-20)^2}{20} + \frac{(17-20)^2}{20} + \frac{(21-20)^2}{20} + \frac{(23-20)^2}{20} + \frac{(14-20)^2}{20} + \frac{(20-20)^2}{20}$$
+            $$= \frac{25+9+1+9+36+0}{20} = \frac{80}{20} = 4.00$$</p>
+            <p><span class="step-label">Critical Value</span> $\nu = 6 - 1 = 5$ degrees of freedom. At 5% level, $\chi^2_{5, 0.05} = 11.07$.</p>
+            <p><span class="step-label">Conclusion</span> Since $4.00 < 11.07$, we do not reject $H_0$. There is insufficient evidence at the 5% level to conclude that the die is unfair.</p>
+        </div>
+
+        <h3>Test of Independence (Contingency Table)</h3>
+        <p>A contingency table chi-squared test examines whether two categorical variables are independent. For an $r \times c$ table:</p>
+        <ul>
+            <li>$E_{ij} = \dfrac{\text{(row } i \text{ total)} \times \text{(column } j \text{ total)}}{\text{grand total}}$</li>
+            <li>Degrees of freedom: $\nu = (r-1)(c-1)$</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Worked Example 7.2 &mdash; Contingency Table</h4>
+            <p>Test at the 5% level whether grade achieved is independent of revision hours for the following data:</p>
+            <table>
+                <tr><th></th><th>Grade A</th><th>Grade B</th><th>Grade C</th><th>Row Total</th></tr>
+                <tr><td><strong>&lt;10 hrs</strong></td><td>5</td><td>20</td><td>15</td><td>40</td></tr>
+                <tr><td><strong>10&ndash;20 hrs</strong></td><td>15</td><td>25</td><td>10</td><td>50</td></tr>
+                <tr><td><strong>&gt;20 hrs</strong></td><td>20</td><td>15</td><td>5</td><td>40</td></tr>
+                <tr><td><strong>Col Total</strong></td><td>40</td><td>60</td><td>30</td><td>130</td></tr>
+            </table>
+
+            <p><span class="step-label">Expected frequencies</span> $E_{ij} = \dfrac{R_i C_j}{N}$:</p>
+            <table>
+                <tr><th></th><th>Grade A</th><th>Grade B</th><th>Grade C</th></tr>
+                <tr><td><strong>&lt;10 hrs</strong></td><td>12.31</td><td>18.46</td><td>9.23</td></tr>
+                <tr><td><strong>10&ndash;20 hrs</strong></td><td>15.38</td><td>23.08</td><td>11.54</td></tr>
+                <tr><td><strong>&gt;20 hrs</strong></td><td>12.31</td><td>18.46</td><td>9.23</td></tr>
+            </table>
+
+            <p><span class="step-label">Test Statistic</span> $\chi^2 = \dfrac{(5-12.31)^2}{12.31} + \dfrac{(20-18.46)^2}{18.46} + \cdots \approx 16.76$</p>
+
+            <p><span class="step-label">Critical Value</span> $\nu = (3-1)(3-1) = 4$. $\chi^2_{4, 0.05} = 9.488$.</p>
+
+            <p><span class="step-label">Conclusion</span> $16.76 > 9.488$. Reject $H_0$. There is significant evidence at the 5% level that grade and revision hours are not independent.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 8: NON-PARAMETRIC -->
+        <!-- ============================================================ -->
+        <h2 id="nonparametric">8. Non-Parametric Tests</h2>
+
+        <p>Non-parametric tests make fewer assumptions about the population distribution. They are used when data is ordinal, or when the normality assumption for parametric tests is not justified.</p>
+
+        <h3>Spearman's Rank Correlation Coefficient</h3>
+
+        <div class="definition-box">
+            <h4>Spearman's Rank Correlation</h4>
+            <p>For $n$ pairs of observations, rank each variable separately. If $d_i$ is the difference between the ranks of the $i$th pair:</p>
+            <p>$$r_s = 1 - \frac{6\sum d_i^2}{n(n^2-1)}$$</p>
+            <p>$r_s$ ranges from $-1$ (perfect negative association) to $+1$ (perfect positive association). To test whether the population rank correlation $\rho_s = 0$, compare $r_s$ with critical values from statistical tables.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Worked Example 8.1 &mdash; Spearman's Rank Correlation</h4>
+            <p>Eight students' scores in Mathematics and Physics are ranked below. Calculate $r_s$ and test at the 5% level (one-tailed) whether there is positive association.</p>
+
+            <table>
+                <tr><th>Student</th><th>Maths Rank</th><th>Physics Rank</th><th>$d$</th><th>$d^2$</th></tr>
+                <tr><td>A</td><td>1</td><td>2</td><td>-1</td><td>1</td></tr>
+                <tr><td>B</td><td>2</td><td>1</td><td>1</td><td>1</td></tr>
+                <tr><td>C</td><td>3</td><td>4</td><td>-1</td><td>1</td></tr>
+                <tr><td>D</td><td>4</td><td>3</td><td>1</td><td>1</td></tr>
+                <tr><td>E</td><td>5</td><td>7</td><td>-2</td><td>4</td></tr>
+                <tr><td>F</td><td>6</td><td>5</td><td>1</td><td>1</td></tr>
+                <tr><td>G</td><td>7</td><td>6</td><td>1</td><td>1</td></tr>
+                <tr><td>H</td><td>8</td><td>8</td><td>0</td><td>0</td></tr>
+                <tr><td><strong>Total</strong></td><td></td><td></td><td></td><td><strong>10</strong></td></tr>
+            </table>
+
+            <p>$$r_s = 1 - \frac{6 \times 10}{8(64-1)} = 1 - \frac{60}{504} = 1 - 0.119 = 0.881$$</p>
+
+            <p>From tables (one-tailed, 5%, $n = 8$): critical value $= 0.6429$. Since $0.881 > 0.6429$, we reject $H_0$ and conclude there is significant positive association.</p>
+        </div>
+
+        <h3>Wilcoxon Signed-Rank Test</h3>
+        <p>The <strong>Wilcoxon signed-rank test</strong> is a non-parametric alternative to the paired $t$-test. It tests whether the median difference between paired observations is zero.</p>
+
+        <p><strong>Procedure:</strong></p>
+        <ol>
+            <li>Compute the differences $d_i = x_i - y_i$. Discard any $d_i = 0$.</li>
+            <li>Rank the absolute values $|d_i|$ from smallest to largest. Assign average ranks for ties.</li>
+            <li>Attach the sign of $d_i$ to each rank.</li>
+            <li>Compute $W^+ = $ sum of positive ranks, $W^- = $ sum of negative ranks. The test statistic is $W = \min(W^+, W^-)$.</li>
+            <li>Compare $W$ with the critical value from the Wilcoxon table. Reject $H_0$ if $W \leq $ critical value.</li>
+        </ol>
+
+        <div class="example-box">
+            <h4>Worked Example 8.2 &mdash; Wilcoxon Signed-Rank Test</h4>
+            <p>Before/after scores for 7 participants in a training programme:</p>
+            <table>
+                <tr><th>Participant</th><th>Before</th><th>After</th><th>$d$</th><th>$|d|$</th><th>Rank</th><th>Signed Rank</th></tr>
+                <tr><td>1</td><td>65</td><td>70</td><td>+5</td><td>5</td><td>4</td><td>+4</td></tr>
+                <tr><td>2</td><td>72</td><td>80</td><td>+8</td><td>8</td><td>6</td><td>+6</td></tr>
+                <tr><td>3</td><td>58</td><td>55</td><td>-3</td><td>3</td><td>2</td><td>-2</td></tr>
+                <tr><td>4</td><td>84</td><td>90</td><td>+6</td><td>6</td><td>5</td><td>+5</td></tr>
+                <tr><td>5</td><td>61</td><td>64</td><td>+3</td><td>3</td><td>2</td><td>+2</td></tr>
+                <tr><td>6</td><td>79</td><td>88</td><td>+9</td><td>9</td><td>7</td><td>+7</td></tr>
+                <tr><td>7</td><td>50</td><td>51</td><td>+1</td><td>1</td><td>1</td><td>+1</td></tr>
+            </table>
+            <p>Note: participants 3 and 5 both have $|d| = 3$, so they share ranks 2 and 3 &rarr; each gets rank $(2+3)/2 = 2.5$. Recalculating:</p>
+            <p>$W^+ = 4 + 6 + 5 + 2.5 + 7 + 1 = 25.5$, $\quad W^- = 2.5$</p>
+            <p>$W = \min(25.5, 2.5) = 2.5$</p>
+            <p>From tables ($n = 7$, 5% one-tailed), the critical value is 3. Since $W = 2.5 \leq 3$, we reject $H_0$ and conclude the training programme significantly improved scores.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION 9: PRACTICE -->
+        <!-- ============================================================ -->
+        <h2 id="practice">9. Practice Problems</h2>
+
+        <div class="practice-problem">
+            <h4>Problem 1 &mdash; Geometric Distribution</h4>
+            <p>A student passes each driving theory test with probability 0.7, independently. Find the probability that the student passes within the first 3 attempts, and find the expected number of attempts needed.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$X \sim \text{Geo}(0.7)$ where $X$ = number of attempts to first pass.</p>
+                    <p>$P(X \leq 3) = 1 - (1-0.7)^3 = 1 - 0.3^3 = 1 - 0.027 = 0.973$</p>
+                    <p>$E(X) = \dfrac{1}{0.7} = \dfrac{10}{7} \approx 1.43$ attempts.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 2 &mdash; Negative Binomial</h4>
+            <p>A quality control inspector tests items from a production line. Each item is defective independently with probability 0.2. What is the probability that the 3rd defective item is found on the 10th item tested?</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$X \sim \text{NB}(3, 0.2)$. We need $P(X = 10)$: among the first 9 items, exactly 2 are defective, and item 10 is defective.</p>
+                    <p>$$P(X = 10) = \binom{9}{2}(0.2)^2(0.8)^7 \times 0.2 = 36 \times 0.04 \times 0.2097 \times 0.2$$</p>
+                    <p>$$= 36 \times 0.04 \times 0.2097 \times 0.2 \approx 36 \times 0.001678 \approx 0.0604$$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 3 &mdash; PGF</h4>
+            <p>The PGF of $X$ is $G(t) = \dfrac{(1 + t)^4}{16}$. Identify the distribution of $X$, find $E(X)$ and $\text{Var}(X)$.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>We have $G(t) = \dfrac{(1+t)^4}{16} = \left(\dfrac{1+t}{2}\right)^4 = \left(\dfrac{1}{2} + \dfrac{1}{2}t\right)^4$.</p>
+                    <p>This matches the binomial PGF $(q + pt)^n$ with $n = 4$ and $p = \frac{1}{2}$. So $X \sim B(4, \frac{1}{2})$.</p>
+                    <p>$E(X) = G'(1) = \dfrac{4(1+t)^3}{16}\Big|_{t=1} = \dfrac{4 \times 8}{16} = 2$</p>
+                    <p>$G''(t) = \dfrac{12(1+t)^2}{16}$, so $G''(1) = \dfrac{12 \times 4}{16} = 3$.</p>
+                    <p>$\text{Var}(X) = G''(1) + G'(1) - [G'(1)]^2 = 3 + 2 - 4 = 1 = np(1-p) = 4 \times \frac{1}{4}$ ✓</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 4 &mdash; Central Limit Theorem</h4>
+            <p>The lifetimes (in hours) of a certain brand of battery are independently distributed with mean 50 and standard deviation 8. A sample of 64 batteries is selected. Find the probability that the sample mean lifetime exceeds 52 hours.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>By the CLT, $\bar{X} \approx N\!\left(50, \dfrac{64}{64}\right) = N(50, 1)$.</p>
+                    <p>$P(\bar{X} > 52) = P\!\left(Z > \dfrac{52-50}{1}\right) = P(Z > 2) = 1 - \Phi(2) \approx 1 - 0.9772 = 0.0228$</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 5 &mdash; Chi-Squared Goodness of Fit</h4>
+            <p>The number of defects per batch is modelled as Poisson. A sample of 100 batches gives: 0 defects: 40, 1 defect: 35, 2 defects: 16, 3 defects: 7, $\geq 4$ defects: 2. Test at the 5% level whether a Poisson model is appropriate.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Estimate $\hat{\lambda} = (0\times40 + 1\times35 + 2\times16 + 3\times7 + 4\times2)/100 = (0+35+32+21+8)/100 = 0.96$.</p>
+                    <p>Expected frequencies with $\lambda = 0.96$:</p>
+                    <p>$E_0 = 100e^{-0.96} = 38.3$, $E_1 = 100 \times 0.96e^{-0.96} = 36.8$, $E_2 = 100\times\frac{0.96^2}{2}e^{-0.96} = 17.6$, $E_3 = 5.7$, $E_{\geq4} = 1.6$.</p>
+                    <p>Since $E_3 = 5.7 < 5$ and $E_{\geq 4} = 1.6 < 5$, merge categories $\geq 3$: observed $= 9$, expected $= 7.3$.</p>
+                    <p>$\chi^2 = \dfrac{(40-38.3)^2}{38.3} + \dfrac{(35-36.8)^2}{36.8} + \dfrac{(16-17.6)^2}{17.6} + \dfrac{(9-7.3)^2}{7.3}$</p>
+                    <p>$\approx 0.075 + 0.088 + 0.145 + 0.396 = 0.704$</p>
+                    <p>Degrees of freedom: $\nu = 4 - 1 - 1 = 2$ (4 groups, 1 parameter estimated). Critical value $\chi^2_{2,0.05} = 5.991$.</p>
+                    <p>Since $0.704 < 5.991$, do not reject $H_0$. The Poisson model is a good fit.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 6 &mdash; Confidence Interval</h4>
+            <p>A random sample of 10 measurements of resistance (in ohms) from a normal distribution gives: $\bar{x} = 4.82$, $s = 0.35$. Construct a 99% confidence interval for the population mean.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>$n = 10$ is small, so use $t_{9, 0.005}$ for a 99% CI (two-tailed, so $\alpha/2 = 0.005$). From $t$-tables: $t_{9, 0.005} = 3.250$.</p>
+                    <p>Margin of error $= 3.250 \times \dfrac{0.35}{\sqrt{10}} = 3.250 \times 0.1107 = 0.360$.</p>
+                    <p>99% CI: $(4.82 - 0.360,\; 4.82 + 0.360) = (4.460,\; 5.180)$.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 7 &mdash; Contingency Table</h4>
+            <p>A study investigates whether smoking status (smoker / non-smoker) is independent of developing a certain condition (yes / no). Results: smoker-yes: 30, smoker-no: 70, non-smoker-yes: 20, non-smoker-no: 80. Test at the 5% level.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Row totals: smokers = 100, non-smokers = 100. Column totals: yes = 50, no = 150. Grand total = 200.</p>
+                    <p>Expected: $E_{11} = \dfrac{100 \times 50}{200} = 25$, $E_{12} = 75$, $E_{21} = 25$, $E_{22} = 75$.</p>
+                    <p>$\chi^2 = \dfrac{(30-25)^2}{25} + \dfrac{(70-75)^2}{75} + \dfrac{(20-25)^2}{25} + \dfrac{(80-75)^2}{75}$</p>
+                    <p>$= 1 + \frac{1}{3} + 1 + \frac{1}{3} = 2.667$</p>
+                    <p>$\nu = (2-1)(2-1) = 1$. Critical value $\chi^2_{1, 0.05} = 3.841$.</p>
+                    <p>Since $2.667 < 3.841$, do not reject $H_0$. No significant evidence of association between smoking and condition at the 5% level.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="practice-problem">
+            <h4>Problem 8 &mdash; Spearman's Rank</h4>
+            <p>Six judges rank 6 wines (A&ndash;F). Judge 1's ranks: 1, 2, 3, 4, 5, 6. Judge 2's ranks: 2, 1, 4, 3, 6, 5. Compute $r_s$ and comment.</p>
+            <details class="solution">
+                <summary>Show Solution</summary>
+                <div class="solution-content">
+                    <p>Differences $d$: $-1, 1, -1, 1, -1, 1$. So $d^2 = 1$ for each, $\sum d^2 = 6$.</p>
+                    <p>$r_s = 1 - \dfrac{6 \times 6}{6(36-1)} = 1 - \dfrac{36}{210} = 1 - 0.171 = 0.829$</p>
+                    <p>This is a strong positive correlation, suggesting the two judges largely agree on the ranking order, despite some swapping of adjacent pairs.</p>
+                </div>
+            </details>
+        </div>
+
+    </article>
+
+    <div class="footer">
+        <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+    </div>
+
+    <script src="../../assets/js/common.js" defer></script>
+</body>
+</html>
