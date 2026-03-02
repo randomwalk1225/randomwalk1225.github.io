@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algèbre linéaire — Cégep | MathHub</title>
+    <meta name="description" content="Cours complet d'algèbre linéaire pour le Cégep : vecteurs, matrices, déterminants, systèmes linéaires par élimination de Gauss et transformations linéaires.">
+    <meta name="keywords" content="algèbre linéaire Cégep Québec, vecteurs, matrices, déterminant, élimination Gauss, systèmes linéaires, transformations linéaires">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/ca/blog/fr-cegep-algebre-lineaire.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/ca/blog/fr-cegep-algebre-lineaire.html">
+    <meta property="og:title" content="Algèbre linéaire — Cégep | MathHub">
+    <meta property="og:description" content="Cours complet d'algèbre linéaire pour le Cégep : vecteurs, matrices, déterminants, systèmes linéaires et transformations linéaires avec exemples résolus.">
+    <meta property="og:site_name" content="MathHub Global">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Algèbre linéaire — Cégep",
+        "description": "Cours complet d'algèbre linéaire pour le Cégep : vecteurs, matrices, déterminants, systèmes linéaires par élimination de Gauss et transformations linéaires.",
+        "author": {"@type": "Organization", "name": "MathHub Global"},
+        "publisher": {"@type": "Organization", "name": "MathHub Global"},
+        "datePublished": "2026-03-01",
+        "dateModified": "2026-03-01",
+        "educationalLevel": "Cégep",
+        "inLanguage": "fr-CA",
+        "mainEntityOfPage": "https://mathhub.io/ca/blog/fr-cegep-algebre-lineaire.html"
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article{max-width:800px;margin:0 auto;padding:40px 20px;font-family:Arial,sans-serif;font-size:1.02em;line-height:1.8;}
+        .blog-article h1{font-size:2.1em;color:#1e3a5f;margin-bottom:12px;line-height:1.3;}
+        .blog-meta{color:#64748b;font-size:0.9em;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid #e2e8f0;}
+        .blog-article h2{font-size:1.5em;color:#1e3a5f;margin:40px 0 16px;padding-top:12px;border-top:2px solid #e2e8f0;}
+        .blog-article h3{font-size:1.2em;color:#334155;margin:24px 0 10px;}
+        .blog-article p{color:#334155;margin-bottom:16px;}
+        .blog-article ul,.blog-article ol{margin:12px 0 20px 24px;color:#334155;}
+        .blog-article li{margin-bottom:8px;}
+        .breadcrumb{font-size:0.85em;color:#64748b;margin-bottom:16px;}
+        .breadcrumb a{color:#1d4ed8;text-decoration:none;}
+        .definition-box{background:#e7f3ff;border-left:4px solid #1d4ed8;padding:20px;margin:20px 0;border-radius:8px;}
+        .definition-box h4{color:#1e40af;margin-bottom:10px;font-size:1.05em;}
+        .theorem-box{background:#fff3cd;border-left:4px solid #f59e0b;padding:20px;margin:20px 0;border-radius:8px;}
+        .theorem-box h4{color:#92400e;margin-bottom:10px;font-size:1.05em;}
+        .example-box{background:#f0f9ff;border-left:4px solid #0ea5e9;padding:20px;margin:20px 0;border-radius:8px;}
+        .example-box h4{color:#0369a1;margin-bottom:10px;font-size:1.05em;}
+        .example-box .solution{margin-top:14px;padding-top:12px;border-top:1px solid #bae6fd;}
+        .tip-box{background:#f0fdf4;border-left:4px solid #22c55e;padding:20px;margin:20px 0;border-radius:8px;}
+        .tip-box h4{color:#166534;margin-bottom:10px;font-size:1.05em;}
+        .practice-box{background:#fdf4ff;border-left:4px solid #a855f7;padding:20px;margin:20px 0;border-radius:8px;}
+        .practice-box h4{color:#7e22ce;margin-bottom:10px;font-size:1.05em;}
+        .warning-box{background:#fff1f2;border-left:4px solid #f43f5e;padding:20px;margin:20px 0;border-radius:8px;}
+        .warning-box h4{color:#be123c;margin-bottom:10px;font-size:1.05em;}
+        .step{background:#f8fafc;border-radius:6px;padding:10px 14px;margin:6px 0;border:1px solid #e2e8f0;}
+        .step-num{color:#1d4ed8;font-weight:bold;margin-right:8px;}
+        .niveau-badge{display:inline-block;background:#1e3a5f;color:white;font-size:0.78em;font-weight:700;padding:3px 10px;border-radius:12px;margin-left:8px;vertical-align:middle;}
+        .matrix-display{font-family:monospace;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:12px 0;overflow-x:auto;}
+        table{width:100%;border-collapse:collapse;margin:20px 0;font-size:0.95em;}
+        th{background:#1e3a5f;color:white;padding:10px 14px;text-align:left;}
+        td{padding:8px 14px;border-bottom:1px solid #e2e8f0;color:#334155;}
+        tr:nth-child(even) td{background:#f8fafc;}
+        .chapter-nav{display:flex;justify-content:space-between;margin-top:50px;padding-top:20px;border-top:1px solid #e2e8f0;}
+        .chapter-nav a{color:#1d4ed8;text-decoration:none;font-weight:500;}
+        details.solution-box{margin-top:16px;}
+        details.solution-box summary{cursor:pointer;color:#1d4ed8;font-weight:600;padding:10px 14px;background:#eff6ff;border-radius:6px;list-style:none;user-select:none;}
+        details.solution-box summary::-webkit-details-marker{display:none;}
+        details.solution-box summary::before{content:"📖 ";}
+        details.solution-box[open] summary{background:#dbeafe;border-radius:6px 6px 0 0;}
+        .solution-content{padding:18px;background:#f8fafc;border:1px solid #dbeafe;border-radius:0 0 8px 8px;}
+        .solution-content .sol-item{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #e2e8f0;}
+        .solution-content .sol-item:last-child{border-bottom:none;margin-bottom:0;}
+        .graph-container{text-align:center;margin:24px 0;}
+        .graph-container svg{max-width:100%;}
+        .graph-caption{font-size:0.9em;color:#64748b;margin-top:8px;font-style:italic;}
+        @media(max-width:640px){.blog-article h1{font-size:1.6em;}}
+    </style>
+</head>
+<body>
+
+<article class="blog-article">
+
+    <div class="breadcrumb">
+        <a href="https://mathhub.io">MathHub</a> &rsaquo;
+        <a href="https://mathhub.io/ca/">Québec</a> &rsaquo;
+        <a href="/ca/blog/fr-parcours.html">Cégep</a> &rsaquo;
+        Algèbre linéaire
+    </div>
+
+    <h1>Algèbre linéaire — Cégep</h1>
+    <div class="blog-meta">
+        Cégep &mdash; Mathématiques NYA / 201-NYA-05 &mdash; Mise à jour&nbsp;: mars 2026
+    </div>
+
+    <p>
+        Ce cours couvre les fondements de l'algèbre linéaire enseignés au Cégep québécois (cours 201-NYA-05 et compléments).
+        Vous y trouverez les vecteurs dans $\mathbb{R}^2$ et $\mathbb{R}^3$, les opérations matricielles, les déterminants,
+        la résolution de systèmes par l'élimination de Gauss-Jordan, l'inversion de matrices et les transformations linéaires.
+        Chaque section contient des exemples complets et des exercices avec solutions détaillées.
+    </p>
+
+    <!-- =====================================================================
+         SECTION 1 : VECTEURS
+         ===================================================================== -->
+    <h2>1. Vecteurs dans $\mathbb{R}^2$ et $\mathbb{R}^3$ <span class="niveau-badge">Cégep</span></h2>
+
+    <h3>1.1 Définition et notation</h3>
+
+    <div class="definition-box">
+        <h4>Définition — Vecteur</h4>
+        <p>
+            Un <strong>vecteur</strong> est une grandeur possédant à la fois une <em>magnitude</em> (longueur) et une <em>direction</em>.
+            On note un vecteur $\vec{v} = (a, b)$ dans $\mathbb{R}^2$ ou $\vec{v} = (a, b, c)$ dans $\mathbb{R}^3$.
+            On utilise aussi la notation $\langle a, b \rangle$ ou $\langle a, b, c \rangle$.
+        </p>
+        <p>
+            Géométriquement, un vecteur est représenté par une flèche partant d'un point d'origine vers un point terminal.
+            Le vecteur $\overrightarrow{AB}$ a pour composantes $(x_B - x_A,\; y_B - y_A)$.
+        </p>
+    </div>
+
+    <h3>1.2 Opérations sur les vecteurs</h3>
+
+    <p>Soient $\vec{u} = (a, b)$, $\vec{v} = (c, d)$ dans $\mathbb{R}^2$ et $k \in \mathbb{R}$ :</p>
+    <ul>
+        <li><strong>Addition :</strong> $\vec{u} + \vec{v} = (a+c,\; b+d)$</li>
+        <li><strong>Multiplication scalaire :</strong> $k\vec{u} = (ka,\; kb)$</li>
+        <li><strong>Magnitude (norme) :</strong> $|\vec{v}| = \sqrt{a^2 + b^2}$ &nbsp;(ou $\sqrt{a^2+b^2+c^2}$ dans $\mathbb{R}^3$)</li>
+        <li><strong>Vecteur unitaire :</strong> $\hat{v} = \dfrac{\vec{v}}{|\vec{v}|}$ &nbsp;(norme 1, même direction)</li>
+    </ul>
+
+    <p>
+        Les <strong>vecteurs de base standard</strong> dans $\mathbb{R}^3$ sont :
+        $\vec{i} = (1,0,0)$, $\vec{j} = (0,1,0)$, $\vec{k} = (0,0,1)$.
+        Tout vecteur s'écrit $\vec{v} = a\vec{i} + b\vec{j} + c\vec{k}$.
+    </p>
+
+    <!-- SVG : loi du parallélogramme -->
+    <div class="graph-container">
+        <svg width="340" height="240" viewBox="0 0 340 240" aria-label="Addition de vecteurs — loi du parallélogramme">
+            <!-- Axes -->
+            <defs>
+                <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#1e3a5f"/>
+                </marker>
+                <marker id="arrow-u" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#1d4ed8"/>
+                </marker>
+                <marker id="arrow-v" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#0ea5e9"/>
+                </marker>
+                <marker id="arrow-sum" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#22c55e"/>
+                </marker>
+                <marker id="arrow-u2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#1d4ed8" fill-opacity="0.4"/>
+                </marker>
+                <marker id="arrow-v2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#0ea5e9" fill-opacity="0.4"/>
+                </marker>
+            </defs>
+            <!-- Grid lines (light) -->
+            <line x1="30" y1="210" x2="310" y2="210" stroke="#e2e8f0" stroke-width="1"/>
+            <line x1="30" y1="30" x2="30" y2="210" stroke="#e2e8f0" stroke-width="1"/>
+            <!-- Axes -->
+            <line x1="30" y1="210" x2="310" y2="210" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <line x1="30" y1="210" x2="30" y2="20" stroke="#94a3b8" stroke-width="1.2" marker-end="url(#arrow)"/>
+            <text x="315" y="214" font-size="13" fill="#64748b">x</text>
+            <text x="22" y="18" font-size="13" fill="#64748b">y</text>
+            <!-- Origin -->
+            <circle cx="30" cy="210" r="3" fill="#1e3a5f"/>
+            <text x="18" y="224" font-size="11" fill="#64748b">O</text>
+            <!-- u = (120, -80) → endpoint (150, 130) -->
+            <line x1="30" y1="210" x2="148" y2="132" stroke="#1d4ed8" stroke-width="2.5" marker-end="url(#arrow-u)"/>
+            <text x="78" y="158" font-size="13" font-weight="bold" fill="#1d4ed8">u⃗</text>
+            <!-- v = (80, -120) → endpoint (110, 90) -->
+            <line x1="30" y1="210" x2="108" y2="92" stroke="#0ea5e9" stroke-width="2.5" marker-end="url(#arrow-v)"/>
+            <text x="46" y="128" font-size="13" font-weight="bold" fill="#0ea5e9">v⃗</text>
+            <!-- u+v = (200, -200) → endpoint (230, 10)... scale down: (200,-180)→(230,30) -->
+            <!-- u=(120,-80), v=(80,-100) → sum=(200,-180), endpoint=(230,30) -->
+            <line x1="30" y1="210" x2="228" y2="32" stroke="#22c55e" stroke-width="2.5" marker-end="url(#arrow-sum)"/>
+            <text x="145" y="98" font-size="13" font-weight="bold" fill="#22c55e">u⃗+v⃗</text>
+            <!-- Dashed parallelogram sides -->
+            <!-- from tip of u, draw v -->
+            <line x1="150" y1="130" x2="228" y2="32" stroke="#0ea5e9" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow-v2)"/>
+            <!-- from tip of v, draw u -->
+            <line x1="110" y1="90" x2="228" y2="32" stroke="#1d4ed8" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow-u2)"/>
+            <!-- Labels at endpoints -->
+            <circle cx="150" cy="130" r="3" fill="#1d4ed8"/>
+            <circle cx="110" cy="90" r="3" fill="#0ea5e9"/>
+            <circle cx="228" cy="32" r="3" fill="#22c55e"/>
+        </svg>
+        <p class="graph-caption">Loi du parallélogramme : $\vec{u} + \vec{v}$ est la diagonale du parallélogramme formé par $\vec{u}$ et $\vec{v}$.</p>
+    </div>
+
+    <h3>1.3 Produit scalaire (dot product)</h3>
+
+    <div class="definition-box">
+        <h4>Définition — Produit scalaire</h4>
+        <p>
+            Pour $\vec{u} = (a_1, b_1)$ et $\vec{v} = (a_2, b_2)$ dans $\mathbb{R}^2$ :
+            $$\vec{u} \cdot \vec{v} = a_1 a_2 + b_1 b_2$$
+            Dans $\mathbb{R}^3$ : $\vec{u} \cdot \vec{v} = a_1 a_2 + b_1 b_2 + c_1 c_2$.
+        </p>
+        <p>
+            <strong>Interprétation géométrique :</strong>
+            $$\vec{u} \cdot \vec{v} = |\vec{u}||\vec{v}|\cos\theta$$
+            où $\theta$ est l'angle entre les deux vecteurs.
+        </p>
+        <p>
+            <strong>Perpendicularité :</strong> $\vec{u} \perp \vec{v}$ si et seulement si $\vec{u} \cdot \vec{v} = 0$.
+        </p>
+    </div>
+
+    <h3>1.4 Produit vectoriel (cross product) dans $\mathbb{R}^3$</h3>
+
+    <div class="definition-box">
+        <h4>Définition — Produit vectoriel</h4>
+        <p>Pour $\vec{u} = (a_1, b_1, c_1)$ et $\vec{v} = (a_2, b_2, c_2)$ :</p>
+        $$\vec{u} \times \vec{v} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ a_1 & b_1 & c_1 \\ a_2 & b_2 & c_2 \end{vmatrix} = (b_1 c_2 - c_1 b_2)\,\vec{i} - (a_1 c_2 - c_1 a_2)\,\vec{j} + (a_1 b_2 - b_1 a_2)\,\vec{k}$$
+        <p>
+            Le résultat est un vecteur perpendiculaire à la fois à $\vec{u}$ et à $\vec{v}$.
+            La <strong>règle de la main droite</strong> indique sa direction.
+            $|\vec{u} \times \vec{v}|$ est égal à l'aire du parallélogramme formé par $\vec{u}$ et $\vec{v}$.
+        </p>
+    </div>
+
+    <h3>1.5 Exemples résolus</h3>
+
+    <div class="example-box">
+        <h4>Exemple 1 — Addition de vecteurs et magnitude</h4>
+        <p>Soient $\vec{u} = (3, -2)$ et $\vec{v} = (-1, 5)$. Calculer $\vec{u} + \vec{v}$ et $|\vec{u}|$.</p>
+        <div class="solution">
+            <strong>Solution :</strong>
+            <p>$\vec{u} + \vec{v} = (3 + (-1),\; -2 + 5) = (2, 3)$</p>
+            <p>$|\vec{u}| = \sqrt{3^2 + (-2)^2} = \sqrt{9 + 4} = \sqrt{13}$</p>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 2 — Vecteur unitaire</h4>
+        <p>Trouver le vecteur unitaire dans la direction de $\vec{w} = (4, -3)$.</p>
+        <div class="solution">
+            <strong>Solution :</strong>
+            <p>$|\vec{w}| = \sqrt{16 + 9} = \sqrt{25} = 5$</p>
+            <p>$\hat{w} = \dfrac{\vec{w}}{|\vec{w}|} = \left(\dfrac{4}{5},\; \dfrac{-3}{5}\right)$</p>
+            <p>Vérification : $|\hat{w}| = \sqrt{(4/5)^2 + (-3/5)^2} = \sqrt{16/25 + 9/25} = 1$ ✓</p>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 3 — Produit scalaire et angle</h4>
+        <p>Trouver l'angle entre $\vec{a} = (1, 2)$ et $\vec{b} = (3, -1)$.</p>
+        <div class="solution">
+            <strong>Solution :</strong>
+            <p>$\vec{a} \cdot \vec{b} = (1)(3) + (2)(-1) = 3 - 2 = 1$</p>
+            <p>$|\vec{a}| = \sqrt{1+4} = \sqrt{5}$, &nbsp; $|\vec{b}| = \sqrt{9+1} = \sqrt{10}$</p>
+            <p>$\cos\theta = \dfrac{1}{\sqrt{5}\cdot\sqrt{10}} = \dfrac{1}{\sqrt{50}} = \dfrac{1}{5\sqrt{2}}$</p>
+            <p>$\theta = \arccos\!\left(\dfrac{1}{5\sqrt{2}}\right) \approx 81{,}87°$</p>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 4 — Vérifier la perpendicularité</h4>
+        <p>Les vecteurs $\vec{p} = (2, 3, -1)$ et $\vec{q} = (1, -1, -1)$ sont-ils perpendiculaires ?</p>
+        <div class="solution">
+            <strong>Solution :</strong>
+            <p>$\vec{p} \cdot \vec{q} = (2)(1) + (3)(-1) + (-1)(-1) = 2 - 3 + 1 = 0$</p>
+            <p>Puisque $\vec{p} \cdot \vec{q} = 0$, les vecteurs sont <strong>perpendiculaires</strong>. ✓</p>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 5 — Produit vectoriel</h4>
+        <p>Calculer $\vec{u} \times \vec{v}$ pour $\vec{u} = (1, 2, 3)$ et $\vec{v} = (4, 5, 6)$.</p>
+        <div class="solution">
+            <strong>Solution :</strong>
+            $$\vec{u} \times \vec{v} = \begin{pmatrix} (2)(6)-(3)(5) \\ (3)(4)-(1)(6) \\ (1)(5)-(2)(4) \end{pmatrix} = \begin{pmatrix} 12-15 \\ 12-6 \\ 5-8 \end{pmatrix} = \begin{pmatrix} -3 \\ 6 \\ -3 \end{pmatrix}$$
+            <p>Vérification : $\vec{u} \cdot (\vec{u}\times\vec{v}) = (1)(-3)+(2)(6)+(3)(-3) = -3+12-9 = 0$ ✓</p>
+        </div>
+    </div>
+
+    <div class="practice-box">
+        <h4>Exercices — Vecteurs</h4>
+        <ol>
+            <li>Calculer $\vec{u} - \vec{v}$ et $|\vec{u} - \vec{v}|$ pour $\vec{u} = (5, 1)$ et $\vec{v} = (2, -3)$.</li>
+            <li>Trouver le vecteur unitaire dans la direction de $\vec{w} = (0, -7, 24)$.</li>
+            <li>Déterminer si $(2,-3,1)$ et $(1,2,4)$ sont perpendiculaires.</li>
+            <li>Calculer l'angle entre $\vec{a} = (1,0)$ et $\vec{b} = (1,1)$.</li>
+            <li>Calculer $\vec{p} \times \vec{q}$ pour $\vec{p} = (2,0,1)$ et $\vec{q} = (0,3,1)$.</li>
+            <li>Un vecteur $\vec{v}$ a une magnitude de 5 et fait un angle de $30°$ avec l'axe des $x$. Écrire ses composantes.</li>
+            <li>Prouver que $|\vec{u} + \vec{v}|^2 = |\vec{u}|^2 + 2\vec{u}\cdot\vec{v} + |\vec{v}|^2$.</li>
+            <li>Calculer l'aire du parallélogramme défini par $\vec{a} = (3,0,0)$ et $\vec{b} = (0,2,0)$.</li>
+        </ol>
+
+        <details class="solution-box">
+            <summary>Voir les solutions</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong> $\vec{u}-\vec{v} = (3, 4)$; &nbsp; $|\vec{u}-\vec{v}| = \sqrt{9+16} = 5$.
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong> $|\vec{w}| = \sqrt{0+49+576} = \sqrt{625} = 25$. Donc $\hat{w} = (0,\, -7/25,\, 24/25)$.
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong> $(2)(1)+(-3)(2)+(1)(4) = 2-6+4 = 0$. Oui, perpendiculaires.
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong> $\cos\theta = \frac{1}{\sqrt{2}}$, donc $\theta = 45°$.
+                </div>
+                <div class="sol-item">
+                    <strong>5.</strong> $\vec{p}\times\vec{q} = \begin{pmatrix}(0)(1)-(1)(3)\\(1)(0)-(2)(1)\\(2)(3)-(0)(0)\end{pmatrix} = (-3,\,-2,\,6)$.
+                </div>
+                <div class="sol-item">
+                    <strong>6.</strong> $v_x = 5\cos 30° = \frac{5\sqrt{3}}{2}$, $v_y = 5\sin 30° = \frac{5}{2}$. Donc $\vec{v} = \left(\frac{5\sqrt{3}}{2},\, \frac{5}{2}\right)$.
+                </div>
+                <div class="sol-item">
+                    <strong>7.</strong> $|\vec{u}+\vec{v}|^2 = (\vec{u}+\vec{v})\cdot(\vec{u}+\vec{v}) = \vec{u}\cdot\vec{u}+\vec{u}\cdot\vec{v}+\vec{v}\cdot\vec{u}+\vec{v}\cdot\vec{v} = |\vec{u}|^2+2\vec{u}\cdot\vec{v}+|\vec{v}|^2$. ✓
+                </div>
+                <div class="sol-item">
+                    <strong>8.</strong> $\vec{a}\times\vec{b} = (0,0,6)$, aire $= |(0,0,6)| = 6$.
+                </div>
+            </div>
+        </details>
+    </div>
+
+    <!-- =====================================================================
+         SECTION 2 : MATRICES
+         ===================================================================== -->
+    <h2>2. Matrices et opérations <span class="niveau-badge">Cégep</span></h2>
+
+    <h3>2.1 Définition et types</h3>
+
+    <div class="definition-box">
+        <h4>Définition — Matrice</h4>
+        <p>
+            Une <strong>matrice</strong> $A$ de taille $m \times n$ est un tableau rectangulaire de $m$ lignes et $n$ colonnes.
+            L'élément à la ligne $i$, colonne $j$ est noté $a_{ij}$.
+            $$A = [a_{ij}] = \begin{pmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \cdots & a_{mn} \end{pmatrix}$$
+        </p>
+    </div>
+
+    <table>
+        <thead><tr><th>Type</th><th>Description</th><th>Exemple ($2\times 2$)</th></tr></thead>
+        <tbody>
+            <tr><td>Matrice carrée</td><td>$m = n$</td><td>$\begin{pmatrix}a&b\\c&d\end{pmatrix}$</td></tr>
+            <tr><td>Matrice identité $I_n$</td><td>1 sur la diagonale, 0 ailleurs</td><td>$\begin{pmatrix}1&0\\0&1\end{pmatrix}$</td></tr>
+            <tr><td>Matrice nulle $O$</td><td>Tous les éléments sont 0</td><td>$\begin{pmatrix}0&0\\0&0\end{pmatrix}$</td></tr>
+            <tr><td>Matrice diagonale</td><td>Éléments hors diagonale nuls</td><td>$\begin{pmatrix}3&0\\0&5\end{pmatrix}$</td></tr>
+            <tr><td>Matrice symétrique</td><td>$A = A^T$</td><td>$\begin{pmatrix}1&2\\2&4\end{pmatrix}$</td></tr>
+        </tbody>
+    </table>
+
+    <h3>2.2 Opérations matricielles</h3>
+
+    <p><strong>Addition/Soustraction</strong> (même taille) : $(A + B)_{ij} = a_{ij} + b_{ij}$</p>
+    <p><strong>Multiplication scalaire</strong> : $(kA)_{ij} = k \cdot a_{ij}$</p>
+    <p><strong>Multiplication matricielle</strong> ($A$ de taille $m\times p$, $B$ de taille $p\times n$) :</p>
+    $$(AB)_{ij} = \sum_{k=1}^{p} a_{ik}\, b_{kj}$$
+    <p>Le résultat a la taille $m\times n$. <strong>Attention :</strong> en général $AB \neq BA$.</p>
+    <p><strong>Transposée</strong> : $(A^T)_{ij} = a_{ji}$. On échange les lignes et les colonnes.</p>
+
+    <div class="warning-box">
+        <h4>Propriété importante</h4>
+        <p>La multiplication matricielle est <strong>non commutative</strong> : $AB \neq BA$ en général.
+        Mais elle est associative : $(AB)C = A(BC)$, et distributive : $A(B+C) = AB + AC$.</p>
+    </div>
+
+    <h3>2.3 Exemples résolus</h3>
+
+    <div class="example-box">
+        <h4>Exemple 1 — Addition de matrices</h4>
+        <p>Calculer $A + B$ pour $A = \begin{pmatrix}1&2\\3&4\end{pmatrix}$ et $B = \begin{pmatrix}5&-1\\0&2\end{pmatrix}$.</p>
+        <div class="solution">
+            <strong>Solution :</strong>
+            $$A + B = \begin{pmatrix}1+5 & 2+(-1)\\3+0 & 4+2\end{pmatrix} = \begin{pmatrix}6 & 1\\3 & 6\end{pmatrix}$$
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 2 — Produit de matrices $2\times 2$</h4>
+        <p>Calculer $AB$ pour $A = \begin{pmatrix}2&1\\3&0\end{pmatrix}$ et $B = \begin{pmatrix}1&4\\2&-1\end{pmatrix}$.</p>
+        <div class="solution">
+            <strong>Solution :</strong>
+            $$AB = \begin{pmatrix}(2)(1)+(1)(2) & (2)(4)+(1)(-1)\\(3)(1)+(0)(2) & (3)(4)+(0)(-1)\end{pmatrix} = \begin{pmatrix}4 & 7\\3 & 12\end{pmatrix}$$
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 3 — Produit $2\times 3$ par $3\times 2$</h4>
+        <p>Calculer $AB$ pour $A = \begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}$ (2×3) et $B = \begin{pmatrix}7&8\\9&10\\11&12\end{pmatrix}$ (3×2).</p>
+        <div class="solution">
+            <strong>Solution :</strong> Le résultat est de taille $2\times 2$.
+            $$AB = \begin{pmatrix}(1)(7)+(2)(9)+(3)(11) & (1)(8)+(2)(10)+(3)(12)\\(4)(7)+(5)(9)+(6)(11) & (4)(8)+(5)(10)+(6)(12)\end{pmatrix}$$
+            $$= \begin{pmatrix}7+18+33 & 8+20+36\\28+45+66 & 32+50+72\end{pmatrix} = \begin{pmatrix}58 & 64\\139 & 154\end{pmatrix}$$
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 4 — Transposée</h4>
+        <p>Trouver $A^T$ pour $A = \begin{pmatrix}1&2&3\\4&5&6\end{pmatrix}$.</p>
+        <div class="solution">
+            <strong>Solution :</strong> On échange les lignes et les colonnes.
+            $$A^T = \begin{pmatrix}1&4\\2&5\\3&6\end{pmatrix}$$
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 5 — Vérification de $AI = A$</h4>
+        <p>Vérifier que $AI = A$ pour $A = \begin{pmatrix}3&-1\\2&5\end{pmatrix}$.</p>
+        <div class="solution">
+            <strong>Solution :</strong>
+            $$AI = \begin{pmatrix}3&-1\\2&5\end{pmatrix}\begin{pmatrix}1&0\\0&1\end{pmatrix} = \begin{pmatrix}(3)(1)+(-1)(0) & (3)(0)+(-1)(1)\\(2)(1)+(5)(0) & (2)(0)+(5)(1)\end{pmatrix} = \begin{pmatrix}3&-1\\2&5\end{pmatrix} = A \checkmark$$
+        </div>
+    </div>
+
+    <div class="practice-box">
+        <h4>Exercices — Matrices</h4>
+        <ol>
+            <li>Calculer $3A - 2B$ pour $A = \begin{pmatrix}1&0\\2&-1\end{pmatrix}$ et $B = \begin{pmatrix}-1&2\\0&3\end{pmatrix}$.</li>
+            <li>Calculer $AB$ et $BA$ pour $A = \begin{pmatrix}1&2\\0&3\end{pmatrix}$ et $B = \begin{pmatrix}2&-1\\1&0\end{pmatrix}$. Sont-ils égaux ?</li>
+            <li>Calculer $A^2 = AA$ pour $A = \begin{pmatrix}1&1\\1&1\end{pmatrix}$.</li>
+            <li>Trouver $A^T$ et vérifier que $(A^T)^T = A$ pour $A = \begin{pmatrix}2&-3&1\\0&4&-2\end{pmatrix}$.</li>
+            <li>Calculer $(AB)^T$ et $B^T A^T$ pour $A = \begin{pmatrix}1&2\\3&4\end{pmatrix}$, $B = \begin{pmatrix}0&1\\1&0\end{pmatrix}$. Sont-ils égaux ?</li>
+            <li>Montrer qu'une matrice symétrique vérifie $A = A^T$ avec $A = \begin{pmatrix}5&-3\\-3&2\end{pmatrix}$.</li>
+        </ol>
+
+        <details class="solution-box">
+            <summary>Voir les solutions</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong> $3A - 2B = \begin{pmatrix}3&0\\6&-3\end{pmatrix} - \begin{pmatrix}-2&4\\0&6\end{pmatrix} = \begin{pmatrix}5&-4\\6&-9\end{pmatrix}$.
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong>
+                    $AB = \begin{pmatrix}4&-1\\3&0\end{pmatrix}$; &nbsp;
+                    $BA = \begin{pmatrix}2&1\\1&2\end{pmatrix}$. Non, $AB \neq BA$.
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong> $A^2 = \begin{pmatrix}2&2\\2&2\end{pmatrix}$.
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong> $A^T = \begin{pmatrix}2&0\\-3&4\\1&-2\end{pmatrix}$. Puis $(A^T)^T = A$. ✓
+                </div>
+                <div class="sol-item">
+                    <strong>5.</strong> $AB = \begin{pmatrix}2&1\\4&3\end{pmatrix}$, $(AB)^T = \begin{pmatrix}2&4\\1&3\end{pmatrix}$.
+                    $B^T A^T = \begin{pmatrix}0&1\\1&0\end{pmatrix}\begin{pmatrix}1&3\\2&4\end{pmatrix} = \begin{pmatrix}2&4\\1&3\end{pmatrix}$. Égaux ✓ (propriété $(AB)^T = B^T A^T$).
+                </div>
+                <div class="sol-item">
+                    <strong>6.</strong> $A^T = \begin{pmatrix}5&-3\\-3&2\end{pmatrix} = A$. ✓
+                </div>
+            </div>
+        </details>
+    </div>
+
+    <!-- =====================================================================
+         SECTION 3 : DÉTERMINANTS
+         ===================================================================== -->
+    <h2>3. Déterminants <span class="niveau-badge">Cégep</span></h2>
+
+    <h3>3.1 Déterminant d'une matrice $2\times 2$</h3>
+
+    <div class="definition-box">
+        <h4>Formule — Déterminant $2\times 2$</h4>
+        $$\det\begin{pmatrix}a&b\\c&d\end{pmatrix} = ad - bc$$
+        <p>Interprétation géométrique : $|\det A|$ est l'<strong>aire</strong> du parallélogramme formé par les vecteurs-colonnes de $A$.</p>
+    </div>
+
+    <h3>3.2 Déterminant d'une matrice $3\times 3$ — Développement selon la première ligne</h3>
+
+    <div class="definition-box">
+        <h4>Formule — Déterminant $3\times 3$</h4>
+        $$\det\begin{pmatrix}a&b&c\\d&e&f\\g&h&i\end{pmatrix} = a\det\begin{pmatrix}e&f\\h&i\end{pmatrix} - b\det\begin{pmatrix}d&f\\g&i\end{pmatrix} + c\det\begin{pmatrix}d&e\\g&h\end{pmatrix}$$
+        $$= a(ei-fh) - b(di-fg) + c(dh-eg)$$
+        <p>Interprétation : $|\det A|$ est le <strong>volume</strong> du parallélépipède formé par les vecteurs-colonnes.</p>
+    </div>
+
+    <h3>3.3 Propriétés des déterminants</h3>
+    <ul>
+        <li>$\det(AB) = \det(A)\det(B)$</li>
+        <li>$\det(A^T) = \det(A)$</li>
+        <li>Si une ligne ou une colonne est entièrement nulle, alors $\det(A) = 0$</li>
+        <li>Échanger deux lignes change le signe du déterminant</li>
+        <li>Multiplier une ligne par $k$ multiplie le déterminant par $k$</li>
+        <li>$A$ est inversible $\Leftrightarrow$ $\det(A) \neq 0$</li>
+    </ul>
+
+    <h3>3.4 Règle de Cramer (systèmes $2\times 2$)</h3>
+
+    <div class="theorem-box">
+        <h4>Règle de Cramer</h4>
+        <p>Pour le système $\begin{cases}ax + by = e\\cx + dy = f\end{cases}$, si $D = \det\begin{pmatrix}a&b\\c&d\end{pmatrix} \neq 0$ :</p>
+        $$x = \frac{D_x}{D} = \frac{\det\begin{pmatrix}e&b\\f&d\end{pmatrix}}{D}, \quad y = \frac{D_y}{D} = \frac{\det\begin{pmatrix}a&e\\c&f\end{pmatrix}}{D}$$
+    </div>
+
+    <h3>3.5 Exemples résolus</h3>
+
+    <div class="example-box">
+        <h4>Exemple 1 — Déterminant $2\times 2$</h4>
+        <p>Calculer $\det\begin{pmatrix}4&3\\2&1\end{pmatrix}$.</p>
+        <div class="solution">
+            <strong>Solution :</strong>
+            $$\det\begin{pmatrix}4&3\\2&1\end{pmatrix} = (4)(1) - (3)(2) = 4 - 6 = -2$$
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 2 — Déterminant $3\times 3$</h4>
+        <p>Calculer $\det\begin{pmatrix}1&2&3\\4&5&6\\7&8&9\end{pmatrix}$.</p>
+        <div class="solution">
+            <strong>Solution :</strong>
+            $$= 1\det\begin{pmatrix}5&6\\8&9\end{pmatrix} - 2\det\begin{pmatrix}4&6\\7&9\end{pmatrix} + 3\det\begin{pmatrix}4&5\\7&8\end{pmatrix}$$
+            $$= 1(45-48) - 2(36-42) + 3(32-35)$$
+            $$= (-3) - 2(-6) + 3(-3) = -3 + 12 - 9 = 0$$
+            <p>Le déterminant est $0$, la matrice est <strong>singulière</strong> (non inversible).</p>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 3 — Déterminant d'un produit</h4>
+        <p>Si $\det(A) = 3$ et $\det(B) = -2$, calculer $\det(AB)$ et $\det(A^2)$.</p>
+        <div class="solution">
+            <strong>Solution :</strong>
+            <p>$\det(AB) = \det(A)\det(B) = (3)(-2) = -6$</p>
+            <p>$\det(A^2) = \det(A)^2 = 3^2 = 9$</p>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 4 — Règle de Cramer</h4>
+        <p>Résoudre par la règle de Cramer : $\begin{cases}3x + y = 7\\x - 2y = -1\end{cases}$</p>
+        <div class="solution">
+            <strong>Solution :</strong>
+            <p>$D = \det\begin{pmatrix}3&1\\1&-2\end{pmatrix} = (3)(-2)-(1)(1) = -6-1 = -7$</p>
+            <p>$D_x = \det\begin{pmatrix}7&1\\-1&-2\end{pmatrix} = (7)(-2)-(1)(-1) = -14+1 = -13$</p>
+            <p>$D_y = \det\begin{pmatrix}3&7\\1&-1\end{pmatrix} = (3)(-1)-(7)(1) = -3-7 = -10$</p>
+            <p>$x = \dfrac{-13}{-7} = \dfrac{13}{7}$, &nbsp; $y = \dfrac{-10}{-7} = \dfrac{10}{7}$</p>
+        </div>
+    </div>
+
+    <div class="practice-box">
+        <h4>Exercices — Déterminants</h4>
+        <ol>
+            <li>Calculer $\det\begin{pmatrix}5&-2\\3&4\end{pmatrix}$.</li>
+            <li>Calculer $\det\begin{pmatrix}2&0&1\\-1&3&2\\4&-2&1\end{pmatrix}$.</li>
+            <li>Sans calculer, expliquer pourquoi $\det\begin{pmatrix}1&2&3\\0&0&0\\4&5&6\end{pmatrix} = 0$.</li>
+            <li>Si $\det(A) = -4$, trouver $\det(3A)$ pour une matrice $3\times 3$.</li>
+            <li>Résoudre par la règle de Cramer : $\begin{cases}2x - y = 5\\ x + 3y = 1\end{cases}$</li>
+            <li>Trouver toutes les valeurs de $k$ pour lesquelles $\det\begin{pmatrix}k&2\\3&k\end{pmatrix} = 0$.</li>
+        </ol>
+
+        <details class="solution-box">
+            <summary>Voir les solutions</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong> $(5)(4)-(-2)(3) = 20+6 = 26$.
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong>
+                    Développement selon la première ligne :
+                    $2\det\begin{pmatrix}3&2\\-2&1\end{pmatrix} - 0 + 1\det\begin{pmatrix}-1&3\\4&-2\end{pmatrix}$
+                    $= 2(3+4) + (2-12) = 14 - 10 = 4$.
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong> La deuxième ligne est entièrement nulle, donc le déterminant est 0.
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong> $\det(3A) = 3^3 \det(A) = 27(-4) = -108$.
+                </div>
+                <div class="sol-item">
+                    <strong>5.</strong> $D = (2)(3)-(-1)(1) = 7$. $D_x = (5)(3)-(-1)(1) = 16$. $D_y = (2)(1)-(5)(1) = -3$.
+                    $x = 16/7$, $y = -3/7$.
+                </div>
+                <div class="sol-item">
+                    <strong>6.</strong> $k^2 - 6 = 0 \Rightarrow k = \pm\sqrt{6}$.
+                </div>
+            </div>
+        </details>
+    </div>
+
+    <!-- =====================================================================
+         SECTION 4 : ÉLIMINATION DE GAUSS
+         ===================================================================== -->
+    <h2>4. Systèmes d'équations linéaires — Élimination de Gauss <span class="niveau-badge">Cégep</span></h2>
+
+    <h3>4.1 Matrice augmentée et opérations élémentaires sur les lignes</h3>
+
+    <div class="definition-box">
+        <h4>Matrice augmentée</h4>
+        <p>Un système $Ax = \vec{b}$ se représente par la matrice augmentée $[A|\vec{b}]$.
+        Par exemple, $\begin{cases}2x+y=5\\x-3y=1\end{cases}$ donne $\left[\begin{array}{cc|c}2&1&5\\1&-3&1\end{array}\right]$.</p>
+    </div>
+
+    <p>Les <strong>opérations élémentaires</strong> sur les lignes ne changent pas l'ensemble des solutions :</p>
+    <ul>
+        <li>$R_i \leftrightarrow R_j$ : Échange de deux lignes</li>
+        <li>$kR_i \to R_i$ : Multiplication d'une ligne par une constante $k \neq 0$</li>
+        <li>$R_i + kR_j \to R_i$ : Ajouter un multiple d'une ligne à une autre</li>
+    </ul>
+
+    <div class="definition-box">
+        <h4>Forme échelonnée (REF) et forme échelonnée réduite (RREF)</h4>
+        <p>Une matrice est en <strong>forme échelonnée (REF)</strong> si :
+        chaque pivot est à droite de celui de la ligne supérieure, et tous les éléments sous un pivot sont nuls.</p>
+        <p>Elle est en <strong>RREF</strong> si, de plus, chaque pivot est 1 et est le seul élément non nul dans sa colonne.</p>
+    </div>
+
+    <div class="tip-box">
+        <h4>Types de solutions</h4>
+        <ul>
+            <li><strong>Solution unique :</strong> Chaque variable a un pivot (RREF = matrice identité augmentée)</li>
+            <li><strong>Infinité de solutions :</strong> Il existe une ou plusieurs variables libres</li>
+            <li><strong>Aucune solution :</strong> Une ligne du type $[0\;0\;\cdots\;0\;|\;c]$ avec $c\neq 0$</li>
+        </ul>
+    </div>
+
+    <h3>4.2 Exemples résolus</h3>
+
+    <div class="example-box">
+        <h4>Exemple 1 — Système $2\times 2$ : solution unique</h4>
+        <p>Résoudre $\begin{cases}2x + y = 5\\ x - 3y = 1\end{cases}$</p>
+        <div class="solution">
+            <strong>Solution :</strong>
+            <div class="step"><span class="step-num">Étape 1</span>Écrire la matrice augmentée :
+                $\left[\begin{array}{cc|c}2&1&5\\1&-3&1\end{array}\right]$</div>
+            <div class="step"><span class="step-num">Étape 2</span>$R_1 \leftrightarrow R_2$ :
+                $\left[\begin{array}{cc|c}1&-3&1\\2&1&5\end{array}\right]$</div>
+            <div class="step"><span class="step-num">Étape 3</span>$R_2 - 2R_1 \to R_2$ :
+                $\left[\begin{array}{cc|c}1&-3&1\\0&7&3\end{array}\right]$</div>
+            <div class="step"><span class="step-num">Étape 4</span>$\frac{1}{7}R_2 \to R_2$ :
+                $\left[\begin{array}{cc|c}1&-3&1\\0&1&3/7\end{array}\right]$</div>
+            <div class="step"><span class="step-num">Étape 5</span>$R_1 + 3R_2 \to R_1$ :
+                $\left[\begin{array}{cc|c}1&0&16/7\\0&1&3/7\end{array}\right]$</div>
+            <p><strong>Solution :</strong> $x = \dfrac{16}{7}$, $y = \dfrac{3}{7}$.</p>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 2 — Système $3\times 3$ : solution unique</h4>
+        <p>Résoudre $\begin{cases}x + y + z = 6\\ 2x - y + z = 3\\ x + 2y - z = 2\end{cases}$</p>
+        <div class="solution">
+            <strong>Solution :</strong>
+            <div class="step"><span class="step-num">Étape 1</span>Matrice augmentée :
+                $\left[\begin{array}{ccc|c}1&1&1&6\\2&-1&1&3\\1&2&-1&2\end{array}\right]$</div>
+            <div class="step"><span class="step-num">Étape 2</span>$R_2 - 2R_1 \to R_2$ et $R_3 - R_1 \to R_3$ :
+                $\left[\begin{array}{ccc|c}1&1&1&6\\0&-3&-1&-9\\0&1&-2&-4\end{array}\right]$</div>
+            <div class="step"><span class="step-num">Étape 3</span>$R_2 \leftrightarrow R_3$ :
+                $\left[\begin{array}{ccc|c}1&1&1&6\\0&1&-2&-4\\0&-3&-1&-9\end{array}\right]$</div>
+            <div class="step"><span class="step-num">Étape 4</span>$R_3 + 3R_2 \to R_3$ :
+                $\left[\begin{array}{ccc|c}1&1&1&6\\0&1&-2&-4\\0&0&-7&-21\end{array}\right]$</div>
+            <div class="step"><span class="step-num">Étape 5</span>$-\frac{1}{7}R_3 \to R_3$ :
+                $\left[\begin{array}{ccc|c}1&1&1&6\\0&1&-2&-4\\0&0&1&3\end{array}\right]$</div>
+            <div class="step"><span class="step-num">Étape 6</span>$R_2 + 2R_3 \to R_2$ puis $R_1 - R_3 \to R_1$ :
+                $\left[\begin{array}{ccc|c}1&1&0&3\\0&1&0&2\\0&0&1&3\end{array}\right]$</div>
+            <div class="step"><span class="step-num">Étape 7</span>$R_1 - R_2 \to R_1$ :
+                $\left[\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&0&1&3\end{array}\right]$</div>
+            <p><strong>Solution :</strong> $x = 1$, $y = 2$, $z = 3$.</p>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 3 — Infinité de solutions (variable libre)</h4>
+        <p>Résoudre $\begin{cases}x + 2y - z = 3\\ 2x + 4y - 2z = 6\\ x - y + z = 1\end{cases}$</p>
+        <div class="solution">
+            <strong>Solution :</strong>
+            <div class="step"><span class="step-num">Étape 1</span>Matrice augmentée :
+                $\left[\begin{array}{ccc|c}1&2&-1&3\\2&4&-2&6\\1&-1&1&1\end{array}\right]$</div>
+            <div class="step"><span class="step-num">Étape 2</span>$R_2 - 2R_1 \to R_2$, $R_3 - R_1 \to R_3$ :
+                $\left[\begin{array}{ccc|c}1&2&-1&3\\0&0&0&0\\0&-3&2&-2\end{array}\right]$</div>
+            <div class="step"><span class="step-num">Étape 3</span>$R_2 \leftrightarrow R_3$ :
+                $\left[\begin{array}{ccc|c}1&2&-1&3\\0&-3&2&-2\\0&0&0&0\end{array}\right]$</div>
+            <div class="step"><span class="step-num">Étape 4</span>$-\frac{1}{3}R_2 \to R_2$ :
+                $\left[\begin{array}{ccc|c}1&2&-1&3\\0&1&-2/3&2/3\\0&0&0&0\end{array}\right]$</div>
+            <div class="step"><span class="step-num">Étape 5</span>$R_1 - 2R_2 \to R_1$ :
+                $\left[\begin{array}{ccc|c}1&0&1/3&5/3\\0&1&-2/3&2/3\\0&0&0&0\end{array}\right]$</div>
+            <p>$z$ est la <strong>variable libre</strong> : posons $z = t$, $t \in \mathbb{R}$.</p>
+            <p><strong>Solution :</strong> $x = \dfrac{5}{3} - \dfrac{t}{3}$, $\; y = \dfrac{2}{3} + \dfrac{2t}{3}$, $\; z = t$.</p>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 4 — Aucune solution (contradiction)</h4>
+        <p>Résoudre $\begin{cases}x + y = 3\\ 2x + 2y = 7\end{cases}$</p>
+        <div class="solution">
+            <strong>Solution :</strong>
+            <div class="step"><span class="step-num">Étape 1</span>Matrice augmentée :
+                $\left[\begin{array}{cc|c}1&1&3\\2&2&7\end{array}\right]$</div>
+            <div class="step"><span class="step-num">Étape 2</span>$R_2 - 2R_1 \to R_2$ :
+                $\left[\begin{array}{cc|c}1&1&3\\0&0&1\end{array}\right]$</div>
+            <p>La deuxième ligne signifie $0x + 0y = 1$, ce qui est <strong>impossible</strong>.</p>
+            <p><strong>Conclusion :</strong> Le système n'a <strong>aucune solution</strong>.</p>
+        </div>
+    </div>
+
+    <div class="practice-box">
+        <h4>Exercices — Élimination de Gauss</h4>
+        <ol>
+            <li>Résoudre par Gauss : $\begin{cases}3x - y = 8\\ x + 2y = 3\end{cases}$</li>
+            <li>Résoudre : $\begin{cases}x - y + 2z = 7\\ 2x + y - z = 1\\ x + 3y - 4z = -7\end{cases}$</li>
+            <li>Déterminer si le système est compatible : $\begin{cases}x + 2y - z = 4\\ 2x + 4y - 2z = 9\end{cases}$</li>
+            <li>Résoudre et exprimer en termes de paramètre libre : $\begin{cases}x + 2y + 3z = 0\\ 2x + 4y + 6z = 0\end{cases}$</li>
+            <li>Résoudre : $\begin{cases}x + y - z = 0\\ 2x - y + z = 3\\ x + 2y + 2z = 5\end{cases}$</li>
+            <li>Trouver toutes les valeurs de $k$ pour lesquelles le système suivant a une solution unique : $\begin{cases}x + ky = 1\\ 2x + y = 3\end{cases}$</li>
+        </ol>
+
+        <details class="solution-box">
+            <summary>Voir les solutions</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong>
+                    $\left[\begin{array}{cc|c}3&-1&8\\1&2&3\end{array}\right]
+                    \xrightarrow{R_1\leftrightarrow R_2}
+                    \left[\begin{array}{cc|c}1&2&3\\3&-1&8\end{array}\right]
+                    \xrightarrow{R_2-3R_1}
+                    \left[\begin{array}{cc|c}1&2&3\\0&-7&-1\end{array}\right]
+                    \xrightarrow{-\frac{1}{7}R_2}
+                    \left[\begin{array}{cc|c}1&2&3\\0&1&1/7\end{array}\right]
+                    \xrightarrow{R_1-2R_2}
+                    \left[\begin{array}{cc|c}1&0&19/7\\0&1&1/7\end{array}\right]$
+                    <br>$x = 19/7$, $y = 1/7$.
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong>
+                    $\left[\begin{array}{ccc|c}1&-1&2&7\\2&1&-1&1\\1&3&-4&-7\end{array}\right]
+                    \xrightarrow{R_2-2R_1,\,R_3-R_1}
+                    \left[\begin{array}{ccc|c}1&-1&2&7\\0&3&-5&-13\\0&4&-6&-14\end{array}\right]$
+                    <br>$\xrightarrow{\frac{1}{3}R_2}
+                    \left[\begin{array}{ccc|c}1&-1&2&7\\0&1&-5/3&-13/3\\0&4&-6&-14\end{array}\right]
+                    \xrightarrow{R_3-4R_2}
+                    \left[\begin{array}{ccc|c}1&-1&2&7\\0&1&-5/3&-13/3\\0&0&2/3&2/3\end{array}\right]$
+                    <br>$\xrightarrow{\frac{3}{2}R_3}$: $z=1$. Substitution : $y = -13/3 + 5/3 = -8/3$. $x = 7 + y - 2z = 7 - 8/3 - 2 = 7/3$.
+                    <br>$x = 7/3$, $y = -8/3$, $z = 1$.
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong>
+                    $\left[\begin{array}{ccc|c}1&2&-1&4\\2&4&-2&9\end{array}\right]
+                    \xrightarrow{R_2-2R_1}
+                    \left[\begin{array}{ccc|c}1&2&-1&4\\0&0&0&1\end{array}\right]$.
+                    Ligne $[0\;0\;0|1]$ : <strong>aucune solution</strong>, système incompatible.
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong>
+                    $\left[\begin{array}{ccc|c}1&2&3&0\\2&4&6&0\end{array}\right]
+                    \xrightarrow{R_2-2R_1}
+                    \left[\begin{array}{ccc|c}1&2&3&0\\0&0&0&0\end{array}\right]$.
+                    $y = s$, $z = t$ libres. $x = -2s - 3t$.
+                    Solution : $(x,y,z) = s(-2,1,0) + t(-3,0,1)$.
+                </div>
+                <div class="sol-item">
+                    <strong>5.</strong>
+                    $\left[\begin{array}{ccc|c}1&1&-1&0\\2&-1&1&3\\1&2&2&5\end{array}\right]
+                    \xrightarrow{R_2-2R_1,\,R_3-R_1}
+                    \left[\begin{array}{ccc|c}1&1&-1&0\\0&-3&3&3\\0&1&3&5\end{array}\right]
+                    \xrightarrow{R_2\leftrightarrow R_3}
+                    \left[\begin{array}{ccc|c}1&1&-1&0\\0&1&3&5\\0&-3&3&3\end{array}\right]$
+                    $\xrightarrow{R_3+3R_2}
+                    \left[\begin{array}{ccc|c}1&1&-1&0\\0&1&3&5\\0&0&12&18\end{array}\right]$.
+                    $z = 18/12 = 3/2$. $y = 5-3(3/2) = 1/2$. $x = -y+z = -1/2+3/2 = 1$.
+                    <br>$x=1$, $y=1/2$, $z=3/2$.
+                </div>
+                <div class="sol-item">
+                    <strong>6.</strong>
+                    $D = 1 - 2k$. Solution unique $\Leftrightarrow$ $D \neq 0$ $\Leftrightarrow$ $k \neq \dfrac{1}{2}$.
+                </div>
+            </div>
+        </details>
+    </div>
+
+    <!-- =====================================================================
+         SECTION 5 : MATRICE INVERSE
+         ===================================================================== -->
+    <h2>5. Matrice inverse <span class="niveau-badge">Cégep</span></h2>
+
+    <h3>5.1 Définition et conditions</h3>
+
+    <div class="definition-box">
+        <h4>Définition — Matrice inverse</h4>
+        <p>
+            Une matrice carrée $A$ est <strong>inversible</strong> (non singulière) si il existe une matrice $A^{-1}$ telle que :
+            $$AA^{-1} = A^{-1}A = I$$
+            $A$ est inversible si et seulement si $\det(A) \neq 0$.
+            Si $\det(A) = 0$, $A$ est dite <strong>singulière</strong> et n'a pas d'inverse.
+        </p>
+    </div>
+
+    <h3>5.2 Formule pour l'inverse d'une matrice $2\times 2$</h3>
+
+    <div class="theorem-box">
+        <h4>Inverse $2\times 2$</h4>
+        $$A = \begin{pmatrix}a&b\\c&d\end{pmatrix} \implies A^{-1} = \frac{1}{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}$$
+        <p>valide uniquement si $\det(A) = ad - bc \neq 0$.</p>
+    </div>
+
+    <h3>5.3 Méthode de Gauss-Jordan pour l'inverse $n\times n$</h3>
+
+    <div class="tip-box">
+        <h4>Méthode de Gauss-Jordan</h4>
+        <ol>
+            <li>Former la matrice augmentée $[A | I]$</li>
+            <li>Appliquer les opérations élémentaires sur les lignes pour réduire $A$ en $I$</li>
+            <li>La partie droite devient automatiquement $A^{-1}$ : $[I | A^{-1}]$</li>
+        </ol>
+        <p>Si $A$ ne peut pas être réduite à $I$, elle est singulière (pas d'inverse).</p>
+    </div>
+
+    <h3>5.4 Application : résoudre $Ax = b$ avec $A^{-1}$</h3>
+    <p>Si $A$ est inversible, la solution unique de $Ax = \vec{b}$ est $\vec{x} = A^{-1}\vec{b}$.</p>
+
+    <h3>5.5 Exemples résolus</h3>
+
+    <div class="example-box">
+        <h4>Exemple 1 — Inverse d'une matrice $2\times 2$ par formule</h4>
+        <p>Trouver l'inverse de $A = \begin{pmatrix}3&1\\5&2\end{pmatrix}$.</p>
+        <div class="solution">
+            <strong>Solution :</strong>
+            <p>$\det(A) = (3)(2)-(1)(5) = 6-5 = 1 \neq 0$ — inversible.</p>
+            $$A^{-1} = \frac{1}{1}\begin{pmatrix}2&-1\\-5&3\end{pmatrix} = \begin{pmatrix}2&-1\\-5&3\end{pmatrix}$$
+            <p>Vérification : $AA^{-1} = \begin{pmatrix}3&1\\5&2\end{pmatrix}\begin{pmatrix}2&-1\\-5&3\end{pmatrix} = \begin{pmatrix}1&0\\0&1\end{pmatrix}$ ✓</p>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 2 — Inverse d'une matrice $3\times 3$ par Gauss-Jordan</h4>
+        <p>Trouver $A^{-1}$ pour $A = \begin{pmatrix}1&0&1\\2&1&0\\-1&1&2\end{pmatrix}$.</p>
+        <div class="solution">
+            <strong>Solution :</strong>
+            <div class="step"><span class="step-num">Étape 1</span>Former $[A|I]$ :
+                $\left[\begin{array}{ccc|ccc}1&0&1&1&0&0\\2&1&0&0&1&0\\-1&1&2&0&0&1\end{array}\right]$</div>
+            <div class="step"><span class="step-num">Étape 2</span>$R_2 - 2R_1$, $R_3 + R_1$ :
+                $\left[\begin{array}{ccc|ccc}1&0&1&1&0&0\\0&1&-2&-2&1&0\\0&1&3&1&0&1\end{array}\right]$</div>
+            <div class="step"><span class="step-num">Étape 3</span>$R_3 - R_2$ :
+                $\left[\begin{array}{ccc|ccc}1&0&1&1&0&0\\0&1&-2&-2&1&0\\0&0&5&3&-1&1\end{array}\right]$</div>
+            <div class="step"><span class="step-num">Étape 4</span>$\frac{1}{5}R_3$ :
+                $\left[\begin{array}{ccc|ccc}1&0&1&1&0&0\\0&1&-2&-2&1&0\\0&0&1&3/5&-1/5&1/5\end{array}\right]$</div>
+            <div class="step"><span class="step-num">Étape 5</span>$R_2 + 2R_3$, $R_1 - R_3$ :
+                $\left[\begin{array}{ccc|ccc}1&0&0&2/5&1/5&-1/5\\0&1&0&-4/5&3/5&2/5\\0&0&1&3/5&-1/5&1/5\end{array}\right]$</div>
+            $$A^{-1} = \frac{1}{5}\begin{pmatrix}2&1&-1\\-4&3&2\\3&-1&1\end{pmatrix}$$
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 3 — Résoudre $Ax = b$ par l'inverse</h4>
+        <p>Résoudre $\begin{pmatrix}3&1\\5&2\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix} = \begin{pmatrix}4\\7\end{pmatrix}$ en utilisant $A^{-1}$.</p>
+        <div class="solution">
+            <strong>Solution :</strong>
+            <p>De l'exemple 1, $A^{-1} = \begin{pmatrix}2&-1\\-5&3\end{pmatrix}$.</p>
+            $$\begin{pmatrix}x\\y\end{pmatrix} = A^{-1}\vec{b} = \begin{pmatrix}2&-1\\-5&3\end{pmatrix}\begin{pmatrix}4\\7\end{pmatrix} = \begin{pmatrix}8-7\\-20+21\end{pmatrix} = \begin{pmatrix}1\\1\end{pmatrix}$$
+            <p>Solution : $x = 1$, $y = 1$.</p>
+        </div>
+    </div>
+
+    <div class="practice-box">
+        <h4>Exercices — Matrice inverse</h4>
+        <ol>
+            <li>Trouver l'inverse de $A = \begin{pmatrix}2&3\\1&2\end{pmatrix}$ par la formule.</li>
+            <li>Vérifier que $A = \begin{pmatrix}1&2\\3&6\end{pmatrix}$ est singulière.</li>
+            <li>Trouver $A^{-1}$ par Gauss-Jordan pour $A = \begin{pmatrix}2&1&0\\1&2&1\\0&1&2\end{pmatrix}$.</li>
+            <li>Résoudre $Ax = \begin{pmatrix}1\\0\end{pmatrix}$ pour $A = \begin{pmatrix}2&3\\1&2\end{pmatrix}$ en utilisant l'inverse de l'exercice 1.</li>
+        </ol>
+
+        <details class="solution-box">
+            <summary>Voir les solutions</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong> $\det(A) = 4-3 = 1$. $A^{-1} = \begin{pmatrix}2&-3\\-1&2\end{pmatrix}$.
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong> $\det(A) = (1)(6)-(2)(3) = 6-6 = 0$. Singulière, pas d'inverse.
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong>
+                    Appliquer Gauss-Jordan sur $[A|I_3]$. $\det(A) = 2(4-1)-1(2-0)+0 = 6-2 = 4 \neq 0$.
+                    Résultat :
+                    $A^{-1} = \frac{1}{4}\begin{pmatrix}3&-2&1\\-2&4&-2\\1&-2&3\end{pmatrix}$.
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong>
+                    $\vec{x} = A^{-1}\vec{b} = \begin{pmatrix}2&-3\\-1&2\end{pmatrix}\begin{pmatrix}1\\0\end{pmatrix} = \begin{pmatrix}2\\-1\end{pmatrix}$.
+                    $x = 2$, $y = -1$.
+                </div>
+            </div>
+        </details>
+    </div>
+
+    <!-- =====================================================================
+         SECTION 6 : TRANSFORMATIONS LINÉAIRES
+         ===================================================================== -->
+    <h2>6. Transformations linéaires <span class="niveau-badge">Cégep</span></h2>
+
+    <h3>6.1 Définition</h3>
+
+    <div class="definition-box">
+        <h4>Définition — Transformation linéaire</h4>
+        <p>
+            Une fonction $T: \mathbb{R}^n \to \mathbb{R}^m$ est une <strong>transformation linéaire</strong> si :
+        </p>
+        <ol>
+            <li>$T(\vec{u} + \vec{v}) = T(\vec{u}) + T(\vec{v})$ &nbsp;(additivité)</li>
+            <li>$T(k\vec{u}) = kT(\vec{u})$ &nbsp;pour tout scalaire $k$ &nbsp;(homogénéité)</li>
+        </ol>
+        <p>
+            Toute transformation linéaire $T: \mathbb{R}^n \to \mathbb{R}^m$ peut s'écrire $T(\vec{x}) = A\vec{x}$
+            pour une unique matrice $A$ de taille $m\times n$ appelée <strong>matrice standard</strong> de $T$.
+        </p>
+    </div>
+
+    <h3>6.2 Transformations standard dans $\mathbb{R}^2$</h3>
+
+    <table>
+        <thead><tr><th>Transformation</th><th>Matrice standard</th><th>Effet</th></tr></thead>
+        <tbody>
+            <tr>
+                <td>Mise à l'échelle (facteur $k$)</td>
+                <td>$\begin{pmatrix}k&0\\0&k\end{pmatrix}$</td>
+                <td>Dilate/comprime uniformément</td>
+            </tr>
+            <tr>
+                <td>Rotation d'angle $\theta$</td>
+                <td>$\begin{pmatrix}\cos\theta & -\sin\theta\\\sin\theta & \cos\theta\end{pmatrix}$</td>
+                <td>Tourne dans le sens antihoraire</td>
+            </tr>
+            <tr>
+                <td>Réflexion par rapport à l'axe $x$</td>
+                <td>$\begin{pmatrix}1&0\\0&-1\end{pmatrix}$</td>
+                <td>Inverse le signe de $y$</td>
+            </tr>
+            <tr>
+                <td>Réflexion par rapport à l'axe $y$</td>
+                <td>$\begin{pmatrix}-1&0\\0&1\end{pmatrix}$</td>
+                <td>Inverse le signe de $x$</td>
+            </tr>
+            <tr>
+                <td>Cisaillement horizontal (facteur $k$)</td>
+                <td>$\begin{pmatrix}1&k\\0&1\end{pmatrix}$</td>
+                <td>Déplace $x$ proportionnellement à $y$</td>
+            </tr>
+            <tr>
+                <td>Projection sur l'axe $x$</td>
+                <td>$\begin{pmatrix}1&0\\0&0\end{pmatrix}$</td>
+                <td>Annule la composante $y$</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>6.3 Noyau et image</h3>
+
+    <div class="definition-box">
+        <h4>Définitions — Noyau et Image</h4>
+        <p>
+            Soit $T(\vec{x}) = A\vec{x}$.
+        </p>
+        <ul>
+            <li><strong>Noyau</strong> (kernel) : $\ker(T) = \{\vec{x} \in \mathbb{R}^n \mid A\vec{x} = \vec{0}\}$ — ensemble des vecteurs envoyés sur $\vec{0}$.</li>
+            <li><strong>Image</strong> (range) : $\text{Im}(T) = \{A\vec{x} \mid \vec{x} \in \mathbb{R}^n\}$ — ensemble de toutes les sorties possibles.</li>
+        </ul>
+        <p>
+            $T$ est injective $\Leftrightarrow$ $\ker(T) = \{\vec{0}\}$ $\Leftrightarrow$ $A$ a des colonnes linéairement indépendantes.
+        </p>
+    </div>
+
+    <h3>6.4 Exemples résolus</h3>
+
+    <div class="example-box">
+        <h4>Exemple 1 — Identifier une transformation</h4>
+        <p>Quelle transformation géométrique réalise $T(\vec{x}) = \begin{pmatrix}0&-1\\1&0\end{pmatrix}\vec{x}$ ?</p>
+        <div class="solution">
+            <strong>Solution :</strong>
+            <p>Comparons avec la matrice de rotation : $\begin{pmatrix}\cos\theta & -\sin\theta\\\sin\theta & \cos\theta\end{pmatrix}$.</p>
+            <p>$\cos\theta = 0$, $\sin\theta = 1$ $\Rightarrow$ $\theta = 90°$.</p>
+            <p>$T$ est une <strong>rotation de $90°$ dans le sens antihoraire</strong>.</p>
+            <p>Vérification : $T\begin{pmatrix}1\\0\end{pmatrix} = \begin{pmatrix}0\\1\end{pmatrix}$ ✓ (l'axe $x$ va vers l'axe $y$)</p>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 2 — Appliquer une transformation</h4>
+        <p>Appliquer la réflexion par rapport à l'axe $x$ aux points $(2, 3)$, $(-1, 4)$ et $(0, -2)$.</p>
+        <div class="solution">
+            <strong>Solution :</strong>
+            <p>Matrice : $A = \begin{pmatrix}1&0\\0&-1\end{pmatrix}$.</p>
+            <p>$A\begin{pmatrix}2\\3\end{pmatrix} = \begin{pmatrix}2\\-3\end{pmatrix}$</p>
+            <p>$A\begin{pmatrix}-1\\4\end{pmatrix} = \begin{pmatrix}-1\\-4\end{pmatrix}$</p>
+            <p>$A\begin{pmatrix}0\\-2\end{pmatrix} = \begin{pmatrix}0\\2\end{pmatrix}$</p>
+        </div>
+    </div>
+
+    <div class="example-box">
+        <h4>Exemple 3 — Trouver le noyau</h4>
+        <p>Trouver $\ker(T)$ pour $T(\vec{x}) = A\vec{x}$ avec $A = \begin{pmatrix}1&2\\2&4\end{pmatrix}$.</p>
+        <div class="solution">
+            <strong>Solution :</strong>
+            <p>Résoudre $A\vec{x} = \vec{0}$ :</p>
+            $\left[\begin{array}{cc|c}1&2&0\\2&4&0\end{array}\right] \xrightarrow{R_2-2R_1} \left[\begin{array}{cc|c}1&2&0\\0&0&0\end{array}\right]$
+            <p>$x_2 = t$ (libre), $x_1 = -2t$.</p>
+            $$\ker(T) = \left\{t\begin{pmatrix}-2\\1\end{pmatrix} \,\middle|\, t \in \mathbb{R}\right\}$$
+            <p>Le noyau est une droite passant par l'origine. $T$ n'est <strong>pas injective</strong> (noyau non trivial).</p>
+        </div>
+    </div>
+
+    <div class="practice-box">
+        <h4>Exercices — Transformations linéaires</h4>
+        <ol>
+            <li>Identifier la transformation réalisée par $T(\vec{x}) = \begin{pmatrix}-1&0\\0&1\end{pmatrix}\vec{x}$.</li>
+            <li>Écrire la matrice standard de la rotation de $180°$. Appliquer cette transformation au point $(3,-2)$.</li>
+            <li>Vérifier que $T(x_1, x_2) = (x_1 + 1, x_2)$ n'est <strong>pas</strong> une transformation linéaire.</li>
+            <li>Trouver le noyau de $T(\vec{x}) = \begin{pmatrix}1&-2&1\\2&-4&2\end{pmatrix}\vec{x}$.</li>
+        </ol>
+
+        <details class="solution-box">
+            <summary>Voir les solutions</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong> $\begin{pmatrix}-1&0\\0&1\end{pmatrix}$ est la matrice de la réflexion par rapport à l'axe $y$ (le signe de $x_1$ s'inverse, $x_2$ reste inchangé).
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong> Rotation de $180°$ : $\theta = 180°$, $\cos 180° = -1$, $\sin 180° = 0$.
+                    Matrice : $\begin{pmatrix}-1&0\\0&-1\end{pmatrix}$.
+                    $T(3,-2) = \begin{pmatrix}-1&0\\0&-1\end{pmatrix}\begin{pmatrix}3\\-2\end{pmatrix} = \begin{pmatrix}-3\\2\end{pmatrix}$.
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong> Tester la condition $T(\vec{0}) = \vec{0}$ : $T(0,0) = (0+1, 0) = (1, 0) \neq (0,0)$. La condition nécessaire est violée — pas une transformation linéaire.
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong>
+                    $\left[\begin{array}{ccc|c}1&-2&1&0\\2&-4&2&0\end{array}\right] \xrightarrow{R_2-2R_1} \left[\begin{array}{ccc|c}1&-2&1&0\\0&0&0&0\end{array}\right]$.
+                    $x_2 = s$, $x_3 = t$ libres. $x_1 = 2s - t$.
+                    $\ker(T) = \left\{s\begin{pmatrix}2\\1\\0\end{pmatrix} + t\begin{pmatrix}-1\\0\\1\end{pmatrix} \,\middle|\, s,t \in \mathbb{R}\right\}$.
+                </div>
+            </div>
+        </details>
+    </div>
+
+    <!-- =====================================================================
+         SECTION 7 : TABLEAU RÉCAPITULATIF
+         ===================================================================== -->
+    <h2>7. Tableau récapitulatif des propriétés <span class="niveau-badge">Cégep</span></h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Opération</th>
+                <th>Propriété</th>
+                <th>Remarque</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Addition $A + B$</td><td>Commutative, associative</td><td>Même taille requise</td></tr>
+            <tr><td>Multiplication $AB$</td><td>Associative, distributive</td><td>En général $AB \neq BA$</td></tr>
+            <tr><td>Transposée $(AB)^T$</td><td>$(AB)^T = B^T A^T$</td><td>L'ordre s'inverse</td></tr>
+            <tr><td>Déterminant $\det(AB)$</td><td>$\det(A)\det(B)$</td><td>Multiplicatif</td></tr>
+            <tr><td>Déterminant $\det(A^T)$</td><td>$= \det(A)$</td><td>Transposition conserve le déterminant</td></tr>
+            <tr><td>Inverse $(AB)^{-1}$</td><td>$= B^{-1}A^{-1}$</td><td>L'ordre s'inverse</td></tr>
+            <tr><td>Inverse $(A^T)^{-1}$</td><td>$= (A^{-1})^T$</td><td>Commutation permise ici</td></tr>
+            <tr><td>Inversibilité</td><td>$\det(A) \neq 0$</td><td>Équivalent : colonnes L.I., RREF = $I$</td></tr>
+            <tr><td>Noyau de $T$</td><td>$\ker(T) = \{\vec{0}\}$ si injective</td><td>Noyau trivial $\Leftrightarrow$ injective</td></tr>
+            <tr><td>Produit scalaire</td><td>$\vec{u}\cdot\vec{v} = 0$ si perpendiculaires</td><td>Commutatif</td></tr>
+            <tr><td>Produit vectoriel</td><td>$\vec{u}\times\vec{v} = -\vec{v}\times\vec{u}$</td><td>Anti-commutatif</td></tr>
+        </tbody>
+    </table>
+
+    <div class="tip-box">
+        <h4>Conseils pour l'examen</h4>
+        <ul>
+            <li>Toujours vérifier les dimensions avant de multiplier des matrices.</li>
+            <li>Pour l'élimination de Gauss, noter chaque opération de ligne clairement.</li>
+            <li>Un déterminant nul signifie pas d'inverse et système possiblement indéterminé.</li>
+            <li>Pour les transformations linéaires, vérifier $T(\vec{0}) = \vec{0}$ en premier lieu.</li>
+            <li>La RREF est unique ; la REF n'est pas unique (plusieurs formes possibles).</li>
+        </ul>
+    </div>
+
+    <div class="chapter-nav">
+        <a href="/ca/blog/fr-cegep-calcul-integral.html">&larr; Calcul intégral</a>
+        <a href="/ca/blog/fr-parcours.html">Retour au parcours complet &rarr;</a>
+    </div>
+
+</article>
+
+<footer style="text-align:center; padding:30px 20px; color:#64748b; font-size:0.88em; border-top:1px solid #e2e8f0; margin-top:40px;">
+    &copy; 2026 MathHub Global &mdash; Contenu éducatif gratuit pour le Cégep.
+</footer>
+
+</body>
+</html>

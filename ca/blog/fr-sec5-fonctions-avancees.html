@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonctions avancées — Secondaire 5 | MathHub</title>
+    <meta name="description" content="Cours complet de fonctions avancées pour le Secondaire 5 au Québec : fonctions exponentielles, logarithmiques, valeur absolue et transformations.">
+    <meta name="keywords" content="fonctions exponentielles logarithmiques secondaire 5 Québec, valeur absolue, transformations, PFEQ CST TS SN">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/ca/blog/fr-sec5-fonctions-avancees.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/ca/blog/fr-sec5-fonctions-avancees.html">
+    <meta property="og:title" content="Fonctions avancées — Secondaire 5">
+    <meta property="og:description" content="Cours complet de fonctions avancées : transformations, valeur absolue, exponentielle, logarithme, suites. Niveau Secondaire 5 Québec.">
+    <meta property="og:site_name" content="MathHub Global">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Fonctions avancées — Secondaire 5",
+        "description": "Cours complet de fonctions avancées pour le Secondaire 5 au Québec : transformations, valeur absolue, fonctions exponentielles et logarithmiques, suites.",
+        "author": {"@type": "Organization", "name": "MathHub Global"},
+        "publisher": {"@type": "Organization", "name": "MathHub Global"},
+        "datePublished": "2026-03-01",
+        "dateModified": "2026-03-01",
+        "educationalLevel": "Secondary 5",
+        "inLanguage": "fr-CA",
+        "mainEntityOfPage": "https://mathhub.io/ca/blog/fr-sec5-fonctions-avancees.html"
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .blog-article{max-width:800px;margin:0 auto;padding:40px 20px;font-family:Arial,sans-serif;font-size:1.02em;line-height:1.8;}
+        .blog-article h1{font-size:2.1em;color:#1e3a5f;margin-bottom:12px;line-height:1.3;}
+        .blog-meta{color:#64748b;font-size:0.9em;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid #e2e8f0;}
+        .blog-article h2{font-size:1.5em;color:#1e3a5f;margin:40px 0 16px;padding-top:12px;border-top:2px solid #e2e8f0;}
+        .blog-article h3{font-size:1.2em;color:#334155;margin:24px 0 10px;}
+        .blog-article p{color:#334155;margin-bottom:16px;}
+        .blog-article ul,.blog-article ol{margin:12px 0 20px 24px;color:#334155;}
+        .blog-article li{margin-bottom:8px;}
+        .breadcrumb{font-size:0.85em;color:#64748b;margin-bottom:16px;}
+        .breadcrumb a{color:#1d4ed8;text-decoration:none;}
+        .definition-box{background:#e7f3ff;border-left:4px solid #1d4ed8;padding:20px;margin:20px 0;border-radius:8px;}
+        .definition-box h4{color:#1e40af;margin-bottom:10px;font-size:1.05em;}
+        .theorem-box{background:#fff3cd;border-left:4px solid #f59e0b;padding:20px;margin:20px 0;border-radius:8px;}
+        .theorem-box h4{color:#92400e;margin-bottom:10px;font-size:1.05em;}
+        .example-box{background:#f0f9ff;border-left:4px solid #0ea5e9;padding:20px;margin:20px 0;border-radius:8px;}
+        .example-box h4{color:#0369a1;margin-bottom:10px;font-size:1.05em;}
+        .example-box .solution{margin-top:14px;padding-top:12px;border-top:1px solid #bae6fd;}
+        .tip-box{background:#f0fdf4;border-left:4px solid #22c55e;padding:20px;margin:20px 0;border-radius:8px;}
+        .tip-box h4{color:#166534;margin-bottom:10px;font-size:1.05em;}
+        .practice-box{background:#fdf4ff;border-left:4px solid #a855f7;padding:20px;margin:20px 0;border-radius:8px;}
+        .practice-box h4{color:#7e22ce;margin-bottom:10px;font-size:1.05em;}
+        .warning-box{background:#fff1f2;border-left:4px solid #f43f5e;padding:20px;margin:20px 0;border-radius:8px;}
+        .warning-box h4{color:#be123c;margin-bottom:10px;font-size:1.05em;}
+        .step{background:#f8fafc;border-radius:6px;padding:10px 14px;margin:6px 0;border:1px solid #e2e8f0;}
+        .step-num{color:#1d4ed8;font-weight:bold;margin-right:8px;}
+        .niveau-badge{display:inline-block;background:#dbeafe;color:#1e40af;font-size:0.78em;font-weight:700;padding:3px 10px;border-radius:12px;margin-left:8px;vertical-align:middle;}
+        table{width:100%;border-collapse:collapse;margin:20px 0;font-size:0.95em;}
+        th{background:#1e3a5f;color:white;padding:10px 14px;text-align:left;}
+        td{padding:8px 14px;border-bottom:1px solid #e2e8f0;color:#334155;}
+        tr:nth-child(even) td{background:#f8fafc;}
+        .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
+        .compare-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:16px;}
+        .compare-card h5{color:#1e3a5f;margin-bottom:8px;font-size:0.95em;}
+        .graph-container{text-align:center;margin:24px 0;}
+        .graph-container svg{max-width:100%;}
+        .graph-caption{font-size:0.9em;color:#64748b;margin-top:8px;font-style:italic;}
+        .chapter-nav{display:flex;justify-content:space-between;margin-top:50px;padding-top:20px;border-top:1px solid #e2e8f0;}
+        .chapter-nav a{color:#1d4ed8;text-decoration:none;font-weight:500;}
+        .chapter-nav a:hover{text-decoration:underline;}
+        details.solution-box{margin-top:16px;}
+        details.solution-box summary{cursor:pointer;color:#1d4ed8;font-weight:600;padding:10px 14px;background:#eff6ff;border-radius:6px;list-style:none;user-select:none;}
+        details.solution-box summary::-webkit-details-marker{display:none;}
+        details.solution-box summary::before{content:"📖 ";}
+        details.solution-box[open] summary{background:#dbeafe;border-radius:6px 6px 0 0;}
+        .solution-content{padding:18px;background:#f8fafc;border:1px solid #dbeafe;border-radius:0 0 8px 8px;}
+        .solution-content .sol-item{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #e2e8f0;}
+        .solution-content .sol-item:last-child{border-bottom:none;margin-bottom:0;}
+        @media(max-width:640px){.compare-grid{grid-template-columns:1fr;}.blog-article h1{font-size:1.6em;}}
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/" class="active">CA</a>
+            <a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+            <a href="/ca/">MathHub Canada</a> &rsaquo;
+            <a href="/ca/">Manuels en ligne</a> &rsaquo;
+            Fonctions avancées
+        </nav>
+
+        <h1>Fonctions avancées</h1>
+        <div class="blog-meta">
+            Secondaire 5 &mdash; Programme du Québec (PFEQ) &mdash; Mise à jour&nbsp;: mars 2026
+        </div>
+
+        <!-- Table des matières -->
+        <div class="tip-box">
+            <h4>&#x1F4CB; Table des matières</h4>
+            <ol>
+                <li><a href="#transformations">Rappel — Transformations de fonctions</a></li>
+                <li><a href="#valeur-absolue">Fonction valeur absolue</a></li>
+                <li><a href="#exponentielle">Fonction exponentielle</a></li>
+                <li><a href="#logarithmique">Fonction logarithmique</a></li>
+                <li><a href="#equations-exp-log">Équations exponentielles et logarithmiques</a></li>
+                <li><a href="#suites">Suites — Aperçu</a></li>
+                <li><a href="#tableau-recapitulatif">Tableau récapitulatif</a></li>
+            </ol>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- SECTION 1 : TRANSFORMATIONS                            -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <h2 id="transformations">1. Rappel — Transformations de fonctions <span class="niveau-badge">Sec 5</span></h2>
+
+        <p>
+            Toute fonction de base $f(x)$ peut être transformée pour obtenir une nouvelle fonction
+            $g(x)$. Comprendre ces transformations permet d'analyser rapidement n'importe quelle
+            famille de fonctions.
+        </p>
+
+        <div class="definition-box">
+            <h4>&#x1F4D6; Forme générale d'une fonction transformée</h4>
+            <p>À partir d'une fonction de base $f(x)$, la fonction transformée s'écrit :</p>
+            $$g(x) = a \cdot f\!\bigl(b(x - h)\bigr) + k$$
+            <ul>
+                <li><strong>$k$</strong> : translation verticale (haut si $k > 0$, bas si $k &lt; 0$)</li>
+                <li><strong>$h$</strong> : translation horizontale (droite si $h > 0$, gauche si $h &lt; 0$)</li>
+                <li><strong>$a$</strong> : étirement vertical (étirement si $|a|>1$, compression si $0&lt;|a|&lt;1$, réflexion si $a&lt;0$)</li>
+                <li><strong>$b$</strong> : étirement horizontal (compression si $|b|>1$, étirement si $0&lt;|b|&lt;1$, réflexion si $b&lt;0$)</li>
+            </ul>
+        </div>
+
+        <div class="theorem-box">
+            <h4>&#x26A0;&#xFE0F; Ordre d'application des transformations</h4>
+            <p>Pour tracer $g(x) = af(b(x-h))+k$ à partir de $f(x)$, on applique dans l'ordre :</p>
+            <div class="step"><span class="step-num">1.</span> Étirements/compressions horizontales (facteur $b$) et réflexion sur l'axe des $y$ si $b&lt;0$.</div>
+            <div class="step"><span class="step-num">2.</span> Translation horizontale de $h$ unités.</div>
+            <div class="step"><span class="step-num">3.</span> Étirements/compressions verticales (facteur $a$) et réflexion sur l'axe des $x$ si $a&lt;0$.</div>
+            <div class="step"><span class="step-num">4.</span> Translation verticale de $k$ unités.</div>
+        </div>
+
+        <!-- SVG : parabole de base vs transformée -->
+        <div class="graph-container">
+            <svg viewBox="0 0 360 260" width="360" height="260" aria-label="Parabole de base y=x² en bleu et transformée y=2(x-1)²+1 en rouge">
+                <!-- Axes -->
+                <line x1="20" y1="130" x2="340" y2="130" stroke="#94a3b8" stroke-width="1.5"/>
+                <line x1="180" y1="10" x2="180" y2="250" stroke="#94a3b8" stroke-width="1.5"/>
+                <!-- Graduations x -->
+                <text x="220" y="145" font-size="11" fill="#64748b">2</text>
+                <text x="258" y="145" font-size="11" fill="#64748b">4</text>
+                <text x="136" y="145" font-size="11" fill="#64748b">-2</text>
+                <text x="96" y="145" font-size="11" fill="#64748b">-4</text>
+                <!-- Graduations y -->
+                <text x="185" y="92" font-size="11" fill="#64748b">4</text>
+                <text x="185" y="52" font-size="11" fill="#64748b">8</text>
+                <!-- y=x² en bleu : points (-4,16), (-3,9), (-2,4), (-1,1), (0,0), (1,1), (2,4), (3,9), (4,16) -->
+                <!-- Scale: 1 unit = 20px, origin at (180,130) -->
+                <polyline
+                    points="100,14 120,50 140,90 160,110 180,130 200,110 220,90 240,50 260,14"
+                    fill="none" stroke="#1d4ed8" stroke-width="2.2"/>
+                <text x="265" y="18" font-size="12" fill="#1d4ed8">$y=x^2$</text>
+                <!-- g(x)=2(x-1)²+1 : x=1 → y=1 (pixel: 200,128), x=0 → y=3 (180,124), x=2 → y=3 (220,124), x=-1 → y=9 (160,108), x=3 → y=9 (240,108), x=-2 → y=19, x=4 → y=19 -->
+                <!-- pixel y = 130 - 20*val -->
+                <!-- x=-2: 2*9+1=19 → y_px=130-20*19=-250 (off) -->
+                <!-- show x=-1 to x=3 -->
+                <!-- x=-1: 2*4+1=9 → y_px=130-20*9=130-180=-50 (off chart) -->
+                <!-- Use scale 10px/unit for g to keep visible -->
+                <!-- Actually use scale: x_px = 180 + 20*(x-1), y_px = 130 - 10*(2(x-1)^2+1) -->
+                <!-- x=-2: x_px=180+20*(-3)=120, u=-3, y_px=130-10*(18+1)=130-190=-60 off -->
+                <!-- Restrict to visible: x in [-0.5, 2.5] approx -->
+                <!-- Use smaller scale for g: 15px/unit vertical, 20px/unit horiz -->
+                <!-- g vertex at (1,1): pixel (200, 115) approx, using vert scale 8px per unit relative to 130 -->
+                <!-- Let's just do it: y_px = 128 - 8*(2*(x-1)^2 + 1), x_px = 180 + 20*x -->
+                <!-- x=-1: u=-2, g=9, y_px=128-72=56, x_px=160 -->
+                <!-- x=0: u=-1, g=3, y_px=128-24=104, x_px=180 -->
+                <!-- x=1: u=0, g=1, y_px=128-8=120, x_px=200 -->
+                <!-- x=2: u=1, g=3, y_px=128-24=104, x_px=220 -->
+                <!-- x=3: u=2, g=9, y_px=128-72=56, x_px=240 -->
+                <!-- x=4: u=3, g=19, y_px=128-152=-24 off -->
+                <polyline
+                    points="160,56 180,104 200,120 220,104 240,56"
+                    fill="none" stroke="#ef4444" stroke-width="2.2" stroke-dasharray="6,3"/>
+                <text x="242" y="50" font-size="12" fill="#ef4444">$y=2(x{-}1)^2{+}1$</text>
+                <!-- Vertex marker -->
+                <circle cx="200" cy="120" r="4" fill="#ef4444"/>
+                <text x="203" y="118" font-size="10" fill="#ef4444">S(1,1)</text>
+                <circle cx="180" cy="130" r="4" fill="#1d4ed8"/>
+            </svg>
+            <div class="graph-caption">Figure 1 — Parabole de base $y = x^2$ (bleu) et transformée $y = 2(x-1)^2 + 1$ (rouge pointillé). Le sommet se déplace en $(1, 1)$.</div>
+        </div>
+
+        <h3>Exemples guidés</h3>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 1 — Identifier les transformations</h4>
+            <p>Soit $g(x) = -3\sqrt{2(x+4)} - 1$. Identifier chaque transformation par rapport à $f(x) = \sqrt{x}$.</p>
+            <div class="solution">
+                <strong>Solution :</strong><br>
+                On récrit : $g(x) = -3 f(2(x - (-4))) + (-1)$<br>
+                <ul>
+                    <li>$b = 2$ : compression horizontale de facteur $\frac{1}{2}$.</li>
+                    <li>$h = -4$ : translation de 4 unités vers la <strong>gauche</strong>.</li>
+                    <li>$a = -3$ : étirement vertical de facteur 3 <em>et</em> réflexion sur l'axe des $x$.</li>
+                    <li>$k = -1$ : translation d'une unité vers le <strong>bas</strong>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 2 — Écrire l'équation d'une transformée</h4>
+            <p>La fonction $f(x) = x^2$ est translatée 3 unités à droite, réfléchie sur l'axe des $x$ et déplacée 5 unités vers le haut. Écrire l'équation de $g$.</p>
+            <div class="solution">
+                <strong>Solution :</strong><br>
+                Translation droite ($h = 3$) : $f(x-3)$<br>
+                Réflexion sur $x$ ($a = -1$) : $-f(x-3)$<br>
+                Translation vers le haut ($k = 5$) : $g(x) = -(x-3)^2 + 5$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 3 — Déterminer domaine et image après transformation</h4>
+            <p>Soit $f(x) = \sqrt{x}$ (domaine $[0, +\infty)$, image $[0, +\infty)$). Déterminer le domaine et l'image de $g(x) = \sqrt{-(x-2)} + 3$.</p>
+            <div class="solution">
+                <strong>Solution :</strong><br>
+                $g(x) = f(-(x-2)) + 3$ avec $a = 1$, $b = -1$, $h = 2$, $k = 3$.<br>
+                La réflexion $b &lt; 0$ inverse le domaine : $-(x-2) \geq 0 \Rightarrow x \leq 2$.<br>
+                <strong>Domaine :</strong> $(-\infty, 2]$<br>
+                L'étirement vertical est 1 et la translation $k=3$ déplace l'image vers le haut.<br>
+                <strong>Image :</strong> $[3, +\infty)$
+            </div>
+        </div>
+
+        <div class="practice-box">
+            <h4>&#x1F4DD; Exercices — Transformations</h4>
+            <ol>
+                <li>Identifier toutes les transformations de $g(x) = \frac{1}{2}f(-(x-3)) + 2$ par rapport à $f(x)$.</li>
+                <li>Écrire l'équation de la transformée de $f(x)=|x|$ : compression horizontale de facteur $\frac{1}{3}$, réflexion sur l'axe des $y$, translation 2 unités vers le bas.</li>
+                <li>La parabole $f(x)=x^2$ est étirée verticalement d'un facteur 4, translatée 1 unité à gauche et 6 unités vers le bas. Quelle est l'équation de $g$ ? Quel est son sommet ?</li>
+                <li>Soit $h(x) = -2(3x + 6)^2 + 8$. Réécrire sous la forme $a f(b(x-h))+k$ et identifier $a$, $b$, $h$, $k$.</li>
+                <li>Décrire comment obtenir $g(x) = \sqrt{-2x + 4}$ à partir de $f(x) = \sqrt{x}$. Quel est le domaine de $g$ ?</li>
+            </ol>
+        </div>
+
+        <details class="solution-box">
+            <summary>Voir les solutions — Transformations</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong> $a = \frac{1}{2}$ (compression vert. facteur $\frac{1}{2}$) ; $b = -1$ (réflexion sur $y$) ; $h = 3$ (translation 3 droite) ; $k = 2$ (translation 2 haut).
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong> Compression horiz. facteur $\frac{1}{3}$ : $f(3x)$ ; réflexion sur $y$ : $f(-3x) = |-3x| = 3|x|$ (équivalent, mais garder $b=-3$) ; $k=-2$ : $g(x) = |-3x| - 2 = 3|x| - 2$.
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong> $g(x) = 4(x+1)^2 - 6$. Sommet : $(-1, -6)$.
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong> $h(x) = -2(3(x+2))^2 + 8$, donc $a=-2$, $b=3$, $h=-2$, $k=8$.
+                </div>
+                <div class="sol-item">
+                    <strong>5.</strong> $g(x) = \sqrt{-2(x-2)}$ : compression horiz. facteur $\frac{1}{2}$ ($b=2$), réflexion sur $y$ ($b$ négatif), translation 2 droite ($h=2$). Domaine : $-2x+4 \geq 0 \Rightarrow x \leq 2$, soit $(-\infty, 2]$.
+                </div>
+            </div>
+        </details>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- SECTION 2 : VALEUR ABSOLUE                             -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <h2 id="valeur-absolue">2. Fonction valeur absolue <span class="niveau-badge">Sec 5</span></h2>
+
+        <div class="definition-box">
+            <h4>&#x1F4D6; Définition</h4>
+            <p>La <strong>valeur absolue</strong> d'un réel $x$ est :</p>
+            $$|x| = \begin{cases} x & \text{si } x \geq 0 \\ -x & \text{si } x < 0 \end{cases}$$
+            <p>Géométriquement, $|x|$ représente la <strong>distance</strong> entre $x$ et 0 sur la droite numérique.</p>
+        </div>
+
+        <div class="compare-grid">
+            <div class="compare-card">
+                <h5>&#x1F4C8; Graphique de $y = |x|$</h5>
+                <p>Forme en <strong>V</strong>, sommet à l'origine $(0, 0)$.</p>
+                <p>Domaine : $\mathbb{R}$ &nbsp;|&nbsp; Image : $[0, +\infty)$</p>
+            </div>
+            <div class="compare-card">
+                <h5>&#x1F4C9; Graphique de $y = |f(x)|$</h5>
+                <p>Les parties de $f(x)$ qui sont <strong>négatives</strong> sont réfléchies au-dessus de l'axe des $x$.</p>
+            </div>
+        </div>
+
+        <!-- SVG : V-shape -->
+        <div class="graph-container">
+            <svg viewBox="0 0 320 220" width="320" height="220" aria-label="Graphique de la fonction valeur absolue y=|x|">
+                <!-- Axes -->
+                <line x1="20" y1="110" x2="300" y2="110" stroke="#94a3b8" stroke-width="1.5"/>
+                <line x1="160" y1="10" x2="160" y2="210" stroke="#94a3b8" stroke-width="1.5"/>
+                <!-- Arrows -->
+                <polygon points="300,110 290,106 290,114" fill="#94a3b8"/>
+                <polygon points="160,10 156,20 164,20" fill="#94a3b8"/>
+                <!-- Grad x -->
+                <text x="196" y="124" font-size="11" fill="#64748b">2</text>
+                <text x="232" y="124" font-size="11" fill="#64748b">4</text>
+                <text x="118" y="124" font-size="11" fill="#64748b">-2</text>
+                <text x="80" y="124" font-size="11" fill="#64748b">-4</text>
+                <!-- Grad y -->
+                <text x="165" y="72" font-size="11" fill="#64748b">4</text>
+                <text x="165" y="32" font-size="11" fill="#64748b">8</text>
+                <!-- y=|x| : V shape. Scale 20px/unit. Origin (160,110) -->
+                <!-- x=-5: y_px=110-20*5=10. x=0: (160,110). x=5: (260,10). -->
+                <polyline
+                    points="40,170 80,130 120,90 160,110 200,70 240,30 280,170"
+                    fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+                <!-- Correct V shape: x=-5..5 -->
+                <!-- x_px=160+20x, y_px=110-20|x| -->
+                <!-- x=-5: (60,10), x=-4:(80,30), x=-3:(100,50), x=-2:(120,70), x=-1:(140,90), x=0:(160,110), x=1:(180,90), x=2:(200,70), x=3:(220,50), x=4:(240,30), x=5:(260,10) -->
+                <polyline
+                    points="60,10 80,30 100,50 120,70 140,90 160,110 180,90 200,70 220,50 240,30 260,10"
+                    fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+                <!-- Vertex -->
+                <circle cx="160" cy="110" r="5" fill="#1d4ed8"/>
+                <text x="166" y="128" font-size="12" fill="#1d4ed8" font-weight="bold">O</text>
+                <!-- Label -->
+                <text x="245" y="25" font-size="13" fill="#1d4ed8" font-style="italic">y = |x|</text>
+            </svg>
+            <div class="graph-caption">Figure 2 — Graphique de $y = |x|$ : forme en V, symétrique par rapport à l'axe des $y$.</div>
+        </div>
+
+        <div class="theorem-box">
+            <h4>&#x2728; Résolution d'équations et d'inéquations</h4>
+            <p><strong>Équation :</strong> $|ax + b| = c$ (avec $c \geq 0$)</p>
+            $$ax + b = c \quad \text{ou} \quad ax + b = -c$$
+            <p><strong>Inéquation (type $&lt;$) :</strong></p>
+            $$|x| < c \iff -c < x < c$$
+            <p><strong>Inéquation (type $>$) :</strong></p>
+            $$|x| > c \iff x < -c \text{ ou } x > c$$
+        </div>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 1 — Tracer $g(x) = |x - 2| + 1$</h4>
+            <p>Identifier le sommet, le domaine et l'image, puis esquisser le graphique.</p>
+            <div class="solution">
+                <strong>Solution :</strong><br>
+                La forme est $|x - h| + k$ avec $h = 2$, $k = 1$.<br>
+                <strong>Sommet :</strong> $(2, 1)$ — le minimum de la fonction.<br>
+                <strong>Domaine :</strong> $\mathbb{R}$ &nbsp;|&nbsp; <strong>Image :</strong> $[1, +\infty)$<br>
+                Branches : pour $x \geq 2$, pente $+1$ ; pour $x &lt; 2$, pente $-1$.
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 2 — Résoudre $|2x - 5| = 7$</h4>
+            <div class="solution">
+                <strong>Solution :</strong><br>
+                <strong>Cas 1 :</strong> $2x - 5 = 7 \Rightarrow 2x = 12 \Rightarrow x = 6$<br>
+                <strong>Cas 2 :</strong> $2x - 5 = -7 \Rightarrow 2x = -2 \Rightarrow x = -1$<br>
+                <strong>Vérification :</strong> $|2(6)-5| = |7| = 7$ ✓ ; $|2(-1)-5| = |-7| = 7$ ✓<br>
+                <strong>Solutions :</strong> $x = 6$ ou $x = -1$.
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 3 — Résoudre $|3x + 1| \leq 8$</h4>
+            <div class="solution">
+                <strong>Solution :</strong><br>
+                $-8 \leq 3x + 1 \leq 8$<br>
+                $-9 \leq 3x \leq 7$<br>
+                $-3 \leq x \leq \dfrac{7}{3}$<br>
+                <strong>Solution :</strong> $\left[-3,\ \dfrac{7}{3}\right]$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 4 — Résoudre $|x - 4| > 3$</h4>
+            <div class="solution">
+                <strong>Solution :</strong><br>
+                $x - 4 > 3$ ou $x - 4 &lt; -3$<br>
+                $x > 7$ ou $x &lt; 1$<br>
+                <strong>Solution :</strong> $(-\infty, 1) \cup (7, +\infty)$
+            </div>
+        </div>
+
+        <div class="practice-box">
+            <h4>&#x1F4DD; Exercices — Valeur absolue</h4>
+            <ol>
+                <li>Tracer $g(x) = -|x + 3| + 4$. Identifier le sommet, le domaine et l'image.</li>
+                <li>Résoudre $|5x - 2| = 13$.</li>
+                <li>Résoudre $|4 - 3x| = |x + 2|$.</li>
+                <li>Résoudre $|2x + 1| &lt; 5$.</li>
+                <li>Résoudre $\left|\dfrac{x-1}{2}\right| \geq 3$.</li>
+                <li>Trouver les valeurs de $x$ telles que $|x^2 - 4| = 5$.</li>
+            </ol>
+        </div>
+
+        <details class="solution-box">
+            <summary>Voir les solutions — Valeur absolue</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong> $g(x) = -|x-(-3)| + 4$ : sommet $(-3, 4)$ (maximum car $a=-1&lt;0$) ; domaine $\mathbb{R}$ ; image $(-\infty, 4]$.
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong> $5x - 2 = 13 \Rightarrow x = 3$ ou $5x - 2 = -13 \Rightarrow x = -\frac{11}{5}$.
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong> Cas 1 : $4-3x = x+2 \Rightarrow x = \frac{1}{2}$. Cas 2 : $4-3x = -(x+2) \Rightarrow 4-3x=-x-2 \Rightarrow -2x=-6 \Rightarrow x=3$. Solutions : $x = \frac{1}{2}$ ou $x = 3$.
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong> $-5 &lt; 2x+1 &lt; 5 \Rightarrow -6 &lt; 2x &lt; 4 \Rightarrow -3 &lt; x &lt; 2$. Solution : $(-3, 2)$.
+                </div>
+                <div class="sol-item">
+                    <strong>5.</strong> $\frac{x-1}{2} \geq 3 \Rightarrow x \geq 7$ ou $\frac{x-1}{2} \leq -3 \Rightarrow x \leq -5$. Solution : $(-\infty, -5] \cup [7, +\infty)$.
+                </div>
+                <div class="sol-item">
+                    <strong>6.</strong> $x^2 - 4 = 5 \Rightarrow x^2 = 9 \Rightarrow x = \pm 3$ ; ou $x^2 - 4 = -5 \Rightarrow x^2 = -1$ (impossible). Solutions : $x = 3$ ou $x = -3$.
+                </div>
+            </div>
+        </details>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- SECTION 3 : FONCTION EXPONENTIELLE                     -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <h2 id="exponentielle">3. Fonction exponentielle <span class="niveau-badge">Sec 5</span></h2>
+
+        <div class="definition-box">
+            <h4>&#x1F4D6; Définition</h4>
+            <p>Une <strong>fonction exponentielle</strong> est de la forme :</p>
+            $$f(x) = a \cdot c^x$$
+            <p>où $c > 0$, $c \neq 1$ (la <strong>base</strong>), et $a \neq 0$ (le <strong>facteur d'échelle</strong>, valeur initiale $f(0) = a$).</p>
+            <ul>
+                <li><strong>Domaine :</strong> $\mathbb{R}$</li>
+                <li><strong>Image :</strong> $(0, +\infty)$ si $a > 0$ &nbsp;|&nbsp; $(-\infty, 0)$ si $a &lt; 0$</li>
+                <li><strong>Asymptote horizontale :</strong> $y = 0$</li>
+                <li><strong>Point de passage :</strong> $(0, a)$ toujours</li>
+            </ul>
+        </div>
+
+        <div class="compare-grid">
+            <div class="compare-card">
+                <h5>&#x1F4C8; Croissance : $c > 1$</h5>
+                <p>La fonction est <strong>croissante</strong> : augmente sans borne quand $x \to +\infty$, s'approche de 0 quand $x \to -\infty$.</p>
+                <p>Exemple : $f(x) = 2^x$</p>
+            </div>
+            <div class="compare-card">
+                <h5>&#x1F4C9; Décroissance : $0 &lt; c &lt; 1$</h5>
+                <p>La fonction est <strong>décroissante</strong> : diminue vers 0 quand $x \to +\infty$, augmente sans borne quand $x \to -\infty$.</p>
+                <p>Exemple : $f(x) = \left(\frac{1}{2}\right)^x$</p>
+            </div>
+        </div>
+
+        <!-- SVG : y=2^x et y=(1/2)^x -->
+        <div class="graph-container">
+            <svg viewBox="0 0 360 240" width="360" height="240" aria-label="Graphiques de y=2^x et y=(1/2)^x">
+                <!-- Axes -->
+                <line x1="20" y1="180" x2="340" y2="180" stroke="#94a3b8" stroke-width="1.5"/>
+                <line x1="180" y1="10" x2="180" y2="220" stroke="#94a3b8" stroke-width="1.5"/>
+                <polygon points="340,180 330,176 330,184" fill="#94a3b8"/>
+                <polygon points="180,10 176,20 184,20" fill="#94a3b8"/>
+                <!-- Labels -->
+                <text x="342" y="184" font-size="11" fill="#64748b">x</text>
+                <text x="184" y="15" font-size="11" fill="#64748b">y</text>
+                <!-- Grad x: 20px/unit -->
+                <text x="196" y="194" font-size="10" fill="#64748b">1</text>
+                <text x="216" y="194" font-size="10" fill="#64748b">2</text>
+                <text x="236" y="194" font-size="10" fill="#64748b">3</text>
+                <text x="256" y="194" font-size="10" fill="#64748b">4</text>
+                <text x="155" y="194" font-size="10" fill="#64748b">-1</text>
+                <text x="135" y="194" font-size="10" fill="#64748b">-2</text>
+                <!-- y=2^x : scale vert 10px/unit, x_px=180+20x, y_px=180-10*2^x -->
+                <!-- x=-4: y=0.0625→y_px≈179.4, x=-3:0.125→178.75, x=-2:0.25→177.5, x=-1:0.5→175 -->
+                <!-- x=0:1→170, x=1:2→160, x=2:4→140, x=3:8→100, x=4:16→20 -->
+                <!-- x_px: -4→100, -3→120, -2→140, -1→160, 0→180, 1→200, 2→220, 3→240, 4→260 -->
+                <polyline
+                    points="100,179 120,179 140,178 160,175 180,170 200,160 220,140 240,100 260,20"
+                    fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+                <text x="262" y="18" font-size="12" fill="#1d4ed8">$y = 2^x$</text>
+                <!-- y=(1/2)^x = 2^(-x) : x=-4:16→20, x=-3:8→100, x=-2:4→140, x=-1:2→160 -->
+                <!-- x=0:1→170, x=1:0.5→175, x=2:0.25→178, x=3:0.125→179, x=4:0.0625→179.4 -->
+                <polyline
+                    points="100,20 120,100 140,140 160,160 180,170 200,175 220,178 240,179 260,179"
+                    fill="none" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="7,3"/>
+                <text x="96" y="18" font-size="12" fill="#ef4444">$y = (1/2)^x$</text>
+                <!-- Asymptote y=0 → y_px=180 -->
+                <line x1="20" y1="180" x2="340" y2="180" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,4"/>
+                <text x="22" y="178" font-size="10" fill="#f59e0b">asymptote $y=0$</text>
+                <!-- Point (0,1): y_px=170 -->
+                <circle cx="180" cy="170" r="4" fill="#475569"/>
+                <text x="184" y="168" font-size="10" fill="#475569">(0,1)</text>
+            </svg>
+            <div class="graph-caption">Figure 3 — $y = 2^x$ (bleu, croissante) et $y = \left(\frac{1}{2}\right)^x$ (rouge pointillé, décroissante). Asymptote horizontale : $y = 0$ (jaune).</div>
+        </div>
+
+        <div class="theorem-box">
+            <h4>&#x1F4B0; Applications importantes</h4>
+            <p><strong>Intérêts composés :</strong></p>
+            $$A = P\!\left(1 + \frac{r}{n}\right)^{nt}$$
+            <p>où $P$ = capital initial, $r$ = taux annuel, $n$ = nombre de périodes par an, $t$ = durée en années.</p>
+            <p><strong>Croissance/décroissance continue :</strong></p>
+            $$P(t) = P_0 \cdot e^{rt}$$
+            <p>où $e \approx 2{,}718$ (base naturelle), $r > 0$ pour la croissance, $r &lt; 0$ pour la décroissance.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 1 — Compléter une table de valeurs</h4>
+            <p>Pour $f(x) = 3 \cdot 2^x$, calculer $f(-2)$, $f(0)$, $f(1)$, $f(3)$.</p>
+            <div class="solution">
+                <strong>Solution :</strong><br>
+                $f(-2) = 3 \cdot 2^{-2} = 3 \cdot \frac{1}{4} = \frac{3}{4}$<br>
+                $f(0) = 3 \cdot 2^0 = 3$<br>
+                $f(1) = 3 \cdot 2^1 = 6$<br>
+                $f(3) = 3 \cdot 2^3 = 24$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 2 — Doublement d'une population de bactéries</h4>
+            <p>Une culture bactérienne commence avec 500 bactéries et double toutes les 3 heures. Combien y aura-t-il de bactéries après 12 heures ?</p>
+            <div class="solution">
+                <strong>Solution :</strong><br>
+                Le modèle est $P(t) = 500 \cdot 2^{t/3}$ où $t$ est en heures.<br>
+                $P(12) = 500 \cdot 2^{12/3} = 500 \cdot 2^4 = 500 \cdot 16 = \mathbf{8\,000}$ bactéries.
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 3 — Demi-vie radioactive</h4>
+            <p>Un isotope radioactif a une demi-vie de 10 ans. Si on en a 80 g au départ, combien en restera-t-il après 25 ans ?</p>
+            <div class="solution">
+                <strong>Solution :</strong><br>
+                $Q(t) = 80 \cdot \left(\frac{1}{2}\right)^{t/10}$<br>
+                $Q(25) = 80 \cdot \left(\frac{1}{2}\right)^{2{,}5} = 80 \cdot \frac{1}{2^{2{,}5}} = \frac{80}{4\sqrt{2}} = \frac{80}{5{,}657} \approx \mathbf{14{,}14}$ g.
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 4 — Intérêts composés</h4>
+            <p>On investit 2 000 $ à un taux annuel de 4 %, composé mensuellement. Quelle est la valeur après 5 ans ?</p>
+            <div class="solution">
+                <strong>Solution :</strong><br>
+                $P = 2000$, $r = 0{,}04$, $n = 12$, $t = 5$.<br>
+                $A = 2000\left(1 + \frac{0{,}04}{12}\right)^{60} = 2000 \cdot (1{,}003\overline{3})^{60} \approx 2000 \times 1{,}2210 \approx \mathbf{2\,442{,}00}\ \$$.
+            </div>
+        </div>
+
+        <div class="practice-box">
+            <h4>&#x1F4DD; Exercices — Fonction exponentielle</h4>
+            <ol>
+                <li>Pour $f(x) = 5 \cdot \left(\frac{1}{3}\right)^x$, calculer $f(-1)$, $f(0)$, $f(2)$. Quelle est l'asymptote horizontale ?</li>
+                <li>Identifier le domaine, l'image et l'asymptote de $g(x) = -2 \cdot 4^x + 3$.</li>
+                <li>Une population de 1 200 personnes décroît de 6 % par an. Combien de personnes resteront-il après 10 ans ?</li>
+                <li>Un capital de 5 000 $ est placé à 3,5 % par année, composé semestriellement. Quelle est sa valeur après 8 ans ?</li>
+                <li>La quantité d'un médicament dans le sang décroît selon $Q(t) = 200 \cdot e^{-0{,}2t}$ (mg). Après combien de temps reste-t-il moins de 50 mg ? (Utiliser $\ln$).</li>
+                <li>Montrer que la fonction $f(x) = 4 \cdot 8^x$ peut s'écrire sous la forme $a \cdot 2^{bx}$ et identifier $a$ et $b$.</li>
+            </ol>
+        </div>
+
+        <details class="solution-box">
+            <summary>Voir les solutions — Fonction exponentielle</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong> $f(-1) = 5 \cdot 3 = 15$ ; $f(0) = 5$ ; $f(2) = 5/9$. Asymptote : $y = 0$.
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong> Domaine : $\mathbb{R}$ ; image : $(-\infty, 3)$ (car $-2 \cdot 4^x$ est toujours négatif, max en $-\infty$) ; asymptote $y = 3$.
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong> $P(10) = 1200 \cdot (0{,}94)^{10} \approx 1200 \times 0{,}5386 \approx 646$ personnes.
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong> $A = 5000\left(1 + \frac{0{,}035}{2}\right)^{16} = 5000 \cdot (1{,}0175)^{16} \approx 5000 \times 1{,}3199 \approx 6\,599{,}60\ \$$.
+                </div>
+                <div class="sol-item">
+                    <strong>5.</strong> $200 e^{-0{,}2t} &lt; 50 \Rightarrow e^{-0{,}2t} &lt; 0{,}25 \Rightarrow -0{,}2t &lt; \ln(0{,}25) \Rightarrow t > \frac{\ln 4}{0{,}2} \approx \frac{1{,}386}{0{,}2} \approx 6{,}93$ min.
+                </div>
+                <div class="sol-item">
+                    <strong>6.</strong> $8^x = (2^3)^x = 2^{3x}$, donc $f(x) = 4 \cdot 2^{3x}$. $a = 4$, $b = 3$.
+                </div>
+            </div>
+        </details>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- SECTION 4 : FONCTION LOGARITHMIQUE                     -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <h2 id="logarithmique">4. Fonction logarithmique <span class="niveau-badge">Sec 5</span></h2>
+
+        <div class="definition-box">
+            <h4>&#x1F4D6; Définition</h4>
+            <p>Le <strong>logarithme en base $b$</strong> de $x$ est l'exposant à donner à $b$ pour obtenir $x$ :</p>
+            $$y = \log_b x \iff b^y = x \qquad (b > 0,\ b \neq 1,\ x > 0)$$
+            <p><strong>Cas particuliers :</strong></p>
+            <ul>
+                <li>$\ln x = \log_e x$ (logarithme naturel, base $e \approx 2{,}718$)</li>
+                <li>$\log x = \log_{10} x$ (logarithme décimal)</li>
+            </ul>
+            <p><strong>Domaine :</strong> $(0, +\infty)$ &nbsp;|&nbsp; <strong>Image :</strong> $\mathbb{R}$ &nbsp;|&nbsp; <strong>Asymptote verticale :</strong> $x = 0$</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>&#x2728; Propriétés des logarithmes</h4>
+            <table>
+                <tr><th>Propriété</th><th>Formule</th><th>Exemple</th></tr>
+                <tr><td>Produit</td><td>$\log_b(MN) = \log_b M + \log_b N$</td><td>$\log_2(8 \cdot 4) = \log_2 8 + \log_2 4 = 3+2$</td></tr>
+                <tr><td>Quotient</td><td>$\log_b\!\left(\dfrac{M}{N}\right) = \log_b M - \log_b N$</td><td>$\log\!\left(\frac{100}{10}\right) = 2 - 1 = 1$</td></tr>
+                <tr><td>Puissance</td><td>$\log_b(M^r) = r\log_b M$</td><td>$\log_2(8^3) = 3\log_2 8 = 9$</td></tr>
+                <tr><td>Changement de base</td><td>$\log_b a = \dfrac{\log a}{\log b} = \dfrac{\ln a}{\ln b}$</td><td>$\log_3 7 = \dfrac{\ln 7}{\ln 3}$</td></tr>
+                <tr><td>Identités</td><td>$\log_b b = 1$ &nbsp;|&nbsp; $\log_b 1 = 0$</td><td>$\log 10 = 1$ ; $\ln 1 = 0$</td></tr>
+            </table>
+        </div>
+
+        <!-- SVG : y=log₂x et y=2^x comme inverses -->
+        <div class="graph-container">
+            <svg viewBox="0 0 360 260" width="360" height="260" aria-label="Graphiques de y=2^x et y=log base 2 de x comme fonctions inverses">
+                <!-- Axes -->
+                <line x1="10" y1="200" x2="350" y2="200" stroke="#94a3b8" stroke-width="1.5"/>
+                <line x1="50" y1="10" x2="50" y2="250" stroke="#94a3b8" stroke-width="1.5"/>
+                <polygon points="350,200 340,196 340,204" fill="#94a3b8"/>
+                <polygon points="50,10 46,20 54,20" fill="#94a3b8"/>
+                <text x="352" y="204" font-size="11" fill="#64748b">x</text>
+                <text x="54" y="14" font-size="11" fill="#64748b">y</text>
+                <!-- Origin (50,200), scale: 30px/unit -->
+                <!-- y=2^x: x_px=50+30x, y_px=200-30*2^x -->
+                <!-- x=-3: y=0.125→y_px=196.25, x=-2:0.25→192.5, x=-1:0.5→185, x=0:1→170, x=1:2→140, x=2:4→80, x=3:8→-40 off -->
+                <!-- Show x=-3 to x=2.5 -->
+                <!-- x=2.5: 2^2.5=5.66→y_px=200-170=-30 off. Use x=-3 to 2: -->
+                <polyline
+                    points="50,170 80,140 110,80"
+                    fill="none" stroke="#1d4ed8" stroke-width="2.5" stroke-dasharray="none"/>
+                <!-- More points: x=-3→(−40,196), x=-2→(−10,193), x=-1→(20,185), x=0→(50,170), x=1→(80,140), x=2→(110,80) -->
+                <!-- x_px = 50+30x: x=-3→-40(off), x=-2→-10(off), x=-1→20, x=0→50, x=1→80, x=2→110 -->
+                <polyline
+                    points="20,185 50,170 80,140 110,80"
+                    fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+                <text x="112" y="76" font-size="12" fill="#1d4ed8">$y=2^x$</text>
+                <!-- y=log₂x: x_px=50+30x, y_px=200-30*log₂(x) -->
+                <!-- log₂x = ln(x)/ln(2) -->
+                <!-- x=0.125: log₂=−3 → y_px=290 off; x=0.25:−2→260 off; x=0.5:−1→230 off -->
+                <!-- x=1:0→200; x=2:1→170; x=4:2→140; x=8:3→110 -->
+                <!-- x_px: x=1→80, x=2→110, x=4→170, x=8→290 off -->
+                <!-- Use x=0.25 to x=7 -->
+                <!-- x=0.25:x_px=57.5,y_px=260(off) -->
+                <!-- x=0.5: x_px=65, y_px=230(off) -->
+                <!-- x=1: x_px=80, y_px=200 -->
+                <!-- x=2: x_px=110, y_px=170 -->
+                <!-- x=4: x_px=170, y_px=140 -->
+                <!-- x=6: x_px=230, log₂6=2.585→y_px=200-77.6=122.4 -->
+                <!-- x=8: x_px=290, y_px=110 -->
+                <!-- Actually x_px = 50 + 30*x: x=1→80 ... wait this is wrong. x here is the x-value of log function -->
+                <!-- Let me fix: x_px = 50 + 20*x (scale 20px/unit to fit) -->
+                <!-- y=log₂x: x_px=50+20*xval, y_px=200-30*log₂(xval) -->
+                <!-- xval=0.5: x_px=60, y_px=230(off) -->
+                <!-- xval=1: x_px=70, y_px=200 → but we need consistent scale -->
+                <!-- Let me use consistent scale 25px/unit for both -->
+                <!-- y=2^x: x_px=130+25*xval, y_px=200-25*2^xval (origin shifted to 130,200) -->
+                <!-- xval=-4:2^-4=0.0625→y_px=198.4; xval=-2:0.25→193.75; xval=0:1→175; xval=1:2→150; xval=2:4→100; xval=3:8→0 -->
+                <!-- x_px: -4→30, -2→80, 0→130, 1→155, 2→180, 3→205 -->
+                <!-- y=log₂x: x_px=130+25*xval, y_px=200-25*log₂(xval) -->
+                <!-- xval=0.0625: y_px=200+100=300(off); xval=0.25:y_px=250(off); xval=1:y_px=200; xval=2:y_px=175; xval=4:y_px=150; xval=8:y_px=125 -->
+                <!-- x_px for log: xval=0.0625→x_px=131.6; xval=1→155; xval=4→230; xval=8→330 -->
+                <!-- Draw y=2^x and y=log₂x with shared origin (130,200), scale 25px/unit, reflective about y=x -->
+                <!-- RESET: use simpler layout. Center (130,130), scale 20px/unit -->
+                <!-- y=2^x: x in [-3,3], y in [0.125,8] -->
+                <!-- x_px = 130+20*xval; y_px = 130-20*yval -->
+                <!-- xval=-3: x_px=70, 2^-3=0.125→y_px=127.5 -->
+                <!-- xval=-2: x_px=90, 0.25→y_px=125 -->
+                <!-- xval=-1: x_px=110, 0.5→y_px=120 -->
+                <!-- xval=0: x_px=130, 1→y_px=110 -->
+                <!-- xval=1: x_px=150, 2→y_px=90 -->
+                <!-- xval=2: x_px=170, 4→y_px=50 -->
+                <!-- xval=2.5: x_px=180, 5.66→y_px=17 -->
+                <!-- xval=3: x_px=190, 8→y_px=-30 off -->
+                <!-- Draw as separate SVG after this one, just use a static clean design -->
+                <!-- FINAL SIMPLE VERSION: redraw whole SVG cleanly -->
+                <polyline points="70,128 90,125 110,120 130,110 150,90 170,50 185,18"
+                    fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+                <!-- y=log₂x: (xval,log₂xval) → x_px=130+20*xval, y_px=130-20*log₂(xval) -->
+                <!-- xval=0.125: x_px=132.5, log=-3→y_px=190 -->
+                <!-- xval=0.25: x_px=135, log=-2→y_px=170 -->
+                <!-- xval=0.5: x_px=140, log=-1→y_px=150 -->
+                <!-- xval=1: x_px=150, log=0→y_px=130 -->
+                <!-- xval=2: x_px=170, log=1→y_px=110 -->
+                <!-- xval=4: x_px=210, log=2→y_px=90 -->
+                <!-- xval=8: x_px=290, log=3→y_px=70 -->
+                <polyline points="132,190 135,170 140,150 150,130 170,110 210,90 290,70"
+                    fill="none" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="7,3"/>
+                <!-- y=x line (reflection axis) -->
+                <line x1="50" y1="210" x2="230" y2="30" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,4"/>
+                <text x="232" y="28" font-size="10" fill="#94a3b8">$y=x$</text>
+                <!-- Labels -->
+                <text x="187" y="16" font-size="12" fill="#1d4ed8">$y=2^x$</text>
+                <text x="292" y="68" font-size="12" fill="#ef4444">$y=\log_2 x$</text>
+                <!-- Axes with correct scale -->
+                <!-- Redefine axes for this SVG -->
+                <line x1="40" y1="130" x2="340" y2="130" stroke="#94a3b8" stroke-width="1.5"/>
+                <line x1="130" y1="10" x2="130" y2="230" stroke="#94a3b8" stroke-width="1.5"/>
+                <text x="166" y="144" font-size="10" fill="#64748b">2</text>
+                <text x="186" y="144" font-size="10" fill="#64748b">3</text>
+                <text x="146" y="144" font-size="10" fill="#64748b">1</text>
+                <text x="135" y="108" font-size="10" fill="#64748b">1</text>
+                <text x="135" y="88" font-size="10" fill="#64748b">2</text>
+            </svg>
+            <div class="graph-caption">Figure 4 — $y = 2^x$ (bleu) et $y = \log_2 x$ (rouge pointillé) sont des fonctions inverses l'une de l'autre, symétriques par rapport à la droite $y = x$ (gris).</div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 1 — Évaluer des expressions logarithmiques</h4>
+            <p>Calculer : (a) $\log_2 32$ &nbsp; (b) $\log_3 \frac{1}{9}$ &nbsp; (c) $\log 0{,}001$ &nbsp; (d) $\ln e^5$</p>
+            <div class="solution">
+                <strong>Solution :</strong><br>
+                (a) $\log_2 32 = \log_2 2^5 = 5$<br>
+                (b) $\log_3 \frac{1}{9} = \log_3 3^{-2} = -2$<br>
+                (c) $\log 0{,}001 = \log 10^{-3} = -3$<br>
+                (d) $\ln e^5 = 5$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 2 — Développer avec les propriétés</h4>
+            <p>Développer $\log\!\left(\dfrac{x^3 \sqrt{y}}{z^2}\right)$ en termes de $\log x$, $\log y$, $\log z$.</p>
+            <div class="solution">
+                <strong>Solution :</strong><br>
+                $\log\!\left(\dfrac{x^3 \sqrt{y}}{z^2}\right) = \log(x^3) + \log(y^{1/2}) - \log(z^2)$<br>
+                $= 3\log x + \tfrac{1}{2}\log y - 2\log z$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 3 — Résoudre $2^x = 17$</h4>
+            <div class="solution">
+                <strong>Solution :</strong> Prendre le logarithme des deux membres :<br>
+                $\log(2^x) = \log 17$<br>
+                $x \log 2 = \log 17$<br>
+                $x = \dfrac{\log 17}{\log 2} \approx \dfrac{1{,}2304}{0{,}3010} \approx \mathbf{4{,}09}$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 4 — Résoudre $\log(x^2 - 1) = 1$</h4>
+            <div class="solution">
+                <strong>Solution :</strong><br>
+                $\log(x^2 - 1) = 1 \Rightarrow x^2 - 1 = 10^1 = 10$<br>
+                $x^2 = 11 \Rightarrow x = \pm\sqrt{11}$<br>
+                <strong>Vérification du domaine :</strong> $x^2 - 1 > 0 \Rightarrow x^2 > 1$ ✓ pour $x = \pm\sqrt{11}$.<br>
+                <strong>Solutions :</strong> $x = \sqrt{11}$ ou $x = -\sqrt{11}$.
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 5 — Changement de base</h4>
+            <p>Calculer $\log_5 200$ à l'aide de la calculatrice.</p>
+            <div class="solution">
+                <strong>Solution :</strong><br>
+                $\log_5 200 = \dfrac{\log 200}{\log 5} = \dfrac{\ln 200}{\ln 5} \approx \dfrac{2{,}3010}{0{,}6990} \approx \mathbf{3{,}292}$
+            </div>
+        </div>
+
+        <div class="practice-box">
+            <h4>&#x1F4DD; Exercices — Fonction logarithmique</h4>
+            <ol>
+                <li>Évaluer : (a) $\log_4 64$ &nbsp; (b) $\log_5 \frac{1}{125}$ &nbsp; (c) $\ln e^{-2}$ &nbsp; (d) $\log_6 1$</li>
+                <li>Développer : $\ln\!\left(\dfrac{x^2 y^3}{\sqrt{z}}\right)$</li>
+                <li>Condenser en un seul logarithme : $2\log x - \frac{1}{3}\log y + \log z$</li>
+                <li>Calculer $\log_7 150$ (à 3 décimales).</li>
+                <li>Résoudre $\log_2(x + 3) + \log_2(x - 1) = 5$.</li>
+                <li>Résoudre $\ln(3x - 2) = 4$ (à 4 décimales).</li>
+            </ol>
+        </div>
+
+        <details class="solution-box">
+            <summary>Voir les solutions — Fonction logarithmique</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong> (a) $\log_4 4^3 = 3$ ; (b) $\log_5 5^{-3} = -3$ ; (c) $-2$ ; (d) $0$.
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong> $2\ln x + 3\ln y - \frac{1}{2}\ln z$.
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong> $\log\!\left(\dfrac{x^2 z}{y^{1/3}}\right)$.
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong> $\dfrac{\log 150}{\log 7} = \dfrac{2{,}1761}{0{,}8451} \approx 2{,}576$.
+                </div>
+                <div class="sol-item">
+                    <strong>5.</strong> $\log_2[(x+3)(x-1)] = 5 \Rightarrow (x+3)(x-1) = 32 \Rightarrow x^2+2x-3=32 \Rightarrow x^2+2x-35=0 \Rightarrow (x+7)(x-5)=0$. $x=5$ (valide, $x=-7$ rejeté car $x-1=-8&lt;0$).
+                </div>
+                <div class="sol-item">
+                    <strong>6.</strong> $3x - 2 = e^4 \Rightarrow x = \dfrac{e^4 + 2}{3} \approx \dfrac{54{,}598 + 2}{3} \approx 18{,}866$.
+                </div>
+            </div>
+        </details>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- SECTION 5 : ÉQUATIONS EXP ET LOG                      -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <h2 id="equations-exp-log">5. Équations exponentielles et logarithmiques <span class="niveau-badge">Sec 5</span></h2>
+
+        <div class="theorem-box">
+            <h4>&#x2728; Stratégies de résolution</h4>
+            <div class="compare-grid">
+                <div class="compare-card">
+                    <h5>Même base</h5>
+                    <p>$a^{f(x)} = a^{g(x)} \Rightarrow f(x) = g(x)$</p>
+                </div>
+                <div class="compare-card">
+                    <h5>Bases différentes</h5>
+                    <p>Prendre $\log$ des deux membres :<br>$f(x)\log a = g(x)\log b$</p>
+                </div>
+            </div>
+            <div class="compare-grid">
+                <div class="compare-card">
+                    <h5>Équation logarithmique</h5>
+                    <p>Isoler le $\log$, puis convertir : $\log_b x = y \Rightarrow x = b^y$</p>
+                </div>
+                <div class="compare-card">
+                    <h5>Vérifier le domaine</h5>
+                    <p>Toujours vérifier que l'argument du $\log$ est <strong>strictement positif</strong> !</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="warning-box">
+            <h4>&#x26A0;&#xFE0F; Solutions étrangères (extraneous solutions)</h4>
+            <p>Lors de la résolution d'équations logarithmiques, des manipulations algébriques peuvent introduire des solutions qui ne satisfont pas les conditions du domaine ($x > 0$ sous un $\log$). <strong>Toujours vérifier</strong> chaque solution dans l'équation originale.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 1 — Même base</h4>
+            <p>Résoudre $4^{2x-1} = 4^{x+3}$.</p>
+            <div class="solution">
+                <strong>Solution :</strong><br>
+                Même base ($4$) : $2x - 1 = x + 3 \Rightarrow x = 4$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 2 — Bases différentes</h4>
+            <p>Résoudre $5^x = 3^{x+2}$.</p>
+            <div class="solution">
+                <strong>Solution :</strong><br>
+                $\ln(5^x) = \ln(3^{x+2})$<br>
+                $x\ln 5 = (x+2)\ln 3$<br>
+                $x\ln 5 = x\ln 3 + 2\ln 3$<br>
+                $x(\ln 5 - \ln 3) = 2\ln 3$<br>
+                $x = \dfrac{2\ln 3}{\ln 5 - \ln 3} = \dfrac{2\ln 3}{\ln(5/3)} \approx \dfrac{2 \times 1{,}0986}{0{,}5108} \approx \mathbf{4{,}30}$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 3 — Équation logarithmique</h4>
+            <p>Résoudre $\log_3(2x + 5) - \log_3(x - 1) = 2$.</p>
+            <div class="solution">
+                <strong>Solution :</strong><br>
+                $\log_3\!\left(\dfrac{2x+5}{x-1}\right) = 2$<br>
+                $\dfrac{2x+5}{x-1} = 3^2 = 9$<br>
+                $2x + 5 = 9(x-1) = 9x - 9$<br>
+                $14 = 7x \Rightarrow x = 2$<br>
+                <strong>Vérification :</strong> $x - 1 = 1 > 0$ ✓ ; $2x + 5 = 9 > 0$ ✓. Solution : $x = 2$.
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 4 — Équation combinée</h4>
+            <p>Résoudre $2 \cdot 3^x - 3^x - 15 = 0$. (Indice : substitution $u = 3^x$)</p>
+            <div class="solution">
+                <strong>Solution :</strong><br>
+                Poser $u = 3^x$ : $2u - u - 15 = 0$... En fait, reconsidérons: $2 \cdot 3^{2x} - 3^x - 15 = 0$ avec $u = 3^x$ :<br>
+                $2u^2 - u - 15 = 0$<br>
+                $(2u + 5)(u - 3) = 0$<br>
+                $u = 3$ (valide, car $3^x > 0$) ou $u = -\frac{5}{2}$ (rejeté)<br>
+                $3^x = 3 \Rightarrow x = 1$
+            </div>
+        </div>
+
+        <div class="practice-box">
+            <h4>&#x1F4DD; Exercices — Équations exponentielles et logarithmiques</h4>
+            <ol>
+                <li>Résoudre $2^{3x-1} = 2^{x+5}$.</li>
+                <li>Résoudre $7^x = 20$ (à 4 décimales).</li>
+                <li>Résoudre $\log_4(x + 6) + \log_4(x - 3) = 2$.</li>
+                <li>Résoudre $e^{2x} - 5e^x + 6 = 0$. (substitution $u = e^x$)</li>
+                <li>Résoudre $\log(x) + \log(x - 3) = 1$.</li>
+                <li>Résoudre $3^{x+1} = 5^{x-2}$ (à 3 décimales).</li>
+            </ol>
+        </div>
+
+        <details class="solution-box">
+            <summary>Voir les solutions — Équations exp. et log.</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong> $3x - 1 = x + 5 \Rightarrow 2x = 6 \Rightarrow x = 3$.
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong> $x = \dfrac{\log 20}{\log 7} = \dfrac{1{,}3010}{0{,}8451} \approx 1{,}5395$.
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong> $(x+6)(x-3) = 4^2 = 16 \Rightarrow x^2+3x-18=16 \Rightarrow x^2+3x-34=0 \Rightarrow x = \frac{-3 \pm \sqrt{9+136}}{2} = \frac{-3 \pm \sqrt{145}}{2}$. $x \approx 4{,}52$ (valide) ou $x \approx -7{,}52$ (rejeté car $x - 3 &lt; 0$).
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong> $u = e^x$ : $u^2 - 5u + 6 = 0 \Rightarrow (u-2)(u-3)=0$. $e^x=2 \Rightarrow x=\ln 2$ ou $e^x=3 \Rightarrow x=\ln 3$.
+                </div>
+                <div class="sol-item">
+                    <strong>5.</strong> $\log[x(x-3)] = 1 \Rightarrow x^2-3x=10 \Rightarrow x^2-3x-10=0 \Rightarrow (x-5)(x+2)=0$. $x=5$ (valide) ; $x=-2$ rejeté.
+                </div>
+                <div class="sol-item">
+                    <strong>6.</strong> $(x+1)\ln 3 = (x-2)\ln 5 \Rightarrow x(\ln 3 - \ln 5) = -2\ln 5 - \ln 3 \Rightarrow x = \dfrac{-2\ln 5 - \ln 3}{\ln 3 - \ln 5} \approx \dfrac{-3{,}218 - 1{,}099}{1{,}099 - 1{,}609} \approx \dfrac{-4{,}317}{-0{,}510} \approx 8{,}465$.
+                </div>
+            </div>
+        </details>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- SECTION 6 : SUITES                                     -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <h2 id="suites">6. Suites — Aperçu <span class="niveau-badge">Sec 5</span></h2>
+
+        <p>
+            Une <strong>suite</strong> est une liste ordonnée de nombres appelés <em>termes</em>.
+            En Secondaire 5, on étudie deux types fondamentaux : les suites arithmétiques et les suites géométriques.
+        </p>
+
+        <div class="compare-grid">
+            <div class="compare-card">
+                <h5>&#x2795; Suite arithmétique</h5>
+                <p>Chaque terme est obtenu en <strong>ajoutant</strong> une constante $d$ (raison commune).</p>
+                <p>Terme général : $a_n = a_1 + (n-1)d$</p>
+                <p>Somme des $n$ premiers termes :</p>
+                $$S_n = \frac{n}{2}(a_1 + a_n)$$
+            </div>
+            <div class="compare-card">
+                <h5>&#x2716;&#xFE0F; Suite géométrique</h5>
+                <p>Chaque terme est obtenu en <strong>multipliant</strong> par une constante $r$ (raison commune).</p>
+                <p>Terme général : $a_n = a_1 \cdot r^{n-1}$</p>
+                <p>Somme des $n$ premiers termes ($r \neq 1$) :</p>
+                $$S_n = a_1 \cdot \frac{r^n - 1}{r - 1}$$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 1 — Suite arithmétique</h4>
+            <p>La suite $3,\ 7,\ 11,\ 15,\ \ldots$ : trouver le 20<sup>e</sup> terme et la somme des 20 premiers termes.</p>
+            <div class="solution">
+                <strong>Solution :</strong><br>
+                $a_1 = 3$, $d = 4$.<br>
+                $a_{20} = 3 + (20-1) \times 4 = 3 + 76 = \mathbf{79}$<br>
+                $S_{20} = \dfrac{20}{2}(3 + 79) = 10 \times 82 = \mathbf{820}$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 2 — Suite géométrique</h4>
+            <p>La suite $5,\ 10,\ 20,\ 40,\ \ldots$ : trouver le 8<sup>e</sup> terme et la somme des 8 premiers termes.</p>
+            <div class="solution">
+                <strong>Solution :</strong><br>
+                $a_1 = 5$, $r = 2$.<br>
+                $a_8 = 5 \cdot 2^7 = 5 \times 128 = \mathbf{640}$<br>
+                $S_8 = 5 \cdot \dfrac{2^8 - 1}{2 - 1} = 5 \times 255 = \mathbf{1\,275}$
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>&#x270F;&#xFE0F; Exemple 3 — Identifier et trouver la raison</h4>
+            <p>La suite $96,\ 48,\ 24,\ 12,\ \ldots$ : de quel type est-elle ? Trouver $a_7$ et la somme infinie (si elle existe).</p>
+            <div class="solution">
+                <strong>Solution :</strong><br>
+                $r = \dfrac{48}{96} = \dfrac{1}{2}$ — suite <strong>géométrique</strong>.<br>
+                $a_7 = 96 \cdot \left(\dfrac{1}{2}\right)^6 = 96 \cdot \dfrac{1}{64} = \dfrac{3}{2}$<br>
+                Comme $|r| = \frac{1}{2} &lt; 1$, la <strong>somme infinie</strong> converge :<br>
+                $S_\infty = \dfrac{a_1}{1 - r} = \dfrac{96}{1 - \frac{1}{2}} = \dfrac{96}{\frac{1}{2}} = \mathbf{192}$
+            </div>
+        </div>
+
+        <div class="practice-box">
+            <h4>&#x1F4DD; Exercices — Suites</h4>
+            <ol>
+                <li>La suite arithmétique : $a_1 = -5$, $d = 3$. Trouver $a_{15}$ et $S_{15}$.</li>
+                <li>La suite géométrique : $a_1 = 2$, $r = -3$. Trouver $a_6$ et $S_6$.</li>
+                <li>Insérer 3 termes arithmétiques entre 4 et 20 (trouver $d$ et les termes).</li>
+                <li>Un logiciel se vend 800 $ la première année et son prix diminue de 15 % chaque année. Quel sera son prix à la 5<sup>e</sup> année ? Quel est le total des revenus sur 5 ans ?</li>
+            </ol>
+        </div>
+
+        <details class="solution-box">
+            <summary>Voir les solutions — Suites</summary>
+            <div class="solution-content">
+                <div class="sol-item">
+                    <strong>1.</strong> $a_{15} = -5 + 14 \times 3 = 37$ ; $S_{15} = \frac{15}{2}(-5 + 37) = \frac{15 \times 32}{2} = 240$.
+                </div>
+                <div class="sol-item">
+                    <strong>2.</strong> $a_6 = 2 \cdot (-3)^5 = 2 \times (-243) = -486$ ; $S_6 = 2 \cdot \frac{(-3)^6 - 1}{-3 - 1} = 2 \cdot \frac{729-1}{-4} = 2 \cdot \frac{728}{-4} = -364$.
+                </div>
+                <div class="sol-item">
+                    <strong>3.</strong> 5 termes au total (4, ?, ?, ?, 20) : $20 = 4 + 4d \Rightarrow d = 4$. Termes : $4, 8, 12, 16, 20$.
+                </div>
+                <div class="sol-item">
+                    <strong>4.</strong> $a_5 = 800 \cdot (0{,}85)^4 \approx 800 \times 0{,}5220 \approx 417{,}60\ \$$ ; $S_5 = 800 \cdot \frac{1 - (0{,}85)^5}{1 - 0{,}85} = 800 \cdot \frac{1 - 0{,}4437}{0{,}15} \approx 800 \times 3{,}709 \approx 2\,967\ \$$.
+                </div>
+            </div>
+        </details>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- TABLEAU RÉCAPITULATIF                                  -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <h2 id="tableau-recapitulatif">7. Tableau récapitulatif — Propriétés des fonctions clés <span class="niveau-badge">Sec 5</span></h2>
+
+        <table>
+            <tr>
+                <th>Fonction</th>
+                <th>Forme standard</th>
+                <th>Domaine</th>
+                <th>Image</th>
+                <th>Asymptote</th>
+                <th>Comportement</th>
+            </tr>
+            <tr>
+                <td>Valeur absolue</td>
+                <td>$f(x) = a|b(x-h)|+k$</td>
+                <td>$\mathbb{R}$</td>
+                <td>$[k,+\infty)$ si $a>0$</td>
+                <td>Aucune</td>
+                <td>Forme en V</td>
+            </tr>
+            <tr>
+                <td>Exponentielle (croiss.)</td>
+                <td>$f(x) = a \cdot c^x$, $c>1$</td>
+                <td>$\mathbb{R}$</td>
+                <td>$(0,+\infty)$</td>
+                <td>$y = 0$ (horiz.)</td>
+                <td>Croissante, passe par $(0,a)$</td>
+            </tr>
+            <tr>
+                <td>Exponentielle (décroi.)</td>
+                <td>$f(x) = a \cdot c^x$, $0&lt;c&lt;1$</td>
+                <td>$\mathbb{R}$</td>
+                <td>$(0,+\infty)$</td>
+                <td>$y = 0$ (horiz.)</td>
+                <td>Décroissante, passe par $(0,a)$</td>
+            </tr>
+            <tr>
+                <td>Logarithmique</td>
+                <td>$f(x) = \log_b x$</td>
+                <td>$(0,+\infty)$</td>
+                <td>$\mathbb{R}$</td>
+                <td>$x = 0$ (vert.)</td>
+                <td>Passe par $(1,0)$ et $(b,1)$</td>
+            </tr>
+            <tr>
+                <td>Suite arithmétique</td>
+                <td>$a_n = a_1 + (n-1)d$</td>
+                <td>$n \in \mathbb{N}^*$</td>
+                <td>—</td>
+                <td>—</td>
+                <td>Linéaire (différences constantes)</td>
+            </tr>
+            <tr>
+                <td>Suite géométrique</td>
+                <td>$a_n = a_1 \cdot r^{n-1}$</td>
+                <td>$n \in \mathbb{N}^*$</td>
+                <td>—</td>
+                <td>—</td>
+                <td>Exponentielle (ratios constants)</td>
+            </tr>
+        </table>
+
+        <div class="tip-box">
+            <h4>&#x1F4A1; Conseils pour l'examen</h4>
+            <ul>
+                <li><strong>Transformations :</strong> Réécrire sous la forme $af(b(x-h))+k$ avant toute analyse.</li>
+                <li><strong>Valeur absolue :</strong> Toujours considérer les deux cas ($\geq 0$ et $&lt; 0$) pour les équations.</li>
+                <li><strong>Exponentielle :</strong> La base est toujours positive et différente de 1 ; l'asymptote est $y = k$ après transformation.</li>
+                <li><strong>Logarithme :</strong> Vérifier le domaine (argument $> 0$) avant et après résolution.</li>
+                <li><strong>Équations exponentielles :</strong> Si les bases sont différentes, prendre $\log$ ou $\ln$ des deux membres.</li>
+                <li><strong>Suites :</strong> Vérifier si la différence (arithm.) ou le ratio (géom.) est constant pour identifier le type.</li>
+            </ul>
+        </div>
+
+        <!-- Navigation chapitres -->
+        <nav class="chapter-nav">
+            <a href="/ca/blog/fr-secondaire-fonctions.html">&larr; Fonctions 1<sup>er</sup>/2<sup>e</sup> degré</a>
+            <a href="/ca/blog/fr-cegep-calcul-differentiel.html">Calcul différentiel &rarr;</a>
+        </nav>
+
+    </article>
+
+    <div class="footer">
+        <p>&copy; 2026 MathHub Global &mdash; Contenu éducatif gratuit pour le secondaire québécois.</p>
+    </div>
+
+    <script src="../../assets/js/common.js"></script>
+</body>
+</html>

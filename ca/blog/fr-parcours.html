@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcours Mathématiques — Secondaire à Cégep | MathHub Canada</title>
+    <meta name="description" content="Parcours complet en mathématiques du Secondaire 1 au Cégep. Cours gratuits en français pour le système scolaire québécois : arithmétique, algèbre, géométrie, trigonométrie, fonctions, calcul différentiel et intégral, algèbre linéaire.">
+    <meta name="keywords" content="mathématiques secondaire québec, cégep mathématiques, calcul différentiel, algèbre linéaire, cours en ligne gratuit, PFEQ">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/ca/blog/fr-parcours.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mathhub.io/ca/blog/fr-parcours.html">
+    <meta property="og:title" content="Parcours Mathématiques — Secondaire à Cégep">
+    <meta property="og:description" content="Cours complets de mathématiques du Sec 1 au Cégep, conformes au PFEQ québécois.">
+    <meta property="og:site_name" content="MathHub Global">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+
+    <link rel="stylesheet" href="../../assets/css/common.css">
+
+    <style>
+        /* ── Hero ── */
+        .parcours-hero {
+            background: linear-gradient(135deg, #1e3a5f 0%, #1d4ed8 60%, #0891b2 100%);
+            color: white;
+            padding: 60px 20px 50px;
+            text-align: center;
+        }
+        .parcours-hero h1 { font-size: 2.4em; margin-bottom: 10px; }
+        .parcours-hero p { opacity: .9; font-size: 1.1em; max-width: 640px; margin: 0 auto 20px; }
+        .hero-stats { display: flex; justify-content: center; gap: 36px; flex-wrap: wrap; margin-top: 24px; }
+        .hero-stat { text-align: center; }
+        .hero-stat .num { font-size: 2em; font-weight: 800; display: block; }
+        .hero-stat .lbl { font-size: .85em; opacity: .8; }
+
+        /* ── Layout ── */
+        .parcours-content { max-width: 1100px; margin: 0 auto; padding: 48px 20px; }
+
+        /* ── Section label ── */
+        .level-label {
+            font-size: 1.3em; font-weight: 800; color: #1e3a5f;
+            margin: 44px 0 18px; padding-bottom: 10px;
+            border-bottom: 3px solid #e2e8f0;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .level-pill {
+            font-size: .7em; font-weight: 700; padding: 4px 12px;
+            border-radius: 20px; color: white;
+        }
+        .pill-sec { background: #1d4ed8; }
+        .pill-cegep { background: #0e7490; }
+
+        /* ── Course grid ── */
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 12px;
+        }
+
+        /* ── Course card ── */
+        .course-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,.08);
+            transition: transform .2s, box-shadow .2s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+        .course-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.14); }
+
+        .card-header {
+            padding: 22px 20px 16px;
+            color: white;
+            position: relative;
+        }
+        .card-num {
+            font-size: 2.4em; font-weight: 900; opacity: .22;
+            position: absolute; top: 12px; right: 16px;
+            line-height: 1;
+        }
+        .card-level {
+            font-size: .72em; font-weight: 700;
+            background: rgba(255,255,255,.25);
+            padding: 3px 10px; border-radius: 12px;
+            display: inline-block; margin-bottom: 8px;
+        }
+        .card-header h3 { margin: 0 0 4px; font-size: 1.15em; line-height: 1.35; }
+        .card-sub { font-size: .8em; opacity: .85; }
+
+        .card-body { padding: 16px 20px; flex: 1; }
+        .card-desc { color: #475569; font-size: .88em; line-height: 1.6; margin-bottom: 14px; }
+
+        .card-topics { list-style: none; margin: 0 0 14px; padding: 0; }
+        .card-topics li {
+            font-size: .8em; color: #64748b;
+            padding: 3px 0;
+            display: flex; align-items: flex-start; gap: 6px;
+        }
+        .card-topics li::before { content: "›"; color: #94a3b8; flex-shrink: 0; }
+
+        .card-footer {
+            padding: 12px 20px;
+            border-top: 1px solid #f1f5f9;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .card-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+        .tag { background: #eff6ff; color: #2563eb; padding: 2px 9px; border-radius: 10px; font-size: .75em; font-weight: 600; }
+        .card-arrow { color: #94a3b8; font-size: 1.2em; }
+
+        /* ── Path connector ── */
+        .path-connector {
+            text-align: center; color: #94a3b8;
+            font-size: 1.6em; margin: 6px 0;
+            letter-spacing: 4px;
+        }
+
+        /* ── Cégep divider ── */
+        .cegep-divider {
+            background: linear-gradient(90deg, #0e7490, #0891b2);
+            color: white; border-radius: 12px;
+            padding: 18px 24px; margin: 40px 0 24px;
+            display: flex; align-items: center; gap: 14px;
+        }
+        .cegep-divider h3 { margin: 0; font-size: 1.1em; }
+        .cegep-divider p { margin: 4px 0 0; font-size: .85em; opacity: .85; }
+
+        /* ── Timeline view (optional) ── */
+        .timeline-note {
+            background: #f8fafc; border: 1px solid #e2e8f0;
+            border-radius: 12px; padding: 20px 24px;
+            margin: 40px 0; font-size: .9em; color: #475569;
+        }
+        .timeline-note strong { color: #1e3a5f; }
+
+        /* ── CTA ── */
+        .cta-box {
+            background: linear-gradient(135deg, #1e3a5f, #d62828);
+            border-radius: 16px; padding: 36px 32px;
+            color: white; text-align: center; margin: 48px 0 0;
+        }
+        .cta-box h2 { margin: 0 0 8px; font-size: 1.6em; }
+        .cta-box p { opacity: .9; margin-bottom: 22px; }
+        .cta-btn {
+            display: inline-block; background: #f59e0b; color: white;
+            padding: 13px 32px; border-radius: 10px; font-weight: 700;
+            text-decoration: none; font-size: 1em;
+            transition: background .2s;
+        }
+        .cta-btn:hover { background: #d97706; }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Parcours Mathématiques — Secondaire à Cégep",
+      "description": "Cours complets de mathématiques du Secondaire 1 au Cégep, conformes au PFEQ québécois.",
+      "provider": { "@type": "Organization", "name": "MathHub Global", "url": "https://mathhub.io" },
+      "educationalLevel": "Secondaire, Cégep",
+      "inLanguage": "fr-CA",
+      "url": "https://mathhub.io/ca/blog/fr-parcours.html"
+    }
+    </script>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/" class="active">CA</a>
+            <a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="parcours-hero">
+        <h1>🇨🇦 Parcours Mathématiques</h1>
+        <p>Du Secondaire 1 au Cégep — un parcours continu, gratuit, en français, conforme au PFEQ québécois</p>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <span class="num">10</span>
+                <span class="lbl">Manuels</span>
+            </div>
+            <div class="hero-stat">
+                <span class="num">7</span>
+                <span class="lbl">Années</span>
+            </div>
+            <div class="hero-stat">
+                <span class="num">100+</span>
+                <span class="lbl">Exemples résolus</span>
+            </div>
+            <div class="hero-stat">
+                <span class="num">300+</span>
+                <span class="lbl">Exercices</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="parcours-content">
+        <!-- Breadcrumb -->
+        <div style="font-size:.85em;color:#64748b;margin-bottom:28px;">
+            <a href="/ca/" style="color:#667eea;text-decoration:none;">CA</a> &rsaquo;
+            <a href="/ca/blog/" style="color:#667eea;text-decoration:none;">Blog</a> &rsaquo;
+            Parcours
+        </div>
+
+        <!-- Intro note -->
+        <div class="timeline-note">
+            <strong>Comment utiliser ce parcours ?</strong><br>
+            Chaque manuel est autonome — vous pouvez commencer où vous en êtes. Les liens <strong>Chapitre précédent / suivant</strong> en bas de chaque page guident la progression. Tous les manuels incluent des <em>exemples résolus pas à pas</em>, des <em>exercices</em> et des <em>solutions complètes</em> masquables.
+        </div>
+
+        <!-- SECONDAIRE section -->
+        <div class="level-label">
+            📘 Secondaire
+            <span class="level-pill pill-sec">Sec 1 → Sec 5</span>
+        </div>
+
+        <div class="course-grid">
+
+            <!-- 1. Arithmétique -->
+            <a href="fr-sec1-arithmetique.html" class="course-card">
+                <div class="card-header" style="background: linear-gradient(135deg,#1d4ed8,#3b82f6);">
+                    <span class="card-num">01</span>
+                    <div class="card-level">Sec 1 – 2</div>
+                    <h3>Arithmétique &amp; Nombres</h3>
+                    <div class="card-sub">Les fondements du raisonnement mathématique</div>
+                </div>
+                <div class="card-body">
+                    <p class="card-desc">Ordre des opérations, fractions, décimaux, pourcentages, exposants et racines — les briques essentielles.</p>
+                    <ul class="card-topics">
+                        <li>PÉDMAS et priorités</li>
+                        <li>Fractions et décimaux</li>
+                        <li>Rapports, proportions, pourcentages</li>
+                        <li>Exposants et notation scientifique</li>
+                        <li>Racines carrées et cubiques</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <div class="card-tags"><span class="tag">Sec 1</span><span class="tag">Sec 2</span></div>
+                    <span class="card-arrow">›</span>
+                </div>
+            </a>
+
+            <!-- 2. Algèbre -->
+            <a href="fr-secondaire-algebre.html" class="course-card">
+                <div class="card-header" style="background: linear-gradient(135deg,#2563eb,#4f46e5);">
+                    <span class="card-num">02</span>
+                    <div class="card-level">Sec 1 – 4</div>
+                    <h3>Algèbre</h3>
+                    <div class="card-sub">Variables, équations et systèmes</div>
+                </div>
+                <div class="card-body">
+                    <p class="card-desc">Des expressions algébriques simples aux systèmes d'équations et aux inégalités.</p>
+                    <ul class="card-topics">
+                        <li>Expressions et polynômes</li>
+                        <li>Multiplication (FOIL, identités)</li>
+                        <li>Factorisation complète</li>
+                        <li>Équations du 1er degré</li>
+                        <li>Systèmes d'équations (substitution, élimination)</li>
+                        <li>Inégalités</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <div class="card-tags"><span class="tag">Sec 1</span><span class="tag">Sec 2</span><span class="tag">Sec 3</span><span class="tag">Sec 4</span></div>
+                    <span class="card-arrow">›</span>
+                </div>
+            </a>
+
+            <!-- 3. Géométrie -->
+            <a href="fr-sec2-geometrie.html" class="course-card">
+                <div class="card-header" style="background: linear-gradient(135deg,#0891b2,#06b6d4);">
+                    <span class="card-num">03</span>
+                    <div class="card-level">Sec 1 – 4</div>
+                    <h3>Géométrie</h3>
+                    <div class="card-sub">Formes, mesures et démonstrations</div>
+                </div>
+                <div class="card-body">
+                    <p class="card-desc">Angles, triangles, quadrilatères, théorème de Pythagore, congruence et similitude, volumes.</p>
+                    <ul class="card-topics">
+                        <li>Angles et droites parallèles</li>
+                        <li>Triangles (propriétés, somme des angles)</li>
+                        <li>Quadrilatères</li>
+                        <li>Théorème de Pythagore</li>
+                        <li>Congruence et similitude</li>
+                        <li>Périmètres, aires, volumes</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <div class="card-tags"><span class="tag">Sec 1</span><span class="tag">Sec 2</span><span class="tag">Sec 3</span><span class="tag">Sec 4</span></div>
+                    <span class="card-arrow">›</span>
+                </div>
+            </a>
+
+            <!-- 4. Fonctions 1er et 2e degré -->
+            <a href="fr-secondaire-fonctions.html" class="course-card">
+                <div class="card-header" style="background: linear-gradient(135deg,#e11d48,#f43f5e);">
+                    <span class="card-num">04</span>
+                    <div class="card-level">Sec 4</div>
+                    <h3>Fonctions 1er et 2e degré</h3>
+                    <div class="card-sub">Droites, paraboles et discriminant</div>
+                </div>
+                <div class="card-body">
+                    <p class="card-desc">Fonctions linéaires et quadratiques, forme canonique, zéros, axe de symétrie.</p>
+                    <ul class="card-topics">
+                        <li>Fonctions linéaires (pente, ordonnée à l'origine)</li>
+                        <li>Fonctions quadratiques</li>
+                        <li>Forme canonique et sommet</li>
+                        <li>Discriminant et zéros</li>
+                        <li>Transformations (translation, réflexion, dilatation)</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <div class="card-tags"><span class="tag">Sec 4</span><span class="tag">Fonctions</span></div>
+                    <span class="card-arrow">›</span>
+                </div>
+            </a>
+
+            <!-- 5. Trigonométrie -->
+            <a href="fr-sec4-trigonometrie.html" class="course-card">
+                <div class="card-header" style="background: linear-gradient(135deg,#7c3aed,#8b5cf6);">
+                    <span class="card-num">05</span>
+                    <div class="card-level">Sec 4 – 5</div>
+                    <h3>Trigonométrie</h3>
+                    <div class="card-sub">Angles, cercle unité et lois des triangles</div>
+                </div>
+                <div class="card-body">
+                    <p class="card-desc">SOH-CAH-TOA, cercle trigonométrique, identités fondamentales, loi des sinus et des cosinus.</p>
+                    <ul class="card-topics">
+                        <li>Rapports trigonométriques (SOH-CAH-TOA)</li>
+                        <li>Cercle trigonométrique</li>
+                        <li>Identités fondamentales</li>
+                        <li>Loi des sinus</li>
+                        <li>Loi des cosinus</li>
+                        <li>Applications (navigation, arpentage)</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <div class="card-tags"><span class="tag">Sec 4</span><span class="tag">Sec 5</span><span class="tag">Trig</span></div>
+                    <span class="card-arrow">›</span>
+                </div>
+            </a>
+
+            <!-- 6. Fonctions avancées -->
+            <a href="fr-sec5-fonctions-avancees.html" class="course-card">
+                <div class="card-header" style="background: linear-gradient(135deg,#dc2626,#ef4444);">
+                    <span class="card-num">06</span>
+                    <div class="card-level">Sec 5</div>
+                    <h3>Fonctions avancées</h3>
+                    <div class="card-sub">Exponentielle, logarithmique, valeur absolue</div>
+                </div>
+                <div class="card-body">
+                    <p class="card-desc">Transformations de fonctions, fonction valeur absolue, exponentielle et logarithmique.</p>
+                    <ul class="card-topics">
+                        <li>Transformations (translations, réflexions, dilatations)</li>
+                        <li>Fonction valeur absolue</li>
+                        <li>Fonctions exponentielles</li>
+                        <li>Fonctions logarithmiques</li>
+                        <li>Équations exponentielles et logarithmiques</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <div class="card-tags"><span class="tag">Sec 5</span><span class="tag">Exp/Log</span></div>
+                    <span class="card-arrow">›</span>
+                </div>
+            </a>
+
+            <!-- 7. Statistiques et probabilités -->
+            <a href="fr-secondaire-statistiques.html" class="course-card">
+                <div class="card-header" style="background: linear-gradient(135deg,#059669,#10b981);">
+                    <span class="card-num">07</span>
+                    <div class="card-level">Sec 4 – 5</div>
+                    <h3>Statistiques et probabilités</h3>
+                    <div class="card-sub">Données, distributions et risques</div>
+                </div>
+                <div class="card-body">
+                    <p class="card-desc">Mesures de tendance centrale, dispersion, corrélation, probabilités et distributions.</p>
+                    <ul class="card-topics">
+                        <li>Moyenne, médiane, mode</li>
+                        <li>Écart-type et variance</li>
+                        <li>Corrélation et régression</li>
+                        <li>Probabilités classiques et conditionnelles</li>
+                        <li>Distributions</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <div class="card-tags"><span class="tag">Sec 4</span><span class="tag">Sec 5</span><span class="tag">Stats</span></div>
+                    <span class="card-arrow">›</span>
+                </div>
+            </a>
+
+            <!-- 8. Suites et combinatoire -->
+            <a href="fr-sec5-suites-combinatoire.html" class="course-card">
+                <div class="card-header" style="background: linear-gradient(135deg,#d97706,#f59e0b);">
+                    <span class="card-num">08</span>
+                    <div class="card-level">Sec 5</div>
+                    <h3>Suites et dénombrement</h3>
+                    <div class="card-sub">Suites, permutations, combinaisons</div>
+                </div>
+                <div class="card-body">
+                    <p class="card-desc">Suites arithmétiques et géométriques, factorielles, permutations, combinaisons, triangle de Pascal.</p>
+                    <ul class="card-topics">
+                        <li>Suites arithmétiques et leurs sommes</li>
+                        <li>Suites géométriques (finies et infinies)</li>
+                        <li>Principe fondamental du dénombrement</li>
+                        <li>Permutations (avec et sans répétition)</li>
+                        <li>Combinaisons — $\binom{n}{r}$</li>
+                        <li>Triangle de Pascal, binôme de Newton</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <div class="card-tags"><span class="tag">Sec 5</span><span class="tag">Combinatoire</span></div>
+                    <span class="card-arrow">›</span>
+                </div>
+            </a>
+
+        </div><!-- end course-grid Secondaire -->
+
+        <!-- Divider: Cégep -->
+        <div class="cegep-divider">
+            <div style="font-size:2em;">🎓</div>
+            <div>
+                <h3>Passage au Cégep — Sciences de la nature</h3>
+                <p>Les trois cours de mathématiques obligatoires du programme de Sciences de la nature (200.B0) au Cégep québécois.</p>
+            </div>
+        </div>
+
+        <div class="course-grid">
+
+            <!-- 9. Calcul différentiel -->
+            <a href="fr-cegep-calcul-differentiel.html" class="course-card">
+                <div class="card-header" style="background: linear-gradient(135deg,#0e7490,#0891b2);">
+                    <span class="card-num">09</span>
+                    <div class="card-level">Cégep — 201-NYA</div>
+                    <h3>Calcul différentiel</h3>
+                    <div class="card-sub">Limites, dérivées et optimisation</div>
+                </div>
+                <div class="card-body">
+                    <p class="card-desc">Limites, continuité, définition de la dérivée, règles de dérivation, et applications (optimisation, analyse de fonctions).</p>
+                    <ul class="card-topics">
+                        <li>Limites et continuité</li>
+                        <li>Définition de la dérivée (taux de variation)</li>
+                        <li>Règles de dérivation (produit, quotient, chaîne)</li>
+                        <li>Dérivées d'ordre supérieur, concavité</li>
+                        <li>Optimisation (problèmes appliqués)</li>
+                        <li>Analyse complète d'une fonction</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <div class="card-tags"><span class="tag">Cégep</span><span class="tag">201-NYA</span></div>
+                    <span class="card-arrow">›</span>
+                </div>
+            </a>
+
+            <!-- 10. Calcul intégral -->
+            <a href="fr-cegep-calcul-integral.html" class="course-card">
+                <div class="card-header" style="background: linear-gradient(135deg,#0f766e,#14b8a6);">
+                    <span class="card-num">10</span>
+                    <div class="card-level">Cégep — 201-NYB</div>
+                    <h3>Calcul intégral</h3>
+                    <div class="card-sub">Antidérivées, TFC et applications</div>
+                </div>
+                <div class="card-body">
+                    <p class="card-desc">Intégrale indéfinie, théorème fondamental du calcul, techniques d'intégration, aires, volumes et équations différentielles.</p>
+                    <ul class="card-topics">
+                        <li>Antidérivées et intégrale indéfinie</li>
+                        <li>Théorème fondamental du calcul (TFC)</li>
+                        <li>Substitution, intégration par parties</li>
+                        <li>Aire entre courbes</li>
+                        <li>Volumes de révolution</li>
+                        <li>Équations différentielles (introduction)</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <div class="card-tags"><span class="tag">Cégep</span><span class="tag">201-NYB</span></div>
+                    <span class="card-arrow">›</span>
+                </div>
+            </a>
+
+            <!-- 11. Algèbre linéaire -->
+            <a href="fr-cegep-algebre-lineaire.html" class="course-card">
+                <div class="card-header" style="background: linear-gradient(135deg,#1e40af,#2563eb);">
+                    <span class="card-num">11</span>
+                    <div class="card-level">Cégep — 201-NYC</div>
+                    <h3>Algèbre linéaire</h3>
+                    <div class="card-sub">Vecteurs, matrices et transformations</div>
+                </div>
+                <div class="card-body">
+                    <p class="card-desc">Vecteurs dans $\mathbb{R}^2$ et $\mathbb{R}^3$, matrices, déterminants, élimination de Gauss-Jordan et transformations linéaires.</p>
+                    <ul class="card-topics">
+                        <li>Vecteurs (addition, produit scalaire, produit vectoriel)</li>
+                        <li>Matrices et opérations</li>
+                        <li>Déterminants et règle de Cramer</li>
+                        <li>Élimination de Gauss-Jordan (REF/RREF)</li>
+                        <li>Matrice inverse</li>
+                        <li>Transformations linéaires</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <div class="card-tags"><span class="tag">Cégep</span><span class="tag">201-NYC</span></div>
+                    <span class="card-arrow">›</span>
+                </div>
+            </a>
+
+        </div><!-- end course-grid Cégep -->
+
+        <!-- MathJax reminder -->
+        <div class="timeline-note" style="margin-top:40px;">
+            <strong>🔢 Toutes les formules sont interactives.</strong>
+            Les équations mathématiques sur ces pages sont rendues par MathJax 3. Si les formules ne s'affichent pas correctement, actualisez la page ou vérifiez que JavaScript est activé.
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-box">
+            <h2>📬 Restez informé</h2>
+            <p>Nouvelles ressources, dates d'examens IB &amp; AP, conseils pour Gauss et AMC — chaque lundi dans votre boîte mail.</p>
+            <a href="index.html" class="cta-btn">Voir tous les articles →</a>
+        </div>
+
+    </div><!-- end parcours-content -->
+
+    <div class="footer"><p>&copy; 2026 MathHub Global. Tous droits réservés.</p></div>
+
+    <script src="../../assets/js/common.js"></script>
+    <script>
+    // Render MathJax for inline math in card topics
+    window.MathJax = {
+        tex: { inlineMath: [['$','$'],['\\(','\\)']] },
+        svg: { fontCache: 'global' }
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</body>
+</html>
