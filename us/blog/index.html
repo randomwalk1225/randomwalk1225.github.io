@@ -51,6 +51,14 @@
         .nl-perks { display:flex; justify-content:center; gap:20px; margin-top:14px; flex-wrap:wrap; font-size:.85em; opacity:.85; }
         .toast { position:fixed; bottom:24px; right:24px; background:#1e3a5f; color:white; padding:12px 20px; border-radius:10px; opacity:0; transition:opacity .3s; z-index:999; pointer-events:none; }
         .toast.show { opacity:1; }
+        .yt-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:16px; margin-bottom:32px; }
+        .yt-card { background:white; border-radius:12px; padding:18px; box-shadow:0 2px 8px rgba(0,0,0,.08); text-decoration:none; color:inherit; display:flex; flex-direction:column; gap:10px; transition:transform .2s,box-shadow .2s; border-left:4px solid #ff0000; }
+        .yt-card:hover { transform:translateY(-3px); box-shadow:0 6px 16px rgba(0,0,0,.12); }
+        .yt-top { display:flex; align-items:center; gap:12px; }
+        .yt-icon { width:40px; height:40px; background:#ff0000; border-radius:8px; display:flex; align-items:center; justify-content:center; color:white; font-size:1.1em; flex-shrink:0; }
+        .yt-name { font-weight:700; color:#1e293b; font-size:.95em; line-height:1.3; }
+        .yt-desc { color:#64748b; font-size:.85em; line-height:1.5; }
+        .yt-badge { background:#fff1f2; color:#dc2626; font-size:.75em; font-weight:600; padding:2px 8px; border-radius:10px; display:inline-block; width:fit-content; }
     </style>
 </head>
 <body>
@@ -78,7 +86,7 @@
 
         <h2 class="section-title">📅 Weekly Education News</h2>
         <div class="posts-grid">
-            <a href="weekly-news-2026-03-03.html" class="post-card">
+            <a href="/us/blog/weekly-news-2026-03-03.html" class="post-card">
                 <div class="post-card-header">
                     <div class="post-badge">📰 Weekly News</div>
                     <h2>AP Exam Registration Deadlines + AMC 10/12 Results</h2>
@@ -93,7 +101,7 @@
 
         <h2 class="section-title">📚 AP Calculus BC</h2>
         <div class="posts-grid">
-            <a href="../../blog/ap-calculus-limits.html" class="post-card">
+            <a href="/blog/ap-calculus-limits.html" class="post-card">
                 <div class="post-card-header">
                     <div class="post-badge">AP Calculus BC</div>
                     <h2>Limits &amp; Continuity</h2>
@@ -104,7 +112,7 @@
                     <div class="post-tags"><span class="tag">Limits</span><span class="tag">AP BC</span></div>
                 </div>
             </a>
-            <a href="../../blog/ap-calculus-series.html" class="post-card">
+            <a href="/blog/ap-calculus-series.html" class="post-card">
                 <div class="post-card-header">
                     <div class="post-badge">AP Calculus BC</div>
                     <h2>Series &amp; Convergence</h2>
@@ -119,7 +127,7 @@
 
         <h2 class="section-title">📊 AP Statistics</h2>
         <div class="posts-grid">
-            <a href="../../blog/ap-statistics-inference.html" class="post-card">
+            <a href="/blog/ap-statistics-inference.html" class="post-card">
                 <div class="post-card-header" style="background:#0f766e;">
                     <div class="post-badge">AP Statistics</div>
                     <h2>Inference &amp; Hypothesis Testing</h2>
@@ -134,7 +142,7 @@
 
         <h2 class="section-title">🏆 Math Competitions (AMC · AIME)</h2>
         <div class="posts-grid">
-            <a href="../../blog/advanced-number-theory.html" class="post-card">
+            <a href="/blog/advanced-number-theory.html" class="post-card">
                 <div class="post-card-header" style="background:#7c3aed;">
                     <div class="post-badge">AMC / AIME</div>
                     <h2>Number Theory Essentials</h2>
@@ -144,6 +152,40 @@
                     <p class="post-desc">Modular arithmetic, Euler's theorem, Fermat's little theorem — must-know for AMC 12 and AIME.</p>
                     <div class="post-tags"><span class="tag">AMC</span><span class="tag">AIME</span><span class="tag">Number Theory</span></div>
                 </div>
+            </a>
+        </div>
+
+        <h2 class="section-title">▶ Recommended YouTube Channels</h2>
+        <div class="yt-grid">
+            <a href="https://www.youtube.com/@3blue1brown" target="_blank" rel="noopener" class="yt-card">
+                <div class="yt-top"><div class="yt-icon">▶</div><div class="yt-name">3Blue1Brown</div></div>
+                <div class="yt-desc">Visual explanations of calculus, linear algebra, and beyond. Perfect for building deep intuition.</div>
+                <span class="yt-badge">AP Calc · Conceptual</span>
+            </a>
+            <a href="https://www.youtube.com/@khanacademy" target="_blank" rel="noopener" class="yt-card">
+                <div class="yt-top"><div class="yt-icon">▶</div><div class="yt-name">Khan Academy</div></div>
+                <div class="yt-desc">Free AP Calculus AB/BC, AP Statistics, and SAT Math complete video courses with practice.</div>
+                <span class="yt-badge">AP · SAT · Free</span>
+            </a>
+            <a href="https://www.youtube.com/@PatrickJMT" target="_blank" rel="noopener" class="yt-card">
+                <div class="yt-top"><div class="yt-icon">▶</div><div class="yt-name">PatrickJMT</div></div>
+                <div class="yt-desc">Clear, no-frills worked examples for calculus and algebra. Great for AP Calc problem drills.</div>
+                <span class="yt-badge">AP Calc · Worked Examples</span>
+            </a>
+            <a href="https://www.youtube.com/@ArtofProblemSolving" target="_blank" rel="noopener" class="yt-card">
+                <div class="yt-top"><div class="yt-icon">▶</div><div class="yt-name">Art of Problem Solving</div></div>
+                <div class="yt-desc">AMC 10/12 and AIME walkthroughs from the gold-standard competition math resource.</div>
+                <span class="yt-badge">AMC · AIME · Competition</span>
+            </a>
+            <a href="https://www.youtube.com/@ProfessorLeonard" target="_blank" rel="noopener" class="yt-card">
+                <div class="yt-top"><div class="yt-icon">▶</div><div class="yt-name">Professor Leonard</div></div>
+                <div class="yt-desc">Full college-level calculus lectures — the best free substitute for a classroom experience.</div>
+                <span class="yt-badge">Calculus · Full Course</span>
+            </a>
+            <a href="https://www.youtube.com/@krista_king" target="_blank" rel="noopener" class="yt-card">
+                <div class="yt-top"><div class="yt-icon">▶</div><div class="yt-name">Krista King Math</div></div>
+                <div class="yt-desc">AP Statistics and AP Calculus with clear, step-by-step solutions and exam tips.</div>
+                <span class="yt-badge">AP Stats · AP Calc</span>
             </a>
         </div>
 
