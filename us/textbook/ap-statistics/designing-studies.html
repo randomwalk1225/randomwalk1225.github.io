@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Statistics: Designing Studies - Chapter 6 | MathHub</title>
+    <meta name="description" content="AP Statistics Chapter 6: Designing Studies. Learn sampling methods (SRS, stratified, cluster), sources of bias, principles of experimental design, and block designs.">
+    <meta name="keywords" content="AP Statistics, designing studies, sampling methods, SRS, stratified sample, experimental design, randomized block design, AP Stats Chapter 6">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/ap-statistics/designing-studies.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/ap-statistics/designing-studies.html">
+    <meta property="og:title" content="AP Statistics: Designing Studies - Chapter 6">
+    <meta property="og:description" content="Learn sampling methods, sources of bias, principles of experimental design, and randomized block designs for AP Statistics.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Statistics: Designing Studies - Chapter 6">
+    <meta name="twitter:description" content="AP Statistics Chapter 6: Sampling methods, survey bias, experimental design principles, and block designs.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "AP Statistics: Designing Studies - Chapter 6",
+        "description": "AP Statistics Chapter 6 covering population and sample, sampling methods, sources of bias, principles of experimental design, and completely randomized and block designs.",
+        "url": "https://mathhub.io/us/textbook/ap-statistics/designing-studies.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "AP",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Sampling Methods" },
+            { "@type": "Thing", "name": "Experimental Design" },
+            { "@type": "Thing", "name": "AP Statistics" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #064e3b; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #064e3b; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #10b981; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives { background: #ecfdf5; border-left: 4px solid #10b981; padding: 20px 24px; margin: 24px 0 32px; border-radius: 0 10px 10px 0; }
+        .learning-objectives h4 { color: #065f46; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #064e3b; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box { background: #f0fdf4; border-left: 4px solid #10b981; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #065f46; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+
+        .definition-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box { background: #f0fdf4; border: 1.5px dashed #86efac; padding: 16px 20px; margin: -4px 0 24px; border-radius: 0 0 8px 8px; }
+        .try-it-box .try-it-label { display: inline-block; background: #10b981; color: white; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px; }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary { cursor: pointer; color: #065f46; font-weight: 600; font-size: 0.9em; user-select: none; }
+        .try-it-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7; }
+
+        .ap-tip { background: #fefce8; border-left: 4px solid #eab308; padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .ap-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #92400e; }
+
+        .desmos-wrap { margin: 24px auto; background: #f8fafc; border-radius: 12px; padding: 4px; border: 1px solid #e2e8f0; text-align: center; }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label { text-align: center; font-size: 0.82em; color: #64748b; margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em; }
+
+        .practice-section { margin: 48px 0 0; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { color: #064e3b; margin-bottom: 20px; }
+        .practice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        @media (max-width: 600px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; }
+        .practice-card .p-num { display: inline-block; background: #064e3b; color: white; font-weight: 700; font-size: 0.78em; padding: 2px 9px; border-radius: 4px; margin-bottom: 8px; }
+        .practice-card p { color: #334155; font-size: 0.92em; line-height: 1.7; margin: 0 0 10px; }
+        .practice-card details summary { cursor: pointer; color: #065f46; font-weight: 600; font-size: 0.88em; user-select: none; }
+        .practice-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 8px; color: #334155; font-size: 0.9em; line-height: 1.7; border: 1px solid #e2e8f0; }
+
+        .chapter-nav { display: flex; justify-content: space-between; margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid #e2e8f0; flex-wrap: wrap; gap: 12px; }
+        .chapter-nav a { color: #10b981; text-decoration: none; font-weight: 600; font-size: 0.95em; padding: 8px 16px; border: 1.5px solid #10b981; border-radius: 8px; transition: background .15s; }
+        .chapter-nav a:hover { background: #ecfdf5; }
+    </style>
+</head>
+<body>
+
+<div style="background:#064e3b; padding:12px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+    <a href="/" style="color:#6ee7b7; text-decoration:none; font-weight:700; font-size:1.1em;">MathHub</a>
+    <span style="color:#34d399;">›</span>
+    <a href="/us" style="color:#a7f3d0; text-decoration:none; font-size:.9em;">US</a>
+    <span style="color:#34d399;">›</span>
+    <a href="/us/textbook/ap-statistics" style="color:#a7f3d0; text-decoration:none; font-size:.9em;">AP Statistics</a>
+    <span style="color:#34d399;">›</span>
+    <span style="color:white; font-size:.9em;">Chapter 6</span>
+</div>
+
+<article class="blog-article">
+    <div class="breadcrumb">
+        <a href="/">MathHub</a> › <a href="/us">US</a> › <a href="/us/textbook/ap-statistics">AP Statistics</a> › Chapter 6
+    </div>
+
+    <h1>Chapter 6: Designing Studies</h1>
+    <div class="blog-meta">AP Statistics · Data Collection &amp; Study Design · 3 interactive graphs · 8 practice problems</div>
+
+    <div class="learning-objectives">
+        <h4>Learning Objectives</h4>
+        <ul>
+            <li>Distinguish between population, sample, and census; identify the sampling frame</li>
+            <li>Describe and compare probability sampling methods: SRS, stratified, cluster, and systematic</li>
+            <li>Identify and explain sources of bias in surveys: undercoverage, non-response, and response bias</li>
+            <li>Distinguish between observational studies and experiments</li>
+            <li>Apply the four principles of experimental design: control, randomization, replication, and blocking</li>
+            <li>Describe completely randomized designs and randomized block designs including matched pairs</li>
+        </ul>
+    </div>
+
+    <!-- 6.1 -->
+    <h2>6.1 Population, Sample, and Sampling Methods</h2>
+    <p>When we want to learn about a group, we rarely have the resources to study every individual. Instead, we select a <strong>sample</strong> from the larger <strong>population</strong> and use what we learn from the sample to draw conclusions about the population.</p>
+
+    <div class="definition-box">
+        <h4>Definition: Key Terms</h4>
+        <ul>
+            <li><strong>Population:</strong> The entire group of individuals we want information about.</li>
+            <li><strong>Sample:</strong> A subset of individuals selected from the population to represent it.</li>
+            <li><strong>Census:</strong> An attempt to collect data from every individual in the population.</li>
+            <li><strong>Sampling frame:</strong> The list of individuals from which the sample is actually drawn. A poor sampling frame causes undercoverage bias.</li>
+            <li><strong>Simple Random Sample (SRS):</strong> A sample selected so that every group of $n$ individuals from the population has an equal chance of being chosen. Each individual also has an equal chance of selection.</li>
+        </ul>
+    </div>
+
+    <h3>Probability Sampling Methods</h3>
+    <p>A <strong>probability sample</strong> uses a chance mechanism to select individuals, so every member of the population has a known probability of being chosen. The most important probability samples are:</p>
+    <ul>
+        <li><strong>Simple Random Sample (SRS):</strong> Assign each individual a number; use a random number generator or table to select $n$ individuals. Every set of $n$ individuals is equally likely to be chosen.</li>
+        <li><strong>Stratified Random Sample:</strong> Divide the population into non-overlapping groups called <strong>strata</strong> (based on a shared characteristic such as grade level or gender), then take an SRS from each stratum. Ensures representation from each subgroup.</li>
+        <li><strong>Cluster Sample:</strong> Divide the population into groups called <strong>clusters</strong> (often geographic or naturally occurring), randomly select some clusters, then survey <em>all</em> individuals in the selected clusters. More practical when the population is spread over a large area.</li>
+        <li><strong>Systematic Sample:</strong> Randomly choose a starting point, then select every $k$th individual from a list. For example, if you want a sample of 50 from 500, you select every 10th name after a random start.</li>
+    </ul>
+
+    <h3>Non-Probability Sampling (Avoid These)</h3>
+    <p><strong>Voluntary response samples</strong> allow individuals to choose whether to participate (e.g., online polls, call-in surveys). These are biased because people with strong opinions — often negative — are more likely to respond, so the sample does not represent the population.</p>
+    <p><strong>Convenience samples</strong> select individuals who are easy to reach (e.g., surveying people in the hallway). These are biased because accessible individuals may differ systematically from the broader population.</p>
+
+    <div class="example-box">
+        <h4>Example 6.1 — Comparing SRS and Voluntary Response</h4>
+        <p>A school wants to survey 50 of its 500 students about cafeteria food quality.</p>
+        <p><strong>SRS approach:</strong> Assign each student a number from 001 to 500. Use a random number table or calculator to select 50 distinct numbers. Every student has an equal $\frac{50}{500} = 10\%$ chance of selection, and every group of 50 has an equal chance of being chosen.</p>
+        <p><strong>Voluntary response approach:</strong> Post a sign-up sheet in the cafeteria. Students who feel strongly (likely those who dislike the food) are more likely to sign up. The sample will overrepresent dissatisfied students and underrepresent satisfied or neutral students — producing a biased, unrepresentative result.</p>
+        <p><strong>Conclusion:</strong> The SRS produces an unbiased sample; the voluntary response sample is likely biased toward negative opinions.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A city wants to know residents' opinion on building a new park. The city has five distinct neighborhoods of roughly equal size. Describe how to take a stratified random sample by neighborhood.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                <strong>Step 1:</strong> Define the strata — the five neighborhoods are the five strata.<br>
+                <strong>Step 2:</strong> Determine sample size per stratum. If you want 100 total respondents, plan to select 20 from each neighborhood.<br>
+                <strong>Step 3:</strong> Within each neighborhood, obtain a list of residents (the sampling frame for that stratum) and use an SRS to select 20 residents.<br>
+                <strong>Advantage:</strong> This guarantees proportional representation from all five neighborhoods, which a single SRS from the whole city might miss by chance.
+            </div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Population (gray) vs. sample (green) — the highlighted points represent the 50 selected from a population of 500.</p>
+        <div id="graph-sampling" style="width:100%; height:380px;"></div>
+        <p class="fig-label">Figure 6.1 — Population and Sample Visualization</p>
+    </div>
+
+    <!-- 6.2 -->
+    <h2>6.2 Sources of Bias in Surveys</h2>
+    <p>A <strong>biased</strong> sample or survey design systematically favors certain outcomes over others. Bias means the results will consistently deviate from the truth in a predictable direction. Increasing sample size does <em>not</em> fix bias — it only makes the biased result more precisely wrong.</p>
+
+    <div class="theorem-box">
+        <h4>Types of Bias in Surveys</h4>
+        <ul>
+            <li><strong>Undercoverage bias:</strong> Some groups of the population have a lower probability of being included in the sample than others. Example: a telephone survey that only calls landlines will underrepresent younger adults who use only cell phones.</li>
+            <li><strong>Non-response bias:</strong> Individuals who are selected for the sample cannot be contacted or choose not to participate. If non-respondents differ systematically from respondents, the results are biased.</li>
+            <li><strong>Response bias (voluntary response or wording bias):</strong> Respondents give inaccurate or dishonest answers. Causes include: social desirability (answering in a way that seems "acceptable"), leading question wording, question order effects, or the presence of an interviewer.</li>
+        </ul>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 6.2 — Identifying Bias in a Survey Question</h4>
+        <p>An online poll asks: <em>"Do you agree that our city is failing its children by not funding playgrounds?"</em> The results show 79% agree.</p>
+        <p><strong>Bias identified:</strong> This is a classic example of <strong>response bias due to question wording</strong> (a leading question). The phrase "failing its children" is emotionally charged and pushes respondents toward agreement. A neutral question such as "Should the city increase funding for playgrounds?" would produce very different results.</p>
+        <p>Additionally, since this is an online poll with self-selection, it also suffers from <strong>voluntary response bias</strong> — people with strong feelings (those who strongly agree or disagree) are more likely to participate than those with moderate views.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A survey is mailed to 1,000 randomly selected households; only 120 respond. What type of bias is most concerning, and why?</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                <strong>Non-response bias</strong> is most concerning. Only 12% of selected households responded. If the 880 non-respondents differ systematically from the 120 respondents — for example, if homeowners respond more than renters, or if busier households are less likely to reply — then the 120 responses do not represent the full population of 1,000 selected households (or the broader population). The large non-response rate means we cannot trust that the sample is representative.
+            </div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Survey response visualization: 1,000 households were selected, but only 120 responded — a 12% response rate.</p>
+        <div id="graph-response" style="width:100%; height:200px;"></div>
+        <p class="fig-label">Figure 6.2 — Non-Response Rate: 1,000 Selected, 120 Responded</p>
+    </div>
+
+    <!-- 6.3 -->
+    <h2>6.3 Principles of Experimental Design</h2>
+    <p>An <strong>observational study</strong> observes individuals and measures variables without attempting to influence the responses. We can find associations, but we cannot establish causation. An <strong>experiment</strong> deliberately imposes a treatment on individuals in order to observe their responses — experiments can establish causation when properly designed.</p>
+
+    <div class="definition-box">
+        <h4>Definition: Experiment vs. Observational Study</h4>
+        <ul>
+            <li><strong>Observational study:</strong> The researcher observes and records data without intervening. Can reveal associations but cannot prove causation (lurking variables may be responsible).</li>
+            <li><strong>Experiment:</strong> The researcher imposes one or more treatments on experimental units and measures the response. When randomization is used, experiments can establish <em>cause and effect</em>.</li>
+            <li><strong>Explanatory variable (factor):</strong> The variable whose effect on the response variable is being studied. Different values of the factor are called <strong>levels</strong>.</li>
+            <li><strong>Response variable:</strong> The outcome that is measured after applying the treatment.</li>
+            <li><strong>Treatment:</strong> A specific condition applied to experimental units (a combination of factor levels).</li>
+            <li><strong>Experimental units:</strong> The individuals (people, animals, plots, etc.) to which treatments are applied.</li>
+        </ul>
+    </div>
+
+    <h3>The Four Principles of Experimental Design</h3>
+    <ul>
+        <li><strong>Control:</strong> Keep all variables that might affect the response constant across treatment groups — except for the treatment itself. This includes using a <strong>control group</strong> (a group that receives no treatment or a standard/placebo treatment) for comparison.</li>
+        <li><strong>Randomization:</strong> Randomly assign experimental units to treatment groups. Randomization balances out the effects of lurking variables (known and unknown) across groups, making the groups roughly equivalent at the start of the experiment.</li>
+        <li><strong>Replication:</strong> Apply each treatment to enough experimental units to reduce the effect of chance variation. More replication produces more reliable estimates of treatment effects.</li>
+        <li><strong>Blocking:</strong> Group similar experimental units into blocks before randomizing. Within each block, randomly assign treatments. This reduces variability and increases the ability to detect real treatment differences.</li>
+    </ul>
+
+    <h3>Placebo and Double-Blind Experiments</h3>
+    <p>A <strong>placebo</strong> is a fake treatment (such as a sugar pill) that looks identical to the real treatment. It is used to account for the <strong>placebo effect</strong> — the tendency for people to respond positively simply because they believe they are being treated.</p>
+    <p>In a <strong>blind experiment</strong>, subjects do not know which treatment they received. In a <strong>double-blind experiment</strong>, neither the subjects nor the researchers who interact with them know which treatment was assigned. Double-blind experiments prevent both the placebo effect and researcher bias from influencing the results.</p>
+
+    <div class="example-box">
+        <h4>Example 6.3 — Designing an Experiment</h4>
+        <p>Design an experiment to test whether listening to music improves math test scores.</p>
+        <ul>
+            <li><strong>Factor (explanatory variable):</strong> Listening condition — music vs. no music (silence)</li>
+            <li><strong>Levels:</strong> Two levels — (1) classical music, (2) silence (control)</li>
+            <li><strong>Treatments:</strong> Music group listens to classical music during the test; control group completes the test in silence</li>
+            <li><strong>Experimental units:</strong> Students in the study</li>
+            <li><strong>Response variable:</strong> Math test score</li>
+            <li><strong>Control group:</strong> Students who take the test in silence</li>
+            <li><strong>Randomization:</strong> Randomly assign students to the music or silence condition</li>
+            <li><strong>Replication:</strong> Use a large enough sample (e.g., at least 30 per group) so that random differences in student ability average out</li>
+        </ul>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>What is the purpose of a placebo in a medical experiment?</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                A placebo controls for the <strong>placebo effect</strong> — the tendency of subjects to feel or perform better simply because they believe they have received a treatment, regardless of its actual effect. By giving the control group an identical-appearing fake treatment, researchers ensure that any difference in outcomes between the treatment and control groups is due to the actual drug, not to psychological expectations. Without a placebo, we cannot separate the drug's true pharmacological effect from the psychological benefit of being treated.
+            </div>
+        </details>
+    </div>
+
+    <div class="ap-tip">
+        <div class="ap-tip-icon">★</div>
+        <p><strong>AP Exam Tip — Confounding vs. Lurking Variables:</strong> A <strong>lurking variable</strong> is associated with both the explanatory and response variables but is not part of the study (common in observational studies). A <strong>confounding variable</strong> is a variable in an experiment whose effect on the response cannot be separated from the effect of the explanatory variable. Randomization in experiments controls for <em>both</em> — it is the key reason why well-designed experiments can establish causation while observational studies cannot.</p>
+    </div>
+
+    <!-- 6.4 -->
+    <h2>6.4 Completely Randomized and Block Designs</h2>
+    <p>There are two major experimental designs tested on the AP exam: the completely randomized design and the randomized block design.</p>
+
+    <div class="definition-box">
+        <h4>Definition: Experimental Design Types</h4>
+        <ul>
+            <li><strong>Completely Randomized Design (CRD):</strong> All experimental units are randomly assigned to treatments with no prior grouping. The simplest experimental design. Works best when subjects are relatively homogeneous (similar to each other).</li>
+            <li><strong>Randomized Block Design:</strong> Experimental units are first grouped into <strong>blocks</strong> — groups of similar units — then randomly assigned to treatments within each block. Blocking on a variable that is related to the response reduces variability and makes it easier to detect treatment differences.</li>
+            <li><strong>Matched Pairs Design:</strong> A special case of a block design with exactly two treatments. Each block contains two units that are matched on relevant characteristics (or the same individual receives both treatments in random order). Differences within pairs are used to measure the treatment effect.</li>
+        </ul>
+    </div>
+
+    <h3>Why Block?</h3>
+    <p>Blocking removes a known source of variability from the error. If we know that GPA is related to test performance, we should block on GPA so that each block contains students with similar GPA. This ensures that differences between high-GPA and low-GPA students do not mask differences between treatments. Blocking <em>increases statistical power</em> — the ability to detect a real treatment effect.</p>
+
+    <div class="example-box">
+        <h4>Example 6.4 — CRD vs. Block Design</h4>
+        <p>A researcher tests two study methods (Method A and Method B) on 40 students to see which produces higher exam scores.</p>
+        <p><strong>Completely Randomized Design:</strong></p>
+        <ol>
+            <li>Number the 40 students 01–40.</li>
+            <li>Use a random process to assign 20 students to Method A and 20 to Method B.</li>
+            <li>Compare mean exam scores between the two groups.</li>
+        </ol>
+        <p><strong>Block Design (blocking on GPA: high / low):</strong></p>
+        <ol>
+            <li>Divide the 40 students into two blocks: 20 with high GPA and 20 with low GPA.</li>
+            <li>Within the high-GPA block, randomly assign 10 students to Method A and 10 to Method B.</li>
+            <li>Within the low-GPA block, randomly assign 10 students to Method A and 10 to Method B.</li>
+            <li>Compare mean exam scores within each block, then combine.</li>
+        </ol>
+        <p><strong>Why the block design is better here:</strong> GPA is related to exam performance. By blocking on GPA, we ensure that both study methods are tested on similar students within each block. The comparison is fairer and the variability due to GPA differences is removed, making it easier to detect a true difference between the two study methods.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>In a matched pairs design, each subject receives BOTH treatments (or a before/after measurement is taken). What is the key advantage of this design?</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                The key advantage is that each subject serves as their own control. Because the same individual receives both treatments, all individual differences (ability, baseline health, motivation, etc.) are perfectly controlled. The only variability that remains is the within-person difference between the two treatments. This makes matched pairs designs very powerful for detecting treatment effects, especially when there is large variability between individuals. The analysis focuses on the <em>difference</em> within each pair, not the raw scores.
+            </div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Randomized block design: Block 1 (high GPA) and Block 2 (low GPA), each split between Treatment A (green) and Treatment B (blue).</p>
+        <div id="graph-blocks" style="width:100%; height:340px;"></div>
+        <p class="fig-label">Figure 6.3 — Randomized Block Design: Two Blocks, Two Treatments</p>
+    </div>
+
+    <!-- Practice -->
+    <div class="practice-section">
+        <h2>Practice Problems</h2>
+        <div class="practice-grid">
+            <div class="practice-card">
+                <span class="p-num">1</span>
+                <p>A researcher surveys 200 of 2,000 employees by selecting every 10th name on an alphabetical list after a random start. What sampling method is this? Is it an SRS?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">This is a <strong>systematic random sample</strong>. It is <em>not</em> an SRS because not every group of 200 employees has an equal chance of being chosen — only groups of every-10th employees from each possible starting point are possible samples. In a true SRS, any combination of 200 employees could be selected.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">2</span>
+                <p>Identify the type of bias: A survey asks "Don't you agree that more homework hurts student well-being?" and 82% agree.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">This is <strong>response bias due to question wording</strong> (a leading question). The phrase "Don't you agree" and the framing "hurts student well-being" both push respondents toward agreement. A neutral question — such as "What is your opinion on the amount of homework students receive?" — would eliminate this bias.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">3</span>
+                <p>A study finds that people who own pets have lower blood pressure. Can we conclude that owning a pet lowers blood pressure? Explain.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">No. This is an <strong>observational study</strong>, so we cannot conclude causation. There may be lurking variables: for example, people who are less stressed or more physically active may be more likely to own pets AND have lower blood pressure. The pet ownership and lower blood pressure could both be caused by a third variable (such as activity level or temperament) rather than one causing the other. Only a randomized experiment could establish causation.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">4</span>
+                <p>An experiment tests three fertilizer types on corn yield using 30 plots. Each fertilizer is randomly assigned to 10 plots. Identify: experimental units, factor, levels, and response variable.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    <strong>Experimental units:</strong> The 30 corn plots.<br>
+                    <strong>Factor (explanatory variable):</strong> Type of fertilizer.<br>
+                    <strong>Levels:</strong> Three levels — the three different fertilizer types.<br>
+                    <strong>Treatments:</strong> The three fertilizer types (one per group of 10 plots).<br>
+                    <strong>Response variable:</strong> Corn yield (e.g., bushels per plot).
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">5</span>
+                <p>In a drug trial, neither patients nor doctors know who received the drug vs. placebo. What is this called and why is it important?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">This is a <strong>double-blind experiment</strong>. It is important for two reasons: (1) it prevents the <strong>placebo effect</strong> — patients who don't know if they have the drug cannot respond differently based on expectation alone; (2) it prevents <strong>researcher bias</strong> — doctors who don't know which group a patient is in cannot unconsciously treat them differently or record outcomes in a biased way. Double-blinding ensures the observed difference is due solely to the drug.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">6</span>
+                <p>A school tests two teaching methods. They block by prior math achievement (above/below median), then randomly assign within blocks. Why is blocking helpful here?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Prior math achievement is strongly related to the response variable (future math performance). Without blocking, one method might randomly end up with more high-achieving students, making it appear more effective. By blocking on prior achievement, each teaching method is compared on students with similar prior ability within each block. This removes the variability due to prior achievement from the error, making it easier to detect a true difference in teaching method effectiveness.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">7</span>
+                <p>AP FRQ: A company wants to study the effect of background music (classical, jazz, no music) on employee productivity. Design a completely randomized experiment with 90 employees. State the factor, treatments, and response variable, and explain how randomization would work.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    <strong>Factor:</strong> Type of background music.<br>
+                    <strong>Treatments (levels):</strong> Three treatments — (1) classical music, (2) jazz music, (3) no music (silence/control).<br>
+                    <strong>Response variable:</strong> Employee productivity (e.g., units produced per hour or tasks completed per shift).<br>
+                    <strong>Randomization:</strong> Number the 90 employees 01–90. Use a random number generator to randomly assign 30 employees to each of the three treatment groups. All other conditions (work environment, shift length, task type) are held constant across groups.<br>
+                    <strong>Replication:</strong> Each treatment is applied to 30 employees, providing sufficient replication to reduce the effect of individual variation.
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">8</span>
+                <p>A voluntary response survey on a news website asks readers to rate the president's performance. Explain why this produces biased results and what type of bias is present.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">This produces <strong>voluntary response bias</strong>. People who choose to participate in online polls tend to have stronger-than-average opinions (usually negative) about the subject. Those with moderate or neutral views are much less likely to click and respond. As a result, the sample overrepresents people with extreme opinions. Additionally, the sample only includes people who visited that particular news website, causing <strong>undercoverage bias</strong> — the website's audience may skew toward a particular political or demographic group that does not represent the broader population.</div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-nav">
+        <a href="/us/textbook/ap-statistics/regression.html">← Chapter 5: Regression</a>
+        <a href="/us/textbook/ap-statistics/probability.html">Chapter 7: Probability →</a>
+    </div>
+</article>
+
+<script>
+(function() {
+    // Figure 6.1 — Population/Sample Scatter
+    var elt1 = document.getElementById('graph-sampling');
+    var calc1 = Desmos.GraphingCalculator(elt1, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false
+    });
+    calc1.setMathBounds({ left: 0, right: 11, bottom: 0, top: 11 });
+
+    // Population points (gray)
+    var popPts = [
+        [1,8],[2,6],[3,9],[4,3],[5,7],[6,4],[7,9],[8,2],[9,6],[10,8],
+        [1.5,4],[2.5,8],[3.5,5],[4.5,9],[5.5,2],[6.5,6],[7.5,4],[8.5,8],[9.5,5],[0.5,7],
+        [1.8,2],[3.2,7],[4.8,4],[6.2,8],[7.8,3],[9.2,7],[2.8,1],[5.2,9],[8.2,5],[0.8,5]
+    ];
+    // Sample points (green, larger)
+    var sampPts = [
+        [2,6],[5,7],[9,6],[4.5,9],[7.5,4],[8.5,8],[3.2,7],[1.8,2]
+    ];
+    var sampSet = sampPts.map(function(p) { return p[0] + ',' + p[1]; });
+
+    popPts.forEach(function(pt, i) {
+        var key = pt[0] + ',' + pt[1];
+        var isSample = sampSet.indexOf(key) !== -1;
+        if (!isSample) {
+            calc1.setExpression({
+                id: 'pop' + i,
+                type: 'expression',
+                latex: '(' + pt[0] + ',' + pt[1] + ')',
+                color: '#94a3b8',
+                pointStyle: Desmos.Styles.POINT,
+                pointSize: 11
+            });
+        }
+    });
+
+    sampPts.forEach(function(pt, i) {
+        calc1.setExpression({
+            id: 'smp' + i,
+            type: 'expression',
+            latex: '(' + pt[0] + ',' + pt[1] + ')',
+            color: '#065f46',
+            pointStyle: Desmos.Styles.POINT,
+            pointSize: 16
+        });
+    });
+
+    calc1.setExpression({ id: 'lbl_pop', type: 'expression', latex: '\\text{Population (500)}', color: '#94a3b8' });
+    calc1.setExpression({ id: 'lbl_smp', type: 'expression', latex: '\\text{Sample (50)}', color: '#065f46' });
+})();
+
+(function() {
+    // Figure 6.2 — Survey Response Rate
+    var elt2 = document.getElementById('graph-response');
+    var calc2 = Desmos.GraphingCalculator(elt2, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false
+    });
+    calc2.setMathBounds({ left: -50, right: 1100, bottom: -2, top: 4 });
+
+    // Full selected segment (gray)
+    calc2.setExpression({ id: 'seg_all', type: 'expression', latex: '0 \\le x \\le 1000 \\{y=1\\}', color: '#94a3b8', lineWidth: 8 });
+    // Responded segment (green)
+    calc2.setExpression({ id: 'seg_resp', type: 'expression', latex: '0 \\le x \\le 120 \\{y=1\\}', color: '#065f46', lineWidth: 8 });
+    // Point at 1000
+    calc2.setExpression({ id: 'pt_all', type: 'expression', latex: '(1000, 1)', color: '#94a3b8', pointStyle: Desmos.Styles.POINT, pointSize: 14 });
+    // Point at 120
+    calc2.setExpression({ id: 'pt_resp', type: 'expression', latex: '(120, 1)', color: '#065f46', pointStyle: Desmos.Styles.POINT, pointSize: 16 });
+    // Labels
+    calc2.setExpression({ id: 'lbl_all', type: 'expression', latex: '\\text{1000 Selected}', color: '#94a3b8' });
+    calc2.setExpression({ id: 'lbl_resp', type: 'expression', latex: '\\text{120 Responded (12\\%)}', color: '#065f46' });
+})();
+
+(function() {
+    // Figure 6.3 — Randomized Block Design
+    var elt3 = document.getElementById('graph-blocks');
+    var calc3 = Desmos.GraphingCalculator(elt3, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false
+    });
+    calc3.setMathBounds({ left: -1, right: 8, bottom: 0, top: 5 });
+
+    // Block 1: High GPA — Treatment A (green)
+    var b1a = [[1,3],[1,3.5],[1,4]];
+    // Block 1: High GPA — Treatment B (blue)
+    var b1b = [[2,3],[2,3.5],[2,4]];
+    // Block 2: Low GPA — Treatment A (green)
+    var b2a = [[5,1],[5,1.5],[5,2]];
+    // Block 2: Low GPA — Treatment B (blue)
+    var b2b = [[6,1],[6,1.5],[6,2]];
+
+    b1a.forEach(function(pt, i) {
+        calc3.setExpression({ id: 'b1a'+i, type: 'expression', latex: '('+pt[0]+','+pt[1]+')', color: '#065f46', pointStyle: Desmos.Styles.POINT, pointSize: 15 });
+    });
+    b1b.forEach(function(pt, i) {
+        calc3.setExpression({ id: 'b1b'+i, type: 'expression', latex: '('+pt[0]+','+pt[1]+')', color: '#3b82f6', pointStyle: Desmos.Styles.POINT, pointSize: 15 });
+    });
+    b2a.forEach(function(pt, i) {
+        calc3.setExpression({ id: 'b2a'+i, type: 'expression', latex: '('+pt[0]+','+pt[1]+')', color: '#065f46', pointStyle: Desmos.Styles.POINT, pointSize: 15 });
+    });
+    b2b.forEach(function(pt, i) {
+        calc3.setExpression({ id: 'b2b'+i, type: 'expression', latex: '('+pt[0]+','+pt[1]+')', color: '#3b82f6', pointStyle: Desmos.Styles.POINT, pointSize: 15 });
+    });
+
+    // Block labels
+    calc3.setExpression({ id: 'lbl_b1', type: 'expression', latex: '\\text{Block 1: High GPA}', color: '#334155' });
+    calc3.setExpression({ id: 'lbl_b2', type: 'expression', latex: '\\text{Block 2: Low GPA}', color: '#334155' });
+    calc3.setExpression({ id: 'lbl_ta', type: 'expression', latex: '\\text{Trt A}', color: '#065f46' });
+    calc3.setExpression({ id: 'lbl_tb', type: 'expression', latex: '\\text{Trt B}', color: '#3b82f6' });
+})();
+</script>
+
+</body>
+</html>

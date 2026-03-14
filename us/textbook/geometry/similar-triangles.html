@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Geometry: Similar Triangles - Chapter 6 | MathHub</title>
+    <meta name="description" content="Geometry Chapter 6: Similar Triangles. Learn similarity postulates (AA, SAS~, SSS~), scale factor, proportional sides, Side-Splitter Theorem, and indirect measurement.">
+    <meta name="keywords" content="geometry, similar triangles, AA similarity, SAS similarity, SSS similarity, scale factor, Side-Splitter Theorem, indirect measurement, high school geometry chapter 6">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/geometry/similar-triangles.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/geometry/similar-triangles.html">
+    <meta property="og:title" content="Geometry: Similar Triangles - Chapter 6">
+    <meta property="og:description" content="Learn AA, SAS~, and SSS~ similarity postulates, scale factor, the Side-Splitter Theorem, and indirect measurement applications.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "Geometry: Similar Triangles - Chapter 6",
+        "description": "Geometry Chapter 6 covering similarity postulates (AA, SAS~, SSS~), scale factor, proportional sides, Side-Splitter Theorem, and indirect measurement.",
+        "url": "https://mathhub.io/us/textbook/geometry/similar-triangles.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "High School",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Similar Triangles" },
+            { "@type": "Thing", "name": "Geometry" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #4c1d95; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #4c1d95; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #8b5cf6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives { background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 24px 0 32px; border-radius: 0 10px 10px 0; }
+        .learning-objectives h4 { color: #4c1d95; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #3b0764; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box { background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #4c1d95; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+
+        .definition-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+
+        .theorem-box { background: #faf5ff; border-left: 4px solid #7c3aed; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box { background: #f5f3ff; border: 1.5px dashed #c4b5fd; padding: 16px 20px; margin: -4px 0 24px; border-radius: 0 0 8px 8px; }
+        .try-it-box .try-it-label { display: inline-block; background: #8b5cf6; color: white; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px; }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary { cursor: pointer; color: #4c1d95; font-weight: 600; font-size: 0.9em; user-select: none; }
+        .try-it-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7; }
+
+        .ap-tip { background: #fefce8; border-left: 4px solid #eab308; padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .ap-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #92400e; }
+
+        .desmos-wrap { margin: 24px auto; background: #faf8ff; border-radius: 12px; padding: 4px; border: 1px solid #e9d5ff; text-align: center; }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label { text-align: center; font-size: 0.82em; color: #64748b; margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em; }
+
+        .data-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.9em; }
+        .data-table th { background: #4c1d95; color: white; padding: 9px 14px; text-align: left; font-weight: 700; }
+        .data-table td { padding: 9px 14px; border: 1px solid #e2e8f0; color: #334155; vertical-align: top; }
+        .data-table tr:nth-child(even) { background: #f8fafc; }
+
+        .practice-section { margin: 48px 0 0; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { color: #4c1d95; margin-bottom: 20px; }
+        .practice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        @media (max-width: 600px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; }
+        .practice-card .p-num { display: inline-block; background: #4c1d95; color: white; font-weight: 700; font-size: 0.78em; padding: 2px 9px; border-radius: 4px; margin-bottom: 8px; }
+        .practice-card p { color: #334155; font-size: 0.92em; line-height: 1.7; margin: 0 0 10px; }
+        .practice-card details summary { cursor: pointer; color: #4c1d95; font-weight: 600; font-size: 0.88em; user-select: none; }
+        .practice-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 8px; color: #334155; font-size: 0.9em; line-height: 1.7; border: 1px solid #e2e8f0; }
+
+        .chapter-nav { display: flex; justify-content: space-between; margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid #e2e8f0; flex-wrap: wrap; gap: 12px; }
+        .chapter-nav a { color: #8b5cf6; text-decoration: none; font-weight: 600; font-size: 0.95em; padding: 8px 16px; border: 1.5px solid #8b5cf6; border-radius: 8px; transition: background .15s; }
+        .chapter-nav a:hover { background: #f5f3ff; }
+    </style>
+</head>
+<body>
+
+<div style="background:#4c1d95; padding:12px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+    <a href="/" style="color:#ddd6fe; text-decoration:none; font-weight:700; font-size:1.1em;">MathHub</a>
+    <span style="color:#a78bfa;">›</span>
+    <a href="/us" style="color:#c4b5fd; text-decoration:none; font-size:.9em;">US</a>
+    <span style="color:#a78bfa;">›</span>
+    <a href="/us/textbook/geometry" style="color:#c4b5fd; text-decoration:none; font-size:.9em;">Geometry</a>
+    <span style="color:#a78bfa;">›</span>
+    <span style="color:white; font-size:.9em;">Chapter 6</span>
+</div>
+
+<article class="blog-article">
+    <div class="breadcrumb">
+        <a href="/">MathHub</a> › <a href="/us">US</a> › <a href="/us/textbook/geometry">Geometry</a> › Chapter 6
+    </div>
+
+    <h1>Chapter 6: Similar Triangles</h1>
+    <div class="blog-meta">High School Geometry · Unit 3: Triangles · 3 interactive diagrams · 8 practice problems</div>
+
+    <div class="learning-objectives">
+        <h4>Learning Objectives</h4>
+        <ul>
+            <li>Define similarity and identify corresponding parts using proper similarity notation</li>
+            <li>Calculate the scale factor between similar figures and apply it to find missing sides</li>
+            <li>Apply AA, SAS~, and SSS~ postulates/theorems to prove triangles are similar</li>
+            <li>Use the Side-Splitter Theorem and Angle Bisector Theorem to solve proportion problems</li>
+            <li>Set up and solve proportions from similarity statements to find unknown lengths</li>
+            <li>Apply similar triangles to indirect measurement (shadow method, map scale)</li>
+        </ul>
+    </div>
+
+    <!-- 6.1 -->
+    <h2>6.1 Similar Polygons and Scale Factor</h2>
+    <p>Two figures are <strong>similar</strong> (~) if they have the same shape but not necessarily the same size. One figure can be obtained from the other by a dilation (scaling), possibly combined with rigid motions. For polygons, similarity requires both congruent corresponding angles and proportional corresponding sides.</p>
+
+    <div class="definition-box">
+        <h4>Definition: Similar Polygons</h4>
+        <p>Polygon $ABCD\ldots \sim$ Polygon $EFGH\ldots$ if and only if:</p>
+        <ul>
+            <li>All corresponding angles are congruent: $\angle A \cong \angle E$, $\angle B \cong \angle F$, etc.</li>
+            <li>All corresponding sides are proportional: $\dfrac{AB}{EF} = \dfrac{BC}{FG} = \dfrac{CD}{GH} = \cdots = k$</li>
+        </ul>
+        <p>The constant ratio $k$ is called the <strong>scale factor</strong> from the first figure to the second.</p>
+    </div>
+
+    <div class="theorem-box">
+        <h4>Properties of Similar Polygons</h4>
+        <ul>
+            <li>Corresponding angles are congruent.</li>
+            <li>Corresponding sides are proportional with scale factor $k$.</li>
+            <li>Ratio of perimeters $= k$.</li>
+            <li>Ratio of areas $= k^2$.</li>
+        </ul>
+    </div>
+
+    <p>For triangles, the similarity statement $\triangle ABC \sim \triangle DEF$ carries the following meaning:</p>
+    <ul>
+        <li><strong>Angles:</strong> $\angle A \cong \angle D$, $\angle B \cong \angle E$, $\angle C \cong \angle F$</li>
+        <li><strong>Sides:</strong> $\dfrac{AB}{DE} = \dfrac{BC}{EF} = \dfrac{AC}{DF} = k$</li>
+    </ul>
+    <p>As with congruence, <strong>order matters</strong> — the first vertex of one triangle corresponds to the first vertex of the other.</p>
+
+    <div class="example-box">
+        <h4>Example 6.1 — Scale Factor and Corresponding Sides</h4>
+        <p>$\triangle ABC \sim \triangle DEF$ with $AB = 6$, $BC = 9$, $CA = 12$, $DE = 4$. Find $EF$ and $FD$. Then find the scale factor and the ratio of areas.</p>
+        <p><strong>Scale factor:</strong> $k = \dfrac{DE}{AB} = \dfrac{4}{6} = \dfrac{2}{3}$</p>
+        <p><strong>Find $EF$:</strong> $\dfrac{EF}{BC} = k \Rightarrow EF = 9 \cdot \dfrac{2}{3} = \mathbf{6}$</p>
+        <p><strong>Find $FD$:</strong> $\dfrac{FD}{CA} = k \Rightarrow FD = 12 \cdot \dfrac{2}{3} = \mathbf{8}$</p>
+        <p><strong>Ratio of perimeters:</strong> $k = \dfrac{2}{3}$</p>
+        <p><strong>Ratio of areas:</strong> $k^2 = \left(\dfrac{2}{3}\right)^2 = \dfrac{4}{9}$</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>Rectangle $ABCD \sim$ Rectangle $EFGH$ with $AB = 10$, $BC = 6$, $EF = 15$. Find $GH$ and the ratio of perimeters.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                Scale factor: $k = \dfrac{EF}{AB} = \dfrac{15}{10} = \dfrac{3}{2}$.<br>
+                $GH$ corresponds to $BC$: $GH = 6 \cdot \dfrac{3}{2} = \mathbf{9}$.<br>
+                Ratio of perimeters $= k = \dfrac{3}{2}$ (i.e., $EFGH$ is $\dfrac{3}{2}$ times the perimeter of $ABCD$).
+            </div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Two similar triangles — $\triangle ABC$ (purple) and $\triangle DEF$ (blue) with scale factor $k = \frac{4}{3}$ from small to large.</p>
+        <div id="graph-similar" style="max-width:630px; width:100%; height:420px; margin:0 auto;"></div>
+        <p class="fig-label">Figure 6.1 — Similar Triangles with Scale Factor</p>
+    </div>
+
+    <!-- 6.2 -->
+    <h2>6.2 AA, SAS, and SSS Similarity Postulates</h2>
+    <p>Just as congruence has shortcuts (SSS, SAS, ASA, …), we do not need to verify all six pairs of corresponding parts to prove triangles similar. Three criteria are sufficient:</p>
+
+    <div class="theorem-box">
+        <h4>Triangle Similarity Postulates and Theorems</h4>
+        <ul>
+            <li><strong>AA (Angle-Angle):</strong> If two angles of one triangle are congruent to two angles of another triangle, then the triangles are similar.</li>
+            <li><strong>SAS~ (Side-Angle-Side Similarity):</strong> If two sides of one triangle are proportional to two sides of another triangle, and the <em>included</em> angles are congruent, then the triangles are similar.</li>
+            <li><strong>SSS~ (Side-Side-Side Similarity):</strong> If all three pairs of corresponding sides of two triangles are proportional, then the triangles are similar.</li>
+        </ul>
+    </div>
+
+    <div class="definition-box">
+        <h4>Note: Similarity vs. Congruence Shortcuts</h4>
+        <p>AA works for similarity because knowing two angles fixes the shape (the third angle is determined by the Triangle Angle Sum). There is no "AA" for congruence — you also need a side. Similarly, SSA does not work for either congruence or similarity in general.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 6.2 — AA Similarity</h4>
+        <p>$\triangle PQR$ has $\angle P = 50°$ and $\angle Q = 70°$. $\triangle STU$ has $\angle S = 50°$ and $\angle T = 70°$. Are the triangles similar?</p>
+        <p>$\angle P = \angle S = 50°$ and $\angle Q = \angle T = 70°$. By <strong>AA</strong>, $\triangle PQR \sim \triangle STU$.</p>
+        <p>Note: $\angle R = \angle U = 180° - 50° - 70° = 60°$ (the third pair follows automatically).</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 6.3 — SSS~ Similarity</h4>
+        <p>$\triangle ABC$ has sides $6$, $8$, $10$. $\triangle DEF$ has sides $9$, $12$, $15$. Are the triangles similar?</p>
+        <p>Check ratios of corresponding sides (shortest to shortest, etc.):</p>
+        <p>$$\frac{6}{9} = \frac{2}{3}, \quad \frac{8}{12} = \frac{2}{3}, \quad \frac{10}{15} = \frac{2}{3}$$</p>
+        <p>All three ratios are equal, so by <strong>SSS~</strong>, $\triangle ABC \sim \triangle DEF$ with scale factor $k = \dfrac{2}{3}$.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>Two triangles have two pairs of congruent angles. Without knowing any side lengths, can you conclude the triangles are similar? Which postulate applies?</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                Yes. Two pairs of congruent angles is exactly the <strong>AA Similarity Postulate</strong>. The third pair of angles must also be congruent (Triangle Angle Sum = 180°), so the shapes are identical — only the size may differ.
+            </div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">AA Similarity — $\triangle PQR$ (purple) and $\triangle STU$ (blue) share two pairs of congruent angles, making them similar.</p>
+        <div id="graph-aa" style="max-width:630px; width:100%; height:420px; margin:0 auto;"></div>
+        <p class="fig-label">Figure 6.2 — AA Similarity: Two Triangles with Equal Angle Pairs</p>
+    </div>
+
+    <!-- 6.3 -->
+    <h2>6.3 Using Similar Triangles: Proportional Sides</h2>
+    <p>Once a similarity is established, we can set up proportions using corresponding sides and solve for unknown lengths by cross-multiplication. Two important theorems extend this idea inside a single triangle.</p>
+
+    <div class="theorem-box">
+        <h4>Side-Splitter Theorem</h4>
+        <p>If a line is parallel to one side of a triangle and intersects the other two sides, then it divides those two sides proportionally.</p>
+        <p>In $\triangle ABC$, if $DE \parallel BC$ with $D$ on $\overline{AB}$ and $E$ on $\overline{AC}$, then:</p>
+        <p>$$\frac{AD}{DB} = \frac{AE}{EC}$$</p>
+        <p><strong>Midsegment (special case):</strong> If $D$ and $E$ are midpoints, then $DE \parallel BC$ and $DE = \dfrac{1}{2}BC$.</p>
+    </div>
+
+    <div class="theorem-box">
+        <h4>Angle Bisector Theorem</h4>
+        <p>An angle bisector of a triangle divides the opposite side in the ratio of the two adjacent sides.</p>
+        <p>If $\overline{AD}$ bisects $\angle A$ in $\triangle ABC$ and meets $\overline{BC}$ at $D$, then:</p>
+        <p>$$\frac{AB}{AC} = \frac{BD}{DC}$$</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 6.4 — Side-Splitter Theorem</h4>
+        <p>In $\triangle ABC$, $DE \parallel BC$ with $D$ on $\overline{AB}$ and $E$ on $\overline{AC}$. Given $AD = 4$, $DB = 6$, $AE = 5$, find $EC$.</p>
+        <p>By the Side-Splitter Theorem:</p>
+        <p>$$\frac{AD}{DB} = \frac{AE}{EC} \implies \frac{4}{6} = \frac{5}{EC}$$</p>
+        <p>Cross-multiplying: $4 \cdot EC = 6 \cdot 5 = 30$, so $EC = \mathbf{7.5}$.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>$\triangle ABC \sim \triangle DEF$ with $AB = 8$ and $DE = 12$. The perimeter of $\triangle ABC = 30$. Find the perimeter of $\triangle DEF$.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                Scale factor: $k = \dfrac{DE}{AB} = \dfrac{12}{8} = \dfrac{3}{2}$.<br>
+                Ratio of perimeters $= k$, so: Perimeter of $\triangle DEF = 30 \cdot \dfrac{3}{2} = \mathbf{45}$.
+            </div>
+        </details>
+    </div>
+
+    <div class="ap-tip">
+        <div class="ap-tip-icon">★</div>
+        <p><strong>AP Tip:</strong> On the AP exam, always write the similarity statement in the correct vertex order first, then set up ratios using the corresponding vertices. A ratio error from a mismatched similarity statement is one of the most common mistakes.</p>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Side-Splitter Theorem — $DE$ (green, dashed) is parallel to $BC$ and divides sides $AB$ and $AC$ proportionally.</p>
+        <div id="graph-splitter" style="max-width:630px; width:100%; height:420px; margin:0 auto;"></div>
+        <p class="fig-label">Figure 6.3 — Side-Splitter Theorem: Parallel Line Creates Proportional Segments</p>
+    </div>
+
+    <!-- 6.4 -->
+    <h2>6.4 Indirect Measurement and Applications</h2>
+    <p>Similar triangles provide a powerful method for measuring distances or heights that cannot be measured directly. Two common techniques are the <strong>shadow method</strong> and the <strong>mirror method</strong>.</p>
+
+    <h3>Shadow Method</h3>
+    <p>At the same time of day, the sun's rays are parallel. A person and a nearby object each cast shadows, forming two similar triangles (each with the same sun angle). Setting up the proportion:</p>
+    <p>$$\frac{\text{person's height}}{\text{person's shadow}} = \frac{\text{object's height}}{\text{object's shadow}}$$</p>
+
+    <h3>Mirror Method</h3>
+    <p>A mirror placed flat on the ground reflects the top of an object. The incident and reflected angles are equal, forming two similar triangles — one involving the observer and one involving the object.</p>
+
+    <h3>Map Scale and Scale Drawings</h3>
+    <p>A map scale states the ratio of map distance to actual distance. Setting up a proportion with the scale ratio allows conversion between map and real-world measurements.</p>
+
+    <div class="example-box">
+        <h4>Example 6.5 — Shadow Method</h4>
+        <p>A person $5.5$ ft tall casts a $4$ ft shadow. At the same time, a tree casts a $32$ ft shadow. Find the height of the tree.</p>
+        <p>$$\frac{5.5}{4} = \frac{h}{32}$$</p>
+        <p>Cross-multiplying: $4h = 5.5 \times 32 = 176$, so $h = \mathbf{44}$ ft.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 6.6 — Map Scale</h4>
+        <p>A map has scale $1$ inch $= 50$ miles. Two cities are $3.5$ inches apart on the map. Find the actual distance.</p>
+        <p>$$\frac{1}{50} = \frac{3.5}{d}$$</p>
+        <p>Cross-multiplying: $d = 3.5 \times 50 = \mathbf{175}$ miles.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A $6$-ft person casts a $9$-ft shadow. A nearby flagpole casts a $45$-ft shadow at the same time. How tall is the flagpole?</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                $\dfrac{6}{9} = \dfrac{h}{45}$<br>
+                $9h = 6 \times 45 = 270$<br>
+                $h = \mathbf{30}$ ft.
+            </div>
+        </details>
+    </div>
+
+    <div class="ap-tip">
+        <div class="ap-tip-icon">★</div>
+        <p><strong>AP Tip:</strong> In geometry proofs, always state which similarity postulate or theorem (AA, SAS~, SSS~) justifies your conclusion. Simply saying "the triangles look similar" is not sufficient for full credit.</p>
+    </div>
+
+    <!-- Practice -->
+    <div class="practice-section">
+        <h2>Practice Problems</h2>
+        <div class="practice-grid">
+            <div class="practice-card">
+                <span class="p-num">1</span>
+                <p>$\triangle RST \sim \triangle XYZ$ with $RS = 15$, $ST = 20$, $RT = 25$, $XY = 9$. Find $YZ$, $XZ$, the scale factor from $\triangle RST$ to $\triangle XYZ$, and the ratio of their areas.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    Scale factor: $k = \dfrac{XY}{RS} = \dfrac{9}{15} = \dfrac{3}{5}$.<br>
+                    $YZ = 20 \cdot \dfrac{3}{5} = \mathbf{12}$; $XZ = 25 \cdot \dfrac{3}{5} = \mathbf{15}$.<br>
+                    Ratio of areas $= k^2 = \left(\dfrac{3}{5}\right)^2 = \dfrac{9}{25}$.
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">2</span>
+                <p>$\triangle ABC$ has $\angle A = 40°$, $\angle B = 65°$. $\triangle DEF$ has $\angle D = 40°$, $\angle F = 75°$. Are the triangles similar? If so, write the correct similarity statement.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    $\angle C = 180° - 40° - 65° = 75°$. $\angle E = 180° - 40° - 75° = 65°$.<br>
+                    Matching pairs: $\angle A = \angle D = 40°$, $\angle B = \angle E = 65°$, $\angle C = \angle F = 75°$.<br>
+                    Yes, by <strong>AA</strong>: $\triangle ABC \sim \triangle DEF$.
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">3</span>
+                <p>Two triangles have sides $5$, $6$, $7$ and $10$, $12$, $14$. Are they similar? By which theorem?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    Ratios: $\dfrac{5}{10} = \dfrac{1}{2}$, $\dfrac{6}{12} = \dfrac{1}{2}$, $\dfrac{7}{14} = \dfrac{1}{2}$.<br>
+                    All three ratios are equal, so yes, the triangles are similar by <strong>SSS~</strong> with scale factor $k = \dfrac{1}{2}$.
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">4</span>
+                <p>In $\triangle PQR$, $ST \parallel QR$ with $S$ on $\overline{PQ}$ and $T$ on $\overline{PR}$. Given $PS = 6$, $SQ = 4$, $PT = 9$, find $TR$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    By the Side-Splitter Theorem: $\dfrac{PS}{SQ} = \dfrac{PT}{TR}$.<br>
+                    $\dfrac{6}{4} = \dfrac{9}{TR} \Rightarrow 6 \cdot TR = 36 \Rightarrow TR = \mathbf{6}$.
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">5</span>
+                <p>A $12$-ft ladder leans against a wall forming a triangle with the ground. A $6$-ft ladder makes a similar triangle. If the base of the $12$-ft ladder is $5$ ft from the wall, how far is the base of the $6$-ft ladder from the wall?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    The two triangles are similar with scale factor $k = \dfrac{6}{12} = \dfrac{1}{2}$.<br>
+                    All corresponding lengths scale by $k$, so the base distance $= 5 \cdot \dfrac{1}{2} = \mathbf{2.5}$ ft.
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">6</span>
+                <p>$\triangle ABC \sim \triangle DEF$ with $AB = x + 2$, $DE = 9$, $BC = 8$, $EF = 6$. Find $x$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    Corresponding sides: $\dfrac{AB}{DE} = \dfrac{BC}{EF}$.<br>
+                    $\dfrac{x+2}{9} = \dfrac{8}{6} = \dfrac{4}{3}$.<br>
+                    $3(x + 2) = 36 \Rightarrow x + 2 = 12 \Rightarrow x = \mathbf{10}$.
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">7</span>
+                <p>The angle bisector from $A$ in $\triangle ABC$ meets $\overline{BC}$ at $D$. Given $AB = 8$, $AC = 12$, $BC = 15$, find $BD$ and $DC$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    By the Angle Bisector Theorem: $\dfrac{BD}{DC} = \dfrac{AB}{AC} = \dfrac{8}{12} = \dfrac{2}{3}$.<br>
+                    Let $BD = 2t$ and $DC = 3t$. Then $BD + DC = BC$: $2t + 3t = 15 \Rightarrow t = 3$.<br>
+                    $BD = \mathbf{6}$, $DC = \mathbf{9}$.
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">8</span>
+                <p><strong>AP Problem:</strong> Prove that the midsegment of a triangle is parallel to the third side and half its length. Use coordinates: $A = (0, 2a)$, $B = (0, 0)$, $C = (2b, 0)$. Let $M$ be the midpoint of $\overline{AB}$ and $N$ be the midpoint of $\overline{AC}$. Show $MN \parallel BC$ and $MN = \tfrac{1}{2}BC$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    <strong>Find midpoints:</strong><br>
+                    $M = \text{midpoint of } AB = \left(\dfrac{0+0}{2}, \dfrac{2a+0}{2}\right) = (0, a)$.<br>
+                    $N = \text{midpoint of } AC = \left(\dfrac{0+2b}{2}, \dfrac{2a+0}{2}\right) = (b, a)$.<br><br>
+                    <strong>Show $MN \parallel BC$:</strong><br>
+                    Slope of $MN = \dfrac{a - a}{b - 0} = 0$. Slope of $BC = \dfrac{0 - 0}{2b - 0} = 0$. Both slopes are $0$, so $MN \parallel BC$. $\square$<br><br>
+                    <strong>Show $MN = \tfrac{1}{2}BC$:</strong><br>
+                    $MN = \sqrt{(b-0)^2 + (a-a)^2} = b$.<br>
+                    $BC = \sqrt{(2b-0)^2 + 0^2} = 2b$.<br>
+                    Therefore $MN = b = \dfrac{1}{2}(2b) = \dfrac{1}{2}BC$. $\square$
+                </div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-nav">
+        <a href="/us/textbook/geometry/congruent-triangles.html">← Chapter 5: Congruent Triangles</a>
+        <a href="/us/textbook/geometry/right-triangles.html">Chapter 7: Right Triangles →</a>
+    </div>
+</article>
+
+<script>
+(function() {
+    // Figure 6.1 — Similar triangles with scale factor
+    var elt1 = document.getElementById('graph-similar');
+    var calc1 = Desmos.GraphingCalculator(elt1, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: false, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc1.setMathBounds({ left: 0, right: 11, bottom: 0, top: 8 });
+    calc1.setExpressions([
+        // Triangle 1: A=(1,5), B=(1,1), C=(4,1) — purple
+        { id: 't1', latex: '\\operatorname{polygon}\\left(\\left(1,5\\right),\\left(1,1\\right),\\left(4,1\\right)\\right)', color: '#8b5cf6', lineWidth: 3 },
+        // Triangle 2: D=(6,7), E=(6,1), F=(10,1) — blue
+        { id: 't2', latex: '\\operatorname{polygon}\\left(\\left(6,7\\right),\\left(6,1\\right),\\left(10,1\\right)\\right)', color: '#3b82f6', lineWidth: 3 },
+        // Labels triangle 1
+        { id: 'lA', latex: '\\left(1,5\\right)', color: '#8b5cf6', pointSize: 15, pointStyle: Desmos.Styles.POINT, label: 'A', showLabel: true },
+        { id: 'lB', latex: '\\left(1,1\\right)', color: '#8b5cf6', pointSize: 15, pointStyle: Desmos.Styles.POINT, label: 'B', showLabel: true },
+        { id: 'lC', latex: '\\left(4,1\\right)', color: '#8b5cf6', pointSize: 15, pointStyle: Desmos.Styles.POINT, label: 'C', showLabel: true },
+        // Labels triangle 2
+        { id: 'lD', latex: '\\left(6,7\\right)', color: '#3b82f6', pointSize: 15, pointStyle: Desmos.Styles.POINT, label: 'D', showLabel: true },
+        { id: 'lE', latex: '\\left(6,1\\right)', color: '#3b82f6', pointSize: 15, pointStyle: Desmos.Styles.POINT, label: 'E', showLabel: true },
+        { id: 'lF', latex: '\\left(10,1\\right)', color: '#3b82f6', pointSize: 15, pointStyle: Desmos.Styles.POINT, label: 'F', showLabel: true },
+    ]);
+})();
+
+(function() {
+    // Figure 6.2 — AA Similarity
+    var elt2 = document.getElementById('graph-aa');
+    var calc2 = Desmos.GraphingCalculator(elt2, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: false, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc2.setMathBounds({ left: 0, right: 10, bottom: 0, top: 7 });
+    calc2.setExpressions([
+        // Triangle 1: P=(1,6), Q=(1,1), R=(5,1) — purple
+        { id: 'tri1', latex: '\\operatorname{polygon}\\left(\\left(1,6\\right),\\left(1,1\\right),\\left(5,1\\right)\\right)', color: '#8b5cf6', lineWidth: 3 },
+        // Triangle 2: S=(6,5), T=(6,2), U=(9,2) — blue
+        { id: 'tri2', latex: '\\operatorname{polygon}\\left(\\left(6,5\\right),\\left(6,2\\right),\\left(9,2\\right)\\right)', color: '#3b82f6', lineWidth: 3 },
+        // Labels triangle 1
+        { id: 'pt1A', latex: '\\left(1,6\\right)', color: '#8b5cf6', pointSize: 14, pointStyle: Desmos.Styles.POINT, label: 'P', showLabel: true },
+        { id: 'pt1B', latex: '\\left(1,1\\right)', color: '#8b5cf6', pointSize: 14, pointStyle: Desmos.Styles.POINT, label: 'Q', showLabel: true },
+        { id: 'pt1C', latex: '\\left(5,1\\right)', color: '#8b5cf6', pointSize: 14, pointStyle: Desmos.Styles.POINT, label: 'R', showLabel: true },
+        // Labels triangle 2
+        { id: 'pt2A', latex: '\\left(6,5\\right)', color: '#3b82f6', pointSize: 14, pointStyle: Desmos.Styles.POINT, label: 'S', showLabel: true },
+        { id: 'pt2B', latex: '\\left(6,2\\right)', color: '#3b82f6', pointSize: 14, pointStyle: Desmos.Styles.POINT, label: 'T', showLabel: true },
+        { id: 'pt2C', latex: '\\left(9,2\\right)', color: '#3b82f6', pointSize: 14, pointStyle: Desmos.Styles.POINT, label: 'U', showLabel: true },
+    ]);
+})();
+
+(function() {
+    // Figure 6.3 — Side-Splitter Theorem
+    var elt3 = document.getElementById('graph-splitter');
+    var calc3 = Desmos.GraphingCalculator(elt3, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: false, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc3.setMathBounds({ left: 0, right: 6, bottom: 0, top: 7 });
+    calc3.setExpressions([
+        // Main triangle: A=(3,6), B=(1,1), C=(5,1) — purple
+        { id: 'tri', latex: '\\operatorname{polygon}\\left(\\left(3,6\\right),\\left(1,1\\right),\\left(5,1\\right)\\right)', color: '#8b5cf6', lineWidth: 3 },
+        // Parallel line DE: D=(2,3.5), E=(4,3.5) — green dashed (Side-Splitter)
+        { id: 'de', latex: '\\operatorname{segment}\\left(\\left(2,3.5\\right),\\left(4,3.5\\right)\\right)', color: '#10b981', lineWidth: 2.5, lineStyle: Desmos.Styles.DASHED },
+        // Vertex labels
+        { id: 'ptA', latex: '\\left(3,6\\right)', color: '#8b5cf6', pointSize: 14, pointStyle: Desmos.Styles.POINT, label: 'A', showLabel: true },
+        { id: 'ptB', latex: '\\left(1,1\\right)', color: '#8b5cf6', pointSize: 14, pointStyle: Desmos.Styles.POINT, label: 'B', showLabel: true },
+        { id: 'ptC', latex: '\\left(5,1\\right)', color: '#8b5cf6', pointSize: 14, pointStyle: Desmos.Styles.POINT, label: 'C', showLabel: true },
+        { id: 'ptD', latex: '\\left(2,3.5\\right)', color: '#10b981', pointSize: 14, pointStyle: Desmos.Styles.POINT, label: 'D', showLabel: true },
+        { id: 'ptE', latex: '\\left(4,3.5\\right)', color: '#10b981', pointSize: 14, pointStyle: Desmos.Styles.POINT, label: 'E', showLabel: true },
+    ]);
+})();
+</script>
+
+</body>
+</html>

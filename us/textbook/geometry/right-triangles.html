@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Geometry: Right Triangles and the Pythagorean Theorem - Chapter 7 | MathHub</title>
+    <meta name="description" content="Geometry Chapter 7: Right Triangles and the Pythagorean Theorem. Learn the Pythagorean Theorem, special right triangles (45-45-90, 30-60-90), geometric mean, and the distance formula.">
+    <meta name="keywords" content="geometry, right triangles, Pythagorean theorem, 45-45-90, 30-60-90, special right triangles, geometric mean, distance formula, Pythagorean triples, high school geometry chapter 7">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/geometry/right-triangles.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/geometry/right-triangles.html">
+    <meta property="og:title" content="Geometry: Right Triangles and the Pythagorean Theorem - Chapter 7">
+    <meta property="og:description" content="Learn the Pythagorean Theorem, special right triangles, geometric mean, and the distance formula in Geometry Chapter 7.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "Geometry: Right Triangles and the Pythagorean Theorem - Chapter 7",
+        "description": "Geometry Chapter 7 covering the Pythagorean Theorem, special right triangles (45-45-90 and 30-60-90), geometric mean, and the distance formula.",
+        "url": "https://mathhub.io/us/textbook/geometry/right-triangles.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "High School",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Right Triangles" },
+            { "@type": "Thing", "name": "Pythagorean Theorem" },
+            { "@type": "Thing", "name": "Geometry" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #4c1d95; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #4c1d95; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #8b5cf6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives { background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 24px 0 32px; border-radius: 0 10px 10px 0; }
+        .learning-objectives h4 { color: #4c1d95; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #3b0764; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box { background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #4c1d95; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .example-box ul, .example-box ol { margin: 8px 0 8px 20px; }
+
+        .definition-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+
+        .theorem-box { background: #fdf2f8; border-left: 4px solid #ec4899; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #9d174d; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+        .theorem-box table { width: 100%; border-collapse: collapse; margin: 12px 0 4px; }
+        .theorem-box th { background: #fce7f3; color: #9d174d; padding: 8px 14px; text-align: left; font-weight: 700; font-size: 0.9em; border: 1px solid #fbcfe8; }
+        .theorem-box td { padding: 8px 14px; border: 1px solid #fbcfe8; color: #334155; font-size: 0.92em; }
+        .theorem-box tr:nth-child(even) td { background: #fff0f7; }
+
+        .try-it-box { background: #f5f3ff; border: 1.5px dashed #c4b5fd; padding: 16px 20px; margin: -4px 0 24px; border-radius: 0 0 8px 8px; }
+        .try-it-box .try-it-label { display: inline-block; background: #8b5cf6; color: white; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px; }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary { cursor: pointer; color: #4c1d95; font-weight: 600; font-size: 0.9em; user-select: none; }
+        .try-it-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7; }
+
+        .geo-tip { background: #fefce8; border-left: 4px solid #eab308; padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .geo-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .geo-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .geo-tip strong { color: #92400e; }
+
+        .ap-tip { background: #fff7ed; border-left: 4px solid #f97316; padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .ap-tip-icon { font-size: 1.1em; flex-shrink: 0; margin-top: 2px; font-weight: 800; color: #ea580c; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #c2410c; }
+
+        .desmos-wrap { margin: 24px auto; background: #faf8ff; border-radius: 12px; padding: 4px; border: 1px solid #e9d5ff; text-align: center; }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label { text-align: center; font-size: 0.82em; color: #64748b; margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em; }
+
+        /* Pythagorean triples table */
+        .triples-table { width: 100%; border-collapse: collapse; margin: 14px 0 20px; font-size: 0.9em; }
+        .triples-table th { background: #4c1d95; color: white; padding: 8px 14px; text-align: center; font-weight: 700; }
+        .triples-table td { padding: 8px 14px; border: 1px solid #e2e8f0; color: #334155; text-align: center; }
+        .triples-table tr:nth-child(even) { background: #f8fafc; }
+
+        .practice-section { margin: 48px 0 0; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { color: #4c1d95; margin-bottom: 20px; }
+        .practice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        @media (max-width: 600px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; }
+        .practice-card .p-num { display: inline-block; background: #4c1d95; color: white; font-weight: 700; font-size: 0.78em; padding: 2px 9px; border-radius: 4px; margin-bottom: 8px; }
+        .practice-card p { color: #334155; font-size: 0.92em; line-height: 1.7; margin: 0 0 10px; }
+        .practice-card details summary { cursor: pointer; color: #4c1d95; font-weight: 600; font-size: 0.88em; user-select: none; }
+        .practice-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 8px; color: #334155; font-size: 0.9em; line-height: 1.7; border: 1px solid #e2e8f0; }
+
+        .chapter-nav { display: flex; justify-content: space-between; margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid #e2e8f0; flex-wrap: wrap; gap: 12px; }
+        .chapter-nav a { color: #8b5cf6; text-decoration: none; font-weight: 600; font-size: 0.95em; padding: 8px 16px; border: 1.5px solid #8b5cf6; border-radius: 8px; transition: background .15s; }
+        .chapter-nav a:hover { background: #f5f3ff; }
+    </style>
+</head>
+<body>
+
+<div style="background:#4c1d95; padding:12px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+    <a href="/" style="color:#ddd6fe; text-decoration:none; font-weight:700; font-size:1.1em;">MathHub</a>
+    <span style="color:#a78bfa;">›</span>
+    <a href="/us" style="color:#c4b5fd; text-decoration:none; font-size:.9em;">US</a>
+    <span style="color:#a78bfa;">›</span>
+    <a href="/us/textbook/geometry" style="color:#c4b5fd; text-decoration:none; font-size:.9em;">Geometry</a>
+    <span style="color:#a78bfa;">›</span>
+    <span style="color:white; font-size:.9em;">Chapter 7</span>
+</div>
+
+<article class="blog-article">
+    <div class="breadcrumb">
+        <a href="/">MathHub</a> › <a href="/us">US</a> › <a href="/us/textbook/geometry">Geometry</a> › Chapter 7
+    </div>
+
+    <h1>Chapter 7: Right Triangles and the Pythagorean Theorem</h1>
+    <div class="blog-meta">High School Geometry · Unit 4: Right Triangles · 3 interactive diagrams · 8 practice problems</div>
+
+    <div class="learning-objectives">
+        <h4>Learning Objectives</h4>
+        <ul>
+            <li>State and apply the Pythagorean Theorem and its converse</li>
+            <li>Identify and use Pythagorean triples to recognize right triangles quickly</li>
+            <li>Apply the 45-45-90 and 30-60-90 special right triangle ratios</li>
+            <li>Use the geometric mean to find segment lengths in right triangles with an altitude to the hypotenuse</li>
+            <li>Derive and apply the distance formula from the Pythagorean Theorem</li>
+            <li>Solve real-world problems involving right triangles and distances</li>
+        </ul>
+    </div>
+
+    <!-- 7.1 -->
+    <h2>7.1 The Pythagorean Theorem</h2>
+
+    <p>A <strong>right triangle</strong> has one angle equal to 90°. The two sides that form the right angle are called the <strong>legs</strong>, labeled $a$ and $b$. The side opposite the right angle — always the longest side — is the <strong>hypotenuse</strong>, labeled $c$.</p>
+
+    <div class="theorem-box">
+        <h4>Pythagorean Theorem</h4>
+        <p>In a right triangle with legs $a$ and $b$ and hypotenuse $c$:</p>
+        <p style="text-align:center; font-size:1.15em; margin: 12px 0;">$$a^2 + b^2 = c^2$$</p>
+        <p><strong>Proof idea (area argument):</strong> Arrange 4 identical right triangles with legs $a$, $b$ inside a large square of side $(a+b)$. The 4 triangles leave a tilted square of side $c$ in the center. Comparing areas: $(a+b)^2 = 4 \cdot \tfrac{1}{2}ab + c^2$, which simplifies to $a^2 + 2ab + b^2 = 2ab + c^2$, giving $a^2 + b^2 = c^2$.</p>
+    </div>
+
+    <div class="theorem-box">
+        <h4>Converse of the Pythagorean Theorem</h4>
+        <p>If the sides of a triangle satisfy $a^2 + b^2 = c^2$ (where $c$ is the longest side), then the triangle is a right triangle with the right angle opposite side $c$.</p>
+    </div>
+
+    <h3>Pythagorean Triples</h3>
+    <p>A <strong>Pythagorean triple</strong> is a set of three positive integers $(a, b, c)$ that satisfies $a^2 + b^2 = c^2$. Recognizing them saves calculation time. Any multiple of a triple is also a triple.</p>
+
+    <table class="triples-table">
+        <tr><th>Triple</th><th>Check</th><th>Common Multiples</th></tr>
+        <tr><td>3, 4, 5</td><td>$9 + 16 = 25$ ✓</td><td>6-8-10, 9-12-15, 15-20-25</td></tr>
+        <tr><td>5, 12, 13</td><td>$25 + 144 = 169$ ✓</td><td>10-24-26</td></tr>
+        <tr><td>8, 15, 17</td><td>$64 + 225 = 289$ ✓</td><td>16-30-34</td></tr>
+        <tr><td>7, 24, 25</td><td>$49 + 576 = 625$ ✓</td><td>14-48-50</td></tr>
+    </table>
+
+    <div class="example-box">
+        <h4>Example 7.1 — Finding the Hypotenuse</h4>
+        <p>A right triangle has legs $a = 6$ and $b = 8$. Find the hypotenuse.</p>
+        <p>$$c^2 = a^2 + b^2 = 6^2 + 8^2 = 36 + 64 = 100$$</p>
+        <p>$$c = \sqrt{100} = \mathbf{10}$$</p>
+        <p>Note: this is the 3-4-5 triple scaled by 2 (i.e., 6-8-10).</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 7.2 — Using the Converse</h4>
+        <p>Is a triangle with sides 9, 40, and 41 a right triangle?</p>
+        <p>Check whether $9^2 + 40^2 = 41^2$:</p>
+        <p>$$81 + 1600 = 1681 \quad \text{and} \quad 41^2 = 1681 \checkmark$$</p>
+        <p><strong>Yes,</strong> it is a right triangle. (9-40-41 is itself a Pythagorean triple.)</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A 15-ft ladder leans against a wall. The base of the ladder is 9 ft from the wall. How high up the wall does the ladder reach?</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">Let $h$ = height on wall. $9^2 + h^2 = 15^2 \Rightarrow 81 + h^2 = 225 \Rightarrow h^2 = 144 \Rightarrow h = \mathbf{12 \text{ ft}}$. (This is a 9-12-15 triple, which is 3 × the 3-4-5 triple.)</div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Right triangle with labeled legs and hypotenuse. A right angle mark appears at vertex A; a dashed altitude is drawn from C to the base.</p>
+        <div id="graph-right-triangle" style="width:100%; max-width:630px; height:480px; margin:0 auto;"></div>
+        <p class="fig-label">Figure 7.1 — Right Triangle: legs $a$, $b$ and hypotenuse $c$</p>
+    </div>
+
+    <!-- 7.2 -->
+    <h2>7.2 Special Right Triangles</h2>
+
+    <p>Two right triangle shapes appear so frequently in geometry and trigonometry that their side ratios are worth memorizing.</p>
+
+    <h3>The 45-45-90 Triangle</h3>
+    <p>Cut a square diagonally. Each half is a right isosceles triangle with angles 45°, 45°, and 90°. If each leg has length $a$, the Pythagorean Theorem gives the hypotenuse:</p>
+    <p>$$c = \sqrt{a^2 + a^2} = \sqrt{2a^2} = a\sqrt{2}$$</p>
+    <p><strong>Ratio:</strong> legs to hypotenuse = $1 : 1 : \sqrt{2}$</p>
+
+    <h3>The 30-60-90 Triangle</h3>
+    <p>Cut an equilateral triangle in half with an altitude. Each half is a 30-60-90 right triangle. If the equilateral triangle has side $2a$, then the short leg = $a$, the hypotenuse = $2a$, and the long leg (altitude):</p>
+    <p>$$b = \sqrt{(2a)^2 - a^2} = \sqrt{4a^2 - a^2} = \sqrt{3a^2} = a\sqrt{3}$$</p>
+    <p><strong>Ratio:</strong> short leg : long leg : hypotenuse = $1 : \sqrt{3} : 2$</p>
+
+    <div class="theorem-box">
+        <h4>Special Right Triangle Ratios</h4>
+        <table>
+            <tr>
+                <th>Triangle Type</th>
+                <th>Short Leg</th>
+                <th>Long Leg</th>
+                <th>Hypotenuse</th>
+            </tr>
+            <tr>
+                <td><strong>45-45-90</strong></td>
+                <td>$a$</td>
+                <td>$a$</td>
+                <td>$a\sqrt{2}$</td>
+            </tr>
+            <tr>
+                <td><strong>30-60-90</strong></td>
+                <td>$a$</td>
+                <td>$a\sqrt{3}$</td>
+                <td>$2a$</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 7.3 — 45-45-90 Triangle</h4>
+        <p>The hypotenuse of a 45-45-90 triangle is 10. Find the legs.</p>
+        <p>Using the ratio: hypotenuse $= a\sqrt{2}$, so $a\sqrt{2} = 10$.</p>
+        <p>$$a = \frac{10}{\sqrt{2}} = \frac{10\sqrt{2}}{2} = 5\sqrt{2} \approx 7.07$$</p>
+        <p>Both legs have length $\mathbf{5\sqrt{2} \approx 7.07}$.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 7.4 — 30-60-90 Triangle</h4>
+        <p>The hypotenuse of a 30-60-90 triangle is 12. Find both legs.</p>
+        <p>Hypotenuse $= 2a = 12$, so $a = 6$.</p>
+        <ul>
+            <li><strong>Short leg</strong> (opposite 30°): $a = \mathbf{6}$</li>
+            <li><strong>Long leg</strong> (opposite 60°): $a\sqrt{3} = 6\sqrt{3} \approx \mathbf{10.39}$</li>
+        </ul>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>In a 45-45-90 triangle, one leg $= 8$. Find the hypotenuse and the area of the triangle.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer"><strong>Hypotenuse:</strong> $8\sqrt{2} \approx 11.31$. <br><strong>Area:</strong> Both legs $= 8$, so Area $= \tfrac{1}{2}(8)(8) = \mathbf{32}$ square units.</div>
+        </details>
+    </div>
+
+    <div class="ap-tip">
+        <div class="ap-tip-icon">AP</div>
+        <p><strong>AP Tip:</strong> The 45-45-90 and 30-60-90 side ratios are <em>not</em> provided on most standardized tests (SAT, ACT, geometry finals). You must memorize $1:1:\sqrt{2}$ and $1:\sqrt{3}:2$. A fast check: in a 30-60-90, the hypotenuse is always <em>twice</em> the short leg.</p>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Side-by-side comparison of a 45-45-90 triangle (purple) and a 30-60-90 triangle (blue), with right angle marks at the respective vertices.</p>
+        <div id="graph-special-triangles" style="width:100%; max-width:700px; height:500px; margin:0 auto;"></div>
+        <p class="fig-label">Figure 7.2 — Special Right Triangles: 45-45-90 (left) and 30-60-90 (right)</p>
+    </div>
+
+    <!-- 7.3 -->
+    <h2>7.3 Geometric Mean and Altitude-on-Hypotenuse</h2>
+
+    <p>When an altitude is drawn from the right angle of a right triangle to the hypotenuse, it creates <strong>three similar triangles</strong>: the original triangle and the two smaller triangles on each side of the altitude. This similarity produces useful proportional relationships involving the <strong>geometric mean</strong>.</p>
+
+    <div class="definition-box">
+        <h4>Geometric Mean</h4>
+        <p>The <strong>geometric mean</strong> of two positive numbers $a$ and $b$ is the positive number $x$ such that:</p>
+        <p>$$\frac{a}{x} = \frac{x}{b} \implies x = \sqrt{ab}$$</p>
+        <p>In other words, $x$ is the geometric mean of $a$ and $b$ when $x^2 = ab$.</p>
+    </div>
+
+    <div class="theorem-box">
+        <h4>Right Triangle Altitude Theorem (Geometric Mean)</h4>
+        <p>In a right triangle, let the altitude from the right angle meet the hypotenuse at point $D$, dividing it into segments $p$ and $q$ (so $p + q = c$). Let $h$ be the length of the altitude, and let $a$, $b$ be the legs opposite to $q$ and $p$ respectively. Then:</p>
+        <ul>
+            <li><strong>Altitude:</strong> $h^2 = p \cdot q$ — the altitude is the geometric mean of the two hypotenuse segments</li>
+            <li><strong>Each leg:</strong> $a^2 = c \cdot q$ and $b^2 = c \cdot p$ — each leg is the geometric mean of the hypotenuse and the adjacent segment</li>
+        </ul>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 7.5 — Finding Hypotenuse Segments</h4>
+        <p>A right triangle has hypotenuse $c = 25$. The altitude to the hypotenuse has length $h = 12$. Find the two segments of the hypotenuse.</p>
+        <p>Let the segments be $p$ and $q$. Then $h^2 = pq$ and $p + q = 25$:</p>
+        <p>$$144 = pq \quad \text{and} \quad p + q = 25$$</p>
+        <p>So $p$ and $q$ are roots of $x^2 - 25x + 144 = 0$:</p>
+        <p>$$x = \frac{25 \pm \sqrt{625 - 576}}{2} = \frac{25 \pm \sqrt{49}}{2} = \frac{25 \pm 7}{2}$$</p>
+        <p>$$\mathbf{p = 16, \quad q = 9}$$</p>
+        <p>Check: $16 + 9 = 25$ ✓ and $16 \times 9 = 144 = 12^2$ ✓</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 7.6 — Using the Altitude Theorem</h4>
+        <p>In right $\triangle ABC$, altitude $\overline{CD}$ is drawn to hypotenuse $\overline{AB}$ with $CD = 6$ and $AD = 4$. Find $DB$, $AB$, $AC$, and $BC$.</p>
+        <ul>
+            <li>$CD^2 = AD \cdot DB \Rightarrow 36 = 4 \cdot DB \Rightarrow DB = \mathbf{9}$</li>
+            <li>$AB = AD + DB = 4 + 9 = \mathbf{13}$</li>
+            <li>$AC^2 = AB \cdot AD = 13 \cdot 4 = 52 \Rightarrow AC = \sqrt{52} = 2\sqrt{13} \approx \mathbf{7.21}$</li>
+            <li>$BC^2 = AB \cdot DB = 13 \cdot 9 = 117 \Rightarrow BC = \sqrt{117} = 3\sqrt{13} \approx \mathbf{10.82}$</li>
+        </ul>
+        <p>Check: $AC^2 + BC^2 = 52 + 117 = 169 = 13^2 = AB^2$ ✓</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>The altitude to the hypotenuse of a right triangle is 8. One hypotenuse segment is 4. Find the other segment and the hypotenuse.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">$h^2 = p \cdot q \Rightarrow 64 = 4q \Rightarrow q = 16$. Hypotenuse $= 4 + 16 = \mathbf{20}$. Check: $8^2 = 4 \times 16 = 64$ ✓</div>
+        </details>
+    </div>
+
+    <!-- 7.4 -->
+    <h2>7.4 Distance Formula and Applications</h2>
+
+    <p>The Pythagorean Theorem gives us a direct method for finding the distance between any two points on the coordinate plane. Given points $(x_1, y_1)$ and $(x_2, y_2)$, the horizontal and vertical differences form the legs of a right triangle with the segment connecting the points as the hypotenuse.</p>
+
+    <div class="definition-box">
+        <h4>Distance and Midpoint Formulas</h4>
+        <p><strong>Distance Formula:</strong> The distance $d$ between $(x_1, y_1)$ and $(x_2, y_2)$ is:</p>
+        <p style="text-align:center;">$$d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$</p>
+        <p><strong>Midpoint Formula:</strong> The midpoint $M$ of the segment from $(x_1, y_1)$ to $(x_2, y_2)$ is:</p>
+        <p style="text-align:center;">$$M = \left(\frac{x_1 + x_2}{2},\ \frac{y_1 + y_2}{2}\right)$$</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 7.7 — Perimeter of a Triangle on the Coordinate Plane</h4>
+        <p>Find the perimeter of $\triangle PQR$ with vertices $P = (0, 0)$, $Q = (4, 0)$, $R = (4, 3)$.</p>
+        <ul>
+            <li>$PQ = \sqrt{(4-0)^2 + (0-0)^2} = \sqrt{16} = 4$</li>
+            <li>$QR = \sqrt{(4-4)^2 + (3-0)^2} = \sqrt{9} = 3$</li>
+            <li>$PR = \sqrt{(4-0)^2 + (3-0)^2} = \sqrt{16 + 9} = \sqrt{25} = 5$</li>
+        </ul>
+        <p><strong>Perimeter</strong> $= 4 + 3 + 5 = \mathbf{12}$. (This is a 3-4-5 right triangle with the right angle at $Q$.)</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 7.8 — Diagonal of a Rectangle (TV Screen)</h4>
+        <p>A television screen is 48 inches wide and 27 inches tall. What is the diagonal measurement?</p>
+        <p>$$d = \sqrt{48^2 + 27^2} = \sqrt{2304 + 729} = \sqrt{3033} \approx \mathbf{55.1 \text{ inches}}$$</p>
+        <p>This is how television sizes are typically advertised — by the diagonal of the screen.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>Find the distance between $(-3, 4)$ and $(5, -2)$.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">$d = \sqrt{(5-(-3))^2 + (-2-4)^2} = \sqrt{8^2 + (-6)^2} = \sqrt{64 + 36} = \sqrt{100} = \mathbf{10}$</div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Distance formula derivation: the horizontal and vertical legs (dashed auxiliary lines) of the right triangle formed by two coordinate points, with the hypotenuse AC representing the distance.</p>
+        <div id="graph-distance-formula" style="width:100%; max-width:630px; height:480px; margin:0 auto;"></div>
+        <p class="fig-label">Figure 7.3 — Distance Formula as Pythagorean Theorem on the Coordinate Plane</p>
+    </div>
+
+    <!-- Practice -->
+    <div class="practice-section">
+        <h2>Practice Problems</h2>
+        <div class="practice-grid">
+            <div class="practice-card">
+                <span class="p-num">1</span>
+                <p>Find the missing side of a right triangle with legs 5 and 12. Then verify it is a Pythagorean triple.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$c = \sqrt{5^2 + 12^2} = \sqrt{25 + 144} = \sqrt{169} = \mathbf{13}$. Check: $5^2 + 12^2 = 169 = 13^2$ ✓. Yes, 5-12-13 is a Pythagorean triple.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">2</span>
+                <p>A 26-ft rope is stretched from the top of a 24-ft pole to a point on the ground. How far from the base of the pole does the rope end?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$d^2 + 24^2 = 26^2 \Rightarrow d^2 = 676 - 576 = 100 \Rightarrow d = \mathbf{10 \text{ ft}}$. (This is a 10-24-26 triple, i.e., 2 × the 5-12-13 triple.)</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">3</span>
+                <p>Find all missing sides of a 45-45-90 triangle with hypotenuse $= 14$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Hypotenuse $= a\sqrt{2} = 14 \Rightarrow a = \dfrac{14}{\sqrt{2}} = \dfrac{14\sqrt{2}}{2} = 7\sqrt{2}$. Both legs $= \mathbf{7\sqrt{2} \approx 9.90}$.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">4</span>
+                <p>Find all missing sides of a 30-60-90 triangle with long leg $= 9\sqrt{3}$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Long leg $= a\sqrt{3} = 9\sqrt{3} \Rightarrow a = 9$. Short leg $= \mathbf{9}$. Hypotenuse $= 2a = \mathbf{18}$.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">5</span>
+                <p>Altitude to the hypotenuse of a right triangle $= 6$. The shorter hypotenuse segment $= 3$. Find the longer segment and the hypotenuse.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$h^2 = p \cdot q \Rightarrow 36 = 3q \Rightarrow q = 12$. Hypotenuse $= 3 + 12 = \mathbf{15}$. Check: $6^2 = 3 \times 12 = 36$ ✓</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">6</span>
+                <p>The diagonals of a rhombus are 16 and 12. Find the side length of the rhombus. (<em>Hint: the diagonals of a rhombus are perpendicular bisectors of each other.</em>)</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">The diagonals bisect each other, forming four right triangles with legs 8 and 6. Side $= \sqrt{8^2 + 6^2} = \sqrt{64 + 36} = \sqrt{100} = \mathbf{10}$.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">7</span>
+                <p>Find the perimeter and area of the triangle with vertices $A = (-2, 1)$, $B = (4, 1)$, $C = (4, 5)$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$AB = \sqrt{36 + 0} = 6$. $BC = \sqrt{0 + 16} = 4$. $AC = \sqrt{36 + 16} = \sqrt{52} = 2\sqrt{13} \approx 7.21$. <strong>Perimeter</strong> $\approx \mathbf{17.21}$. Right angle at $B$: <strong>Area</strong> $= \tfrac{1}{2}(6)(4) = \mathbf{12}$ sq. units.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">8</span>
+                <p><strong>AP Problem:</strong> Two boats leave the same dock. Boat A travels 12 mi north; Boat B travels 16 mi east. What is the straight-line distance between them? If Boat A then travels 5 mi east and Boat B travels 9 mi north, are they still the same distance apart? Show all work.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    <strong>Part 1:</strong> $d = \sqrt{12^2 + 16^2} = \sqrt{144 + 256} = \sqrt{400} = \mathbf{20 \text{ mi}}$.<br><br>
+                    <strong>Part 2:</strong> Boat A is now at $(5, 12)$; Boat B is at $(16, 9)$.<br>
+                    New distance $= \sqrt{(16-5)^2 + (9-12)^2} = \sqrt{11^2 + (-3)^2} = \sqrt{121 + 9} = \sqrt{130} \approx 11.4 \text{ mi}$.<br>
+                    $\sqrt{130} \neq 20$, so <strong>no</strong>, they are no longer the same distance apart.
+                </div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-nav">
+        <a href="/us/textbook/geometry/similar-triangles.html">← Chapter 6: Similar Triangles</a>
+        <a href="/us/textbook/geometry/trigonometry-sohcahtoa.html">Chapter 8: Trigonometry: SOHCAHTOA →</a>
+    </div>
+</article>
+
+<script>
+(function() {
+    // Figure 7.1 — Right triangle with labeled legs and hypotenuse
+    var elt1 = document.getElementById('graph-right-triangle');
+    var calc1 = Desmos.GraphingCalculator(elt1, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: false, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc1.setMathBounds({ left: 0, right: 8, bottom: 0, top: 6 });
+
+    // Main triangle: A=(1,1), B=(7,1), C=(1,5)
+    calc1.setExpression({ id: 'tri1', type: 'expression',
+        latex: '\\operatorname{polygon}((1,1),(7,1),(1,5))',
+        color: '#8b5cf6', lineWidth: 3 });
+
+    // Right angle mark at A — small square using three segments
+    calc1.setExpression({ id: 'ra1', type: 'expression',
+        latex: '(x,1)\\{1\\le x\\le1.5\\}',
+        color: '#8b5cf6', lineWidth: 2 });
+    calc1.setExpression({ id: 'ra2', type: 'expression',
+        latex: '(1.5,y)\\{1\\le y\\le1.5\\}',
+        color: '#8b5cf6', lineWidth: 2 });
+    calc1.setExpression({ id: 'ra3', type: 'expression',
+        latex: '(x,1.5)\\{1\\le x\\le1.5\\}',
+        color: '#8b5cf6', lineWidth: 2 });
+
+    // Dashed altitude from C=(1,5) to foot on AB=(1,1) — already the vertical leg; instead draw altitude from C to hypotenuse BC
+    // Altitude from C=(1,5) to hypotenuse AB where A=(1,1), B=(7,1): hypotenuse is BC from B=(7,1) to C=(1,5)
+    // Line BC: direction (1-7, 5-1)=(-6,4), perpendicular direction (4,6)
+    // Foot of altitude from A=(1,1) to BC:
+    // BC parametric: (7,1)+t*(-6,4), t in [0,1]
+    // Foot: t = dot((1,1)-(7,1), (-6,4)) / |(-6,4)|^2 = dot((-6,0),(-6,4))/52 = 36/52 = 9/13
+    // Foot = (7-54/13, 1+36/13) = (91/13-54/13, 13/13+36/13) = (37/13, 49/13) ≈ (2.846, 3.769)
+    calc1.setExpression({ id: 'alt1', type: 'expression',
+        latex: '\\left(1+\\frac{\\left(37/13-1\\right)}{1}t,\\ 1+\\frac{\\left(49/13-1\\right)}{1}t\\right)',
+        color: '#a78bfa', lineStyle: Desmos.Styles.DASHED, lineWidth: 2.5 });
+    // Simpler: just draw a dashed segment from A to the foot
+    calc1.setExpression({ id: 'altline', type: 'expression',
+        latex: 'y=\\frac{49/13-1}{37/13-1}\\cdot(x-1)+1\\{1\\le x\\le37/13\\}',
+        color: '#a78bfa', lineStyle: Desmos.Styles.DASHED, lineWidth: 2.5 });
+
+    // Vertex labels
+    calc1.setExpression({ id: 'ptA', type: 'expression', latex: '(1,1)', color: '#4c1d95', pointSize: 14 });
+    calc1.setExpression({ id: 'ptB', type: 'expression', latex: '(7,1)', color: '#4c1d95', pointSize: 14 });
+    calc1.setExpression({ id: 'ptC', type: 'expression', latex: '(1,5)', color: '#4c1d95', pointSize: 14 });
+
+    // Labels for sides
+    calc1.setExpression({ id: 'lbla', type: 'expression',
+        latex: '\\text{leg }a=6', color: '#4c1d95' });
+    calc1.setExpression({ id: 'lblb', type: 'expression',
+        latex: '\\text{leg }b=4', color: '#4c1d95' });
+    calc1.setExpression({ id: 'lblc', type: 'expression',
+        latex: '\\text{hypotenuse }c', color: '#7c3aed' });
+})();
+
+(function() {
+    // Figure 7.2 — Special right triangles side by side
+    var elt2 = document.getElementById('graph-special-triangles');
+    var calc2 = Desmos.GraphingCalculator(elt2, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: false, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc2.setMathBounds({ left: 0, right: 10, bottom: 0, top: 9 });
+
+    // 45-45-90 triangle: A=(1,1), B=(4,1), C=(1,4) — legs=3, hyp=3√2
+    calc2.setExpression({ id: 'tri45', type: 'expression',
+        latex: '\\operatorname{polygon}((1,1),(4,1),(1,4))',
+        color: '#8b5cf6', lineWidth: 3 });
+
+    // Right angle mark at A=(1,1) for 45-45-90
+    calc2.setExpression({ id: 'ra45a', type: 'expression',
+        latex: '(x,1)\\{1\\le x\\le1.4\\}', color: '#8b5cf6', lineWidth: 2 });
+    calc2.setExpression({ id: 'ra45b', type: 'expression',
+        latex: '(1.4,y)\\{1\\le y\\le1.4\\}', color: '#8b5cf6', lineWidth: 2 });
+    calc2.setExpression({ id: 'ra45c', type: 'expression',
+        latex: '(x,1.4)\\{1\\le x\\le1.4\\}', color: '#8b5cf6', lineWidth: 2 });
+
+    // Labels for 45-45-90
+    calc2.setExpression({ id: 'lbl45', type: 'expression',
+        latex: '\\text{45-45-90}', color: '#4c1d95' });
+    calc2.setExpression({ id: 'lblleg45', type: 'expression',
+        latex: '1:1:\\sqrt{2}', color: '#7c3aed' });
+
+    // 30-60-90 triangle: D=(5,1), E=(9,1), F=(5, 1+4√3)
+    // 4√3 ≈ 6.928, so F≈(5, 7.928)
+    var sqrt3 = Math.sqrt(3);
+    var Fy = 1 + 4 * sqrt3; // ≈ 7.928
+    calc2.setExpression({ id: 'tri30', type: 'expression',
+        latex: '\\operatorname{polygon}((5,1),(9,1),(5,' + Fy.toFixed(4) + '))',
+        color: '#3b82f6', lineWidth: 3 });
+
+    // Right angle mark at D=(5,1) for 30-60-90
+    calc2.setExpression({ id: 'ra30a', type: 'expression',
+        latex: '(x,1)\\{5\\le x\\le5.4\\}', color: '#3b82f6', lineWidth: 2 });
+    calc2.setExpression({ id: 'ra30b', type: 'expression',
+        latex: '(5.4,y)\\{1\\le y\\le1.4\\}', color: '#3b82f6', lineWidth: 2 });
+    calc2.setExpression({ id: 'ra30c', type: 'expression',
+        latex: '(x,1.4)\\{5\\le x\\le5.4\\}', color: '#3b82f6', lineWidth: 2 });
+
+    // Labels for 30-60-90
+    calc2.setExpression({ id: 'lbl30', type: 'expression',
+        latex: '\\text{30-60-90}', color: '#1d4ed8' });
+    calc2.setExpression({ id: 'lblleg30', type: 'expression',
+        latex: '1:\\sqrt{3}:2', color: '#2563eb' });
+
+    // Vertex points
+    calc2.setExpression({ id: 'ptD', type: 'expression', latex: '(5,1)', color: '#3b82f6', pointSize: 12 });
+    calc2.setExpression({ id: 'ptE', type: 'expression', latex: '(9,1)', color: '#3b82f6', pointSize: 12 });
+    calc2.setExpression({ id: 'ptF', type: 'expression', latex: '(5,' + Fy.toFixed(4) + ')', color: '#3b82f6', pointSize: 12 });
+    calc2.setExpression({ id: 'ptA2', type: 'expression', latex: '(1,1)', color: '#8b5cf6', pointSize: 12 });
+    calc2.setExpression({ id: 'ptB2', type: 'expression', latex: '(4,1)', color: '#8b5cf6', pointSize: 12 });
+    calc2.setExpression({ id: 'ptC2', type: 'expression', latex: '(1,4)', color: '#8b5cf6', pointSize: 12 });
+})();
+
+(function() {
+    // Figure 7.3 — Distance formula: right triangle on coordinate plane
+    var elt3 = document.getElementById('graph-distance-formula');
+    var calc3 = Desmos.GraphingCalculator(elt3, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: false, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc3.setMathBounds({ left: 0, right: 9, bottom: 0, top: 7 });
+
+    // Triangle vertices: A=(1,1), B=(7,1), C=(7,5)
+    // Hypotenuse AC: solid purple
+    calc3.setExpression({ id: 'hyp', type: 'expression',
+        latex: 'y=\\frac{5-1}{7-1}(x-1)+1\\{1\\le x\\le7\\}',
+        color: '#8b5cf6', lineWidth: 3 });
+
+    // Horizontal leg AB (auxiliary, dashed)
+    calc3.setExpression({ id: 'legH', type: 'expression',
+        latex: 'y=1\\{1\\le x\\le7\\}',
+        color: '#94a3b8', lineStyle: Desmos.Styles.DASHED, lineWidth: 2.5 });
+
+    // Vertical leg BC (auxiliary, dashed)
+    calc3.setExpression({ id: 'legV', type: 'expression',
+        latex: 'x=7\\{1\\le y\\le5\\}',
+        color: '#94a3b8', lineStyle: Desmos.Styles.DASHED, lineWidth: 2.5 });
+
+    // Right angle mark at B=(7,1)
+    calc3.setExpression({ id: 'raB1', type: 'expression',
+        latex: '(x,1)\\{6.5\\le x\\le7\\}', color: '#94a3b8', lineWidth: 2 });
+    calc3.setExpression({ id: 'raB2', type: 'expression',
+        latex: '(6.5,y)\\{1\\le y\\le1.5\\}', color: '#94a3b8', lineWidth: 2 });
+    calc3.setExpression({ id: 'raB3', type: 'expression',
+        latex: '(x,1.5)\\{6.5\\le x\\le7\\}', color: '#94a3b8', lineWidth: 2 });
+
+    // Vertex points
+    calc3.setExpression({ id: 'ptA3', type: 'expression', latex: '(1,1)', color: '#4c1d95', pointSize: 14 });
+    calc3.setExpression({ id: 'ptB3', type: 'expression', latex: '(7,1)', color: '#4c1d95', pointSize: 14 });
+    calc3.setExpression({ id: 'ptC3', type: 'expression', latex: '(7,5)', color: '#4c1d95', pointSize: 14 });
+
+    // Labels
+    calc3.setExpression({ id: 'lblA3', type: 'expression',
+        latex: '\\text{A}(x_1,y_1)', color: '#4c1d95' });
+    calc3.setExpression({ id: 'lblC3', type: 'expression',
+        latex: '\\text{C}(x_2,y_2)', color: '#4c1d95' });
+    calc3.setExpression({ id: 'lblH3', type: 'expression',
+        latex: 'x_2 - x_1', color: '#64748b' });
+    calc3.setExpression({ id: 'lblV3', type: 'expression',
+        latex: 'y_2 - y_1', color: '#64748b' });
+    calc3.setExpression({ id: 'lblD3', type: 'expression',
+        latex: 'd=\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}', color: '#7c3aed' });
+})();
+</script>
+
+</body>
+</html>
