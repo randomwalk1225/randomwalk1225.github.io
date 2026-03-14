@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Statistics: Sampling Distributions - Chapter 9 | MathHub</title>
+    <meta name="description" content="AP Statistics Chapter 9: Sampling Distributions. Learn parameters vs. statistics, the Central Limit Theorem, sampling distribution of p̂, and bias vs. variability.">
+    <meta name="keywords" content="AP Statistics, sampling distributions, Central Limit Theorem, CLT, sample mean, sample proportion, bias variability, standard error, AP Stats Chapter 9">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/ap-statistics/sampling-distributions.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/ap-statistics/sampling-distributions.html">
+    <meta property="og:title" content="AP Statistics: Sampling Distributions - Chapter 9">
+    <meta property="og:description" content="Learn parameters vs. statistics, the Central Limit Theorem, sampling distribution of p̂, and bias vs. variability for AP Statistics.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Statistics: Sampling Distributions - Chapter 9">
+    <meta name="twitter:description" content="AP Statistics Chapter 9: Sampling Distributions, CLT, sampling distribution of p̂, bias and variability.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "AP Statistics: Sampling Distributions - Chapter 9",
+        "description": "AP Statistics Chapter 9 covering parameters vs. statistics, the Central Limit Theorem, sampling distribution of p̂, and bias vs. variability.",
+        "url": "https://mathhub.io/us/textbook/ap-statistics/sampling-distributions.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "AP",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Sampling Distributions" },
+            { "@type": "Thing", "name": "Central Limit Theorem" },
+            { "@type": "Thing", "name": "AP Statistics" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #064e3b; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #064e3b; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #10b981; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives { background: #ecfdf5; border-left: 4px solid #10b981; padding: 20px 24px; margin: 24px 0 32px; border-radius: 0 10px 10px 0; }
+        .learning-objectives h4 { color: #065f46; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #064e3b; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box { background: #f0fdf4; border-left: 4px solid #10b981; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #065f46; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+
+        .definition-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box { background: #f0fdf4; border: 1.5px dashed #86efac; padding: 16px 20px; margin: -4px 0 24px; border-radius: 0 0 8px 8px; }
+        .try-it-box .try-it-label { display: inline-block; background: #10b981; color: white; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px; }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary { cursor: pointer; color: #065f46; font-weight: 600; font-size: 0.9em; user-select: none; }
+        .try-it-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7; }
+
+        .ap-tip { background: #fefce8; border-left: 4px solid #eab308; padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .ap-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #92400e; }
+
+        .desmos-wrap { margin: 24px auto; background: #f8fafc; border-radius: 12px; padding: 4px; border: 1px solid #e2e8f0; text-align: center; }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label { text-align: center; font-size: 0.82em; color: #64748b; margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em; }
+
+        .practice-section { margin: 48px 0 0; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { color: #064e3b; margin-bottom: 20px; }
+        .practice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        @media (max-width: 600px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; }
+        .practice-card .p-num { display: inline-block; background: #064e3b; color: white; font-weight: 700; font-size: 0.78em; padding: 2px 9px; border-radius: 4px; margin-bottom: 8px; }
+        .practice-card p { color: #334155; font-size: 0.92em; line-height: 1.7; margin: 0 0 10px; }
+        .practice-card details summary { cursor: pointer; color: #065f46; font-weight: 600; font-size: 0.88em; user-select: none; }
+        .practice-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 8px; color: #334155; font-size: 0.9em; line-height: 1.7; border: 1px solid #e2e8f0; }
+
+        .chapter-nav { display: flex; justify-content: space-between; margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid #e2e8f0; flex-wrap: wrap; gap: 12px; }
+        .chapter-nav a { color: #10b981; text-decoration: none; font-weight: 600; font-size: 0.95em; padding: 8px 16px; border: 1.5px solid #10b981; border-radius: 8px; transition: background .15s; }
+        .chapter-nav a:hover { background: #ecfdf5; }
+
+        .data-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.9em; }
+        .data-table th { background: #064e3b; color: white; padding: 8px 12px; text-align: center; font-weight: 600; }
+        .data-table td { padding: 7px 12px; border: 1px solid #e2e8f0; text-align: center; color: #334155; }
+        .data-table tr:nth-child(even) { background: #f8fafc; }
+    </style>
+</head>
+<body>
+
+<div style="background:#064e3b; padding:12px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+    <a href="/" style="color:#6ee7b7; text-decoration:none; font-weight:700; font-size:1.1em;">MathHub</a>
+    <span style="color:#34d399;">›</span>
+    <a href="/us" style="color:#a7f3d0; text-decoration:none; font-size:.9em;">US</a>
+    <span style="color:#34d399;">›</span>
+    <a href="/us/textbook/ap-statistics" style="color:#a7f3d0; text-decoration:none; font-size:.9em;">AP Statistics</a>
+    <span style="color:#34d399;">›</span>
+    <span style="color:white; font-size:.9em;">Chapter 9</span>
+</div>
+
+<article class="blog-article">
+    <div class="breadcrumb">
+        <a href="/">MathHub</a> › <a href="/us">US</a> › <a href="/us/textbook/ap-statistics">AP Statistics</a> › Chapter 9
+    </div>
+
+    <h1>Chapter 9: Sampling Distributions</h1>
+    <div class="blog-meta">AP Statistics · Inference Foundations · 3 interactive graphs · 8 practice problems</div>
+
+    <div class="learning-objectives">
+        <h4>Learning Objectives</h4>
+        <ul>
+            <li>Distinguish between parameters and statistics using the PP-SS mnemonic</li>
+            <li>Describe and construct a sampling distribution from all possible samples</li>
+            <li>Apply the Central Limit Theorem to describe the sampling distribution of $\bar{x}$</li>
+            <li>Calculate probabilities using the sampling distribution of $\bar{x}$</li>
+            <li>Verify the Large Counts condition and find the sampling distribution of $\hat{p}$</li>
+            <li>Distinguish bias from variability in sampling distributions</li>
+        </ul>
+    </div>
+
+    <!-- 9.1 -->
+    <h2>9.1 Parameters vs. Statistics</h2>
+    <p>Before we can make sense of statistical inference, we need to clearly separate two types of numerical summaries: those that describe populations and those that describe samples.</p>
+
+    <div class="definition-box">
+        <h4>Definition: Parameter vs. Statistic — PP-SS</h4>
+        <p>A <strong>parameter</strong> is a numerical summary of a <em>Population</em>. It is fixed (though usually unknown). Common notation: $\mu$ (population mean), $\sigma$ (population standard deviation), $p$ (population proportion).</p>
+        <p>A <strong>statistic</strong> is a numerical summary of a <em>Sample</em>. It varies from sample to sample. Common notation: $\bar{x}$ (sample mean), $s$ (sample standard deviation), $\hat{p}$ (sample proportion).</p>
+        <p><strong>Mnemonic — PP-SS:</strong> <em>P</em>opulation → <em>P</em>arameter, <em>S</em>ample → <em>S</em>tatistic.</p>
+    </div>
+
+    <p><strong>Sampling variability</strong> refers to the natural fact that different random samples from the same population will produce different values of a statistic. This is expected and not a flaw — it is the very thing that sampling distributions describe.</p>
+
+    <p>The <strong>sampling distribution</strong> of a statistic is the distribution of values taken by the statistic in all possible samples of size $n$ from the same population. Understanding this distribution is the foundation of all statistical inference.</p>
+
+    <div class="example-box">
+        <h4>Example 9.1 — Building a Sampling Distribution of $\bar{x}$</h4>
+        <p>Consider a small population of 5 values: $\{2, 4, 6, 8, 10\}$. The population mean is $\mu = (2+4+6+8+10)/5 = 6$.</p>
+        <p>Take all possible samples of size $n = 2$ (without replacement). There are $\binom{5}{2} = 10$ such samples:</p>
+        <table class="data-table">
+            <tr><th>Sample</th><th>$\bar{x}$</th><th>Sample</th><th>$\bar{x}$</th></tr>
+            <tr><td>(2, 4)</td><td>3</td><td>(4, 6)</td><td>5</td></tr>
+            <tr><td>(2, 6)</td><td>4</td><td>(4, 8)</td><td>6</td></tr>
+            <tr><td>(2, 8)</td><td>5</td><td>(4, 10)</td><td>7</td></tr>
+            <tr><td>(2, 10)</td><td>6</td><td>(6, 8)</td><td>7</td></tr>
+            <tr><td>(4, 8) — see (4,8)</td><td>6</td><td>(6, 10)</td><td>8</td></tr>
+        </table>
+        <p>Wait — let's list them cleanly. The 10 samples and their $\bar{x}$ values: $(2,4)\to3$, $(2,6)\to4$, $(2,8)\to5$, $(2,10)\to6$, $(4,6)\to5$, $(4,8)\to6$, $(4,10)\to7$, $(6,8)\to7$, $(6,10)\to8$, $(8,10)\to9$.</p>
+        <p>The $\bar{x}$ values are: 3, 4, 5, 5, 6, 6, 7, 7, 8, 9.</p>
+        <p>The mean of all 10 sample means: $(3+4+5+5+6+6+7+7+8+9)/10 = 60/10 = 6$.</p>
+        <p><strong>Key result:</strong> The sampling distribution of $\bar{x}$ is centered exactly at the population mean $\mu = 6$. This is not a coincidence — $\bar{x}$ is an unbiased estimator of $\mu$.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>Using the sampling distribution from Example 9.1 (values: 3, 4, 5, 5, 6, 6, 7, 7, 8, 9), find $P(\bar{x} \geq 7)$.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                The $\bar{x}$ values that are $\geq 7$ are: 7, 7, 8, 9 — that is 4 out of 10 possible samples.<br>
+                $P(\bar{x} \geq 7) = 4/10 = \mathbf{0.40}$.
+            </div>
+        </details>
+    </div>
+
+    <!-- 9.2 -->
+    <h2>9.2 Sampling Distribution of $\bar{x}$ and the Central Limit Theorem</h2>
+    <p>For most real applications, it is impractical to list every possible sample. Instead, we rely on two powerful theoretical results about the sampling distribution of $\bar{x}$.</p>
+
+    <p><strong>When the population is Normal:</strong> If the population distribution is $N(\mu, \sigma)$, then the sampling distribution of $\bar{x}$ is exactly $N\!\left(\mu,\, \dfrac{\sigma}{\sqrt{n}}\right)$ for any sample size $n$.</p>
+
+    <div class="theorem-box">
+        <h4>Theorem: The Central Limit Theorem (CLT)</h4>
+        <p>For a random sample of size $n$ from <em>any</em> population with mean $\mu$ and standard deviation $\sigma$, the sampling distribution of $\bar{x}$ is approximately Normal when $n$ is large enough (rule of thumb: $n \geq 30$):</p>
+        <ul>
+            <li><strong>Mean:</strong> $\mu_{\bar{x}} = \mu$</li>
+            <li><strong>Standard deviation (standard error):</strong> $\sigma_{\bar{x}} = \dfrac{\sigma}{\sqrt{n}}$</li>
+        </ul>
+        <p>The approximation improves as $n$ increases. The shape of the original population does not matter — the sampling distribution of $\bar{x}$ becomes approximately Normal for large $n$.</p>
+    </div>
+
+    <p>The quantity $\sigma_{\bar{x}} = \sigma/\sqrt{n}$ is called the <strong>standard error of $\bar{x}$</strong>. It measures how much $\bar{x}$ typically varies from sample to sample. Note carefully: it is $\sigma/\sqrt{n}$, not $\sigma$ itself.</p>
+
+    <div class="example-box">
+        <h4>Example 9.2 — Normal Population, Exact Distribution</h4>
+        <p>Heights of adult males follow a Normal distribution with $\mu = 70$ in and $\sigma = 3$ in. Random samples of $n = 25$ are taken.</p>
+        <p>Since the population is Normal, $\bar{x} \sim N\!\left(70,\, \dfrac{3}{\sqrt{25}}\right) = N(70,\, 0.6)$ exactly.</p>
+        <p>Find $P(\bar{x} > 71)$:</p>
+        <p>$$z = \frac{71 - 70}{0.6} = \frac{1}{0.6} \approx 1.67$$</p>
+        <p>$P(\bar{x} > 71) = P(z > 1.67) \approx \mathbf{0.0478}$.</p>
+        <p>There is about a 4.78% chance that the sample mean height exceeds 71 inches.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 9.3 — Skewed Population, CLT in Action</h4>
+        <p>Monthly electric bills in a city have $\mu = \$120$ and $\sigma = \$30$. The distribution is right-skewed. A random sample of $n = 36$ bills is taken.</p>
+        <p>By the CLT (since $n = 36 \geq 30$): $\bar{x} \approx N\!\left(120,\, \dfrac{30}{\sqrt{36}}\right) = N(120,\, 5)$.</p>
+        <p>Find $P(\bar{x} < 115)$:</p>
+        <p>$$z = \frac{115 - 120}{5} = \frac{-5}{5} = -1$$</p>
+        <p>$P(\bar{x} < 115) = P(z < -1) \approx \mathbf{0.1587}$.</p>
+        <p>There is about a 15.87% chance the sample mean bill is below $115.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>SAT scores have $\mu = 1050$ and $\sigma = 200$. A random sample of $n = 100$ students is taken. What is $P(\bar{x} > 1070)$?</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                $\sigma_{\bar{x}} = 200/\sqrt{100} = 200/10 = 20$.<br>
+                $z = (1070 - 1050)/20 = 20/20 = 1.00$.<br>
+                $P(\bar{x} > 1070) = P(z > 1.00) \approx \mathbf{0.1587}$.
+            </div>
+        </details>
+    </div>
+
+    <div class="ap-tip">
+        <div class="ap-tip-icon">★</div>
+        <p><strong>AP Exam Tip:</strong> Always verify three conditions before using the Normal sampling distribution for $\bar{x}$: (1) <strong>Random</strong> — was the sample randomly selected? (2) <strong>Normal/Large Sample</strong> — is the population Normal, or is $n \geq 30$ for the CLT? (3) <strong>Independence</strong> — is $n < 10\%$ of the population? Missing any condition costs points on the AP exam.</p>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">As $n$ increases, the sampling distribution of $\bar{x}$ narrows and becomes more Normal. The three curves show the effect of increasing sample size (gray: $n=1$, blue: $n=10$, green: $n=30$).</p>
+        <div id="graph-clt" style="width:100%; max-width:630px; height:340px; margin:0 auto;"></div>
+        <p class="fig-label">Figure 9.1 — Central Limit Theorem: Effect of Sample Size on $\bar{x}$ Distribution</p>
+    </div>
+
+    <!-- 9.3 -->
+    <h2>9.3 Sampling Distribution of $\hat{p}$</h2>
+    <p>When our variable of interest is categorical (success/failure), the relevant statistic is the <strong>sample proportion</strong>:</p>
+    <p>$$\hat{p} = \frac{X}{n} = \frac{\text{number of successes}}{\text{sample size}}$$</p>
+
+    <div class="theorem-box">
+        <h4>Theorem: Sampling Distribution of $\hat{p}$</h4>
+        <p>When the following conditions are met, $\hat{p}$ has an approximately Normal distribution:</p>
+        <ul>
+            <li><strong>Random:</strong> Data come from a random sample or randomized experiment.</li>
+            <li><strong>Large Counts:</strong> $np \geq 10$ AND $n(1-p) \geq 10$.</li>
+            <li><strong>Independence:</strong> $n < 10\%$ of the population (10% condition).</li>
+        </ul>
+        <p>When conditions are met:</p>
+        <ul>
+            <li><strong>Mean:</strong> $\mu_{\hat{p}} = p$</li>
+            <li><strong>Standard deviation:</strong> $\sigma_{\hat{p}} = \sqrt{\dfrac{p(1-p)}{n}}$</li>
+        </ul>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 9.4 — Sampling Distribution of $\hat{p}$: Water Bottles</h4>
+        <p>Suppose 35% of students at a large school carry a water bottle ($p = 0.35$). A random sample of $n = 80$ students is selected.</p>
+        <p><strong>Check conditions:</strong></p>
+        <ul>
+            <li>Random: specified ✓</li>
+            <li>Large Counts: $np = 80(0.35) = 28 \geq 10$ ✓ and $n(1-p) = 80(0.65) = 52 \geq 10$ ✓</li>
+            <li>Independence: assume 80 &lt; 10% of large school ✓</li>
+        </ul>
+        <p>$\hat{p} \sim N\!\left(0.35,\, \sqrt{\dfrac{0.35 \cdot 0.65}{80}}\right) = N(0.35,\, \sqrt{0.002844}) = N(0.35,\, 0.0533)$</p>
+        <p>Find $P(\hat{p} > 0.40)$:</p>
+        <p>$$z = \frac{0.40 - 0.35}{0.0533} \approx \frac{0.05}{0.0533} \approx 0.938$$</p>
+        <p>$P(\hat{p} > 0.40) = P(z > 0.938) \approx \mathbf{0.174}$. There is about a 17.4% chance more than 40% of the sampled students carry water bottles.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 9.5 — Sampling Distribution of $\hat{p}$: Voter Support</h4>
+        <p>Suppose 60% of registered voters in a city support a ballot measure ($p = 0.60$). A random sample of $n = 200$ voters is polled.</p>
+        <p>$\sigma_{\hat{p}} = \sqrt{\dfrac{0.60 \cdot 0.40}{200}} = \sqrt{0.0012} \approx 0.0346$</p>
+        <p>Find $P(\hat{p} < 0.55)$:</p>
+        <p>$$z = \frac{0.55 - 0.60}{0.0346} \approx \frac{-0.05}{0.0346} \approx -1.44$$</p>
+        <p>$P(\hat{p} < 0.55) = P(z < -1.44) \approx \mathbf{0.0749}$. There is about a 7.49% chance fewer than 55% of the sample supports the measure.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A fair coin is flipped $n = 50$ times and $\hat{p}$ = proportion of heads. Find $\mu_{\hat{p}}$, $\sigma_{\hat{p}}$, and $P(\hat{p} \geq 0.6)$.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                $p = 0.5$, so $\mu_{\hat{p}} = 0.5$.<br>
+                $\sigma_{\hat{p}} = \sqrt{0.5 \cdot 0.5 / 50} = \sqrt{0.005} \approx 0.0707$.<br>
+                $z = (0.6 - 0.5)/0.0707 \approx 1.414$.<br>
+                $P(\hat{p} \geq 0.6) = P(z \geq 1.414) \approx \mathbf{0.0786}$.
+            </div>
+        </details>
+    </div>
+
+    <div class="ap-tip">
+        <div class="ap-tip-icon">★</div>
+        <p><strong>AP Exam Tip:</strong> The <strong>Large Counts condition</strong> ($np \geq 10$ and $n(1-p) \geq 10$) is required to use the Normal approximation for $\hat{p}$. Always state and verify this condition explicitly on the AP exam — failure to do so will cost points on free-response questions.</p>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Normal distribution for $\hat{p}$ from Example 9.4: $\hat{p} \sim N(0.35, 0.0533)$. The shaded right tail shows $P(\hat{p} > 0.40) \approx 0.174$.</p>
+        <div id="graph-phat" style="width:100%; max-width:630px; height:300px; margin:0 auto;"></div>
+        <p class="fig-label">Figure 9.3 — Sampling Distribution of $\hat{p}$: Normal(0.35, 0.0533)</p>
+    </div>
+
+    <!-- 9.4 -->
+    <h2>9.4 Bias and Variability in Sampling Distributions</h2>
+    <p>Two properties determine the quality of a sampling distribution: <strong>bias</strong> (accuracy) and <strong>variability</strong> (precision).</p>
+
+    <div class="definition-box">
+        <h4>Definition: Bias vs. Variability</h4>
+        <p><strong>Bias</strong> = accuracy of the center. A statistic is <strong>unbiased</strong> if the mean of its sampling distribution equals the true parameter. Both $\bar{x}$ and $\hat{p}$ are unbiased estimators: $\mu_{\bar{x}} = \mu$ and $\mu_{\hat{p}} = p$.</p>
+        <p><strong>Variability</strong> = precision (spread). A smaller standard error means the statistic is more consistently close to the true parameter. Variability is controlled by sample size $n$ — larger $n$ produces smaller standard error.</p>
+        <p><strong>Target analogy:</strong> Bias measures whether you are aiming at the right place (centered on the bullseye). Variability measures how tightly clustered your shots are.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 9.6 — Bias vs. Variability in Practice</h4>
+        <p>Two sampling methods are used to estimate a population mean $\mu$:</p>
+        <ul>
+            <li><strong>Method A:</strong> $\bar{x}$ is centered at $\mu$ (unbiased) but has high variability (small $n$).</li>
+            <li><strong>Method B:</strong> $\bar{x}$ is centered away from $\mu$ (biased) but has low variability (large $n$).</li>
+        </ul>
+        <p><strong>Method A is preferred.</strong> An unbiased estimator with high variability can be improved by increasing $n$. A biased estimator — even with low variability — will consistently miss the true value. <em>Increasing $n$ reduces variability but does NOT fix bias.</em></p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A news website uses a voluntary response poll (readers self-select to participate) to estimate the proportion of Americans who support a policy. Is the resulting $\hat{p}$ likely to be biased or variable? Explain.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                The result is likely <strong>biased</strong>. Voluntary response polls attract people with strong opinions (often those opposed to or strongly in favor of something), so the sample is not representative of all Americans. This introduces systematic error. No matter how large the sample, voluntary response bias cannot be reduced by increasing $n$ — only by using proper random sampling.
+            </div>
+        </details>
+    </div>
+
+    <div class="ap-tip">
+        <div class="ap-tip-icon">★</div>
+        <p><strong>AP Exam Tip:</strong> The only way to reduce <em>bias</em> is to use better sampling methods — specifically, random sampling. Increasing $n$ reduces <em>variability</em> (standard error) but cannot fix bias. This distinction is frequently tested on the AP exam.</p>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Four combinations of bias and variability — like four groups of shots at a target. Green (bottom-left) is the ideal: low bias, low variability.</p>
+        <div id="graph-bias" style="width:100%; max-width:630px; height:400px; margin:0 auto;"></div>
+        <p class="fig-label">Figure 9.2 — Bias and Variability: Four Combinations</p>
+    </div>
+
+    <!-- Practice -->
+    <div class="practice-section">
+        <h2>Practice Problems</h2>
+        <div class="practice-grid">
+            <div class="practice-card">
+                <span class="p-num">1</span>
+                <p>A population has $\mu = 50$ and $\sigma = 8$. Random samples of $n = 64$ are taken. Find $\mu_{\bar{x}}$, $\sigma_{\bar{x}}$, and $P(\bar{x} > 52)$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    $\mu_{\bar{x}} = 50$.<br>
+                    $\sigma_{\bar{x}} = 8/\sqrt{64} = 8/8 = 1$.<br>
+                    $z = (52 - 50)/1 = 2.00$.<br>
+                    $P(\bar{x} > 52) = P(z > 2.00) \approx \mathbf{0.0228}$.
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">2</span>
+                <p>Is $\bar{x}$ an unbiased estimator of $\mu$? Explain what "unbiased" means in the context of sampling distributions.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    Yes, $\bar{x}$ is an unbiased estimator of $\mu$. "Unbiased" means that the mean of the sampling distribution of $\bar{x}$ equals the true population mean: $\mu_{\bar{x}} = \mu$. If we took all possible samples of size $n$ and averaged the resulting $\bar{x}$ values, we would get exactly $\mu$. Individual samples still vary, but there is no systematic over- or underestimation.
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">3</span>
+                <p>A poll finds $\hat{p} = 0.58$ supports a ballot measure, based on $n = 400$. The true proportion is $p = 0.55$. Find $P(\hat{p} \geq 0.58)$ and interpret.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    $\sigma_{\hat{p}} = \sqrt{0.55 \cdot 0.45 / 400} = \sqrt{0.000619} \approx 0.0249$.<br>
+                    $z = (0.58 - 0.55)/0.0249 \approx 1.205$.<br>
+                    $P(\hat{p} \geq 0.58) = P(z \geq 1.205) \approx \mathbf{0.114}$.<br>
+                    If the true proportion is 0.55, there is about an 11.4% chance that a sample of 400 would show 58% or more in support. This is not unusually rare.
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">4</span>
+                <p>Heights follow a skewed distribution: $\mu = 160$ cm, $\sigma = 25$ cm. For $n = 100$, describe the sampling distribution of $\bar{x}$. Can you use Normal calculations? Why?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    By the Central Limit Theorem ($n = 100 \geq 30$), the sampling distribution of $\bar{x}$ is approximately $N\!\left(160,\, 25/\sqrt{100}\right) = N(160, 2.5)$, regardless of the skewed population shape.<br>
+                    Yes, Normal calculations can be used because the large sample size satisfies the CLT condition.
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">5</span>
+                <p>A school has 30% left-handed students. A sample of $n = 90$ is taken. (a) Verify the Large Counts condition. (b) Find $P(\hat{p} > 0.35)$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    (a) $np = 90(0.30) = 27 \geq 10$ ✓ and $n(1-p) = 90(0.70) = 63 \geq 10$ ✓. Large Counts condition is satisfied.<br>
+                    (b) $\sigma_{\hat{p}} = \sqrt{0.30 \cdot 0.70/90} = \sqrt{0.002\overline{3}} \approx 0.0483$.<br>
+                    $z = (0.35 - 0.30)/0.0483 \approx 1.035$.<br>
+                    $P(\hat{p} > 0.35) \approx P(z > 1.035) \approx \mathbf{0.150}$.
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">6</span>
+                <p>Doubling the sample size from $n = 100$ to $n = 200$: by what factor does $\sigma_{\bar{x}}$ decrease?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    $\sigma_{\bar{x}} = \sigma/\sqrt{n}$. When $n$ doubles from 100 to 200:<br>
+                    Ratio $= \dfrac{\sigma/\sqrt{200}}{\sigma/\sqrt{100}} = \dfrac{\sqrt{100}}{\sqrt{200}} = \sqrt{\dfrac{100}{200}} = \sqrt{0.5} = \dfrac{1}{\sqrt{2}} \approx 0.707$.<br>
+                    $\sigma_{\bar{x}}$ decreases by a factor of $\sqrt{2} \approx 1.414$, or decreases to about 70.7% of its original value. To cut standard error in half, you must quadruple $n$.
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">7</span>
+                <p>A population is highly skewed right. For which sample size is the CLT most likely to apply: $n = 5$, $n = 15$, or $n = 40$? Explain.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    $n = 40$ is most likely to satisfy the CLT. The rule of thumb is $n \geq 30$ for the CLT to produce a good Normal approximation. For $n = 5$ or $n = 15$, the sampling distribution of $\bar{x}$ would still reflect the skewness of the population. At $n = 40$, the sampling distribution is approximately Normal regardless of the population shape.
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">8</span>
+                <p><strong>AP FRQ:</strong> A company claims 20% of its light bulbs fail within 1 year. A quality inspector tests $n = 150$ bulbs and finds $\hat{p} = 0.27$. (a) State the parameter and statistic. (b) Find $\mu_{\hat{p}}$ and $\sigma_{\hat{p}}$ assuming $p = 0.20$. (c) Is $\hat{p} = 0.27$ surprising? Find $P(\hat{p} \geq 0.27)$ and interpret.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    (a) <strong>Parameter</strong>: $p$ = true proportion of all company bulbs that fail within 1 year ($p = 0.20$ claimed). <strong>Statistic</strong>: $\hat{p} = 0.27$ = proportion of the 150 sampled bulbs that failed within 1 year.<br><br>
+                    (b) Check Large Counts: $np = 150(0.20) = 30 \geq 10$ ✓; $n(1-p) = 150(0.80) = 120 \geq 10$ ✓.<br>
+                    $\mu_{\hat{p}} = 0.20$.<br>
+                    $\sigma_{\hat{p}} = \sqrt{0.20 \cdot 0.80/150} = \sqrt{0.001\overline{06}} \approx 0.0327$.<br><br>
+                    (c) $z = (0.27 - 0.20)/0.0327 \approx 2.14$.<br>
+                    $P(\hat{p} \geq 0.27) = P(z \geq 2.14) \approx \mathbf{0.016}$.<br>
+                    If the true failure rate is 20%, there is only about a 1.6% chance of observing $\hat{p} \geq 0.27$ in a sample of 150. This is quite surprising and provides evidence that the company's claimed 20% failure rate may be too low.
+                </div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-nav">
+        <a href="/us/textbook/ap-statistics/random-variables.html">← Chapter 8: Random Variables</a>
+        <a href="/us/textbook/ap-statistics/confidence-intervals.html">Chapter 10: Confidence Intervals →</a>
+    </div>
+</article>
+
+<script>
+(function() {
+    // Figure 9.1 — CLT: Effect of sample size on x-bar distribution
+    var elt1 = document.getElementById('graph-clt');
+    var calc1 = Desmos.GraphingCalculator(elt1, {
+        expressions: false,
+        settingsMenu: false,
+        zoomButtons: false,
+        lockViewport: true,
+        border: false,
+        showGrid: false,
+        showXAxis: true,
+        showYAxis: false
+    });
+    calc1.setMathBounds({ left: -3, right: 3, bottom: -0.05, top: 2.5 });
+    calc1.setExpressions([
+        // n=1: sigma=1, y = e^(-x^2/2)/sqrt(2*pi)
+        {
+            id: 'n1',
+            type: 'expression',
+            latex: 'y=\\frac{1}{\\sqrt{2\\pi}}e^{-\\frac{x^{2}}{2}}',
+            color: '#94a3b8',
+            lineWidth: 2.5
+        },
+        // n=10: sigma=1/sqrt(10), y = sqrt(10)/(sqrt(2*pi)) * e^(-5x^2)
+        {
+            id: 'n10',
+            type: 'expression',
+            latex: 'y=\\frac{\\sqrt{10}}{\\sqrt{2\\pi}}e^{-5x^{2}}',
+            color: '#3b82f6',
+            lineWidth: 2.5
+        },
+        // n=30: sigma=1/sqrt(30), y = sqrt(30)/(sqrt(2*pi)) * e^(-15x^2)
+        {
+            id: 'n30',
+            type: 'expression',
+            latex: 'y=\\frac{\\sqrt{30}}{\\sqrt{2\\pi}}e^{-15x^{2}}',
+            color: '#065f46',
+            lineWidth: 3
+        }
+    ]);
+})();
+
+(function() {
+    // Figure 9.2 — Bias and Variability diagram (4 clusters)
+    var elt2 = document.getElementById('graph-bias');
+    var calc2 = Desmos.GraphingCalculator(elt2, {
+        expressions: false,
+        settingsMenu: false,
+        zoomButtons: false,
+        lockViewport: true,
+        border: false,
+        showGrid: false,
+        showXAxis: false,
+        showYAxis: false
+    });
+    calc2.setMathBounds({ left: 0, right: 9, bottom: 0, top: 8 });
+
+    // Low Bias, Low Variability (IDEAL) — tight cluster near true value (1.5, 1.5) — green
+    var llPoints = [[1.35,1.35],[1.65,1.45],[1.50,1.65],[1.40,1.55],[1.60,1.60]];
+    llPoints.forEach(function(pt, i) {
+        calc2.setExpression({ id: 'll'+i, type: 'expression', latex: '('+pt[0]+','+pt[1]+')', color: '#065f46', pointStyle: Desmos.Styles.POINT, pointSize: 16 });
+    });
+    // Target marker for true value low bias group
+    calc2.setExpression({ id: 'tv1', type: 'expression', latex: '(1.5,1.5)', color: '#16a34a', pointStyle: Desmos.Styles.CROSS, pointSize: 20 });
+
+    // Low Bias, High Variability — spread cluster near true value (6.5, 1.5) — blue
+    var lhPoints = [[5.8,1.0],[7.0,1.3],[6.2,2.0],[7.1,0.8],[6.4,1.8]];
+    lhPoints.forEach(function(pt, i) {
+        calc2.setExpression({ id: 'lh'+i, type: 'expression', latex: '('+pt[0]+','+pt[1]+')', color: '#3b82f6', pointStyle: Desmos.Styles.POINT, pointSize: 16 });
+    });
+    calc2.setExpression({ id: 'tv2', type: 'expression', latex: '(6.5,1.5)', color: '#2563eb', pointStyle: Desmos.Styles.CROSS, pointSize: 20 });
+
+    // High Bias, Low Variability — tight cluster offset from true value (1.5, 5.5) — orange
+    var hlPoints = [[1.35,5.85],[1.65,5.95],[1.50,6.15],[1.40,6.05],[1.60,6.10]];
+    hlPoints.forEach(function(pt, i) {
+        calc2.setExpression({ id: 'hl'+i, type: 'expression', latex: '('+pt[0]+','+pt[1]+')', color: '#f59e0b', pointStyle: Desmos.Styles.POINT, pointSize: 16 });
+    });
+    // True value for this group
+    calc2.setExpression({ id: 'tv3', type: 'expression', latex: '(1.5,5.5)', color: '#d97706', pointStyle: Desmos.Styles.CROSS, pointSize: 20 });
+
+    // High Bias, High Variability — spread cluster offset from true value (6.5, 5.5) — red
+    var hhPoints = [[5.8,6.1],[7.1,6.3],[6.3,7.0],[7.2,5.9],[6.5,6.8]];
+    hhPoints.forEach(function(pt, i) {
+        calc2.setExpression({ id: 'hh'+i, type: 'expression', latex: '('+pt[0]+','+pt[1]+')', color: '#dc2626', pointStyle: Desmos.Styles.POINT, pointSize: 16 });
+    });
+    calc2.setExpression({ id: 'tv4', type: 'expression', latex: '(6.5,5.5)', color: '#b91c1c', pointStyle: Desmos.Styles.CROSS, pointSize: 20 });
+})();
+
+(function() {
+    // Figure 9.3 — Normal distribution for p-hat (Example 9.4)
+    var elt3 = document.getElementById('graph-phat');
+    var calc3 = Desmos.GraphingCalculator(elt3, {
+        expressions: false,
+        settingsMenu: false,
+        zoomButtons: false,
+        lockViewport: true,
+        border: false,
+        showGrid: false,
+        showXAxis: true,
+        showYAxis: false
+    });
+    calc3.setMathBounds({ left: 0.15, right: 0.55, bottom: -0.5, top: 9 });
+    calc3.setExpressions([
+        // Full bell curve: Normal(0.35, 0.0533)
+        {
+            id: 'bell',
+            type: 'expression',
+            latex: 'y=\\frac{1}{0.0533\\sqrt{2\\pi}}e^{-\\frac{(x-0.35)^{2}}{2\\cdot0.0533^{2}}}',
+            color: '#065f46',
+            lineWidth: 3
+        },
+        // Shaded right tail: x >= 0.40
+        {
+            id: 'shade',
+            type: 'expression',
+            latex: 'y=\\frac{1}{0.0533\\sqrt{2\\pi}}e^{-\\frac{(x-0.35)^{2}}{2\\cdot0.0533^{2}}}\\left\\{x\\ge0.40\\right\\}',
+            color: '#10b981',
+            lineWidth: 0,
+            fillOpacity: 0.35
+        },
+        // Vertical dashed line at x = 0.40
+        {
+            id: 'vline',
+            type: 'expression',
+            latex: 'x=0.40',
+            color: '#065f46',
+            lineStyle: Desmos.Styles.DASHED,
+            lineWidth: 2.5
+        }
+    ]);
+})();
+</script>
+
+</body>
+</html>
