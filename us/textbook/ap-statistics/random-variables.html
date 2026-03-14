@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Statistics: Random Variables and Probability Distributions - Chapter 8 | MathHub</title>
+    <meta name="description" content="AP Statistics Chapter 8: Random Variables and Probability Distributions. Learn discrete random variables, binomial distribution, geometric distribution, and rules for combining random variables.">
+    <meta name="keywords" content="AP Statistics, random variables, discrete random variable, binomial distribution, geometric distribution, expected value, probability distribution, AP Stats Chapter 8">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/ap-statistics/random-variables.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/ap-statistics/random-variables.html">
+    <meta property="og:title" content="AP Statistics: Random Variables and Probability Distributions - Chapter 8">
+    <meta property="og:description" content="Learn discrete random variables, binomial distribution, geometric distribution, and combining random variables for AP Statistics.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Statistics: Random Variables and Probability Distributions - Chapter 8">
+    <meta name="twitter:description" content="AP Statistics Chapter 8: Random variables, binomial, geometric distributions, and combining random variables.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "AP Statistics: Random Variables and Probability Distributions - Chapter 8",
+        "description": "AP Statistics Chapter 8 covering discrete random variables, binomial distribution, geometric distribution, and rules for combining random variables.",
+        "url": "https://mathhub.io/us/textbook/ap-statistics/random-variables.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "AP",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Random Variables" },
+            { "@type": "Thing", "name": "Binomial Distribution" },
+            { "@type": "Thing", "name": "Geometric Distribution" },
+            { "@type": "Thing", "name": "AP Statistics" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #064e3b; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #064e3b; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #10b981; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives { background: #ecfdf5; border-left: 4px solid #10b981; padding: 20px 24px; margin: 24px 0 32px; border-radius: 0 10px 10px 0; }
+        .learning-objectives h4 { color: #065f46; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #064e3b; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box { background: #f0fdf4; border-left: 4px solid #10b981; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #065f46; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+
+        .definition-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box { background: #f0fdf4; border: 1.5px dashed #86efac; padding: 16px 20px; margin: -4px 0 24px; border-radius: 0 0 8px 8px; }
+        .try-it-box .try-it-label { display: inline-block; background: #10b981; color: white; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px; }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary { cursor: pointer; color: #065f46; font-weight: 600; font-size: 0.9em; user-select: none; }
+        .try-it-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7; }
+
+        .ap-tip { background: #fefce8; border-left: 4px solid #eab308; padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .ap-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #92400e; }
+
+        .desmos-wrap { margin: 24px auto; background: #f8fafc; border-radius: 12px; padding: 4px; border: 1px solid #e2e8f0; text-align: center; }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label { text-align: center; font-size: 0.82em; color: #64748b; margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em; }
+
+        .practice-section { margin: 48px 0 0; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { color: #064e3b; margin-bottom: 20px; }
+        .practice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        @media (max-width: 600px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; }
+        .practice-card .p-num { display: inline-block; background: #064e3b; color: white; font-weight: 700; font-size: 0.78em; padding: 2px 9px; border-radius: 4px; margin-bottom: 8px; }
+        .practice-card p { color: #334155; font-size: 0.92em; line-height: 1.7; margin: 0 0 10px; }
+        .practice-card details summary { cursor: pointer; color: #065f46; font-weight: 600; font-size: 0.88em; user-select: none; }
+        .practice-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 8px; color: #334155; font-size: 0.9em; line-height: 1.7; border: 1px solid #e2e8f0; }
+
+        .chapter-nav { display: flex; justify-content: space-between; margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid #e2e8f0; flex-wrap: wrap; gap: 12px; }
+        .chapter-nav a { color: #10b981; text-decoration: none; font-weight: 600; font-size: 0.95em; padding: 8px 16px; border: 1.5px solid #10b981; border-radius: 8px; transition: background .15s; }
+        .chapter-nav a:hover { background: #ecfdf5; }
+
+        .data-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.9em; }
+        .data-table th { background: #064e3b; color: white; padding: 8px 12px; text-align: center; font-weight: 600; }
+        .data-table td { padding: 7px 12px; border: 1px solid #e2e8f0; text-align: center; color: #334155; }
+        .data-table tr:nth-child(even) { background: #f8fafc; }
+    </style>
+</head>
+<body>
+
+<div style="background:#064e3b; padding:12px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+    <a href="/" style="color:#6ee7b7; text-decoration:none; font-weight:700; font-size:1.1em;">MathHub</a>
+    <span style="color:#34d399;">›</span>
+    <a href="/us" style="color:#a7f3d0; text-decoration:none; font-size:.9em;">US</a>
+    <span style="color:#34d399;">›</span>
+    <a href="/us/textbook/ap-statistics" style="color:#a7f3d0; text-decoration:none; font-size:.9em;">AP Statistics</a>
+    <span style="color:#34d399;">›</span>
+    <span style="color:white; font-size:.9em;">Chapter 8</span>
+</div>
+
+<article class="blog-article">
+    <div class="breadcrumb">
+        <a href="/">MathHub</a> › <a href="/us">US</a> › <a href="/us/textbook/ap-statistics">AP Statistics</a> › Chapter 8
+    </div>
+
+    <h1>Chapter 8: Random Variables and Probability Distributions</h1>
+    <div class="blog-meta">AP Statistics · Probability · 3 interactive graphs · 8 practice problems</div>
+
+    <div class="learning-objectives">
+        <h4>Learning Objectives</h4>
+        <ul>
+            <li>Define a random variable and construct a discrete probability distribution</li>
+            <li>Calculate and interpret the mean (expected value) and standard deviation of a discrete random variable</li>
+            <li>Identify binomial settings and apply the binomial distribution formula</li>
+            <li>Calculate binomial probabilities, mean, and standard deviation</li>
+            <li>Identify geometric settings and apply the geometric distribution formula</li>
+            <li>Apply rules for linear transformations and combining independent random variables</li>
+        </ul>
+    </div>
+
+    <!-- 8.1 -->
+    <h2>8.1 Discrete Random Variables</h2>
+    <p>A <strong>random variable</strong> $X$ assigns a numerical value to each outcome of a chance process. When the set of possible values is a countable list, we call $X$ a <strong>discrete random variable</strong>.</p>
+
+    <div class="definition-box">
+        <h4>Definition: Probability Distribution</h4>
+        <p>The <strong>probability distribution</strong> of a discrete random variable $X$ is a table (or formula) that lists all possible values of $X$ and their corresponding probabilities $P(X = x)$.</p>
+        <p><strong>Requirements:</strong></p>
+        <ol>
+            <li>Every probability is non-negative: $P(x) \ge 0$ for all $x$.</li>
+            <li>All probabilities sum to 1: $\displaystyle\sum_{\text{all } x} P(x) = 1$.</li>
+        </ol>
+    </div>
+
+    <div class="theorem-box">
+        <h4>Mean and Variance of a Discrete Random Variable</h4>
+        <p>The <strong>expected value</strong> (mean) of $X$ is:</p>
+        <p>$$\mu_X = E(X) = \sum x \cdot P(x)$$</p>
+        <p>The <strong>variance</strong> of $X$ is:</p>
+        <p>$$\sigma_X^2 = \sum (x - \mu_X)^2 \cdot P(x)$$</p>
+        <p>The <strong>standard deviation</strong> is $\sigma_X = \sqrt{\sigma_X^2}$.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 8.1 — Rolling a Fair Die</h4>
+        <p>Let $X$ = the number showing when a fair six-sided die is rolled. The probability distribution is:</p>
+        <table class="data-table">
+            <tr><th>$x$</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+            <tr><th>$P(X=x)$</th><td>$\frac{1}{6}$</td><td>$\frac{1}{6}$</td><td>$\frac{1}{6}$</td><td>$\frac{1}{6}$</td><td>$\frac{1}{6}$</td><td>$\frac{1}{6}$</td></tr>
+        </table>
+        <p><strong>Mean:</strong> $\mu = \frac{1+2+3+4+5+6}{6} = \frac{21}{6} = 3.5$</p>
+        <p><strong>Variance:</strong> $\sigma^2 = \frac{(1-3.5)^2 + (2-3.5)^2 + (3-3.5)^2 + (4-3.5)^2 + (5-3.5)^2 + (6-3.5)^2}{6}$</p>
+        <p>$= \frac{6.25 + 2.25 + 0.25 + 0.25 + 2.25 + 6.25}{6} = \frac{17.5}{6} \approx 2.917$</p>
+        <p><strong>Standard deviation:</strong> $\sigma = \sqrt{2.917} \approx 1.71$</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 8.2 — Expected Profit from a Game</h4>
+        <p>Let $X$ = profit from playing a game once, with the following distribution:</p>
+        <table class="data-table">
+            <tr><th>Outcome</th><th>$x$ (profit)</th><th>$P(X=x)$</th></tr>
+            <tr><td>Win</td><td>$5</td><td>0.3</td></tr>
+            <tr><td>Break even</td><td>$0</td><td>0.4</td></tr>
+            <tr><td>Lose</td><td>$-3</td><td>0.3</td></tr>
+        </table>
+        <p><strong>Expected profit:</strong> $E(X) = 5(0.3) + 0(0.4) + (-3)(0.3) = 1.50 - 0.90 = \$0.60$</p>
+        <p>On average, a player gains $0.60 per game. A <em>fair</em> game would have $E(X) = 0$.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A lottery ticket costs $2. The distribution of winnings is: $P(\text{win } \$10) = 0.05$, $P(\text{win } \$2) = 0.15$, $P(\text{win } \$0) = 0.80$. Find the expected <em>net profit</em> per ticket.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                Net profit = winnings $- 2$. So $E(\text{net}) = (10-2)(0.05) + (2-2)(0.15) + (0-2)(0.80)$
+                $= 8(0.05) + 0(0.15) + (-2)(0.80) = 0.40 + 0 - 1.60 = -\$1.20$ per ticket.
+                On average, a player loses $1.20 per ticket purchased.
+            </div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Probability distribution histogram for $X$ = outcome of one fair die roll. Each value has probability $\frac{1}{6} \approx 0.167$.</p>
+        <div id="graph-discrete" style="width:100%; height:340px;"></div>
+        <p class="fig-label">Figure 8.1 — Probability Distribution: Fair Die Roll</p>
+    </div>
+
+    <!-- 8.2 -->
+    <h2>8.2 Binomial Distribution</h2>
+    <p>A <strong>binomial setting</strong> arises when we perform a fixed number of independent trials, each with only two possible outcomes (success or failure) and the same probability of success. Use the acronym <strong>BINS</strong> to check the conditions:</p>
+
+    <div class="definition-box">
+        <h4>BINS: Conditions for a Binomial Setting</h4>
+        <ul>
+            <li><strong>B</strong>inary — each trial has exactly two outcomes: success or failure</li>
+            <li><strong>I</strong>ndependent — trials are independent of each other</li>
+            <li><strong>N</strong>umber — the number of trials $n$ is fixed in advance</li>
+            <li><strong>S</strong>ame probability — each trial has the same probability $p$ of success</li>
+        </ul>
+        <p>If all four conditions hold, then $X$ = number of successes follows a <strong>Binomial$(n, p)$</strong> distribution.</p>
+    </div>
+
+    <div class="theorem-box">
+        <h4>Binomial Formula and Parameters</h4>
+        <p>If $X \sim \text{Binomial}(n, p)$, then for $k = 0, 1, 2, \ldots, n$:</p>
+        <p>$$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$$</p>
+        <p>where $\displaystyle\binom{n}{k} = \frac{n!}{k!(n-k)!}$ is the number of ways to choose $k$ successes from $n$ trials.</p>
+        <ul>
+            <li><strong>Mean:</strong> $\mu_X = np$</li>
+            <li><strong>Standard deviation:</strong> $\sigma_X = \sqrt{np(1-p)}$</li>
+        </ul>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 8.3 — Flipping a Fair Coin</h4>
+        <p>A fair coin is flipped 10 times. Let $X \sim \text{Binomial}(10,\ 0.5)$.</p>
+        <p><strong>P(exactly 4 heads):</strong></p>
+        <p>$$P(X=4) = \binom{10}{4}(0.5)^4(0.5)^6 = 210 \cdot \frac{1}{1024} \approx 0.205$$</p>
+        <p><strong>Mean:</strong> $\mu = 10 \times 0.5 = 5$ heads expected.</p>
+        <p><strong>Standard deviation:</strong> $\sigma = \sqrt{10 \times 0.5 \times 0.5} = \sqrt{2.5} \approx 1.58$</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 8.4 — Free-Throw Shooter</h4>
+        <p>A basketball player makes 70% of free throws. Let $X \sim \text{Binomial}(8,\ 0.7)$. Find $P(X \ge 6)$.</p>
+        <p>$$P(X=6) = \binom{8}{6}(0.7)^6(0.3)^2 = 28 \times 0.1176 \times 0.09 \approx 0.296$$</p>
+        <p>$$P(X=7) = \binom{8}{7}(0.7)^7(0.3)^1 = 8 \times 0.0824 \times 0.3 \approx 0.198$$</p>
+        <p>$$P(X=8) = (0.7)^8 \approx 0.0576$$</p>
+        <p>$$P(X \ge 6) = 0.296 + 0.198 + 0.0576 \approx \mathbf{0.552}$$</p>
+        <p>The player makes at least 6 of 8 free throws about 55.2% of the time.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>On a multiple-choice test with 5 answer options per question, a student guesses randomly on 12 questions. Let $X$ = number of correct guesses. Find $\mu$ and $\sigma$ for $X$.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                $X \sim \text{Binomial}(12,\ 0.20)$ since $p = 1/5 = 0.20$.<br>
+                $\mu = np = 12 \times 0.20 = 2.4$ correct answers expected.<br>
+                $\sigma = \sqrt{np(1-p)} = \sqrt{12 \times 0.20 \times 0.80} = \sqrt{1.92} \approx 1.39$
+            </div>
+        </details>
+    </div>
+
+    <div class="ap-tip">
+        <div class="ap-tip-icon">★</div>
+        <p><strong>AP Exam Tip:</strong> "At least $k$" means $P(X \ge k) = 1 - P(X \le k-1)$. On the AP exam, use the complement whenever it reduces calculation. With a calculator, use <em>binomcdf</em> for cumulative probabilities and <em>binompdf</em> for exact probabilities.</p>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Binomial$(10, 0.5)$ probability distribution. The distribution is symmetric about $\mu = 5$. The amber dashed line marks the mean.</p>
+        <div id="graph-binomial" style="width:100%; height:340px;"></div>
+        <p class="fig-label">Figure 8.2 — Binomial Distribution: $n=10$, $p=0.5$</p>
+    </div>
+
+    <!-- 8.3 -->
+    <h2>8.3 Geometric Distribution</h2>
+    <p>The <strong>geometric distribution</strong> counts the number of trials needed to get the <em>first</em> success. Unlike the binomial, there is no fixed number of trials — we keep going until we succeed. Check conditions using <strong>BITS</strong>:</p>
+
+    <div class="definition-box">
+        <h4>BITS: Conditions for a Geometric Setting</h4>
+        <ul>
+            <li><strong>B</strong>inary — each trial has two outcomes: success or failure</li>
+            <li><strong>I</strong>ndependent — trials are independent</li>
+            <li><strong>T</strong>rials — the number of trials is <em>not</em> fixed; we count until first success</li>
+            <li><strong>S</strong>ame probability — each trial has the same probability $p$ of success</li>
+        </ul>
+        <p>If $X$ = number of trials until first success, then $X \sim \text{Geometric}(p)$.</p>
+    </div>
+
+    <div class="theorem-box">
+        <h4>Geometric Distribution Formula and Parameters</h4>
+        <p>If $X \sim \text{Geometric}(p)$, then for $k = 1, 2, 3, \ldots$:</p>
+        <p>$$P(X = k) = (1-p)^{k-1} \cdot p$$</p>
+        <ul>
+            <li><strong>Mean:</strong> $\mu_X = \dfrac{1}{p}$</li>
+            <li><strong>Variance:</strong> $\sigma_X^2 = \dfrac{1-p}{p^2}$</li>
+        </ul>
+        <p>Interpretation: $\mu = 1/p$ is the expected number of trials needed to get the first success.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 8.5 — Rolling Until a Six</h4>
+        <p>Roll a fair die repeatedly until a 6 appears. Let $X$ = number of rolls needed. Then $X \sim \text{Geometric}(1/6)$.</p>
+        <p>$$P(X = k) = \left(\frac{5}{6}\right)^{k-1} \cdot \frac{1}{6}$$</p>
+        <p><strong>Expected rolls:</strong> $\mu = \dfrac{1}{1/6} = 6$ rolls on average.</p>
+        <p>For example, $P(X = 3) = (5/6)^2 \cdot (1/6) = 25/216 \approx 0.116$.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 8.6 — First Miss in Free Throws</h4>
+        <p>A player makes 80% of free throws, so $P(\text{miss}) = 0.20$. Let $X$ = number of shots until first miss. Then $X \sim \text{Geometric}(0.20)$.</p>
+        <p><strong>P(first miss on the 3rd shot):</strong> $P(X=3) = (0.80)^2(0.20) = 0.64 \times 0.20 = 0.128$</p>
+        <p><strong>Expected shots until first miss:</strong> $\mu = 1/0.20 = 5$ shots.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A basketball player makes 60% of free throws. Find the probability that the <em>first miss</em> occurs on the 4th shot.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                $P(\text{miss}) = 0.40$, so $X \sim \text{Geometric}(0.40)$.<br>
+                $P(X = 4) = (0.60)^3 \times 0.40 = 0.216 \times 0.40 = 0.0864$<br>
+                There is about an 8.6% chance the first miss happens on the 4th shot.
+            </div>
+        </details>
+    </div>
+
+    <div class="ap-tip">
+        <div class="ap-tip-icon">★</div>
+        <p><strong>AP Exam Tip:</strong> The key difference between binomial and geometric: in a <em>binomial</em> setting, $n$ is fixed and $X$ counts successes. In a <em>geometric</em> setting, $X$ counts the number of trials until the first success — there is no fixed $n$. Always verify which distribution applies before calculating.</p>
+    </div>
+
+    <!-- 8.4 -->
+    <h2>8.4 Combining Random Variables</h2>
+    <p>When random variables are transformed or combined, the mean and variance follow specific rules. These rules appear frequently on the AP exam, especially in free-response questions.</p>
+
+    <h3>Linear Transformations</h3>
+    <p>If $Y = aX + b$ (a constant multiple plus a constant shift), then:</p>
+    <ul>
+        <li>$\mu_Y = a\mu_X + b$</li>
+        <li>$\sigma_Y = |a|\,\sigma_X$ (standard deviation scales by $|a|$; adding a constant does not change spread)</li>
+    </ul>
+
+    <div class="theorem-box">
+        <h4>Rules for Combining Independent Random Variables</h4>
+        <p>For any two random variables $X$ and $Y$:</p>
+        <p>$$\mu_{X+Y} = \mu_X + \mu_Y \qquad \mu_{X-Y} = \mu_X - \mu_Y$$</p>
+        <p>If $X$ and $Y$ are <strong>independent</strong>:</p>
+        <p>$$\sigma^2_{X+Y} = \sigma^2_X + \sigma^2_Y \qquad \sigma^2_{X-Y} = \sigma^2_X + \sigma^2_Y$$</p>
+        <p><strong>Important:</strong> Variances always add for independent random variables — even when subtracting. Standard deviations do NOT add directly.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 8.7 — Combining Hours</h4>
+        <p>Let $X$ = hours studying per day, $\mu_X = 3$, $\sigma_X = 1$. Let $Y$ = hours sleeping per day, $\mu_Y = 7$, $\sigma_Y = 1.5$. Assume $X$ and $Y$ are independent. Find $\mu$ and $\sigma$ for $X + Y$.</p>
+        <p><strong>Mean:</strong> $\mu_{X+Y} = 3 + 7 = 10$ hours</p>
+        <p><strong>Variance:</strong> $\sigma^2_{X+Y} = 1^2 + 1.5^2 = 1 + 2.25 = 3.25$</p>
+        <p><strong>Standard deviation:</strong> $\sigma_{X+Y} = \sqrt{3.25} \approx 1.80$ hours</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 8.8 — Net Profit After Entry Fee</h4>
+        <p>A game costs $4 to play. Let $X$ = winnings from the game, with $\mu_X = \$3$ and $\sigma_X = \$1.50$. Net profit $W = X - 4$.</p>
+        <p><strong>Mean net profit:</strong> $\mu_W = \mu_X - 4 = 3 - 4 = -\$1.00$</p>
+        <p><strong>Standard deviation:</strong> $\sigma_W = \sigma_X = \$1.50$ (subtracting a constant does not change the spread)</p>
+        <p>On average, the player loses $1 per game, with a typical deviation of $1.50.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>$X$ and $Y$ are independent random variables with $\sigma_X = 3$ and $\sigma_Y = 4$. Find $\sigma_{X+Y}$ and $\sigma_{X-Y}$. Are they the same? Why?</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                $\sigma^2_{X+Y} = 9 + 16 = 25$, so $\sigma_{X+Y} = 5$.<br>
+                $\sigma^2_{X-Y} = 9 + 16 = 25$, so $\sigma_{X-Y} = 5$ as well.<br>
+                Yes, they are the same! For independent RVs, variances <em>always add</em> — even when subtracting $Y$. This is because variance measures spread, and spreading in either direction increases overall variability.
+            </div>
+        </details>
+    </div>
+
+    <div class="ap-tip">
+        <div class="ap-tip-icon">★</div>
+        <p><strong>AP Exam Tip:</strong> <strong>NEVER add standard deviations directly.</strong> Always add <em>variances</em> ($\sigma^2$) first, then take the square root to find the combined standard deviation. Writing $\sigma_{X+Y} = \sigma_X + \sigma_Y$ is one of the most common errors on the AP Statistics exam.</p>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Geometric$(p = 1/6)$ distribution: probability of first success on trial $k$. The distribution is right-skewed; most first successes occur in early trials.</p>
+        <div id="graph-geometric" style="width:100%; height:340px;"></div>
+        <p class="fig-label">Figure 8.3 — Geometric Distribution: $p = 1/6$ (Rolling Until a Six)</p>
+    </div>
+
+    <!-- Practice -->
+    <div class="practice-section">
+        <h2>Practice Problems</h2>
+        <div class="practice-grid">
+            <div class="practice-card">
+                <span class="p-num">1</span>
+                <p>$X$ has the following distribution: $P(0)=0.1$, $P(1)=0.3$, $P(2)=0.4$, $P(3)=0.2$. Verify the probabilities sum to 1. Find $\mu$, $\sigma^2$, and $\sigma$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    Sum: $0.1+0.3+0.4+0.2=1$ ✓<br>
+                    $\mu = 0(0.1)+1(0.3)+2(0.4)+3(0.2) = 0+0.3+0.8+0.6 = 1.7$<br>
+                    $\sigma^2 = (0-1.7)^2(0.1)+(1-1.7)^2(0.3)+(2-1.7)^2(0.4)+(3-1.7)^2(0.2)$<br>
+                    $= 2.89(0.1)+0.49(0.3)+0.09(0.4)+1.69(0.2) = 0.289+0.147+0.036+0.338 = 0.81$<br>
+                    $\sigma = \sqrt{0.81} = 0.90$
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">2</span>
+                <p>Let $X \sim \text{Binomial}(15,\ 0.4)$. Find $P(X=5)$, $\mu$, and $\sigma$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    $P(X=5) = \binom{15}{5}(0.4)^5(0.6)^{10} = 3003 \times 0.01024 \times 0.006047 \approx 0.1859$<br>
+                    $\mu = np = 15 \times 0.4 = 6.0$<br>
+                    $\sigma = \sqrt{15 \times 0.4 \times 0.6} = \sqrt{3.6} \approx 1.897$
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">3</span>
+                <p>Is this a binomial setting? "Draw 5 cards without replacement from a standard deck; $X$ = number of aces." Explain which BINS condition fails.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    This is <strong>not</strong> a binomial setting. The <strong>Independent</strong> condition fails. When drawing without replacement, each card removed changes the composition of the deck, so the probability of drawing an ace changes with each draw. The trials are not independent. (The 10% condition does not apply here since we are sampling from only 52 cards.)
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">4</span>
+                <p>Let $X \sim \text{Geometric}(0.25)$. Find $P(X=3)$, $P(X \le 3)$, and $\mu$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    $P(X=3) = (0.75)^2(0.25) = 0.5625 \times 0.25 = 0.1406$<br>
+                    $P(X \le 3) = P(1)+P(2)+P(3) = 0.25 + 0.75(0.25) + (0.75)^2(0.25)$<br>
+                    $= 0.25 + 0.1875 + 0.1406 = 0.5781$<br>
+                    $\mu = 1/0.25 = 4$ trials expected until first success.
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">5</span>
+                <p>A quality control inspector tests items; 10% are defective. Find the probability that the <em>first</em> defective item is the 5th one tested.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    $X \sim \text{Geometric}(0.10)$, where success = finding a defective item.<br>
+                    $P(X=5) = (0.90)^4 \times 0.10 = 0.6561 \times 0.10 = 0.0656$<br>
+                    There is about a 6.6% chance the first defective item is the 5th one tested.
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">6</span>
+                <p>Let $X \sim \text{Binomial}(20,\ 0.6)$. Use the complement to find $P(X \ge 15)$.<br><em>Hint: $P(15)\approx0.0746$, $P(16)\approx0.0350$, $P(17)\approx0.0100$, $P(18)\approx0.0020$, $P(19)\approx0.0002$, $P(20)\approx0.0000$.</em></p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    $P(X \ge 15) = P(15)+P(16)+P(17)+P(18)+P(19)+P(20)$<br>
+                    $\approx 0.0746+0.0350+0.0100+0.0020+0.0002+0.0000$<br>
+                    $\approx \mathbf{0.1218}$<br>
+                    Alternatively: $P(X \ge 15) = 1 - P(X \le 14)$, using <em>binomcdf(20, 0.6, 14)</em> on a calculator.
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">7</span>
+                <p>Two independent random variables: $E(X)=10$, $\text{Var}(X)=4$; $E(Y)=6$, $\text{Var}(Y)=9$. Find $E(3X - 2Y + 5)$ and $\text{Var}(3X - 2Y)$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    $E(3X - 2Y + 5) = 3E(X) - 2E(Y) + 5 = 3(10) - 2(6) + 5 = 30 - 12 + 5 = \mathbf{23}$<br>
+                    $\text{Var}(3X - 2Y) = 3^2\,\text{Var}(X) + (-2)^2\,\text{Var}(Y) = 9(4) + 4(9) = 36 + 36 = \mathbf{72}$<br>
+                    (Adding constants does not affect variance; subtracting $2Y$ means multiplying $Y$ by $-2$, so the coefficient is squared.)
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">8</span>
+                <p><strong>AP FRQ:</strong> A carnival game: spin a wheel with $P(\text{win}) = 0.3$ each spin. A player keeps spinning until they win.<br>(a) Find $P(\text{winning on the 4th spin})$.<br>(b) Find the expected number of spins.<br>(c) The game costs $2 per spin and pays $5 when won. Find expected net profit/loss.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    <strong>(a)</strong> $X \sim \text{Geometric}(0.3)$.<br>
+                    $P(X=4) = (0.7)^3(0.3) = 0.343 \times 0.3 = 0.1029 \approx \mathbf{10.3\%}$<br><br>
+                    <strong>(b)</strong> $\mu = 1/p = 1/0.3 \approx \mathbf{3.33}$ spins expected.<br><br>
+                    <strong>(c)</strong> Net profit = $5 - 2X$ (win $5, lose $2 per spin for $X$ spins).<br>
+                    $E(\text{net}) = 5 - 2E(X) = 5 - 2(3.33) = 5 - 6.67 = -\mathbf{\$1.67}$<br>
+                    On average, a player loses about $1.67 per game played.
+                </div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-nav">
+        <a href="/us/textbook/ap-statistics/probability.html">← Chapter 7: Probability</a>
+        <a href="/us/textbook/ap-statistics/sampling-distributions.html">Chapter 9: Sampling Distributions →</a>
+    </div>
+</article>
+
+<script>
+(function() {
+    // Figure 8.1 — Discrete probability distribution for fair die
+    var elt1 = document.getElementById('graph-discrete');
+    var calc1 = Desmos.GraphingCalculator(elt1, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false,
+        showGrid: false, showXAxis: true, showYAxis: true
+    });
+    calc1.setMathBounds({ left: 0, right: 7, bottom: 0, top: 0.3 });
+    var p = (1/6).toFixed(6);
+    // Vertical bar segments for each die outcome
+    for (var k = 1; k <= 6; k++) {
+        calc1.setExpression({
+            id: 'bar' + k,
+            type: 'expression',
+            latex: '\\left(' + k + ',\\ t\\right)\\left\\{0\\le t\\le' + p + '\\right\\}',
+            color: '#065f46',
+            lineWidth: 8
+        });
+    }
+    // Horizontal reference line at 1/6
+    calc1.setExpression({
+        id: 'ref',
+        type: 'expression',
+        latex: 'y = ' + p,
+        color: '#94a3b8',
+        lineStyle: Desmos.Styles.DASHED,
+        lineWidth: 1.5
+    });
+})();
+
+(function() {
+    // Figure 8.2 — Binomial(10, 0.5) distribution
+    var elt2 = document.getElementById('graph-binomial');
+    var calc2 = Desmos.GraphingCalculator(elt2, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false,
+        showGrid: false, showXAxis: true, showYAxis: true
+    });
+    calc2.setMathBounds({ left: -1, right: 11, bottom: 0, top: 0.3 });
+    // Binomial(10, 0.5) probabilities
+    var probs = [0.001, 0.010, 0.044, 0.117, 0.205, 0.246, 0.205, 0.117, 0.044, 0.010, 0.001];
+    for (var k = 0; k <= 10; k++) {
+        calc2.setExpression({
+            id: 'bbar' + k,
+            type: 'expression',
+            latex: '\\left(' + k + ',\\ t\\right)\\left\\{0\\le t\\le' + probs[k] + '\\right\\}',
+            color: '#065f46',
+            lineWidth: 8
+        });
+    }
+    // Mean line at x = 5
+    calc2.setExpression({
+        id: 'mean_line',
+        type: 'expression',
+        latex: 'x = 5',
+        color: '#f59e0b',
+        lineStyle: Desmos.Styles.DASHED,
+        lineWidth: 2
+    });
+})();
+
+(function() {
+    // Figure 8.3 — Geometric(1/6) distribution
+    var elt3 = document.getElementById('graph-geometric');
+    var calc3 = Desmos.GraphingCalculator(elt3, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false,
+        showGrid: false, showXAxis: true, showYAxis: true
+    });
+    calc3.setMathBounds({ left: 0, right: 16, bottom: 0, top: 0.22 });
+    var p = 1/6;
+    var q = 5/6;
+    for (var k = 1; k <= 15; k++) {
+        var pk = Math.pow(q, k-1) * p;
+        calc3.setExpression({
+            id: 'gbar' + k,
+            type: 'expression',
+            latex: '\\left(' + k + ',\\ t\\right)\\left\\{0\\le t\\le' + pk.toFixed(5) + '\\right\\}',
+            color: '#065f46',
+            lineWidth: 7
+        });
+    }
+    // Mean line at x = 6
+    calc3.setExpression({
+        id: 'gmean',
+        type: 'expression',
+        latex: 'x = 6',
+        color: '#f59e0b',
+        lineStyle: Desmos.Styles.DASHED,
+        lineWidth: 2
+    });
+})();
+</script>
+
+</body>
+</html>
