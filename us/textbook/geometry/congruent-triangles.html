@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Geometry: Congruent Triangles - Chapter 5 | MathHub</title>
+    <meta name="description" content="Geometry Chapter 5: Congruent Triangles. Learn SSS, SAS, ASA, AAS, and HL congruence postulates, how to use CPCTC, and write two-column proofs for triangle congruence.">
+    <meta name="keywords" content="geometry, congruent triangles, SSS, SAS, ASA, AAS, HL, CPCTC, triangle congruence, two-column proof, high school geometry chapter 5">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/geometry/congruent-triangles.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/geometry/congruent-triangles.html">
+    <meta property="og:title" content="Geometry: Congruent Triangles - Chapter 5">
+    <meta property="og:description" content="Learn SSS, SAS, ASA, AAS, HL congruence and CPCTC for triangle congruence proofs.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "Geometry: Congruent Triangles - Chapter 5",
+        "description": "Geometry Chapter 5 covering triangle congruence postulates (SSS, SAS, ASA, AAS, HL) and CPCTC with two-column proof writing.",
+        "url": "https://mathhub.io/us/textbook/geometry/congruent-triangles.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "High School",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Congruent Triangles" },
+            { "@type": "Thing", "name": "Geometry" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #4c1d95; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #4c1d95; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #8b5cf6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives { background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 24px 0 32px; border-radius: 0 10px 10px 0; }
+        .learning-objectives h4 { color: #4c1d95; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #3b0764; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box { background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #4c1d95; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+
+        .definition-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+
+        .theorem-box { background: #fdf2f8; border-left: 4px solid #ec4899; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #9d174d; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box { background: #f5f3ff; border: 1.5px dashed #c4b5fd; padding: 16px 20px; margin: -4px 0 24px; border-radius: 0 0 8px 8px; }
+        .try-it-box .try-it-label { display: inline-block; background: #8b5cf6; color: white; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px; }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary { cursor: pointer; color: #4c1d95; font-weight: 600; font-size: 0.9em; user-select: none; }
+        .try-it-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7; }
+
+        .geo-tip { background: #fefce8; border-left: 4px solid #eab308; padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .geo-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .geo-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .geo-tip strong { color: #92400e; }
+
+        .desmos-wrap { margin: 24px auto; background: #faf8ff; border-radius: 12px; padding: 4px; border: 1px solid #e9d5ff; text-align: center; }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label { text-align: center; font-size: 0.82em; color: #64748b; margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em; }
+
+        /* Congruence postulate summary grid */
+        .postulate-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; margin: 20px 0 28px; }
+        .postulate-card { background: #f5f3ff; border: 2px solid #c4b5fd; border-radius: 10px; padding: 14px 16px; text-align: center; }
+        .postulate-name { font-size: 1.4em; font-weight: 800; color: #4c1d95; margin-bottom: 6px; }
+        .postulate-desc { font-size: 0.82em; color: #475569; line-height: 1.5; }
+        .postulate-card.invalid { background: #fef2f2; border-color: #fca5a5; }
+        .postulate-card.invalid .postulate-name { color: #b91c1c; }
+
+        /* Two-column proof table */
+        .proof-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.9em; }
+        .proof-table th { background: #4c1d95; color: white; padding: 9px 14px; text-align: left; font-weight: 700; }
+        .proof-table td { padding: 9px 14px; border: 1px solid #e2e8f0; color: #334155; vertical-align: top; }
+        .proof-table tr:nth-child(even) { background: #f8fafc; }
+        .proof-table .reason { color: #1d4ed8; font-style: italic; }
+
+        .practice-section { margin: 48px 0 0; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { color: #4c1d95; margin-bottom: 20px; }
+        .practice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        @media (max-width: 600px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; }
+        .practice-card .p-num { display: inline-block; background: #4c1d95; color: white; font-weight: 700; font-size: 0.78em; padding: 2px 9px; border-radius: 4px; margin-bottom: 8px; }
+        .practice-card p { color: #334155; font-size: 0.92em; line-height: 1.7; margin: 0 0 10px; }
+        .practice-card details summary { cursor: pointer; color: #4c1d95; font-weight: 600; font-size: 0.88em; user-select: none; }
+        .practice-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 8px; color: #334155; font-size: 0.9em; line-height: 1.7; border: 1px solid #e2e8f0; }
+
+        .chapter-nav { display: flex; justify-content: space-between; margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid #e2e8f0; flex-wrap: wrap; gap: 12px; }
+        .chapter-nav a { color: #8b5cf6; text-decoration: none; font-weight: 600; font-size: 0.95em; padding: 8px 16px; border: 1.5px solid #8b5cf6; border-radius: 8px; transition: background .15s; }
+        .chapter-nav a:hover { background: #f5f3ff; }
+    </style>
+</head>
+<body>
+
+<div style="background:#4c1d95; padding:12px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+    <a href="/" style="color:#ddd6fe; text-decoration:none; font-weight:700; font-size:1.1em;">MathHub</a>
+    <span style="color:#a78bfa;">›</span>
+    <a href="/us" style="color:#c4b5fd; text-decoration:none; font-size:.9em;">US</a>
+    <span style="color:#a78bfa;">›</span>
+    <a href="/us/textbook/geometry" style="color:#c4b5fd; text-decoration:none; font-size:.9em;">Geometry</a>
+    <span style="color:#a78bfa;">›</span>
+    <span style="color:white; font-size:.9em;">Chapter 5</span>
+</div>
+
+<article class="blog-article">
+    <div class="breadcrumb">
+        <a href="/">MathHub</a> › <a href="/us">US</a> › <a href="/us/textbook/geometry">Geometry</a> › Chapter 5
+    </div>
+
+    <h1>Chapter 5: Congruent Triangles</h1>
+    <div class="blog-meta">High School Geometry · Unit 3: Triangles · 3 interactive diagrams · 8 practice problems</div>
+
+    <div class="learning-objectives">
+        <h4>Learning Objectives</h4>
+        <ul>
+            <li>Identify corresponding parts of congruent triangles using proper notation</li>
+            <li>Apply the SSS, SAS, ASA, AAS, and HL congruence postulates and theorems</li>
+            <li>Recognize which shortcut applies (and which do not: AAA, SSA)</li>
+            <li>Use CPCTC to prove additional corresponding parts congruent</li>
+            <li>Write complete two-column proofs for triangle congruence</li>
+            <li>Apply the Isosceles Triangle Theorem and its converse</li>
+        </ul>
+    </div>
+
+    <!-- 5.1 -->
+    <h2>5.1 Congruent Figures and Corresponding Parts</h2>
+    <p>Two figures are <strong>congruent</strong> if they have the same shape and size — one can be mapped onto the other by rigid motions (translations, rotations, reflections) only.</p>
+
+    <div class="definition-box">
+        <h4>Definition: Congruent Triangles</h4>
+        <p>$\triangle ABC \cong \triangle DEF$ means that all six pairs of corresponding parts are congruent:</p>
+        <ul>
+            <li><strong>Sides:</strong> $AB \cong DE$, $BC \cong EF$, $AC \cong DF$</li>
+            <li><strong>Angles:</strong> $\angle A \cong \angle D$, $\angle B \cong \angle E$, $\angle C \cong \angle F$</li>
+        </ul>
+        <p><strong>Order matters!</strong> The order of vertices in the congruence statement specifies which parts correspond: first vertex ↔ first vertex, second ↔ second, etc.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 5.1 — Reading a Congruence Statement</h4>
+        <p>If $\triangle PQR \cong \triangle XYZ$, list all six pairs of congruent parts.</p>
+        <p><strong>Sides:</strong> $PQ \cong XY$, $QR \cong YZ$, $PR \cong XZ$</p>
+        <p><strong>Angles:</strong> $\angle P \cong \angle X$, $\angle Q \cong \angle Y$, $\angle R \cong \angle Z$</p>
+    </div>
+
+    <!-- 5.2 -->
+    <h2>5.2 Triangle Congruence Postulates and Theorems</h2>
+    <p>We don't need to verify all six pairs to prove triangles congruent. Five valid shortcuts (and two invalid ones) are shown below:</p>
+
+    <div class="postulate-grid">
+        <div class="postulate-card">
+            <div class="postulate-name">SSS</div>
+            <div class="postulate-desc">Side-Side-Side: all 3 pairs of sides congruent</div>
+        </div>
+        <div class="postulate-card">
+            <div class="postulate-name">SAS</div>
+            <div class="postulate-desc">Side-Angle-Side: 2 sides and the included angle</div>
+        </div>
+        <div class="postulate-card">
+            <div class="postulate-name">ASA</div>
+            <div class="postulate-desc">Angle-Side-Angle: 2 angles and the included side</div>
+        </div>
+        <div class="postulate-card">
+            <div class="postulate-name">AAS</div>
+            <div class="postulate-desc">Angle-Angle-Side: 2 angles and a non-included side</div>
+        </div>
+        <div class="postulate-card">
+            <div class="postulate-name">HL</div>
+            <div class="postulate-desc">Hypotenuse-Leg: right triangles only</div>
+        </div>
+        <div class="postulate-card invalid">
+            <div class="postulate-name">AAA ✗</div>
+            <div class="postulate-desc">Does NOT prove congruence (similar only)</div>
+        </div>
+        <div class="postulate-card invalid">
+            <div class="postulate-name">SSA ✗</div>
+            <div class="postulate-desc">Does NOT guarantee congruence (ambiguous case)</div>
+        </div>
+    </div>
+
+    <div class="theorem-box">
+        <h4>The Five Congruence Shortcuts</h4>
+        <ul>
+            <li><strong>SSS:</strong> If $AB = DE$, $BC = EF$, and $AC = DF$, then $\triangle ABC \cong \triangle DEF$.</li>
+            <li><strong>SAS:</strong> If $AB = DE$, $\angle B = \angle E$, and $BC = EF$, then $\triangle ABC \cong \triangle DEF$. (Angle must be between the two sides.)</li>
+            <li><strong>ASA:</strong> If $\angle A = \angle D$, $AB = DE$, and $\angle B = \angle E$, then $\triangle ABC \cong \triangle DEF$. (Side must be between the two angles.)</li>
+            <li><strong>AAS:</strong> If $\angle A = \angle D$, $\angle B = \angle E$, and $BC = EF$, then $\triangle ABC \cong \triangle DEF$. (Side is not between the angles.)</li>
+            <li><strong>HL (Right Triangles only):</strong> If the hypotenuse and one leg of a right triangle are congruent to those of another, then the triangles are congruent.</li>
+        </ul>
+    </div>
+
+    <div class="geo-tip">
+        <div class="geo-tip-icon">★</div>
+        <p><strong>Memory Aid:</strong> <em>"SAS means the angle is sandwiched between the two sides."</em> For SSA — remember "a donkey is stubborn" — SSA doesn't work! The angle must be <em>included</em> between the sides for SAS, and the side must be <em>included</em> between the angles for ASA.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 5.2 — Identifying the Correct Postulate</h4>
+        <p>Which postulate or theorem proves $\triangle JKL \cong \triangle MNP$?</p>
+        <ul>
+            <li>$JK = MN$, $KL = NP$, $\angle K = \angle N$: The angle $\angle K$ is between sides $JK$ and $KL$, and $\angle N$ is between $MN$ and $NP$. This is <strong>SAS</strong>.</li>
+            <li>$\angle J = \angle M$, $\angle L = \angle P$, $JL = MP$: Two angles and the side between them. This is <strong>ASA</strong>.</li>
+            <li>$\angle J = \angle M$, $JK = MN$, $KL = NP$: Two angles... wait, we only have one angle. With $JK$ and $KL$ being sides, we actually have SSA — <strong>not valid</strong>. Need to verify the angle is included.</li>
+        </ul>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>Right $\triangle ABC$ and $\triangle DEF$ have right angles at $B$ and $E$. If $AC = DF$ (hypotenuses) and $AB = DE$ (legs), which postulate proves congruence?</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer"><strong>HL (Hypotenuse-Leg)</strong> — both are right triangles, the hypotenuses are equal, and one pair of legs is equal. This is sufficient to prove $\triangle ABC \cong \triangle DEF$.</div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">SSS, SAS, ASA, AAS illustrated — pairs of congruent triangles with color-coded matching parts.</p>
+        <div id="graph-congruence" style="width:100%; height:440px;"></div>
+        <p class="fig-label">Figure 5.1 — Congruent Triangle Pairs by Different Postulates</p>
+    </div>
+
+    <!-- 5.3 CPCTC -->
+    <h2>5.3 CPCTC: Corresponding Parts of Congruent Triangles Are Congruent</h2>
+
+    <div class="definition-box">
+        <h4>CPCTC</h4>
+        <p><strong>CPCTC</strong> stands for "Corresponding Parts of Congruent Triangles Are Congruent." Once you prove two triangles congruent, you can conclude that <em>any</em> pair of corresponding parts are also congruent. CPCTC is used as a reason in the later steps of a proof, after establishing the triangle congruence.</p>
+    </div>
+
+    <p>The typical two-column proof structure when using CPCTC:</p>
+    <ol>
+        <li>Establish congruence of specific sides and angles (given or derived)</li>
+        <li>State the triangle congruence (SSS / SAS / ASA / AAS / HL)</li>
+        <li>Conclude additional corresponding parts are congruent by CPCTC</li>
+    </ol>
+
+    <div class="example-box">
+        <h4>Example 5.3 — A Complete Two-Column Proof with CPCTC</h4>
+        <p><strong>Given:</strong> $\overline{AB} \cong \overline{CB}$; $B$ is the midpoint of $\overline{AC}$ — wait, let's use a cleaner setup:</p>
+        <p><strong>Given:</strong> $\overline{AB} \cong \overline{CD}$; $\overline{AB} \parallel \overline{CD}$</p>
+        <p><strong>Prove:</strong> $\triangle ABE \cong \triangle DCE$ where $E$ is the intersection of $\overline{AD}$ and $\overline{BC}$</p>
+        <table class="proof-table">
+            <tr><th>Statements</th><th>Reasons</th></tr>
+            <tr><td>$AB \cong CD$</td><td class="reason">Given</td></tr>
+            <tr><td>$AB \parallel CD$</td><td class="reason">Given</td></tr>
+            <tr><td>$\angle ABE \cong \angle DCE$</td><td class="reason">Alternate interior angles, $AB \parallel CD$, transversal $\overline{BC}$</td></tr>
+            <tr><td>$\angle BAE \cong \angle CDE$</td><td class="reason">Alternate interior angles, $AB \parallel CD$, transversal $\overline{AD}$</td></tr>
+            <tr><td>$\triangle ABE \cong \triangle DCE$</td><td class="reason">AAS</td></tr>
+            <tr><td>$BE \cong CE$ and $AE \cong DE$</td><td class="reason">CPCTC</td></tr>
+        </table>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>In the proof above, what additional conclusion can you draw from CPCTC? (Hint: what does $AE \cong DE$ and $BE \cong CE$ tell you about point $E$?)</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">$AE \cong DE$ means $E$ is the midpoint of $\overline{AD}$. $BE \cong CE$ means $E$ is the midpoint of $\overline{BC}$. Therefore, the diagonals of quadrilateral $ABCD$ bisect each other — proving $ABCD$ is a parallelogram!</div>
+        </details>
+    </div>
+
+    <!-- 5.4 -->
+    <h2>5.4 Isosceles Triangle Theorem</h2>
+
+    <div class="theorem-box">
+        <h4>Isosceles Triangle Theorem and Converse</h4>
+        <ul>
+            <li><strong>Theorem:</strong> If two sides of a triangle are congruent, then the angles opposite those sides are congruent. (Base angles of an isosceles triangle are congruent.)</li>
+            <li><strong>Converse:</strong> If two angles of a triangle are congruent, then the sides opposite those angles are congruent.</li>
+            <li><strong>Equilateral ↔ Equiangular:</strong> A triangle is equilateral if and only if it is equiangular (all angles = 60°).</li>
+        </ul>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 5.4 — Isosceles Triangle</h4>
+        <p>In $\triangle ABC$, $AB = AC = 7$ and $\angle ABC = 52°$. Find $\angle BAC$.</p>
+        <p>By the Isosceles Triangle Theorem, $\angle ABC = \angle ACB = 52°$.</p>
+        <p>$\angle BAC = 180° - 52° - 52° = \mathbf{76°}$</p>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Isosceles triangle with vertex angle slider — observe that the base angles remain equal as the shape changes.</p>
+        <div id="graph-isosceles" style="width:100%; height:400px;"></div>
+        <p class="fig-label">Figure 5.2 — Isosceles Triangle: Base Angles Always Equal</p>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">SSS vs. SAS comparison — both postulate pairs produce the same unique triangle shape, confirming congruence.</p>
+        <div id="graph-sss-sas" style="width:100%; height:380px;"></div>
+        <p class="fig-label">Figure 5.3 — SSS and SAS Produce Unique (Congruent) Triangles</p>
+    </div>
+
+    <!-- Practice -->
+    <div class="practice-section">
+        <h2>Practice Problems</h2>
+        <div class="practice-grid">
+            <div class="practice-card">
+                <span class="p-num">1</span>
+                <p>$\triangle ABC \cong \triangle PQR$. If $AB = 3x + 2$ and $PQ = 5x - 6$, find $AB$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Corresponding sides: $AB \cong PQ$, so $3x + 2 = 5x - 6 \Rightarrow 8 = 2x \Rightarrow x = 4$. Then $AB = 3(4) + 2 = \mathbf{14}$.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">2</span>
+                <p>For each set of given info, identify the congruence postulate or state "not enough":<br>(a) Two sides and the included angle<br>(b) Two angles and any side<br>(c) Two sides and a non-included angle<br>(d) Three angles only</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">(a) <strong>SAS</strong>. (b) <strong>AAS</strong> (if non-included side) or <strong>ASA</strong> (if included side). (c) <strong>Not enough</strong> (SSA — ambiguous case). (d) <strong>Not enough</strong> (AAA — proves similarity only, not congruence).</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">3</span>
+                <p>$\overline{WX}$ bisects $\angle VWY$ and $\overline{WX} \perp \overline{VY}$. Prove $\triangle VWX \cong \triangle YWX$. What postulate applies?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Given: $WX$ bisects $\angle VWY \Rightarrow \angle VWX = \angle YWX$. Given: $WX \perp VY \Rightarrow \angle WXV = \angle WXY = 90°$. Shared: $WX \cong WX$ (reflexive). So we have two angles ($\angle VWX = \angle YWX$, right angles) and the included side $WX$. This is <strong>ASA</strong>.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">4</span>
+                <p>In isosceles $\triangle KLM$ with $KL = KM$, $\angle L = 3x + 10$ and $\angle M = 5x - 4$. Find all angles.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Base angles equal: $3x + 10 = 5x - 4 \Rightarrow 14 = 2x \Rightarrow x = 7$. So $\angle L = \angle M = 31°$ and $\angle K = 180° - 31° - 31° = \mathbf{118°}$.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">5</span>
+                <p>In the diagram, $\overline{AC}$ is a common side of $\triangle ABC$ and $\triangle ACD$. Given $AB \cong CD$ and $BC \cong AD$, prove the triangles congruent. (Which postulate?)</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$AB \cong CD$ (given), $BC \cong AD$ (given), $AC \cong AC$ (reflexive property). Three pairs of sides are congruent, so $\triangle ABC \cong \triangle CDA$ by <strong>SSS</strong>.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">6</span>
+                <p>$\triangle ABC \cong \triangle DEF$ (proved by ASA). Can you conclude $BC \cong EF$? What about $\angle A \cong \angle D$? State your reasoning.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Yes to both. Since $\triangle ABC \cong \triangle DEF$, by <strong>CPCTC</strong>, <em>all</em> corresponding parts are congruent. So $BC \cong EF$ (corresponding sides) and $\angle A \cong \angle D$ (corresponding angles), regardless of which shortcut was used to prove congruence.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">7</span>
+                <p>Two-column proof: <strong>Given</strong> $M$ is the midpoint of $\overline{AB}$ and $M$ is the midpoint of $\overline{CD}$. <strong>Prove</strong> $\triangle AMC \cong \triangle BMD$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer"><strong>Statements / Reasons:</strong><br>1. $M$ is midpoint of $AB$ / Given<br>2. $AM \cong MB$ / Definition of midpoint<br>3. $M$ is midpoint of $CD$ / Given<br>4. $CM \cong MD$ / Definition of midpoint<br>5. $\angle AMC \cong \angle BMD$ / Vertical angles<br>6. $\triangle AMC \cong \triangle BMD$ / <strong>SAS</strong> $\square$</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">8</span>
+                <p>In right $\triangle RST$ (right angle at $S$) and right $\triangle UVW$ (right angle at $V$), $RT = UW$ and $RS = UV$. Prove $\triangle RST \cong \triangle UVW$ and find $\angle T$ if $\angle R = 35°$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Both are right triangles. $RT = UW$ are the hypotenuses, $RS = UV$ are legs. By <strong>HL</strong>, $\triangle RST \cong \triangle UVW$. Then $\angle T = \angle W$ (CPCTC). By Angle Sum: $\angle T = 180° - 90° - 35° = \mathbf{55°}$, and $\angle W = 55°$.</div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-nav">
+        <a href="/us/textbook/geometry/triangle-relationships.html">← Chapter 4: Triangle Relationships</a>
+        <a href="/us/textbook/geometry">Geometry Home →</a>
+    </div>
+</article>
+
+<script>
+(function() {
+    // Figure 5.1 — Show pairs of congruent triangles
+    var elt1 = document.getElementById('graph-congruence');
+    var calc1 = Desmos.GraphingCalculator(elt1, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc1.setMathBounds({ left: -10, right: 10, bottom: -3, top: 8 });
+
+    // SSS pair — left side
+    calc1.setExpression({ id: 'sss1', type: 'expression',
+        latex: '\\operatorname{polygon}((-9,0),(-5,0),(-7,4))',
+        color: '#4c1d95', lineWidth: 3 });
+    // SSS pair — right (congruent)
+    calc1.setExpression({ id: 'sss2', type: 'expression',
+        latex: '\\operatorname{polygon}((-4,0),(0,0),(-2,4))',
+        color: '#4c1d95', lineWidth: 3, lineStyle: Desmos.Styles.DASHED });
+    calc1.setExpression({ id: 'lsss', type: 'expression', latex: '\\text{SSS}', color: '#4c1d95' });
+
+    // SAS pair — right side
+    calc1.setExpression({ id: 'sas1', type: 'expression',
+        latex: '\\operatorname{polygon}((2,0),(7,0),(3,4))',
+        color: '#065f46', lineWidth: 3 });
+    calc1.setExpression({ id: 'sas2', type: 'expression',
+        latex: '\\operatorname{polygon}((3,-2),(8,-2),(4,2))',
+        color: '#065f46', lineWidth: 3, lineStyle: Desmos.Styles.DASHED });
+    calc1.setExpression({ id: 'lsas', type: 'expression', latex: '\\text{SAS}', color: '#065f46' });
+
+    // Label pairs
+    calc1.setExpression({ id: 'lbl1', type: 'expression', latex: '\\text{\\cong (SSS)}', color: '#4c1d95' });
+    calc1.setExpression({ id: 'lbl2', type: 'expression', latex: '\\text{\\cong (SAS)}', color: '#065f46' });
+})();
+
+(function() {
+    // Figure 5.2 — Isosceles triangle with base angles equal
+    var elt2 = document.getElementById('graph-isosceles');
+    var calc2 = Desmos.GraphingCalculator(elt2, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc2.setMathBounds({ left: -5, right: 5, bottom: -1, top: 6 });
+
+    // Isosceles triangle: A(-3,0), B(3,0), C(0,5) — AB=6 base, AC=BC=sqrt(34)
+    calc2.setExpression({ id: 'iso', type: 'expression',
+        latex: '\\operatorname{polygon}((-3,0),(3,0),(0,5))',
+        color: '#4c1d95', lineWidth: 3.5 });
+    // Vertex labels
+    calc2.setExpression({ id: 'vA', type: 'expression', latex: '(-3,0)', color: '#4c1d95', pointSize: 12 });
+    calc2.setExpression({ id: 'vB', type: 'expression', latex: '(3,0)', color: '#4c1d95', pointSize: 12 });
+    calc2.setExpression({ id: 'vC', type: 'expression', latex: '(0,5)', color: '#4c1d95', pointSize: 12 });
+    // Equal leg tick marks (midpoints of legs)
+    calc2.setExpression({ id: 'tick1', type: 'expression', latex: '(-1.5,2.5)', color: '#dc2626', pointStyle: Desmos.Styles.CROSS, pointSize: 12 });
+    calc2.setExpression({ id: 'tick2', type: 'expression', latex: '(1.5,2.5)', color: '#dc2626', pointStyle: Desmos.Styles.CROSS, pointSize: 12 });
+    // Base label
+    calc2.setExpression({ id: 'lbase', type: 'expression', latex: '\\text{Base}', color: '#1d4ed8' });
+    calc2.setExpression({ id: 'legl', type: 'expression', latex: 'AC = BC\\text{ (legs equal)}', color: '#dc2626' });
+    calc2.setExpression({ id: 'langles', type: 'expression', latex: '\\angle A = \\angle B\\text{ (base angles equal)}', color: '#9d174d' });
+    // Altitude (axis of symmetry)
+    calc2.setExpression({ id: 'sym', type: 'expression', latex: 'y=\\frac{5}{0.01}x\\{0\\le x\\le0.01\\}',
+        color: '#94a3b8', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5 });
+    calc2.setExpression({ id: 'symline', type: 'expression', latex: 'x=0\\{0\\le y\\le5\\}',
+        color: '#94a3b8', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5 });
+})();
+
+(function() {
+    // Figure 5.3 — SSS vs SAS: unique triangle
+    var elt3 = document.getElementById('graph-sss-sas');
+    var calc3 = Desmos.GraphingCalculator(elt3, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc3.setMathBounds({ left: -9, right: 9, bottom: -1, top: 7 });
+
+    // Left: SSS example — triangle 1 and its congruent copy
+    calc3.setExpression({ id: 't1', type: 'expression',
+        latex: '\\operatorname{polygon}((-8,0),(-2,0),(-6,5))',
+        color: '#4c1d95', lineWidth: 3 });
+    calc3.setExpression({ id: 'lsss2', type: 'expression',
+        latex: '\\text{SSS: sides 6, 5, \\sqrt{41} uniquely determine the triangle}',
+        color: '#4c1d95' });
+
+    // Right: SAS example
+    calc3.setExpression({ id: 't2', type: 'expression',
+        latex: '\\operatorname{polygon}((1,0),(7,0),(3,5))',
+        color: '#065f46', lineWidth: 3 });
+    calc3.setExpression({ id: 'lsas2', type: 'expression',
+        latex: '\\text{SAS: 2 sides + included angle uniquely determine the triangle}',
+        color: '#065f46' });
+    // Angle arc at origin of SAS triangle
+    calc3.setExpression({ id: 'arc1', type: 'expression',
+        latex: '(x-1)^2+y^2=1\\{x\\ge1,y\\ge0\\}',
+        color: '#065f46', lineWidth: 2 });
+})();
+</script>
+
+</body>
+</html>

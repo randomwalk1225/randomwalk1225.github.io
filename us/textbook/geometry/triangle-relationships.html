@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Geometry: Triangle Relationships - Chapter 4 | MathHub</title>
+    <meta name="description" content="Geometry Chapter 4: Triangle Relationships. Learn the triangle angle sum theorem, exterior angle theorem, triangle inequality, and midsegment theorem with interactive diagrams.">
+    <meta name="keywords" content="geometry, triangle angle sum, exterior angle theorem, triangle inequality, midsegment theorem, triangle relationships, high school geometry chapter 4">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/geometry/triangle-relationships.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/geometry/triangle-relationships.html">
+    <meta property="og:title" content="Geometry: Triangle Relationships - Chapter 4">
+    <meta property="og:description" content="Learn the triangle angle sum, exterior angle theorem, triangle inequality, and midsegment theorem.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "Geometry: Triangle Relationships - Chapter 4",
+        "description": "Geometry Chapter 4 covering the triangle angle sum theorem, exterior angle theorem, triangle inequality, and the midsegment theorem.",
+        "url": "https://mathhub.io/us/textbook/geometry/triangle-relationships.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "High School",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Triangle Geometry" },
+            { "@type": "Thing", "name": "Geometry" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #4c1d95; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #4c1d95; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #8b5cf6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives { background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 24px 0 32px; border-radius: 0 10px 10px 0; }
+        .learning-objectives h4 { color: #4c1d95; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #3b0764; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box { background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #4c1d95; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+
+        .definition-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+
+        .theorem-box { background: #fdf2f8; border-left: 4px solid #ec4899; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #9d174d; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box { background: #f5f3ff; border: 1.5px dashed #c4b5fd; padding: 16px 20px; margin: -4px 0 24px; border-radius: 0 0 8px 8px; }
+        .try-it-box .try-it-label { display: inline-block; background: #8b5cf6; color: white; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px; }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary { cursor: pointer; color: #4c1d95; font-weight: 600; font-size: 0.9em; user-select: none; }
+        .try-it-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7; }
+
+        .geo-tip { background: #fefce8; border-left: 4px solid #eab308; padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .geo-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .geo-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .geo-tip strong { color: #92400e; }
+
+        .desmos-wrap { margin: 24px auto; background: #faf8ff; border-radius: 12px; padding: 4px; border: 1px solid #e9d5ff; text-align: center; }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label { text-align: center; font-size: 0.82em; color: #64748b; margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em; }
+
+        .practice-section { margin: 48px 0 0; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { color: #4c1d95; margin-bottom: 20px; }
+        .practice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        @media (max-width: 600px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; }
+        .practice-card .p-num { display: inline-block; background: #4c1d95; color: white; font-weight: 700; font-size: 0.78em; padding: 2px 9px; border-radius: 4px; margin-bottom: 8px; }
+        .practice-card p { color: #334155; font-size: 0.92em; line-height: 1.7; margin: 0 0 10px; }
+        .practice-card details summary { cursor: pointer; color: #4c1d95; font-weight: 600; font-size: 0.88em; user-select: none; }
+        .practice-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 8px; color: #334155; font-size: 0.9em; line-height: 1.7; border: 1px solid #e2e8f0; }
+
+        .chapter-nav { display: flex; justify-content: space-between; margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid #e2e8f0; flex-wrap: wrap; gap: 12px; }
+        .chapter-nav a { color: #8b5cf6; text-decoration: none; font-weight: 600; font-size: 0.95em; padding: 8px 16px; border: 1.5px solid #8b5cf6; border-radius: 8px; transition: background .15s; }
+        .chapter-nav a:hover { background: #f5f3ff; }
+    </style>
+</head>
+<body>
+
+<div style="background:#4c1d95; padding:12px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+    <a href="/" style="color:#ddd6fe; text-decoration:none; font-weight:700; font-size:1.1em;">MathHub</a>
+    <span style="color:#a78bfa;">›</span>
+    <a href="/us" style="color:#c4b5fd; text-decoration:none; font-size:.9em;">US</a>
+    <span style="color:#a78bfa;">›</span>
+    <a href="/us/textbook/geometry" style="color:#c4b5fd; text-decoration:none; font-size:.9em;">Geometry</a>
+    <span style="color:#a78bfa;">›</span>
+    <span style="color:white; font-size:.9em;">Chapter 4</span>
+</div>
+
+<article class="blog-article">
+    <div class="breadcrumb">
+        <a href="/">MathHub</a> › <a href="/us">US</a> › <a href="/us/textbook/geometry">Geometry</a> › Chapter 4
+    </div>
+
+    <h1>Chapter 4: Triangle Relationships</h1>
+    <div class="blog-meta">High School Geometry · Unit 3: Triangles · 3 interactive diagrams · 8 practice problems</div>
+
+    <div class="learning-objectives">
+        <h4>Learning Objectives</h4>
+        <ul>
+            <li>Apply the Triangle Angle Sum Theorem to find missing angles</li>
+            <li>Use the Exterior Angle Theorem and its corollary</li>
+            <li>Apply the Triangle Inequality Theorem to determine valid triangles</li>
+            <li>Relate sides and angles: the longest side is opposite the largest angle</li>
+            <li>Apply the Triangle Midsegment Theorem</li>
+            <li>Write geometric proofs using these theorems</li>
+        </ul>
+    </div>
+
+    <!-- 4.1 -->
+    <h2>4.1 Triangle Angle Sum Theorem</h2>
+    <p>The most fundamental fact about triangles is that their interior angles always add up to exactly 180°. This is true for <em>every</em> triangle, regardless of its shape or size.</p>
+
+    <div class="theorem-box">
+        <h4>Theorem 4.1 — Triangle Angle Sum Theorem</h4>
+        <p>The sum of the interior angles of any triangle equals $180°$:</p>
+        <p>$$\angle A + \angle B + \angle C = 180°$$</p>
+        <p><strong>Proof sketch:</strong> Draw a line through vertex $C$ parallel to $\overline{AB}$. The three angles at $C$ form a straight angle (180°) by the alternate interior angles theorem and substitution.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 4.1 — Finding a Missing Angle</h4>
+        <p>In $\triangle ABC$, $\angle A = 47°$ and $\angle B = 68°$. Find $\angle C$.</p>
+        <p>$\angle C = 180° - 47° - 68° = \mathbf{65°}$</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A triangle has angles in the ratio $2:3:4$. Find all three angles.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">The angles sum to $180°$: $2k + 3k + 4k = 180° \Rightarrow 9k = 180° \Rightarrow k = 20°$. The angles are $\mathbf{40°, 60°, 80°}$.</div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Drag the vertices of the triangle to change its shape — the angle sum always stays 180°. Angles are labeled $\alpha$, $\beta$, $\gamma$.</p>
+        <div id="graph-anglesum" style="width:100%; height:420px;"></div>
+        <p class="fig-label">Figure 4.1 — Triangle Angle Sum = 180°</p>
+    </div>
+
+    <!-- 4.2 -->
+    <h2>4.2 Exterior Angle Theorem</h2>
+    <p>An <strong>exterior angle</strong> of a triangle is formed when one side is extended beyond a vertex. It is supplementary to the adjacent interior angle.</p>
+
+    <div class="theorem-box">
+        <h4>Theorem 4.2 — Exterior Angle Theorem</h4>
+        <p>The measure of an exterior angle of a triangle equals the sum of the two non-adjacent (remote) interior angles:</p>
+        <p>$$\angle 1 = \angle A + \angle B$$</p>
+        <p>where $\angle 1$ is the exterior angle at vertex $C$, and $\angle A$, $\angle B$ are the two remote interior angles.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 4.2 — Using the Exterior Angle Theorem</h4>
+        <p>An exterior angle of a triangle measures $115°$. One remote interior angle measures $52°$. Find the other remote interior angle.</p>
+        <p>$115° = 52° + x \Rightarrow x = \mathbf{63°}$</p>
+        <p><strong>Check:</strong> $52° + 63° + (180° - 115°) = 52° + 63° + 65° = 180°$ ✓</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>In $\triangle PQR$, $\angle P = 38°$ and $\angle Q = 74°$. An exterior angle is formed at $R$ by extending side $QR$. Find the exterior angle measure.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">The exterior angle at $R$ equals the sum of the two remote interior angles: $38° + 74° = \mathbf{112°}$. Also, $\angle R = 180° - 38° - 74° = 68°$, so the exterior angle = $180° - 68° = 112°$ ✓</div>
+        </details>
+    </div>
+
+    <div class="geo-tip">
+        <div class="geo-tip-icon">★</div>
+        <p><strong>Proof Tip:</strong> The Exterior Angle Theorem is a corollary of the Angle Sum Theorem. Let the exterior angle be $\angle 1$ at vertex $C$. Since $\angle C + \angle 1 = 180°$ and $\angle A + \angle B + \angle C = 180°$, we get $\angle 1 = \angle A + \angle B$ by substitution.</p>
+    </div>
+
+    <!-- 4.3 -->
+    <h2>4.3 Triangle Inequality Theorem</h2>
+    <p>Not every set of three lengths can form a triangle. The Triangle Inequality gives us a precise rule for when three lengths form a valid triangle.</p>
+
+    <div class="theorem-box">
+        <h4>Theorem 4.3 — Triangle Inequality Theorem</h4>
+        <p>The sum of any two side lengths of a triangle must be greater than the third side:</p>
+        <p>$$a + b > c, \quad a + c > b, \quad b + c > a$$</p>
+        <p><strong>Practical test:</strong> Check only that the sum of the two shorter sides exceeds the longest side.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 4.3 — Can These Form a Triangle?</h4>
+        <p>(a) Sides 5, 8, 12: Is $5 + 8 > 12$? $13 > 12$ ✓ — Yes, valid triangle.</p>
+        <p>(b) Sides 3, 4, 9: Is $3 + 4 > 9$? $7 > 9$? No — <strong>not a valid triangle.</strong></p>
+        <p>(c) Sides 6, 10, 10: Is $6 + 10 > 10$? $16 > 10$ ✓ — Yes, valid triangle.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>Two sides of a triangle are 7 and 13. What values are possible for the third side $x$?</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">We need $7 + 13 > x$ and $7 + x > 13$ and $13 + x > 7$. From the first: $x < 20$. From the second: $x > 6$. From the third: always true. So $\mathbf{6 < x < 20}$.</div>
+        </details>
+    </div>
+
+    <h3>Side–Angle Relationship</h3>
+    <p>Within a triangle, angles and opposite sides are related in a predictable order:</p>
+
+    <div class="definition-box">
+        <h4>Side–Angle Inequality</h4>
+        <p>In any triangle:</p>
+        <ul>
+            <li>The <strong>longest side</strong> is opposite the <strong>largest angle</strong>.</li>
+            <li>The <strong>shortest side</strong> is opposite the <strong>smallest angle</strong>.</li>
+            <li>If two sides are equal, the opposite angles are equal (isosceles triangle theorem).</li>
+        </ul>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Triangle with labeled sides and angles — observe how the longest side is always opposite the largest angle.</p>
+        <div id="graph-inequality" style="width:100%; height:400px;"></div>
+        <p class="fig-label">Figure 4.2 — Side–Angle Relationship in Triangles</p>
+    </div>
+
+    <!-- 4.4 -->
+    <h2>4.4 Triangle Midsegment Theorem</h2>
+    <p>A <strong>midsegment</strong> of a triangle connects the midpoints of two sides. It has remarkable properties.</p>
+
+    <div class="theorem-box">
+        <h4>Theorem 4.4 — Triangle Midsegment Theorem</h4>
+        <p>The segment connecting the midpoints of two sides of a triangle (the midsegment) is:</p>
+        <ul>
+            <li><strong>Parallel</strong> to the third side</li>
+            <li><strong>Half the length</strong> of the third side</li>
+        </ul>
+        <p>If $M$ and $N$ are midpoints of $\overline{AB}$ and $\overline{AC}$, then $\overline{MN} \parallel \overline{BC}$ and $MN = \tfrac{1}{2} BC$.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 4.4 — Using the Midsegment Theorem</h4>
+        <p>In $\triangle ABC$, $M$ is the midpoint of $\overline{AB}$ and $N$ is the midpoint of $\overline{AC}$. If $BC = 28$, find $MN$.</p>
+        <p>$MN = \tfrac{1}{2} \cdot BC = \tfrac{1}{2} \cdot 28 = \mathbf{14}$</p>
+        <p>Also, $\overline{MN} \parallel \overline{BC}$, so $\angle AMN = \angle ABC$ (corresponding angles).</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>$\overline{DE}$ is a midsegment of $\triangle ABC$ with $DE = 5x - 3$ and $BC = 7x + 4$. Find $x$ and $DE$.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">By the Midsegment Theorem: $DE = \tfrac{1}{2}BC$, so $5x - 3 = \tfrac{1}{2}(7x + 4) \Rightarrow 10x - 6 = 7x + 4 \Rightarrow 3x = 10 \Rightarrow x = \tfrac{10}{3}$. Then $DE = 5(\tfrac{10}{3}) - 3 = \tfrac{50}{3} - 3 = \tfrac{41}{3} \approx 13.7$.</div>
+        </details>
+    </div>
+
+    <div class="geo-tip">
+        <div class="geo-tip-icon">★</div>
+        <p><strong>Geometry Proof Strategy:</strong> The Midsegment Theorem can be proved using coordinate geometry — place the triangle with $A$ at the origin, find the midpoints $M$ and $N$, show $\overline{MN}$ has the same slope as $\overline{BC}$ (parallel), and compute $MN = \tfrac{1}{2}BC$ using the distance formula.</p>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Interactive triangle with midsegment $\overline{MN}$ shown in blue — the midsegment is parallel to the base and half its length.</p>
+        <div id="graph-midsegment" style="width:100%; height:420px;"></div>
+        <p class="fig-label">Figure 4.3 — Triangle Midsegment: Parallel and Half the Base</p>
+    </div>
+
+    <!-- Practice -->
+    <div class="practice-section">
+        <h2>Practice Problems</h2>
+        <div class="practice-grid">
+            <div class="practice-card">
+                <span class="p-num">1</span>
+                <p>In $\triangle DEF$, $\angle D = 3x + 5$, $\angle E = 2x - 7$, $\angle F = x + 20$. Find the measure of each angle.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$(3x+5) + (2x-7) + (x+20) = 180 \Rightarrow 6x + 18 = 180 \Rightarrow x = 27$. So $\angle D = 86°$, $\angle E = 47°$, $\angle F = 47°$.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">2</span>
+                <p>An exterior angle of a triangle is $4x + 10$. The two remote interior angles are $x + 30$ and $2x - 5$. Find $x$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$4x + 10 = (x+30) + (2x-5) \Rightarrow 4x + 10 = 3x + 25 \Rightarrow x = 15$. Check: exterior = $70°$, remote angles = $45°$ and $25°$; $45+25=70$ ✓</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">3</span>
+                <p>Can a triangle have sides 4, 11, and 7? Explain. What about 5, 12, and 13?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer"><strong>4, 11, 7:</strong> $4 + 7 = 11$, not $> 11$. Not a valid triangle (degenerate). <strong>5, 12, 13:</strong> $5 + 12 = 17 > 13$ ✓ — valid triangle (it's actually a right triangle since $5^2 + 12^2 = 169 = 13^2$).</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">4</span>
+                <p>In $\triangle XYZ$, $XY = 5$, $YZ = 9$, $XZ = 7$. Order the angles from smallest to largest.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Largest side ($YZ = 9$) is opposite the largest angle ($\angle X$). Middle ($XZ = 7$) is opposite middle ($\angle Y$). Smallest ($XY = 5$) is opposite smallest ($\angle Z$). Order: $\mathbf{\angle Z < \angle Y < \angle X}$.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">5</span>
+                <p>Two sides of a triangle are 11 and 20. Find all integers that could be the length of the third side.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Need $|20 - 11| < x < 20 + 11$, so $9 < x < 31$. The integer values are $\mathbf{10, 11, 12, \ldots, 30}$ (21 values).</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">6</span>
+                <p>$\overline{MN}$ is a midsegment of $\triangle ABC$. If $MN = 3x + 1$ and $BC = 5x + 8$, find $MN$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$3x + 1 = \tfrac{1}{2}(5x + 8) \Rightarrow 6x + 2 = 5x + 8 \Rightarrow x = 6$. Then $MN = 3(6) + 1 = \mathbf{19}$. Check: $BC = 5(6)+8 = 38 = 2 \times 19$ ✓</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">7</span>
+                <p>Proof: Using the Angle Sum Theorem, prove that each angle of an equilateral triangle measures 60°.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer"><strong>Given:</strong> $\triangle ABC$ is equilateral, so $AB = BC = CA$. <strong>Prove:</strong> $\angle A = \angle B = \angle C = 60°$. Since all sides are equal, all opposite angles are equal (isosceles theorem applied to each pair): $\angle A = \angle B = \angle C$. By the Angle Sum Theorem: $\angle A + \angle B + \angle C = 180°$, so $3\angle A = 180°$, giving $\angle A = \angle B = \angle C = 60°$. $\square$</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">8</span>
+                <p>$\triangle ABC$ has midsegment $\overline{DE}$ where $D$ is the midpoint of $\overline{AB}$ and $E$ is the midpoint of $\overline{BC}$. If $AC = 24$ and $\angle DAC = 35°$, find the length $DE$ and the measure of $\angle BDE$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">By the Midsegment Theorem, $DE = \tfrac{1}{2} \cdot AC = 12$. Since $\overline{DE} \parallel \overline{AC}$, $\angle BDE$ corresponds to $\angle BAC$ (corresponding angles with transversal $\overline{AB}$). Wait — $\angle DAC = \angle BAC = 35°$, so $\angle BDE = 35°$ (corresponding angles: $\overline{DE} \parallel \overline{AC}$).</div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-nav">
+        <a href="/us/textbook/geometry/parallel-lines.html">← Chapter 3: Parallel Lines</a>
+        <a href="/us/textbook/geometry/congruent-triangles.html">Chapter 5: Congruent Triangles →</a>
+    </div>
+</article>
+
+<script>
+(function() {
+    // Figure 4.1 — Angle sum visualization
+    var elt1 = document.getElementById('graph-anglesum');
+    var calc1 = Desmos.GraphingCalculator(elt1, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc1.setMathBounds({ left: -6, right: 6, bottom: -1, top: 7 });
+
+    // Triangle vertices A(-4,0), B(4,0), C(1,5)
+    calc1.setExpression({ id: 'tri', type: 'expression',
+        latex: '\\operatorname{polygon}((-4,0),(4,0),(1,5))',
+        color: '#4c1d95', lineWidth: 3 });
+    // Vertices
+    calc1.setExpression({ id: 'A', type: 'expression', latex: '(-4,0)', color: '#4c1d95', pointSize: 14 });
+    calc1.setExpression({ id: 'B', type: 'expression', latex: '(4,0)', color: '#4c1d95', pointSize: 14 });
+    calc1.setExpression({ id: 'C', type: 'expression', latex: '(1,5)', color: '#4c1d95', pointSize: 14 });
+    // Labels
+    calc1.setExpression({ id: 'lA', type: 'expression', latex: '\\text{A (}\\alpha = 55°\\text{)}', color: '#4c1d95' });
+    calc1.setExpression({ id: 'lB', type: 'expression', latex: '\\text{B (}\\beta = 70°\\text{)}', color: '#065f46' });
+    calc1.setExpression({ id: 'lC', type: 'expression', latex: '\\text{C (}\\gamma = 55°\\text{)}', color: '#dc2626' });
+    calc1.setExpression({ id: 'sum', type: 'expression',
+        latex: '\\text{Sum: }55° + 70° + 55° = 180°', color: '#1e293b' });
+    // Interior angle arcs using small circles at vertices
+    calc1.setExpression({ id: 'arcA', type: 'expression',
+        latex: '(x+4)^2+y^2=1\\{(x+4 \\ge -0.8) \\text{ and } (5(x+4)+3y \\ge 0)\\}',
+        color: '#4c1d95', lineWidth: 2 });
+    calc1.setExpression({ id: 'arcB', type: 'expression',
+        latex: '(x-4)^2+y^2=1\\{(4-x \\ge 0) \\text{ and } (3(x-4)+5y \\ge 0)\\}',
+        color: '#065f46', lineWidth: 2 });
+})();
+
+(function() {
+    // Figure 4.2 — Side-angle relationship
+    var elt2 = document.getElementById('graph-inequality');
+    var calc2 = Desmos.GraphingCalculator(elt2, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc2.setMathBounds({ left: -2, right: 10, bottom: -1, top: 7 });
+
+    // Scalene triangle: A(0,0), B(9,0), C(2.5,5)
+    calc2.setExpression({ id: 'tri2', type: 'expression',
+        latex: '\\operatorname{polygon}((0,0),(9,0),(2.5,5))',
+        color: '#4c1d95', lineWidth: 3 });
+    calc2.setExpression({ id: 'vA', type: 'expression', latex: '(0,0)', color: '#4c1d95', pointSize: 14 });
+    calc2.setExpression({ id: 'vB', type: 'expression', latex: '(9,0)', color: '#4c1d95', pointSize: 14 });
+    calc2.setExpression({ id: 'vC', type: 'expression', latex: '(2.5,5)', color: '#4c1d95', pointSize: 14 });
+    // Side labels
+    calc2.setExpression({ id: 'la', type: 'expression', latex: '\\text{a = 9 (longest)} ', color: '#dc2626' });
+    calc2.setExpression({ id: 'lb', type: 'expression', latex: '\\text{b \\approx 7.4}', color: '#f59e0b' });
+    calc2.setExpression({ id: 'lc', type: 'expression', latex: '\\text{c \\approx 5.6 (shortest)}', color: '#10b981' });
+    // Angle labels
+    calc2.setExpression({ id: 'angA', type: 'expression', latex: '\\text{Largest angle at B (opp. side a)}', color: '#dc2626' });
+    calc2.setExpression({ id: 'angC', type: 'expression', latex: '\\text{Smallest angle at A (opp. side c)}', color: '#10b981' });
+})();
+
+(function() {
+    // Figure 4.3 — Midsegment
+    var elt3 = document.getElementById('graph-midsegment');
+    var calc3 = Desmos.GraphingCalculator(elt3, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc3.setMathBounds({ left: -1, right: 9, bottom: -0.5, top: 7 });
+
+    // Triangle A(0,0), B(8,0), C(3,6)
+    // Midpoints: M of AB = (4,0)... wait, M of AC and N of BC for midsegment
+    // M = midpoint of AC = (1.5, 3), N = midpoint of BC = (5.5, 3)
+    calc3.setExpression({ id: 'tri3', type: 'expression',
+        latex: '\\operatorname{polygon}((0,0),(8,0),(3,6))',
+        color: '#4c1d95', lineWidth: 3 });
+    calc3.setExpression({ id: 'vA3', type: 'expression', latex: '(0,0)', color: '#4c1d95', pointSize: 12 });
+    calc3.setExpression({ id: 'vB3', type: 'expression', latex: '(8,0)', color: '#4c1d95', pointSize: 12 });
+    calc3.setExpression({ id: 'vC3', type: 'expression', latex: '(3,6)', color: '#4c1d95', pointSize: 12 });
+    // Midpoints M(1.5,3) and N(5.5,3)
+    calc3.setExpression({ id: 'M', type: 'expression', latex: '(1.5,3)', color: '#1d4ed8', pointSize: 14 });
+    calc3.setExpression({ id: 'N', type: 'expression', latex: '(5.5,3)', color: '#1d4ed8', pointSize: 14 });
+    // Midsegment MN
+    calc3.setExpression({ id: 'midseg', type: 'expression', latex: 'y=3\\{1.5\\le x\\le5.5\\}', color: '#1d4ed8', lineWidth: 3.5 });
+    // Base BC from (8,0) to (0,0) - already part of polygon
+    // Dashed markers showing midpoints
+    calc3.setExpression({ id: 'mA', type: 'expression', latex: 'y=\\frac{6}{3}x\\{0\\le x\\le1.5\\}', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5 });
+    // Labels
+    calc3.setExpression({ id: 'lM', type: 'expression', latex: '\\text{M (midpoint)}', color: '#1d4ed8' });
+    calc3.setExpression({ id: 'lN', type: 'expression', latex: '\\text{N (midpoint)}', color: '#1d4ed8' });
+    calc3.setExpression({ id: 'lmid', type: 'expression', latex: '\\text{MN} \\parallel \\text{BC, MN} = \\frac{1}{2}\\text{BC}', color: '#1d4ed8' });
+    calc3.setExpression({ id: 'lBC', type: 'expression', latex: '\\text{BC = 8}', color: '#4c1d95' });
+    calc3.setExpression({ id: 'lMN', type: 'expression', latex: '\\text{MN = 4}', color: '#1d4ed8' });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Statistics: Scatterplots and Correlation - Chapter 4 | MathHub</title>
+    <meta name="description" content="AP Statistics Chapter 4: Scatterplots and Correlation. Learn to describe direction, form, and strength of associations, calculate the correlation coefficient r, and understand correlation vs. causation.">
+    <meta name="keywords" content="AP Statistics, scatterplot, correlation coefficient, correlation, association, direction form strength, correlation vs causation, AP Stats Chapter 4">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/ap-statistics/scatterplots.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/ap-statistics/scatterplots.html">
+    <meta property="og:title" content="AP Statistics: Scatterplots and Correlation - Chapter 4">
+    <meta property="og:description" content="Learn scatterplots, direction/form/strength, and the correlation coefficient r for AP Statistics.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Statistics: Scatterplots and Correlation - Chapter 4">
+    <meta name="twitter:description" content="AP Statistics Chapter 4: Scatterplots, correlation coefficient r, and correlation vs. causation.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "AP Statistics: Scatterplots and Correlation - Chapter 4",
+        "description": "AP Statistics Chapter 4 covering scatterplots, direction, form, strength, correlation coefficient r, and correlation vs. causation.",
+        "url": "https://mathhub.io/us/textbook/ap-statistics/scatterplots.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "AP",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Scatterplot" },
+            { "@type": "Thing", "name": "Correlation" },
+            { "@type": "Thing", "name": "AP Statistics" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #064e3b; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #064e3b; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #10b981; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives { background: #ecfdf5; border-left: 4px solid #10b981; padding: 20px 24px; margin: 24px 0 32px; border-radius: 0 10px 10px 0; }
+        .learning-objectives h4 { color: #065f46; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #064e3b; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box { background: #f0fdf4; border-left: 4px solid #10b981; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #065f46; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+
+        .definition-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box { background: #f0fdf4; border: 1.5px dashed #86efac; padding: 16px 20px; margin: -4px 0 24px; border-radius: 0 0 8px 8px; }
+        .try-it-box .try-it-label { display: inline-block; background: #10b981; color: white; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px; }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary { cursor: pointer; color: #065f46; font-weight: 600; font-size: 0.9em; user-select: none; }
+        .try-it-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7; }
+
+        .ap-tip { background: #fefce8; border-left: 4px solid #eab308; padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .ap-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #92400e; }
+
+        .desmos-wrap { margin: 24px auto; background: #f8fafc; border-radius: 12px; padding: 4px; border: 1px solid #e2e8f0; text-align: center; }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label { text-align: center; font-size: 0.82em; color: #64748b; margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em; }
+
+        .practice-section { margin: 48px 0 0; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { color: #064e3b; margin-bottom: 20px; }
+        .practice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        @media (max-width: 600px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; }
+        .practice-card .p-num { display: inline-block; background: #064e3b; color: white; font-weight: 700; font-size: 0.78em; padding: 2px 9px; border-radius: 4px; margin-bottom: 8px; }
+        .practice-card p { color: #334155; font-size: 0.92em; line-height: 1.7; margin: 0 0 10px; }
+        .practice-card details summary { cursor: pointer; color: #065f46; font-weight: 600; font-size: 0.88em; user-select: none; }
+        .practice-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 8px; color: #334155; font-size: 0.9em; line-height: 1.7; border: 1px solid #e2e8f0; }
+
+        .chapter-nav { display: flex; justify-content: space-between; margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid #e2e8f0; flex-wrap: wrap; gap: 12px; }
+        .chapter-nav a { color: #10b981; text-decoration: none; font-weight: 600; font-size: 0.95em; padding: 8px 16px; border: 1.5px solid #10b981; border-radius: 8px; transition: background .15s; }
+        .chapter-nav a:hover { background: #ecfdf5; }
+
+        .data-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.9em; }
+        .data-table th { background: #064e3b; color: white; padding: 8px 12px; text-align: center; font-weight: 600; }
+        .data-table td { padding: 7px 12px; border: 1px solid #e2e8f0; text-align: center; color: #334155; }
+        .data-table tr:nth-child(even) { background: #f8fafc; }
+    </style>
+</head>
+<body>
+
+<div style="background:#064e3b; padding:12px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+    <a href="/" style="color:#6ee7b7; text-decoration:none; font-weight:700; font-size:1.1em;">MathHub</a>
+    <span style="color:#34d399;">›</span>
+    <a href="/us" style="color:#a7f3d0; text-decoration:none; font-size:.9em;">US</a>
+    <span style="color:#34d399;">›</span>
+    <a href="/us/textbook/ap-statistics" style="color:#a7f3d0; text-decoration:none; font-size:.9em;">AP Statistics</a>
+    <span style="color:#34d399;">›</span>
+    <span style="color:white; font-size:.9em;">Chapter 4</span>
+</div>
+
+<article class="blog-article">
+    <div class="breadcrumb">
+        <a href="/">MathHub</a> › <a href="/us">US</a> › <a href="/us/textbook/ap-statistics">AP Statistics</a> › Chapter 4
+    </div>
+
+    <h1>Chapter 4: Scatterplots and Correlation</h1>
+    <div class="blog-meta">AP Statistics · Exploring Two-Variable Data · 3 interactive graphs · 8 practice problems</div>
+
+    <div class="learning-objectives">
+        <h4>Learning Objectives</h4>
+        <ul>
+            <li>Construct and interpret scatterplots for two quantitative variables</li>
+            <li>Describe the direction, form, and strength of an association</li>
+            <li>Calculate and interpret the correlation coefficient $r$</li>
+            <li>Identify the properties and limitations of $r$</li>
+            <li>Distinguish correlation from causation; identify lurking variables</li>
+            <li>Identify influential points and outliers in scatterplots</li>
+        </ul>
+    </div>
+
+    <!-- 4.1 -->
+    <h2>4.1 Constructing and Interpreting Scatterplots</h2>
+    <p>A <strong>scatterplot</strong> displays the relationship between two quantitative variables measured on the same individuals. One variable is plotted on the horizontal axis (explanatory variable) and the other on the vertical axis (response variable).</p>
+
+    <div class="definition-box">
+        <h4>Definition: Explanatory and Response Variables</h4>
+        <p>The <strong>explanatory variable</strong> (independent variable) may help explain or predict changes in the <strong>response variable</strong> (dependent variable). When examining a relationship, place the explanatory variable on the x-axis and the response variable on the y-axis.</p>
+    </div>
+
+    <p>When describing a scatterplot, always address four characteristics using the acronym <strong>DOFS</strong>:</p>
+    <ul>
+        <li><strong>D</strong>irection — positive, negative, or no association</li>
+        <li><strong>O</strong>utliers — any points that deviate from the overall pattern</li>
+        <li><strong>F</strong>orm — linear, curved, or no clear form</li>
+        <li><strong>S</strong>trength — how closely points follow the form (weak, moderate, strong)</li>
+    </ul>
+
+    <div class="example-box">
+        <h4>Example 4.1 — Describing a Scatterplot</h4>
+        <p>A study records study hours per week (x) and exam score (y) for 10 students:</p>
+        <table class="data-table">
+            <tr><th>Hours (x)</th><td>2</td><td>4</td><td>5</td><td>7</td><td>8</td><td>10</td><td>12</td><td>14</td><td>15</td><td>18</td></tr>
+            <tr><th>Score (y)</th><td>55</td><td>62</td><td>65</td><td>71</td><td>74</td><td>79</td><td>84</td><td>87</td><td>91</td><td>95</td></tr>
+        </table>
+        <p><strong>Description:</strong> There is a strong, positive, linear association between study hours and exam score. No outliers are apparent. As study hours increase, exam scores tend to increase as well.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A dataset shows that as temperature (°F) increases from 60 to 100, ice cream sales increase. However, at 105°F, sales drop sharply. How would you describe the form and any outliers?</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">The association is roughly positive and linear from 60–100°F, but <strong>curved/non-linear</strong> when the 105°F point is included. The point at 105°F is a potential outlier that does not follow the linear pattern of the other points.</div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Scatterplot of study hours vs. exam score — observe direction, form, and strength.</p>
+        <div id="graph-scatter" style="width:100%; height:380px;"></div>
+        <p class="fig-label">Figure 4.1 — Study Hours vs. Exam Score</p>
+    </div>
+
+    <!-- 4.2 -->
+    <h2>4.2 Measuring Correlation: The Coefficient r</h2>
+    <p>The <strong>correlation coefficient</strong> $r$ measures the direction and strength of a <em>linear</em> association between two quantitative variables.</p>
+
+    <div class="theorem-box">
+        <h4>Formula: Pearson Correlation Coefficient</h4>
+        <p>$$r = \frac{1}{n-1}\sum_{i=1}^{n}\left(\frac{x_i - \bar{x}}{s_x}\right)\left(\frac{y_i - \bar{y}}{s_y}\right)$$</p>
+        <ul>
+            <li>$n$ = number of data pairs</li>
+            <li>$\bar{x}, \bar{y}$ = sample means of $x$ and $y$</li>
+            <li>$s_x, s_y$ = sample standard deviations of $x$ and $y$</li>
+            <li>$r$ is always between $-1$ and $1$: $-1 \le r \le 1$</li>
+        </ul>
+    </div>
+
+    <h3>Interpreting r</h3>
+    <ul>
+        <li>$r > 0$: positive association (as $x$ increases, $y$ tends to increase)</li>
+        <li>$r < 0$: negative association (as $x$ increases, $y$ tends to decrease)</li>
+        <li>$r = 0$: no linear association</li>
+        <li>$|r|$ close to 1: strong linear association; close to 0: weak linear association</li>
+    </ul>
+
+    <div class="ap-tip">
+        <div class="ap-tip-icon">★</div>
+        <p><strong>AP Exam Tip:</strong> $r$ has <em>no units</em> and is not changed by linear transformations (adding a constant, multiplying by a constant, or switching $x$ and $y$ does not change $|r|$). Always state direction, strength, and form when describing $r$ in context.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 4.2 — Calculating and Interpreting r</h4>
+        <p>For the study hours data above, $r \approx 0.993$. Interpret this value.</p>
+        <p><strong>Interpretation:</strong> There is a strong, positive, linear association between study hours and exam score ($r = 0.993$). Students who study more hours tend to score higher on exams.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A researcher finds $r = -0.82$ between hours of TV watched per day and GPA. Interpret this value in context.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">There is a strong, negative, linear association between TV hours and GPA ($r = -0.82$). Students who watch more TV per day tend to have lower GPAs.</div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Adjust the slider to see how the correlation coefficient $r$ changes the shape of a scatterplot. Strong vs. weak, positive vs. negative.</p>
+        <div id="graph-corr" style="width:100%; height:400px;"></div>
+        <p class="fig-label">Figure 4.2 — Visualizing Correlation Strength</p>
+    </div>
+
+    <!-- 4.3 -->
+    <h2>4.3 Properties and Cautions for r</h2>
+    <p>While $r$ is a powerful measure, it has important limitations that appear frequently on the AP exam:</p>
+
+    <div class="theorem-box">
+        <h4>Key Properties of r</h4>
+        <ul>
+            <li><strong>Linear only:</strong> $r$ measures only <em>linear</em> association. A strong curved relationship may have $r \approx 0$.</li>
+            <li><strong>Not resistant:</strong> $r$ is strongly affected by outliers and influential points.</li>
+            <li><strong>No units:</strong> $r$ is a pure number, not expressed in any unit.</li>
+            <li><strong>Symmetric:</strong> Switching $x$ and $y$ does not change $r$.</li>
+            <li><strong>Scale-free:</strong> Multiplying all values by a constant does not change $r$.</li>
+        </ul>
+    </div>
+
+    <h3>4.3.1 Influential Points and Outliers</h3>
+    <p>An <strong>influential point</strong> is one whose removal would significantly change $r$ or the regression line. A point far from the overall pattern in the x-direction tends to be highly influential. An <strong>outlier in a scatterplot</strong> falls far from the linear pattern of the rest of the data.</p>
+
+    <div class="example-box">
+        <h4>Example 4.3 — Effect of an Outlier on r</h4>
+        <p>Suppose one student in the study hours data studies 2 hours but scores 98 (far above the pattern). This outlier could dramatically increase or decrease $r$ depending on its position relative to the pattern. Always check scatterplots visually before relying on $r$ alone.</p>
+    </div>
+
+    <h2>4.4 Correlation Does Not Imply Causation</h2>
+    <p>A strong correlation between two variables does <strong>not</strong> prove that one causes the other. There are three possible explanations for an observed association:</p>
+
+    <div class="definition-box">
+        <h4>Explanations for Association</h4>
+        <ol>
+            <li><strong>Direct causation:</strong> $x$ directly causes changes in $y$.</li>
+            <li><strong>Common response (lurking variable):</strong> A third variable $z$ causes both $x$ and $y$ to change, creating the appearance of an association.</li>
+            <li><strong>Confounding:</strong> The effect of $x$ on $y$ is mixed up with the effect of other variables.</li>
+        </ol>
+        <p>A <strong>lurking variable</strong> is a variable that influences both $x$ and $y$ but is not included in the analysis.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 4.4 — Lurking Variables</h4>
+        <p>Studies show a strong positive correlation between the number of firefighters at a fire and the amount of fire damage. Does sending more firefighters cause more damage?</p>
+        <p><strong>No.</strong> The lurking variable is <em>fire size</em>. Larger fires attract more firefighters AND cause more damage. Firefighters don't cause damage — fire size drives both variables.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>There is a strong positive correlation between shoe size and reading ability in elementary school children. Is shoe size a cause of reading ability? Identify the lurking variable.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">No. The lurking variable is <strong>age</strong>. Older children have larger feet AND have had more time to develop reading skills. Age causes both shoe size and reading ability to increase together.</div>
+        </details>
+    </div>
+
+    <div class="ap-tip">
+        <div class="ap-tip-icon">★</div>
+        <p><strong>AP Exam Tip:</strong> When asked to explain why correlation does not imply causation, always describe a specific lurking variable in context. Saying "there could be other factors" is insufficient for full credit.</p>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Scatterplot with an influential outlier — observe how a single point can dramatically shift $r$. The red point is the outlier.</p>
+        <div id="graph-outlier" style="width:100%; height:380px;"></div>
+        <p class="fig-label">Figure 4.3 — Effect of an Outlier on Correlation</p>
+    </div>
+
+    <!-- Practice -->
+    <div class="practice-section">
+        <h2>Practice Problems</h2>
+        <div class="practice-grid">
+            <div class="practice-card">
+                <span class="p-num">1</span>
+                <p>A scatterplot shows a curved, U-shaped pattern with $r \approx 0.02$. A student concludes there is no association. Is this correct? Explain.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">The student is incorrect. $r \approx 0.02$ indicates nearly no <em>linear</em> association, but a strong <strong>nonlinear</strong> (curved) association exists. The correlation coefficient only measures linear relationships.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">2</span>
+                <p>For a dataset: $\bar{x} = 5$, $\bar{y} = 20$, $s_x = 2$, $s_y = 4$. One data point has $x = 7$ and $y = 24$. What is its contribution to $r$?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">The z-scores are $z_x = (7-5)/2 = 1$ and $z_y = (24-20)/4 = 1$. The contribution is $z_x \cdot z_y = (1)(1) = 1$. Since both z-scores are positive, this point pulls $r$ toward +1.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">3</span>
+                <p>Describe the expected direction and approximate strength of the association: hours of sleep vs. reaction time in a driving simulator.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Negative direction: more sleep → faster reaction (lower times). Likely moderate to strong linear association. $r$ would be negative, possibly around $-0.7$ to $-0.9$.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">4</span>
+                <p>Which of the following does NOT change the value of $r$? (a) Adding 10 to all y-values; (b) Multiplying all x-values by 3; (c) Removing an outlier; (d) Switching x and y.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">(a), (b), and (d) do NOT change $|r|$ — linear transformations and swapping axes preserve correlation. <strong>Removing an outlier DOES change $r$</strong> because $r$ is not resistant to outliers.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">5</span>
+                <p>A researcher finds $r = 0.91$ between per-capita chocolate consumption and number of Nobel Prize winners per country. What explains this association without claiming causation?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">A likely lurking variable is <strong>national wealth (GDP per capita)</strong>. Wealthier countries can afford more chocolate consumption AND fund more research leading to Nobel Prizes. Wealth drives both variables simultaneously.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">6</span>
+                <p>A scatterplot has 9 points tightly clustered along a line with $r = 0.97$, plus one outlier that is far below the pattern. Will removing the outlier increase or decrease $r$?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">If the outlier is far below the pattern (but at a typical x-value), it weakens the linear pattern, pulling $r$ down from what it would be without it. Removing it will likely <strong>increase</strong> $r$ closer to 1.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">7</span>
+                <p>AP Exam FRQ: A study of 30 cities finds $r = 0.87$ between the number of libraries per capita (x) and high school graduation rate (y). A city council concludes: "Building more libraries causes graduation rates to rise." Evaluate this conclusion.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">The conclusion is <strong>not justified</strong>. Correlation does not imply causation. A likely lurking variable is <strong>community wealth or education funding</strong>. Wealthier communities tend to build more libraries AND fund better schools, leading to higher graduation rates. An experiment would be needed to establish causation.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">8</span>
+                <p>Two variables have $r = -1$. Describe the scatterplot and what you know about the data.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$r = -1$ means a <strong>perfect negative linear association</strong>. All points fall exactly on a straight line with negative slope. Knowing $x$ perfectly predicts $y$. In practice, $r = -1$ is extremely rare in real data.</div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-nav">
+        <a href="/us/textbook/ap-statistics/normal-distributions.html">← Chapter 3: Normal Distributions</a>
+        <a href="/us/textbook/ap-statistics/regression.html">Chapter 5: Regression →</a>
+    </div>
+</article>
+
+<script>
+(function() {
+    // Figure 4.1 — Study Hours Scatterplot
+    var elt1 = document.getElementById('graph-scatter');
+    var calc1 = Desmos.GraphingCalculator(elt1, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false
+    });
+    calc1.setMathBounds({ left: 0, right: 22, bottom: 45, top: 105 });
+    calc1.setExpressions([
+        { id: 'p1', type: 'expression', latex: '(2,55)', color: '#065f46', pointStyle: Desmos.Styles.POINT, pointSize: 14 },
+        { id: 'p2', type: 'expression', latex: '(4,62)', color: '#065f46', pointStyle: Desmos.Styles.POINT, pointSize: 14 },
+        { id: 'p3', type: 'expression', latex: '(5,65)', color: '#065f46', pointStyle: Desmos.Styles.POINT, pointSize: 14 },
+        { id: 'p4', type: 'expression', latex: '(7,71)', color: '#065f46', pointStyle: Desmos.Styles.POINT, pointSize: 14 },
+        { id: 'p5', type: 'expression', latex: '(8,74)', color: '#065f46', pointStyle: Desmos.Styles.POINT, pointSize: 14 },
+        { id: 'p6', type: 'expression', latex: '(10,79)', color: '#065f46', pointStyle: Desmos.Styles.POINT, pointSize: 14 },
+        { id: 'p7', type: 'expression', latex: '(12,84)', color: '#065f46', pointStyle: Desmos.Styles.POINT, pointSize: 14 },
+        { id: 'p8', type: 'expression', latex: '(14,87)', color: '#065f46', pointStyle: Desmos.Styles.POINT, pointSize: 14 },
+        { id: 'p9', type: 'expression', latex: '(15,91)', color: '#065f46', pointStyle: Desmos.Styles.POINT, pointSize: 14 },
+        { id: 'p10', type: 'expression', latex: '(18,95)', color: '#065f46', pointStyle: Desmos.Styles.POINT, pointSize: 14 },
+        { id: 'trend', type: 'expression', latex: 'y = 2.42x + 50.3', color: '#10b981', lineWidth: 2.5 },
+        { id: 'lx', type: 'expression', latex: 'x = 0', color: '#94a3b8', lineWidth: 1 },
+        { id: 'ly', type: 'expression', latex: 'y = 50', color: '#94a3b8', lineWidth: 1 }
+    ]);
+})();
+
+(function() {
+    // Figure 4.2 — Correlation visualization with simulated data
+    var elt2 = document.getElementById('graph-corr');
+    var calc2 = Desmos.GraphingCalculator(elt2, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false
+    });
+    calc2.setMathBounds({ left: -1, right: 11, bottom: -1, top: 11 });
+    // Strong positive (r ≈ 0.95)
+    var strongPos = [
+        [1,1.2],[2,2.1],[3,2.8],[4,4.2],[5,5.1],[6,5.9],[7,7.2],[8,7.8],[9,8.9],[10,9.8]
+    ];
+    // Weak positive (r ≈ 0.4)
+    var weakPos = [
+        [1,4],[2,2],[3,6],[4,5],[5,3],[6,7],[7,4],[8,8],[9,6],[10,9]
+    ];
+    strongPos.forEach(function(pt, i) {
+        calc2.setExpression({ id: 'sp'+i, type: 'expression', latex: '('+pt[0]+','+pt[1]+')', color: '#065f46', pointStyle: Desmos.Styles.POINT, pointSize: 13 });
+    });
+    weakPos.forEach(function(pt, i) {
+        calc2.setExpression({ id: 'wp'+i, type: 'expression', latex: '('+pt[0]+','+pt[1]+')', color: '#f59e0b', pointStyle: Desmos.Styles.CROSS, pointSize: 12 });
+    });
+    calc2.setExpression({ id: 'line_sp', type: 'expression', latex: 'y=0.95x+0.2', color: '#065f46', lineWidth: 2, lineStyle: Desmos.Styles.SOLID });
+    calc2.setExpression({ id: 'label_sp', type: 'expression', latex: '\\text{Strong: } r\\approx 0.95', color: '#065f46' });
+    calc2.setExpression({ id: 'label_wp', type: 'expression', latex: '\\text{Weak: } r\\approx 0.4', color: '#f59e0b' });
+})();
+
+(function() {
+    // Figure 4.3 — Outlier effect
+    var elt3 = document.getElementById('graph-outlier');
+    var calc3 = Desmos.GraphingCalculator(elt3, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false
+    });
+    calc3.setMathBounds({ left: 0, right: 12, bottom: 0, top: 12 });
+    // Main cluster (strong linear)
+    var main = [[1,1.2],[2,2.1],[3,3.0],[4,4.1],[5,5.2],[6,5.8],[7,7.0],[8,8.1],[9,9.2]];
+    main.forEach(function(pt, i) {
+        calc3.setExpression({ id: 'm'+i, type: 'expression', latex: '('+pt[0]+','+pt[1]+')', color: '#065f46', pointStyle: Desmos.Styles.POINT, pointSize: 13 });
+    });
+    // Outlier
+    calc3.setExpression({ id: 'outlier', type: 'expression', latex: '(10,1)', color: '#dc2626', pointStyle: Desmos.Styles.POINT, pointSize: 16 });
+    // Trend line WITHOUT outlier
+    calc3.setExpression({ id: 'no_out', type: 'expression', latex: 'y=1.03x+0.1', color: '#065f46', lineWidth: 2, lineStyle: Desmos.Styles.SOLID });
+    // Trend line WITH outlier (pulled down)
+    calc3.setExpression({ id: 'with_out', type: 'expression', latex: 'y=0.4x+2.5', color: '#dc2626', lineWidth: 2, lineStyle: Desmos.Styles.DASHED });
+    calc3.setExpression({ id: 'lbl1', type: 'expression', latex: '\\text{Without outlier: }r\\approx0.998', color: '#065f46' });
+    calc3.setExpression({ id: 'lbl2', type: 'expression', latex: '\\text{With outlier: }r\\approx0.61', color: '#dc2626' });
+})();
+</script>
+
+</body>
+</html>
