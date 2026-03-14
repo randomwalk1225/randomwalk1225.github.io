@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280, height=720">
+<title>Thumbnail</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1280px;
+    height: 720px;
+    overflow: hidden;
+    font-family: 'Arial Black', 'Arial', sans-serif;
+  }
+
+  .thumb {
+    width: 1280px;
+    height: 720px;
+    background: #0f0f1a;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Gradient background */
+  .bg-gradient {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 20%, rgba(99,102,241,0.35) 0%, transparent 55%),
+                radial-gradient(ellipse at 10% 80%, rgba(139,92,246,0.25) 0%, transparent 50%);
+  }
+
+  /* Left stripe accent */
+  .left-stripe {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 12px;
+    background: linear-gradient(180deg, #6366f1, #8b5cf6, #a78bfa);
+  }
+
+  /* Top badge */
+  .top-badge {
+    position: absolute;
+    top: 36px; left: 48px;
+    background: rgba(139,92,246,0.9);
+    border-radius: 8px;
+    padding: 10px 28px;
+    font-size: 28px;
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 10;
+  }
+
+  /* Main content */
+  .content {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 120px 60px 60px 60px;
+  }
+
+  .subject-tag {
+    font-size: 30px;
+    font-weight: 700;
+    color: #f59e0b;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+  }
+
+  .headline {
+    font-size: 88px;
+    font-weight: 900;
+    line-height: 1.0;
+    color: #ffffff;
+    text-shadow: 0 4px 24px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+    max-width: 780px;
+  }
+
+  .headline .accent {
+    color: #a78bfa;
+  }
+
+  .sub-headline {
+    font-size: 36px;
+    color: #94a3b8;
+    font-weight: 400;
+    max-width: 680px;
+    line-height: 1.4;
+  }
+
+  /* Right side math preview */
+  .math-preview {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(99,102,241,0.1);
+    border: 2px solid rgba(99,102,241,0.35);
+    border-radius: 20px;
+    padding: 40px 52px;
+    max-width: 440px;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .math-preview .math-label {
+    font-size: 22px;
+    color: #6366f1;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+
+  .math-preview .equation {
+    font-size: 64px;
+    color: #e2e8f0;
+    font-family: 'Georgia', serif;
+    line-height: 1.4;
+  }
+
+  /* Brand footer */
+  .footer {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 72px;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    z-index: 10;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .footer .brand {
+    font-size: 32px;
+    font-weight: 900;
+    color: #a78bfa;
+  }
+
+  .footer .brand span { color: #6366f1; }
+
+  .footer .series-info {
+    font-size: 26px;
+    color: #64748b;
+    font-weight: 700;
+  }
+
+  /* Decorative circles */
+  .deco {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .deco-1 {
+    width: 500px; height: 500px;
+    border: 2px solid rgba(99,102,241,0.12);
+    top: -100px; right: -80px;
+  }
+
+  .deco-2 {
+    width: 300px; height: 300px;
+    border: 1px solid rgba(139,92,246,0.1);
+    bottom: 60px; right: 200px;
+  }
+
+</style>
+<!-- MathJax -->
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$', '$']], displayMath: [['$$', '$$']] },
+  svg: { fontCache: 'global' },
+  startup: { ready() { MathJax.startup.defaultReady(); } }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+<div class="thumb">
+  <div class="bg-gradient"></div>
+  <div class="left-stripe"></div>
+  <div class="deco deco-1"></div>
+  <div class="deco deco-2"></div>
+
+  <div class="top-badge" id="badge">SAT Math</div>
+
+  <div class="content">
+    <div class="subject-tag" id="subject-tag">Heart of Algebra</div>
+    <div class="headline" id="headline">Solve It<br>in <span class="accent">60 sec</span></div>
+    <div class="sub-headline" id="sub-headline">Step-by-step SAT Math walkthrough</div>
+  </div>
+
+  <div class="math-preview">
+    <div class="math-label">Problem</div>
+    <div class="equation" id="equation">$3x + 7 = 22$</div>
+  </div>
+
+  <div class="footer">
+    <div class="brand">Math<span>Hub</span>.io</div>
+    <div class="series-info" id="series-info">SAT Math Daily • Problem #1</div>
+  </div>
+</div>
+
+<script>
+// Thumbnail data injected by generate-thumbnail.js
+const THUMB_DATA = THUMBNAIL_PLACEHOLDER;
+
+if (THUMB_DATA) {
+  if (THUMB_DATA.badge) document.getElementById('badge').textContent = THUMB_DATA.badge;
+  if (THUMB_DATA.subjectTag) document.getElementById('subject-tag').textContent = THUMB_DATA.subjectTag;
+  if (THUMB_DATA.headline) document.getElementById('headline').innerHTML = THUMB_DATA.headline;
+  if (THUMB_DATA.subHeadline) document.getElementById('sub-headline').textContent = THUMB_DATA.subHeadline;
+  if (THUMB_DATA.equation) document.getElementById('equation').textContent = THUMB_DATA.equation;
+  if (THUMB_DATA.seriesInfo) document.getElementById('series-info').textContent = THUMB_DATA.seriesInfo;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920, height=1080">
+<title>MathHub Slide</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: #0f0f1a;
+    color: #fff;
+  }
+
+  /* ─── Layout ─────────────────────────────────── */
+  .slide {
+    width: 1920px;
+    height: 1080px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px;
+    position: relative;
+  }
+
+  /* ─── Brand bar ───────────────────────────────── */
+  .brand-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6, #a78bfa);
+  }
+
+  .brand-logo {
+    position: absolute;
+    top: 28px; left: 60px;
+    font-size: 28px;
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    color: #a78bfa;
+    letter-spacing: -0.5px;
+  }
+
+  .brand-logo span { color: #6366f1; }
+
+  .slide-counter {
+    position: absolute;
+    top: 28px; right: 60px;
+    font-size: 22px;
+    font-family: 'Arial', sans-serif;
+    color: #64748b;
+  }
+
+  /* ─── INTRO slide ──────────────────────────────── */
+  .slide-intro .series-tag {
+    font-family: 'Arial', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #8b5cf6;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 28px;
+  }
+
+  .slide-intro .main-title {
+    font-size: 88px;
+    font-weight: 700;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.1;
+    text-align: center;
+    background: linear-gradient(135deg, #fff 30%, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 32px;
+    max-width: 1600px;
+  }
+
+  .slide-intro .sub-title {
+    font-size: 40px;
+    color: #94a3b8;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+  }
+
+  .slide-intro .badge {
+    margin-top: 60px;
+    background: rgba(139,92,246,0.15);
+    border: 2px solid rgba(139,92,246,0.4);
+    border-radius: 50px;
+    padding: 14px 48px;
+    font-size: 28px;
+    font-family: 'Arial', sans-serif;
+    color: #c4b5fd;
+  }
+
+  /* ─── PROBLEM slide ────────────────────────────── */
+  .slide-problem .label {
+    font-family: 'Arial', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #f59e0b;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+  }
+
+  .slide-problem .problem-box {
+    background: rgba(255,255,255,0.04);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-left: 6px solid #f59e0b;
+    border-radius: 16px;
+    padding: 64px 80px;
+    max-width: 1500px;
+    text-align: left;
+  }
+
+  .slide-problem .problem-text {
+    font-size: 56px;
+    line-height: 1.5;
+    color: #f1f5f9;
+  }
+
+  .slide-problem .note {
+    margin-top: 48px;
+    font-family: 'Arial', sans-serif;
+    font-size: 32px;
+    color: #64748b;
+    font-style: italic;
+  }
+
+  /* ─── STEP slide ────────────────────────────────── */
+  .slide-step .step-header {
+    font-family: 'Arial', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #6366f1;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .slide-step .step-num {
+    width: 56px; height: 56px;
+    background: #6366f1;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .slide-step .content-area {
+    max-width: 1600px;
+    width: 100%;
+  }
+
+  .slide-step .explanation {
+    font-size: 44px;
+    line-height: 1.5;
+    color: #cbd5e1;
+    margin-bottom: 48px;
+  }
+
+  .slide-step .math-work {
+    background: rgba(99,102,241,0.08);
+    border: 2px solid rgba(99,102,241,0.25);
+    border-radius: 16px;
+    padding: 48px 64px;
+    font-size: 52px;
+    font-family: 'Georgia', serif;
+    color: #e2e8f0;
+    line-height: 1.8;
+  }
+
+  .slide-step .highlight {
+    color: #a78bfa;
+    font-weight: 700;
+  }
+
+  /* ─── ANSWER slide ─────────────────────────────── */
+  .slide-answer .label {
+    font-family: 'Arial', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #10b981;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+  }
+
+  .slide-answer .answer-box {
+    background: rgba(16,185,129,0.08);
+    border: 3px solid rgba(16,185,129,0.4);
+    border-radius: 20px;
+    padding: 64px 120px;
+    text-align: center;
+  }
+
+  .slide-answer .answer-value {
+    font-size: 120px;
+    font-weight: 700;
+    font-family: 'Arial', sans-serif;
+    color: #10b981;
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  .slide-answer .answer-label {
+    font-size: 44px;
+    color: #94a3b8;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .slide-answer .explanation {
+    margin-top: 48px;
+    font-size: 40px;
+    color: #94a3b8;
+    max-width: 1200px;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  /* ─── OUTRO slide ─────────────────────────────── */
+  .slide-outro .big-text {
+    font-size: 80px;
+    font-weight: 700;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .slide-outro .sub {
+    font-size: 40px;
+    color: #94a3b8;
+    text-align: center;
+    margin-bottom: 60px;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .slide-outro .cta-row {
+    display: flex;
+    gap: 32px;
+  }
+
+  .slide-outro .cta-btn {
+    padding: 24px 64px;
+    border-radius: 50px;
+    font-size: 32px;
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+  }
+
+  .slide-outro .cta-subscribe {
+    background: #ef4444;
+    color: white;
+  }
+
+  .slide-outro .cta-like {
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(255,255,255,0.2);
+    color: white;
+  }
+
+  .slide-outro .site-url {
+    margin-top: 48px;
+    font-size: 32px;
+    color: #6366f1;
+    font-family: 'Arial', sans-serif;
+  }
+
+  /* ─── Decorative bg geometry ──────────────────── */
+  .bg-decoration {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .bg-decoration svg {
+    width: 100%; height: 100%;
+    opacity: 0.04;
+  }
+
+  .slide > *:not(.bg-decoration):not(.brand-bar):not(.brand-logo):not(.slide-counter) {
+    position: relative;
+    z-index: 1;
+  }
+</style>
+<!-- MathJax for math rendering -->
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+  startup: { ready() { MathJax.startup.defaultReady(); } }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+<!-- Slide content is injected by capture-slides.js via DATA_PLACEHOLDER -->
+<div id="slide-root"></div>
+
+<script>
+// Slide data injected at runtime
+const SLIDE_DATA = DATA_PLACEHOLDER;
+
+function renderSlide(slide, index, total) {
+  const root = document.getElementById('slide-root');
+  root.innerHTML = '';
+
+  const el = document.createElement('div');
+  el.className = 'slide slide-' + slide.type;
+
+  // Brand elements
+  el.innerHTML += `<div class="brand-bar"></div>`;
+  el.innerHTML += `<div class="brand-logo">Math<span>Hub</span>.io</div>`;
+  if (total > 1) el.innerHTML += `<div class="slide-counter">${index + 1} / ${total}</div>`;
+
+  // Background decoration
+  el.innerHTML += `
+    <div class="bg-decoration">
+      <svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+        <circle cx="1700" cy="200" r="400" fill="none" stroke="white" stroke-width="2"/>
+        <circle cx="1600" cy="150" r="600" fill="none" stroke="white" stroke-width="1"/>
+        <circle cx="200" cy="900" r="300" fill="none" stroke="white" stroke-width="2"/>
+        <line x1="0" y1="540" x2="1920" y2="540" stroke="white" stroke-width="0.5"/>
+      </svg>
+    </div>
+  `;
+
+  switch (slide.type) {
+    case 'intro':
+      el.innerHTML += `
+        <div class="series-tag">${slide.series || 'MathHub'}</div>
+        <div class="main-title">${slide.title}</div>
+        ${slide.subtitle ? `<div class="sub-title">${slide.subtitle}</div>` : ''}
+        ${slide.badge ? `<div class="badge">${slide.badge}</div>` : ''}
+      `;
+      break;
+
+    case 'problem':
+      el.innerHTML += `
+        <div class="label">📋 The Problem</div>
+        <div class="problem-box">
+          <div class="problem-text">${slide.text}</div>
+          ${slide.choices ? `<div class="choices">${slide.choices.map((c,i) =>
+            `<div class="choice">${String.fromCharCode(65+i)}) ${c}</div>`).join('')}</div>` : ''}
+        </div>
+        ${slide.note ? `<div class="note">💡 ${slide.note}</div>` : ''}
+      `;
+      break;
+
+    case 'step':
+      el.innerHTML += `
+        <div class="step-header">
+          <div class="step-num">${slide.step}</div>
+          ${slide.heading || 'Step ' + slide.step}
+        </div>
+        <div class="content-area">
+          ${slide.explanation ? `<div class="explanation">${slide.explanation}</div>` : ''}
+          ${slide.math ? `<div class="math-work">${slide.math}</div>` : ''}
+        </div>
+      `;
+      break;
+
+    case 'answer':
+      el.innerHTML += `
+        <div class="label">✅ Answer</div>
+        <div class="answer-box">
+          <div class="answer-value">${slide.answer}</div>
+          <div class="answer-label">${slide.choice ? 'Choice ' + slide.choice : ''}</div>
+        </div>
+        ${slide.explanation ? `<div class="explanation">${slide.explanation}</div>` : ''}
+      `;
+      break;
+
+    case 'outro':
+      el.innerHTML += `
+        <div class="big-text">Want more SAT Math tips?</div>
+        <div class="sub">We post daily problems — free, no sign-up</div>
+        <div class="cta-row">
+          <div class="cta-btn cta-subscribe">▶ Subscribe</div>
+          <div class="cta-btn cta-like">👍 Like this video</div>
+        </div>
+        <div class="site-url">mathhub.io — Free Math Practice</div>
+      `;
+      break;
+  }
+
+  root.appendChild(el);
+}
+
+// Expose for capture script
+window.SLIDE_DATA = SLIDE_DATA;
+window.renderSlide = renderSlide;
+</script>
+</body>
+</html>
