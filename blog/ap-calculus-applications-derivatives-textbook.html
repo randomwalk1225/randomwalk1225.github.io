@@ -232,17 +232,20 @@
         }
         .step-list li {
             counter-increment: step-counter;
-            padding-left: 36px;
-            position: relative;
-            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 14px;
+            padding-left: 0;
         }
         .step-list li::before {
             content: "Step " counter(step-counter);
-            position: absolute;
-            left: 0;
             font-weight: 700;
             color: #3b82f6;
             font-size: 0.85em;
+            min-width: 54px;
+            flex-shrink: 0;
+            padding-top: 2px;
         }
         .desmos-container {
             width: 100%;
@@ -258,6 +261,14 @@
             color: #64748b;
             margin-top: 8px;
             margin-bottom: 20px;
+        }
+        .fig-label {
+            text-align: center;
+            font-size: 0.82em;
+            color: #64748b;
+            margin: 6px 0 4px;
+            font-weight: 600;
+            letter-spacing: 0.03em;
         }
     </style>
     <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
@@ -351,6 +362,64 @@
             $$\frac{dh}{dt} = \frac{8}{4\pi} = \frac{2}{\pi} \approx 0.637 \text{ ft/min}$$
         </div>
 
+        <div class="example-box">
+            <h4>Example 4: Expanding Sphere</h4>
+            <p>A spherical balloon is being inflated so that its radius increases at a constant rate of $2$ cm/s. At the instant when $r = 5$ cm:</p>
+            <ol style="margin:10px 0 14px 20px; color:#334155; line-height:1.8;">
+                <li>How fast is the <strong>volume</strong> increasing?</li>
+                <li>How fast is the <strong>surface area</strong> increasing?</li>
+            </ol>
+            <p><strong>Setup.</strong> Let $r = r(t)$ be the radius, $V = \frac{4}{3}\pi r^3$ the volume, and $S = 4\pi r^2$ the surface area. We are given $\dfrac{dr}{dt} = 2$ cm/s.</p>
+
+            <p><strong>Part (a) — Volume.</strong> Differentiate $V = \frac{4}{3}\pi r^3$ with respect to $t$:</p>
+            $$\frac{dV}{dt} = 4\pi r^2 \cdot \frac{dr}{dt}$$
+            <p>Substitute $r = 5$ and $\dfrac{dr}{dt} = 2$:</p>
+            $$\frac{dV}{dt} = 4\pi(25)(2) = 200\pi \approx 628.3 \text{ cm}^3/\text{s}$$
+
+            <p><strong>Part (b) — Surface Area.</strong> Differentiate $S = 4\pi r^2$ with respect to $t$:</p>
+            $$\frac{dS}{dt} = 8\pi r \cdot \frac{dr}{dt}$$
+            <p>Substitute $r = 5$ and $\dfrac{dr}{dt} = 2$:</p>
+            $$\frac{dS}{dt} = 8\pi(5)(2) = 80\pi \approx 251.3 \text{ cm}^2/\text{s}$$
+
+            <p><strong>Geometric insight.</strong> Notice that $\dfrac{dV}{dt} = 4\pi r^2 \cdot \dfrac{dr}{dt} = S \cdot \dfrac{dr}{dt}$. The surface area $S$ is literally the derivative $\dfrac{dV}{dr}$. Geometrically: a thin shell of thickness $dr$ on the outside of the sphere has volume $\approx S \cdot dr$, so $dV = S\,dr$. This relationship is exact, not an approximation.</p>
+
+            <p>The graph below shows $V(r)$ (blue) and $S(r)$ (green) as functions of $r$. Notice that the slope of the $V$-curve at any point equals the height of the $S$-curve at the same $r$ — confirming $\dfrac{dV}{dr} = S(r)$. Drag the slider to explore this at different radii.</p>
+            <div class="desmos-container" id="sphere-rr-graph"></div>
+            <p class="fig-label">Figure 4.1 — Sphere: V(r) and S(r) with dV/dr = S</p>
+            <p class="desmos-caption">$V(r) = \tfrac{4}{3}\pi r^3$ (blue) and $S(r) = 4\pi r^2$ (green). The <strong>dashed tangent</strong> to $V$ at $r = r_0$ has slope $= S(r_0)$ (the green dot's height). At $r = 5$: slope $= 100\pi \approx 314$, confirming $\frac{dV}{dr}\big|_{r=5} = S(5)$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5: Rotating Spotlight — $\tan\theta$ Related Rate</h4>
+            <p>A spotlight is mounted at ground level, $6$ m from a straight wall. A person walks along the wall at $1.5$ m/s. At what rate is the spotlight rotating when the person is $8$ m from the point on the wall nearest to the spotlight?</p>
+
+            <p><strong>Setup.</strong> Let:</p>
+            <ul>
+                <li>$x$ = distance of the person from the nearest point $N$ on the wall, measured along the wall (changes with time)</li>
+                <li>$\theta$ = angle the spotlight beam makes with the perpendicular $SN$ from the spotlight $S$ to the wall</li>
+                <li>$d = 6$ m = fixed distance from spotlight to wall</li>
+            </ul>
+            <p>From the right triangle $SNP$:</p>
+            $$\tan\theta = \frac{x}{6}$$
+
+            <p><strong>Differentiate with respect to $t$.</strong> Using the chain rule on both sides:</p>
+            $$\sec^2\!\theta \cdot \frac{d\theta}{dt} = \frac{1}{6}\,\frac{dx}{dt}$$
+
+            <p><strong>Substitute known values at $x = 8$.</strong></p>
+            <p>From $\tan\theta = \dfrac{8}{6} = \dfrac{4}{3}$, use $\sec^2\theta = 1 + \tan^2\!\theta$:</p>
+            $$\sec^2\!\theta = 1 + \left(\frac{4}{3}\right)^2 = 1 + \frac{16}{9} = \frac{25}{9}$$
+            <p>Now substitute $\sec^2\theta = \dfrac{25}{9}$ and $\dfrac{dx}{dt} = 1.5$:</p>
+            $$\frac{25}{9}\cdot\frac{d\theta}{dt} = \frac{1}{6}(1.5) = \frac{1}{4}$$
+            $$\frac{d\theta}{dt} = \frac{1}{4}\cdot\frac{9}{25} = \frac{9}{100} = 0.09 \text{ rad/s}$$
+
+            <p><strong>Physical interpretation.</strong> As $x$ increases (person moves farther from $N$), $\sec^2\theta$ grows — so for the <em>same walking speed</em> $\dfrac{dx}{dt}$, the spotlight rotation $\dfrac{d\theta}{dt}$ slows down. The spotlight turns fastest when the person is directly in front (at $N$, where $\theta = 0$, $\sec^2\theta = 1$, giving $\dfrac{d\theta}{dt} = \dfrac{1.5}{6} = 0.25$ rad/s) and most slowly when the person is far down the wall.</p>
+
+            <p>The interactive diagram below shows the spotlight geometry. Drag the slider to move the person along the wall and watch how the beam angle $\theta$ changes — and how rapidly it changes per unit of the person's movement.</p>
+            <div class="desmos-container" id="spotlight-rr-graph"></div>
+            <p class="fig-label">Figure 4.2 — Rotating Spotlight Geometry</p>
+            <p class="desmos-caption">Spotlight at $S = (0,0)$, wall at $x = 6$. The person $P$ is at $(6,\,x)$ — drag the slider to walk them along the wall. The amber beam rotates; the dashed blue segment shows the perpendicular $SN$; the purple arc marks angle $\theta$. At the default position $x=8$, $\theta \approx 53.1°$ and $d\theta/dt = 0.09$ rad/s.</p>
+        </div>
+
         <!-- ============================================================ -->
         <!-- 4.2 LINEAR APPROXIMATION AND DIFFERENTIALS -->
         <!-- ============================================================ -->
@@ -362,37 +431,76 @@
             <h4>Linear Approximation (Tangent Line Approximation)</h4>
             <p>If $f$ is differentiable at $x = a$, then for values of $x$ near $a$:</p>
             $$f(a + \Delta x) \approx f(a) + f'(a)\,\Delta x$$
-            <p>Equivalently, the linearization of $f$ at $a$ is $L(x) = f(a) + f'(a)(x - a)$.</p>
+            <p>Equivalently, the <strong>linearization</strong> of $f$ at $a$ is $L(x) = f(a) + f'(a)(x - a)$.</p>
         </div>
 
-        <p>The quality of this approximation depends on how close $x$ is to $a$ and on the curvature of $f$. Functions with large second derivatives (high curvature) produce less accurate linear approximations for the same $\Delta x$.</p>
+        <p>The interactive graph below lets you drag the base point $a$ along $f(x) = \sqrt[3]{x}$ and watch the red tangent line (the linearization) track the curve. Near the contact point the two are visually identical; farther away they diverge — exactly capturing the error of linear approximation.</p>
+
+        <div class="desmos-container" id="linear-approx-concept"></div>
+        <p class="fig-label">Figure 4.3 — Linear Approximation: y = ∛x</p>
+        <p class="desmos-caption">Drag the slider to move the base point along $y = \sqrt[3]{x}$. The red dashed line is the linearization $L(x)$. Notice how it hugs the curve near the contact point but curves away.</p>
 
         <div class="definition-box">
             <h4>Differentials</h4>
-            <p>If $y = f(x)$ is differentiable, we define the <strong>differential</strong> $dy$ as:</p>
+            <p>If $y = f(x)$ is differentiable, the <strong>differential</strong> $dy$ is defined by:</p>
             $$dy = f'(x)\,dx$$
-            <p>Here $dx$ is an independent variable (representing a small change in $x$), and $dy$ approximates the actual change $\Delta y = f(x + dx) - f(x)$. The differential $dy$ is the change along the tangent line, while $\Delta y$ is the change along the curve itself.</p>
+            <p>Here $dx$ is an independent variable representing a small change in $x$. The differential $dy$ measures the change <em>along the tangent line</em>, while the actual change $\Delta y = f(x + dx) - f(x)$ measures the change <em>along the curve</em>. Linear approximation says $\Delta y \approx dy$ when $dx$ is small.</p>
         </div>
+
+        <p>The quality of the approximation depends on how close $x$ is to $a$ and on the curvature $f''(a)$. Large curvature means the tangent line bends away from the curve more quickly, increasing the error $|\Delta y - dy|$.</p>
 
         <div class="example-box">
             <h4>Example 4: Approximating a Square Root</h4>
             <p>Use linear approximation to estimate $\sqrt{50}$.</p>
-            <p><strong>Solution.</strong> Let $f(x) = \sqrt{x}$, with $a = 49$ (the nearest perfect square). Then $f(a) = 7$ and $f'(x) = \frac{1}{2\sqrt{x}}$, so $f'(49) = \frac{1}{14}$.</p>
-            <p>With $\Delta x = 50 - 49 = 1$:</p>
-            $$\sqrt{50} \approx f(49) + f'(49)(1) = 7 + \frac{1}{14} = 7.0714\ldots$$
-            <p>The actual value is $\sqrt{50} = 7.0711\ldots$, so the approximation is accurate to three decimal places.</p>
+            <p><strong>Solution.</strong> Let $f(x) = \sqrt{x}$, with $a = 49$ (the nearest perfect square). Then:</p>
+            $$f(49) = 7, \qquad f'(x) = \frac{1}{2\sqrt{x}} \implies f'(49) = \frac{1}{14}$$
+            <p>With $\Delta x = 50 - 49 = 1$, the linearization gives:</p>
+            $$\sqrt{50} \approx L(50) = 7 + \frac{1}{14}(1) \approx 7.0714$$
+            <p>The actual value is $\sqrt{50} = 7.07107\ldots$, so the approximation is accurate to four significant figures.</p>
+            <div class="desmos-container" id="sqrt-approx-graph"></div>
+            <p class="fig-label">Figure 4.4 — Square Root Approximation at x = 49</p>
+            <p class="desmos-caption">The blue curve is $y = \sqrt{x}$. The red dashed line is the tangent at $(49, 7)$. The <span style="color:#16a34a;font-weight:600;">green dot</span> marks $\sqrt{50}$ on the curve; the <span style="color:#f97316;font-weight:600;">orange dot</span> marks the linear approximation $L(50) \approx 7.0714$. They are nearly coincident.</p>
         </div>
 
         <div class="example-box">
-            <h4>Example 5: Using Differentials to Estimate Error</h4>
+            <h4>Example 5: Approximating a Cube Root — $y = \sqrt[3]{x}$</h4>
+            <p>Use linear approximation to estimate $\sqrt[3]{8.1}$.</p>
+            <p><strong>Solution.</strong> Let $f(x) = x^{1/3}$, with $a = 8$ (the nearest perfect cube). Compute:</p>
+            $$f(8) = 2, \qquad f'(x) = \frac{1}{3}x^{-2/3} \implies f'(8) = \frac{1}{3} \cdot \frac{1}{4} = \frac{1}{12}$$
+            <p>The linearization at $a = 8$ is $L(x) = 2 + \frac{1}{12}(x - 8)$. With $\Delta x = 0.1$:</p>
+            $$\sqrt[3]{8.1} \approx L(8.1) = 2 + \frac{0.1}{12} = 2 + 0.008\overline{3} \approx 2.0083$$
+            <p>The actual value is $\sqrt[3]{8.1} = 2.00832\ldots$, matching to four decimal places. The error is only $0.00002$ — remarkably accurate because $f''(x) = -\frac{2}{9}x^{-5/3}$ is small near $x = 8$, so the curve is nearly straight there.</p>
+            <div class="desmos-container" id="cbrt-approx-graph"></div>
+            <p class="fig-label">Figure 4.5 — Cube Root Approximation at x = 8</p>
+            <p class="desmos-caption">The blue curve is $y = x^{1/3}$. The red dashed line is $L(x) = 2 + \frac{1}{12}(x-8)$. The <span style="color:#16a34a;font-weight:600;">green dot</span> marks $\sqrt[3]{8.1}$ on the curve; the <span style="color:#f97316;font-weight:600;">orange dot</span> marks $L(8.1) \approx 2.0083$. Drag the slider to zoom in: the two points become indistinguishable.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 6: Approximating a Fifth Power — $y = x^5$</h4>
+            <p>Use linear approximation to estimate $(1.02)^5$.</p>
+            <p><strong>Solution.</strong> Let $f(x) = x^5$, with $a = 1$. Then:</p>
+            $$f(1) = 1, \qquad f'(x) = 5x^4 \implies f'(1) = 5$$
+            <p>The linearization at $a = 1$ is $L(x) = 1 + 5(x - 1)$. With $\Delta x = 0.02$:</p>
+            $$(1.02)^5 \approx L(1.02) = 1 + 5(0.02) = 1 + 0.10 = 1.10$$
+            <p>The actual value is $(1.02)^5 = 1.10408\ldots$, so the error is about $0.004$. The approximation is accurate to two decimal places, but less accurate than the cube-root example because $y = x^5$ has larger curvature ($f''(1) = 20$) near $x = 1$, causing the tangent line to diverge faster.</p>
+            <div class="desmos-container" id="x5-approx-graph"></div>
+            <p class="fig-label">Figure 4.6 — Fifth Power Approximation at x = 1</p>
+            <p class="desmos-caption">The blue curve is $y = x^5$. The red dashed line is the tangent at $(1,\,1)$: $L(x) = 1 + 5(x-1)$. The <span style="color:#f97316;font-weight:600;">orange dot</span> is the approximation $L(1.02) = 1.10$; the <span style="color:#16a34a;font-weight:600;">green dot</span> is the true value $(1.02)^5 \approx 1.104$. The visible gap reflects the large curvature of $x^5$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7: Using Differentials to Estimate Error</h4>
             <p>The radius of a sphere is measured as $6$ cm with a possible error of $\pm 0.02$ cm. Estimate the maximum error in the calculated volume.</p>
-            <p><strong>Solution.</strong> The volume is $V = \frac{4}{3}\pi r^3$. Differentiating:</p>
+            <p><strong>Solution.</strong> The volume is $V = \frac{4}{3}\pi r^3$, so the differential is:</p>
             $$dV = 4\pi r^2 \, dr$$
             <p>With $r = 6$ and $dr = \pm 0.02$:</p>
             $$dV = 4\pi(36)(0.02) = 2.88\pi \approx 9.05 \text{ cm}^3$$
             <p>The actual volume is $V = \frac{4}{3}\pi(216) = 288\pi \approx 904.8$ cm$^3$. The relative error is:</p>
             $$\frac{dV}{V} = \frac{2.88\pi}{288\pi} = 0.01 = 1\%$$
-            <p>Notice this is exactly $3 \cdot \frac{dr}{r} = 3 \cdot \frac{0.02}{6} = 1\%$. In general, for $V = \frac{4}{3}\pi r^3$, the relative error in volume is three times the relative error in radius.</p>
+            <p>This equals $3 \cdot \frac{dr}{r} = 3 \cdot \frac{0.02}{6} = 1\%$. In general, for $V = \frac{4}{3}\pi r^3$, the relative error in volume is always three times the relative error in radius — a consequence of the exponent 3.</p>
+            <div class="desmos-container" id="sphere-diff-graph"></div>
+            <p class="fig-label">Figure 4.7 — Sphere Volume Differential: dV vs ΔV</p>
+            <p class="desmos-caption">The blue curve is $V(r) = \frac{4}{3}\pi r^3$. The red dashed line is the tangent at $r = 6$. Drag the $dr$ slider to change the measurement error: the <span style="color:#f97316;font-weight:600;">orange segment</span> shows $dV$ (tangent-line approximation) and the <span style="color:#16a34a;font-weight:600;">green segment</span> shows the true $\Delta V$.</p>
         </div>
 
         <!-- ============================================================ -->
@@ -432,7 +540,7 @@
         </div>
 
         <div class="example-box">
-            <h4>Example 6: Closed Interval Method</h4>
+            <h4>Example 8: Closed Interval Method</h4>
             <p>Find the absolute maximum and minimum of $f(x) = x^3 - 3x^2 + 1$ on $[-1, 4]$.</p>
             <p><strong>Solution.</strong> First, find critical points: $f'(x) = 3x^2 - 6x = 3x(x - 2)$. Setting $f'(x) = 0$ gives $x = 0$ and $x = 2$, both in $(-1, 4)$.</p>
             <p>Evaluate $f$ at critical points and endpoints:</p>
@@ -446,7 +554,7 @@
         </div>
 
         <div class="example-box">
-            <h4>Example 7: First Derivative Test</h4>
+            <h4>Example 9: First Derivative Test</h4>
             <p>Find and classify all local extrema of $g(x) = x^4 - 4x^3$.</p>
             <p><strong>Solution.</strong> Compute $g'(x) = 4x^3 - 12x^2 = 4x^2(x - 3)$. The critical points are $x = 0$ and $x = 3$.</p>
             <p>Sign analysis of $g'$:</p>
@@ -463,53 +571,119 @@
         <!-- ============================================================ -->
         <h2 id="concavity">4.4 Concavity and the Second Derivative Test</h2>
 
-        <p>While the first derivative tells us where a function is increasing or decreasing, the second derivative reveals <em>how</em> it increases or decreases -- that is, the shape of the curve.</p>
+        <p>The first derivative tells you <em>where</em> a function rises or falls. The second derivative tells you <em>how</em> it rises or falls — whether the curve is bending upward like a bowl, or downward like a dome. This section builds that intuition step by step through a single function, $f(x) = x^3 - x$, reading $f$, $f'$, and $f''$ together.</p>
 
         <div class="definition-box">
-            <h4>Concavity</h4>
-            <p>A function $f$ is <strong>concave up</strong> on an interval if $f''(x) > 0$ on that interval. Geometrically, the curve lies above its tangent lines, and the slope is increasing. A function is <strong>concave down</strong> on an interval if $f''(x) < 0$, meaning the curve lies below its tangent lines.</p>
+            <h4>Bowl vs. Dome: The Core Intuition</h4>
+            <p>Imagine driving along a hilly road:</p>
+            <ul>
+                <li><strong>Concave up</strong> ($f'' > 0$): the road curves upward like a valley — a <em>bowl</em> that holds water. The slope $f'$ is <em>increasing</em> as you move right. The tangent line lies <em>below</em> the curve.</li>
+                <li><strong>Concave down</strong> ($f'' < 0$): the road curves downward like a hilltop — a <em>dome</em> that spills water. The slope $f'$ is <em>decreasing</em>. The tangent line lies <em>above</em> the curve.</li>
+                <li><strong>Inflection point</strong>: where the road switches from valley to hilltop (or vice versa). The curve changes its bending direction. This is where $f'' = 0$ and the sign of $f''$ changes.</li>
+            </ul>
         </div>
 
         <div class="definition-box">
-            <h4>Inflection Points</h4>
-            <p>A point where the concavity changes is called an <strong>inflection point</strong>. At an inflection point, $f''(x) = 0$ or $f''(x)$ is undefined. However, $f''(c) = 0$ alone does not guarantee an inflection point -- the concavity must actually change. For instance, $f(x) = x^4$ has $f''(0) = 0$ but no inflection point at $x = 0$.</p>
+            <h4>Formal Definitions</h4>
+            <p>$f$ is <strong>concave up</strong> on an interval if $f''(x) > 0$ there; <strong>concave down</strong> if $f''(x) < 0$. A point $(c,\,f(c))$ is an <strong>inflection point</strong> if $f''(c) = 0$ (or is undefined) <em>and</em> the sign of $f''$ actually changes at $c$.</p>
+            <p><em>Warning:</em> $f''(c) = 0$ alone is not enough. For $f(x) = x^4$, we have $f''(0) = 0$, but $f''$ does not change sign at $x = 0$ — so there is no inflection point there.</p>
         </div>
 
         <div class="theorem-box">
             <h4>Second Derivative Test</h4>
-            <p>Suppose $f'(c) = 0$ and $f''$ is continuous near $c$.</p>
+            <p>Suppose $f'(c) = 0$ (critical point) and $f''$ is continuous near $c$:</p>
             <ul>
-                <li>If $f''(c) > 0$, then $f$ has a <strong>local minimum</strong> at $c$.</li>
-                <li>If $f''(c) < 0$, then $f$ has a <strong>local maximum</strong> at $c$.</li>
-                <li>If $f''(c) = 0$, the test is <strong>inconclusive</strong>; use the First Derivative Test instead.</li>
+                <li>$f''(c) > 0$ &nbsp;&rarr;&nbsp; curve is concave up at $c$ &nbsp;&rarr;&nbsp; <strong>local minimum</strong> (bottom of a bowl)</li>
+                <li>$f''(c) < 0$ &nbsp;&rarr;&nbsp; curve is concave down at $c$ &nbsp;&rarr;&nbsp; <strong>local maximum</strong> (top of a dome)</li>
+                <li>$f''(c) = 0$ &nbsp;&rarr;&nbsp; <strong>inconclusive</strong>; use the First Derivative Test instead</li>
             </ul>
         </div>
 
+        <!-- ─── THREE-PORTRAIT WALKTHROUGH ─── -->
+        <h3>Three Portraits of $f(x) = x^3 - x$</h3>
+
+        <p>Every function can be read through three "portraits": $f$ itself, $f'$, and $f''$. Together they tell a complete story of shape. We use $f(x) = x^3 - x$ because it has exactly one inflection point, one local max, and one local min — all the key features in one clean example.</p>
+
         <div class="example-box">
-            <h4>Example 8: Concavity and Inflection Points</h4>
-            <p>Find the intervals of concavity and all inflection points of $f(x) = x^3 - 6x^2 + 9x + 2$.</p>
-            <p><strong>Solution.</strong> We need the second derivative:</p>
-            $$f'(x) = 3x^2 - 12x + 9, \qquad f''(x) = 6x - 12 = 6(x - 2)$$
-            <p>Setting $f''(x) = 0$ gives $x = 2$. Test intervals:</p>
+            <h4>Portrait 1 &mdash; The Function $f(x) = x^3 - x$</h4>
+            <p>First, find the key points algebraically:</p>
             <ul>
-                <li>For $x < 2$: $f''(1) = 6(1 - 2) = -6 < 0$ (concave down)</li>
-                <li>For $x > 2$: $f''(3) = 6(3 - 2) = 6 > 0$ (concave up)</li>
+                <li><strong>Critical points:</strong> $f'(x) = 3x^2 - 1 = 0 \;\Rightarrow\; x = \pm\dfrac{1}{\sqrt{3}} \approx \pm 0.577$</li>
+                <li><strong>Inflection point:</strong> $f''(x) = 6x = 0 \;\Rightarrow\; x = 0$, giving the point $(0,\,0)$</li>
+                <li><strong>Local max</strong> at $x = -\tfrac{1}{\sqrt{3}}$: $f''\!\left(-\tfrac{1}{\sqrt{3}}\right) = -\tfrac{6}{\sqrt{3}} < 0$ &nbsp;&#10003;</li>
+                <li><strong>Local min</strong> at $x = \tfrac{1}{\sqrt{3}}$: $f''\!\left(\tfrac{1}{\sqrt{3}}\right) = \tfrac{6}{\sqrt{3}} > 0$ &nbsp;&#10003;</li>
             </ul>
-            <p>Since concavity changes at $x = 2$, there is an <strong>inflection point</strong> at $(2, f(2)) = (2, 4)$.</p>
+            <p>In the graph below, the curve is colored by concavity: <span style="color:#f97316;font-weight:600;">orange = concave down</span> ($x < 0$), <span style="color:#16a34a;font-weight:600;">green = concave up</span> ($x > 0$). Drag the slider to move a tangent line along the curve — watch how the slope <em>decreases</em> through the orange region and <em>increases</em> through the green region.</p>
+            <div class="desmos-container" id="concavity-f-graph"></div>
+            <p class="fig-label">Figure 4.8 — f(x) = x³ − x Colored by Concavity</p>
+            <p class="desmos-caption">$f(x) = x^3 - x$. <span style="color:#f97316;">Orange</span>: concave down. <span style="color:#16a34a;">Green</span>: concave up. Purple dot: inflection point $(0, 0)$. Drag the slider $t$ to see how the tangent line's slope changes.</p>
         </div>
 
         <div class="example-box">
-            <h4>Example 9: Second Derivative Test</h4>
+            <h4>Portrait 2 &mdash; The First Derivative $f'(x) = 3x^2 - 1$</h4>
+            <p>The value of $f'(x)$ at any point is the <em>slope</em> of $f$ there. Watch what $f'$ does as $x$ increases:</p>
+            <ul>
+                <li><strong>$x < 0$ (orange):</strong> $f'$ is <em>decreasing</em> (the parabola descends toward its vertex). The slope of $f$ is shrinking — this means $f$ is concave <em>down</em>.</li>
+                <li><strong>$x = 0$:</strong> $f'$ reaches its minimum value of $-1$. The slope of $f$ stops falling and starts rising. This transition is exactly the inflection point of $f$.</li>
+                <li><strong>$x > 0$ (green):</strong> $f'$ is <em>increasing</em> (the parabola rises). The slope of $f$ is growing — this means $f$ is concave <em>up</em>.</li>
+            </ul>
+            <p>The two zeros $x = \pm\tfrac{1}{\sqrt{3}}$ are where the slope of $f$ is zero — the local max and min of $f$.</p>
+            <div class="desmos-container" id="concavity-fprime-graph"></div>
+            <p class="fig-label">Figure 4.9 — f′(x) = 3x² − 1 Colored by Direction</p>
+            <p class="desmos-caption">$f'(x) = 3x^2 - 1$. <span style="color:#f97316;">Orange</span> (decreasing, $x &lt; 0$): $f$ is concave down. <span style="color:#16a34a;">Green</span> (increasing, $x &gt; 0$): $f$ is concave up. The minimum of $f'$ at $x = 0$ corresponds exactly to the inflection point of $f$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Portrait 3 &mdash; The Second Derivative $f''(x) = 6x$</h4>
+            <p>$f''(x) = 6x$ is a straight line through the origin. Its <em>sign</em> is all you need to know:</p>
+            <ul>
+                <li><strong>$x < 0$:</strong> $f''(x) = 6x < 0$ &nbsp;&rarr;&nbsp; <span style="color:#f97316;font-weight:600;">concave down</span></li>
+                <li><strong>$x = 0$:</strong> $f''(0) = 0$ and the sign changes &nbsp;&rarr;&nbsp; <strong>inflection point at $(0,0)$</strong></li>
+                <li><strong>$x > 0$:</strong> $f''(x) = 6x > 0$ &nbsp;&rarr;&nbsp; <span style="color:#16a34a;font-weight:600;">concave up</span></li>
+            </ul>
+            <p>The shaded regions below emphasize this: <span style="color:#f97316;font-weight:600;">orange shading</span> where $f'' < 0$ (concave down), <span style="color:#16a34a;font-weight:600;">green shading</span> where $f'' > 0$ (concave up). The moment $f''$ crosses zero from negative to positive is <em>exactly</em> when $f$ transitions from dome to bowl.</p>
+            <div class="desmos-container" id="concavity-fpp-graph"></div>
+            <p class="fig-label">Figure 4.10 — f′′(x) = 6x Sign and Concavity Regions</p>
+            <p class="desmos-caption">$f''(x) = 6x$. Below the $x$-axis (<span style="color:#f97316;">orange</span>): $f$ is concave down. Above the $x$-axis (<span style="color:#16a34a;">green</span>): $f$ is concave up. The zero-crossing at $x = 0$ is the inflection point of $f$.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Key Insight: The Three Portraits in One Sentence</h4>
+            <p>$f''(x)$ tells you the <em>rate of change of the slope</em>. When the slope is speeding up ($f'' > 0$), the curve bends upward. When the slope is slowing down ($f'' < 0$), the curve bends downward. Where the slope changes direction ($f'' = 0$ with sign change), the curve inflects.</p>
+        </div>
+
+        <h3>All Three Portraits Side by Side</h3>
+        <p>The graph below stacks $f$, $f'$, and $f''$ in a single view with a shared $x$-axis so you can read the relationships at a glance. Drag the slider to move a vertical reference line across all three portraits simultaneously — watch how the concavity of $f$ (top), the slope trend of $f'$ (middle), and the sign of $f''$ (bottom) all change together at the same $x$.</p>
+        <div class="desmos-container" id="concavity-triple-graph" style="height:520px;"></div>
+        <p class="fig-label">Figure 4.11 — Combined Portrait: f, f′, f′′</p>
+        <p class="desmos-caption">Combined portrait: all three curves on one $x$-axis. <span style="color:#2563eb;">Blue</span>: $f = x^3 - x$. <span style="color:#16a34a;">Green</span>: $f' = 3x^2 - 1$ (shifted down by 3 for spacing). <span style="color:#f97316;">Orange</span>: $f'' = 6x$ (shifted down by 6 for spacing). The vertical purple line $x = t$ (drag slider) shows all three values at once. At $x = 0$: $f'' = 0$ (sign change), $f'$ is at its minimum, $f$ has its inflection point.</p>
+
+        <!-- Existing worked examples -->
+        <div class="example-box">
+            <h4>Example 10: Concavity and Inflection Points</h4>
+            <p>Find the intervals of concavity and all inflection points of $g(x) = x^3 - 6x^2 + 9x + 2$.</p>
+            <p><strong>Solution.</strong> Compute derivatives:</p>
+            $$g'(x) = 3x^2 - 12x + 9, \qquad g''(x) = 6x - 12 = 6(x - 2)$$
+            <p>Setting $g''(x) = 0$ gives $x = 2$. Sign analysis:</p>
+            <ul>
+                <li>$x < 2$: $g''(1) = 6(1-2) = -6 < 0$ &nbsp;&#8594;&nbsp; <strong>concave down</strong></li>
+                <li>$x > 2$: $g''(3) = 6(3-2) = 6 > 0$ &nbsp;&#8594;&nbsp; <strong>concave up</strong></li>
+            </ul>
+            <p>The sign changes at $x = 2$, so there is an <strong>inflection point</strong> at $(2,\;g(2)) = (2,\;4)$. Notice the structure is identical to our walkthrough function: $g''(x) = 6(x-2)$ is just $f''(x) = 6x$ shifted right by $2$ units, so the inflection point shifts from $(0,0)$ to $(2,4)$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 11: Second Derivative Test</h4>
             <p>Find and classify the critical points of $h(x) = 3x^5 - 5x^3$ using the Second Derivative Test.</p>
-            <p><strong>Solution.</strong> Compute the derivatives:</p>
-            $$h'(x) = 15x^4 - 15x^2 = 15x^2(x^2 - 1) = 15x^2(x - 1)(x + 1)$$
-            <p>Critical points: $x = -1, 0, 1$.</p>
+            <p><strong>Solution.</strong></p>
+            $$h'(x) = 15x^4 - 15x^2 = 15x^2(x^2 - 1) = 15x^2(x-1)(x+1)$$
+            <p>Critical points: $x = -1,\; 0,\; 1$.</p>
             $$h''(x) = 60x^3 - 30x = 30x(2x^2 - 1)$$
-            <p>Evaluate $h''$ at each critical point:</p>
+            <p>Apply the Second Derivative Test:</p>
             <ul>
-                <li>$h''(-1) = 30(-1)(2 - 1) = -30 < 0$ : <strong>local maximum</strong> at $(-1, 2)$</li>
-                <li>$h''(0) = 0$ : <strong>inconclusive</strong> (use First Derivative Test; $h'$ goes from negative to zero to negative, so no extremum at $x = 0$)</li>
-                <li>$h''(1) = 30(1)(2 - 1) = 30 > 0$ : <strong>local minimum</strong> at $(1, -2)$</li>
+                <li>$h''(-1) = 30(-1)(2-1) = -30 < 0$ &nbsp;&#8594;&nbsp; <strong>local maximum</strong> at $(-1,\;2)$</li>
+                <li>$h''(0) = 0$ &nbsp;&#8594;&nbsp; <strong>inconclusive</strong>. By the First Derivative Test, $h'$ is negative on both sides of $x=0$, so there is no extremum at $x = 0$.</li>
+                <li>$h''(1) = 30(1)(2-1) = 30 > 0$ &nbsp;&#8594;&nbsp; <strong>local minimum</strong> at $(1,\;-2)$</li>
             </ul>
         </div>
 
@@ -534,10 +708,11 @@
         </div>
 
         <div class="desmos-container" id="optimization-graph"></div>
+        <p class="fig-label">Figure 4.12 — Optimization: Rectangle with Fixed Perimeter</p>
         <p class="desmos-caption">Optimization: maximize the area of a rectangle with fixed perimeter P. Drag x to find the optimal width.</p>
 
         <div class="example-box">
-            <h4>Example 10: Maximize Enclosed Area</h4>
+            <h4>Example 12: Maximize Enclosed Area</h4>
             <p>A farmer has $600$ meters of fencing and wants to enclose a rectangular field that borders a straight river. No fencing is needed along the river. What dimensions maximize the enclosed area?</p>
             <p><strong>Solution.</strong> Let $x$ be the length of the side perpendicular to the river and $y$ the length of the side parallel to the river. The fencing constraint is:</p>
             $$2x + y = 600 \quad \Longrightarrow \quad y = 600 - 2x$$
@@ -550,7 +725,7 @@
         </div>
 
         <div class="example-box">
-            <h4>Example 11: Minimize Cost</h4>
+            <h4>Example 13: Minimize Cost</h4>
             <p>An open-top rectangular box with a square base must have a volume of $32{,}000$ cm$^3$. The material for the base costs $\$10$ per cm$^2$ and the material for the sides costs $\$5$ per cm$^2$. Find the dimensions that minimize the total cost.</p>
             <p><strong>Solution.</strong> Let the base have side length $x$ and the height be $h$. The volume constraint is:</p>
             $$x^2 h = 32{,}000 \quad \Longrightarrow \quad h = \frac{32{,}000}{x^2}$$
@@ -565,7 +740,7 @@
         </div>
 
         <div class="example-box">
-            <h4>Example 12: AP-Style Optimization</h4>
+            <h4>Example 14: AP-Style Optimization</h4>
             <p>A particle moves along the $x$-axis so that its velocity at time $t \geq 0$ is given by $v(t) = t^2 - 6t + 8$. For what value of $t$ does the particle achieve its minimum velocity, and what is the particle's position at that time if $x(0) = 3$?</p>
             <p><strong>Solution.</strong> The velocity is $v(t) = t^2 - 6t + 8$. To minimize velocity, find where $v'(t) = 0$:</p>
             $$v'(t) = 2t - 6 = 0 \quad \Longrightarrow \quad t = 3$$
@@ -575,6 +750,81 @@
             $$x(t) = \left[\frac{s^3}{3} - 3s^2 + 8s\right]_0^t + 3 = \frac{t^3}{3} - 3t^2 + 8t + 3$$
             <p>At $t = 3$:</p>
             $$x(3) = \frac{27}{3} - 27 + 24 + 3 = 9 - 27 + 24 + 3 = 9$$
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- 4.5.1 EDGE CASES -->
+        <!-- ============================================================ -->
+        <h3>When Standard Optimization Needs Care</h3>
+
+        <p>The Closed Interval Method works reliably under two assumptions: the function is <em>continuous</em> on a <em>closed, bounded</em> interval. When either condition breaks down, the Extreme Value Theorem no longer guarantees both a max and a min. Here are the three situations most likely to appear on the AP exam — each with a worked example and graph.</p>
+
+        <div class="definition-box">
+            <h4>Three Common Failure Modes</h4>
+            <ol>
+                <li><strong>Jump or removable discontinuity inside the interval.</strong> Manually check values at the discontinuity. The supremum or infimum may not be achieved.</li>
+                <li><strong>No interior critical points — only endpoints.</strong> Perfectly fine: endpoints on a closed interval always qualify as locations of absolute extrema.</li>
+                <li><strong>Vertical asymptote inside the interval.</strong> The function is unbounded near the asymptote; no absolute max or min exists in that direction.</li>
+            </ol>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 15: Jump Discontinuity — Maximum May Not Be Achieved</h4>
+            <p>Find the absolute maximum and minimum of the piecewise function on $[0, 4]$:</p>
+            $$f(x) = \begin{cases} -x^2 + 4x & 0 \leq x < 2 \\ x - 3 & 2 \leq x \leq 4 \end{cases}$$
+            <p><strong>Naïve approach (incomplete).</strong> Set $f'=0$ on each piece: Piece 1 gives $x=2$ (not in $[0,2)$, excluded); Piece 2 gives $f'=1 \neq 0$. Check endpoints: $f(0)=0$, $f(4)=1$. Conclusion: "max = 1, min = 0." <em>This misses critical information.</em></p>
+            <p><strong>Correct analysis.</strong> The function has a <strong>jump discontinuity at $x=2$</strong>. Always check what happens there:</p>
+            <ul>
+                <li>Actual value: $f(2) = 2-3 = -1$</li>
+                <li>Left-hand limit: $\displaystyle\lim_{x \to 2^-} f(x) = -4+8 = 4$ — the curve <em>approaches</em> 4 but never reaches it (open circle)</li>
+            </ul>
+            <p>All candidates: $f(0)=0$, $f(4)=1$, $f(2)=-1$, and the unachieved limit 4.</p>
+            <ul>
+                <li><strong>Absolute minimum</strong> $= f(2) = -1$ ✓ (achieved)</li>
+                <li><strong>No absolute maximum</strong>: the supremum is 4, but $f(x) < 4$ for every $x \in [0,4]$ — the value 4 is never attained</li>
+            </ul>
+            <p>The EVT requires continuity. Without it, a max may simply not exist even on a closed interval.</p>
+            <div class="desmos-container" id="edge-jump-graph"></div>
+            <p class="fig-label">Figure 4.13 — Piecewise Function with Jump Discontinuity</p>
+            <p class="desmos-caption">Piecewise function with a jump at $x=2$. The <span style="color:#f97316;font-weight:600;">orange open circle</span> at $(2,\,4)$ marks the unachieved limit; the <span style="color:#dc2626;font-weight:600;">red filled dot</span> at $(2,\,-1)$ is the actual value $f(2)$. The dashed line $y=4$ marks the supremum that is never attained — so no absolute maximum exists.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 16: No Interior Critical Points — Endpoints Are the Extrema</h4>
+            <p>Find the absolute maximum and minimum of $\displaystyle f(x) = \frac{1}{1+x^2}$ on $[1,\,3]$.</p>
+            <p><strong>Solution.</strong> $f$ is continuous on $[1,3]$, so the EVT guarantees both a max and a min exist. Find critical points:</p>
+            $$f'(x) = \frac{-2x}{(1+x^2)^2}$$
+            <p>Since $x > 0$ on $(1,3)$, we have $f'(x) < 0$ everywhere in the interior — the function is strictly decreasing. <strong>No critical points in $(1,3)$.</strong></p>
+            <p>When there are no interior critical points, the extrema must be at the endpoints:</p>
+            <ul>
+                <li>$f(1) = \dfrac{1}{1+1} = \dfrac{1}{2}$ &nbsp;&#8594;&nbsp; <strong>absolute maximum</strong> (left endpoint) ✓</li>
+                <li>$f(3) = \dfrac{1}{1+9} = \dfrac{1}{10}$ &nbsp;&#8594;&nbsp; <strong>absolute minimum</strong> (right endpoint) ✓</li>
+            </ul>
+            <p><strong>Yes, closed-interval endpoints fully qualify as locations of absolute extrema.</strong> The Closed Interval Method always evaluates endpoints for precisely this reason: a monotone function on $[a,b]$ will have its extrema at the endpoints, not anywhere inside.</p>
+            <div class="desmos-container" id="edge-endpoint-graph"></div>
+            <p class="fig-label">Figure 4.14 — Endpoint Extrema: f(x) = 1/(1+x²) on [1, 3]</p>
+            <p class="desmos-caption">$f(x) = 1/(1+x^2)$ (gray dashed: full curve; blue: restricted to $[1,3]$). The function is strictly decreasing with no interior critical points. The <span style="color:#16a34a;font-weight:600;">green dot</span> at $(1,\,\tfrac{1}{2})$ is the absolute maximum; the <span style="color:#dc2626;font-weight:600;">red dot</span> at $(3,\,\tfrac{1}{10})$ is the absolute minimum — both at endpoints.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 17: Vertical Asymptote Inside the Interval</h4>
+            <p>Does $\displaystyle f(x) = \frac{1}{x-1}$ have an absolute maximum or minimum on $[0,\,3]$?</p>
+            <p><strong>Analysis.</strong> The function has a vertical asymptote at $x=1$, which lies <em>inside</em> $[0,3]$. Since $f$ is undefined at $x=1$, it cannot be continuous on $[0,3]$, and the EVT does not apply.</p>
+            <p>Examine the behavior near the asymptote:</p>
+            <ul>
+                <li>$x \to 1^-$: $f(x) \to -\infty$ &nbsp;&#8594;&nbsp; <strong>no lower bound</strong> on $[0,1)$, so no absolute minimum</li>
+                <li>$x \to 1^+$: $f(x) \to +\infty$ &nbsp;&#8594;&nbsp; <strong>no upper bound</strong> on $(1,3]$, so no absolute maximum</li>
+            </ul>
+            <p><strong>Neither an absolute max nor an absolute min exists on $[0,3]$.</strong></p>
+            <p><strong>How to handle it in practice.</strong> Restrict the domain to a sub-interval that avoids the asymptote:</p>
+            <ul>
+                <li>On $[0,\;0.5]$: $f$ is continuous and decreasing ($f' = -1/(x-1)^2 < 0$). Absolute max $= f(0) = -1$; absolute min $= f(0.5) = -2$.</li>
+                <li>On $[2,\;3]$: $f$ is continuous and decreasing. Absolute max $= f(2) = 1$; absolute min $= f(3) = \tfrac{1}{2}$.</li>
+            </ul>
+            <p><strong>Rule of thumb:</strong> Before applying optimization, always check that the objective function has no vertical asymptote (or any other discontinuity) inside the domain you are given.</p>
+            <div class="desmos-container" id="edge-asymptote-graph"></div>
+            <p class="fig-label">Figure 4.15 — Vertical Asymptote Inside [0, 3]</p>
+            <p class="desmos-caption">$f(x) = 1/(x-1)$ on $[0,3]$. The <span style="color:#dc2626;font-weight:600;">red dashed line</span> at $x=1$ is the vertical asymptote. The function is unbounded below on $[0,1)$ and unbounded above on $(1,3]$ — no absolute extrema exist on the full interval $[0,3]$.</p>
         </div>
 
         <!-- ============================================================ -->
@@ -598,7 +848,7 @@
         </div>
 
         <div class="example-box">
-            <h4>Example 13: Applying the Mean Value Theorem</h4>
+            <h4>Example 18: Applying the Mean Value Theorem</h4>
             <p>Let $f(x) = x^3 - x$ on the interval $[0, 2]$. Verify that the hypotheses of the MVT are satisfied and find all values of $c$ guaranteed by the theorem.</p>
             <p><strong>Solution.</strong> The function $f(x) = x^3 - x$ is a polynomial, so it is continuous on $[0, 2]$ and differentiable on $(0, 2)$. The hypotheses are satisfied.</p>
             <p>Compute the average rate of change:</p>
@@ -609,6 +859,7 @@
         </div>
 
         <div class="desmos-container" id="mvt-graph"></div>
+        <p class="fig-label">Figure 4.16 — Mean Value Theorem: Tangent Parallel to Secant</p>
         <p class="desmos-caption">Mean Value Theorem: the tangent line at x = c is parallel to the secant line through the endpoints. Drag c to find where they match.</p>
 
         <!-- ============================================================ -->
@@ -790,7 +1041,7 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Article",
+        "@type": "LearningResource",
         "headline": "AP Calculus: Applications of Derivatives - Chapter 4",
         "description": "AP Calculus applications of derivatives: related rates, optimization, Mean Value Theorem. Step-by-step worked examples and practice problems.",
         "author": {
@@ -820,31 +1071,435 @@
     </script>
 
     <!-- Desmos Interactive Graphs -->
-    
+
+    <!-- Example 4: Expanding Sphere — V(r) and S(r) with tangent showing dV/dr = S(r) -->
+    <script>
+    (function() {
+        var elt = document.getElementById('sphere-rr-graph');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false
+        });
+        // V(r) = (4/3)π x³  (x = radius on horizontal axis)
+        calc.setExpression({id: 'V', latex: 'y = \\frac{4}{3}\\pi x^{3}', color: '#2563eb', lineWidth: 2.5});
+        // S(r) = 4π x²
+        calc.setExpression({id: 'S', latex: 'y = 4\\pi x^{2}', color: '#16a34a', lineWidth: 2.5});
+        // Slider r₀
+        calc.setExpression({id: 'r0', latex: 'r_0 = 5', sliderBounds: {min: '1', max: '8', step: '0.1'}});
+        // Tangent to V at x = r₀: y = V(r₀) + V'(r₀)(x - r₀) = (4/3)π r₀³ + 4π r₀²(x - r₀)
+        calc.setExpression({id: 'TL', latex: 'y = \\frac{4}{3}\\pi r_0^{3} + 4\\pi r_0^{2}(x - r_0)',
+            color: '#1d4ed8', lineStyle: Desmos.Styles.DASHED, lineWidth: 2});
+        // Vertical dashed at x = r₀
+        calc.setExpression({id: 'vl', latex: 'x = r_0 \\{0 \\leq y \\leq \\frac{4}{3}\\pi r_0^{3}\\}',
+            color: '#94a3b8', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5});
+        // Point on V curve
+        calc.setExpression({id: 'pV', latex: '(r_0, \\frac{4}{3}\\pi r_0^{3})',
+            color: '#2563eb', pointSize: 14, label: 'V(r\u2080)', showLabel: true});
+        // Point on S curve — y-value equals the tangent slope of V
+        calc.setExpression({id: 'pS', latex: '(r_0, 4\\pi r_0^{2})',
+            color: '#16a34a', pointSize: 14, label: 'S(r\u2080) = dV/dr', showLabel: true});
+        // Horizontal line from S-point to V tangent for visual
+        calc.setExpression({id: 'hl', latex: 'y = 4\\pi r_0^{2} \\{0 \\leq x \\leq r_0\\}',
+            color: '#16a34a', lineStyle: Desmos.Styles.DASHED, lineWidth: 1});
+        calc.setMathBounds({left: -0.4, right: 9, bottom: -60, top: 1800});
+    })();
+    </script>
+
+    <!-- Example 5: Rotating Spotlight — tan(θ) geometry -->
+    <script>
+    (function() {
+        var elt = document.getElementById('spotlight-rr-graph');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false
+        });
+        // Wall at x = 6 (vertical segment)
+        calc.setExpression({id: 'wall', latex: 'x = 6 \\{-14 \\leq y \\leq 14\\}',
+            color: '#334155', lineWidth: 3});
+        // Slider x_p = person's position along wall from N (default 8, range 0–12)
+        calc.setExpression({id: 'xp', latex: 'x_p = 8', sliderBounds: {min: '0', max: '12', step: '0.1'}});
+        // Spotlight S at origin
+        calc.setExpression({id: 'spot', latex: '(0, 0)', color: '#f97316', pointSize: 20,
+            label: 'S  (spotlight)', showLabel: true});
+        // Nearest point N = (6, 0)
+        calc.setExpression({id: 'N', latex: '(6, 0)', color: '#334155', pointSize: 12,
+            label: 'N', showLabel: true});
+        // Person P on wall
+        calc.setExpression({id: 'person', latex: '(6, x_p)', color: '#dc2626', pointSize: 18,
+            label: 'P  (person)', showLabel: true});
+        // Amber beam from S to P: y = (x_p/6)·x for 0 ≤ x ≤ 6
+        calc.setExpression({id: 'beam', latex: 'y = \\frac{x_p}{6} x \\{0 \\leq x \\leq 6\\}',
+            color: '#f59e0b', lineWidth: 3});
+        // Perpendicular SN (horizontal dashed)
+        calc.setExpression({id: 'sn', latex: 'y = 0 \\{0 \\leq x \\leq 6\\}',
+            color: '#94a3b8', lineStyle: Desmos.Styles.DASHED, lineWidth: 2});
+        // Blue dashed segment along wall from N to P (showing x)
+        calc.setExpression({id: 'x_seg', latex: 'x = 6 \\{0 \\leq y \\leq x_p\\}',
+            color: '#2563eb', lineStyle: Desmos.Styles.DASHED, lineWidth: 2});
+        // Right-angle marker at N
+        calc.setExpression({id: 'ra1', latex: 'y = 0.35 \\{5.65 \\leq x \\leq 6\\}', color: '#334155', lineWidth: 1.5});
+        calc.setExpression({id: 'ra2', latex: 'x = 5.65 \\{0 \\leq y \\leq 0.35\\}', color: '#334155', lineWidth: 1.5});
+        // Angle θ — filled sector (pie-slice shape)
+        calc.setExpression({id: 'sector', latex: 'x^{2}+y^{2}\\leq 2.25\\{y\\geq 0\\}\\{6y\\leq x_p x\\}\\{x\\geq 0\\}',
+            color: '#7c3aed'});
+        // Arc outline on the curved edge of the sector
+        calc.setExpression({id: 'arc', latex: 'x^{2}+y^{2}=2.25\\{y\\geq 0\\}\\{6y\\leq x_p x\\}\\{x\\geq 0\\}',
+            color: '#7c3aed', lineWidth: 2.5});
+        // Bottom radius of sector: horizontal edge from origin to arc
+        calc.setExpression({id: 'r_h', latex: 'y=0\\{0\\leq x\\leq 1.5\\}', color: '#7c3aed', lineWidth: 1.5});
+        // Slant radius of sector: from origin along beam direction, length 1.5
+        calc.setExpression({id: 'r_b', latex: '\\left(\\frac{9t}{\\sqrt{36+x_p^{2}}},\\frac{1.5x_p t}{\\sqrt{36+x_p^{2}}}\\right)\\{0\\leq t\\leq 1\\}',
+            color: '#7c3aed', lineWidth: 1.5});
+        // θ label at the bisector angle of the sector
+        calc.setExpression({id: 'th', latex: '\\left(2.2\\cos\\left(\\frac{\\arctan\\left(x_p/6\\right)}{2}\\right),\\;2.2\\sin\\left(\\frac{\\arctan\\left(x_p/6\\right)}{2}\\right)\\right)',
+            color: '#7c3aed', pointSize: 3, label: '\u03b8', showLabel: true});
+        // d = 6 label on SN
+        calc.setExpression({id: 'd_lbl', latex: '(3, -0.85)', color: '#334155', pointSize: 4,
+            label: 'd = 6 m', showLabel: true});
+        // x label on vertical segment
+        calc.setExpression({id: 'x_lbl', latex: '(6.65, x_p / 2)', color: '#2563eb', pointSize: 4,
+            label: 'x', showLabel: true});
+        calc.setMathBounds({left: -1.5, right: 10, bottom: -2, top: 14});
+    })();
+    </script>
+
+    <!-- Concavity Triple Portrait — f, f', f'' stacked with shared x-axis and sliding reference line -->
+    <script>
+    (function() {
+        var elt = document.getElementById('concavity-triple-graph');
+        if (!elt) return;
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false
+        });
+        // f(x) = x^3 - x  (top, at natural position)
+        calc.setExpression({id: 'f',  latex: 'x^{3} - x', color: '#2563eb', lineWidth: 3});
+        // f'(x) = 3x^2 - 1  shifted down by 4 for vertical separation
+        calc.setExpression({id: 'fp', latex: '(3x^{2} - 1) - 4', color: '#16a34a', lineWidth: 3});
+        // f''(x) = 6x  shifted down by 8
+        calc.setExpression({id: 'fpp', latex: '6x - 8', color: '#f97316', lineWidth: 3});
+        // Zero-reference lines for each portrait (dashed grey)
+        calc.setExpression({id: 'z0',  latex: 'y = 0',  color: '#94a3b8', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5});
+        calc.setExpression({id: 'z4',  latex: 'y = -4', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5});
+        calc.setExpression({id: 'z8',  latex: 'y = -8', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5});
+        // Vertical reference slider t
+        calc.setExpression({id: 't',   latex: 't = 0',  sliderBounds: {min: '-2', max: '2', step: '0.05'}});
+        calc.setExpression({id: 'vline', latex: 'x = t', color: '#7c3aed', lineWidth: 2.5});
+        // Dots marking t-value on each curve
+        calc.setExpression({id: 'pt_f',   latex: '(t,\\, t^{3} - t)',          color: '#2563eb', pointSize: 14, label: 'f(t)', showLabel: true});
+        calc.setExpression({id: 'pt_fp',  latex: '(t,\\, (3t^{2} - 1) - 4)',  color: '#16a34a', pointSize: 14, label: "f'(t)", showLabel: true});
+        calc.setExpression({id: 'pt_fpp', latex: '(t,\\, 6t - 8)',             color: '#f97316', pointSize: 14, label: "f''(t)", showLabel: true});
+        // Portrait labels on the left side
+        calc.setExpression({id: 'lbl_f',   latex: '(-2.5,  0.5)', color: '#2563eb', pointSize: 0, label: 'f', showLabel: true});
+        calc.setExpression({id: 'lbl_fp',  latex: '(-2.5, -3.5)', color: '#16a34a', pointSize: 0, label: "f'", showLabel: true});
+        calc.setExpression({id: 'lbl_fpp', latex: '(-2.5, -7.5)', color: '#f97316', pointSize: 0, label: "f''", showLabel: true});
+        // Inflection markers at x = 0 (dashed vertical emphasis)
+        calc.setExpression({id: 'inf_mk', latex: 'x = 0 \\{-11 \\leq y \\leq 1\\}', color: '#dc2626',
+            lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5});
+        calc.setMathBounds({left: -3, right: 3, bottom: -11, top: 2});
+    })();
+    </script>
+
+    <!-- Figure 4.1: Linear Approximation Concept — y = x^(1/3) with moveable tangent -->
+    <script>
+    (function() {
+        var elt = document.getElementById('linear-approx-concept');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false
+        });
+        calc.setExpression({id: 'f', latex: 'f(x) = x^{1/3}', color: '#2563eb', lineWidth: 2.5});
+        calc.setExpression({id: 'a', latex: 'a = 8', sliderBounds: {min: '1', max: '27', step: '0.1'}});
+        // Tangent: L(x) = a^(1/3) + (1/3)*a^(-2/3)*(x - a)
+        calc.setExpression({id: 'L', latex: 'a^{1/3} + \\frac{1}{3} a^{-2/3}(x - a)', color: '#dc2626', lineStyle: Desmos.Styles.DASHED, lineWidth: 2});
+        calc.setExpression({id: 'pt', latex: '(a, a^{1/3})', color: '#dc2626', pointSize: 14, label: '(a, f(a))', showLabel: true});
+        calc.setMathBounds({left: -1, right: 28, bottom: -0.3, top: 4});
+    })();
+    </script>
+
+    <!-- Figure 4.2: Square Root Approximation -->
+    <script>
+    (function() {
+        var elt = document.getElementById('sqrt-approx-graph');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false
+        });
+        calc.setExpression({id: 'f', latex: 'y = \\sqrt{x}', color: '#2563eb', lineWidth: 2.5});
+        // Tangent at (49, 7): y = 7 + (1/14)(x - 49)
+        calc.setExpression({id: 'L', latex: 'y = 7 + \\frac{1}{14}(x - 49)', color: '#dc2626', lineStyle: Desmos.Styles.DASHED, lineWidth: 2});
+        calc.setExpression({id: 'base', latex: '(49, 7)', color: '#7c3aed', pointSize: 12, label: 'Base (49, 7)', showLabel: true});
+        calc.setExpression({id: 'trueVal', latex: '(50, \\sqrt{50})', color: '#16a34a', pointSize: 14, label: 'True: \\sqrt{50}\\approx 7.0711', showLabel: true});
+        calc.setExpression({id: 'approxVal', latex: '(50, 7 + 1/14)', color: '#f97316', pointSize: 14, label: 'Approx: L(50)\\approx 7.0714', showLabel: true});
+        calc.setMathBounds({left: 42, right: 57, bottom: 6.4, top: 7.8});
+    })();
+    </script>
+
+    <!-- Figure 4.3: Cube Root Approximation -->
+    <script>
+    (function() {
+        var elt = document.getElementById('cbrt-approx-graph');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false
+        });
+        calc.setExpression({id: 'f', latex: 'y = x^{1/3}', color: '#2563eb', lineWidth: 2.5});
+        // Tangent at (8, 2): y = 2 + (1/12)(x - 8)
+        calc.setExpression({id: 'L', latex: 'y = 2 + \\frac{1}{12}(x - 8)', color: '#dc2626', lineStyle: Desmos.Styles.DASHED, lineWidth: 2});
+        calc.setExpression({id: 'base', latex: '(8, 2)', color: '#7c3aed', pointSize: 12, label: 'Base (8, 2)', showLabel: true});
+        calc.setExpression({id: 'trueVal', latex: '(8.1, 8.1^{1/3})', color: '#16a34a', pointSize: 14, label: 'True: \\approx 2.00832', showLabel: true});
+        calc.setExpression({id: 'approxVal', latex: '(8.1, 2 + 0.1/12)', color: '#f97316', pointSize: 14, label: 'Approx: L(8.1)\\approx 2.00833', showLabel: true});
+        calc.setMathBounds({left: 5.5, right: 11, bottom: 1.7, top: 2.3});
+    })();
+    </script>
+
+    <!-- Figure 4.4: x^5 Approximation -->
+    <script>
+    (function() {
+        var elt = document.getElementById('x5-approx-graph');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false
+        });
+        calc.setExpression({id: 'f', latex: 'y = x^5', color: '#2563eb', lineWidth: 2.5});
+        // Tangent at (1, 1): y = 1 + 5(x - 1)
+        calc.setExpression({id: 'L', latex: 'y = 1 + 5(x - 1)', color: '#dc2626', lineStyle: Desmos.Styles.DASHED, lineWidth: 2});
+        calc.setExpression({id: 'base', latex: '(1, 1)', color: '#7c3aed', pointSize: 12, label: 'Base (1, 1)', showLabel: true});
+        calc.setExpression({id: 'trueVal', latex: '(1.02, 1.02^5)', color: '#16a34a', pointSize: 14, label: 'True: (1.02)^5\\approx 1.1041', showLabel: true});
+        calc.setExpression({id: 'approxVal', latex: '(1.02, 1 + 5 \\cdot 0.02)', color: '#f97316', pointSize: 14, label: 'Approx: L(1.02)=1.10', showLabel: true});
+        calc.setMathBounds({left: 0.75, right: 1.35, bottom: 0.4, top: 1.9});
+    })();
+    </script>
+
+    <!-- Figure 4.5: Sphere Volume Differential -->
+    <script>
+    (function() {
+        var elt = document.getElementById('sphere-diff-graph');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false
+        });
+        // V(r) = (4/3)π r³
+        calc.setExpression({id: 'f', latex: 'V(r) = \\frac{4}{3}\\pi r^3', color: '#2563eb', lineWidth: 2.5});
+        // Tangent at r=6: V(6) = 288π, V'(6) = 4π(36) = 144π
+        calc.setExpression({id: 'L', latex: 'L(r) = 288\\pi + 144\\pi(r - 6)', color: '#dc2626', lineStyle: Desmos.Styles.DASHED, lineWidth: 2});
+        calc.setExpression({id: 'dr', latex: 'dr = 0.02', sliderBounds: {min: '0', max: '0.5', step: '0.01'}});
+        calc.setExpression({id: 'base', latex: '(6, 288\\pi)', color: '#7c3aed', pointSize: 12, label: 'r=6', showLabel: true});
+        // True ΔV
+        calc.setExpression({id: 'trueEnd', latex: '(6 + dr, V(6 + dr))', color: '#16a34a', pointSize: 14, label: '\\Delta V (true)', showLabel: true});
+        // dV approximation
+        calc.setExpression({id: 'approxEnd', latex: '(6 + dr, L(6 + dr))', color: '#f97316', pointSize: 14, label: 'dV (approx)', showLabel: true});
+        // Vertical segments showing the difference
+        calc.setExpression({id: 'segTrue', latex: 'x = 6 + dr \\{V(6) \\leq y \\leq V(6 + dr)\\}', color: '#16a34a', lineWidth: 3});
+        calc.setExpression({id: 'segApprox', latex: 'x = 6 + dr + 0.06 \\{V(6) \\leq y \\leq L(6 + dr)\\}', color: '#f97316', lineWidth: 3});
+        calc.setMathBounds({left: 4.5, right: 8, bottom: 200, top: 1600});
+    })();
+    </script>
+
+    <!-- Figure 4.6: f(x) = x³ − x, colored by concavity, with moveable tangent -->
+    <script>
+    (function() {
+        var elt = document.getElementById('concavity-f-graph');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false
+        });
+        // Concave down (x < 0) in orange
+        calc.setExpression({id: 'f_down', latex: 'y = x^{3} - x \\{x \\leq 0\\}', color: '#f97316', lineWidth: 3});
+        // Concave up (x > 0) in green
+        calc.setExpression({id: 'f_up',   latex: 'y = x^{3} - x \\{x \\geq 0\\}', color: '#16a34a', lineWidth: 3});
+        // Slider t for moveable tangent line
+        calc.setExpression({id: 't', latex: 't = -1', sliderBounds: {min: '-2', max: '2', step: '0.05'}});
+        // Tangent line at t: y = f(t) + f'(t)(x - t) = (t³-t) + (3t²-1)(x-t)
+        calc.setExpression({id: 'tangent', latex: '(t^{3}-t)+(3t^{2}-1)(x-t)', color: '#334155', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5});
+        calc.setExpression({id: 'pt_t',   latex: '(t, t^{3}-t)', color: '#334155', pointSize: 10});
+        // Inflection point at (0, 0)
+        calc.setExpression({id: 'inflect', latex: '(0,0)', color: '#7c3aed', pointSize: 16, label: 'Inflection (0, 0)', showLabel: true});
+        // Local max and min (x = ±1/√3)
+        calc.setExpression({id: 'xm',   latex: 'x_{m} = 1/\\sqrt{3}'});
+        calc.setExpression({id: 'lmax', latex: '(-x_{m},\\, (-x_{m})^{3} - (-x_{m}))', color: '#dc2626', pointSize: 14, label: 'Local max', showLabel: true});
+        calc.setExpression({id: 'lmin', latex: '(x_{m},\\, x_{m}^{3} - x_{m})',        color: '#2563eb', pointSize: 14, label: 'Local min', showLabel: true});
+        calc.setMathBounds({left: -2.5, right: 2.5, bottom: -2, top: 2});
+    })();
+    </script>
+
+    <!-- Figure 4.7: f'(x) = 3x² − 1, colored by increasing/decreasing -->
+    <script>
+    (function() {
+        var elt = document.getElementById('concavity-fprime-graph');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false
+        });
+        // Decreasing (x < 0): orange
+        calc.setExpression({id: 'fp_dec', latex: 'y = 3x^{2}-1 \\{x \\leq 0\\}', color: '#f97316', lineWidth: 3});
+        // Increasing (x > 0): green
+        calc.setExpression({id: 'fp_inc', latex: 'y = 3x^{2}-1 \\{x \\geq 0\\}', color: '#16a34a', lineWidth: 3});
+        // Zero reference
+        calc.setExpression({id: 'yaxis', latex: 'y = 0', color: '#94a3b8', lineWidth: 1});
+        // Light fill below y=0 (where f' < 0, f is decreasing)
+        calc.setExpression({id: 'fill', latex: '3x^{2}-1 \\leq y \\leq 0 \\{3x^{2}-1 \\leq 0\\}', color: '#fde68a'});
+        // Zeros of f' (critical points of f): x = ±1/√3
+        calc.setExpression({id: 'xm', latex: 'x_{m} = 1/\\sqrt{3}'});
+        calc.setExpression({id: 'z1', latex: '(-x_{m}, 0)', color: '#dc2626', pointSize: 14, label: "f'=0: local max of f", showLabel: true});
+        calc.setExpression({id: 'z2', latex: '(x_{m}, 0)',  color: '#2563eb', pointSize: 14, label: "f'=0: local min of f", showLabel: true});
+        // Minimum of f' at x=0 (inflection of f)
+        calc.setExpression({id: 'fpm', latex: '(0, -1)', color: '#7c3aed', pointSize: 14, label: "Minimum of f' → inflection of f", showLabel: true});
+        calc.setMathBounds({left: -2.2, right: 2.2, bottom: -1.8, top: 5});
+    })();
+    </script>
+
+    <!-- Figure 4.8: f''(x) = 6x, shaded by sign -->
+    <script>
+    (function() {
+        var elt = document.getElementById('concavity-fpp-graph');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false
+        });
+        // Zero reference line
+        calc.setExpression({id: 'yaxis', latex: 'y = 0', color: '#94a3b8', lineWidth: 1});
+        // Orange shading: region between f''=6x and y=0 for x < 0  (f'' < 0)
+        calc.setExpression({id: 'shade_neg', latex: '6x \\leq y \\leq 0 \\{x \\leq 0\\}', color: '#f97316'});
+        // Green shading: region between y=0 and f''=6x for x > 0  (f'' > 0)
+        calc.setExpression({id: 'shade_pos', latex: '0 \\leq y \\leq 6x \\{x \\geq 0\\}', color: '#16a34a'});
+        // The line itself (drawn on top)
+        calc.setExpression({id: 'fpp_neg', latex: 'y = 6x \\{x \\leq 0\\}', color: '#c2410c', lineWidth: 3});
+        calc.setExpression({id: 'fpp_pos', latex: 'y = 6x \\{x \\geq 0\\}', color: '#15803d', lineWidth: 3});
+        // Inflection point marker
+        calc.setExpression({id: 'inflect', latex: '(0, 0)', color: '#7c3aed', pointSize: 16, label: "f''=0: inflection point", showLabel: true});
+        // Critical point markers on the x-axis
+        calc.setExpression({id: 'xm',  latex: 'x_{m} = 1/\\sqrt{3}'});
+        calc.setExpression({id: 'cp1', latex: '(-x_{m}, 6 \\cdot (-x_{m}))', color: '#dc2626', pointSize: 12, label: 'x = -1/√3 (local max)', showLabel: true});
+        calc.setExpression({id: 'cp2', latex: '(x_{m},  6 \\cdot x_{m})',    color: '#2563eb', pointSize: 12, label: 'x = 1/√3 (local min)',  showLabel: true});
+        calc.setMathBounds({left: -2.2, right: 2.2, bottom: -8, top: 8});
+    })();
+    </script>
+
+    <!-- Figure 4.9: Jump Discontinuity — piecewise function -->
+    <script>
+    (function() {
+        var elt = document.getElementById('edge-jump-graph');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false
+        });
+        // Piece 1: -x²+4x on [0, 2) — blue
+        calc.setExpression({id: 'p1', latex: 'y = -x^{2}+4x \\{0 \\leq x < 2\\}', color: '#2563eb', lineWidth: 3});
+        // Piece 2: x-3 on [2, 4] — blue
+        calc.setExpression({id: 'p2', latex: 'y = x-3 \\{2 \\leq x \\leq 4\\}',   color: '#2563eb', lineWidth: 3});
+        // Unachieved limit at (2, 4) — open circle
+        calc.setExpression({id: 'lim', latex: '(2, 4)', color: '#f97316', pointSize: 16,
+            pointStyle: Desmos.Styles.OPEN, label: 'limit = 4 (not achieved)', showLabel: true});
+        // Actual value at (2, -1) — red filled dot
+        calc.setExpression({id: 'actual', latex: '(2, -1)', color: '#dc2626', pointSize: 14,
+            label: 'f(2) = \u22121 (actual)', showLabel: true});
+        // Dashed supremum line y = 4
+        calc.setExpression({id: 'sup', latex: 'y = 4 \\{0 \\leq x \\leq 4\\}',
+            color: '#94a3b8', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5});
+        // Endpoint f(0)=0
+        calc.setExpression({id: 'e0', latex: '(0, 0)',   color: '#16a34a', pointSize: 12,
+            label: 'f(0)=0', showLabel: true});
+        // Endpoint f(4)=1
+        calc.setExpression({id: 'e4', latex: '(4, 1)',   color: '#16a34a', pointSize: 12,
+            label: 'f(4)=1', showLabel: true});
+        calc.setMathBounds({left: -0.5, right: 5, bottom: -2.2, top: 5.2});
+    })();
+    </script>
+
+    <!-- Figure 4.10: No interior critical points — endpoint extrema -->
+    <script>
+    (function() {
+        var elt = document.getElementById('edge-endpoint-graph');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false
+        });
+        // Full function context (gray dashed)
+        calc.setExpression({id: 'f_full', latex: 'y = \\frac{1}{1+x^{2}}',
+            color: '#94a3b8', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5});
+        // Highlighted segment on [1, 3]
+        calc.setExpression({id: 'f_seg', latex: 'y = \\frac{1}{1+x^{2}} \\{1 \\leq x \\leq 3\\}',
+            color: '#2563eb', lineWidth: 3});
+        // Absolute max at left endpoint (1, 1/2)
+        calc.setExpression({id: 'mx', latex: '(1, 1/2)', color: '#16a34a', pointSize: 16,
+            label: 'Abs max: f(1) = 1/2', showLabel: true});
+        // Absolute min at right endpoint (3, 1/10)
+        calc.setExpression({id: 'mn', latex: '(3, 1/10)', color: '#dc2626', pointSize: 16,
+            label: 'Abs min: f(3) = 1/10', showLabel: true});
+        // Vertical markers at x=1 and x=3
+        calc.setExpression({id: 'v1', latex: 'x = 1 \\{0 \\leq y \\leq 1/2\\}',
+            color: '#16a34a', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5});
+        calc.setExpression({id: 'v3', latex: 'x = 3 \\{0 \\leq y \\leq 1/10\\}',
+            color: '#dc2626', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5});
+        calc.setMathBounds({left: -0.5, right: 5, bottom: -0.08, top: 1.2});
+    })();
+    </script>
+
+    <!-- Figure 4.11: Vertical asymptote inside interval -->
+    <script>
+    (function() {
+        var elt = document.getElementById('edge-asymptote-graph');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false
+        });
+        // Left piece: 1/(x-1) on [0, 1)
+        calc.setExpression({id: 'f_left',  latex: 'y = \\frac{1}{x-1} \\{0 \\leq x < 1\\}',
+            color: '#2563eb', lineWidth: 3});
+        // Right piece: 1/(x-1) on (1, 3]
+        calc.setExpression({id: 'f_right', latex: 'y = \\frac{1}{x-1} \\{1 < x \\leq 3\\}',
+            color: '#2563eb', lineWidth: 3});
+        // Vertical asymptote at x = 1
+        calc.setExpression({id: 'asymp', latex: 'x = 1',
+            color: '#dc2626', lineStyle: Desmos.Styles.DASHED, lineWidth: 2.5});
+        // Endpoint markers
+        calc.setExpression({id: 'e0', latex: '(0, -1)', color: '#16a34a', pointSize: 14,
+            label: 'f(0) = \u22121', showLabel: true});
+        calc.setExpression({id: 'e3', latex: '(3, 1/2)', color: '#16a34a', pointSize: 14,
+            label: 'f(3) = 1/2', showLabel: true});
+        // Labels showing unbounded behavior (small invisible points with labels)
+        calc.setExpression({id: 'lbl_neg', latex: '(0.6, -6)', color: '#f97316', pointSize: 4,
+            label: '\u2192 \u2212\u221e', showLabel: true});
+        calc.setExpression({id: 'lbl_pos', latex: '(1.4,  6)', color: '#f97316', pointSize: 4,
+            label: '\u2192 +\u221e', showLabel: true});
+        calc.setMathBounds({left: -0.5, right: 4, bottom: -9, top: 9});
+    })();
+    </script>
+
+    <!-- MVT Graph -->
     <script>
     (function() {
         var elt = document.getElementById('mvt-graph');
-        var calc = Desmos.GraphingCalculator(elt, {expressions: true, settingsMenu: false, zoomButtons: true});
-        calc.setExpression({id: 'f', latex: 'f(x) = x^3 - 3x + 2', color: '#2563eb'});
-        calc.setExpression({id: 'a', latex: 'a_0 = -2'});
-        calc.setExpression({id: 'b', latex: 'b_0 = 2'});
-        calc.setExpression({id: 'secant', latex: 'y = f(a_0) + \\frac{f(b_0)-f(a_0)}{b_0-a_0}(x - a_0)', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED});
-        calc.setExpression({id: 'c', latex: 'c_0 = 0.5', sliderBounds: {min: '-2', max: '2', step: '0.05'}});
-        calc.setExpression({id: 'pt', latex: '(c_0, f(c_0))', color: '#dc2626', pointSize: 12});
-        calc.setExpression({id: 'tangent', latex: 'y = f(c_0) + f\'(c_0)(x - c_0)', color: '#dc2626', lineStyle: Desmos.Styles.DASHED});
-        calc.setExpression({id: 'ptA', latex: '(a_0, f(a_0))', color: '#16a34a', pointSize: 10});
-        calc.setExpression({id: 'ptB', latex: '(b_0, f(b_0))', color: '#16a34a', pointSize: 10});
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false
+        });
+        calc.setExpression({id: 'f', latex: 'f(x) = x^3 - 3x + 2', color: '#2563eb', lineWidth: 2.5});
+        calc.setExpression({id: 'a', latex: 'a_{0} = -2'});
+        calc.setExpression({id: 'b', latex: 'b_{0} = 2'});
+        calc.setExpression({id: 'secant', latex: 'y = f(a_{0}) + \\frac{f(b_{0})-f(a_{0})}{b_{0}-a_{0}}(x - a_{0})', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED});
+        calc.setExpression({id: 'c', latex: 'c_{0} = 0.5', sliderBounds: {min: '-2', max: '2', step: '0.05'}});
+        calc.setExpression({id: 'pt', latex: '(c_{0}, f(c_{0}))', color: '#dc2626', pointSize: 12});
+        calc.setExpression({id: 'tangent', latex: 'y = f(c_{0}) + f\'(c_{0})(x - c_{0})', color: '#dc2626', lineStyle: Desmos.Styles.DASHED});
+        calc.setExpression({id: 'ptA', latex: '(a_{0}, f(a_{0}))', color: '#16a34a', pointSize: 10});
+        calc.setExpression({id: 'ptB', latex: '(b_{0}, f(b_{0}))', color: '#16a34a', pointSize: 10});
         calc.setMathBounds({left: -3, right: 3, bottom: -4, top: 8});
     })();
     </script>
+
+    <!-- Optimization Graph -->
     <script>
     (function() {
         var elt = document.getElementById('optimization-graph');
-        var calc = Desmos.GraphingCalculator(elt, {expressions: true, settingsMenu: false, zoomButtons: true});
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false
+        });
         calc.setExpression({id: 'P', latex: 'P = 20', sliderBounds: {min: '8', max: '40', step: '1'}});
-        calc.setExpression({id: 'area', latex: 'A(x) = x\\left(\\frac{P}{2} - x\\right)', color: '#2563eb'});
-        calc.setExpression({id: 'x0', latex: 'x_0 = 3', sliderBounds: {min: '0.1', max: '9.9', step: '0.1'}});
-        calc.setExpression({id: 'pt', latex: '(x_0, A(x_0))', color: '#dc2626', pointSize: 12});
+        calc.setExpression({id: 'area', latex: 'A(x) = x\\left(\\frac{P}{2} - x\\right)', color: '#2563eb', lineWidth: 2.5});
+        calc.setExpression({id: 'x0', latex: 'x_{0} = 3', sliderBounds: {min: '0.1', max: '9.9', step: '0.1'}});
+        calc.setExpression({id: 'pt', latex: '(x_{0}, A(x_{0}))', color: '#dc2626', pointSize: 12});
         calc.setExpression({id: 'max', latex: '(P/4, A(P/4))', color: '#16a34a', pointSize: 12, label: 'Maximum', showLabel: true});
         calc.setMathBounds({left: -1, right: 12, bottom: -5, top: 30});
     })();

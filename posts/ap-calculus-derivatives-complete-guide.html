@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP Calculus Derivatives: Complete Study Guide with Practice Problems | MathHub</title>
+    <meta name="description" content="Master AP Calculus derivatives with our complete guide. Covers power rule, chain rule, product/quotient rules, implicit differentiation, and related rates with worked examples.">
+    <meta name="keywords" content="AP Calculus derivatives, differentiation rules, chain rule, product rule, quotient rule, implicit differentiation, related rates, AP Calculus AB BC">
+    <meta name="author" content="MathHub">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/posts/ap-calculus-derivatives-complete-guide.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/posts/ap-calculus-derivatives-complete-guide.html">
+    <meta property="og:title" content="AP Calculus Derivatives: Complete Study Guide with Practice Problems">
+    <meta property="og:description" content="Master all AP Calculus differentiation rules with worked examples, practice problems, and exam-style questions. Power rule, chain rule, implicit differentiation, and more.">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="AP Calculus Derivatives: Complete Study Guide">
+    <meta property="twitter:description" content="Complete AP Calculus derivatives guide with all differentiation rules, worked examples, and practice problems.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "AP Calculus Derivatives: Complete Study Guide with Practice Problems",
+        "description": "Master AP Calculus derivatives with complete coverage of all differentiation rules, implicit differentiation, and related rates with worked examples and practice problems.",
+        "url": "https://mathhub.io/posts/ap-calculus-derivatives-complete-guide.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "about": [
+            { "@type": "Thing", "name": "Derivatives" },
+            { "@type": "Thing", "name": "AP Calculus" },
+            { "@type": "Thing", "name": "Differentiation" }
+        ],
+        "educationalLevel": "AP",
+        "keywords": "AP Calculus, derivatives, differentiation rules, chain rule, product rule"
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+    <!-- MathJax -->
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['\\(','\\)'],['$','$']], displayMath: [['$$','$$'],['\\[','\\]']] },
+            options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.7; color: #333; background: #f5f5f5; }
+        .header { background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%); color: white; padding: 48px 16px; text-align: center; }
+        .header h1 { font-size: 2.0em; margin-bottom: 12px; line-height: 1.3; }
+        .category-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; font-size: 0.9em; margin-bottom: 12px; }
+        .date { opacity: 0.9; font-size: 0.9em; margin-top: 8px; }
+        .container { max-width: 900px; margin: 40px auto; background: white; padding: 48px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+        .back-link { display: inline-block; margin-bottom: 28px; color: #3949ab; text-decoration: none; font-weight: 600; }
+        .back-link:hover { text-decoration: underline; }
+        h2 { color: #1a237e; margin-top: 40px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #3949ab; }
+        h3 { color: #283593; margin-top: 28px; margin-bottom: 12px; }
+        p { margin-bottom: 16px; text-align: justify; }
+        ul, ol { margin: 12px 0 20px 24px; }
+        li { margin-bottom: 8px; }
+        .rule-box { background: #e8eaf6; border-left: 4px solid #3949ab; padding: 18px 22px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .rule-box strong { color: #1a237e; }
+        .example-box { background: #f3f4f6; border: 1px solid #d1d5db; padding: 20px 24px; margin: 20px 0; border-radius: 8px; }
+        .example-box .label { font-weight: 700; color: #3949ab; margin-bottom: 10px; font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.05em; }
+        .solution-box { background: #e8f5e9; border-left: 4px solid #388e3c; padding: 18px 22px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+        .highlight-box { background: #fff3e0; border-left: 4px solid #f57c00; padding: 18px 22px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .cta-box { background: #1a237e; color: white; padding: 28px 32px; border-radius: 12px; margin: 40px 0; text-align: center; }
+        .cta-box a { color: #ffd700; font-weight: bold; text-decoration: none; font-size: 1.1em; }
+        .cta-box a:hover { text-decoration: underline; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th { background: #1a237e; color: white; padding: 12px 16px; text-align: left; }
+        td { padding: 10px 16px; border-bottom: 1px solid #e5e7eb; }
+        tr:nth-child(even) td { background: #f9fafb; }
+        .tags { margin-top: 32px; padding-top: 20px; border-top: 1px solid #eee; }
+        .tag { display: inline-block; background: #e8eaf6; padding: 4px 12px; border-radius: 12px; font-size: 0.85em; margin: 3px; color: #3949ab; }
+        @media (max-width: 768px) { .container { padding: 24px 16px; margin: 20px 12px; } .header h1 { font-size: 1.5em; } }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="category-badge">AP Calculus AB/BC</div>
+    <h1>AP Calculus Derivatives: Complete Study Guide</h1>
+    <p>All differentiation rules with worked examples and practice problems</p>
+    <div class="date">March 2026 · MathHub</div>
+</div>
+
+<div class="container">
+    <a href="/us/ap-calculus/" class="back-link">← AP Calculus Hub</a>
+
+    <p>Derivatives are the foundation of AP Calculus — they appear in every section of the exam, from free-response questions to multiple-choice problems requiring rapid computation. This guide covers every differentiation rule you need for the AP exam, with worked examples at increasing difficulty levels.</p>
+
+    <h2>What Is a Derivative?</h2>
+
+    <p>The derivative of a function \(f(x)\) at a point \(x = a\) is defined as the limit of the difference quotient:</p>
+
+    $$f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}$$
+
+    <p>Geometrically, \(f'(a)\) gives the slope of the tangent line to the graph of \(f\) at the point \((a, f(a))\). On the AP exam, you need to be able to compute derivatives quickly using the standard rules — not from the limit definition.</p>
+
+    <h2>The Basic Differentiation Rules</h2>
+
+    <h3>Power Rule</h3>
+    <div class="rule-box">
+        <strong>Rule:</strong> If \(f(x) = x^n\), then \(f'(x) = nx^{n-1}\)
+    </div>
+
+    <div class="example-box">
+        <div class="label">Example 1</div>
+        <p>Find the derivative of \(f(x) = 3x^5 - 2x^3 + 7x - 4\).</p>
+    </div>
+    <div class="solution-box">
+        <strong>Solution:</strong><br>
+        Apply the power rule term by term:<br>
+        \(f'(x) = 3(5x^4) - 2(3x^2) + 7(1) - 0 = 15x^4 - 6x^2 + 7\)
+    </div>
+
+    <h3>Product Rule</h3>
+    <div class="rule-box">
+        <strong>Rule:</strong> If \(h(x) = f(x) \cdot g(x)\), then \(h'(x) = f'(x)g(x) + f(x)g'(x)\)
+    </div>
+
+    <div class="example-box">
+        <div class="label">Example 2</div>
+        <p>Find \(\frac{d}{dx}\left[x^2 \sin x\right]\).</p>
+    </div>
+    <div class="solution-box">
+        <strong>Solution:</strong><br>
+        Let \(f(x) = x^2\) and \(g(x) = \sin x\).<br>
+        Then \(f'(x) = 2x\) and \(g'(x) = \cos x\).<br>
+        \(\frac{d}{dx}\left[x^2 \sin x\right] = 2x \sin x + x^2 \cos x\)
+    </div>
+
+    <h3>Quotient Rule</h3>
+    <div class="rule-box">
+        <strong>Rule:</strong> If \(h(x) = \dfrac{f(x)}{g(x)}\), then \(h'(x) = \dfrac{f'(x)g(x) - f(x)g'(x)}{[g(x)]^2}\)
+    </div>
+
+    <div class="highlight-box">
+        <strong>Memory trick:</strong> "Low D-High minus High D-Low, all over Low squared." (Low = denominator, High = numerator, D = derivative)
+    </div>
+
+    <div class="example-box">
+        <div class="label">Example 3</div>
+        <p>Find \(\dfrac{d}{dx}\left[\dfrac{e^x}{x^2 + 1}\right]\).</p>
+    </div>
+    <div class="solution-box">
+        <strong>Solution:</strong><br>
+        \(f(x) = e^x\), \(g(x) = x^2 + 1\), so \(f'(x) = e^x\), \(g'(x) = 2x\).<br>
+        $$\frac{d}{dx}\left[\frac{e^x}{x^2+1}\right] = \frac{e^x(x^2+1) - e^x(2x)}{(x^2+1)^2} = \frac{e^x(x^2 - 2x + 1)}{(x^2+1)^2} = \frac{e^x(x-1)^2}{(x^2+1)^2}$$
+    </div>
+
+    <h2>The Chain Rule</h2>
+
+    <p>The chain rule is used when differentiating a <em>composite function</em> — a function of a function. It is the most commonly tested rule on the AP exam.</p>
+
+    <div class="rule-box">
+        <strong>Rule:</strong> If \(h(x) = f(g(x))\), then \(h'(x) = f'(g(x)) \cdot g'(x)\)<br>
+        <em>Or in Leibniz notation:</em> \(\dfrac{dy}{dx} = \dfrac{dy}{du} \cdot \dfrac{du}{dx}\)
+    </div>
+
+    <div class="example-box">
+        <div class="label">Example 4 — Single chain</div>
+        <p>Find \(\dfrac{d}{dx}\left[\sin(3x^2)\right]\).</p>
+    </div>
+    <div class="solution-box">
+        <strong>Solution:</strong><br>
+        Outer function: \(\sin(u)\), Inner function: \(u = 3x^2\)<br>
+        \(\dfrac{d}{dx}[\sin(3x^2)] = \cos(3x^2) \cdot 6x = 6x\cos(3x^2)\)
+    </div>
+
+    <div class="example-box">
+        <div class="label">Example 5 — Double chain (AP BC level)</div>
+        <p>Find \(\dfrac{d}{dx}\left[e^{\sin(x^2)}\right]\).</p>
+    </div>
+    <div class="solution-box">
+        <strong>Solution:</strong><br>
+        Work from outside in: Outer: \(e^u\), Middle: \(\sin(v)\), Inner: \(v = x^2\)<br>
+        \(= e^{\sin(x^2)} \cdot \cos(x^2) \cdot 2x = 2x\cos(x^2)\,e^{\sin(x^2)}\)
+    </div>
+
+    <h2>Derivatives of Special Functions</h2>
+
+    <table>
+        <thead>
+            <tr><th>Function</th><th>Derivative</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>\(\sin x\)</td><td>\(\cos x\)</td></tr>
+            <tr><td>\(\cos x\)</td><td>\(-\sin x\)</td></tr>
+            <tr><td>\(\tan x\)</td><td>\(\sec^2 x\)</td></tr>
+            <tr><td>\(\sec x\)</td><td>\(\sec x \tan x\)</td></tr>
+            <tr><td>\(\csc x\)</td><td>\(-\csc x \cot x\)</td></tr>
+            <tr><td>\(\cot x\)</td><td>\(-\csc^2 x\)</td></tr>
+            <tr><td>\(e^x\)</td><td>\(e^x\)</td></tr>
+            <tr><td>\(a^x\)</td><td>\(a^x \ln a\)</td></tr>
+            <tr><td>\(\ln x\)</td><td>\(1/x\)</td></tr>
+            <tr><td>\(\log_a x\)</td><td>\(1/(x \ln a)\)</td></tr>
+            <tr><td>\(\arcsin x\)</td><td>\(1/\sqrt{1-x^2}\)</td></tr>
+            <tr><td>\(\arctan x\)</td><td>\(1/(1+x^2)\)</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Implicit Differentiation</h2>
+
+    <p>When a curve is defined by an equation involving both \(x\) and \(y\) (not solved for \(y\)), use implicit differentiation. Treat \(y\) as a function of \(x\) and apply the chain rule whenever you differentiate a \(y\) term.</p>
+
+    <div class="example-box">
+        <div class="label">Example 6</div>
+        <p>Find \(\dfrac{dy}{dx}\) for the curve \(x^2 + y^3 = 5xy\).</p>
+    </div>
+    <div class="solution-box">
+        <strong>Solution:</strong><br>
+        Differentiate both sides with respect to \(x\):<br>
+        \(2x + 3y^2\dfrac{dy}{dx} = 5y + 5x\dfrac{dy}{dx}\)<br><br>
+        Collect \(\dfrac{dy}{dx}\) terms:<br>
+        \(3y^2\dfrac{dy}{dx} - 5x\dfrac{dy}{dx} = 5y - 2x\)<br>
+        \(\dfrac{dy}{dx}(3y^2 - 5x) = 5y - 2x\)<br>
+        $$\dfrac{dy}{dx} = \frac{5y - 2x}{3y^2 - 5x}$$
+    </div>
+
+    <h2>Related Rates</h2>
+
+    <p>Related rates problems ask how fast one quantity is changing given the rate of change of another related quantity. These appear regularly in AP free-response questions.</p>
+
+    <div class="highlight-box">
+        <strong>Strategy:</strong>
+        <ol style="margin-left:20px; margin-top:8px;">
+            <li>Draw a diagram and label variables</li>
+            <li>Write an equation relating the variables</li>
+            <li>Differentiate both sides with respect to time \(t\)</li>
+            <li>Substitute the given values and solve</li>
+        </ol>
+    </div>
+
+    <div class="example-box">
+        <div class="label">Example 7 — AP Exam style</div>
+        <p>A spherical balloon is being inflated so its volume increases at \(100 \text{ cm}^3/\text{s}\). How fast is the radius increasing when the radius is \(5\) cm?</p>
+    </div>
+    <div class="solution-box">
+        <strong>Solution:</strong><br>
+        Volume of sphere: \(V = \dfrac{4}{3}\pi r^3\)<br><br>
+        Differentiate with respect to \(t\):<br>
+        \(\dfrac{dV}{dt} = 4\pi r^2 \dfrac{dr}{dt}\)<br><br>
+        Substitute \(\dfrac{dV}{dt} = 100\) and \(r = 5\):<br>
+        \(100 = 4\pi(25)\dfrac{dr}{dt}\)<br>
+        \(\dfrac{dr}{dt} = \dfrac{100}{100\pi} = \dfrac{1}{\pi} \approx 0.318 \text{ cm/s}\)
+    </div>
+
+    <h2>AP Exam Tips</h2>
+
+    <ul>
+        <li><strong>Chain rule first</strong>: Whenever you see a composed function, identify inner/outer before differentiating.</li>
+        <li><strong>Simplify before differentiating</strong>: \(\dfrac{x^4 - x}{x} = x^3 - 1\) is much easier to differentiate directly.</li>
+        <li><strong>Implicit differentiation units</strong>: Always solve for \(\dfrac{dy}{dx}\) explicitly — don't leave it buried in the equation.</li>
+        <li><strong>Related rates units</strong>: State the units of your answer. AP graders will penalize missing units on free-response.</li>
+        <li><strong>Know the trig derivatives cold</strong>: They appear in chain rule problems, related rates, and curve sketching.</li>
+    </ul>
+
+    <div class="cta-box">
+        <p style="font-size:1.1em; margin-bottom:12px;">Ready to practice derivatives interactively?</p>
+        <p><a href="/us/textbook/ap-calculus/derivatives.html">→ AP Calculus Derivatives Textbook Chapter</a></p>
+        <p style="margin-top:10px; font-size:0.9em; opacity:0.9;">With Desmos interactive graphs and worked examples</p>
+    </div>
+
+    <h2>Related Resources</h2>
+    <ul>
+        <li><a href="/us/textbook/ap-calculus/limits.html">AP Calculus: Limits and Continuity</a></li>
+        <li><a href="/us/textbook/ap-calculus/integration.html">AP Calculus: Integration</a></li>
+        <li><a href="/us/ap-calculus/">AP Calculus Hub — all resources</a></li>
+        <li><a href="/blog/ap-calculus-applications-derivatives-textbook.html">Applications of Derivatives</a></li>
+        <li><a href="/blog/ap-calculus-curve-sketching-textbook.html">Curve Sketching with Derivatives</a></li>
+    </ul>
+
+    <div class="tags">
+        <span class="tag">AP Calculus AB</span>
+        <span class="tag">AP Calculus BC</span>
+        <span class="tag">Derivatives</span>
+        <span class="tag">Chain Rule</span>
+        <span class="tag">Implicit Differentiation</span>
+        <span class="tag">Related Rates</span>
+        <span class="tag">Calculus</span>
+    </div>
+</div>
+
+</body>
+</html>
