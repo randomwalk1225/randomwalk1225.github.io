@@ -126,6 +126,19 @@
         .error-table td { padding: 8px 12px; border: 1px solid #e2e8f0; text-align: center; color: #334155; }
         .error-table .correct { background: #f0fdf4; color: #065f46; font-weight: 600; }
         .error-table .error { background: #fef2f2; color: #dc2626; font-weight: 600; }
+
+        /* ── Section Summary ── */
+        .section-summary { background: #f8fafc; border: 2px solid #e2e8f0; padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px; }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .summary-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin: 16px 0; }
+        .key-term-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -434,6 +447,58 @@
         </div>
     </div>
 
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+            <h4>Hypothesis Testing Framework</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Null Hypothesis ($H_0$)</strong>
+                    <p>The default claim (no effect, no difference). Always stated in terms of a parameter. We assume $H_0$ is true and look for evidence against it.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Alternative Hypothesis ($H_a$)</strong>
+                    <p>What we're trying to show evidence for. Can be one-sided ($&lt;$ or $&gt;$) or two-sided ($\neq$). Chosen before seeing data.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>p-value</strong>
+                    <p>The probability of getting results as extreme or more extreme than observed, assuming $H_0$ is true. Small p-value → strong evidence against $H_0$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Significance Level $\alpha$</strong>
+                    <p>The threshold for "surprising" data (typically $\alpha = 0.05$). Reject $H_0$ if $p\text{-value} \leq \alpha$.</p>
+                </div>
+            </div>
+            <h4>Error Types</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Type I Error</strong>
+                    <p>Rejecting $H_0$ when it is actually true. Probability = $\alpha$. A "false positive."</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Type II Error</strong>
+                    <p>Failing to reject $H_0$ when it is actually false. Probability = $\beta$. A "false negative." Power $= 1 - \beta$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>One-Sample $t$-test</strong>
+                    <p>$t = \dfrac{\bar{x} - \mu_0}{s/\sqrt{n}}$ with $df = n-1$. Used when testing a claim about a population mean with unknown $\sigma$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>One-Proportion $z$-test</strong>
+                    <p>$z = \dfrac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/n}}$. Used when testing a claim about a population proportion.</p>
+                </div>
+            </div>
+        </div>
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item"><strong>Null Hypothesis</strong><span>The claim of no effect or no difference. Assumed true until evidence suggests otherwise.</span></div>
+                <div class="key-term-item"><strong>p-value</strong><span>Probability of observing data at least as extreme as ours, assuming $H_0$ is true. Not the probability that $H_0$ is true.</span></div>
+                <div class="key-term-item"><strong>Statistical Significance</strong><span>A result is statistically significant at level $\alpha$ if p-value $\leq \alpha$. Means the data is unlikely under $H_0$.</span></div>
+                <div class="key-term-item"><strong>Type I Error</strong><span>Rejecting $H_0$ when $H_0$ is actually true. Probability equals the significance level $\alpha$.</span></div>
+                <div class="key-term-item"><strong>Type II Error</strong><span>Failing to reject $H_0$ when $H_a$ is true. Probability is $\beta$; power of the test is $1-\beta$.</span></div>
+                <div class="key-term-item"><strong>Power</strong><span>$1 - \beta$ — probability of correctly rejecting $H_0$ when $H_a$ is true. Increased by larger $n$ or larger effect size.</span></div>
+            </div>
+        </div>
     <div class="chapter-nav">
         <a href="/us/textbook/ap-statistics/confidence-intervals.html">← Chapter 10: Confidence Intervals</a>
         <a href="/us/textbook/ap-statistics/chi-square-tests.html">Chapter 12: Chi-Square Tests →</a>

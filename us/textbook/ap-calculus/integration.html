@@ -192,6 +192,33 @@
             color: #2563eb; text-decoration: none; font-weight: 600; font-size: 0.95em;
         }
         .chapter-nav a:hover { text-decoration: underline; }
+
+        /* ── Section Summary ── */
+        .section-summary {
+            background: #f8fafc; border: 2px solid #e2e8f0;
+            padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px;
+        }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;
+        }
+        .summary-card {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 14px 18px;
+        }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 10px; margin: 16px 0;
+        }
+        .key-term-item {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 12px 16px;
+        }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -528,6 +555,94 @@
                     </details>
                 </div>
 
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION SUMMARY -->
+        <!-- ============================================================ -->
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+
+            <h4>Core Concepts</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Antiderivative</strong>
+                    <p>A function $F$ such that $F'(x) = f(x)$. The general antiderivative is $F(x) + C$ where $C$ is the constant of integration.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Definite Integral</strong>
+                    <p>$\displaystyle\int_a^b f(x)\,dx = \lim_{n\to\infty} \sum_{i=1}^n f(x_i^*)\,\Delta x$ — the signed area under $f$ from $a$ to $b$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Fundamental Theorem (Part 1)</strong>
+                    <p>If $g(x) = \displaystyle\int_a^x f(t)\,dt$, then $g'(x) = f(x)$. Differentiation and integration are inverse operations.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>u-Substitution</strong>
+                    <p>Let $u = g(x)$, so $du = g'(x)\,dx$. Transforms $\int f(g(x))g'(x)\,dx$ into $\int f(u)\,du$.</p>
+                </div>
+            </div>
+
+            <h4>Key Formulas</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Power Rule (Integration)</strong>
+                    <p>$\displaystyle\int x^n\,dx = \dfrac{x^{n+1}}{n+1} + C \quad (n \neq -1)$</p>
+                </div>
+                <div class="summary-card">
+                    <strong>FTC Part 2</strong>
+                    <p>$\displaystyle\int_a^b f(x)\,dx = F(b) - F(a)$ where $F'(x) = f(x)$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Common Antiderivatives</strong>
+                    <p>$\int e^x\,dx = e^x + C$ &nbsp; $\int \frac{1}{x}\,dx = \ln|x| + C$ &nbsp; $\int \cos x\,dx = \sin x + C$</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Properties</strong>
+                    <p>$\int_a^b [f+g]\,dx = \int_a^b f\,dx + \int_a^b g\,dx$ &nbsp; $\int_a^b kf\,dx = k\int_a^b f\,dx$</p>
+                </div>
+            </div>
+
+            <h4>Integration Strategy</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Identify basic form</strong> — power, trig, exponential, or log</li>
+                <li><strong>Try u-substitution</strong> — if you see a composite function with its derivative nearby</li>
+                <li><strong>Apply FTC</strong> — for definite integrals, find antiderivative then evaluate at bounds</li>
+                <li><strong>Check by differentiating</strong> — differentiate your antiderivative to verify</li>
+            </ol>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- KEY TERMS -->
+        <!-- ============================================================ -->
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item">
+                    <strong>Antiderivative</strong>
+                    <span>A function $F$ whose derivative equals $f$. The collection of all antiderivatives is written $\int f(x)\,dx = F(x) + C$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Indefinite Integral</strong>
+                    <span>$\int f(x)\,dx$ — represents the family of all antiderivatives of $f$, including the constant $+C$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Definite Integral</strong>
+                    <span>$\int_a^b f(x)\,dx$ — a number equal to the net signed area between $f$ and the $x$-axis from $a$ to $b$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Riemann Sum</strong>
+                    <span>An approximation of the definite integral as a sum of rectangle areas: $\sum_{i=1}^n f(x_i^*)\Delta x$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Fundamental Theorem of Calculus</strong>
+                    <span>Links differentiation and integration: $\frac{d}{dx}\int_a^x f(t)\,dt = f(x)$ and $\int_a^b f\,dx = F(b)-F(a)$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>u-Substitution</strong>
+                    <span>A technique for evaluating integrals by substituting $u = g(x)$ to simplify the integrand.</span>
+                </div>
             </div>
         </div>
 

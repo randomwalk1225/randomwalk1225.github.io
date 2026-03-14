@@ -194,6 +194,33 @@
             color: #2563eb; text-decoration: none; font-weight: 600; font-size: 0.95em;
         }
         .chapter-nav a:hover { text-decoration: underline; }
+
+        /* ── Section Summary ── */
+        .section-summary {
+            background: #f8fafc; border: 2px solid #e2e8f0;
+            padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px;
+        }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;
+        }
+        .summary-card {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 14px 18px;
+        }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 10px; margin: 16px 0;
+        }
+        .key-term-item {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 12px 16px;
+        }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -518,6 +545,96 @@
                     </details>
                 </div>
 
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION SUMMARY -->
+        <!-- ============================================================ -->
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+
+            <h4>Core Concepts</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>First Derivative Test</strong>
+                    <p>At a critical point $c$: if $f'$ changes $+\to-$, local max; if $f'$ changes $-\to+$, local min; if no sign change, neither.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Second Derivative Test</strong>
+                    <p>At critical point $c$ where $f'(c)=0$: if $f''(c)>0$, local min; if $f''(c)<0$, local max; if $f''(c)=0$, inconclusive.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Concavity</strong>
+                    <p>$f''>0$ on an interval $\Rightarrow$ concave up (cup shape). $f''<0$ $\Rightarrow$ concave down (cap shape).</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Closed Interval Method (Optimization)</strong>
+                    <p>On $[a,b]$, find all critical points and evaluate $f$ at critical points and endpoints. The largest value is the absolute max, smallest is the absolute min.</p>
+                </div>
+            </div>
+
+            <h4>Key Definitions</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Critical Point</strong>
+                    <p>A point where $f'(c) = 0$ or $f'(c)$ does not exist — candidates for local extrema.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Inflection Point</strong>
+                    <p>A point where $f''$ changes sign — concavity switches from up to down or vice versa.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Absolute Extrema</strong>
+                    <p>The global maximum or minimum value of $f$ over its entire domain or a specified interval.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Increasing/Decreasing</strong>
+                    <p>$f'>0$ on an interval $\Rightarrow$ $f$ is increasing. $f'<0$ $\Rightarrow$ $f$ is decreasing.</p>
+                </div>
+            </div>
+
+            <h4>Curve Sketching Checklist</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Domain</strong> — find where $f$ is defined</li>
+                <li><strong>Intercepts</strong> — set $f(x)=0$ and find $f(0)$</li>
+                <li><strong>Asymptotes</strong> — check for vertical ($f\to\infty$) and horizontal ($\lim_{x\to\pm\infty}$) asymptotes</li>
+                <li><strong>Increasing/Decreasing</strong> — find $f'$, critical points, sign chart</li>
+                <li><strong>Local Extrema</strong> — first or second derivative test at critical points</li>
+                <li><strong>Concavity &amp; Inflection</strong> — find $f''$, sign chart, inflection points</li>
+            </ol>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- KEY TERMS -->
+        <!-- ============================================================ -->
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item">
+                    <strong>Critical Point</strong>
+                    <span>An input $c$ in the domain where $f'(c) = 0$ or $f'(c)$ is undefined — candidates for local extrema.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Local Maximum</strong>
+                    <span>A value $f(c)$ that is greater than all nearby function values. Found via first or second derivative test.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Local Minimum</strong>
+                    <span>A value $f(c)$ that is less than all nearby function values.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Inflection Point</strong>
+                    <span>A point on the graph where concavity changes from up to down (or vice versa) — where $f''$ changes sign.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Concave Up / Down</strong>
+                    <span>Concave up: $f''>0$, graph curves like a cup. Concave down: $f''<0$, graph curves like a cap.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Optimization</strong>
+                    <span>Using calculus to find the absolute maximum or minimum of a function subject to constraints.</span>
+                </div>
             </div>
         </div>
 

@@ -127,6 +127,33 @@
         .chapter-nav { display: flex; justify-content: space-between; gap: 16px; margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0; }
         .chapter-nav a { display: inline-flex; align-items: center; gap: 6px; color: #2563eb; text-decoration: none; font-weight: 600; font-size: 0.95em; }
         .chapter-nav a:hover { text-decoration: underline; }
+
+        /* ── Section Summary ── */
+        .section-summary {
+            background: #f8fafc; border: 2px solid #e2e8f0;
+            padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px;
+        }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;
+        }
+        .summary-card {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 14px 18px;
+        }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 10px; margin: 16px 0;
+        }
+        .key-term-item {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 12px 16px;
+        }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -430,6 +457,94 @@
                     </details>
                 </div>
 
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION SUMMARY -->
+        <!-- ============================================================ -->
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+
+            <h4>Core Concepts</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Differential Equation</strong>
+                    <p>An equation relating a function $y$ with its derivatives. A solution is a function $y = f(x)$ satisfying the equation.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Separable Equations</strong>
+                    <p>$\dfrac{dy}{dx} = g(x)h(y)$ — separate variables: $\dfrac{dy}{h(y)} = g(x)\,dx$, then integrate both sides.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Slope Fields</strong>
+                    <p>A visual representation of $\frac{dy}{dx}$ at points $(x,y)$. Draw short segments with slope $f(x,y)$ at each point to sketch solution curves.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Logistic Growth</strong>
+                    <p>$\dfrac{dP}{dt} = kP\!\left(1-\dfrac{P}{M}\right)$ — population grows toward carrying capacity $M$. Solution has an S-shaped curve.</p>
+                </div>
+            </div>
+
+            <h4>Key Formulas</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Exponential Growth/Decay</strong>
+                    <p>$\dfrac{dy}{dt} = ky$ has solution $y = Ce^{kt}$. Growth if $k>0$, decay if $k<0$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Euler's Method</strong>
+                    <p>$y_{n+1} = y_n + h \cdot f(x_n, y_n)$ — approximates solution using step size $h$ from initial condition $(x_0, y_0)$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Half-Life Formula</strong>
+                    <p>$t_{1/2} = \dfrac{\ln 2}{k}$ — time for exponential decay to reduce $y$ to half its value.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Logistic Solution</strong>
+                    <p>$P(t) = \dfrac{M}{1 + Ae^{-kt}}$ where $A = \dfrac{M - P_0}{P_0}$ and $M$ is the carrying capacity.</p>
+                </div>
+            </div>
+
+            <h4>Solving Separable DEs</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Separate</strong> — rewrite as $\dfrac{dy}{h(y)} = g(x)\,dx$</li>
+                <li><strong>Integrate both sides</strong> — $\int \dfrac{dy}{h(y)} = \int g(x)\,dx + C$</li>
+                <li><strong>Solve for $y$</strong> — if possible, express $y$ explicitly</li>
+                <li><strong>Apply initial condition</strong> — substitute $(x_0, y_0)$ to find $C$</li>
+            </ol>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- KEY TERMS -->
+        <!-- ============================================================ -->
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item">
+                    <strong>Differential Equation</strong>
+                    <span>An equation involving an unknown function and its derivatives. A solution is a function that satisfies the equation.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Separable DE</strong>
+                    <span>A DE of the form $dy/dx = g(x)h(y)$ that can be solved by separating variables and integrating both sides.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Initial Value Problem</strong>
+                    <span>A DE together with an initial condition $y(x_0) = y_0$ that specifies a unique particular solution.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Slope Field</strong>
+                    <span>A diagram showing line segments with slope $dy/dx$ at each point — helps visualize solution curves without solving the DE.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Euler's Method</strong>
+                    <span>A numerical method for approximating DE solutions by stepping along tangent lines with step size $h$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Carrying Capacity</strong>
+                    <span>The maximum population $M$ that an environment can sustain; the upper asymptote in logistic growth.</span>
+                </div>
             </div>
         </div>
 

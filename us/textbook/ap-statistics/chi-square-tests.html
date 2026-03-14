@@ -131,6 +131,19 @@
         .two-way-table td { padding: 8px 16px; border: 1px solid #e2e8f0; text-align: center; color: #334155; min-width: 80px; }
         .two-way-table .row-header { background: #f0fdf4; font-weight: 600; color: #065f46; }
         .two-way-table .total-row { background: #ecfdf5; font-weight: 600; color: #064e3b; }
+
+        /* ── Section Summary ── */
+        .section-summary { background: #f8fafc; border: 2px solid #e2e8f0; padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px; }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .summary-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin: 16px 0; }
+        .key-term-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -439,6 +452,45 @@
         </div>
     </div>
 
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+            <h4>Chi-Square Tests</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>$\chi^2$ Statistic</strong>
+                    <p>$\chi^2 = \displaystyle\sum \dfrac{(O - E)^2}{E}$ — measures how far observed counts are from expected counts. Larger values suggest more evidence against $H_0$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Goodness-of-Fit Test</strong>
+                    <p>Tests whether a single categorical variable has a specified distribution. $df = k - 1$ where $k$ = number of categories.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Test for Independence</strong>
+                    <p>Tests whether two categorical variables are independent (using a two-way table). $df = (r-1)(c-1)$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Test for Homogeneity</strong>
+                    <p>Tests whether several populations have the same distribution of a categorical variable. Same formula as independence test; different setup.</p>
+                </div>
+            </div>
+            <h4>Conditions</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Random</strong> — data from a random sample or randomized experiment</li>
+                <li><strong>Large counts</strong> — all expected counts $E \geq 5$</li>
+                <li><strong>Independent observations</strong> — 10% condition: $n \leq 10\%$ of population</li>
+            </ol>
+        </div>
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item"><strong>Chi-Square Statistic</strong><span>$\chi^2 = \sum(O-E)^2/E$ — measures discrepancy between observed and expected counts.</span></div>
+                <div class="key-term-item"><strong>Expected Count</strong><span>Under $H_0$: $E = np$ (GOF) or $E = \text{row total} \times \text{col total}/n$ (two-way table).</span></div>
+                <div class="key-term-item"><strong>Goodness-of-Fit</strong><span>Tests if one categorical variable matches a claimed distribution. $H_0$: distribution is as claimed.</span></div>
+                <div class="key-term-item"><strong>Independence Test</strong><span>Uses two-way table to test if two categorical variables are independent. $H_0$: variables are independent.</span></div>
+                <div class="key-term-item"><strong>Degrees of Freedom</strong><span>GOF: $df = k-1$. Two-way: $df = (r-1)(c-1)$. Determines the shape of the $\chi^2$ distribution.</span></div>
+                <div class="key-term-item"><strong>Homogeneity Test</strong><span>Tests if several populations share the same categorical distribution. Differs from independence in study design.</span></div>
+            </div>
+        </div>
     <div class="chapter-nav">
         <a href="/us/textbook/ap-statistics/significance-tests.html">← Chapter 11: Significance Tests</a>
         <a href="/us/ap-statistics">AP Statistics Exam Guide →</a>

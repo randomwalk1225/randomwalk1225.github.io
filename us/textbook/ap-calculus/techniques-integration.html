@@ -220,6 +220,33 @@
             color: #2563eb; text-decoration: none; font-weight: 600; font-size: 0.95em;
         }
         .chapter-nav a:hover { text-decoration: underline; }
+
+        /* ── Section Summary ── */
+        .section-summary {
+            background: #f8fafc; border: 2px solid #e2e8f0;
+            padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px;
+        }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;
+        }
+        .summary-card {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 14px 18px;
+        }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 10px; margin: 16px 0;
+        }
+        .key-term-item {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 12px 16px;
+        }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -653,6 +680,95 @@
                     </details>
                 </div>
 
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION SUMMARY -->
+        <!-- ============================================================ -->
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+
+            <h4>Integration Techniques</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Integration by Parts</strong>
+                    <p>$\displaystyle\int u\,dv = uv - \int v\,du$. Use LIATE to choose $u$: Logarithmic, Inverse trig, Algebraic, Trig, Exponential.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Trigonometric Substitution</strong>
+                    <p>For $\sqrt{a^2-x^2}$: let $x = a\sin\theta$. For $\sqrt{a^2+x^2}$: let $x = a\tan\theta$. For $\sqrt{x^2-a^2}$: let $x = a\sec\theta$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Partial Fractions</strong>
+                    <p>Decompose $\dfrac{P(x)}{Q(x)}$ into simpler fractions when $\deg P < \deg Q$ and $Q$ factors over the reals.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Improper Integrals</strong>
+                    <p>$\displaystyle\int_a^\infty f\,dx = \lim_{b\to\infty}\int_a^b f\,dx$. Converges if the limit exists; diverges otherwise.</p>
+                </div>
+            </div>
+
+            <h4>Key Formulas</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Integration by Parts</strong>
+                    <p>$\displaystyle\int u\,dv = uv - \int v\,du$</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Trig Power Identities</strong>
+                    <p>$\sin^2\theta = \dfrac{1-\cos 2\theta}{2}$ &nbsp; $\cos^2\theta = \dfrac{1+\cos 2\theta}{2}$</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Trig Substitution Summary</strong>
+                    <p>$\sqrt{a^2-x^2}$: $x=a\sin\theta$ &nbsp; $\sqrt{a^2+x^2}$: $x=a\tan\theta$ &nbsp; $\sqrt{x^2-a^2}$: $x=a\sec\theta$</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Comparison Test (Improper)</strong>
+                    <p>If $0 \leq f(x) \leq g(x)$ and $\int g$ converges, then $\int f$ converges. Contrapositive also holds.</p>
+                </div>
+            </div>
+
+            <h4>Technique Selection Guide</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>u-substitution first</strong> — always try this before advanced techniques</li>
+                <li><strong>IBP</strong> — for products like $x e^x$, $x\ln x$, $x\sin x$</li>
+                <li><strong>Trig substitution</strong> — when you see $\sqrt{a^2 \pm x^2}$ or $\sqrt{x^2-a^2}$</li>
+                <li><strong>Partial fractions</strong> — for rational functions (polynomial over polynomial)</li>
+                <li><strong>Improper integral</strong> — replace $\infty$ or discontinuity with a limit</li>
+            </ol>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- KEY TERMS -->
+        <!-- ============================================================ -->
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item">
+                    <strong>Integration by Parts</strong>
+                    <span>Technique based on the product rule: $\int u\,dv = uv - \int v\,du$. Used for products of unlike function types.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>LIATE Rule</strong>
+                    <span>Mnemonic for choosing $u$ in IBP: Logarithmic, Inverse trig, Algebraic, Trigonometric, Exponential (in order of preference).</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Trigonometric Substitution</strong>
+                    <span>Substituting $x = a\sin\theta$, $a\tan\theta$, or $a\sec\theta$ to eliminate radicals in integrals.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Partial Fraction Decomposition</strong>
+                    <span>Writing a rational function as a sum of simpler fractions whose antiderivatives are known.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Improper Integral</strong>
+                    <span>A definite integral with an infinite limit of integration or an integrand with a vertical asymptote. Evaluated via limits.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Convergence / Divergence</strong>
+                    <span>An improper integral converges if its limit exists (is finite); diverges if the limit is infinite or undefined.</span>
+                </div>
             </div>
         </div>
 

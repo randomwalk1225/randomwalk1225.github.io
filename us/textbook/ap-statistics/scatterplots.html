@@ -125,6 +125,19 @@
         .data-table th { background: #064e3b; color: white; padding: 8px 12px; text-align: center; font-weight: 600; }
         .data-table td { padding: 7px 12px; border: 1px solid #e2e8f0; text-align: center; color: #334155; }
         .data-table tr:nth-child(even) { background: #f8fafc; }
+
+        /* ── Section Summary ── */
+        .section-summary { background: #f8fafc; border: 2px solid #e2e8f0; padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px; }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .summary-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin: 16px 0; }
+        .key-term-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -375,6 +388,58 @@
         </div>
     </div>
 
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+            <h4>Describing Scatterplots</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Direction</strong>
+                    <p>Positive association: as $x$ increases, $y$ tends to increase. Negative: as $x$ increases, $y$ tends to decrease.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Form</strong>
+                    <p>Linear (points roughly follow a line) vs. nonlinear (curved pattern). Identify before using correlation.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Strength</strong>
+                    <p>How closely points follow the form. Strong: points cluster tightly. Weak: points widely scattered.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Outliers</strong>
+                    <p>Points that deviate from the overall pattern. Can strongly influence $r$ and the regression line.</p>
+                </div>
+            </div>
+            <h4>Correlation $r$</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Properties of $r$</strong>
+                    <p>$-1 \leq r \leq 1$. $r = \pm 1$ means perfect linear association. $r = 0$ means no linear association. $r$ has no units.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Formula</strong>
+                    <p>$r = \dfrac{1}{n-1}\displaystyle\sum\left(\dfrac{x_i - \bar{x}}{s_x}\right)\!\left(\dfrac{y_i - \bar{y}}{s_y}\right)$ — average product of standardized scores.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Caution: Correlation ≠ Causation</strong>
+                    <p>A high $r$ does not mean $x$ causes $y$. A lurking variable may cause both, or the association may be coincidental.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Conditions for $r$</strong>
+                    <p>Only valid for linear relationships between quantitative variables. Not appropriate for categorical data or clearly curved patterns.</p>
+                </div>
+            </div>
+        </div>
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item"><strong>Scatterplot</strong><span>A graph of paired $(x, y)$ data showing the relationship between two quantitative variables.</span></div>
+                <div class="key-term-item"><strong>Explanatory Variable</strong><span>The $x$-variable, which may help explain or predict the response variable.</span></div>
+                <div class="key-term-item"><strong>Response Variable</strong><span>The $y$-variable, which is measured as an outcome. Also called the dependent variable.</span></div>
+                <div class="key-term-item"><strong>Correlation ($r$)</strong><span>Measures the direction and strength of the linear relationship between two quantitative variables. $-1 \leq r \leq 1$.</span></div>
+                <div class="key-term-item"><strong>Lurking Variable</strong><span>A variable not in the analysis that is associated with both $x$ and $y$, potentially explaining their relationship.</span></div>
+                <div class="key-term-item"><strong>Causation</strong><span>A direct cause-and-effect relationship. Cannot be established by correlation alone — requires a controlled experiment.</span></div>
+            </div>
+        </div>
     <div class="chapter-nav">
         <a href="/us/textbook/ap-statistics/normal-distributions.html">← Chapter 3: Normal Distributions</a>
         <a href="/us/textbook/ap-statistics/regression.html">Chapter 5: Regression →</a>

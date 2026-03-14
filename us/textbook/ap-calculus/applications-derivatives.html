@@ -188,6 +188,33 @@
             color: #2563eb; text-decoration: none; font-weight: 600; font-size: 0.95em;
         }
         .chapter-nav a:hover { text-decoration: underline; }
+
+        /* ── Section Summary ── */
+        .section-summary {
+            background: #f8fafc; border: 2px solid #e2e8f0;
+            padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px;
+        }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;
+        }
+        .summary-card {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 14px 18px;
+        }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 10px; margin: 16px 0;
+        }
+        .key-term-item {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 12px 16px;
+        }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -482,6 +509,94 @@
                     </details>
                 </div>
 
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION SUMMARY -->
+        <!-- ============================================================ -->
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+
+            <h4>Core Theorems</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Mean Value Theorem</strong>
+                    <p>If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then $\exists\, c \in (a,b)$ such that $f'(c) = \dfrac{f(b)-f(a)}{b-a}$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Rolle's Theorem</strong>
+                    <p>Special case of MVT: if $f(a) = f(b)$, then $\exists\, c$ where $f'(c) = 0$. Used to prove MVT.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>L'Hôpital's Rule</strong>
+                    <p>If $\lim\frac{f}{g}$ yields $\frac{0}{0}$ or $\frac{\infty}{\infty}$, then $\lim\dfrac{f(x)}{g(x)} = \lim\dfrac{f'(x)}{g'(x)}$ (if the latter exists).</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Linearization</strong>
+                    <p>$L(x) = f(a) + f'(a)(x-a)$ approximates $f$ near $x = a$ using the tangent line.</p>
+                </div>
+            </div>
+
+            <h4>Key Formulas</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>MVT Conclusion</strong>
+                    <p>$f'(c) = \dfrac{f(b)-f(a)}{b-a}$ — the instantaneous rate equals the average rate at some interior point.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Differential</strong>
+                    <p>$dy = f'(x)\,dx$ — approximates the change in $f$ for a small change $dx$ in $x$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Newton's Method</strong>
+                    <p>$x_{n+1} = x_n - \dfrac{f(x_n)}{f'(x_n)}$ — iteratively approximates roots of $f(x) = 0$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Indeterminate Forms</strong>
+                    <p>$\frac{0}{0}$, $\frac{\infty}{\infty}$, $0\cdot\infty$, $\infty-\infty$, $0^0$, $1^\infty$, $\infty^0$ — apply L'Hôpital or algebraic manipulation.</p>
+                </div>
+            </div>
+
+            <h4>Applying L'Hôpital's Rule</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Verify the indeterminate form</strong> — confirm $\frac{0}{0}$ or $\frac{\infty}{\infty}$ by substitution</li>
+                <li><strong>Differentiate numerator and denominator separately</strong> — do NOT use quotient rule</li>
+                <li><strong>Evaluate the new limit</strong> — substitute; repeat if still indeterminate</li>
+                <li><strong>Convert other forms</strong> — write $0 \cdot \infty$ as $\frac{0}{1/\infty}$ first</li>
+            </ol>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- KEY TERMS -->
+        <!-- ============================================================ -->
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item">
+                    <strong>Mean Value Theorem</strong>
+                    <span>Guarantees the existence of a point where the instantaneous rate equals the average rate over $[a,b]$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>L'Hôpital's Rule</strong>
+                    <span>Evaluates indeterminate limits by replacing $\lim f/g$ with $\lim f'/g'$ when the original is $0/0$ or $\infty/\infty$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Differential</strong>
+                    <span>$dy = f'(x)\,dx$ — a linear approximation of the change in $y$ for a small change in $x$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Linearization</strong>
+                    <span>The tangent line $L(x) = f(a) + f'(a)(x-a)$ used to approximate values of $f$ near $x = a$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Newton's Method</strong>
+                    <span>An iterative numerical method for approximating roots of equations using tangent lines.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Indeterminate Form</strong>
+                    <span>A limit expression like $0/0$ or $\infty/\infty$ whose value cannot be determined by direct substitution.</span>
+                </div>
             </div>
         </div>
 

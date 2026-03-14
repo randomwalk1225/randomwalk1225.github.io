@@ -133,6 +133,33 @@
         .chapter-nav { display: flex; justify-content: space-between; gap: 16px; margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0; }
         .chapter-nav a { display: inline-flex; align-items: center; gap: 6px; color: #2563eb; text-decoration: none; font-weight: 600; font-size: 0.95em; }
         .chapter-nav a:hover { text-decoration: underline; }
+
+        /* ── Section Summary ── */
+        .section-summary {
+            background: #f8fafc; border: 2px solid #e2e8f0;
+            padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px;
+        }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;
+        }
+        .summary-card {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 14px 18px;
+        }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 10px; margin: 16px 0;
+        }
+        .key-term-item {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 12px 16px;
+        }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -448,6 +475,95 @@
                     </details>
                 </div>
 
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION SUMMARY -->
+        <!-- ============================================================ -->
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+
+            <h4>Convergence Tests</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Divergence Test</strong>
+                    <p>If $\lim_{n\to\infty} a_n \neq 0$, then $\sum a_n$ diverges. (Note: $a_n \to 0$ does NOT guarantee convergence.)</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Ratio Test</strong>
+                    <p>Let $L = \lim_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|$. Converges if $L<1$, diverges if $L>1$, inconclusive if $L=1$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Alternating Series Test</strong>
+                    <p>$\sum(-1)^n b_n$ converges if $b_n$ is decreasing and $b_n \to 0$. Error bound: $|S - S_N| \leq b_{N+1}$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>p-Series</strong>
+                    <p>$\sum \dfrac{1}{n^p}$ converges if $p > 1$, diverges if $p \leq 1$. Harmonic series ($p=1$) diverges.</p>
+                </div>
+            </div>
+
+            <h4>Key Formulas</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Geometric Series</strong>
+                    <p>$\displaystyle\sum_{n=0}^\infty ar^n = \dfrac{a}{1-r}$ for $|r|<1$. Diverges if $|r|\geq 1$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Taylor Series</strong>
+                    <p>$f(x) = \displaystyle\sum_{n=0}^\infty \dfrac{f^{(n)}(a)}{n!}(x-a)^n$ — centered at $x = a$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Common Maclaurin Series</strong>
+                    <p>$e^x = \sum\dfrac{x^n}{n!}$ &nbsp; $\sin x = \sum\dfrac{(-1)^n x^{2n+1}}{(2n+1)!}$ &nbsp; $\cos x = \sum\dfrac{(-1)^n x^{2n}}{(2n)!}$</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Radius of Convergence</strong>
+                    <p>Found via Ratio Test on power series $\sum c_n(x-a)^n$: $R = \lim_{n\to\infty}\left|\dfrac{c_n}{c_{n+1}}\right|$.</p>
+                </div>
+            </div>
+
+            <h4>Test Selection Guide</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Check $a_n \to 0$ first</strong> — if not, series diverges immediately (Divergence Test)</li>
+                <li><strong>Geometric/p-series</strong> — recognize the form $ar^n$ or $1/n^p$</li>
+                <li><strong>Factorial or exponential</strong> — use Ratio Test</li>
+                <li><strong>Alternating signs</strong> — use Alternating Series Test</li>
+                <li><strong>Compare to known series</strong> — use Direct or Limit Comparison Test</li>
+            </ol>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- KEY TERMS -->
+        <!-- ============================================================ -->
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item">
+                    <strong>Sequence</strong>
+                    <span>An ordered list of numbers $\{a_n\}$. Converges if $\lim_{n\to\infty} a_n = L$ (finite); diverges otherwise.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Series</strong>
+                    <span>The sum $\sum_{n=1}^\infty a_n$ of a sequence, defined as the limit of partial sums $S_N = \sum_{n=1}^N a_n$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Geometric Series</strong>
+                    <span>$\sum ar^n$ — converges to $a/(1-r)$ when $|r|<1$. Standard comparison benchmark.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Power Series</strong>
+                    <span>$\sum c_n(x-a)^n$ — a series that defines a function within its radius of convergence.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Taylor Series</strong>
+                    <span>Power series representation of $f$ centered at $a$: $\sum \frac{f^{(n)}(a)}{n!}(x-a)^n$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Radius of Convergence</strong>
+                    <span>The value $R$ such that a power series converges for $|x-a|<R$ and diverges for $|x-a|>R$.</span>
+                </div>
             </div>
         </div>
 

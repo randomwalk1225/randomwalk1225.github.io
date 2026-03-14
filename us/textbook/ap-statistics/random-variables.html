@@ -126,6 +126,19 @@
         .data-table th { background: #064e3b; color: white; padding: 8px 12px; text-align: center; font-weight: 600; }
         .data-table td { padding: 7px 12px; border: 1px solid #e2e8f0; text-align: center; color: #334155; }
         .data-table tr:nth-child(even) { background: #f8fafc; }
+
+        /* ── Section Summary ── */
+        .section-summary { background: #f8fafc; border: 2px solid #e2e8f0; padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px; }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .summary-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin: 16px 0; }
+        .key-term-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -516,6 +529,50 @@
         </div>
     </div>
 
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+            <h4>Discrete Random Variables</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Expected Value (Mean)</strong>
+                    <p>$\mu_X = E(X) = \sum x_i \cdot P(X = x_i)$ — the long-run average value of $X$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Variance &amp; SD</strong>
+                    <p>$\sigma_X^2 = \sum (x_i - \mu_X)^2 P(X=x_i)$ &nbsp; $\sigma_X = \sqrt{\sigma_X^2}$ — measures spread of the distribution.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Binomial: $B(n,p)$</strong>
+                    <p>$n$ independent trials, probability $p$ of success. $P(X=k) = \binom{n}{k}p^k(1-p)^{n-k}$. $\mu = np$, $\sigma = \sqrt{np(1-p)}$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Geometric Distribution</strong>
+                    <p>Number of trials until first success. $P(X=k) = (1-p)^{k-1}p$. $\mu = 1/p$. Requires independence and constant $p$.</p>
+                </div>
+            </div>
+            <h4>Linear Combinations</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Sum/Difference of Means</strong>
+                    <p>$\mu_{X \pm Y} = \mu_X \pm \mu_Y$ — always true (means always add/subtract).</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Sum/Difference of Variances</strong>
+                    <p>$\sigma_{X+Y}^2 = \sigma_X^2 + \sigma_Y^2$ — ONLY when $X$ and $Y$ are independent. Same for difference: $\sigma_{X-Y}^2 = \sigma_X^2 + \sigma_Y^2$.</p>
+                </div>
+            </div>
+        </div>
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item"><strong>Random Variable</strong><span>A variable whose value is determined by the outcome of a random phenomenon.</span></div>
+                <div class="key-term-item"><strong>Expected Value</strong><span>$E(X) = \sum x_i P(x_i)$ — the long-run mean of a random variable.</span></div>
+                <div class="key-term-item"><strong>Binomial Distribution</strong><span>$B(n, p)$ — counts successes in $n$ independent trials each with probability $p$.</span></div>
+                <div class="key-term-item"><strong>Geometric Distribution</strong><span>Counts trials until the first success with probability $p$ each trial.</span></div>
+                <div class="key-term-item"><strong>Independence (RVs)</strong><span>Random variables are independent if knowing the value of one doesn't affect the distribution of the other.</span></div>
+                <div class="key-term-item"><strong>10% Condition</strong><span>For sampling without replacement, treat trials as independent if sample size $\leq 10\%$ of population.</span></div>
+            </div>
+        </div>
     <div class="chapter-nav">
         <a href="/us/textbook/ap-statistics/probability.html">← Chapter 7: Probability</a>
         <a href="/us/textbook/ap-statistics/sampling-distributions.html">Chapter 9: Sampling Distributions →</a>

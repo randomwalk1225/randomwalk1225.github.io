@@ -132,6 +132,19 @@
         .chapter-nav { display: flex; justify-content: space-between; gap: 16px; margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0; }
         .chapter-nav a { display: inline-flex; align-items: center; gap: 6px; color: #10b981; text-decoration: none; font-weight: 600; font-size: 0.95em; }
         .chapter-nav a:hover { text-decoration: underline; }
+
+        /* ── Section Summary ── */
+        .section-summary { background: #f8fafc; border: 2px solid #e2e8f0; padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px; }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .summary-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin: 16px 0; }
+        .key-term-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -478,6 +491,47 @@
             </div>
         </div>
 
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+            <h4>Normal Distribution Properties</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Normal Distribution</strong>
+                    <p>Bell-shaped, symmetric, described by mean $\mu$ and standard deviation $\sigma$. Notation: $N(\mu, \sigma)$. The curve extends infinitely in both directions.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>68-95-99.7 Rule</strong>
+                    <p>In any Normal distribution: ~68% within $\pm 1\sigma$, ~95% within $\pm 2\sigma$, ~99.7% within $\pm 3\sigma$ of the mean.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>z-score</strong>
+                    <p>$z = \dfrac{x - \mu}{\sigma}$ — number of standard deviations from the mean. Standardizes values to $N(0,1)$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Standard Normal Table</strong>
+                    <p>Table of $P(Z \leq z)$ for $Z \sim N(0,1)$. Use to find areas (probabilities) by looking up the z-score.</p>
+                </div>
+            </div>
+            <h4>Using the Normal Table</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Convert to z-score</strong>: $z = (x-\mu)/\sigma$</li>
+                <li><strong>Look up $P(Z \leq z)$</strong> in the standard Normal table</li>
+                <li><strong>For $P(Z \geq z)$</strong>: compute $1 - P(Z \leq z)$</li>
+                <li><strong>For $P(a \leq Z \leq b)$</strong>: compute $P(Z \leq b) - P(Z \leq a)$</li>
+                <li><strong>Working backwards</strong>: given probability, find $z$, then $x = \mu + z\sigma$</li>
+            </ol>
+        </div>
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item"><strong>Normal Distribution</strong><span>A symmetric, bell-shaped distribution completely described by its mean $\mu$ and standard deviation $\sigma$.</span></div>
+                <div class="key-term-item"><strong>z-score</strong><span>$(x-\mu)/\sigma$ — standardized score telling how many SDs a value is above or below the mean.</span></div>
+                <div class="key-term-item"><strong>Standard Normal</strong><span>The Normal distribution with $\mu = 0$ and $\sigma = 1$, written $N(0,1)$ or $Z$.</span></div>
+                <div class="key-term-item"><strong>68-95-99.7 Rule</strong><span>Empirical rule: 68%, 95%, 99.7% of Normal data fall within 1, 2, 3 standard deviations of the mean.</span></div>
+                <div class="key-term-item"><strong>Percentile</strong><span>The value below which a given percent of observations fall. The 90th percentile has 90% of data below it.</span></div>
+                <div class="key-term-item"><strong>Normality Assessment</strong><span>Check using a histogram (bell-shaped?), a Normal probability plot (linear?), or the 68-95-99.7 rule.</span></div>
+            </div>
+        </div>
         <div class="chapter-nav">
             <a href="/us/textbook/ap-statistics/numerical-summaries.html">&#8592; Chapter 2: Numerical Summaries</a>
             <a href="/us/textbook/ap-statistics/">All Chapters</a>

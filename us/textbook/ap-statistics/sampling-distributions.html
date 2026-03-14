@@ -125,6 +125,19 @@
         .data-table th { background: #064e3b; color: white; padding: 8px 12px; text-align: center; font-weight: 600; }
         .data-table td { padding: 7px 12px; border: 1px solid #e2e8f0; text-align: center; color: #334155; }
         .data-table tr:nth-child(even) { background: #f8fafc; }
+
+        /* ── Section Summary ── */
+        .section-summary { background: #f8fafc; border: 2px solid #e2e8f0; padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px; }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .summary-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin: 16px 0; }
+        .key-term-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -475,6 +488,46 @@
         </div>
     </div>
 
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+            <h4>Sampling Distribution of $\bar{x}$</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Mean of $\bar{x}$</strong>
+                    <p>$\mu_{\bar{x}} = \mu$ — the sampling distribution of $\bar{x}$ is centered at the population mean. The sample mean is an unbiased estimator.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>SD of $\bar{x}$</strong>
+                    <p>$\sigma_{\bar{x}} = \dfrac{\sigma}{\sqrt{n}}$ — spread decreases as sample size grows. Larger $n$ → more precise estimates.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Central Limit Theorem</strong>
+                    <p>For large $n$ (usually $n \geq 30$), $\bar{x}$ is approximately Normal regardless of the population shape.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Sampling Distribution of $\hat{p}$</strong>
+                    <p>$\mu_{\hat{p}} = p$, $\sigma_{\hat{p}} = \sqrt{p(1-p)/n}$. Normal when $np \geq 10$ and $n(1-p) \geq 10$.</p>
+                </div>
+            </div>
+            <h4>Key Conditions</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Random</strong> — sample must be randomly selected (SRS or equivalent)</li>
+                <li><strong>10% Condition</strong> — $n \leq 0.10N$ to treat observations as independent</li>
+                <li><strong>Normal/Large Sample</strong> — $n \geq 30$ (CLT) or population is Normal</li>
+                <li><strong>Success/Failure</strong> (for proportions) — $np \geq 10$ and $n(1-p) \geq 10$</li>
+            </ol>
+        </div>
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item"><strong>Sampling Distribution</strong><span>The distribution of a statistic (like $\bar{x}$ or $\hat{p}$) over all possible samples of a given size.</span></div>
+                <div class="key-term-item"><strong>Central Limit Theorem</strong><span>For large $n$, the sampling distribution of $\bar{x}$ is approximately Normal with mean $\mu$ and SD $\sigma/\sqrt{n}$.</span></div>
+                <div class="key-term-item"><strong>Standard Error</strong><span>The standard deviation of a sampling distribution: $\sigma/\sqrt{n}$ for means, $\sqrt{p(1-p)/n}$ for proportions.</span></div>
+                <div class="key-term-item"><strong>Unbiased Estimator</strong><span>A statistic whose sampling distribution is centered at the true parameter: $E(\bar{x}) = \mu$.</span></div>
+                <div class="key-term-item"><strong>$\hat{p}$ (Sample Proportion)</strong><span>$\hat{p} = X/n$ — estimates population proportion $p$. Approximately Normal for large samples.</span></div>
+                <div class="key-term-item"><strong>Variability</strong><span>Spread of the sampling distribution. Smaller sample sizes → more variability → less precise estimates.</span></div>
+            </div>
+        </div>
     <div class="chapter-nav">
         <a href="/us/textbook/ap-statistics/random-variables.html">← Chapter 8: Random Variables</a>
         <a href="/us/textbook/ap-statistics/confidence-intervals.html">Chapter 10: Confidence Intervals →</a>

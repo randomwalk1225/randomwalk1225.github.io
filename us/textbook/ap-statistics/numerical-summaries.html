@@ -199,6 +199,22 @@
             color: #10b981; text-decoration: none; font-weight: 600; font-size: 0.95em;
         }
         .chapter-nav a:hover { text-decoration: underline; }
+
+        /* ── Section Summary ── */
+        .section-summary {
+            background: #f8fafc; border: 2px solid #e2e8f0;
+            padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px;
+        }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .summary-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin: 16px 0; }
+        .key-term-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -544,6 +560,58 @@
                     </details>
                 </div>
 
+            </div>
+        </div>
+
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+            <h4>Measures of Center</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Mean</strong>
+                    <p>$\bar{x} = \dfrac{\sum x_i}{n}$ — the arithmetic average. Sensitive to outliers and skewness. Use when distribution is roughly symmetric.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Median</strong>
+                    <p>The middle value when data is sorted. Resistant to outliers. Use when distribution is skewed or has outliers. For skewed data: median is preferred.</p>
+                </div>
+            </div>
+            <h4>Measures of Spread</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Standard Deviation</strong>
+                    <p>$s = \sqrt{\dfrac{\sum(x_i - \bar{x})^2}{n-1}}$ — typical distance from the mean. Use with mean for symmetric distributions.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>IQR (Interquartile Range)</strong>
+                    <p>$\text{IQR} = Q_3 - Q_1$ — spread of the middle 50% of data. Resistant to outliers. Use with median.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Range</strong>
+                    <p>$\text{Range} = \max - \min$ — simplest spread measure. Not resistant to outliers.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Outlier Rule (1.5×IQR)</strong>
+                    <p>A value is an outlier if it falls below $Q_1 - 1.5\times\text{IQR}$ or above $Q_3 + 1.5\times\text{IQR}$.</p>
+                </div>
+            </div>
+            <h4>Choosing Summary Statistics</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Symmetric, no outliers</strong> → Mean and standard deviation</li>
+                <li><strong>Skewed or outliers present</strong> → Median and IQR</li>
+                <li><strong>Five-number summary</strong> → Min, Q1, Median, Q3, Max (always useful)</li>
+                <li><strong>Context matters</strong> — explain what spread/center means for the situation</li>
+            </ol>
+        </div>
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item"><strong>Mean ($\bar{x}$)</strong><span>Average of all values. Not resistant — pulled toward outliers and skewness.</span></div>
+                <div class="key-term-item"><strong>Median</strong><span>Middle value in sorted data. Resistant to outliers. Preferred for skewed distributions.</span></div>
+                <div class="key-term-item"><strong>Standard Deviation</strong><span>Typical deviation from the mean; measures spread for symmetric distributions.</span></div>
+                <div class="key-term-item"><strong>IQR</strong><span>$Q_3 - Q_1$ — spread of the middle half of data. Resistant to outliers.</span></div>
+                <div class="key-term-item"><strong>Outlier</strong><span>A value more than 1.5×IQR below $Q_1$ or above $Q_3$.</span></div>
+                <div class="key-term-item"><strong>Five-Number Summary</strong><span>Min, Q1, Median, Q3, Max — used to construct boxplots and describe distributions.</span></div>
             </div>
         </div>
 

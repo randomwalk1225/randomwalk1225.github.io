@@ -125,6 +125,33 @@
         .chapter-nav { display: flex; justify-content: space-between; gap: 16px; margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0; }
         .chapter-nav a { display: inline-flex; align-items: center; gap: 6px; color: #2563eb; text-decoration: none; font-weight: 600; font-size: 0.95em; }
         .chapter-nav a:hover { text-decoration: underline; }
+
+        /* ── Section Summary ── */
+        .section-summary {
+            background: #f8fafc; border: 2px solid #e2e8f0;
+            padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px;
+        }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;
+        }
+        .summary-card {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 14px 18px;
+        }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 10px; margin: 16px 0;
+        }
+        .key-term-item {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 12px 16px;
+        }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -415,6 +442,95 @@
                     </details>
                 </div>
 
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION SUMMARY -->
+        <!-- ============================================================ -->
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+
+            <h4>Core Applications</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Area Between Curves</strong>
+                    <p>$A = \displaystyle\int_a^b [f(x) - g(x)]\,dx$ where $f(x) \geq g(x)$ on $[a,b]$. Find intersection points to determine limits.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Disk Method</strong>
+                    <p>Rotating $y=f(x)$ around the $x$-axis: $V = \pi\displaystyle\int_a^b [f(x)]^2\,dx$. Each cross-section is a disk of radius $f(x)$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Washer Method</strong>
+                    <p>Rotating region between two curves: $V = \pi\displaystyle\int_a^b \left([R(x)]^2 - [r(x)]^2\right)\,dx$ where $R$ is outer, $r$ is inner radius.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Shell Method</strong>
+                    <p>Rotating around the $y$-axis: $V = 2\pi\displaystyle\int_a^b x\,f(x)\,dx$. Useful when disk/washer requires solving for $x$.</p>
+                </div>
+            </div>
+
+            <h4>Key Formulas</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Area Between Curves</strong>
+                    <p>$A = \displaystyle\int_a^b |f(x) - g(x)|\,dx$</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Arc Length</strong>
+                    <p>$L = \displaystyle\int_a^b \sqrt{1 + [f'(x)]^2}\,dx$</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Work (variable force)</strong>
+                    <p>$W = \displaystyle\int_a^b F(x)\,dx$ — total work equals the integral of force over displacement.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Average Value</strong>
+                    <p>$f_{\text{avg}} = \dfrac{1}{b-a}\displaystyle\int_a^b f(x)\,dx$</p>
+                </div>
+            </div>
+
+            <h4>Choosing a Volume Method</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Axis of rotation is $x$-axis (or horizontal)</strong> → Disk or Washer method (integrate in $x$)</li>
+                <li><strong>Axis of rotation is $y$-axis (or vertical)</strong> → Shell method (integrate in $x$) or Disk/Washer in $y$</li>
+                <li><strong>Single curve rotated</strong> → Disk method: $V = \pi\int R^2\,dx$</li>
+                <li><strong>Region between two curves</strong> → Washer method: $V = \pi\int(R^2 - r^2)\,dx$</li>
+                <li><strong>Shell method advantage</strong> → use when the integrand is simpler in terms of $x$ but axis is $y$</li>
+            </ol>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- KEY TERMS -->
+        <!-- ============================================================ -->
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item">
+                    <strong>Area Between Curves</strong>
+                    <span>The integral $\int_a^b [f(x)-g(x)]\,dx$ giving the area of the region bounded between two functions.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Disk Method</strong>
+                    <span>$V = \pi\int[f(x)]^2\,dx$ — volume of revolution formed by rotating a single curve around an axis.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Washer Method</strong>
+                    <span>$V = \pi\int(R^2 - r^2)\,dx$ — volume of revolution with a hole, formed by rotating a region between two curves.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Shell Method</strong>
+                    <span>$V = 2\pi\int x\,f(x)\,dx$ — volume computed by summing cylindrical shells rather than disks. Often easier when axis is vertical.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Arc Length</strong>
+                    <span>The length of a curve $y=f(x)$ from $a$ to $b$: $L = \int_a^b\sqrt{1+(f')^2}\,dx$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Average Value</strong>
+                    <span>The mean value of $f$ over $[a,b]$: $f_{\text{avg}} = \frac{1}{b-a}\int_a^b f(x)\,dx$.</span>
+                </div>
             </div>
         </div>
 

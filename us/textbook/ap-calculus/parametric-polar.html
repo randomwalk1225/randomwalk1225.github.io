@@ -128,6 +128,33 @@
         .chapter-nav { display: flex; justify-content: space-between; gap: 16px; margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0; }
         .chapter-nav a { display: inline-flex; align-items: center; gap: 6px; color: #2563eb; text-decoration: none; font-weight: 600; font-size: 0.95em; }
         .chapter-nav a:hover { text-decoration: underline; }
+
+        /* ── Section Summary ── */
+        .section-summary {
+            background: #f8fafc; border: 2px solid #e2e8f0;
+            padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px;
+        }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;
+        }
+        .summary-card {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 14px 18px;
+        }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 10px; margin: 16px 0;
+        }
+        .key-term-item {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 12px 16px;
+        }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -430,6 +457,98 @@
                     </details>
                 </div>
 
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION SUMMARY -->
+        <!-- ============================================================ -->
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+
+            <h4>Parametric Equations</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Slope of Parametric Curve</strong>
+                    <p>$\dfrac{dy}{dx} = \dfrac{dy/dt}{dx/dt}$ — divide the $y$-derivative by the $x$-derivative with respect to parameter $t$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Second Derivative</strong>
+                    <p>$\dfrac{d^2y}{dx^2} = \dfrac{d}{dt}\!\left[\dfrac{dy}{dx}\right] \div \dfrac{dx}{dt}$ — used for concavity of parametric curves.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Arc Length (Parametric)</strong>
+                    <p>$L = \displaystyle\int_\alpha^\beta \sqrt{\left(\dfrac{dx}{dt}\right)^2 + \left(\dfrac{dy}{dt}\right)^2}\,dt$</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Speed</strong>
+                    <p>$|\mathbf{v}(t)| = \sqrt{(x'(t))^2 + (y'(t))^2}$ — the magnitude of the velocity vector at time $t$.</p>
+                </div>
+            </div>
+
+            <h4>Polar Coordinates</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Polar ↔ Cartesian</strong>
+                    <p>$x = r\cos\theta$, $y = r\sin\theta$, $r^2 = x^2 + y^2$, $\tan\theta = y/x$</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Slope of Polar Curve</strong>
+                    <p>$\dfrac{dy}{dx} = \dfrac{r'\sin\theta + r\cos\theta}{r'\cos\theta - r\sin\theta}$ where $r' = dr/d\theta$</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Polar Area</strong>
+                    <p>$A = \dfrac{1}{2}\displaystyle\int_\alpha^\beta r^2\,d\theta$</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Area Between Polar Curves</strong>
+                    <p>$A = \dfrac{1}{2}\displaystyle\int_\alpha^\beta (r_{\text{outer}}^2 - r_{\text{inner}}^2)\,d\theta$</p>
+                </div>
+            </div>
+
+            <h4>Vectors</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Dot Product</strong>
+                    <p>$\mathbf{a} \cdot \mathbf{b} = a_1 b_1 + a_2 b_2 = |\mathbf{a}||\mathbf{b}|\cos\theta$. Vectors are perpendicular when $\mathbf{a}\cdot\mathbf{b}=0$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Position / Velocity / Acceleration</strong>
+                    <p>$\mathbf{r}(t) \xrightarrow{d/dt} \mathbf{v}(t) \xrightarrow{d/dt} \mathbf{a}(t)$. Integrate backwards to find position from velocity.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- KEY TERMS -->
+        <!-- ============================================================ -->
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item">
+                    <strong>Parametric Equations</strong>
+                    <span>A curve defined by $x = f(t)$, $y = g(t)$ where $t$ is a parameter. Traces the curve as $t$ varies.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Polar Coordinates</strong>
+                    <span>$(r, \theta)$ — describes a point by distance from origin ($r$) and angle from positive $x$-axis ($\theta$).</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Polar Area Formula</strong>
+                    <span>$A = \frac{1}{2}\int r^2\,d\theta$ — area swept out by the radius vector as $\theta$ goes from $\alpha$ to $\beta$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Vector</strong>
+                    <span>A quantity with both magnitude and direction. In 2D: $\mathbf{v} = \langle v_1, v_2 \rangle$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Dot Product</strong>
+                    <span>$\mathbf{a}\cdot\mathbf{b} = a_1 b_1 + a_2 b_2$ — a scalar that measures the angle between two vectors.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Speed</strong>
+                    <span>The magnitude of the velocity vector: $|\mathbf{v}(t)| = \sqrt{(dx/dt)^2 + (dy/dt)^2}$.</span>
+                </div>
             </div>
         </div>
 

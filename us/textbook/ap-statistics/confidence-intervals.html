@@ -130,6 +130,19 @@
         .ci-table th { background: #065f46; color: white; padding: 8px 12px; text-align: center; font-weight: 600; }
         .ci-table td { padding: 7px 12px; border: 1px solid #e2e8f0; text-align: center; color: #334155; }
         .ci-table tr:nth-child(even) { background: #f0fdf4; }
+
+        /* ── Section Summary ── */
+        .section-summary { background: #f8fafc; border: 2px solid #e2e8f0; padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px; }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .summary-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin: 16px 0; }
+        .key-term-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -474,6 +487,45 @@
         </div>
     </div>
 
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+            <h4>Confidence Interval Structure</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>General Form</strong>
+                    <p>$\text{statistic} \pm \text{critical value} \times \text{standard error}$ — or equivalently $\text{estimate} \pm \text{margin of error}$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Interpretation</strong>
+                    <p>A 95% CI means: if we repeat this procedure many times, 95% of intervals constructed this way will capture the true parameter.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>One-Sample $t$-interval (mean)</strong>
+                    <p>$\bar{x} \pm t^* \cdot \dfrac{s}{\sqrt{n}}$. Use when $\sigma$ unknown. Degrees of freedom: $df = n - 1$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>One-Proportion $z$-interval</strong>
+                    <p>$\hat{p} \pm z^* \sqrt{\dfrac{\hat{p}(1-\hat{p})}{n}}$. Use $z^* = 1.645$ (90%), 1.960 (95%), 2.576 (99%).</p>
+                </div>
+            </div>
+            <h4>Conditions (PLAN acronym)</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Random</strong> — data comes from a random sample or randomized experiment</li>
+                <li><strong>Normal</strong> — $n \geq 30$ (CLT) or population is Normal (for means); $np \geq 10$ and $n(1-p) \geq 10$ (for proportions)</li>
+                <li><strong>Independent</strong> — $n \leq 10\%$ of population (10% condition)</li>
+            </ol>
+        </div>
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item"><strong>Confidence Interval</strong><span>An interval estimate $\text{estimate} \pm \text{margin of error}$ designed to capture the true parameter with a given confidence level.</span></div>
+                <div class="key-term-item"><strong>Confidence Level</strong><span>The probability (e.g., 95%) that the procedure generates an interval capturing the true parameter.</span></div>
+                <div class="key-term-item"><strong>Margin of Error</strong><span>$z^*$ (or $t^*$) times the standard error — half-width of the confidence interval.</span></div>
+                <div class="key-term-item"><strong>Critical Value ($z^*$ or $t^*$)</strong><span>The value from Normal or $t$-table that sets the confidence level. For 95%: $z^* \approx 1.960$.</span></div>
+                <div class="key-term-item"><strong>$t$-distribution</strong><span>Used when $\sigma$ is unknown. Has heavier tails than Normal; shape depends on degrees of freedom $df = n-1$.</span></div>
+                <div class="key-term-item"><strong>Standard Error</strong><span>Estimated standard deviation of the sampling distribution: $s/\sqrt{n}$ for means, $\sqrt{\hat{p}(1-\hat{p})/n}$ for proportions.</span></div>
+            </div>
+        </div>
     <div class="chapter-nav">
         <a href="/us/textbook/ap-statistics/sampling-distributions.html">← Chapter 9: Sampling Distributions</a>
         <a href="/us/textbook/ap-statistics/significance-tests.html">Chapter 11: Significance Tests →</a>

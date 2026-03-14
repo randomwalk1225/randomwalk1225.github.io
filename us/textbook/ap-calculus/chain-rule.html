@@ -190,6 +190,33 @@
             color: #2563eb; text-decoration: none; font-weight: 600; font-size: 0.95em;
         }
         .chapter-nav a:hover { text-decoration: underline; }
+
+        /* ── Section Summary ── */
+        .section-summary {
+            background: #f8fafc; border: 2px solid #e2e8f0;
+            padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px;
+        }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;
+        }
+        .summary-card {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 14px 18px;
+        }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 10px; margin: 16px 0;
+        }
+        .key-term-item {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 12px 16px;
+        }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -502,6 +529,90 @@
                     </details>
                 </div>
 
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION SUMMARY -->
+        <!-- ============================================================ -->
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+
+            <h4>Core Concepts</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Chain Rule</strong>
+                    <p>If $y = f(g(x))$, then $\dfrac{dy}{dx} = f'(g(x)) \cdot g'(x)$. Differentiate the outer function, then multiply by the derivative of the inner function.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Implicit Differentiation</strong>
+                    <p>Differentiate both sides of an equation with respect to $x$. When differentiating a $y$-term, apply chain rule: $\frac{d}{dx}[y^n] = ny^{n-1}\frac{dy}{dx}$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Related Rates</strong>
+                    <p>Differentiate a geometric/physical relationship with respect to time $t$. Write an equation relating variables, then differentiate implicitly using chain rule.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Inverse Trig Derivatives</strong>
+                    <p>$(\arcsin u)' = \dfrac{u'}{\sqrt{1-u^2}}$ &nbsp; $(\arctan u)' = \dfrac{u'}{1+u^2}$</p>
+                </div>
+            </div>
+
+            <h4>Key Formulas</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Chain Rule (Leibniz form)</strong>
+                    <p>$\dfrac{dy}{dx} = \dfrac{dy}{du} \cdot \dfrac{du}{dx}$</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Chain Rule (repeated)</strong>
+                    <p>$\dfrac{d}{dx}[f(g(h(x)))] = f'(g(h(x))) \cdot g'(h(x)) \cdot h'(x)$</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Implicit slope</strong>
+                    <p>$\dfrac{dy}{dx} = -\dfrac{F_x}{F_y}$ where $F(x,y) = 0$ is the implicit equation.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>General power rule</strong>
+                    <p>$\dfrac{d}{dx}[u^n] = nu^{n-1} \cdot u'$ for any differentiable $u$.</p>
+                </div>
+            </div>
+
+            <h4>Related Rates Strategy</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Draw a diagram</strong> — label all variables and given rates</li>
+                <li><strong>Write a relationship</strong> — find an equation relating the variables</li>
+                <li><strong>Differentiate</strong> — with respect to $t$, using the chain rule</li>
+                <li><strong>Substitute &amp; solve</strong> — plug in known values at the specified instant</li>
+            </ol>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- KEY TERMS -->
+        <!-- ============================================================ -->
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item">
+                    <strong>Chain Rule</strong>
+                    <span>Rule for differentiating composite functions: $(f \circ g)' = f'(g(x)) \cdot g'(x)$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Composite Function</strong>
+                    <span>A function of the form $f(g(x))$ where one function is applied inside another.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Implicit Differentiation</strong>
+                    <span>Differentiating an equation relating $x$ and $y$ without first solving for $y$ explicitly.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Related Rates</strong>
+                    <span>Using differentiation to find how fast one quantity changes with respect to time given the rate of change of another.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Inverse Trig Functions</strong>
+                    <span>$\arcsin$, $\arccos$, $\arctan$ — have specific derivative formulas derived via implicit differentiation.</span>
+                </div>
             </div>
         </div>
 
