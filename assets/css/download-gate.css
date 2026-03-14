@@ -1,0 +1,124 @@
+/* Download Gate - Modal Overlay Styles */
+
+#download-gate-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    padding: 16px;
+}
+#download-gate-overlay.visible {
+    opacity: 1;
+}
+
+#download-gate-modal {
+    background: white;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transform: translateY(20px);
+    transition: transform 0.2s ease;
+}
+#download-gate-overlay.visible #download-gate-modal {
+    transform: translateY(0);
+}
+
+.dg-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+.dg-header h3 {
+    margin: 0;
+    font-size: 1em;
+    color: #1e293b;
+    font-weight: 600;
+}
+.dg-close-btn {
+    background: none;
+    border: none;
+    font-size: 1.4em;
+    color: #94a3b8;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+.dg-close-btn:hover {
+    color: #475569;
+}
+
+.dg-ad-container {
+    padding: 16px 20px;
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+}
+.dg-ad-label {
+    font-size: 0.7em;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.dg-countdown {
+    padding: 16px 20px;
+    text-align: center;
+    border-top: 1px solid #e2e8f0;
+}
+.dg-countdown-num {
+    font-size: 2em;
+    font-weight: 700;
+    color: #2563eb;
+    display: block;
+    margin-bottom: 4px;
+}
+.dg-countdown-text {
+    font-size: 0.85em;
+    color: #64748b;
+}
+
+.dg-footer {
+    padding: 12px 20px 16px;
+    text-align: center;
+}
+.dg-cancel-btn {
+    background: none;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 8px 24px;
+    color: #64748b;
+    font-size: 0.85em;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+.dg-cancel-btn:hover {
+    background: #f1f5f9;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    #download-gate-modal {
+        max-width: 100%;
+    }
+    .dg-ad-container {
+        min-height: 200px;
+        padding: 12px 16px;
+    }
+    .dg-countdown-num {
+        font-size: 1.6em;
+    }
+}
