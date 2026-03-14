@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Statistics: Significance Tests - Chapter 11 | MathHub</title>
+    <meta name="description" content="AP Statistics Chapter 11: Significance Tests. Learn the four-step hypothesis testing process, one-proportion z-tests, one-sample t-tests, Type I and II errors, and p-values.">
+    <meta name="keywords" content="AP Statistics, significance test, hypothesis test, p-value, null hypothesis, alternative hypothesis, Type I error, Type II error, z-test, t-test, AP Stats Chapter 11">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/ap-statistics/significance-tests.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/ap-statistics/significance-tests.html">
+    <meta property="og:title" content="AP Statistics: Significance Tests - Chapter 11">
+    <meta property="og:description" content="Master hypothesis testing, p-values, Type I/II errors, and significance tests for proportions and means in AP Statistics.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Statistics: Significance Tests - Chapter 11">
+    <meta name="twitter:description" content="AP Statistics Chapter 11: Significance tests, hypothesis testing, p-values, z-tests, and t-tests.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "AP Statistics: Significance Tests - Chapter 11",
+        "description": "AP Statistics Chapter 11 covering the logic of significance testing, one-proportion z-tests, one-sample t-tests, Type I and II errors, power, and two-sample tests.",
+        "url": "https://mathhub.io/us/textbook/ap-statistics/significance-tests.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "AP",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Hypothesis Testing" },
+            { "@type": "Thing", "name": "P-value" },
+            { "@type": "Thing", "name": "AP Statistics" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #064e3b; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #064e3b; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #10b981; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives { background: #ecfdf5; border-left: 4px solid #10b981; padding: 20px 24px; margin: 24px 0 32px; border-radius: 0 10px 10px 0; }
+        .learning-objectives h4 { color: #065f46; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #064e3b; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box { background: #f0fdf4; border-left: 4px solid #10b981; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #065f46; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+
+        .definition-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box { background: #f0fdf4; border: 1.5px dashed #86efac; padding: 16px 20px; margin: -4px 0 24px; border-radius: 0 0 8px 8px; }
+        .try-it-box .try-it-label { display: inline-block; background: #10b981; color: white; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px; }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary { cursor: pointer; color: #065f46; font-weight: 600; font-size: 0.9em; user-select: none; }
+        .try-it-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7; }
+
+        .ap-tip { background: #fefce8; border-left: 4px solid #eab308; padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .ap-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #92400e; }
+
+        .desmos-wrap { margin: 24px auto; background: #f8fafc; border-radius: 12px; padding: 4px; border: 1px solid #e2e8f0; text-align: center; }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label { text-align: center; font-size: 0.82em; color: #64748b; margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em; }
+
+        .practice-section { margin: 48px 0 0; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { color: #064e3b; margin-bottom: 20px; }
+        .practice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        @media (max-width: 600px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; }
+        .practice-card .p-num { display: inline-block; background: #064e3b; color: white; font-weight: 700; font-size: 0.78em; padding: 2px 9px; border-radius: 4px; margin-bottom: 8px; }
+        .practice-card p { color: #334155; font-size: 0.92em; line-height: 1.7; margin: 0 0 10px; }
+        .practice-card details summary { cursor: pointer; color: #065f46; font-weight: 600; font-size: 0.88em; user-select: none; }
+        .practice-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 8px; color: #334155; font-size: 0.9em; line-height: 1.7; border: 1px solid #e2e8f0; }
+
+        .chapter-nav { display: flex; justify-content: space-between; margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid #e2e8f0; flex-wrap: wrap; gap: 12px; }
+        .chapter-nav a { color: #10b981; text-decoration: none; font-weight: 600; font-size: 0.95em; padding: 8px 16px; border: 1.5px solid #10b981; border-radius: 8px; transition: background .15s; }
+        .chapter-nav a:hover { background: #ecfdf5; }
+
+        .error-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.9em; }
+        .error-table th { background: #065f46; color: white; padding: 8px 12px; text-align: center; font-weight: 600; }
+        .error-table td { padding: 8px 12px; border: 1px solid #e2e8f0; text-align: center; color: #334155; }
+        .error-table .correct { background: #f0fdf4; color: #065f46; font-weight: 600; }
+        .error-table .error { background: #fef2f2; color: #dc2626; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+<div style="background:#064e3b; padding:12px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+    <a href="/" style="color:#6ee7b7; text-decoration:none; font-weight:700; font-size:1.1em;">MathHub</a>
+    <span style="color:#34d399;">›</span>
+    <a href="/us" style="color:#a7f3d0; text-decoration:none; font-size:.9em;">US</a>
+    <span style="color:#34d399;">›</span>
+    <a href="/us/textbook/ap-statistics" style="color:#a7f3d0; text-decoration:none; font-size:.9em;">AP Statistics</a>
+    <span style="color:#34d399;">›</span>
+    <span style="color:white; font-size:.9em;">Chapter 11</span>
+</div>
+
+<article class="blog-article">
+    <div class="breadcrumb">
+        <a href="/">MathHub</a> › <a href="/us">US</a> › <a href="/us/textbook/ap-statistics">AP Statistics</a> › Chapter 11
+    </div>
+
+    <h1>Chapter 11: Significance Tests</h1>
+    <div class="blog-meta">AP Statistics · Statistical Inference · 3 interactive graphs · 8 practice problems</div>
+
+    <div class="learning-objectives">
+        <h4>Learning Objectives</h4>
+        <ul>
+            <li>State hypotheses $H_0$ and $H_a$ correctly in the context of a problem</li>
+            <li>Interpret a $p$-value in context and make a conclusion at a given $\alpha$</li>
+            <li>Distinguish Type I error ($\alpha$) from Type II error ($\beta$) and power ($1-\beta$)</li>
+            <li>Carry out a one-proportion $z$-test with conditions verified</li>
+            <li>Carry out a one-sample $t$-test and connect it to confidence intervals</li>
+            <li>Apply two-sample $z$- and $t$-tests and recognize when to use a pooled proportion</li>
+        </ul>
+    </div>
+
+    <!-- 11.1 -->
+    <h2>11.1 The Logic of Significance Testing</h2>
+    <p>A <strong>significance test</strong> uses sample data to evaluate a claim about a population parameter. The four-step framework used on the AP exam is: <strong>State → Plan → Do → Conclude</strong>.</p>
+
+    <div class="definition-box">
+        <h4>The Four-Step Process</h4>
+        <ol>
+            <li><strong>State:</strong> Identify the parameter in context. Write $H_0$ (null hypothesis) and $H_a$ (alternative hypothesis) using proper notation.</li>
+            <li><strong>Plan:</strong> Choose the appropriate test. Verify conditions (Random, Normal/Large Counts, 10%).</li>
+            <li><strong>Do:</strong> Calculate the test statistic and find the $p$-value.</li>
+            <li><strong>Conclude:</strong> Compare $p$-value to $\alpha$. State conclusion in context — reject or fail to reject $H_0$.</li>
+        </ol>
+    </div>
+
+    <h3>Hypotheses</h3>
+    <p>The <strong>null hypothesis</strong> $H_0$ represents the claim of no effect, no difference, or a specific parameter value (e.g., $H_0: p = 0.30$). The <strong>alternative hypothesis</strong> $H_a$ represents what we are trying to find evidence for. Alternatives are:</p>
+    <ul>
+        <li><strong>One-sided (left):</strong> $H_a: p < p_0$</li>
+        <li><strong>One-sided (right):</strong> $H_a: p > p_0$</li>
+        <li><strong>Two-sided:</strong> $H_a: p \neq p_0$ (most conservative; use when direction is unknown)</li>
+    </ul>
+
+    <h3>p-Value and Significance Level</h3>
+    <p>The <strong>$p$-value</strong> is the probability of obtaining a test statistic as extreme as (or more extreme than) the observed value, <em>assuming $H_0$ is true</em>. A small $p$-value means the observed data would be unlikely if $H_0$ were true, giving evidence against $H_0$.</p>
+    <p>The <strong>significance level $\alpha$</strong> is the threshold. We <strong>reject $H_0$</strong> when $p\text{-value} < \alpha$.</p>
+
+    <div class="theorem-box">
+        <h4>Type I and Type II Errors</h4>
+        <table class="error-table">
+            <tr>
+                <th></th>
+                <th>$H_0$ is actually TRUE</th>
+                <th>$H_0$ is actually FALSE</th>
+            </tr>
+            <tr>
+                <td><strong>Reject $H_0$</strong></td>
+                <td class="error">Type I Error (probability = $\alpha$)</td>
+                <td class="correct">Correct decision (Power = $1-\beta$)</td>
+            </tr>
+            <tr>
+                <td><strong>Fail to reject $H_0$</strong></td>
+                <td class="correct">Correct decision</td>
+                <td class="error">Type II Error (probability = $\beta$)</td>
+            </tr>
+        </table>
+        <ul>
+            <li><strong>Type I error ($\alpha$):</strong> Reject a true $H_0$ — "false positive." Probability = $\alpha$.</li>
+            <li><strong>Type II error ($\beta$):</strong> Fail to reject a false $H_0$ — "false negative." Probability = $\beta$.</li>
+            <li><strong>Power = $1 - \beta$:</strong> Probability of correctly rejecting a false $H_0$. Increased by larger $n$, larger effect size, or larger $\alpha$.</li>
+        </ul>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 11.1 — One-Sample $t$-Test (Right-Sided)</h4>
+        <p>A quality-control team believes a machine produces parts with mean diameter $\mu > 50$ mm. A random sample of $n = 36$ gives $\bar{x} = 53.2$ mm, $s = 9$ mm.</p>
+        <p><strong>State:</strong> $H_0: \mu = 50$; $H_a: \mu > 50$ (one-sided right)</p>
+        <p><strong>Plan:</strong> One-sample $t$-test. Conditions: Random ✓; $n=36\geq30$ ✓; 10% ✓.</p>
+        <p><strong>Do:</strong></p>
+        <p>$$t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}} = \frac{53.2 - 50}{9/\sqrt{36}} = \frac{3.2}{1.5} = 2.13 \quad (df = 35)$$</p>
+        <p>From the $t$-table: $p\text{-value} \approx 0.020$.</p>
+        <p><strong>Conclude:</strong> Since $0.020 < 0.05 = \alpha$, we reject $H_0$. There is convincing evidence that the true mean diameter is greater than 50 mm.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>In the context of Example 11.1, describe what a Type I error would be.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">A Type I error would be concluding that the true mean diameter is greater than 50 mm (rejecting $H_0$) when in fact the true mean is exactly 50 mm. The quality-control team would unnecessarily halt or recalibrate the machine.</div>
+        </details>
+    </div>
+
+    <div class="ap-tip">
+        <div class="ap-tip-icon">★</div>
+        <p><strong>AP Exam Tip:</strong> <strong>NEVER say "accept $H_0$."</strong> Always say "fail to reject $H_0$." A large $p$-value does not prove $H_0$ is true — it only means we lack sufficient evidence against it. Also, always write hypotheses in terms of the <em>parameter</em> ($\mu$, $p$), not the statistic ($\bar{x}$, $\hat{p}$).</p>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">One-sided $p$-value visualization: the shaded red area (right tail beyond $t = 2.13$) represents the $p$-value $\approx 0.020$. Under $H_0$, results this extreme occur only 2% of the time.</p>
+        <div id="graph-pval" style="width:100%; height:360px;"></div>
+        <p class="fig-label">Figure 11.1 — Right-Tail $p$-Value (One-Sided Test)</p>
+    </div>
+
+    <!-- 11.2 -->
+    <h2>11.2 One-Proportion z-Test</h2>
+    <p>The <strong>one-proportion $z$-test</strong> tests a claim about a population proportion $p$. The key difference from the confidence interval is that conditions use $p_0$ (the null value), not $\hat{p}$.</p>
+
+    <div class="theorem-box">
+        <h4>One-Proportion z-Test</h4>
+        <p>$H_0: p = p_0$; conditions use $p_0$: $np_0 \geq 10$ and $n(1-p_0) \geq 10$.</p>
+        <p>Test statistic:</p>
+        <p>$$z = \frac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/n}}$$</p>
+        <p>$p$-value from the standard Normal: one-sided ($P(Z > z)$ or $P(Z < z)$) or two-sided ($2P(Z > |z|)$).</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 11.2 — Right-Sided One-Proportion z-Test</h4>
+        <p>A company claims 30% of customers prefer their product. A competitor suspects the true proportion is higher. A random sample of $n = 100$ customers finds $\hat{p} = 0.38$. Test at $\alpha = 0.05$.</p>
+        <p><strong>State:</strong> $H_0: p = 0.30$; $H_a: p > 0.30$</p>
+        <p><strong>Plan:</strong> One-proportion $z$-test. Conditions using $p_0 = 0.30$: $100(0.3)=30\geq10$ ✓; $100(0.7)=70\geq10$ ✓; Random ✓; 10% ✓.</p>
+        <p><strong>Do:</strong></p>
+        <p>$$z = \frac{0.38 - 0.30}{\sqrt{(0.30)(0.70)/100}} = \frac{0.08}{0.0458} = 1.75$$</p>
+        <p>$p\text{-value} = P(Z > 1.75) = 1 - 0.9599 = 0.0401$</p>
+        <p><strong>Conclude:</strong> Since $0.0401 < 0.05$, we reject $H_0$. There is convincing evidence that the true proportion preferring this product is greater than 0.30.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 11.3 — Two-Sided One-Proportion z-Test</h4>
+        <p>Test whether a coin is fair. In 75 flips, 33 heads. $H_0: p = 0.50$; $H_a: p \neq 0.50$. $\alpha = 0.05$.</p>
+        <p>$\hat{p} = 33/75 = 0.44$.</p>
+        <p>$$z = \frac{0.44 - 0.50}{\sqrt{(0.50)(0.50)/75}} = \frac{-0.06}{0.0577} = -1.04$$</p>
+        <p>Two-sided $p\text{-value} = 2 \cdot P(Z < -1.04) = 2(0.149) = 0.298$.</p>
+        <p><strong>Conclude:</strong> Since $0.298 > 0.05$, we fail to reject $H_0$. There is not convincing evidence that the coin is unfair.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>$H_0: p = 0.25$; $H_a: p > 0.25$; $\hat{p} = 0.32$, $n = 200$. Calculate $z$ and determine if the result is significant at $\alpha = 0.05$.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                Conditions: $200(0.25)=50\geq10$ ✓; $200(0.75)=150\geq10$ ✓.<br>
+                $z = (0.32-0.25)/\sqrt{(0.25)(0.75)/200} = 0.07/0.03062 = 2.29$.<br>
+                $p\text{-value} = P(Z > 2.29) \approx 0.011 < 0.05$. Reject $H_0$. There is convincing evidence that $p > 0.25$.
+            </div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Two-sided $p$-value: both tails beyond $z = \pm 1.04$ are shaded. The total area (both red tails combined) equals $p\text{-value} = 0.298$, which is not small enough to reject $H_0$.</p>
+        <div id="graph-twosided" style="width:100%; height:360px;"></div>
+        <p class="fig-label">Figure 11.2 — Two-Sided $p$-Value Visualization</p>
+    </div>
+
+    <!-- 11.3 -->
+    <h2>11.3 One-Sample t-Test</h2>
+    <p>When testing a claim about a population mean $\mu$ with unknown $\sigma$, use the <strong>one-sample $t$-test</strong>. It follows the same four-step structure as the $z$-test, but uses the $t$-distribution with $df = n - 1$.</p>
+
+    <div class="theorem-box">
+        <h4>One-Sample t-Test</h4>
+        <p>$H_0: \mu = \mu_0$; test statistic:</p>
+        <p>$$t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}}, \qquad df = n - 1$$</p>
+        <p>The $p$-value is found from the $t$-distribution with $df = n - 1$.</p>
+        <p><strong>Connection to confidence intervals:</strong> Reject $H_0: \mu = \mu_0$ at level $\alpha$ (two-sided) if and only if $\mu_0$ falls <em>outside</em> the $(1-\alpha) \times 100\%$ confidence interval for $\mu$.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 11.4 — One-Sample $t$-Test for a Mean</h4>
+        <p>A nutritionist claims a new diet reduces LDL cholesterol by more than 10 points on average. A random sample of $n = 25$ patients shows $\bar{x} = 12.4$ points reduction, $s = 5.6$. Test at $\alpha = 0.05$.</p>
+        <p><strong>State:</strong> $H_0: \mu = 10$; $H_a: \mu > 10$ (one-sided right)</p>
+        <p><strong>Plan:</strong> One-sample $t$-test. Conditions: Random ✓; $n=25$ — assume Normal population ✓; 10% ✓.</p>
+        <p><strong>Do:</strong> $df = 24$.</p>
+        <p>$$t = \frac{12.4 - 10}{5.6/\sqrt{25}} = \frac{2.4}{1.12} = 2.14$$</p>
+        <p>From $t$-table ($df=24$, one-sided): $p\text{-value} \approx 0.021$.</p>
+        <p><strong>Conclude:</strong> Since $0.021 < 0.05$, we reject $H_0$. There is convincing evidence that the mean LDL reduction is greater than 10 points.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 11.5 — Connection Between CI and Significance Test</h4>
+        <p>If a 95% CI for $\mu$ is $(11.2, 13.6)$ and you perform a two-sided test of $H_0: \mu = 10$ at $\alpha = 0.05$, what is the conclusion?</p>
+        <p>Since $\mu_0 = 10$ falls <strong>outside</strong> the interval $(11.2, 13.6)$, we <strong>reject $H_0$</strong> at $\alpha = 0.05$. The two procedures always give consistent conclusions for two-sided tests.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>$n = 16$, $\bar{x} = 48$, $s = 4$. Test $H_0: \mu = 50$ vs. $H_a: \mu \neq 50$. Find $t$, estimate the $p$-value, and state your conclusion at $\alpha = 0.05$.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                $t = (48-50)/(4/\sqrt{16}) = -2.0/1.0 = -2.0$. $df = 15$.<br>
+                Two-sided $p\text{-value} = 2P(t < -2.0) \approx 2(0.032) = 0.064$.<br>
+                Since $0.064 > 0.05$, we <strong>fail to reject $H_0$</strong>. There is not convincing evidence that $\mu \neq 50$.
+            </div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">One-sided $t$-test: shaded right tail beyond $t = 2.14$ on a $t$-distribution with $df = 24$. The $p$-value $\approx 0.021$ is less than $\alpha = 0.05$, providing evidence to reject $H_0$.</p>
+        <div id="graph-ttest" style="width:100%; height:360px;"></div>
+        <p class="fig-label">Figure 11.3 — One-Sided $t$-Test $p$-Value ($df = 24$)</p>
+    </div>
+
+    <!-- 11.4 -->
+    <h2>11.4 Two-Sample Tests and Chi-Square Preview</h2>
+    <p>When comparing two groups, we use two-sample procedures. The key is whether data are proportions or means, and whether samples are independent.</p>
+
+    <h3>Two-Sample z-Test for Proportions</h3>
+    <p>Test $H_0: p_1 = p_2$. Use the <strong>pooled sample proportion</strong> $\hat{p}_c = \dfrac{x_1 + x_2}{n_1 + n_2}$ in the standard error (since $H_0$ assumes they are equal).</p>
+    <p>$$z = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{\hat{p}_c(1-\hat{p}_c)\left(\dfrac{1}{n_1}+\dfrac{1}{n_2}\right)}}$$</p>
+
+    <h3>Two-Sample t-Test for Means</h3>
+    <p>Test $H_0: \mu_1 = \mu_2$. Do not pool variances (AP Statistics uses the unpooled formula). The degrees of freedom are computed by the calculator (conservative: use smaller of $n_1-1$, $n_2-1$).</p>
+
+    <h3>Brief Introduction to Chi-Square</h3>
+    <p>The <strong>chi-square test</strong> is used when both variables are categorical. Instead of a $z$- or $t$-statistic, we compute $\chi^2 = \sum \dfrac{(O-E)^2}{E}$. Chi-square tests always use right-tail $p$-values and cover goodness-of-fit, independence, and homogeneity (Chapter 12).</p>
+
+    <div class="example-box">
+        <h4>Example 11.6 — Two-Sample z-Test for Proportions</h4>
+        <p>Two groups: Group 1 has $n_1 = 120$ with 66 successes; Group 2 has $n_2 = 100$ with 45 successes. Test $H_0: p_1 = p_2$ vs. $H_a: p_1 \neq p_2$ at $\alpha = 0.05$.</p>
+        <p>$\hat{p}_1 = 66/120 = 0.55$; $\hat{p}_2 = 45/100 = 0.45$.</p>
+        <p>Pooled: $\hat{p}_c = (66+45)/(120+100) = 111/220 = 0.505$.</p>
+        <p>$$z = \frac{0.55 - 0.45}{\sqrt{0.505 \cdot 0.495 \cdot (1/120 + 1/100)}} = \frac{0.10}{\sqrt{0.2500 \cdot 0.01833}} = \frac{0.10}{0.0677} = 1.48$$</p>
+        <p>Two-sided $p\text{-value} = 2P(Z > 1.48) = 2(0.069) = 0.138$.</p>
+        <p><strong>Conclude:</strong> Since $0.138 > 0.05$, we fail to reject $H_0$. There is not convincing evidence of a difference between $p_1$ and $p_2$.</p>
+    </div>
+
+    <div class="ap-tip">
+        <div class="ap-tip-icon">★</div>
+        <p><strong>AP Exam Tip:</strong> In a two-sample $z$-test for proportions, always use the <strong>pooled proportion $\hat{p}_c$</strong> in the denominator — not the individual $\hat{p}_1$ and $\hat{p}_2$. Conversely, for a <em>confidence interval</em> for $p_1 - p_2$, you use the individual $\hat{p}$s (no pooling). Also verify Large Counts using $\hat{p}_c$ for tests.</p>
+    </div>
+
+    <!-- Practice -->
+    <div class="practice-section">
+        <h2>Practice Problems</h2>
+        <div class="practice-grid">
+            <div class="practice-card">
+                <span class="p-num">1</span>
+                <p>$H_0: p = 0.40$, $H_a: p < 0.40$. Sample: $n=80$, $\hat{p}=0.33$. Carry out a one-proportion $z$-test at $\alpha = 0.05$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Conditions: $80(0.4)=32\geq10$ ✓; $80(0.6)=48\geq10$ ✓.<br>$z=(0.33-0.40)/\sqrt{(0.4)(0.6)/80}=(−0.07)/0.05477=−1.28$.<br>Left-tail $p\text{-value}=P(Z<-1.28)=0.100$.<br>Since $0.100 > 0.05$, fail to reject $H_0$. Insufficient evidence that $p < 0.40$.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">2</span>
+                <p>Describe how increasing the significance level from $\alpha = 0.01$ to $\alpha = 0.05$ affects (a) the probability of a Type I error, (b) the power of the test.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">(a) Type I error probability increases from 0.01 to 0.05 — more likely to falsely reject a true $H_0$.<br>(b) Power increases — a larger $\alpha$ makes it easier to reject $H_0$, including when it is truly false. There is a trade-off between Type I error rate and power.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">3</span>
+                <p>A random sample of $n=25$ has $\bar{x}=78.3$, $s=9.4$. Test $H_0: \mu=75$, $H_a: \mu>75$ at $\alpha=0.05$. ($df=24$, $t^*=1.711$)</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$t=(78.3-75)/(9.4/\sqrt{25})=3.3/1.88=1.755$.<br>Since $1.755 > 1.711$ (critical value at $\alpha=0.05$, one-sided), $p\text{-value} < 0.05$. Reject $H_0$. There is convincing evidence that $\mu > 75$.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">4</span>
+                <p>A two-sided test yields $p\text{-value} = 0.032$. A 95% CI for $\mu$ is $(12.1, 19.7)$. Is $\mu_0 = 20$ inside or outside the CI, and does this match the test's conclusion?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$\mu_0 = 20$ is <strong>outside</strong> $(12.1, 19.7)$. This is consistent with the test: $p\text{-value} = 0.032 < 0.05$, so we reject $H_0: \mu = 20$ at $\alpha = 0.05$. The CI and hypothesis test always agree for two-sided tests at the same level.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">5</span>
+                <p>A medical test has significance level $\alpha=0.01$. The doctors decide the Type II error (missing a disease) is more costly than a Type I error. Should they increase or decrease $\alpha$?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">They should <strong>increase $\alpha$</strong> (e.g., to 0.05 or 0.10). A larger $\alpha$ reduces the Type II error rate by making it easier to reject $H_0$, at the cost of more false positives. When missing a disease is dangerous, reducing false negatives is the priority.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">6</span>
+                <p>What does it mean for a result to be "statistically significant" but not "practically significant"? Give an example.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Statistical significance means $p\text{-value} < \alpha$; practical significance means the effect size matters in the real world. Example: with $n = 1{,}000{,}000$, a test showing a drug reduces blood pressure by 0.1 mm Hg might give $p = 0.0001$ (statistically significant) but a 0.1 mm Hg reduction has no clinical meaning (not practically significant).</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">7</span>
+                <p>Two proportions: Group A has $n_1=150$, $\hat{p}_1=0.60$; Group B has $n_2=180$, $\hat{p}_2=0.52$. Test $H_0: p_1=p_2$ vs. $H_a: p_1>p_2$ at $\alpha=0.05$. Find the pooled proportion and $z$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$\hat{p}_c=(90+93.6)/(150+180)=183.6/330\approx0.557$. (Actually: $90+94=184$; $\hat{p}_c=184/330=0.5576$.)<br>$z=(0.60-0.52)/\sqrt{0.5576\cdot0.4424\cdot(1/150+1/180)}=0.08/\sqrt{0.2467\cdot0.01222}=0.08/0.05488=1.458$.<br>$p\text{-value}=P(Z>1.46)\approx0.072>0.05$. Fail to reject $H_0$.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">8</span>
+                <p><strong>AP FRQ — Full Four-Step:</strong> A school claims 70% of students complete homework daily. A researcher surveys 120 randomly selected students; 78 say yes. Test the school's claim at $\alpha = 0.05$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer"><strong>State:</strong> $H_0: p=0.70$; $H_a: p\neq0.70$. $p$ = true proportion who complete homework daily.<br><strong>Plan:</strong> One-proportion $z$-test. Random ✓; $120(0.7)=84\geq10$, $120(0.3)=36\geq10$ ✓; 10% ✓.<br><strong>Do:</strong> $\hat{p}=78/120=0.65$. $z=(0.65-0.70)/\sqrt{(0.70)(0.30)/120}=(-0.05)/0.04183=-1.196$. $p\text{-value}=2P(Z<-1.20)=2(0.115)=0.230$.<br><strong>Conclude:</strong> Since $0.230>0.05$, fail to reject $H_0$. There is not convincing evidence that the true proportion differs from 70%.</div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-nav">
+        <a href="/us/textbook/ap-statistics/confidence-intervals.html">← Chapter 10: Confidence Intervals</a>
+        <a href="/us/textbook/ap-statistics/chi-square-tests.html">Chapter 12: Chi-Square Tests →</a>
+    </div>
+</article>
+
+<script>
+(function() {
+    // Figure 11.1 — Right-tail p-value, normal curve
+    var elt1 = document.getElementById('graph-pval');
+    var calc1 = Desmos.GraphingCalculator(elt1, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false,
+        showGrid: false, showXAxis: true, showYAxis: false
+    });
+    calc1.setMathBounds({ left: -3.5, right: 3.5, bottom: -0.02, top: 0.45 });
+
+    // Normal curve
+    calc1.setExpression({ id: 'ncurve', type: 'expression',
+        latex: 'y=\\frac{e^{-x^{2}/2}}{\\sqrt{2\\cdot3.14159}}',
+        color: '#065f46', lineWidth: 2.5 });
+
+    // Shade right tail beyond t=2.13 using polygon approximation
+    calc1.setExpression({ id: 'tail', type: 'expression',
+        latex: 'y=\\frac{e^{-x^{2}/2}}{\\sqrt{2\\cdot3.14159}}\\left\\{x\\ge2.13\\right\\}',
+        color: '#dc2626', lineWidth: 0,
+        fillOpacity: 0.4 });
+
+    // Fill to x-axis
+    calc1.setExpression({ id: 'tailfill', type: 'expression',
+        latex: '0\\le y\\le\\frac{e^{-x^{2}/2}}{\\sqrt{2\\cdot3.14159}}\\left\\{x\\ge2.13\\right\\}',
+        color: '#dc2626', lineWidth: 0, fillOpacity: 0.35 });
+
+    // Vertical line at t=2.13
+    calc1.setExpression({ id: 'tline', type: 'expression',
+        latex: 'x=2.13', color: '#1d4ed8', lineStyle: Desmos.Styles.DASHED, lineWidth: 2 });
+
+    // Label
+    calc1.setExpression({ id: 'tlbl', type: 'expression',
+        latex: '(2.13,0)', color: '#1d4ed8',
+        pointStyle: Desmos.Styles.POINT, pointSize: 10 });
+})();
+
+(function() {
+    // Figure 11.2 — Two-sided p-value
+    var elt2 = document.getElementById('graph-twosided');
+    var calc2 = Desmos.GraphingCalculator(elt2, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false,
+        showGrid: false, showXAxis: true, showYAxis: false
+    });
+    calc2.setMathBounds({ left: -3.5, right: 3.5, bottom: -0.02, top: 0.45 });
+
+    // Normal curve
+    calc2.setExpression({ id: 'ncurve2', type: 'expression',
+        latex: 'y=\\frac{e^{-x^{2}/2}}{\\sqrt{2\\cdot3.14159}}',
+        color: '#065f46', lineWidth: 2.5 });
+
+    // Left tail shading: x <= -1.04
+    calc2.setExpression({ id: 'ltail', type: 'expression',
+        latex: '0\\le y\\le\\frac{e^{-x^{2}/2}}{\\sqrt{2\\cdot3.14159}}\\left\\{x\\le-1.04\\right\\}',
+        color: '#dc2626', lineWidth: 0, fillOpacity: 0.35 });
+
+    // Right tail shading: x >= 1.04
+    calc2.setExpression({ id: 'rtail', type: 'expression',
+        latex: '0\\le y\\le\\frac{e^{-x^{2}/2}}{\\sqrt{2\\cdot3.14159}}\\left\\{x\\ge1.04\\right\\}',
+        color: '#dc2626', lineWidth: 0, fillOpacity: 0.35 });
+
+    // Vertical lines
+    calc2.setExpression({ id: 'lline', type: 'expression',
+        latex: 'x=-1.04', color: '#1d4ed8', lineStyle: Desmos.Styles.DASHED, lineWidth: 2 });
+    calc2.setExpression({ id: 'rline', type: 'expression',
+        latex: 'x=1.04', color: '#1d4ed8', lineStyle: Desmos.Styles.DASHED, lineWidth: 2 });
+})();
+
+(function() {
+    // Figure 11.3 — One-sided t-test (df=24 approximated by t-distribution)
+    var elt3 = document.getElementById('graph-ttest');
+    var calc3 = Desmos.GraphingCalculator(elt3, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false,
+        showGrid: false, showXAxis: true, showYAxis: false
+    });
+    calc3.setMathBounds({ left: -4, right: 4, bottom: -0.02, top: 0.45 });
+
+    // t(df=24) ≈ (1 + x^2/24)^(-12.5) * 0.3989 (close to Normal for large df)
+    calc3.setExpression({ id: 'tcurve3', type: 'expression',
+        latex: 'y=0.3960\\cdot\\left(1+\\frac{x^{2}}{24}\\right)^{-12.5}',
+        color: '#065f46', lineWidth: 2.5 });
+
+    // Right tail shading beyond t=2.14
+    calc3.setExpression({ id: 'tail3', type: 'expression',
+        latex: '0\\le y\\le 0.3960\\cdot\\left(1+\\frac{x^{2}}{24}\\right)^{-12.5}\\left\\{x\\ge2.14\\right\\}',
+        color: '#dc2626', lineWidth: 0, fillOpacity: 0.35 });
+
+    // Vertical line at t=2.14
+    calc3.setExpression({ id: 'tline3', type: 'expression',
+        latex: 'x=2.14', color: '#1d4ed8', lineStyle: Desmos.Styles.DASHED, lineWidth: 2 });
+})();
+</script>
+
+</body>
+</html>

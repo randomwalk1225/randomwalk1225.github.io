@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Geometry: Area of Polygons and Circles - Chapter 11 | MathHub</title>
+    <meta name="description" content="Geometry Chapter 11: Area of Polygons and Circles. Learn area formulas for triangles, quadrilaterals, regular polygons, sectors, and composite figures.">
+    <meta name="keywords" content="geometry, area of polygons, area of circles, sector area, arc length, apothem, regular polygons, composite figures, trapezoid area, high school geometry chapter 11">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/geometry/area-polygons.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/geometry/area-polygons.html">
+    <meta property="og:title" content="Geometry: Area of Polygons and Circles - Chapter 11">
+    <meta property="og:description" content="Area formulas for triangles, quadrilaterals, regular polygons with apothem, sector and arc length, and composite figures.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "Geometry: Area of Polygons and Circles - Chapter 11",
+        "description": "Geometry Chapter 11 covering area formulas for all polygon types, regular polygon apothem method, sector and arc length formulas, and composite figure area calculations.",
+        "url": "https://mathhub.io/us/textbook/geometry/area-polygons.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "High School",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Area of Polygons" },
+            { "@type": "Thing", "name": "Sector Area" },
+            { "@type": "Thing", "name": "Composite Figures" },
+            { "@type": "Thing", "name": "Geometry" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #4c1d95; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #4c1d95; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #8b5cf6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives { background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 24px 0 32px; border-radius: 0 10px 10px 0; }
+        .learning-objectives h4 { color: #4c1d95; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #3b0764; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box { background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #4c1d95; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+
+        .definition-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+
+        .theorem-box { background: #fdf2f8; border-left: 4px solid #ec4899; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #9d174d; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li, .theorem-box td, .theorem-box th { color: #334155; line-height: 1.8; }
+
+        .try-it-box { background: #f5f3ff; border: 1.5px dashed #c4b5fd; padding: 16px 20px; margin: -4px 0 24px; border-radius: 0 0 8px 8px; }
+        .try-it-box .try-it-label { display: inline-block; background: #8b5cf6; color: white; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px; }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary { cursor: pointer; color: #4c1d95; font-weight: 600; font-size: 0.9em; user-select: none; }
+        .try-it-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7; }
+
+        .geo-tip { background: #fefce8; border-left: 4px solid #eab308; padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .geo-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .geo-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .geo-tip strong { color: #92400e; }
+
+        .desmos-wrap { margin: 24px auto; background: #faf8ff; border-radius: 12px; padding: 4px; border: 1px solid #e9d5ff; text-align: center; }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label { text-align: center; font-size: 0.82em; color: #64748b; margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em; }
+
+        /* Area formula summary table */
+        .area-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.91em; }
+        .area-table th { background: #4c1d95; color: white; padding: 9px 14px; text-align: left; font-weight: 700; }
+        .area-table td { padding: 9px 14px; border: 1px solid #e2e8f0; color: #334155; vertical-align: middle; }
+        .area-table tr:nth-child(even) { background: #f8fafc; }
+
+        .practice-section { margin: 48px 0 0; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { color: #4c1d95; margin-bottom: 20px; }
+        .practice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        @media (max-width: 600px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; }
+        .practice-card .p-num { display: inline-block; background: #4c1d95; color: white; font-weight: 700; font-size: 0.78em; padding: 2px 9px; border-radius: 4px; margin-bottom: 8px; }
+        .practice-card p { color: #334155; font-size: 0.92em; line-height: 1.7; margin: 0 0 10px; }
+        .practice-card details summary { cursor: pointer; color: #4c1d95; font-weight: 600; font-size: 0.88em; user-select: none; }
+        .practice-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 8px; color: #334155; font-size: 0.9em; line-height: 1.7; border: 1px solid #e2e8f0; }
+
+        .chapter-nav { display: flex; justify-content: space-between; margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid #e2e8f0; flex-wrap: wrap; gap: 12px; }
+        .chapter-nav a { color: #8b5cf6; text-decoration: none; font-weight: 600; font-size: 0.95em; padding: 8px 16px; border: 1.5px solid #8b5cf6; border-radius: 8px; transition: background .15s; }
+        .chapter-nav a:hover { background: #f5f3ff; }
+    </style>
+</head>
+<body>
+
+<div style="background:#4c1d95; padding:12px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+    <a href="/" style="color:#ddd6fe; text-decoration:none; font-weight:700; font-size:1.1em;">MathHub</a>
+    <span style="color:#a78bfa;">›</span>
+    <a href="/us" style="color:#c4b5fd; text-decoration:none; font-size:.9em;">US</a>
+    <span style="color:#a78bfa;">›</span>
+    <a href="/us/textbook/geometry" style="color:#c4b5fd; text-decoration:none; font-size:.9em;">Geometry</a>
+    <span style="color:#a78bfa;">›</span>
+    <span style="color:white; font-size:.9em;">Chapter 11</span>
+</div>
+
+<article class="blog-article">
+    <div class="breadcrumb">
+        <a href="/">MathHub</a> › <a href="/us">US</a> › <a href="/us/textbook/geometry">Geometry</a> › Chapter 11
+    </div>
+
+    <h1>Chapter 11: Area of Polygons and Circles</h1>
+    <div class="blog-meta">High School Geometry · Unit 5: Measurement · 3 interactive diagrams · 8 practice problems</div>
+
+    <div class="learning-objectives">
+        <h4>Learning Objectives</h4>
+        <ul>
+            <li>Apply area formulas for triangles, parallelograms, trapezoids, rhombuses, and kites</li>
+            <li>Use the SAS triangle area formula $A = \frac{1}{2}ab\sin C$</li>
+            <li>Find the area of regular polygons using the apothem formula $A = \frac{1}{2} \cdot a \cdot P$</li>
+            <li>Calculate arc length and sector area using degree and radian measures</li>
+            <li>Find the area of circular segments (sector minus triangle)</li>
+            <li>Decompose composite figures into simpler shapes to compute total area</li>
+        </ul>
+    </div>
+
+    <!-- 11.1 -->
+    <h2>11.1 Areas of Triangles and Quadrilaterals</h2>
+
+    <div class="theorem-box">
+        <h4>Area Formula Summary</h4>
+        <table class="area-table">
+            <tr><th>Shape</th><th>Formula</th><th>Key Variables</th></tr>
+            <tr><td>Triangle</td><td>$A = \frac{1}{2}bh$</td><td>$b$ = base, $h$ = height</td></tr>
+            <tr><td>Triangle (SAS)</td><td>$A = \frac{1}{2}ab\sin C$</td><td>$a$, $b$ = two sides, $C$ = included angle</td></tr>
+            <tr><td>Parallelogram</td><td>$A = bh$</td><td>$b$ = base, $h$ = perpendicular height</td></tr>
+            <tr><td>Rectangle</td><td>$A = lw$</td><td>$l$ = length, $w$ = width</td></tr>
+            <tr><td>Rhombus / Kite</td><td>$A = \frac{1}{2}d_1 d_2$</td><td>$d_1$, $d_2$ = diagonals</td></tr>
+            <tr><td>Trapezoid</td><td>$A = \frac{1}{2}(b_1 + b_2)h$</td><td>$b_1$, $b_2$ = parallel bases, $h$ = height</td></tr>
+        </table>
+    </div>
+
+    <p>The <strong>height</strong> of any polygon is always the <em>perpendicular</em> distance between a base and the opposite vertex (or parallel side). A slant side is never the height.</p>
+
+    <div class="example-box">
+        <h4>Example 11.1 — Triangle Area</h4>
+        <p>A triangle has base $b = 12$ and height $h = 9$. Find the area.</p>
+        $$A = \frac{1}{2}bh = \frac{1}{2}(12)(9) = \frac{108}{2} = \mathbf{54 \text{ sq units}}$$
+    </div>
+
+    <div class="example-box">
+        <h4>Example 11.2 — Trapezoid Area</h4>
+        <p>A trapezoid has parallel bases $b_1 = 8$ and $b_2 = 14$, with height $h = 6$. Find the area.</p>
+        $$A = \frac{1}{2}(b_1 + b_2)h = \frac{1}{2}(8 + 14)(6) = \frac{1}{2}(22)(6) = \mathbf{66 \text{ sq units}}$$
+    </div>
+
+    <div class="example-box">
+        <h4>Example 11.3 — Rhombus Area</h4>
+        <p>A rhombus has diagonals of length $10$ and $16$. Find the area.</p>
+        $$A = \frac{1}{2}d_1 d_2 = \frac{1}{2}(10)(16) = \mathbf{80 \text{ sq units}}$$
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A triangle has two sides $a = 7$, $b = 10$ with included angle $C = 60°$. Find the area using the SAS formula.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                $A = \frac{1}{2}ab\sin C = \frac{1}{2}(7)(10)\sin 60° = 35 \cdot \frac{\sqrt{3}}{2} = \frac{35\sqrt{3}}{2} \approx \mathbf{30.31}$ sq units.
+            </div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Four common shapes — triangle, parallelogram, trapezoid, and rhombus — each with dashed height lines showing the perpendicular dimension used in the area formula.</p>
+        <div id="graph-shapes" style="width:100%; max-width:700px; height:420px; margin:0 auto;"></div>
+        <p class="fig-label">Figure 11.1 — Area Formulas: Triangle, Parallelogram, Trapezoid, Rhombus</p>
+    </div>
+
+    <!-- 11.2 -->
+    <h2>11.2 Regular Polygons and Apothem</h2>
+
+    <div class="definition-box">
+        <h4>Regular Polygon and Apothem</h4>
+        <p>A <strong>regular polygon</strong> has all sides equal and all interior angles equal. The <strong>apothem</strong> $a$ is the perpendicular distance from the center of the polygon to any side.</p>
+        <p>The area of a regular $n$-gon with side length $s$ and apothem $a$ is:</p>
+        $$A = \frac{1}{2} \cdot a \cdot P = \frac{1}{2} \cdot a \cdot ns$$
+        <p>where $P = ns$ is the perimeter. Each interior angle of a regular $n$-gon measures $\dfrac{(n-2) \cdot 180°}{n}$.</p>
+    </div>
+
+    <p>To find the apothem of a regular polygon with side $s$ and $n$ sides, use the relationship:</p>
+    $$a = \frac{s}{2} \cdot \cot\!\left(\frac{180°}{n}\right) = \frac{s}{2\tan(180°/n)}$$
+
+    <div class="example-box">
+        <h4>Example 11.4 — Regular Hexagon Area</h4>
+        <p>A regular hexagon has side length $6$. Find the apothem and the area.</p>
+        <p>For a regular hexagon ($n = 6$), the apothem $= \frac{s\sqrt{3}}{2} = \frac{6\sqrt{3}}{2} = 3\sqrt{3}$.</p>
+        <p>Perimeter $= 6 \times 6 = 36$.</p>
+        $$A = \frac{1}{2}aP = \frac{1}{2}(3\sqrt{3})(36) = 54\sqrt{3} \approx \mathbf{93.53 \text{ sq units}}$$
+    </div>
+
+    <div class="example-box">
+        <h4>Example 11.5 — Regular Pentagon Area</h4>
+        <p>A regular pentagon has side length $s = 8$ and apothem $a = 5.5$. Find the area.</p>
+        <p>Perimeter $= 5 \times 8 = 40$.</p>
+        $$A = \frac{1}{2}(5.5)(40) = \frac{1}{2}(220) = \mathbf{110 \text{ sq units}}$$
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A regular octagon has side length $s = 4$ and apothem $a \approx 4.83$. Find the area.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                Perimeter $= 8 \times 4 = 32$. $A = \frac{1}{2}(4.83)(32) = \frac{1}{2}(154.56) = \mathbf{77.28}$ sq units.
+            </div>
+        </details>
+    </div>
+
+    <div class="geo-tip">
+        <div class="geo-tip-icon">★</div>
+        <p><strong>Hexagon shortcut:</strong> For a regular hexagon with side $s$, the apothem is always $\frac{s\sqrt{3}}{2}$ and the area is $\frac{3s^2\sqrt{3}}{2}$. Memorize this for the SAT/ACT — it appears frequently.</p>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Regular hexagon with center marked and one dashed apothem drawn to the midpoint of a side.</p>
+        <div id="graph-hexagon" style="width:100%; max-width:560px; height:400px; margin:0 auto;"></div>
+        <p class="fig-label">Figure 11.2 — Regular Hexagon with Apothem</p>
+    </div>
+
+    <!-- 11.3 -->
+    <h2>11.3 Circumference, Arc Length, and Sector Area</h2>
+
+    <div class="theorem-box">
+        <h4>Arc Length and Sector Area Formulas</h4>
+        <ul>
+            <li><strong>Circumference:</strong> $C = 2\pi r = \pi d$</li>
+            <li><strong>Arc Length (degrees):</strong> $L = \dfrac{\theta}{360°} \cdot 2\pi r$</li>
+            <li><strong>Arc Length (radians):</strong> $L = r\theta$ &nbsp; (when $\theta$ is in radians)</li>
+            <li><strong>Sector Area (degrees):</strong> $A = \dfrac{\theta}{360°} \cdot \pi r^2$</li>
+            <li><strong>Sector Area (radians):</strong> $A = \dfrac{1}{2}r^2\theta$</li>
+            <li><strong>Circular Segment Area:</strong> $A_{\text{segment}} = A_{\text{sector}} - A_{\triangle}$</li>
+        </ul>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 11.6 — Arc Length and Sector Area</h4>
+        <p>A circle has $r = 10$ and central angle $\theta = 120°$. Find the arc length and sector area.</p>
+        $$L = \frac{120}{360} \cdot 2\pi(10) = \frac{1}{3} \cdot 20\pi = \frac{20\pi}{3} \approx \mathbf{20.94}$$
+        $$A_{\text{sector}} = \frac{120}{360} \cdot \pi(10)^2 = \frac{1}{3} \cdot 100\pi = \frac{100\pi}{3} \approx \mathbf{104.72}$$
+    </div>
+
+    <div class="example-box">
+        <h4>Example 11.7 — Circular Segment Area</h4>
+        <p>Find the area of a circular segment where $r = 8$ and the central angle $= 90°$.</p>
+        <p><strong>Sector area:</strong> $A_{\text{sector}} = \frac{90}{360} \cdot \pi(8)^2 = \frac{1}{4} \cdot 64\pi = 16\pi$</p>
+        <p><strong>Triangle area:</strong> The triangle formed by the two radii and the chord is a right isosceles triangle with legs $8$: $A_{\triangle} = \frac{1}{2}(8)(8) = 32$</p>
+        $$A_{\text{segment}} = 16\pi - 32 \approx 50.27 - 32 = \mathbf{18.27 \text{ sq units}}$$
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A pizza slice (sector) has $r = 9$ inches and central angle $= 40°$. Find the area of the slice and the arc length of the crust.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                Arc length (crust) $= \dfrac{40}{360} \cdot 2\pi(9) = \dfrac{1}{9} \cdot 18\pi = 2\pi \approx \mathbf{6.28}$ inches.<br>
+                Sector area $= \dfrac{40}{360} \cdot \pi(9)^2 = \dfrac{1}{9} \cdot 81\pi = 9\pi \approx \mathbf{28.27}$ sq inches.
+            </div>
+        </details>
+    </div>
+
+    <div class="geo-tip">
+        <div class="geo-tip-icon">★</div>
+        <p><strong>Radians vs. Degrees:</strong> On the AP exam, know both forms. If $\theta$ is in radians: arc length $= r\theta$ and sector area $= \frac{1}{2}r^2\theta$. If $\theta$ is in degrees, use the fraction $\frac{\theta}{360}$. Converting: $\theta_{\text{rad}} = \theta_{\text{deg}} \cdot \frac{\pi}{180}$.</p>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Circle with a 120° sector shaded — two purple radii and the arc marking the sector boundary.</p>
+        <div id="graph-sector" style="width:100%; max-width:560px; height:420px; margin:0 auto;"></div>
+        <p class="fig-label">Figure 11.3 — Circle with Sector from 0° to 120°</p>
+    </div>
+
+    <!-- 11.4 -->
+    <h2>11.4 Composite Figures</h2>
+
+    <p>A <strong>composite figure</strong> is made up of two or more basic shapes. To find its area, decompose the figure into recognizable shapes, compute each area separately, then add (or subtract if a piece is removed).</p>
+
+    <div class="definition-box">
+        <h4>Strategy for Composite Areas</h4>
+        <ol>
+            <li><strong>Draw and label</strong> the figure, identifying all component shapes.</li>
+            <li><strong>List each component</strong> with its area formula and known dimensions.</li>
+            <li><strong>Compute each area</strong> separately.</li>
+            <li><strong>Combine:</strong> add areas for additive pieces; subtract areas for cut-outs or holes.</li>
+        </ol>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 11.8 — Running Track (Rectangle + Semicircles)</h4>
+        <p>A running track consists of a rectangle $100\text{ m} \times 50\text{ m}$ with two semicircles of radius $r = 25\text{ m}$ at each end.</p>
+        <p><strong>Rectangle area:</strong> $A_1 = 100 \times 50 = 5{,}000\text{ m}^2$</p>
+        <p><strong>Two semicircles</strong> $=$ one full circle: $A_2 = \pi(25)^2 = 625\pi \approx 1{,}963.5\text{ m}^2$</p>
+        $$A_{\text{total}} = 5{,}000 + 1{,}963.5 \approx \mathbf{6{,}963.5 \text{ m}^2}$$
+    </div>
+
+    <div class="example-box">
+        <h4>Example 11.9 — Annulus (Circle with Hole)</h4>
+        <p>Find the shaded area of a large circle with $r = 8$ from which a small circle with $r = 3$ has been removed.</p>
+        $$A = \pi(8)^2 - \pi(3)^2 = 64\pi - 9\pi = 55\pi \approx \mathbf{172.79 \text{ sq units}}$$
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A house shape consists of a square $8 \times 8$ with an equilateral triangle roof of side $8$ on top. Find the total area.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                Square: $A_1 = 8^2 = 64$.<br>
+                Equilateral triangle (side 8): $A_2 = \frac{\sqrt{3}}{4}(8)^2 = \frac{64\sqrt{3}}{4} = 16\sqrt{3} \approx 27.71$.<br>
+                Total $\approx 64 + 27.71 = \mathbf{91.71}$ sq units.
+            </div>
+        </details>
+    </div>
+
+    <div class="geo-tip">
+        <div class="geo-tip-icon">★</div>
+        <p><strong>AP Tip:</strong> For composite areas on the AP exam, always draw and label the figure first. Write out each component's formula before plugging in numbers — this prevents errors and earns partial credit even if the arithmetic goes wrong.</p>
+    </div>
+
+    <!-- Practice -->
+    <div class="practice-section">
+        <h2>Practice Problems</h2>
+        <div class="practice-grid">
+            <div class="practice-card">
+                <span class="p-num">1</span>
+                <p>A parallelogram has base $15$ and height $8$. Find its area.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$A = bh = 15 \times 8 = \mathbf{120}$ sq units.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">2</span>
+                <p>A kite has diagonals $d_1 = 14$ and $d_2 = 9$. Find its area.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$A = \frac{1}{2}d_1 d_2 = \frac{1}{2}(14)(9) = \mathbf{63}$ sq units.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">3</span>
+                <p>A regular hexagon has side length $s = 10$. Find the exact area.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Apothem $= \frac{10\sqrt{3}}{2} = 5\sqrt{3}$. Perimeter $= 60$. $A = \frac{1}{2}(5\sqrt{3})(60) = 150\sqrt{3} \approx \mathbf{259.8}$ sq units.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">4</span>
+                <p>A circle has $r = 12$. Find the arc length and sector area for a central angle of $150°$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Arc $= \frac{150}{360} \cdot 2\pi(12) = \frac{5}{12} \cdot 24\pi = 10\pi \approx \mathbf{31.42}$ units. Sector area $= \frac{150}{360} \cdot \pi(12)^2 = \frac{5}{12} \cdot 144\pi = 60\pi \approx \mathbf{188.5}$ sq units.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">5</span>
+                <p>Find the area of a circular segment with $r = 10$ and central angle $= 60°$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Sector area $= \frac{60}{360} \cdot \pi(100) = \frac{100\pi}{6} \approx 52.36$. Triangle (equilateral with side $10$): $A = \frac{\sqrt{3}}{4}(100) = 25\sqrt{3} \approx 43.30$. Segment $\approx 52.36 - 43.30 = \mathbf{9.06}$ sq units.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">6</span>
+                <p>A regular octagon has side $s = 6$ and apothem $a \approx 7.24$. Find the area.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Perimeter $= 8 \times 6 = 48$. $A = \frac{1}{2}(7.24)(48) = \frac{1}{2}(347.52) \approx \mathbf{173.8}$ sq units.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">7</span>
+                <p>A composite figure is a rectangle $10 \times 6$ with a semicircle of diameter $6$ on one end. Find the total area.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Rectangle: $10 \times 6 = 60$. Semicircle ($r = 3$): $\frac{1}{2}\pi(3)^2 = \frac{9\pi}{2} \approx 14.14$. Total $\approx 60 + 14.14 = \mathbf{74.14}$ sq units.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">8 — AP Challenge</span>
+                <p>A square of side $12$ has a circle of radius $4$ inscribed at its center (removed). Find the remaining area. Then find what fraction of the square the circle occupies. Express the fraction in terms of $\pi$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    Square area $= 12^2 = 144$.<br>
+                    Circle area $= \pi(4)^2 = 16\pi$.<br>
+                    Remaining area $= 144 - 16\pi \approx 144 - 50.27 \approx \mathbf{93.73}$ sq units.<br>
+                    Fraction occupied by circle $= \dfrac{16\pi}{144} = \dfrac{\pi}{9} \approx 34.9\%$.
+                </div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-nav">
+        <a href="/us/textbook/geometry/circles.html">← Chapter 10: Circles</a>
+        <a href="/us/textbook/geometry/surface-area-volume.html">Chapter 12: Surface Area and Volume →</a>
+    </div>
+</article>
+
+<script>
+(function() {
+    // Figure 11.1 — Four shapes: triangle, parallelogram, trapezoid, rhombus
+    var elt1 = document.getElementById('graph-shapes');
+    var calc1 = Desmos.GraphingCalculator(elt1, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: false, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc1.setMathBounds({ left: 0, right: 10, bottom: 0, top: 8 });
+
+    // Triangle (bottom-left): vertices (0.5,0.5),(3.5,0.5),(2,3) — purple
+    calc1.setExpression({ id: 'tri', type: 'expression',
+        latex: '\\operatorname{polygon}((0.5,0.5),(3.5,0.5),(2,3))',
+        color: '#8b5cf6', lineWidth: 3 });
+    // Triangle dashed height: (2,0.5) to (2,3)
+    calc1.setExpression({ id: 'triH', type: 'expression',
+        latex: '\\operatorname{polygon}((2,0.5),(2,3))',
+        color: '#6d28d9', lineWidth: 2.5, lineStyle: Desmos.Styles.DASHED });
+
+    // Parallelogram (bottom-right): vertices (5,0.5),(8,0.5),(9,3),(6,3) — blue
+    calc1.setExpression({ id: 'para', type: 'expression',
+        latex: '\\operatorname{polygon}((5,0.5),(8,0.5),(9,3),(6,3))',
+        color: '#3b82f6', lineWidth: 3 });
+    // Parallelogram dashed height: (6,0.5) to (6,3)
+    calc1.setExpression({ id: 'paraH', type: 'expression',
+        latex: '\\operatorname{polygon}((6,0.5),(6,3))',
+        color: '#1d4ed8', lineWidth: 2.5, lineStyle: Desmos.Styles.DASHED });
+
+    // Trapezoid (top-left): vertices (0.5,4),(3.5,4),(3,6.5),(1,6.5) — green
+    calc1.setExpression({ id: 'trap', type: 'expression',
+        latex: '\\operatorname{polygon}((0.5,4),(3.5,4),(3,6.5),(1,6.5))',
+        color: '#10b981', lineWidth: 3 });
+    // Trapezoid dashed height: (1,4) to (1,6.5)
+    calc1.setExpression({ id: 'trapH', type: 'expression',
+        latex: '\\operatorname{polygon}((1,4),(1,6.5))',
+        color: '#059669', lineWidth: 2.5, lineStyle: Desmos.Styles.DASHED });
+
+    // Rhombus (top-right): vertices (6.5,4),(8,5.5),(6.5,7),(5,5.5) — orange
+    calc1.setExpression({ id: 'rhom', type: 'expression',
+        latex: '\\operatorname{polygon}((6.5,4),(8,5.5),(6.5,7),(5,5.5))',
+        color: '#f59e0b', lineWidth: 3 });
+    // Rhombus dashed diagonals
+    calc1.setExpression({ id: 'rhomD1', type: 'expression',
+        latex: '\\operatorname{polygon}((6.5,4),(6.5,7))',
+        color: '#d97706', lineWidth: 2.5, lineStyle: Desmos.Styles.DASHED });
+    calc1.setExpression({ id: 'rhomD2', type: 'expression',
+        latex: '\\operatorname{polygon}((5,5.5),(8,5.5))',
+        color: '#d97706', lineWidth: 2.5, lineStyle: Desmos.Styles.DASHED });
+})();
+
+(function() {
+    // Figure 11.2 — Regular hexagon with apothem
+    var elt2 = document.getElementById('graph-hexagon');
+    var calc2 = Desmos.GraphingCalculator(elt2, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: false, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc2.setMathBounds({ left: 1, right: 9, bottom: 1, top: 7 });
+
+    // Regular hexagon: center (5,4), radius r=3
+    // Vertices at angles 0, 60, 120, 180, 240, 300 degrees
+    // (5+3, 4), (5+1.5, 4+2.598), (5-1.5, 4+2.598), (5-3, 4), (5-1.5, 4-2.598), (5+1.5, 4-2.598)
+    // = (8,4), (6.5,6.598), (3.5,6.598), (2,4), (3.5,1.402), (6.5,1.402)
+    calc2.setExpression({ id: 'hex', type: 'expression',
+        latex: '\\operatorname{polygon}((8,4),(6.5,6.598),(3.5,6.598),(2,4),(3.5,1.402),(6.5,1.402))',
+        color: '#8b5cf6', lineWidth: 3 });
+
+    // Center point
+    calc2.setExpression({ id: 'hexCenter', type: 'expression',
+        latex: '(5,4)', color: '#4c1d95', pointSize: 12 });
+
+    // Apothem: perpendicular from center to midpoint of bottom side
+    // Bottom side: (3.5,1.402) to (6.5,1.402), midpoint = (5, 1.402)
+    calc2.setExpression({ id: 'apothem', type: 'expression',
+        latex: '\\operatorname{polygon}((5,4),(5,1.402))',
+        color: '#ec4899', lineWidth: 3, lineStyle: Desmos.Styles.DASHED });
+
+    // Apothem foot point
+    calc2.setExpression({ id: 'apothemFoot', type: 'expression',
+        latex: '(5,1.402)', color: '#ec4899', pointSize: 10 });
+
+    // One radius shown for reference (to a vertex)
+    calc2.setExpression({ id: 'hexRad', type: 'expression',
+        latex: '\\operatorname{polygon}((5,4),(8,4))',
+        color: '#6d28d9', lineWidth: 2, lineStyle: Desmos.Styles.DASHED });
+})();
+
+(function() {
+    // Figure 11.3 — Circle with sector from 0° to 120°
+    var elt3 = document.getElementById('graph-sector');
+    var calc3 = Desmos.GraphingCalculator(elt3, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: false, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc3.setMathBounds({ left: -6, right: 6, bottom: -6, top: 6 });
+
+    // Circle x^2+y^2=25 (r=5)
+    calc3.setExpression({ id: 'circle3', type: 'expression',
+        latex: 'x^2+y^2=25',
+        color: '#8b5cf6', lineWidth: 3 });
+
+    // Sector fill (0° to 120°): shade the wedge
+    // Use inequality: x^2+y^2 ≤ 25 AND angle between 0 and 120°
+    // Approximate with a polygon: center, point at 0°, arc discretized, point at 120°
+    // arc: 5cos(t°) for t=0..120
+    calc3.setExpression({ id: 'sectorFill', type: 'expression',
+        latex: '\\operatorname{polygon}((0,0),(5,0),(4.33,2.5),(2.5,4.33),(0,5),(-2.5,4.33),(0,0))',
+        color: '#c4b5fd', lineWidth: 0,
+        fillOpacity: 0.45 });
+
+    // Radius at 0° (horizontal)
+    calc3.setExpression({ id: 'rad0', type: 'expression',
+        latex: '\\operatorname{polygon}((0,0),(5,0))',
+        color: '#4c1d95', lineWidth: 3 });
+
+    // Radius at 120°: (5cos120°, 5sin120°) = (-2.5, 4.330)
+    calc3.setExpression({ id: 'rad120', type: 'expression',
+        latex: '\\operatorname{polygon}((0,0),(-2.5,4.33))',
+        color: '#4c1d95', lineWidth: 3 });
+
+    // Arc from 0° to 120° (parametric)
+    calc3.setExpression({ id: 'arc3', type: 'expression',
+        latex: '(5\\cos(t), 5\\sin(t))',
+        parametricDomain: { min: '0', max: '2\\cdot\\pi/3' },
+        color: '#8b5cf6', lineWidth: 4,
+        lineStyle: Desmos.Styles.DASHED });
+
+    // Center point
+    calc3.setExpression({ id: 'center3', type: 'expression',
+        latex: '(0,0)', color: '#4c1d95', pointSize: 12 });
+})();
+</script>
+
+</body>
+</html>
