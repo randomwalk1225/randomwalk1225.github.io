@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Calculus: Integration - Chapter 6 | MathHub</title>
+    <meta name="description" content="AP Calculus Chapter 3: Integration. Learn antiderivatives, indefinite integrals, the Fundamental Theorem of Calculus, and definite integrals with worked examples and practice problems.">
+    <meta name="keywords" content="AP Calculus integration, antiderivatives, indefinite integral, definite integral, Fundamental Theorem of Calculus, u-substitution, Riemann sum, AP Calculus AB BC">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/ap-calculus/integration.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/ap-calculus/integration.html">
+    <meta property="og:title" content="AP Calculus: Integration - Chapter 3">
+    <meta property="og:description" content="Master integration for AP Calculus AB and BC. Antiderivatives, the FTC, u-substitution, and definite integrals with worked examples.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Calculus: Integration - Chapter 3">
+    <meta name="twitter:description" content="AP Calculus integration: antiderivatives, Fundamental Theorem of Calculus, and u-substitution.">
+
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "AP Calculus: Integration - Chapter 6",
+        "description": "AP Calculus Chapter 3 covering antiderivatives, indefinite integrals, Riemann sums, the Fundamental Theorem of Calculus, and u-substitution.",
+        "url": "https://mathhub.io/us/textbook/ap-calculus/integration.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "AP",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Integration" },
+            { "@type": "Thing", "name": "Antiderivatives" },
+            { "@type": "Thing", "name": "AP Calculus" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        .blog-article {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 16px;
+        }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #2563eb; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives {
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            padding: 20px 24px; margin: 24px 0 32px;
+            border-radius: 0 10px 10px 0;
+        }
+        .learning-objectives h4 { color: #1e40af; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #1e3a8a; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box {
+            background: #eff6ff; border-left: 4px solid #2563eb;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .example-box h4 { color: #1e40af; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box {
+            background: #f0fdf4; border-left: 4px solid #16a34a;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box {
+            background: #faf5ff; border-left: 4px solid #8b5cf6;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box {
+            background: #eff6ff;
+            border: 1.5px dashed #93c5fd;
+            padding: 16px 20px; margin: -4px 0 24px;
+            border-radius: 0 0 8px 8px;
+        }
+        .try-it-box .try-it-label {
+            display: inline-block; background: #2563eb; color: white;
+            font-size: 0.75em; font-weight: 700; padding: 2px 10px;
+            border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px;
+        }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary {
+            cursor: pointer; color: #1e40af; font-weight: 600;
+            font-size: 0.9em; user-select: none;
+        }
+        .try-it-answer {
+            padding: 10px 14px; background: white; border-radius: 6px;
+            margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7;
+        }
+
+        .ap-tip {
+            background: #fefce8; border-left: 4px solid #eab308;
+            padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0;
+            display: flex; gap: 12px; align-items: flex-start;
+        }
+        .ap-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #92400e; }
+
+        .desmos-wrap {
+            margin: 24px auto; background: #f8fafc; border-radius: 12px;
+            padding: 4px; border: 1px solid #e2e8f0; text-align: center;
+        }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label {
+            text-align: center; font-size: 0.82em; color: #64748b;
+            margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em;
+        }
+
+        /* Integral table */
+        .integral-table {
+            width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.95em;
+        }
+        .integral-table th {
+            background: #1e3a5f; color: white; padding: 10px 16px; text-align: left; font-weight: 600;
+        }
+        .integral-table td { padding: 10px 16px; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        .integral-table tr:nth-child(even) { background: #f8fafc; }
+
+        /* Practice */
+        .practice-section { margin-top: 50px; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { border-top: none; padding-top: 0; margin-top: 0; }
+        .practice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 640px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card {
+            background: #f8fafc; border-radius: 10px; padding: 20px; border: 1px solid #e2e8f0;
+        }
+        .practice-card .p-num {
+            display: inline-block; background: #2563eb; color: white;
+            border-radius: 50%; width: 26px; height: 26px; text-align: center;
+            line-height: 26px; font-size: 0.85em; font-weight: 700; margin-bottom: 10px;
+        }
+        .practice-card p { margin: 0 0 12px; color: #334155; font-size: 0.95em; line-height: 1.7; }
+        .practice-card details summary {
+            cursor: pointer; color: #2563eb; font-size: 0.88em; font-weight: 600; user-select: none;
+        }
+        .practice-answer {
+            margin-top: 8px; padding: 10px 14px; background: white; border-radius: 6px;
+            font-size: 0.9em; color: #334155; line-height: 1.7;
+        }
+
+        .chapter-nav {
+            display: flex; justify-content: space-between; gap: 16px;
+            margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0;
+        }
+        .chapter-nav a {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: #2563eb; text-decoration: none; font-weight: 600; font-size: 0.95em;
+        }
+        .chapter-nav a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="blog-article">
+        <div class="breadcrumb">
+            <a href="/us/">US Math</a> &rsaquo;
+            <a href="/us/textbook/ap-calculus/">AP Calculus</a> &rsaquo;
+            Chapter 6: Integration
+        </div>
+
+        <h1>Chapter 6: Integration</h1>
+        <div class="blog-meta">AP Calculus AB &amp; BC &middot; MathHub &middot; 2026</div>
+
+        <div class="learning-objectives">
+            <h4>Learning Objectives</h4>
+            <ul>
+                <li>Find antiderivatives using basic integration rules</li>
+                <li>Evaluate indefinite integrals and understand the constant of integration</li>
+                <li>Approximate definite integrals using Riemann sums</li>
+                <li>Apply the Fundamental Theorem of Calculus (Parts 1 and 2)</li>
+                <li>Evaluate definite integrals using the FTC</li>
+                <li>Use u-substitution to evaluate more complex integrals</li>
+            </ul>
+        </div>
+
+        <h2>3.1 Antiderivatives and Indefinite Integrals</h2>
+
+        <p>An <strong>antiderivative</strong> of a function $f(x)$ is any function $F(x)$ such that $F'(x) = f(x)$. The process of finding antiderivatives is called <strong>integration</strong> or <strong>antidifferentiation</strong>.</p>
+
+        <div class="definition-box">
+            <h4>Indefinite Integral</h4>
+            <p>The <strong>indefinite integral</strong> of $f(x)$ is the family of all antiderivatives:</p>
+            <p>$$\int f(x)\,dx = F(x) + C$$</p>
+            <p>where $F'(x) = f(x)$ and $C$ is the <strong>constant of integration</strong> (any real number). Because the derivative of a constant is 0, every antiderivative differs from another by only a constant.</p>
+        </div>
+
+        <h3>Basic Integration Rules</h3>
+
+        <table class="integral-table">
+            <tr><th>Rule</th><th>Formula</th></tr>
+            <tr><td>Power Rule ($n \neq -1$)</td><td>$\displaystyle\int x^n\,dx = \dfrac{x^{n+1}}{n+1} + C$</td></tr>
+            <tr><td>Constant Multiple</td><td>$\displaystyle\int kf(x)\,dx = k\int f(x)\,dx$</td></tr>
+            <tr><td>Sum/Difference</td><td>$\displaystyle\int [f(x) \pm g(x)]\,dx = \int f(x)\,dx \pm \int g(x)\,dx$</td></tr>
+            <tr><td>Natural Exponential</td><td>$\displaystyle\int e^x\,dx = e^x + C$</td></tr>
+            <tr><td>Natural Log</td><td>$\displaystyle\int \frac{1}{x}\,dx = \ln|x| + C$</td></tr>
+            <tr><td>Sine / Cosine</td><td>$\displaystyle\int \sin x\,dx = -\cos x + C$; $\displaystyle\int \cos x\,dx = \sin x + C$</td></tr>
+            <tr><td>$\sec^2 x$</td><td>$\displaystyle\int \sec^2 x\,dx = \tan x + C$</td></tr>
+        </table>
+
+        <div class="example-box">
+            <h4>Example 3.1 — Evaluating Indefinite Integrals</h4>
+            <p><strong>(a)</strong> $\displaystyle\int (3x^2 - 5x + 2)\,dx$</p>
+            <p>Apply power rule to each term:<br>
+            $= \dfrac{3x^3}{3} - \dfrac{5x^2}{2} + 2x + C = \mathbf{x^3 - \dfrac{5}{2}x^2 + 2x + C}$</p>
+            <br>
+            <p><strong>(b)</strong> $\displaystyle\int \left(4e^x + \frac{3}{x}\right)dx$</p>
+            <p>$= 4e^x + 3\ln|x| + C$</p>
+            <br>
+            <p><strong>(c)</strong> $\displaystyle\int \sqrt{x}\,dx = \int x^{1/2}\,dx = \dfrac{x^{3/2}}{3/2} + C = \dfrac{2}{3}x^{3/2} + C$</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Evaluate: $\displaystyle\int (6x^2 + \cos x - e^x)\,dx$</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    $\displaystyle\int 6x^2\,dx + \int \cos x\,dx - \int e^x\,dx$<br>
+                    $= 2x^3 + \sin x - e^x + C$
+                </div>
+            </details>
+        </div>
+
+        <h3>Finding a Particular Antiderivative</h3>
+
+        <p>Given an initial condition, we can solve for $C$ to find the unique antiderivative satisfying that condition.</p>
+
+        <div class="example-box">
+            <h4>Example 3.2 — Initial Value Problem</h4>
+            <p>Find $f(x)$ if $f'(x) = 4x^3 - 2x$ and $f(1) = 5$.</p>
+            <p><strong>Step 1 — Integrate:</strong> $f(x) = \int (4x^3 - 2x)\,dx = x^4 - x^2 + C$</p>
+            <p><strong>Step 2 — Apply initial condition:</strong> $f(1) = 1 - 1 + C = 5 \Rightarrow C = 5$</p>
+            <p><strong>Answer:</strong> $f(x) = x^4 - x^2 + 5$</p>
+        </div>
+
+        <h2>3.2 Riemann Sums and the Definite Integral</h2>
+
+        <p>The <strong>definite integral</strong> $\displaystyle\int_a^b f(x)\,dx$ represents the <strong>net area</strong> between the curve $y = f(x)$ and the $x$-axis from $x = a$ to $x = b$. Area above the $x$-axis is positive; area below is negative.</p>
+
+        <p>A <strong>Riemann sum</strong> approximates the definite integral by dividing $[a,b]$ into $n$ subintervals of width $\Delta x = \dfrac{b-a}{n}$ and summing rectangle areas:</p>
+
+        <p>$$\int_a^b f(x)\,dx \approx \sum_{i=1}^{n} f(x_i^*)\,\Delta x$$</p>
+
+        <p>where $x_i^*$ is a sample point in the $i$th subinterval (left endpoint, right endpoint, or midpoint).</p>
+
+        <!-- Desmos: Riemann sum interactive -->
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">Interactive: Riemann sum approximation — adjust $n$ to see rectangles approach the true area</p>
+            <div id="graph-riemann" style="width:100%;height:350px;"></div>
+            <p class="fig-label">Figure 3.1 — Left Riemann Sum Approximation for $f(x) = x^2$ on $[0, 2]$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3.3 — Left Riemann Sum</h4>
+            <p>Approximate $\displaystyle\int_0^2 x^2\,dx$ using $n = 4$ left-endpoint rectangles.</p>
+            <p>$\Delta x = (2-0)/4 = 0.5$. Left endpoints: $x = 0, 0.5, 1, 1.5$.</p>
+            <p>$$L_4 = \Delta x[f(0) + f(0.5) + f(1) + f(1.5)]$$
+            $$= 0.5[0 + 0.25 + 1 + 2.25] = 0.5(3.5) = \mathbf{1.75}$$</p>
+            <p>The exact value is $\dfrac{2^3}{3} = \dfrac{8}{3} \approx 2.667$. The left sum underestimates because $f(x) = x^2$ is increasing on $[0,2]$.</p>
+        </div>
+
+        <h2>3.3 The Fundamental Theorem of Calculus</h2>
+
+        <p>The FTC connects differentiation and integration — the two core operations of calculus. It has two parts.</p>
+
+        <div class="theorem-box">
+            <h4>Fundamental Theorem of Calculus — Part 1 (FTC1)</h4>
+            <p>If $f$ is continuous on $[a, b]$, then the function $g(x) = \displaystyle\int_a^x f(t)\,dt$ is differentiable on $(a, b)$ and:</p>
+            <p>$$g'(x) = \frac{d}{dx}\int_a^x f(t)\,dt = f(x)$$</p>
+            <p>Integration and differentiation are inverse operations — differentiating an integral with respect to its upper limit returns the integrand.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Fundamental Theorem of Calculus — Part 2 (Evaluation Theorem)</h4>
+            <p>If $F$ is an antiderivative of $f$ on $[a, b]$, then:</p>
+            <p>$$\int_a^b f(x)\,dx = F(b) - F(a) = \Big[F(x)\Big]_a^b$$</p>
+            <p>This is the primary tool for evaluating definite integrals exactly.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3.4 — Evaluating Definite Integrals with FTC2</h4>
+            <p><strong>(a)</strong> $\displaystyle\int_1^3 (2x + 1)\,dx$</p>
+            <p>$F(x) = x^2 + x$</p>
+            <p>$\Big[x^2 + x\Big]_1^3 = (9 + 3) - (1 + 1) = 12 - 2 = \mathbf{10}$</p>
+            <br>
+            <p><strong>(b)</strong> $\displaystyle\int_0^{\pi} \sin x\,dx$</p>
+            <p>$F(x) = -\cos x$</p>
+            <p>$\Big[-\cos x\Big]_0^{\pi} = (-\cos\pi) - (-\cos 0) = (1) - (-1) = \mathbf{2}$</p>
+            <br>
+            <p><strong>(c)</strong> $\displaystyle\int_1^e \frac{1}{x}\,dx$</p>
+            <p>$\Big[\ln|x|\Big]_1^e = \ln e - \ln 1 = 1 - 0 = \mathbf{1}$</p>
+        </div>
+
+        <!-- Desmos: FTC area visualization -->
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">Definite integral as area under the curve — adjust $a$ and $b$ to explore</p>
+            <div id="graph-ftc" style="width:100%;height:320px;"></div>
+            <p class="fig-label">Figure 3.2 — Definite Integral as Net Area</p>
+        </div>
+
+        <div class="ap-tip">
+            <span class="ap-tip-icon">★</span>
+            <p><strong>AP Exam Tip:</strong> When using FTC1 with a chain rule upper limit, e.g., $\frac{d}{dx}\int_a^{g(x)} f(t)\,dt = f(g(x)) \cdot g'(x)$. Also remember: $\int_a^a f(x)\,dx = 0$ and $\int_a^b f(x)\,dx = -\int_b^a f(x)\,dx$.</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>(a) Evaluate $\displaystyle\int_0^4 (3x^2 - 2x + 1)\,dx$. (b) Find $\dfrac{d}{dx}\displaystyle\int_2^{x^3} \cos(t)\,dt$.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <strong>(a)</strong> $F(x) = x^3 - x^2 + x$<br>
+                    $[x^3 - x^2 + x]_0^4 = (64 - 16 + 4) - 0 = \mathbf{52}$<br><br>
+                    <strong>(b)</strong> FTC1 with chain rule: $\cos(x^3) \cdot 3x^2 = 3x^2\cos(x^3)$
+                </div>
+            </details>
+        </div>
+
+        <h2>3.4 U-Substitution</h2>
+
+        <p><strong>U-substitution</strong> is the chain rule in reverse. It is the most important integration technique for the AP exam. Use it when the integrand contains a function and (essentially) its derivative.</p>
+
+        <div class="definition-box">
+            <h4>U-Substitution Procedure</h4>
+            <ol>
+                <li>Identify an inner function $u = g(x)$.</li>
+                <li>Compute $du = g'(x)\,dx$ and solve for $dx$.</li>
+                <li>Rewrite the integral entirely in terms of $u$.</li>
+                <li>Integrate with respect to $u$.</li>
+                <li>Substitute back: replace $u$ with $g(x)$.</li>
+                <li><strong>For definite integrals:</strong> change the limits to $u$-values, OR back-substitute before evaluating.</li>
+            </ol>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3.5 — U-Substitution (Indefinite)</h4>
+            <p><strong>(a)</strong> $\displaystyle\int 2x\cos(x^2)\,dx$</p>
+            <p>Let $u = x^2$, so $du = 2x\,dx$.<br>
+            $\displaystyle\int \cos(u)\,du = \sin(u) + C = \mathbf{\sin(x^2) + C}$</p>
+            <br>
+            <p><strong>(b)</strong> $\displaystyle\int \frac{3x^2}{x^3 + 1}\,dx$</p>
+            <p>Let $u = x^3 + 1$, so $du = 3x^2\,dx$.<br>
+            $\displaystyle\int \frac{du}{u} = \ln|u| + C = \mathbf{\ln|x^3 + 1| + C}$</p>
+            <br>
+            <p><strong>(c)</strong> $\displaystyle\int (5x+2)^7\,dx$</p>
+            <p>Let $u = 5x+2$, $du = 5\,dx$, so $dx = du/5$.<br>
+            $\dfrac{1}{5}\displaystyle\int u^7\,du = \dfrac{1}{5}\cdot\dfrac{u^8}{8} + C = \mathbf{\dfrac{(5x+2)^8}{40} + C}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3.6 — U-Substitution (Definite)</h4>
+            <p>Evaluate $\displaystyle\int_0^1 2x e^{x^2}\,dx$.</p>
+            <p>Let $u = x^2$, $du = 2x\,dx$. <strong>Change limits:</strong> when $x=0$, $u=0$; when $x=1$, $u=1$.</p>
+            <p>$$\int_0^1 e^u\,du = \Big[e^u\Big]_0^1 = e^1 - e^0 = e - 1 \approx \mathbf{1.718}$$</p>
+        </div>
+
+        <!-- Desmos: U-substitution visualization -->
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">U-substitution: the shaded area under $f(x) = 2xe^{x^2}$ on $[0,1]$ equals $e-1$</p>
+            <div id="graph-usub" style="width:100%;height:300px;"></div>
+            <p class="fig-label">Figure 3.3 — Area Under $f(x) = 2xe^{x^2}$ from 0 to 1</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Evaluate using u-substitution: (a) $\displaystyle\int 6x^2(x^3-4)^5\,dx$&nbsp;&nbsp; (b) $\displaystyle\int_0^{\pi/2} \sin^2(x)\cos(x)\,dx$</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <strong>(a)</strong> Let $u = x^3 - 4$, $du = 3x^2\,dx$, so $6x^2\,dx = 2\,du$.<br>
+                    $2\int u^5\,du = \dfrac{2u^6}{6} + C = \dfrac{(x^3-4)^6}{3} + C$<br><br>
+                    <strong>(b)</strong> Let $u = \sin x$, $du = \cos x\,dx$. Limits: $u(0)=0$, $u(\pi/2)=1$.<br>
+                    $\displaystyle\int_0^1 u^2\,du = \left[\dfrac{u^3}{3}\right]_0^1 = \dfrac{1}{3}$
+                </div>
+            </details>
+        </div>
+
+        <!-- Practice Problems -->
+        <div class="practice-section">
+            <h2>Practice Problems</h2>
+            <div class="practice-grid">
+
+                <div class="practice-card">
+                    <span class="p-num">1</span>
+                    <p>Evaluate: $\displaystyle\int (8x^3 - 6x + 4)\,dx$</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $= 2x^4 - 3x^2 + 4x + C$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">2</span>
+                    <p>Find $f(x)$ given $f'(x) = \cos x + 2x$ and $f(0) = 3$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $f(x) = \sin x + x^2 + C$<br>
+                            $f(0) = 0 + 0 + C = 3 \Rightarrow C = 3$<br>
+                            $f(x) = \sin x + x^2 + 3$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">3</span>
+                    <p>Evaluate $\displaystyle\int_1^4 \left(\sqrt{x} - \frac{1}{\sqrt{x}}\right)dx$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $= \left[\dfrac{2}{3}x^{3/2} - 2x^{1/2}\right]_1^4$<br>
+                            $= \left(\dfrac{2}{3}(8) - 2(2)\right) - \left(\dfrac{2}{3} - 2\right)$<br>
+                            $= \left(\dfrac{16}{3} - 4\right) - \left(\dfrac{2}{3} - 2\right)$<br>
+                            $= \dfrac{14}{3} - (-\dfrac{4}{3}) = \dfrac{14}{3} + \dfrac{4}{3} = \dfrac{18}{3} = 6$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">4</span>
+                    <p>Use u-substitution: $\displaystyle\int (3x^2+1)^4 \cdot 6x\,dx$</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Let $u = 3x^2+1$, $du = 6x\,dx$.<br>
+                            $\displaystyle\int u^4\,du = \dfrac{u^5}{5} + C = \dfrac{(3x^2+1)^5}{5} + C$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">5</span>
+                    <p>Find $\dfrac{d}{dx}\displaystyle\int_0^{x^2} \sqrt{1+t^3}\,dt$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            By FTC1 with chain rule ($u = x^2$, $u' = 2x$):<br>
+                            $\sqrt{1+(x^2)^3} \cdot 2x = 2x\sqrt{1+x^6}$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">6</span>
+                    <p>Evaluate $\displaystyle\int_0^{\ln 3} e^x\,dx$ and interpret as an area.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $\Big[e^x\Big]_0^{\ln 3} = e^{\ln 3} - e^0 = 3 - 1 = 2$<br>
+                            The area under $y = e^x$ from $x=0$ to $x=\ln 3$ is exactly <strong>2</strong>.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">7</span>
+                    <p><strong>(AP Free Response Style)</strong> A particle moves with velocity $v(t) = t^2 - 4t + 3$ m/s. Find the total distance traveled on $[0, 3]$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Find zeros: $t^2-4t+3=(t-1)(t-3)=0$, so $t=1, 3$.<br>
+                            $v &lt; 0$ on $(1,3)$, so particle moves backward there.<br>
+                            Total distance = $\displaystyle\int_0^1 |v|\,dt + \int_1^3 |v|\,dt$<br>
+                            $= \int_0^1 (t^2-4t+3)\,dt + \int_1^3 (4t-t^2-3)\,dt$<br>
+                            $= \left[\dfrac{t^3}{3}-2t^2+3t\right]_0^1 + \left[2t^2-\dfrac{t^3}{3}-3t\right]_1^3$<br>
+                            $= \left(\dfrac{1}{3}-2+3\right) + \left[(18-9-9)-(2-\dfrac{1}{3}-3)\right]$<br>
+                            $= \dfrac{4}{3} + \left[0-(-\dfrac{4}{3})\right] = \dfrac{4}{3} + \dfrac{4}{3} = \dfrac{8}{3}$ m
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">8</span>
+                    <p>Evaluate: $\displaystyle\int_1^2 \frac{x}{x^2+1}\,dx$</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Let $u = x^2+1$, $du = 2x\,dx$, so $x\,dx = du/2$.<br>
+                            Limits: $u(1)=2$, $u(2)=5$.<br>
+                            $\dfrac{1}{2}\displaystyle\int_2^5 \dfrac{du}{u} = \dfrac{1}{2}\Big[\ln u\Big]_2^5 = \dfrac{1}{2}(\ln 5 - \ln 2) = \dfrac{1}{2}\ln\dfrac{5}{2}$
+                        </div>
+                    </details>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <a href="/us/textbook/ap-calculus/derivatives.html">&#8592; Chapter 2: Differentiation Rules</a>
+            <a href="/us/textbook/ap-calculus/">All Chapters</a>
+        </div>
+    </div>
+
+    <script>
+    // Figure 3.1 — Left Riemann Sum
+    (function() {
+        var elt = document.getElementById('graph-riemann');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: true, border: false, showGrid: true, showXAxis: true, showYAxis: true
+        });
+        calc.setMathBounds({ left: -0.3, right: 2.5, bottom: -0.3, top: 5.5 });
+        calc.setExpressions([
+            // n slider
+            { id: 'n', latex: 'n=4', sliderBounds: { min: 1, max: 20, step: 1 } },
+            // Curve
+            { id: 'curve', latex: 'y=x^2\\left\\{0\\le x\\le 2\\right\\}', color: '#1e3a5f', lineWidth: 3 },
+            // Left Riemann rectangles (sum)
+            { id: 'rects', latex: '\\sum_{k=0}^{n-1}\\operatorname{polygon}\\left(\\left[\\frac{2k}{n},0\\right],\\left[\\frac{2k}{n},\\left(\\frac{2k}{n}\\right)^2\\right],\\left[\\frac{2(k+1)}{n},\\left(\\frac{2k}{n}\\right)^2\\right],\\left[\\frac{2(k+1)}{n},0\\right]\\right)', color: '#2563eb', fillOpacity: 0.3, lineWidth: 1 },
+        ]);
+    })();
+
+    // Figure 3.2 — Definite integral area
+    (function() {
+        var elt = document.getElementById('graph-ftc');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: true, border: false, showGrid: true, showXAxis: true, showYAxis: true
+        });
+        calc.setMathBounds({ left: -0.5, right: 4.5, bottom: -1.5, top: 4.5 });
+        calc.setExpressions([
+            { id: 'a', latex: 'a=0.5', sliderBounds: { min: 0, max: 2, step: 0.25 } },
+            { id: 'b', latex: 'b=3.5', sliderBounds: { min: 1, max: 4, step: 0.25 } },
+            // Curve
+            { id: 'curve', latex: 'y=\\sin(x)+1.5', color: '#1e3a5f', lineWidth: 3 },
+            // Shaded area
+            { id: 'area', latex: 'y=\\sin(x)+1.5\\left\\{a\\le x\\le b\\right\\}', color: '#2563eb', fillOpacity: 0.3 },
+            // Bounds
+            { id: 'la', latex: '(a, 0)', label: 'a', showLabel: true, color: '#dc2626', pointSize: 10 },
+            { id: 'lb', latex: '(b, 0)', label: 'b', showLabel: true, color: '#dc2626', pointSize: 10 },
+        ]);
+    })();
+
+    // Figure 3.3 — U-sub area
+    (function() {
+        var elt = document.getElementById('graph-usub');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: true, border: false, showGrid: true, showXAxis: true, showYAxis: true
+        });
+        calc.setMathBounds({ left: -0.3, right: 1.5, bottom: -0.3, top: 6 });
+        calc.setExpressions([
+            // f(x) = 2x*e^(x^2)
+            { id: 'curve', latex: 'y=2xe^{x^2}', color: '#1e3a5f', lineWidth: 3 },
+            // Shaded area [0,1]
+            { id: 'area', latex: 'y=2xe^{x^2}\\left\\{0\\le x\\le 1\\right\\}', color: '#2563eb', fillOpacity: 0.35 },
+            { id: 'label', latex: '(0.5, 1.7)', label: 'Area = e−1 ≈ 1.718', showLabel: true, pointOpacity: 0, color: '#1e3a5f' },
+        ]);
+    })();
+    </script>
+</body>
+</html>
