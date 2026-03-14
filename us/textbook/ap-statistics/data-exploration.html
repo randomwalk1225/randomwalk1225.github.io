@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Statistics: Exploring Data &amp; Distributions - Chapter 1 | MathHub</title>
+    <meta name="description" content="AP Statistics Chapter 1: Exploring data distributions. Learn to display and describe categorical and quantitative data with dotplots, histograms, boxplots, and summary statistics.">
+    <meta name="keywords" content="AP Statistics, exploring data, distributions, histogram, boxplot, dotplot, shape center spread, AP Stats Chapter 1, categorical data, quantitative data">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/ap-statistics/data-exploration.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/ap-statistics/data-exploration.html">
+    <meta property="og:title" content="AP Statistics: Exploring Data &amp; Distributions - Chapter 1">
+    <meta property="og:description" content="Learn to display and describe data distributions for AP Statistics. Histograms, boxplots, shape/center/spread with interactive examples and practice problems.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Statistics: Exploring Data - Chapter 1">
+    <meta name="twitter:description" content="AP Statistics data exploration: histograms, boxplots, shape/center/spread with practice problems.">
+
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "AP Statistics: Exploring Data and Distributions - Chapter 1",
+        "description": "AP Statistics Chapter 1 covering data exploration, distributions, histograms, boxplots, and shape/center/spread analysis.",
+        "url": "https://mathhub.io/us/textbook/ap-statistics/data-exploration.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "AP",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Statistics" },
+            { "@type": "Thing", "name": "Data Distributions" },
+            { "@type": "Thing", "name": "AP Statistics" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        .blog-article {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 16px;
+        }
+        .blog-article h1 { font-size: 2.2em; color: #064e3b; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #064e3b; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #10b981; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        /* Learning Objectives */
+        .learning-objectives {
+            background: #ecfdf5;
+            border-left: 4px solid #10b981;
+            padding: 20px 24px; margin: 24px 0 32px;
+            border-radius: 0 10px 10px 0;
+        }
+        .learning-objectives h4 { color: #065f46; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #064e3b; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        /* Content Boxes */
+        .example-box {
+            background: #f0fdf4; border-left: 4px solid #10b981;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .example-box h4 { color: #065f46; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box {
+            background: #f0f7ff; border-left: 4px solid #3b82f6;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .definition-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box {
+            background: #faf5ff; border-left: 4px solid #8b5cf6;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p { color: #334155; line-height: 1.8; }
+
+        /* Try It */
+        .try-it-box {
+            background: #f0fdf4;
+            border: 1.5px dashed #86efac;
+            padding: 16px 20px; margin: -4px 0 24px;
+            border-radius: 0 0 8px 8px;
+        }
+        .try-it-box .try-it-label {
+            display: inline-block; background: #10b981; color: white;
+            font-size: 0.75em; font-weight: 700; padding: 2px 10px;
+            border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px;
+        }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary {
+            cursor: pointer; color: #065f46; font-weight: 600;
+            font-size: 0.9em; user-select: none;
+        }
+        .try-it-answer {
+            padding: 10px 14px; background: white; border-radius: 6px;
+            margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7;
+        }
+
+        /* AP Exam Tip */
+        .ap-tip {
+            background: #fefce8; border-left: 4px solid #eab308;
+            padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0;
+            display: flex; gap: 12px; align-items: flex-start;
+        }
+        .ap-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #92400e; }
+
+        /* Desmos */
+        .desmos-wrap {
+            margin: 24px auto; background: #f8fafc; border-radius: 12px;
+            padding: 4px; border: 1px solid #e2e8f0; text-align: center;
+        }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label {
+            text-align: center; font-size: 0.82em; color: #64748b;
+            margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em;
+        }
+
+        /* Data Table */
+        .data-table {
+            width: 100%; border-collapse: collapse; margin: 16px 0;
+            font-size: 0.92em;
+        }
+        .data-table th {
+            background: #064e3b; color: white; padding: 10px 14px;
+            text-align: left; font-weight: 600;
+        }
+        .data-table td { padding: 9px 14px; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        .data-table tr:last-child td { border-bottom: none; }
+        .data-table tr:nth-child(even) td { background: #f8fafc; }
+
+        /* Chapter Nav */
+        .chapter-nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 24px 0; border-top: 2px solid #e2e8f0; margin-top: 48px;
+        }
+        .chapter-nav a {
+            color: #10b981; text-decoration: none; font-weight: 600; font-size: 0.9em;
+        }
+        .chapter-nav a:hover { text-decoration: underline; }
+        .chapter-nav .nav-label { font-size: 0.8em; color: #94a3b8; display: block; }
+
+        /* Practice Problems */
+        .practice-section { margin-top: 40px; }
+        .practice-section h2 { color: #064e3b; }
+        .problem {
+            background: white; border: 1.5px solid #e2e8f0; border-radius: 10px;
+            padding: 20px 24px; margin: 16px 0;
+        }
+        .problem-num {
+            display: inline-block; background: #064e3b; color: white;
+            font-size: 0.78em; font-weight: 700; padding: 2px 10px;
+            border-radius: 4px; margin-bottom: 10px;
+        }
+        .problem p { margin: 0 0 12px; color: #334155; line-height: 1.7; }
+        .problem details summary {
+            cursor: pointer; color: #10b981; font-weight: 600;
+            font-size: 0.9em; user-select: none;
+        }
+        .problem-solution {
+            margin-top: 10px; padding: 14px 18px; background: #f0fdf4;
+            border-radius: 8px; color: #334155; font-size: 0.92em; line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/" class="active">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="/us/">US</a> &rsaquo; <a href="/us/textbook/ap-statistics/">AP Statistics</a> &rsaquo; Chapter 1
+        </div>
+
+        <h1>Chapter 1: Exploring Data &mdash; Distributions</h1>
+        <div class="blog-meta">
+            AP Statistics &bull; Chapter 1 &bull; Updated March 2026 &bull; ~45 min read
+        </div>
+
+        <div class="learning-objectives">
+            <h4>Learning Objectives</h4>
+            <ul>
+                <li>Distinguish between categorical and quantitative variables</li>
+                <li>Display distributions using dotplots, stemplots, and histograms</li>
+                <li>Describe distribution shape: symmetric, skewed left, skewed right</li>
+                <li>Identify center and spread from a graphical display</li>
+                <li>Construct and interpret boxplots; identify outliers using the IQR rule</li>
+                <li>Compare distributions using appropriate graphical and numerical summaries</li>
+            </ul>
+        </div>
+
+        <h2>1.1 Types of Variables</h2>
+
+        <p>
+            Statistics begins with <strong>data</strong> — information collected about individuals. Before analyzing data,
+            we must identify the type of variable being measured, since different variable types require different methods.
+        </p>
+
+        <div class="definition-box">
+            <h4>Definition: Types of Variables</h4>
+            <p>
+                A <strong>categorical variable</strong> (also called qualitative) places each individual into one of
+                several groups or categories. Examples: eye color, gender, country of birth, AP exam score (A/B/C/D/F).
+            </p>
+            <p>
+                A <strong>quantitative variable</strong> takes numerical values for which arithmetic makes sense.
+                Examples: height in cm, SAT score, temperature, number of siblings.
+            </p>
+        </div>
+
+        <p>
+            Quantitative variables can be further divided:
+        </p>
+        <ul>
+            <li><strong>Discrete</strong>: takes countable values (e.g., number of pets: 0, 1, 2, 3, …)</li>
+            <li><strong>Continuous</strong>: can take any value in an interval (e.g., time, weight, length)</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Example 1.1 — Identifying Variable Types</h4>
+            <p>
+                A survey of 30 AP Statistics students records the following information. Classify each variable.
+            </p>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Variable</th><th>Type</th><th>Reason</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Favorite subject</td><td>Categorical</td><td>Places student in a category (Math, English, …)</td></tr>
+                    <tr><td>Hours studied per week</td><td>Quantitative (continuous)</td><td>Numerical, arithmetic makes sense</td></tr>
+                    <tr><td>Number of AP exams taken</td><td>Quantitative (discrete)</td><td>Countable whole numbers</td></tr>
+                    <tr><td>Grade in AP Stats (A/B/C)</td><td>Categorical</td><td>Letter grades are categories, not numbers</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>A researcher records: (a) blood type of each patient, (b) systolic blood pressure, (c) number of hospitalizations. Classify each variable.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    (a) Blood type: <strong>Categorical</strong> — types A, B, AB, O are categories<br>
+                    (b) Systolic blood pressure: <strong>Quantitative (continuous)</strong> — a measurement that can be any positive number<br>
+                    (c) Number of hospitalizations: <strong>Quantitative (discrete)</strong> — a countable whole number (0, 1, 2, …)
+                </div>
+            </details>
+        </div>
+
+        <h2>1.2 Displaying Distributions with Graphs</h2>
+
+        <p>
+            To understand a dataset, we start by making a graph. The graph reveals the <strong>distribution</strong>
+            of a variable — what values occur and how often.
+        </p>
+
+        <h3>Dotplots</h3>
+
+        <p>
+            A <strong>dotplot</strong> places each data value as a dot above a number line. Dotplots work well for
+            small datasets and show individual values clearly.
+        </p>
+
+        <div class="example-box">
+            <h4>Example 1.2 — Reading a Dotplot</h4>
+            <p>
+                The number of text messages sent by 12 students in one hour:
+                <strong>3, 5, 5, 7, 8, 8, 8, 10, 12, 12, 15, 20</strong>
+            </p>
+            <p>
+                Each value gets one dot. Stacked dots indicate repeated values. We can see immediately that
+                most students sent 5–12 messages, with one outlier at 20.
+            </p>
+        </div>
+
+        <h3>Histograms</h3>
+
+        <p>
+            A <strong>histogram</strong> divides the range of data into equal-width intervals (called <em>bins</em>)
+            and displays the count or percent of observations in each bin. Histograms work well for large datasets.
+        </p>
+
+        <div class="definition-box">
+            <h4>How to Construct a Histogram</h4>
+            <ol>
+                <li>Choose a convenient number of bins (typically 5–10)</li>
+                <li>Make the bins equal in width, covering the full range</li>
+                <li>Count the observations in each bin</li>
+                <li>Draw bars of height = frequency (or relative frequency); bars touch each other</li>
+            </ol>
+        </div>
+
+        <!-- Desmos: Interactive Histogram -->
+        <div class="desmos-wrap" style="max-width:680px; margin:24px auto;">
+            <p class="desmos-caption">Interactive: Adjust the slider to change bin width and observe how the histogram shape changes.</p>
+            <div id="histogram-demo" style="width:100%; height:320px;"></div>
+            <p class="fig-label">Figure 1.1 — Histogram of Test Scores (n = 30)</p>
+        </div>
+
+        <h3>Describing Shape</h3>
+
+        <p>
+            When you look at a histogram (or any distribution graph), describe its <strong>shape</strong>:
+        </p>
+
+        <div class="definition-box">
+            <h4>Distribution Shapes</h4>
+            <ul>
+                <li><strong>Symmetric</strong>: left and right sides are roughly mirror images; the mean ≈ median</li>
+                <li><strong>Skewed right</strong> (positively skewed): long tail extends to the right; mean &gt; median</li>
+                <li><strong>Skewed left</strong> (negatively skewed): long tail extends to the left; mean &lt; median</li>
+                <li><strong>Unimodal</strong>: one peak; <strong>Bimodal</strong>: two peaks; <strong>Uniform</strong>: roughly flat</li>
+            </ul>
+        </div>
+
+        <!-- Desmos: Shape comparison -->
+        <div class="desmos-wrap" style="max-width:680px; margin:24px auto;">
+            <p class="desmos-caption">Three distribution shapes: symmetric (blue), right-skewed (red), left-skewed (green)</p>
+            <div id="shapes-demo" style="width:100%; height:300px;"></div>
+            <p class="fig-label">Figure 1.2 — Symmetric vs. Skewed Distributions</p>
+        </div>
+
+        <div class="ap-tip">
+            <span class="ap-tip-icon">&#9733;</span>
+            <p><strong>AP Exam Tip:</strong> When describing a distribution, always address <strong>S</strong>hape, <strong>C</strong>enter, <strong>S</strong>pread, and any <strong>O</strong>utliers (SCSO or "SOCS"). Free-response graders look for all four components.</p>
+        </div>
+
+        <h2>1.3 Boxplots and the Five-Number Summary</h2>
+
+        <p>
+            A <strong>boxplot</strong> (box-and-whisker plot) summarizes a distribution using five key values called
+            the <strong>five-number summary</strong>: Minimum, Q1, Median (Q2), Q3, Maximum.
+        </p>
+
+        <div class="definition-box">
+            <h4>Five-Number Summary</h4>
+            <p>
+                Given a dataset sorted in order:
+            </p>
+            <ul>
+                <li><strong>Minimum</strong>: smallest value</li>
+                <li><strong>Q1</strong> (first quartile): median of the lower half of the data</li>
+                <li><strong>Median (Q2)</strong>: middle value (or average of two middle values)</li>
+                <li><strong>Q3</strong> (third quartile): median of the upper half of the data</li>
+                <li><strong>Maximum</strong>: largest value</li>
+            </ul>
+            <p>The <strong>Interquartile Range (IQR)</strong> $= Q_3 - Q_1$ measures the spread of the middle 50% of data.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 1.3 — Computing the Five-Number Summary</h4>
+            <p>
+                AP exam scores for 15 students (sorted):<br>
+                <strong>1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5</strong>
+            </p>
+            <p><strong>Step 1 — Median:</strong> The 8th value = <strong>4</strong></p>
+            <p><strong>Step 2 — Q1:</strong> Lower half = {1, 2, 2, 3, 3, 3, 4}; median = <strong>3</strong></p>
+            <p><strong>Step 3 — Q3:</strong> Upper half = {4, 4, 4, 5, 5, 5, 5}; median = <strong>5</strong></p>
+            <p><strong>Five-number summary:</strong> Min = 1, Q1 = 3, Median = 4, Q3 = 5, Max = 5</p>
+            <p><strong>IQR</strong> = Q3 − Q1 = 5 − 3 = <strong>2</strong></p>
+        </div>
+
+        <h3>Identifying Outliers</h3>
+
+        <div class="definition-box">
+            <h4>The 1.5 &times; IQR Rule for Outliers</h4>
+            <p>
+                An observation is a <strong>suspected outlier</strong> if it falls:
+            </p>
+            <ul>
+                <li>Below $Q_1 - 1.5 \times \text{IQR}$, or</li>
+                <li>Above $Q_3 + 1.5 \times \text{IQR}$</li>
+            </ul>
+            <p>On a modified boxplot, outliers are plotted as individual points; whiskers extend only to the last non-outlier value.</p>
+        </div>
+
+        <!-- Desmos: Interactive Boxplot -->
+        <div class="desmos-wrap" style="max-width:680px; margin:24px auto;">
+            <p class="desmos-caption">Interactive boxplot — the five-number summary is displayed. Outliers are shown as separate points.</p>
+            <div id="boxplot-demo" style="width:100%; height:280px;"></div>
+            <p class="fig-label">Figure 1.3 — Modified Boxplot with Outlier Detection</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>A dataset has Q1 = 12, Q3 = 20. Calculate the IQR and the outlier fences.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <strong>IQR</strong> = Q3 − Q1 = 20 − 12 = <strong>8</strong><br>
+                    Lower fence: Q1 − 1.5(8) = 12 − 12 = <strong>0</strong><br>
+                    Upper fence: Q3 + 1.5(8) = 20 + 12 = <strong>32</strong><br>
+                    Any value below 0 or above 32 is a suspected outlier.
+                </div>
+            </details>
+        </div>
+
+        <h2>1.4 Comparing Distributions</h2>
+
+        <p>
+            A common AP Statistics task is to <strong>compare two or more distributions</strong>. Use side-by-side boxplots
+            or back-to-back stemplots. Always compare shape, center, spread, and outliers in context.
+        </p>
+
+        <div class="example-box">
+            <h4>Example 1.4 — Comparing Two Distributions</h4>
+            <p>
+                Two classes take the same quiz. Class A: min=52, Q1=68, median=74, Q3=82, max=96.
+                Class B: min=60, Q1=72, median=80, Q3=85, max=92.
+            </p>
+            <p><strong>Center:</strong> Class B has a higher median (80 vs 74), suggesting Class B performed better on average.</p>
+            <p><strong>Spread:</strong> Class A has a larger IQR (82−68=14) vs Class B (85−72=13), so Class A is slightly more variable.</p>
+            <p><strong>Shape:</strong> Both distributions appear roughly symmetric based on the summary values.</p>
+            <p><strong>Outliers:</strong> No outliers visible from the five-number summary.</p>
+        </div>
+
+        <div class="ap-tip">
+            <span class="ap-tip-icon">&#9733;</span>
+            <p><strong>AP Exam Tip:</strong> When comparing distributions, always write comparisons in <strong>context</strong> and use <strong>comparative language</strong> ("Class B's median is higher than Class A's median"). Simply listing each distribution's statistics without comparing earns partial credit only.</p>
+        </div>
+
+        <!-- Practice Problems -->
+        <div class="practice-section">
+            <h2>Practice Problems</h2>
+
+            <div class="problem">
+                <span class="problem-num">Problem 1</span>
+                <p>
+                    A sample of 10 students recorded how many hours they sleep per night:
+                    <strong>6, 7, 7, 8, 8, 8, 9, 9, 10, 12</strong>
+                    <br>(a) Find the five-number summary.<br>
+                    (b) Calculate the IQR.<br>
+                    (c) Identify any outliers using the 1.5 × IQR rule.
+                </p>
+                <details>
+                    <summary>Show Solution</summary>
+                    <div class="problem-solution">
+                        (a) Min = 6, Q1 = 7 (median of {6,7,7,8,8}), Median = 8, Q3 = 9 (median of {8,9,9,10,12}), Max = 12<br>
+                        <strong>Five-number summary: 6 | 7 | 8 | 9 | 12</strong><br><br>
+                        (b) IQR = Q3 − Q1 = 9 − 7 = <strong>2</strong><br><br>
+                        (c) Lower fence = 7 − 1.5(2) = 4; Upper fence = 9 + 1.5(2) = 12<br>
+                        The value 12 equals the upper fence but is not strictly beyond it, so <strong>no outliers</strong> by the strict rule.
+                        (Note: some texts use "≥ fence" rather than "> fence" — clarify which your teacher uses.)
+                    </div>
+                </details>
+            </div>
+
+            <div class="problem">
+                <span class="problem-num">Problem 2</span>
+                <p>
+                    A histogram shows that the distribution of household incomes in a city is <strong>strongly skewed right</strong>.
+                    <br>(a) What does the skewed-right shape tell us about most households vs. a few households?<br>
+                    (b) Would you expect the mean income to be greater than or less than the median income? Explain.
+                </p>
+                <details>
+                    <summary>Show Solution</summary>
+                    <div class="problem-solution">
+                        (a) Skewed right means most households earn moderate incomes (clustered at the left), while a few households earn very high incomes that create a long right tail.<br><br>
+                        (b) The <strong>mean</strong> will be <strong>greater than the median</strong>. The few extremely high earners pull the mean toward the right tail, but the median (middle value) is not affected by extreme values. This is a classic pattern in income data.
+                    </div>
+                </details>
+            </div>
+
+            <div class="problem">
+                <span class="problem-num">Problem 3</span>
+                <p>
+                    Classify each variable as categorical or quantitative:<br>
+                    (a) ZIP code &nbsp; (b) Annual rainfall in mm &nbsp; (c) Shirt size (S/M/L/XL) &nbsp; (d) Number of siblings
+                </p>
+                <details>
+                    <summary>Show Solution</summary>
+                    <div class="problem-solution">
+                        (a) ZIP code: <strong>Categorical</strong> — ZIP codes are labels (arithmetic like "average ZIP" is meaningless)<br>
+                        (b) Annual rainfall: <strong>Quantitative</strong> (continuous)<br>
+                        (c) Shirt size: <strong>Categorical</strong> — ordered categories, but not truly numerical<br>
+                        (d) Number of siblings: <strong>Quantitative</strong> (discrete)
+                    </div>
+                </details>
+            </div>
+
+            <div class="problem">
+                <span class="problem-num">Problem 4 — AP Free Response Style</span>
+                <p>
+                    Two competing tutoring programs (Program A and Program B) report the following SAT Math score gains
+                    for a sample of students:<br><br>
+                    <strong>Program A:</strong> Min=20, Q1=40, Median=60, Q3=80, Max=150<br>
+                    <strong>Program B:</strong> Min=30, Q1=50, Median=65, Q3=75, Max=100<br><br>
+                    Compare the distributions of score gains for the two programs. Write a complete response using the SOCS framework.
+                </p>
+                <details>
+                    <summary>Show Solution</summary>
+                    <div class="problem-solution">
+                        <strong>Shape:</strong> Both distributions are right-skewed — Program A more so, since its maximum (150) is much higher than Q3 (80), suggesting a long right tail. Program B appears more symmetric.<br><br>
+                        <strong>Center:</strong> Program B has a slightly higher median score gain (65 points) compared to Program A (60 points), suggesting Program B typically produces marginally larger gains.<br><br>
+                        <strong>Spread:</strong> Program A has greater variability: IQR = 80 − 40 = 40, compared to Program B's IQR = 75 − 50 = 25. Program A's range is also larger (130 vs. 70). Program A's results are more inconsistent.<br><br>
+                        <strong>Outliers:</strong> Program A's maximum of 150 is a likely outlier. Check: upper fence = 80 + 1.5(40) = 140; since 150 > 140, the value of 150 is a suspected outlier. No outliers are apparent in Program B.
+                    </div>
+                </details>
+            </div>
+
+            <div class="problem">
+                <span class="problem-num">Problem 5 — Multiple Choice Style</span>
+                <p>
+                    A distribution has Q1 = 45 and Q3 = 65. Which of the following values would be classified as an outlier?
+                    <br>(A) 20 &nbsp; (B) 35 &nbsp; (C) 70 &nbsp; (D) 80
+                </p>
+                <details>
+                    <summary>Show Solution</summary>
+                    <div class="problem-solution">
+                        IQR = 65 − 45 = 20<br>
+                        Lower fence = 45 − 1.5(20) = 45 − 30 = 15<br>
+                        Upper fence = 65 + 1.5(20) = 65 + 30 = 95<br><br>
+                        Values outside (15, 95) are outliers. Checking options:<br>
+                        (A) 20: between 15 and 95 → not an outlier<br>
+                        (B) 35: between 15 and 95 → not an outlier<br>
+                        (C) 70: between 15 and 95 → not an outlier<br>
+                        (D) 80: between 15 and 95 → not an outlier<br><br>
+                        None of the options given are outliers. <strong>Answer: None of the above</strong>
+                        (This tests whether students carefully apply the fence rule rather than guessing "the biggest number".)
+                    </div>
+                </details>
+            </div>
+
+            <div class="problem">
+                <span class="problem-num">Problem 6</span>
+                <p>
+                    A dataset of 20 values is described: the mean is 55 and the median is 42.
+                    What does this tell you about the shape of the distribution? Explain your reasoning.
+                </p>
+                <details>
+                    <summary>Show Solution</summary>
+                    <div class="problem-solution">
+                        Since the <strong>mean (55) is greater than the median (42)</strong>, the distribution is likely
+                        <strong>skewed right</strong> (positively skewed). A few large values are pulling the mean
+                        above the median. The median is resistant to extreme values, so it remains lower when there is a
+                        long right tail. The difference of 13 between mean and median suggests a noticeable skew.
+                    </div>
+                </details>
+            </div>
+
+            <div class="problem">
+                <span class="problem-num">Problem 7</span>
+                <p>
+                    Identify an appropriate graph for each situation:<br>
+                    (a) Display the distribution of birth months (Jan–Dec) for 50 students<br>
+                    (b) Compare the heights of male and female students in a class of 60<br>
+                    (c) Show the distribution of 200 SAT scores
+                </p>
+                <details>
+                    <summary>Show Solution</summary>
+                    <div class="problem-solution">
+                        (a) <strong>Bar chart</strong> — birth month is categorical; a pie chart also works<br>
+                        (b) <strong>Side-by-side boxplots</strong> — best for comparing two groups on a quantitative variable; back-to-back stemplot also works for smaller datasets<br>
+                        (c) <strong>Histogram</strong> — 200 observations of a quantitative variable; individual values would be too crowded for a dotplot or stemplot
+                    </div>
+                </details>
+            </div>
+
+            <div class="problem">
+                <span class="problem-num">Problem 8 — Challenge</span>
+                <p>
+                    A dataset has the property that the mean, median, and mode are all equal.
+                    <br>(a) What shape does the distribution likely have?<br>
+                    (b) Give a specific example of such a dataset with 5 values.
+                </p>
+                <details>
+                    <summary>Show Solution</summary>
+                    <div class="problem-solution">
+                        (a) When mean = median = mode, the distribution is likely <strong>symmetric and unimodal</strong> (bell-shaped). In a perfectly symmetric distribution, all three measures of center coincide at the axis of symmetry.<br><br>
+                        (b) Example: <strong>2, 4, 4, 4, 6</strong><br>
+                        Mean = (2+4+4+4+6)/5 = 20/5 = 4 ✓<br>
+                        Median = middle value = 4 ✓<br>
+                        Mode = most frequent = 4 ✓
+                    </div>
+                </details>
+            </div>
+
+        </div>
+
+        <!-- Chapter Navigation -->
+        <div class="chapter-nav">
+            <div>
+                <span class="nav-label">← Previous</span>
+                <a href="/us/textbook/ap-statistics/">AP Statistics Contents</a>
+            </div>
+            <div style="text-align:right;">
+                <span class="nav-label">Next Chapter →</span>
+                <a href="/us/textbook/ap-statistics/">Chapter 2: Describing Distributions</a>
+            </div>
+        </div>
+
+    </article>
+
+    <footer style="background:#1e293b;color:#94a3b8;text-align:center;padding:28px 16px;font-size:.85em;margin-top:40px;">
+        <p style="margin:0 0 6px;">&#169; 2026 MathHub Global &mdash; Free math education for everyone</p>
+        <p style="margin:0;"><a href="/privacy.html" style="color:#64748b;text-decoration:none;">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+    // Figure 1.1 — Histogram (simulated using bar chart in Desmos)
+    (function() {
+        var elt = document.getElementById('histogram-demo');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            border: false,
+            showGrid: true,
+            showXAxis: true,
+            showYAxis: true
+        });
+        calc.setMathBounds({ left: 40, right: 105, bottom: -0.5, top: 9 });
+        // Simulated histogram bars for test scores distribution (approximately normal)
+        // Bins: 40-50, 50-60, 60-70, 70-80, 80-90, 90-100
+        var binData = [
+            {label:'40-50', count:2}, {label:'50-60', count:4},
+            {label:'60-70', count:8}, {label:'70-80', count:9},
+            {label:'80-90', count:5}, {label:'90-100', count:2}
+        ];
+        var colors = ['#10b981','#10b981','#10b981','#10b981','#10b981','#10b981'];
+        var bins = [40,50,60,70,80,90,100];
+        binData.forEach(function(bin, i) {
+            var left = bins[i], right = bins[i+1], h = bin.count;
+            var pts = '(' + left + ',0),(' + left + ',' + h + '),(' + right + ',' + h + '),(' + right + ',0)';
+            calc.setExpression({
+                id: 'bar' + i,
+                type: 'expression',
+                latex: 'polygon(' + pts + ')',
+                color: '#10b981',
+                fillOpacity: 0.6,
+                lineWidth: 1.5
+            });
+        });
+        calc.setExpression({
+            id: 'xlabel',
+            type: 'expression',
+            latex: '\\text{Test Score}',
+            color: '#334155'
+        });
+    })();
+
+    // Figure 1.2 — Distribution shapes (approximate bell curves)
+    (function() {
+        var elt = document.getElementById('shapes-demo');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            border: false,
+            showGrid: false,
+            showXAxis: true,
+            showYAxis: false
+        });
+        calc.setMathBounds({ left: -4, right: 8, bottom: -0.05, top: 0.55 });
+        // Symmetric (normal)
+        calc.setExpression({ id: 'sym', latex: '0.4e^{-0.5x^{2}}', color: '#3b82f6', lineWidth: 2.5, label: 'Symmetric' });
+        // Right-skewed (approximate with log-normal shape)
+        calc.setExpression({ id: 'rskew', latex: '0.45 \\cdot \\frac{e^{-\\frac{(\\ln(x+0.1)+0.3)^{2}}{1.2}}}{x+0.1}', color: '#ef4444', lineWidth: 2.5 });
+        // Left-skewed (mirror of right)
+        calc.setExpression({ id: 'lskew', latex: '0.45 \\cdot \\frac{e^{-\\frac{(\\ln(-x+6)+0.3)^{2}}{1.2}}}{-x+6+0.01}', color: '#22c55e', lineWidth: 2.5 });
+    })();
+
+    // Figure 1.3 — Boxplot visualization
+    (function() {
+        var elt = document.getElementById('boxplot-demo');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            border: false,
+            showGrid: false,
+            showXAxis: true,
+            showYAxis: false
+        });
+        // Five-number summary: Min=10, Q1=30, Med=50, Q3=70, Max=95, Outlier=110
+        // IQR=40, Upper fence=70+60=130 — no outlier in this example
+        // Let's use: Min=10, Q1=25, Med=45, Q3=65, Max=95, Outlier at 105
+        // IQR=40, Upper fence=65+60=125 — 105 < 125, not outlier
+        // Make an obvious outlier: Q1=25, Q3=60, IQR=35, fence=60+52.5=112.5
+        // Use Min=10, Q1=25, Med=42, Q3=60, Max=88, Outlier=115
+        var min=10, q1=25, med=42, q3=60, whiskerMax=88, outlier=115;
+        var y=1, h=0.3;
+        calc.setMathBounds({ left: -5, right: 130, bottom: 0, top: 2 });
+        // Box
+        calc.setExpression({ id:'box', latex: 'polygon(('+q1+','+(y-h)+'),('+q3+','+(y-h)+'),('+q3+','+(y+h)+'),('+q1+','+(y+h)+'),('+q1+','+(y-h)+'))', color:'#10b981', fillOpacity:0.3, lineWidth:2 });
+        // Median line
+        calc.setExpression({ id:'medline', latex: 'polygon(('+med+','+(y-h)+'),('+med+','+(y+h)+'))', color:'#064e3b', lineWidth:3 });
+        // Left whisker
+        calc.setExpression({ id:'lwhisk', latex: 'polygon(('+min+','+y+'),('+q1+','+y+'))', color:'#10b981', lineWidth:2 });
+        // Min cap
+        calc.setExpression({ id:'mincap', latex: 'polygon(('+min+','+(y-h)+'),('+min+','+(y+h)+'))', color:'#10b981', lineWidth:2 });
+        // Right whisker to last non-outlier
+        calc.setExpression({ id:'rwhisk', latex: 'polygon(('+q3+','+y+'),('+whiskerMax+','+y+'))', color:'#10b981', lineWidth:2 });
+        // Max cap
+        calc.setExpression({ id:'maxcap', latex: 'polygon(('+whiskerMax+','+(y-h)+'),('+whiskerMax+','+(y+h)+'))', color:'#10b981', lineWidth:2 });
+        // Outlier point
+        calc.setExpression({ id:'outlier', latex: '('+outlier+','+y+')', color:'#ef4444', pointSize:12, label:'Outlier: 115' });
+        // Labels
+        calc.setExpression({ id:'lq1', latex: '('+q1+','+0.55+')', label:'Q₁=25', color:'#334155', showLabel:true, hidden:true });
+        calc.setExpression({ id:'lmed', latex: '('+med+','+0.55+')', label:'Med=42', color:'#334155', showLabel:true, hidden:true });
+        calc.setExpression({ id:'lq3', latex: '('+q3+','+0.55+')', label:'Q₃=60', color:'#334155', showLabel:true, hidden:true });
+    })();
+    </script>
+</body>
+</html>
