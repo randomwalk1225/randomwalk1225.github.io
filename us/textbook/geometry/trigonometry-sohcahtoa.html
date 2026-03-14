@@ -131,6 +131,19 @@
         .chapter-nav { display: flex; justify-content: space-between; margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid #e2e8f0; flex-wrap: wrap; gap: 12px; }
         .chapter-nav a { color: #8b5cf6; text-decoration: none; font-weight: 600; font-size: 0.95em; padding: 8px 16px; border: 1.5px solid #8b5cf6; border-radius: 8px; transition: background .15s; }
         .chapter-nav a:hover { background: #f5f3ff; }
+
+        /* ── Section Summary ── */
+        .section-summary { background: #f8fafc; border: 2px solid #e2e8f0; padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px; }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .summary-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin: 16px 0; }
+        .key-term-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -523,6 +536,48 @@
             </div>
         </div>
     </div>
+
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+            <h4>Laws for Oblique Triangles</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Law of Sines</strong>
+                    <p>$\dfrac{a}{\sin A} = \dfrac{b}{\sin B} = \dfrac{c}{\sin C}$. Use when given AAS, ASA, or SSA (check for ambiguous case).</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Law of Cosines</strong>
+                    <p>$c^2 = a^2 + b^2 - 2ab\cos C$. Use when given SAS or SSS. Reduces to Pythagorean theorem when $C = 90°$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Area Formula</strong>
+                    <p>$A = \frac{1}{2}ab\sin C$ — area of triangle given two sides and included angle.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Ambiguous Case (SSA)</strong>
+                    <p>Given $a$, $b$, $A$: may have 0, 1, or 2 triangles. Check if $a \geq b$ (one solution) or $a < b\sin A$ (no solution) or between (two solutions).</p>
+                </div>
+            </div>
+            <h4>When to Use Each Law</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Right triangle</strong> → SOH-CAH-TOA or Pythagorean theorem</li>
+                <li><strong>AAS or ASA</strong> → Law of Sines (angle-angle-side or angle-side-angle)</li>
+                <li><strong>SSA</strong> → Law of Sines, but check for ambiguous case</li>
+                <li><strong>SAS</strong> → Law of Cosines (two sides and included angle)</li>
+                <li><strong>SSS</strong> → Law of Cosines (all three sides known)</li>
+            </ol>
+        </div>
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item"><strong>Law of Sines</strong><span>$\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}$ — connects sides and opposite angles in any triangle.</span></div>
+                <div class="key-term-item"><strong>Law of Cosines</strong><span>$c^2 = a^2 + b^2 - 2ab\cos C$ — generalizes the Pythagorean theorem for any triangle.</span></div>
+                <div class="key-term-item"><strong>Oblique Triangle</strong><span>A triangle with no right angle. Requires Law of Sines or Law of Cosines.</span></div>
+                <div class="key-term-item"><strong>Ambiguous Case</strong><span>SSA — when two sides and a non-included angle are known, there may be 0, 1, or 2 valid triangles.</span></div>
+                <div class="key-term-item"><strong>Bearing</strong><span>An angle measured clockwise from due North. Used in navigation and surveying problems.</span></div>
+                <div class="key-term-item"><strong>Area ($\frac{1}{2}ab\sin C$)</strong><span>Alternative area formula using two sides and the included angle. Doesn't require the height.</span></div>
+            </div>
+        </div>
 
     <div class="chapter-nav">
         <a href="/us/textbook/geometry/right-triangles.html">← Chapter 7: Right Triangles</a>
