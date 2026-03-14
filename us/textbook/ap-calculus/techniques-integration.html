@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Calculus: Techniques of Integration - Chapter 7 | MathHub</title>
+    <meta name="description" content="AP Calculus Chapter 7: Techniques of Integration. Master integration by parts, trigonometric integrals, partial fractions, and improper integrals with interactive examples.">
+    <meta name="keywords" content="AP Calculus techniques of integration, integration by parts, LIATE rule, trig integrals, partial fractions, improper integrals, AP Calculus BC">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/ap-calculus/techniques-integration.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/ap-calculus/techniques-integration.html">
+    <meta property="og:title" content="AP Calculus: Techniques of Integration - Chapter 7">
+    <meta property="og:description" content="Master integration by parts, trig integrals, partial fractions, and improper integrals for AP Calculus AB and BC.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Calculus: Techniques of Integration - Chapter 7">
+    <meta name="twitter:description" content="AP Calculus integration techniques: IBP, trig integrals, partial fractions, improper integrals.">
+
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "AP Calculus: Techniques of Integration - Chapter 7",
+        "description": "AP Calculus Chapter 7 covering integration by parts (LIATE), trigonometric integrals, partial fractions, and improper integrals with interactive Desmos graphs.",
+        "url": "https://mathhub.io/us/textbook/ap-calculus/techniques-integration.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "AP",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Integration by Parts" },
+            { "@type": "Thing", "name": "Trigonometric Integrals" },
+            { "@type": "Thing", "name": "Partial Fractions" },
+            { "@type": "Thing", "name": "Improper Integrals" },
+            { "@type": "Thing", "name": "AP Calculus" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        .blog-article {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 16px;
+        }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #2563eb; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives {
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            padding: 20px 24px; margin: 24px 0 32px;
+            border-radius: 0 10px 10px 0;
+        }
+        .learning-objectives h4 { color: #1e40af; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #1e3a8a; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box {
+            background: #eff6ff; border-left: 4px solid #2563eb;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .example-box h4 { color: #1e40af; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box {
+            background: #f0fdf4; border-left: 4px solid #16a34a;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box {
+            background: #faf5ff; border-left: 4px solid #8b5cf6;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box {
+            background: #eff6ff;
+            border: 1.5px dashed #93c5fd;
+            padding: 16px 20px; margin: -4px 0 24px;
+            border-radius: 0 0 8px 8px;
+        }
+        .try-it-box .try-it-label {
+            display: inline-block; background: #2563eb; color: white;
+            font-size: 0.75em; font-weight: 700; padding: 2px 10px;
+            border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px;
+        }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary {
+            cursor: pointer; color: #1e40af; font-weight: 600;
+            font-size: 0.9em; user-select: none;
+        }
+        .try-it-answer {
+            padding: 10px 14px; background: white; border-radius: 6px;
+            margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7;
+        }
+
+        .ap-tip {
+            background: #fefce8; border-left: 4px solid #eab308;
+            padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0;
+            display: flex; gap: 12px; align-items: flex-start;
+        }
+        .ap-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #92400e; }
+
+        .bc-only-box {
+            background: #f5f3ff; border-left: 4px solid #8b5cf6;
+            border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 20px 0;
+        }
+        .bc-only-label {
+            display: inline-block; background: #7c3aed; color: white;
+            font-size: 0.72em; font-weight: 700; padding: 2px 9px;
+            border-radius: 4px; margin-bottom: 10px; letter-spacing: .5px;
+        }
+        .bc-only-box p { margin: 0 0 8px; color: #334155; font-size: 0.95em; line-height: 1.8; }
+        .bc-only-box p:last-child { margin: 0; }
+
+        .desmos-wrap {
+            margin: 24px auto; background: #f8fafc; border-radius: 12px;
+            padding: 4px; border: 1px solid #e2e8f0; text-align: center;
+        }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label {
+            text-align: center; font-size: 0.82em; color: #64748b;
+            margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em;
+        }
+
+        /* Integral/formula table */
+        .integral-table {
+            width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.95em;
+        }
+        .integral-table th {
+            background: #1e3a5f; color: white; padding: 10px 16px; text-align: left; font-weight: 600;
+        }
+        .integral-table td { padding: 10px 16px; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        .integral-table tr:nth-child(even) { background: #f8fafc; }
+
+        /* LIATE memory device */
+        .liate-box {
+            display: flex; gap: 0; border-radius: 10px; overflow: hidden;
+            margin: 20px 0; border: 2px solid #2563eb;
+        }
+        .liate-cell {
+            flex: 1; padding: 14px 8px; text-align: center;
+            background: #eff6ff; border-right: 1px solid #bfdbfe;
+        }
+        .liate-cell:last-child { border-right: none; }
+        .liate-letter { font-size: 1.5em; font-weight: 800; color: #1d4ed8; }
+        .liate-word { font-size: 0.72em; color: #475569; margin-top: 4px; }
+        @media (max-width: 500px) { .liate-letter { font-size: 1.1em; } .liate-word { font-size: 0.65em; } }
+
+        /* Practice */
+        .practice-section { margin-top: 50px; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { border-top: none; padding-top: 0; margin-top: 0; }
+        .practice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 640px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card {
+            background: #f8fafc; border-radius: 10px; padding: 20px; border: 1px solid #e2e8f0;
+        }
+        .practice-card .p-num {
+            display: inline-block; background: #2563eb; color: white;
+            border-radius: 50%; width: 26px; height: 26px; text-align: center;
+            line-height: 26px; font-size: 0.85em; font-weight: 700; margin-bottom: 10px;
+        }
+        .practice-card p { margin: 0 0 12px; color: #334155; font-size: 0.95em; line-height: 1.7; }
+        .practice-card details summary {
+            cursor: pointer; color: #2563eb; font-size: 0.88em; font-weight: 600; user-select: none;
+        }
+        .practice-answer {
+            margin-top: 8px; padding: 10px 14px; background: white; border-radius: 6px;
+            font-size: 0.9em; color: #334155; line-height: 1.7;
+        }
+
+        .chapter-nav {
+            display: flex; justify-content: space-between; gap: 16px;
+            margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0;
+        }
+        .chapter-nav a {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: #2563eb; text-decoration: none; font-weight: 600; font-size: 0.95em;
+        }
+        .chapter-nav a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/" class="active">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+        </div>
+    </nav>
+
+    <div class="blog-article">
+        <div class="breadcrumb">
+            <a href="/us/">US Math</a> &rsaquo;
+            <a href="/us/textbook/ap-calculus/">AP Calculus</a> &rsaquo;
+            Chapter 7: Techniques of Integration
+        </div>
+
+        <h1>Chapter 7: Techniques of Integration</h1>
+        <div class="blog-meta">AP Calculus AB &amp; BC &middot; MathHub &middot; 2026</div>
+
+        <div class="learning-objectives">
+            <h4>Learning Objectives</h4>
+            <ul>
+                <li>Apply <strong>integration by parts</strong> using the LIATE rule to choose $u$ and $dv$</li>
+                <li>Evaluate <strong>trigonometric integrals</strong> involving powers of sine and cosine</li>
+                <li>Decompose rational functions using <strong>partial fractions</strong> to enable integration</li>
+                <li>Determine convergence of <strong>improper integrals</strong> using limits (BC)</li>
+                <li>Choose the most efficient technique for a given integral</li>
+            </ul>
+        </div>
+
+        <h2>7.1 Integration by Parts</h2>
+
+        <p>When u-substitution doesn't work — typically when the integrand is a product of two different types of functions — <strong>integration by parts</strong> (IBP) is the go-to technique.</p>
+
+        <div class="theorem-box">
+            <h4>Integration by Parts Formula</h4>
+            <p>If $u$ and $v$ are differentiable functions, then:</p>
+            <p>$$\int u\,dv = uv - \int v\,du$$</p>
+            <p>In Leibniz notation: $\displaystyle\int u\,\frac{dv}{dx}\,dx = uv - \int v\,\frac{du}{dx}\,dx$</p>
+            <p><strong>Derivation:</strong> From the product rule $\dfrac{d}{dx}[uv] = u\,v' + v\,u'$, integrate both sides and rearrange to get the IBP formula.</p>
+        </div>
+
+        <h3>The LIATE Rule — Choosing $u$</h3>
+
+        <p>The hardest part of IBP is choosing which factor to call $u$ and which to call $dv$. The <strong>LIATE</strong> mnemonic gives the preferred order for $u$ (choose whichever type appears earliest in the list):</p>
+
+        <div class="liate-box">
+            <div class="liate-cell">
+                <div class="liate-letter">L</div>
+                <div class="liate-word">Logarithmic<br>ln x, log x</div>
+            </div>
+            <div class="liate-cell">
+                <div class="liate-letter">I</div>
+                <div class="liate-word">Inverse Trig<br>arcsin, arctan</div>
+            </div>
+            <div class="liate-cell">
+                <div class="liate-letter">A</div>
+                <div class="liate-word">Algebraic<br>x², x³, polynomials</div>
+            </div>
+            <div class="liate-cell">
+                <div class="liate-letter">T</div>
+                <div class="liate-word">Trigonometric<br>sin x, cos x</div>
+            </div>
+            <div class="liate-cell">
+                <div class="liate-letter">E</div>
+                <div class="liate-word">Exponential<br>eˣ, 2ˣ</div>
+            </div>
+        </div>
+
+        <p><strong>Example:</strong> For $\int x e^x\,dx$, $x$ is Algebraic (A) and $e^x$ is Exponential (E). Since A comes before E in LIATE, set $u = x$ and $dv = e^x\,dx$.</p>
+
+        <div class="example-box">
+            <h4>Example 7.1 — Basic Integration by Parts</h4>
+            <p>Evaluate $\displaystyle\int x e^x\,dx$.</p>
+            <p><strong>Step 1 — Assign:</strong> $u = x$, $dv = e^x\,dx$</p>
+            <p><strong>Step 2 — Differentiate / Integrate:</strong> $du = dx$, $v = e^x$</p>
+            <p><strong>Step 3 — Apply formula:</strong></p>
+            <p>$$\int x e^x\,dx = x e^x - \int e^x\,dx = x e^x - e^x + C = e^x(x-1) + C$$</p>
+            <p><strong>Check:</strong> $\dfrac{d}{dx}[e^x(x-1)] = e^x(x-1) + e^x \cdot 1 = xe^x$ ✓</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Evaluate $\displaystyle\int x\cos x\,dx$. (Hint: Let $u = x$, $dv = \cos x\,dx$)</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    $u = x$, $dv = \cos x\,dx \Rightarrow du = dx$, $v = \sin x$<br>
+                    $\displaystyle\int x\cos x\,dx = x\sin x - \int \sin x\,dx = x\sin x + \cos x + C$
+                </div>
+            </details>
+        </div>
+
+        <div class="desmos-wrap">
+            <p class="desmos-caption">Adjust the slider to see how $\int_0^a x e^x\,dx = e^a(a-1)+1$ grows. The shaded region equals $x e^x - e^x$ evaluated from 0 to $a$.</p>
+            <div id="graph-ibp" style="width:100%; height:340px;"></div>
+            <p class="fig-label">Figure 7.1 — Integration by Parts: $\displaystyle\int_0^a xe^x\,dx$</p>
+        </div>
+
+        <h3>Repeated Integration by Parts</h3>
+
+        <p>When the resulting $\int v\,du$ is still complex, apply IBP a second time. This often occurs with integrands like $x^2 e^x$ or $x^2 \sin x$.</p>
+
+        <div class="example-box">
+            <h4>Example 7.2 — Repeated IBP</h4>
+            <p>Evaluate $\displaystyle\int x^2 e^x\,dx$.</p>
+            <p><strong>Round 1:</strong> $u = x^2$, $dv = e^x\,dx$ &nbsp;⟹&nbsp; $du = 2x\,dx$, $v = e^x$</p>
+            <p>$$\int x^2 e^x\,dx = x^2 e^x - 2\int xe^x\,dx$$</p>
+            <p><strong>Round 2:</strong> From Example 7.1, $\int xe^x\,dx = e^x(x-1) + C$</p>
+            <p>$$= x^2 e^x - 2e^x(x-1) + C = e^x(x^2 - 2x + 2) + C$$</p>
+        </div>
+
+        <h3>The "Cycling" Trick</h3>
+
+        <p>For integrals like $\int e^x \sin x\,dx$, applying IBP twice regenerates the original integral. Let $I = \int e^x\sin x\,dx$. Applying IBP twice gives $I = -e^x\cos x + e^x\sin x - I$, so $2I = e^x(\sin x - \cos x)$, giving:</p>
+        <p>$$\int e^x \sin x\,dx = \frac{e^x(\sin x - \cos x)}{2} + C$$</p>
+
+        <div class="ap-tip">
+            <span class="ap-tip-icon">💡</span>
+            <p><strong>AP Exam Tip:</strong> On the exam, IBP problems often come in the FRQ section requiring both the setup and evaluation. Always write your $u$, $dv$, $du$, $v$ assignments clearly — this earns partial credit even if you make an arithmetic error later. The LIATE rule works for most problems, but trust your judgment when the rule seems ambiguous.</p>
+        </div>
+
+        <h2>7.2 Trigonometric Integrals</h2>
+
+        <p>Trigonometric integrals involve products or powers of trig functions. Strategies depend on whether the powers are odd or even.</p>
+
+        <div class="definition-box">
+            <h4>Strategy for $\int \sin^m x \cos^n x\,dx$</h4>
+            <ol>
+                <li><strong>Odd power of sin:</strong> Save one $\sin x$, convert the rest using $\sin^2 x = 1-\cos^2 x$, then substitute $u = \cos x$</li>
+                <li><strong>Odd power of cos:</strong> Save one $\cos x$, convert the rest using $\cos^2 x = 1-\sin^2 x$, then substitute $u = \sin x$</li>
+                <li><strong>Both powers even:</strong> Use half-angle identities: $\sin^2 x = \dfrac{1-\cos 2x}{2}$, $\cos^2 x = \dfrac{1+\cos 2x}{2}$</li>
+            </ol>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.3 — Trig Integrals</h4>
+            <p><strong>(a)</strong> $\displaystyle\int \sin^3 x\,dx$ — odd power of sin</p>
+            <p>Write $\sin^3 x = \sin^2 x \cdot \sin x = (1-\cos^2 x)\sin x$. Let $u = \cos x$, $du = -\sin x\,dx$:</p>
+            <p>$$\int (1-u^2)(-du) = -u + \frac{u^3}{3} + C = -\cos x + \frac{\cos^3 x}{3} + C$$</p>
+            <br>
+            <p><strong>(b)</strong> $\displaystyle\int \cos^2 x\,dx$ — even power, use half-angle</p>
+            <p>$$\int \frac{1+\cos 2x}{2}\,dx = \frac{x}{2} + \frac{\sin 2x}{4} + C$$</p>
+            <br>
+            <p><strong>(c)</strong> $\displaystyle\int \sin^2 x\cos^2 x\,dx$ — both even</p>
+            <p>Use $\sin^2 x\cos^2 x = \dfrac{1}{4}\sin^2 2x = \dfrac{1}{4} \cdot \dfrac{1-\cos 4x}{2} = \dfrac{1-\cos 4x}{8}$:</p>
+            <p>$$= \frac{x}{8} - \frac{\sin 4x}{32} + C$$</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Evaluate $\displaystyle\int \cos^3 x\,dx$.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    Odd power: $\cos^3 x = \cos^2 x \cdot \cos x = (1-\sin^2 x)\cos x$.<br>
+                    Let $u = \sin x$, $du = \cos x\,dx$:<br>
+                    $\displaystyle\int(1-u^2)\,du = u - \frac{u^3}{3} + C = \sin x - \frac{\sin^3 x}{3} + C$
+                </div>
+            </details>
+        </div>
+
+        <div class="desmos-wrap">
+            <p class="desmos-caption">Compare $\sin^2 x$ and $\cos^2 x$ using their half-angle forms. Note how both integrate to give $x/2$ over a full period — this reflects Pythagoras: $\sin^2 + \cos^2 = 1$.</p>
+            <div id="graph-trig" style="width:100%; height:340px;"></div>
+            <p class="fig-label">Figure 7.2 — $\sin^2 x$ and $\cos^2 x$: half-angle identities</p>
+        </div>
+
+        <h2>7.3 Partial Fractions</h2>
+
+        <p>Partial fraction decomposition breaks a rational function into simpler pieces that are easier to integrate. It applies when the degree of the numerator is less than the degree of the denominator (if not, do polynomial long division first).</p>
+
+        <div class="definition-box">
+            <h4>Partial Fraction Decomposition — Steps</h4>
+            <ol>
+                <li><strong>Factor the denominator</strong> completely</li>
+                <li><strong>Write the decomposition</strong> with unknown constants $A$, $B$, $C$, …</li>
+                <li><strong>Solve for constants</strong> by multiplying through and equating coefficients (or substituting convenient values)</li>
+                <li><strong>Integrate</strong> each simpler fraction</li>
+            </ol>
+            <p><strong>Forms:</strong></p>
+            <ul>
+                <li>Distinct linear factors $(ax+b)(cx+d)$: use $\dfrac{A}{ax+b} + \dfrac{B}{cx+d}$</li>
+                <li>Repeated linear factor $(ax+b)^2$: use $\dfrac{A}{ax+b} + \dfrac{B}{(ax+b)^2}$</li>
+                <li>Irreducible quadratic $ax^2+bx+c$: use $\dfrac{Ax+B}{ax^2+bx+c}$</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.4 — Partial Fractions</h4>
+            <p>Evaluate $\displaystyle\int \frac{3x+5}{(x-1)(x+2)}\,dx$.</p>
+            <p><strong>Step 1 — Decompose:</strong> $\dfrac{3x+5}{(x-1)(x+2)} = \dfrac{A}{x-1} + \dfrac{B}{x+2}$</p>
+            <p><strong>Step 2 — Multiply by $(x-1)(x+2)$:</strong> $3x+5 = A(x+2) + B(x-1)$</p>
+            <p><strong>Step 3 — Solve for constants:</strong><br>
+            &nbsp;&nbsp;$x=1$: $8 = 3A \Rightarrow A = 8/3$<br>
+            &nbsp;&nbsp;$x=-2$: $-1 = -3B \Rightarrow B = 1/3$</p>
+            <p><strong>Step 4 — Integrate:</strong></p>
+            <p>$$\int \frac{3x+5}{(x-1)(x+2)}\,dx = \frac{8}{3}\int\frac{dx}{x-1} + \frac{1}{3}\int\frac{dx}{x+2}$$</p>
+            <p>$$= \frac{8}{3}\ln|x-1| + \frac{1}{3}\ln|x+2| + C$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.5 — Repeated Linear Factor</h4>
+            <p>Evaluate $\displaystyle\int \frac{x+4}{x(x+2)^2}\,dx$.</p>
+            <p><strong>Decomposition:</strong> $\dfrac{x+4}{x(x+2)^2} = \dfrac{A}{x} + \dfrac{B}{x+2} + \dfrac{C}{(x+2)^2}$</p>
+            <p>Multiply through: $x+4 = A(x+2)^2 + Bx(x+2) + Cx$</p>
+            <p>&nbsp;&nbsp;$x=0$: $4 = 4A \Rightarrow A = 1$</p>
+            <p>&nbsp;&nbsp;$x=-2$: $2 = -2C \Rightarrow C = -1$</p>
+            <p>&nbsp;&nbsp;Expand and compare $x^2$ terms: $0 = A + B \Rightarrow B = -1$</p>
+            <p>$$\int\left(\frac{1}{x} - \frac{1}{x+2} - \frac{1}{(x+2)^2}\right)dx = \ln|x| - \ln|x+2| + \frac{1}{x+2} + C$$</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Decompose and integrate: $\displaystyle\int \frac{2}{x^2-1}\,dx = \int \frac{2}{(x-1)(x+1)}\,dx$</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    $\dfrac{2}{(x-1)(x+1)} = \dfrac{A}{x-1} + \dfrac{B}{x+1}$<br>
+                    $2 = A(x+1) + B(x-1)$<br>
+                    $x=1$: $2=2A \Rightarrow A=1$; $\;x=-1$: $2=-2B \Rightarrow B=-1$<br>
+                    $\displaystyle\int\left(\frac{1}{x-1} - \frac{1}{x+1}\right)dx = \ln|x-1| - \ln|x+1| + C = \ln\left|\frac{x-1}{x+1}\right| + C$
+                </div>
+            </details>
+        </div>
+
+        <div class="ap-tip">
+            <span class="ap-tip-icon">💡</span>
+            <p><strong>AP Exam Tip:</strong> On AP Calc BC, partial fractions often appear in FRQ problems involving logistic growth or population models (where separation of variables leads to a rational integral). Always check: if the degree of the numerator $\geq$ degree of the denominator, perform polynomial long division first before setting up partial fractions.</p>
+        </div>
+
+        <h2>7.4 Improper Integrals</h2>
+
+        <div class="bc-only-box">
+            <span class="bc-only-label">AP CALCULUS BC</span>
+            <p>Improper integrals are a BC-only topic. They may appear on the BC exam in multiple choice or FRQ format.</p>
+        </div>
+
+        <p>An <strong>improper integral</strong> has either an infinite limit of integration or an integrand that is unbounded (vertical asymptote) on the interval.</p>
+
+        <div class="definition-box">
+            <h4>Improper Integrals — Definitions</h4>
+            <p><strong>Type 1 (Infinite limits):</strong></p>
+            <p>$$\int_a^\infty f(x)\,dx = \lim_{t\to\infty}\int_a^t f(x)\,dx$$</p>
+            <p>$$\int_{-\infty}^b f(x)\,dx = \lim_{t\to-\infty}\int_t^b f(x)\,dx$$</p>
+            <p><strong>Type 2 (Vertical asymptote at $x=c$ inside $[a,b]$):</strong></p>
+            <p>$$\int_a^b f(x)\,dx = \lim_{t\to c^-}\int_a^t f(x)\,dx + \lim_{t\to c^+}\int_t^b f(x)\,dx$$</p>
+            <p>The integral <strong>converges</strong> if the limit exists and is finite; otherwise it <strong>diverges</strong>.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.6 — Improper Integrals</h4>
+            <p><strong>(a) Converges:</strong> $\displaystyle\int_1^\infty \frac{1}{x^2}\,dx$</p>
+            <p>$$= \lim_{t\to\infty}\int_1^t x^{-2}\,dx = \lim_{t\to\infty}\left[-\frac{1}{x}\right]_1^t = \lim_{t\to\infty}\left(-\frac{1}{t} + 1\right) = 1$$</p>
+            <br>
+            <p><strong>(b) Diverges:</strong> $\displaystyle\int_1^\infty \frac{1}{x}\,dx$</p>
+            <p>$$= \lim_{t\to\infty}\Big[\ln x\Big]_1^t = \lim_{t\to\infty}(\ln t - 0) = \infty \quad \text{(diverges)}$$</p>
+            <br>
+            <p><strong>(c) Vertical asymptote:</strong> $\displaystyle\int_0^1 \frac{1}{\sqrt{x}}\,dx$</p>
+            <p>$$= \lim_{t\to 0^+}\int_t^1 x^{-1/2}\,dx = \lim_{t\to 0^+}\Big[2\sqrt{x}\Big]_t^1 = \lim_{t\to 0^+}(2 - 2\sqrt{t}) = 2$$</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>The p-integral Test</h4>
+            <p>$$\int_1^\infty \frac{1}{x^p}\,dx \text{ converges if and only if } p > 1$$</p>
+            <p>Specifically: $\displaystyle\int_1^\infty \frac{1}{x^p}\,dx = \begin{cases} \dfrac{1}{p-1} & \text{if } p > 1 \\ \text{diverges} & \text{if } p \leq 1 \end{cases}$</p>
+        </div>
+
+        <div class="desmos-wrap">
+            <p class="desmos-caption">Use the slider to change $p$ in $\int_1^\infty x^{-p}\,dx$. Watch how the shaded area (from 1 to $b=10$) grows unboundedly when $p \leq 1$ but stays bounded when $p > 1$.</p>
+            <div id="graph-improper" style="width:100%; height:340px;"></div>
+            <p class="fig-label">Figure 7.3 — p-integral: convergence depends on $p > 1$</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Determine whether $\displaystyle\int_0^\infty e^{-x}\,dx$ converges or diverges. If it converges, find its value.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    $\displaystyle\lim_{t\to\infty}\int_0^t e^{-x}\,dx = \lim_{t\to\infty}\Big[-e^{-x}\Big]_0^t = \lim_{t\to\infty}(-e^{-t} + 1) = 0 + 1 = \mathbf{1}$<br>
+                    Converges to <strong>1</strong>.
+                </div>
+            </details>
+        </div>
+
+        <h2>7.5 Choosing the Right Technique</h2>
+
+        <p>With multiple techniques available, part of the skill is recognizing which to use:</p>
+
+        <table class="integral-table">
+            <tr><th>Integrand Type</th><th>Technique</th><th>Example</th></tr>
+            <tr><td>Composite function $f(g(x))g'(x)$</td><td>u-substitution</td><td>$\int 2x\cos(x^2)\,dx$</td></tr>
+            <tr><td>Product: poly × trig/exp</td><td>Integration by Parts (LIATE)</td><td>$\int x\sin x\,dx$</td></tr>
+            <tr><td>Product: log/arctan × poly</td><td>IBP, set log/arctan as $u$</td><td>$\int x\ln x\,dx$</td></tr>
+            <tr><td>Powers of sin/cos</td><td>Trig identities + substitution</td><td>$\int \sin^4 x\,dx$</td></tr>
+            <tr><td>Rational function</td><td>Partial fractions</td><td>$\int \frac{1}{x^2-4}\,dx$</td></tr>
+            <tr><td>$\sqrt{a^2-x^2}$ type</td><td>Trig substitution ($x=a\sin\theta$)</td><td>$\int \sqrt{4-x^2}\,dx$</td></tr>
+            <tr><td>Infinite limits or asymptote</td><td>Improper integral (limit)</td><td>$\int_0^\infty e^{-2x}\,dx$</td></tr>
+        </table>
+
+        <div class="example-box">
+            <h4>Example 7.7 — Technique Identification</h4>
+            <p>Choose the best technique and set up (but don't complete) each integral:</p>
+            <p><strong>(a)</strong> $\displaystyle\int \ln x\,dx$ → <em>IBP</em>: $u = \ln x$, $dv = dx$, so $du = \frac{1}{x}dx$, $v = x$; gives $x\ln x - \int x \cdot \frac{1}{x}\,dx = x\ln x - x + C$</p>
+            <p><strong>(b)</strong> $\displaystyle\int \frac{x^2+1}{x^2-1}\,dx$ → Degree of numerator = degree of denominator, so <em>long division first</em>: $\dfrac{x^2+1}{x^2-1} = 1 + \dfrac{2}{x^2-1}$, then use partial fractions on $\dfrac{2}{(x-1)(x+1)}$.</p>
+            <p><strong>(c)</strong> $\displaystyle\int \arctan x\,dx$ → <em>IBP</em>: $u = \arctan x$, $dv = dx$; gives $x\arctan x - \dfrac{1}{2}\ln(1+x^2) + C$</p>
+        </div>
+
+        <div class="ap-tip">
+            <span class="ap-tip-icon">💡</span>
+            <p><strong>AP Exam Tip:</strong> On the AB exam, IBP and partial fractions are the most heavily tested techniques. For BC, improper integrals appear in both multiple choice and FRQ. A common MC trick: $\int_1^\infty \frac{1}{x}\,dx$ diverges (this surprises many students) while $\int_1^\infty \frac{1}{x^2}\,dx = 1$ converges. Memorize the p-integral cutoff: <strong>converges iff $p > 1$</strong>.</p>
+        </div>
+
+        <!-- Practice Problems -->
+        <div class="practice-section">
+            <h2>Practice Problems</h2>
+            <div class="practice-grid">
+
+                <div class="practice-card">
+                    <span class="p-num">1</span>
+                    <p>Evaluate $\displaystyle\int x e^{-x}\,dx$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $u = x$, $dv = e^{-x}\,dx \Rightarrow du = dx$, $v = -e^{-x}$<br>
+                            $= x(-e^{-x}) - \displaystyle\int (-e^{-x})\,dx = -xe^{-x} - e^{-x} + C = -e^{-x}(x+1) + C$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">2</span>
+                    <p>Evaluate $\displaystyle\int \ln x\,dx$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $u = \ln x$, $dv = dx \Rightarrow du = \frac{1}{x}\,dx$, $v = x$<br>
+                            $= x\ln x - \displaystyle\int x \cdot \frac{1}{x}\,dx = x\ln x - x + C$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">3</span>
+                    <p>Evaluate $\displaystyle\int \sin^2 x\,dx$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Both powers even; use half-angle: $\sin^2 x = \dfrac{1-\cos 2x}{2}$<br>
+                            $\displaystyle\int \frac{1-\cos 2x}{2}\,dx = \frac{x}{2} - \frac{\sin 2x}{4} + C$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">4</span>
+                    <p>Evaluate $\displaystyle\int \frac{5}{x^2+x-2}\,dx$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Factor: $x^2+x-2 = (x-1)(x+2)$<br>
+                            Partial fractions: $\dfrac{5}{(x-1)(x+2)} = \dfrac{A}{x-1}+\dfrac{B}{x+2}$<br>
+                            $5 = A(x+2)+B(x-1)$: $x=1 \Rightarrow A=\frac{5}{3}$; $x=-2 \Rightarrow B=-\frac{5}{3}$<br>
+                            $= \dfrac{5}{3}\ln|x-1| - \dfrac{5}{3}\ln|x+2| + C = \dfrac{5}{3}\ln\left|\dfrac{x-1}{x+2}\right| + C$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">5</span>
+                    <p>Determine convergence and evaluate: $\displaystyle\int_2^\infty \frac{1}{x^3}\,dx$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $p = 3 > 1$, so converges.<br>
+                            $\displaystyle\lim_{t\to\infty}\int_2^t x^{-3}\,dx = \lim_{t\to\infty}\left[-\frac{1}{2x^2}\right]_2^t$<br>
+                            $= \lim_{t\to\infty}\left(-\frac{1}{2t^2} + \frac{1}{8}\right) = \frac{1}{8}$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">6</span>
+                    <p>Evaluate $\displaystyle\int_0^1 \frac{1}{(x+1)(x+3)}\,dx$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $\dfrac{1}{(x+1)(x+3)} = \dfrac{1/2}{x+1} - \dfrac{1/2}{x+3}$<br>
+                            (Check: $1 = A(x+3)+B(x+1)$; $x=-1$: $A=\frac{1}{2}$; $x=-3$: $B=-\frac{1}{2}$)<br>
+                            $= \dfrac{1}{2}\Big[\ln|x+1|-\ln|x+3|\Big]_0^1$<br>
+                            $= \dfrac{1}{2}\left[(\ln 2-\ln 4)-(\ln 1-\ln 3)\right]$<br>
+                            $= \dfrac{1}{2}\left[-\ln 2 + \ln 3\right] = \dfrac{1}{2}\ln\dfrac{3}{2}$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">7</span>
+                    <p><strong>(BC)</strong> Determine if $\displaystyle\int_{-\infty}^{\infty} xe^{-x^2}\,dx$ converges. If so, find its value.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Split: $\displaystyle\int_{-\infty}^0 xe^{-x^2}\,dx + \int_0^{\infty} xe^{-x^2}\,dx$<br>
+                            For $\int_0^\infty xe^{-x^2}\,dx$: let $u=x^2$, $du=2x\,dx$:<br>
+                            $= \dfrac{1}{2}\displaystyle\lim_{t\to\infty}\left[-e^{-u}\right]_0^{t^2} = \dfrac{1}{2}(0+1) = \dfrac{1}{2}$<br>
+                            Since $f(x)=xe^{-x^2}$ is odd, $\int_{-\infty}^0 = -\dfrac{1}{2}$.<br>
+                            Total: $-\dfrac{1}{2} + \dfrac{1}{2} = \mathbf{0}$. Converges to 0.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">8</span>
+                    <p><strong>(AP Free Response Style)</strong> Let $R$ be the region bounded by $y = xe^{-x}$, the $x$-axis, and $x = 0$, extended to infinity. <br>(a) Find the area of $R$. &nbsp; (b) Write a definite integral and evaluate it.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            <strong>(a)</strong> Area $= \displaystyle\int_0^\infty xe^{-x}\,dx$<br><br>
+                            <strong>(b)</strong> This is an improper integral, evaluated by IBP:<br>
+                            $u=x$, $dv=e^{-x}\,dx \Rightarrow v=-e^{-x}$<br>
+                            $\displaystyle\lim_{t\to\infty}\Big[-xe^{-x}\Big]_0^t + \int_0^t e^{-x}\,dx$<br>
+                            $= \lim_{t\to\infty}\left(-te^{-t} + 0 + \Big[-e^{-x}\Big]_0^t\right)$<br>
+                            $= \lim_{t\to\infty}\left(-te^{-t} + (-e^{-t}+1)\right)$<br>
+                            Since $\lim_{t\to\infty}te^{-t} = 0$ (L'Hôpital), area $= \mathbf{1}$.
+                        </div>
+                    </details>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <a href="/us/textbook/ap-calculus/integration.html">&#8592; Chapter 6: Integration</a>
+            <a href="/us/textbook/ap-calculus/">All Chapters</a>
+            <a href="/us/textbook/ap-calculus/applications-integration.html">Chapter 8: Applications of Integration &#8250;</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+        <p style="margin-top:6px; font-size:0.85em;"><a href="/about.html" style="color:inherit;opacity:0.7;text-decoration:none;">About</a> &middot; <a href="/privacy.html" style="color:inherit;opacity:0.7;text-decoration:none;">Privacy Policy</a></p>
+    </div>
+
+    <script>
+    // Figure 7.1 — Integration by Parts: ∫xe^x dx
+    (function() {
+        var elt = document.getElementById('graph-ibp');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false, showGrid: true, showXAxis: true, showYAxis: true
+        });
+        calc.setMathBounds({ left: -0.5, right: 5, bottom: -1, top: 60 });
+        calc.setExpressions([
+            { id: 'a', latex: 'a=3', sliderBounds: { min: 0.1, max: 4.5, step: 0.1 } },
+            { id: 'curve', latex: 'y = xe^x \\left\\{0 \\le x \\le a\\right\\}', color: '#1e3a5f', lineWidth: 3 },
+            { id: 'area', latex: '0 \\le y \\le xe^x \\left\\{0 \\le x \\le a\\right\\}', color: '#2563eb', fillOpacity: 0.25, lineWidth: 0 },
+            { id: 'label', latex: '(a/2, xe^x/2)', color: '#1e3a5f' },
+        ]);
+    })();
+
+    // Figure 7.2 — sin²x and cos²x
+    (function() {
+        var elt = document.getElementById('graph-trig');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false, showGrid: true, showXAxis: true, showYAxis: true
+        });
+        calc.setMathBounds({ left: -0.5, right: 7, bottom: -0.3, top: 1.5 });
+        calc.setExpressions([
+            { id: 'sin2', latex: 'y = \\sin^2(x)', color: '#2563eb', lineWidth: 2.5 },
+            { id: 'cos2', latex: 'y = \\cos^2(x)', color: '#dc2626', lineWidth: 2.5 },
+            { id: 'half1', latex: 'y = \\frac{1-\\cos(2x)}{2}', color: '#7c3aed', lineWidth: 1.5, lineStyle: Desmos.Styles.DASHED },
+            { id: 'half2', latex: 'y = \\frac{1+\\cos(2x)}{2}', color: '#059669', lineWidth: 1.5, lineStyle: Desmos.Styles.DASHED },
+            { id: 'sum', latex: 'y = \\sin^2(x)+\\cos^2(x)', color: '#94a3b8', lineWidth: 1, lineStyle: Desmos.Styles.DASHED },
+        ]);
+    })();
+
+    // Figure 7.3 — p-integral convergence
+    (function() {
+        var elt = document.getElementById('graph-improper');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false, showGrid: true, showXAxis: true, showYAxis: true
+        });
+        calc.setMathBounds({ left: 0, right: 12, bottom: -0.1, top: 3 });
+        calc.setExpressions([
+            { id: 'p', latex: 'p=1.5', sliderBounds: { min: 0.3, max: 3, step: 0.1 } },
+            { id: 'curve', latex: 'y = x^{-p} \\left\\{x \\ge 1\\right\\}', color: '#1e3a5f', lineWidth: 3 },
+            { id: 'area', latex: '0 \\le y \\le x^{-p} \\left\\{1 \\le x \\le 10\\right\\}', color: '#2563eb', fillOpacity: 0.25, lineWidth: 0 },
+        ]);
+    })();
+    </script>
+</body>
+</html>
