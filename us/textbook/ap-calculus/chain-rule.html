@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Calculus: Chain Rule &amp; Implicit Differentiation - Chapter 3 | MathHub</title>
+    <meta name="description" content="AP Calculus Chapter 3: Chain Rule and Implicit Differentiation. Learn composite function derivatives, implicit differentiation, and inverse trig derivatives with worked examples and practice problems.">
+    <meta name="keywords" content="AP Calculus chain rule, implicit differentiation, composite functions, inverse trig derivatives, arcsin arctan derivative, AP Calculus AB BC">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/ap-calculus/chain-rule.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/ap-calculus/chain-rule.html">
+    <meta property="og:title" content="AP Calculus: Chain Rule &amp; Implicit Differentiation - Chapter 3">
+    <meta property="og:description" content="Master the chain rule and implicit differentiation for AP Calculus AB and BC with worked examples and practice problems.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Calculus: Chain Rule &amp; Implicit Differentiation - Chapter 3">
+    <meta name="twitter:description" content="Chain rule, implicit differentiation, and inverse trig derivatives for AP Calculus AB/BC.">
+
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "AP Calculus: Chain Rule & Implicit Differentiation - Chapter 3",
+        "description": "AP Calculus Chapter 3 covering the chain rule for composite functions, implicit differentiation, and derivatives of inverse trigonometric functions.",
+        "url": "https://mathhub.io/us/textbook/ap-calculus/chain-rule.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "AP",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Chain Rule" },
+            { "@type": "Thing", "name": "Implicit Differentiation" },
+            { "@type": "Thing", "name": "AP Calculus" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        .blog-article {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 16px;
+        }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #2563eb; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives {
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            padding: 20px 24px; margin: 24px 0 32px;
+            border-radius: 0 10px 10px 0;
+        }
+        .learning-objectives h4 { color: #1e40af; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #1e3a8a; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box {
+            background: #eff6ff; border-left: 4px solid #2563eb;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .example-box h4 { color: #1e40af; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box {
+            background: #f0fdf4; border-left: 4px solid #16a34a;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box {
+            background: #faf5ff; border-left: 4px solid #8b5cf6;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box {
+            background: #eff6ff;
+            border: 1.5px dashed #93c5fd;
+            padding: 16px 20px; margin: -4px 0 24px;
+            border-radius: 0 0 8px 8px;
+        }
+        .try-it-box .try-it-label {
+            display: inline-block; background: #2563eb; color: white;
+            font-size: 0.75em; font-weight: 700; padding: 2px 10px;
+            border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px;
+        }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary {
+            cursor: pointer; color: #1e40af; font-weight: 600;
+            font-size: 0.9em; user-select: none;
+        }
+        .try-it-answer {
+            padding: 10px 14px; background: white; border-radius: 6px;
+            margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7;
+        }
+
+        .ap-tip {
+            background: #fefce8; border-left: 4px solid #eab308;
+            padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0;
+            display: flex; gap: 12px; align-items: flex-start;
+        }
+        .ap-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #92400e; }
+
+        .desmos-wrap {
+            margin: 24px auto; background: #f8fafc; border-radius: 12px;
+            padding: 4px; border: 1px solid #e2e8f0; text-align: center;
+        }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label {
+            text-align: center; font-size: 0.82em; color: #64748b;
+            margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em;
+        }
+
+        .deriv-table {
+            width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.95em;
+        }
+        .deriv-table th {
+            background: #1e3a5f; color: white; padding: 10px 16px; text-align: left; font-weight: 600;
+        }
+        .deriv-table td { padding: 10px 16px; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        .deriv-table tr:nth-child(even) { background: #f8fafc; }
+
+        .practice-section { margin-top: 50px; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { border-top: none; padding-top: 0; margin-top: 0; }
+        .practice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 640px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card {
+            background: #f8fafc; border-radius: 10px; padding: 20px; border: 1px solid #e2e8f0;
+        }
+        .practice-card .p-num {
+            display: inline-block; background: #2563eb; color: white;
+            border-radius: 50%; width: 26px; height: 26px; text-align: center;
+            line-height: 26px; font-size: 0.85em; font-weight: 700; margin-bottom: 10px;
+        }
+        .practice-card p { margin: 0 0 12px; color: #334155; font-size: 0.95em; line-height: 1.7; }
+        .practice-card details summary {
+            cursor: pointer; color: #2563eb; font-size: 0.88em; font-weight: 600; user-select: none;
+        }
+        .practice-answer {
+            margin-top: 8px; padding: 10px 14px; background: white; border-radius: 6px;
+            font-size: 0.9em; color: #334155; line-height: 1.7;
+        }
+
+        .chapter-nav {
+            display: flex; justify-content: space-between; gap: 16px;
+            margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0;
+        }
+        .chapter-nav a {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: #2563eb; text-decoration: none; font-weight: 600; font-size: 0.95em;
+        }
+        .chapter-nav a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="blog-article">
+        <div class="breadcrumb">
+            <a href="/us/">US</a> &rsaquo; <a href="/us/textbook/ap-calculus/">AP Calculus</a> &rsaquo; Chapter 3
+        </div>
+
+        <h1>Chapter 3: Chain Rule &amp; Implicit Differentiation</h1>
+        <div class="blog-meta">AP Calculus AB &amp; BC &nbsp;|&nbsp; Unit 1: Differentiation</div>
+
+        <div class="learning-objectives">
+            <h4>Learning Objectives</h4>
+            <ul>
+                <li>Apply the chain rule to differentiate composite functions</li>
+                <li>Use the generalized power rule as a special case of the chain rule</li>
+                <li>Differentiate implicitly defined functions using $\frac{dy}{dx}$</li>
+                <li>Find equations of tangent lines to implicit curves</li>
+                <li>Compute derivatives of inverse trigonometric functions (arcsin, arccos, arctan)</li>
+            </ul>
+        </div>
+
+        <h2>3.1 The Chain Rule</h2>
+
+        <p>Many real-world functions are <strong>compositions</strong> — one function applied inside another. For example, $h(x) = \sin(x^2)$ is $\sin$ applied to $x^2$. The chain rule tells us how to differentiate these.</p>
+
+        <div class="theorem-box">
+            <h4>Theorem: The Chain Rule</h4>
+            <p>If $h(x) = f(g(x))$, where $g$ is differentiable at $x$ and $f$ is differentiable at $g(x)$, then:</p>
+            <p>$$h'(x) = f'(g(x)) \cdot g'(x)$$</p>
+            <p><strong>In words:</strong> Derivative of the <em>outer</em> function (evaluated at the inner function) times the derivative of the <em>inner</em> function.</p>
+            <p><strong>Leibniz form:</strong> If $y = f(u)$ and $u = g(x)$, then $\dfrac{dy}{dx} = \dfrac{dy}{du} \cdot \dfrac{du}{dx}$.</p>
+        </div>
+
+        <p>A useful memory device: <strong>"Outside, then Inside."</strong> Differentiate the outer shell, keep the inside unchanged, then multiply by the derivative of the inside.</p>
+
+        <div class="example-box">
+            <h4>Example 3.1 — Basic Chain Rule Applications</h4>
+            <p>Differentiate each function.</p>
+            <ol type="a">
+                <li><strong>$h(x) = (3x^2 + 1)^5$</strong><br>
+                Outer: $u^5$, Inner: $3x^2 + 1$<br>
+                $h'(x) = 5(3x^2+1)^4 \cdot 6x = 30x(3x^2+1)^4$</li>
+                <li><strong>$h(x) = \sin(x^3)$</strong><br>
+                Outer: $\sin(u)$, Inner: $x^3$<br>
+                $h'(x) = \cos(x^3) \cdot 3x^2 = 3x^2\cos(x^3)$</li>
+                <li><strong>$h(x) = e^{2x}$</strong><br>
+                Outer: $e^u$, Inner: $2x$<br>
+                $h'(x) = e^{2x} \cdot 2 = 2e^{2x}$</li>
+                <li><strong>$h(x) = \ln(x^2 + 4)$</strong><br>
+                Outer: $\ln(u)$, Inner: $x^2+4$<br>
+                $h'(x) = \dfrac{1}{x^2+4} \cdot 2x = \dfrac{2x}{x^2+4}$</li>
+            </ol>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Differentiate $f(x) = \cos(5x^3 - 2x)$.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    Outer: $\cos(u)$, Inner: $5x^3 - 2x$<br>
+                    $f'(x) = -\sin(5x^3-2x) \cdot (15x^2 - 2) = -(15x^2-2)\sin(5x^3-2x)$
+                </div>
+            </details>
+        </div>
+
+        <h3>The Generalized Power Rule</h3>
+
+        <p>The chain rule applied to $[g(x)]^n$ gives a commonly used special case:</p>
+
+        <div class="definition-box">
+            <h4>Generalized Power Rule</h4>
+            <p>$$\frac{d}{dx}[g(x)]^n = n[g(x)]^{n-1} \cdot g'(x)$$</p>
+            <p>This works for any real exponent $n$ — including fractions and negatives.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3.2 — Generalized Power Rule</h4>
+            <p>Differentiate $f(x) = \sqrt{4 - x^2} = (4-x^2)^{1/2}$.</p>
+            <p>$$f'(x) = \frac{1}{2}(4-x^2)^{-1/2} \cdot (-2x) = \frac{-x}{\sqrt{4-x^2}}$$</p>
+            <p>This gives the slope of the upper semicircle of radius 2 at any point.</p>
+        </div>
+
+        <h3>Chaining Multiple Rules</h3>
+
+        <p>When a function requires both the product/quotient rule and the chain rule, apply from the outermost layer inward.</p>
+
+        <div class="example-box">
+            <h4>Example 3.3 — Chain + Product Rule</h4>
+            <p>Differentiate $g(x) = x^2 \sin(3x)$.</p>
+            <p>Product rule: $g'(x) = 2x\sin(3x) + x^2 \cdot \cos(3x)\cdot 3 = 2x\sin(3x) + 3x^2\cos(3x)$</p>
+        </div>
+
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">A composite function $f(g(x))$ and its derivative — notice how the chain rule accounts for both layers of change.</p>
+            <div id="graph-chain" style="width:100%; height:340px;"></div>
+            <p class="fig-label">Figure 3.1 — Chain Rule: $h(x)=\sin(x^2)$ and $h'(x)=2x\cos(x^2)$</p>
+        </div>
+
+        <h2>3.2 Implicit Differentiation</h2>
+
+        <p>Some curves are defined by equations like $x^2 + y^2 = 25$ that cannot easily be solved for $y$ explicitly. <strong>Implicit differentiation</strong> lets us find $\frac{dy}{dx}$ without isolating $y$.</p>
+
+        <div class="definition-box">
+            <h4>Implicit Differentiation Procedure</h4>
+            <ol>
+                <li>Differentiate both sides of the equation with respect to $x$.</li>
+                <li>Whenever you differentiate a term involving $y$, apply the chain rule: the derivative of $y^n$ is $ny^{n-1}\dfrac{dy}{dx}$.</li>
+                <li>Collect all $\dfrac{dy}{dx}$ terms on one side.</li>
+                <li>Factor out $\dfrac{dy}{dx}$ and solve.</li>
+            </ol>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3.4 — Circle: $x^2 + y^2 = 25$</h4>
+            <p>Find $\dfrac{dy}{dx}$ and the equation of the tangent line at $(3, 4)$.</p>
+            <p><strong>Step 1:</strong> Differentiate both sides w.r.t. $x$:
+            $$2x + 2y\frac{dy}{dx} = 0$$</p>
+            <p><strong>Step 2:</strong> Solve for $\dfrac{dy}{dx}$:
+            $$\frac{dy}{dx} = -\frac{x}{y}$$</p>
+            <p><strong>Step 3:</strong> At $(3,4)$: slope $= -\dfrac{3}{4}$</p>
+            <p><strong>Step 4:</strong> Tangent line: $y - 4 = -\dfrac{3}{4}(x-3)$, which simplifies to $3x + 4y = 25$.</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Use implicit differentiation to find $\dfrac{dy}{dx}$ for $x^3 + y^3 = 6xy$.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    Differentiate: $3x^2 + 3y^2\dfrac{dy}{dx} = 6y + 6x\dfrac{dy}{dx}$<br>
+                    Collect: $3y^2\dfrac{dy}{dx} - 6x\dfrac{dy}{dx} = 6y - 3x^2$<br>
+                    Factor: $\dfrac{dy}{dx}(3y^2 - 6x) = 6y - 3x^2$<br>
+                    Solve: $\dfrac{dy}{dx} = \dfrac{6y - 3x^2}{3y^2 - 6x} = \dfrac{2y - x^2}{y^2 - 2x}$
+                </div>
+            </details>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3.5 — Implicit Curve with Multiple Terms</h4>
+            <p>Find $\dfrac{dy}{dx}$ for $\sin(xy) = x + y$.</p>
+            <p>Differentiate left side using chain rule + product rule:<br>
+            $\cos(xy) \cdot (y + x\dfrac{dy}{dx}) = 1 + \dfrac{dy}{dx}$</p>
+            <p>Expand: $y\cos(xy) + x\cos(xy)\dfrac{dy}{dx} = 1 + \dfrac{dy}{dx}$</p>
+            <p>Collect $\dfrac{dy}{dx}$: $x\cos(xy)\dfrac{dy}{dx} - \dfrac{dy}{dx} = 1 - y\cos(xy)$</p>
+            <p>Solve: $\dfrac{dy}{dx} = \dfrac{1 - y\cos(xy)}{x\cos(xy) - 1}$</p>
+        </div>
+
+        <div class="ap-tip">
+            <div class="ap-tip-icon">★</div>
+            <p><strong>AP Exam Tip:</strong> On the AP exam, implicit differentiation often appears in FRQ problems asking you to find a tangent line, a normal line, or to verify a given expression for $\dfrac{dy}{dx}$. Always show your differentiation steps clearly — partial credit is awarded for the setup even if arithmetic errors occur later.</p>
+        </div>
+
+        <div class="desmos-wrap" style="max-width:630px;">
+            <p class="desmos-caption">The circle $x^2+y^2=25$ with its tangent line at $(3,4)$. Drag the point to see how the slope $-x/y$ changes.</p>
+            <div id="graph-implicit" style="width:100%; height:400px;"></div>
+            <p class="fig-label">Figure 3.2 — Implicit Curve: Circle with Tangent Line via Implicit Differentiation</p>
+        </div>
+
+        <h2>3.3 Derivatives of Inverse Trig Functions</h2>
+
+        <p>We derive these using implicit differentiation. Let $y = \arcsin(x)$, so $\sin(y) = x$. Differentiating: $\cos(y)\dfrac{dy}{dx} = 1$, giving $\dfrac{dy}{dx} = \dfrac{1}{\cos(y)} = \dfrac{1}{\sqrt{1-x^2}}$.</p>
+
+        <table class="deriv-table">
+            <thead>
+                <tr><th>Function</th><th>Derivative</th><th>Domain</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>$\arcsin(x)$</td><td>$\dfrac{1}{\sqrt{1-x^2}}$</td><td>$|x| < 1$</td></tr>
+                <tr><td>$\arccos(x)$</td><td>$\dfrac{-1}{\sqrt{1-x^2}}$</td><td>$|x| < 1$</td></tr>
+                <tr><td>$\arctan(x)$</td><td>$\dfrac{1}{1+x^2}$</td><td>all $x$</td></tr>
+                <tr><td>$\text{arccot}(x)$</td><td>$\dfrac{-1}{1+x^2}$</td><td>all $x$</td></tr>
+                <tr><td>$\text{arcsec}(x)$</td><td>$\dfrac{1}{|x|\sqrt{x^2-1}}$</td><td>$|x| > 1$</td></tr>
+            </tbody>
+        </table>
+
+        <p>Combined with the chain rule, these become powerful. For instance, $\dfrac{d}{dx}[\arctan(3x)] = \dfrac{1}{1+(3x)^2} \cdot 3 = \dfrac{3}{1+9x^2}$.</p>
+
+        <div class="example-box">
+            <h4>Example 3.6 — Combining Chain Rule with Inverse Trig</h4>
+            <p>Find $\dfrac{d}{dx}\left[\arcsin\!\left(\tfrac{x}{2}\right)\right]$.</p>
+            <p>Let $u = x/2$. Then $\dfrac{d}{dx}[\arcsin(u)] = \dfrac{1}{\sqrt{1-u^2}} \cdot \dfrac{1}{2} = \dfrac{1}{2\sqrt{1-x^2/4}} = \dfrac{1}{\sqrt{4-x^2}}$</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Find $\dfrac{d}{dx}[\arctan(x^2)]$.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    Chain rule with $u = x^2$:<br>
+                    $\dfrac{d}{dx}[\arctan(x^2)] = \dfrac{1}{1+(x^2)^2} \cdot 2x = \dfrac{2x}{1+x^4}$
+                </div>
+            </details>
+        </div>
+
+        <div class="ap-tip">
+            <div class="ap-tip-icon">★</div>
+            <p><strong>AP Exam Tip:</strong> You must memorize the derivatives of $\arcsin$, $\arccos$, and $\arctan$ — they appear on nearly every AP Calculus exam, both MC and FRQ. Note that $\dfrac{d}{dx}[\arcsin] + \dfrac{d}{dx}[\arccos] = 0$ — they are negatives of each other.</p>
+        </div>
+
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">$\arctan(x)$ and its derivative $\dfrac{1}{1+x^2}$. The derivative is always positive (arctan is always increasing) and approaches 0 as $|x|\to\infty$.</p>
+            <div id="graph-arctan" style="width:100%; height:360px;"></div>
+            <p class="fig-label">Figure 3.3 — $\arctan(x)$ and its derivative $\dfrac{1}{1+x^2}$</p>
+        </div>
+
+        <!-- Practice Problems -->
+        <div class="practice-section">
+            <h2>Practice Problems</h2>
+            <div class="practice-grid">
+
+                <div class="practice-card">
+                    <span class="p-num">1</span>
+                    <p>Differentiate $f(x) = (2x^3 - 5)^4$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Chain rule with outer $u^4$ and inner $2x^3-5$:<br>
+                            $f'(x) = 4(2x^3-5)^3 \cdot 6x^2 = 24x^2(2x^3-5)^3$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">2</span>
+                    <p>Find the derivative of $g(x) = e^{x^2 - 3x}$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Outer: $e^u$, Inner: $x^2-3x$<br>
+                            $g'(x) = e^{x^2-3x} \cdot (2x-3) = (2x-3)e^{x^2-3x}$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">3</span>
+                    <p>Differentiate $h(x) = \dfrac{1}{(x^2+1)^3}$. Hint: rewrite as $(x^2+1)^{-3}$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $h(x) = (x^2+1)^{-3}$<br>
+                            $h'(x) = -3(x^2+1)^{-4} \cdot 2x = \dfrac{-6x}{(x^2+1)^4}$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">4</span>
+                    <p>Use implicit differentiation to find $\dfrac{dy}{dx}$ for $x^2 + 3y^2 = 12$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Differentiate: $2x + 6y\dfrac{dy}{dx} = 0$<br>
+                            Solve: $\dfrac{dy}{dx} = -\dfrac{2x}{6y} = -\dfrac{x}{3y}$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">5</span>
+                    <p>Find the slope of the tangent to $x^2 - xy + y^2 = 7$ at the point $(1, 3)$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Differentiate: $2x - (y + x\dfrac{dy}{dx}) + 2y\dfrac{dy}{dx} = 0$<br>
+                            At $(1,3)$: $2 - 3 - \dfrac{dy}{dx} + 6\dfrac{dy}{dx} = 0 \Rightarrow 5\dfrac{dy}{dx} = 1$<br>
+                            Slope $= \dfrac{1}{5}$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">6</span>
+                    <p>Differentiate $f(x) = \arctan\!\left(\dfrac{x}{3}\right)$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $f'(x) = \dfrac{1}{1+(x/3)^2} \cdot \dfrac{1}{3} = \dfrac{1}{3 \cdot \frac{9+x^2}{9}} = \dfrac{3}{9+x^2}$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">7</span>
+                    <p>Find $\dfrac{d}{dx}[\arcsin(\sqrt{x})]$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Let $u = x^{1/2}$, so $\dfrac{du}{dx} = \dfrac{1}{2\sqrt{x}}$<br>
+                            $\dfrac{d}{dx}[\arcsin(u)] = \dfrac{1}{\sqrt{1-u}} \cdot \dfrac{du}{dx} = \dfrac{1}{\sqrt{1-x}} \cdot \dfrac{1}{2\sqrt{x}} = \dfrac{1}{2\sqrt{x(1-x)}}$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">8</span>
+                    <p><strong>(AP Style)</strong> Let $x^2y + y^3 = 10$. Find $\dfrac{dy}{dx}$ and determine whether the curve has a horizontal tangent at the point where $x = 0$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Differentiate: $2xy + x^2\dfrac{dy}{dx} + 3y^2\dfrac{dy}{dx} = 0$<br>
+                            Solve: $\dfrac{dy}{dx}(x^2 + 3y^2) = -2xy$<br>
+                            $\dfrac{dy}{dx} = \dfrac{-2xy}{x^2+3y^2}$<br><br>
+                            At $x=0$: Find $y$ from $0 + y^3 = 10 \Rightarrow y = \sqrt[3]{10}$<br>
+                            $\dfrac{dy}{dx}\big|_{x=0} = \dfrac{0}{3y^2} = 0$ ✓ Horizontal tangent exists at $(0, \sqrt[3]{10})$.
+                        </div>
+                    </details>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <a href="/us/textbook/ap-calculus/derivatives.html">&#8592; Chapter 2: Derivatives</a>
+            <a href="/us/textbook/ap-calculus/applications-derivatives.html">Chapter 4: Applications of Derivatives &#8250;</a>
+        </div>
+    </div>
+
+    <script>
+    // Figure 3.1 — Chain Rule: h(x) = sin(x^2) and h'(x) = 2x cos(x^2)
+    (function() {
+        var elt = document.getElementById('graph-chain');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: false,
+            border: false
+        });
+        calc.setMathBounds({ left: -4, right: 4, bottom: -2, top: 2 });
+        calc.setExpressions([
+            { id: 'h', latex: 'h(x) = \\sin(x^2)', color: '#1e3a5f', lineWidth: 2.5, label: 'h(x) = sin(x²)', showLabel: true },
+            { id: 'dh', latex: "h'(x) = 2x\\cos(x^2)", color: '#e11d48', lineWidth: 2, label: "h'(x) = 2x·cos(x²)", showLabel: true },
+            { id: 'x0', latex: 'x_0 = 1.2', sliderBounds: { min: -3, max: 3, step: 0.05 } },
+            { id: 'pt', latex: '(x_0, h(x_0))', color: '#1e3a5f', pointSize: 10 }
+        ]);
+    })();
+
+    // Figure 3.2 — Implicit curve: circle x^2 + y^2 = 25 with tangent at (3,4)
+    (function() {
+        var elt = document.getElementById('graph-implicit');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: false,
+            border: false
+        });
+        calc.setMathBounds({ left: -8, right: 8, bottom: -8, top: 8 });
+        calc.setExpressions([
+            { id: 'circle', latex: 'x^2 + y^2 = 25', color: '#1e3a5f', lineWidth: 2.5 },
+            { id: 'tangent', latex: 'y = -\\frac{3}{4}(x - 3) + 4', color: '#e11d48', lineWidth: 2, lineStyle: Desmos.Styles.DASHED },
+            { id: 'pt', latex: '(3, 4)', color: '#e11d48', pointSize: 10, label: '(3, 4)', showLabel: true },
+            { id: 'label', latex: 'x^2 + y^2 = 25', label: 'x² + y² = 25' }
+        ]);
+    })();
+
+    // Figure 3.3 — arctan and its derivative
+    (function() {
+        var elt = document.getElementById('graph-arctan');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: false,
+            border: false
+        });
+        calc.setMathBounds({ left: -6, right: 6, bottom: -2, top: 2.5 });
+        calc.setExpressions([
+            { id: 'at', latex: 'y = \\arctan(x)', color: '#1e3a5f', lineWidth: 2.5, label: 'arctan(x)', showLabel: true },
+            { id: 'dat', latex: 'y = \\frac{1}{1+x^2}', color: '#16a34a', lineWidth: 2, label: "d/dx[arctan(x)] = 1/(1+x²)", showLabel: true },
+            { id: 'ha1', latex: 'y = \\frac{\\pi}{2}', color: '#94a3b8', lineWidth: 1.5, lineStyle: Desmos.Styles.DASHED },
+            { id: 'ha2', latex: 'y = -\\frac{\\pi}{2}', color: '#94a3b8', lineWidth: 1.5, lineStyle: Desmos.Styles.DASHED }
+        ]);
+    })();
+    </script>
+</body>
+</html>
