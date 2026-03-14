@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Geometry: Surface Area and Volume - Chapter 12 | MathHub</title>
+    <meta name="description" content="Geometry Chapter 12: Surface Area and Volume. Learn formulas for prisms, cylinders, pyramids, cones, and spheres with worked examples and practice problems.">
+    <meta name="keywords" content="geometry, surface area, volume, prism, cylinder, pyramid, cone, sphere, composite solids, Cavalieri's principle, high school geometry chapter 12">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/geometry/surface-area-volume.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/geometry/surface-area-volume.html">
+    <meta property="og:title" content="Geometry: Surface Area and Volume - Chapter 12">
+    <meta property="og:description" content="Surface area and volume formulas for prisms, cylinders, pyramids, cones, and spheres with examples and practice.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "Geometry: Surface Area and Volume - Chapter 12",
+        "description": "Geometry Chapter 12 covering surface area and volume formulas for prisms, cylinders, pyramids, cones, spheres, and composite solids.",
+        "url": "https://mathhub.io/us/textbook/geometry/surface-area-volume.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "High School",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Surface Area" },
+            { "@type": "Thing", "name": "Volume" },
+            { "@type": "Thing", "name": "Geometry" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #4c1d95; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #4c1d95; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #8b5cf6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives { background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 24px 0 32px; border-radius: 0 10px 10px 0; }
+        .learning-objectives h4 { color: #4c1d95; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #3b0764; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box { background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #4c1d95; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+
+        .definition-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+
+        .theorem-box { background: #fdf2f8; border-left: 4px solid #ec4899; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #9d174d; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+        .theorem-box table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .theorem-box th { background: #fce7f3; color: #9d174d; padding: 7px 12px; text-align: left; font-weight: 700; border: 1px solid #fbcfe8; }
+        .theorem-box td { padding: 7px 12px; border: 1px solid #fbcfe8; color: #334155; }
+        .theorem-box tr:nth-child(even) td { background: #fff0f8; }
+
+        .try-it-box { background: #f5f3ff; border: 1.5px dashed #c4b5fd; padding: 16px 20px; margin: -4px 0 24px; border-radius: 0 0 8px 8px; }
+        .try-it-box .try-it-label { display: inline-block; background: #8b5cf6; color: white; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px; }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary { cursor: pointer; color: #4c1d95; font-weight: 600; font-size: 0.9em; user-select: none; }
+        .try-it-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7; }
+
+        .geo-tip { background: #fefce8; border-left: 4px solid #eab308; padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .geo-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .geo-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .geo-tip strong { color: #92400e; }
+
+        .desmos-wrap { margin: 24px auto; background: #faf8ff; border-radius: 12px; padding: 4px; border: 1px solid #e9d5ff; text-align: center; }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label { text-align: center; font-size: 0.82em; color: #64748b; margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em; }
+
+        .practice-section { margin: 48px 0 0; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { color: #4c1d95; margin-bottom: 20px; }
+        .practice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        @media (max-width: 600px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; }
+        .practice-card .p-num { display: inline-block; background: #4c1d95; color: white; font-weight: 700; font-size: 0.78em; padding: 2px 9px; border-radius: 4px; margin-bottom: 8px; }
+        .practice-card p { color: #334155; font-size: 0.92em; line-height: 1.7; margin: 0 0 10px; }
+        .practice-card details summary { cursor: pointer; color: #4c1d95; font-weight: 600; font-size: 0.88em; user-select: none; }
+        .practice-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 8px; color: #334155; font-size: 0.9em; line-height: 1.7; border: 1px solid #e2e8f0; }
+
+        .chapter-nav { display: flex; justify-content: space-between; margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid #e2e8f0; flex-wrap: wrap; gap: 12px; }
+        .chapter-nav a { color: #8b5cf6; text-decoration: none; font-weight: 600; font-size: 0.95em; padding: 8px 16px; border: 1.5px solid #8b5cf6; border-radius: 8px; transition: background .15s; }
+        .chapter-nav a:hover { background: #f5f3ff; }
+    </style>
+</head>
+<body>
+
+<div style="background:#4c1d95; padding:12px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+    <a href="/" style="color:#ddd6fe; text-decoration:none; font-weight:700; font-size:1.1em;">MathHub</a>
+    <span style="color:#a78bfa;">›</span>
+    <a href="/us" style="color:#c4b5fd; text-decoration:none; font-size:.9em;">US</a>
+    <span style="color:#a78bfa;">›</span>
+    <a href="/us/textbook/geometry" style="color:#c4b5fd; text-decoration:none; font-size:.9em;">Geometry</a>
+    <span style="color:#a78bfa;">›</span>
+    <span style="color:white; font-size:.9em;">Chapter 12</span>
+</div>
+
+<article class="blog-article">
+    <div class="breadcrumb">
+        <a href="/">MathHub</a> › <a href="/us">US</a> › <a href="/us/textbook/geometry">Geometry</a> › Chapter 12
+    </div>
+
+    <h1>Chapter 12: Surface Area and Volume</h1>
+    <div class="blog-meta">High School Geometry · Unit 5: Three-Dimensional Figures · 3 interactive diagrams · 8 practice problems</div>
+
+    <div class="learning-objectives">
+        <h4>Learning Objectives</h4>
+        <ul>
+            <li>Compute the surface area of prisms, cylinders, pyramids, and cones using the correct formulas</li>
+            <li>Distinguish between total surface area and lateral surface area</li>
+            <li>Calculate volumes of prisms, cylinders, pyramids, and cones</li>
+            <li>Apply Cavalieri's Principle to relate volumes of solids with equal cross-sections</li>
+            <li>Find the surface area and volume of spheres and hemispheres</li>
+            <li>Decompose composite solids and combine surface area and volume calculations</li>
+        </ul>
+    </div>
+
+    <!-- 12.1 -->
+    <h2>12.1 Surface Area of Prisms and Cylinders</h2>
+
+    <p>A <strong>prism</strong> is a polyhedron with two congruent parallel bases connected by rectangular lateral faces. The <strong>surface area (SA)</strong> is the total area of all faces.</p>
+
+    <div class="definition-box">
+        <h4>Prism Surface Area</h4>
+        <p>For any prism with base area $B$, base perimeter $P$, and height $h$:</p>
+        <ul>
+            <li><strong>Total SA</strong> $= 2B + Ph$</li>
+            <li><strong>Lateral area</strong> $= Ph$</li>
+            <li><strong>Cube</strong> (edge $s$): $\text{SA} = 6s^2$</li>
+            <li><strong>Rectangular prism</strong> ($l \times w \times h$): $\text{SA} = 2(lw + lh + wh)$</li>
+        </ul>
+    </div>
+
+    <p>A <strong>cylinder</strong> has two circular bases. Unrolling the lateral surface gives a rectangle with width $2\pi r$ and height $h$.</p>
+
+    <div class="theorem-box">
+        <h4>Theorem: Surface Area of Prisms and Cylinders</h4>
+        <ul>
+            <li><strong>Any prism:</strong> $\text{SA} = 2B + Ph$, where $B$ = base area, $P$ = base perimeter, $h$ = height</li>
+            <li><strong>Cylinder:</strong> $\text{SA} = 2\pi r^2 + 2\pi r h = 2\pi r(r + h)$</li>
+            <li><strong>Cylinder lateral area:</strong> $= 2\pi r h$</li>
+        </ul>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 12.1 — Rectangular Prism</h4>
+        <p>Find the surface area of a rectangular prism with dimensions $5 \times 4 \times 3$.</p>
+        <p>$\text{SA} = 2(lw + lh + wh) = 2(5 \cdot 4 + 5 \cdot 3 + 4 \cdot 3) = 2(20 + 15 + 12) = 2(47) = \mathbf{94 \text{ sq units}}$</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 12.2 — Cylinder</h4>
+        <p>A cylinder has radius $r = 6$ and height $h = 10$. Find the total surface area and lateral area.</p>
+        <p><strong>Total SA:</strong> $2\pi(6)(6 + 10) = 12\pi(16) = 192\pi \approx \mathbf{603 \text{ sq units}}$</p>
+        <p><strong>Lateral area:</strong> $2\pi(6)(10) = 120\pi \approx \mathbf{377 \text{ sq units}}$</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A cube has edge length 7. Find the surface area and volume.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                <strong>Surface Area:</strong> $\text{SA} = 6s^2 = 6(49) = \mathbf{294 \text{ sq units}}$<br>
+                <strong>Volume:</strong> $V = s^3 = 7^3 = \mathbf{343 \text{ cu units}}$
+            </div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Rectangular prism drawn with perspective — visible edges in purple, hidden edges dashed.</p>
+        <div id="graph-prism" style="width:100%; max-width:630px; height:380px; margin:0 auto;"></div>
+        <p class="fig-label">Figure 12.1 — Rectangular Prism: Surface Area Visualization</p>
+    </div>
+
+    <!-- 12.2 -->
+    <h2>12.2 Surface Area of Pyramids and Cones</h2>
+
+    <p>A <strong>regular pyramid</strong> has a regular polygon as its base, with its apex directly above the center. The <strong>slant height</strong> $l$ is the distance from the apex to the midpoint of a base edge (along the lateral face).</p>
+
+    <div class="definition-box">
+        <h4>Pyramid and Cone Surface Area</h4>
+        <ul>
+            <li><strong>Any regular pyramid:</strong> $\text{SA} = B + \frac{1}{2}Pl$, where $B$ = base area, $P$ = base perimeter, $l$ = slant height</li>
+            <li><strong>Square pyramid</strong> (base $s$, slant height $l$): $\text{SA} = s^2 + 2sl$</li>
+            <li><strong>Cone:</strong> $\text{SA} = \pi r^2 + \pi r l$, where $l = \sqrt{r^2 + h^2}$ is the slant height</li>
+            <li><strong>Cone lateral area:</strong> $= \pi r l$</li>
+        </ul>
+    </div>
+
+    <div class="theorem-box">
+        <h4>Theorem: Surface Area of Pyramids and Cones</h4>
+        <ul>
+            <li><strong>Regular pyramid:</strong> $\text{SA} = B + \frac{1}{2}Pl$</li>
+            <li><strong>Cone:</strong> $\text{SA} = \pi r^2 + \pi r l$ where slant height $l = \sqrt{r^2 + h^2}$</li>
+            <li>Note: $l$ (slant height) is measured along the lateral face, not perpendicular to the base ($h$).</li>
+        </ul>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 12.3 — Square Pyramid</h4>
+        <p>A square pyramid has base edge $s = 8$ and slant height $l = 10$. Find the total surface area.</p>
+        <p>$\text{SA} = s^2 + 2sl = 8^2 + 2(8)(10) = 64 + 160 = \mathbf{224 \text{ sq units}}$</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 12.4 — Cone</h4>
+        <p>A cone has radius $r = 5$ and height $h = 12$. Find the total surface area.</p>
+        <p><strong>Slant height:</strong> $l = \sqrt{r^2 + h^2} = \sqrt{25 + 144} = \sqrt{169} = 13$</p>
+        <p><strong>Total SA:</strong> $\pi(5)^2 + \pi(5)(13) = 25\pi + 65\pi = 90\pi \approx \mathbf{283 \text{ sq units}}$</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A cone has $r = 3$ and slant height $l = 5$. Find the total surface area and the lateral area only (without the base).</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                <strong>Lateral area:</strong> $\pi r l = \pi(3)(5) = 15\pi \approx 47.1 \text{ sq units}$<br>
+                <strong>Total SA:</strong> $\pi r^2 + \pi r l = \pi(9) + 15\pi = 24\pi \approx \mathbf{75.4 \text{ sq units}}$
+            </div>
+        </details>
+    </div>
+
+    <div class="geo-tip">
+        <div class="geo-tip-icon">★</div>
+        <p><strong>AP Tip:</strong> Don't confuse slant height $l$ (measured along the lateral face from apex to base edge midpoint) with the actual height $h$ (perpendicular from the base to the apex). They are related by $l = \sqrt{r^2 + h^2}$ for a cone, but $l > h$ whenever $r > 0$.</p>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Square pyramid — lateral edges in purple, base in blue, dashed height line from apex to center of base.</p>
+        <div id="graph-pyramid" style="width:100%; max-width:630px; height:400px; margin:0 auto;"></div>
+        <p class="fig-label">Figure 12.2 — Square Pyramid: Slant Height vs. True Height</p>
+    </div>
+
+    <!-- 12.3 -->
+    <h2>12.3 Volume of Prisms, Cylinders, Pyramids, and Cones</h2>
+
+    <p><strong>Volume</strong> measures the amount of three-dimensional space enclosed by a solid. The fundamental principle: volume = (area of base) × height for prisms and cylinders.</p>
+
+    <div class="definition-box">
+        <h4>Volume Formulas: Prisms and Cylinders</h4>
+        <ul>
+            <li><strong>Any prism:</strong> $V = Bh$ (base area × height)</li>
+            <li><strong>Rectangular prism:</strong> $V = lwh$</li>
+            <li><strong>Cube:</strong> $V = s^3$</li>
+            <li><strong>Cylinder:</strong> $V = \pi r^2 h$</li>
+        </ul>
+    </div>
+
+    <p>Pyramids and cones hold exactly $\frac{1}{3}$ the volume of the corresponding prism or cylinder with the same base and height.</p>
+
+    <div class="definition-box">
+        <h4>Volume Formulas: Pyramids and Cones</h4>
+        <ul>
+            <li><strong>Any pyramid:</strong> $V = \frac{1}{3}Bh$</li>
+            <li><strong>Cone:</strong> $V = \frac{1}{3}\pi r^2 h$</li>
+        </ul>
+    </div>
+
+    <div class="theorem-box">
+        <h4>Cavalieri's Principle</h4>
+        <p>If two solids have the same height and equal cross-sectional areas at every level, then they have equal volumes. This justifies using $V = Bh$ for oblique prisms and $V = \frac{1}{3}Bh$ for oblique pyramids.</p>
+        <table>
+            <tr><th>Solid</th><th>Volume Formula</th><th>Surface Area Formula</th></tr>
+            <tr><td>Rectangular prism</td><td>$V = lwh$</td><td>$\text{SA} = 2(lw+lh+wh)$</td></tr>
+            <tr><td>Cube</td><td>$V = s^3$</td><td>$\text{SA} = 6s^2$</td></tr>
+            <tr><td>Cylinder</td><td>$V = \pi r^2 h$</td><td>$\text{SA} = 2\pi r(r+h)$</td></tr>
+            <tr><td>Square pyramid</td><td>$V = \frac{1}{3}s^2 h$</td><td>$\text{SA} = s^2 + 2sl$</td></tr>
+            <tr><td>General pyramid</td><td>$V = \frac{1}{3}Bh$</td><td>$\text{SA} = B + \frac{1}{2}Pl$</td></tr>
+            <tr><td>Cone</td><td>$V = \frac{1}{3}\pi r^2 h$</td><td>$\text{SA} = \pi r^2 + \pi rl$</td></tr>
+        </table>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 12.5 — Cylinder Volume</h4>
+        <p>A cylinder has $r = 4$ and $h = 9$. Find the volume.</p>
+        <p>$V = \pi r^2 h = \pi(16)(9) = 144\pi \approx \mathbf{452 \text{ cu units}}$</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 12.6 — Square Pyramid Volume</h4>
+        <p>A square pyramid has base $s = 6$ and height $h = 8$. Find the volume.</p>
+        <p>$B = s^2 = 36$. $\quad V = \frac{1}{3}Bh = \frac{1}{3}(36)(8) = \mathbf{96 \text{ cu units}}$</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 12.7 — Cone vs. Cylinder Comparison</h4>
+        <p>A cone and a cylinder have the same radius $r$ and height $h$. Compare their volumes.</p>
+        <p>$V_{\text{cylinder}} = \pi r^2 h$, $\quad V_{\text{cone}} = \frac{1}{3}\pi r^2 h$</p>
+        <p>The cone's volume is exactly $\frac{1}{3}$ that of the cylinder. Three congruent cones would fill the cylinder completely.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A triangular prism has a right triangle base with legs $3$ and $4$, and the prism has height $10$. Find the volume.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                Base area: $B = \frac{1}{2}(3)(4) = 6$<br>
+                $V = Bh = 6 \times 10 = \mathbf{60 \text{ cu units}}$
+            </div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Cylinder (left, purple) and its equal-volume comparison cone (right, blue) — same radius and height, but the cone holds ⅓ the volume.</p>
+        <div id="graph-cyl-cone" style="width:100%; max-width:630px; height:360px; margin:0 auto;"></div>
+        <p class="fig-label">Figure 12.3 — Cylinder and Cone: Same Base and Height, Volumes in Ratio 3:1</p>
+    </div>
+
+    <!-- 12.4 -->
+    <h2>12.4 Spheres and Composite Solids</h2>
+
+    <p>A <strong>sphere</strong> is the set of all points in space equidistant from a center point. Its surface area and volume depend only on the radius $r$.</p>
+
+    <div class="theorem-box">
+        <h4>Sphere and Hemisphere Formulas</h4>
+        <ul>
+            <li><strong>Sphere SA:</strong> $\text{SA} = 4\pi r^2$</li>
+            <li><strong>Sphere Volume:</strong> $V = \dfrac{4}{3}\pi r^3$</li>
+            <li><strong>Hemisphere SA</strong> (curved surface + flat circular base): $\text{SA} = 3\pi r^2$</li>
+            <li><strong>Hemisphere Volume:</strong> $V = \dfrac{2}{3}\pi r^3$</li>
+        </ul>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 12.8 — Sphere</h4>
+        <p>A sphere has radius $r = 6$. Find the surface area and volume.</p>
+        <p><strong>SA:</strong> $4\pi(6)^2 = 4\pi(36) = 144\pi \approx \mathbf{452 \text{ sq units}}$</p>
+        <p><strong>Volume:</strong> $\dfrac{4}{3}\pi(6)^3 = \dfrac{4}{3}\pi(216) = 288\pi \approx \mathbf{905 \text{ cu units}}$</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 12.9 — Composite Solid (Ice Cream Cone)</h4>
+        <p>An ice cream treat consists of a cone ($r = 3$, $h = 10$) with a hemisphere ($r = 3$) on top. Find the total volume.</p>
+        <p>$V_{\text{cone}} = \dfrac{1}{3}\pi(3)^2(10) = \dfrac{1}{3}\pi(9)(10) = 30\pi$</p>
+        <p>$V_{\text{hemisphere}} = \dfrac{2}{3}\pi(3)^3 = \dfrac{2}{3}\pi(27) = 18\pi$</p>
+        <p><strong>Total:</strong> $30\pi + 18\pi = 48\pi \approx \mathbf{150.8 \text{ cu units}}$</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A ball (sphere) has diameter $14$ cm. Find the surface area and volume.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                $r = 7$ cm<br>
+                <strong>SA:</strong> $4\pi(7)^2 = 4\pi(49) = 196\pi \approx \mathbf{616 \text{ sq cm}}$<br>
+                <strong>Volume:</strong> $\dfrac{4}{3}\pi(7)^3 = \dfrac{4}{3}\pi(343) \approx \mathbf{1437 \text{ cu cm}}$
+            </div>
+        </details>
+    </div>
+
+    <div class="geo-tip">
+        <div class="geo-tip-icon">★</div>
+        <p><strong>AP Tip:</strong> Sphere formulas ($\text{SA} = 4\pi r^2$ and $V = \frac{4}{3}\pi r^3$) must be memorized — they are <strong>not</strong> provided on most formula sheets, including the SAT and many state geometry exams.</p>
+    </div>
+
+    <!-- Practice -->
+    <div class="practice-section">
+        <h2>Practice Problems</h2>
+        <div class="practice-grid">
+            <div class="practice-card">
+                <span class="p-num">1</span>
+                <p>A rectangular prism has dimensions $8 \times 5 \times 4$. Find the surface area and volume.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    $\text{SA} = 2(8 \cdot 5 + 8 \cdot 4 + 5 \cdot 4) = 2(40 + 32 + 20) = 2(92) = \mathbf{184 \text{ sq units}}$<br>
+                    $V = 8 \times 5 \times 4 = \mathbf{160 \text{ cu units}}$
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">2</span>
+                <p>A cylinder has $r = 7$ and $h = 15$. Find the surface area and volume. Leave answers in terms of $\pi$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    $\text{SA} = 2\pi(7)(7 + 15) = 2\pi(7)(22) = \mathbf{308\pi \text{ sq units}}$<br>
+                    $V = \pi(7)^2(15) = \mathbf{735\pi \text{ cu units}}$
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">3</span>
+                <p>A square pyramid has $s = 12$ and slant height $l = 10$. Find the total surface area and the lateral area.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    <strong>Total SA:</strong> $s^2 + 2sl = 144 + 2(12)(10) = 144 + 240 = \mathbf{384 \text{ sq units}}$<br>
+                    <strong>Lateral area:</strong> $\frac{1}{2}Pl = \frac{1}{2}(48)(10) = \mathbf{240 \text{ sq units}}$
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">4</span>
+                <p>A cone has $r = 6$ and $h = 8$. Find the slant height, total surface area, and volume. Leave in terms of $\pi$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    <strong>Slant height:</strong> $l = \sqrt{36 + 64} = \sqrt{100} = 10$<br>
+                    <strong>Total SA:</strong> $\pi(6)^2 + \pi(6)(10) = 36\pi + 60\pi = \mathbf{96\pi \text{ sq units}}$<br>
+                    <strong>Volume:</strong> $\frac{1}{3}\pi(6)^2(8) = \frac{1}{3}(36)(8)\pi = \mathbf{96\pi \text{ cu units}}$
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">5</span>
+                <p>A storage silo is a cylinder topped with a hemisphere. The cylinder has $r = 10$ ft and $h = 30$ ft. Find the total volume.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    $V_{\text{cyl}} = \pi(100)(30) = 3000\pi$<br>
+                    $V_{\text{hemi}} = \frac{2}{3}\pi(10)^3 = \frac{2000}{3}\pi$<br>
+                    <strong>Total:</strong> $3000\pi + \frac{2000}{3}\pi = \frac{11000}{3}\pi \approx \mathbf{11{,}519 \text{ cu ft}}$
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">6</span>
+                <p>A sphere has surface area $100\pi$. Find the radius and volume.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    $4\pi r^2 = 100\pi \Rightarrow r^2 = 25 \Rightarrow r = \mathbf{5}$<br>
+                    $V = \frac{4}{3}\pi(5)^3 = \frac{4}{3}\pi(125) = \frac{500}{3}\pi \approx \mathbf{524 \text{ cu units}}$
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">7</span>
+                <p>Two similar cones have radii in ratio $3:5$. Find the ratio of their volumes.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    For similar solids, volume scales as the cube of the linear ratio.<br>
+                    $\dfrac{V_1}{V_2} = \left(\dfrac{3}{5}\right)^3 = \dfrac{27}{125}$<br>
+                    <strong>Volume ratio: $27 : 125$</strong>
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">8</span>
+                <p><strong>AP Problem:</strong> A sculpture is a cube ($s = 6$ cm) with a cone ($r = 3$, $h = 4$) on top. The cone's base sits on the top face of the cube. Find the total surface area of the composite solid.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    Cone slant height: $l = \sqrt{9 + 16} = 5$<br>
+                    Cube has 5 full faces + 1 top face minus circle: $5(36) + (36 - 9\pi) = 180 + 36 - 9\pi$<br>
+                    Cone lateral area: $\pi(3)(5) = 15\pi$ (no base — it's attached to cube)<br>
+                    <strong>Total SA:</strong> $216 - 9\pi + 15\pi = 216 + 6\pi \approx \mathbf{234.9 \text{ sq cm}}$
+                </div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <div class="chapter-nav">
+        <a href="/us/textbook/geometry/area.html">← Chapter 11: Area</a>
+        <a href="/us/textbook/geometry/coordinate-geometry.html">Chapter 13: Coordinate Geometry →</a>
+    </div>
+</article>
+
+<script>
+(function() {
+    // Figure 12.1 — Rectangular prism with perspective
+    var elt1 = document.getElementById('graph-prism');
+    var calc1 = Desmos.GraphingCalculator(elt1, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: false, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc1.setMathBounds({ left: -1, right: 7, bottom: -1, top: 6 });
+
+    // Front face: rectangle (0,0)-(4,0)-(4,3)-(0,3)
+    calc1.setExpression({ id: 'front', type: 'expression',
+        latex: '\\operatorname{polygon}((0,0),(4,0),(4,3),(0,3))',
+        color: '#8b5cf6', lineWidth: 3, fillOpacity: 0 });
+
+    // Back face offset by (+1.5, +1): (1.5,1)-(5.5,1)-(5.5,4)-(1.5,4)
+    calc1.setExpression({ id: 'back', type: 'expression',
+        latex: '\\operatorname{polygon}((1.5,1),(5.5,1),(5.5,4),(1.5,4))',
+        color: '#94a3b8', lineWidth: 1.8,
+        lineStyle: Desmos.Styles.DASHED, fillOpacity: 0 });
+
+    // Visible connecting edges: front corners to back corners
+    // Bottom-left: (0,0) to (1.5,1)
+    calc1.setExpression({ id: 'e1', type: 'expression',
+        latex: '\\operatorname{polygon}((0,0),(1.5,1))',
+        color: '#8b5cf6', lineWidth: 3 });
+    // Bottom-right: (4,0) to (5.5,1)
+    calc1.setExpression({ id: 'e2', type: 'expression',
+        latex: '\\operatorname{polygon}((4,0),(5.5,1))',
+        color: '#8b5cf6', lineWidth: 3 });
+    // Top-right: (4,3) to (5.5,4)
+    calc1.setExpression({ id: 'e3', type: 'expression',
+        latex: '\\operatorname{polygon}((4,3),(5.5,4))',
+        color: '#8b5cf6', lineWidth: 3 });
+    // Top-left: (0,3) to (1.5,4) — hidden edge
+    calc1.setExpression({ id: 'e4', type: 'expression',
+        latex: '\\operatorname{polygon}((0,3),(1.5,4))',
+        color: '#94a3b8', lineWidth: 1.8, lineStyle: Desmos.Styles.DASHED });
+
+    // Top face polygon (visible): (0,3),(4,3),(5.5,4),(1.5,4)
+    calc1.setExpression({ id: 'topface', type: 'expression',
+        latex: '\\operatorname{polygon}((0,3),(4,3),(5.5,4),(1.5,4))',
+        color: '#6d28d9', lineWidth: 2, fillOpacity: 0.08 });
+
+    // Right face polygon: (4,0),(5.5,1),(5.5,4),(4,3)
+    calc1.setExpression({ id: 'rightface', type: 'expression',
+        latex: '\\operatorname{polygon}((4,0),(5.5,1),(5.5,4),(4,3))',
+        color: '#6d28d9', lineWidth: 2, fillOpacity: 0.05 });
+})();
+
+(function() {
+    // Figure 12.2 — Square pyramid
+    var elt2 = document.getElementById('graph-pyramid');
+    var calc2 = Desmos.GraphingCalculator(elt2, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: false, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc2.setMathBounds({ left: 0, right: 7, bottom: -1, top: 8 });
+
+    // Base: projected square (1,0),(5,0),(6,1.5),(2,1.5)
+    calc2.setExpression({ id: 'base', type: 'expression',
+        latex: '\\operatorname{polygon}((1,0),(5,0),(6,1.5),(2,1.5))',
+        color: '#3b82f6', lineWidth: 2.5, fillOpacity: 0 });
+
+    // Apex at (3.5, 7)
+    // Visible lateral edges from apex to front-visible base corners
+    calc2.setExpression({ id: 'le1', type: 'expression',
+        latex: '\\operatorname{polygon}((1,0),(3.5,7))',
+        color: '#8b5cf6', lineWidth: 3 });
+    calc2.setExpression({ id: 'le2', type: 'expression',
+        latex: '\\operatorname{polygon}((5,0),(3.5,7))',
+        color: '#8b5cf6', lineWidth: 3 });
+    calc2.setExpression({ id: 'le3', type: 'expression',
+        latex: '\\operatorname{polygon}((6,1.5),(3.5,7))',
+        color: '#8b5cf6', lineWidth: 3 });
+    // Back lateral edge (dashed — partially hidden)
+    calc2.setExpression({ id: 'le4', type: 'expression',
+        latex: '\\operatorname{polygon}((2,1.5),(3.5,7))',
+        color: '#94a3b8', lineWidth: 2, lineStyle: Desmos.Styles.DASHED });
+
+    // Height line: from center of base (3.5, 0.75) to apex (3.5, 7)
+    calc2.setExpression({ id: 'ht', type: 'expression',
+        latex: '\\operatorname{polygon}((3.5,0.75),(3.5,7))',
+        color: '#94a3b8', lineWidth: 2.5, lineStyle: Desmos.Styles.DASHED });
+
+    // Apex point
+    calc2.setExpression({ id: 'apex', type: 'expression',
+        latex: '(3.5,7)', color: '#4c1d95', pointSize: 12 });
+})();
+
+(function() {
+    // Figure 12.3 — Cylinder (left) and Cone (right) with same r and h
+    var elt3 = document.getElementById('graph-cyl-cone');
+    var calc3 = Desmos.GraphingCalculator(elt3, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: false, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc3.setMathBounds({ left: 0, right: 10, bottom: 0, top: 7 });
+
+    // Cylinder: two vertical sides at x=0.5 and x=3.5, from y=1 to y=5
+    calc3.setExpression({ id: 'cyl_left', type: 'expression',
+        latex: 'x=0.5\\{1\\le y\\le5\\}', color: '#8b5cf6', lineWidth: 3 });
+    calc3.setExpression({ id: 'cyl_right', type: 'expression',
+        latex: 'x=3.5\\{1\\le y\\le5\\}', color: '#8b5cf6', lineWidth: 3 });
+
+    // Bottom ellipse approximation: parametric segment (half-ellipse visible)
+    // Draw as polygon approximation at y=1
+    calc3.setExpression({ id: 'cyl_bot', type: 'expression',
+        latex: '\\operatorname{polygon}((0.5,1),(2,0.4),(3.5,1))',
+        color: '#8b5cf6', lineWidth: 2.5 });
+    calc3.setExpression({ id: 'cyl_bot_back', type: 'expression',
+        latex: '\\operatorname{polygon}((0.5,1),(2,1.6),(3.5,1))',
+        color: '#94a3b8', lineWidth: 2, lineStyle: Desmos.Styles.DASHED });
+    // Top ellipse at y=5
+    calc3.setExpression({ id: 'cyl_top', type: 'expression',
+        latex: '\\operatorname{polygon}((0.5,5),(2,4.4),(3.5,5))',
+        color: '#8b5cf6', lineWidth: 2.5 });
+    calc3.setExpression({ id: 'cyl_top_back', type: 'expression',
+        latex: '\\operatorname{polygon}((0.5,5),(2,5.6),(3.5,5))',
+        color: '#8b5cf6', lineWidth: 2.5 });
+
+    // Height dashes for cylinder
+    calc3.setExpression({ id: 'cyl_h', type: 'expression',
+        latex: 'x=2\\{1\\le y\\le5\\}', color: '#94a3b8', lineWidth: 2, lineStyle: Desmos.Styles.DASHED });
+
+    // Cone: apex at (8, 5), base center at (8,1), radius 1.5
+    calc3.setExpression({ id: 'cone_left', type: 'expression',
+        latex: '\\operatorname{polygon}((6.5,1),(8,5))',
+        color: '#3b82f6', lineWidth: 3 });
+    calc3.setExpression({ id: 'cone_right', type: 'expression',
+        latex: '\\operatorname{polygon}((9.5,1),(8,5))',
+        color: '#3b82f6', lineWidth: 3 });
+    // Cone base ellipse at y=1
+    calc3.setExpression({ id: 'cone_bot', type: 'expression',
+        latex: '\\operatorname{polygon}((6.5,1),(8,0.4),(9.5,1))',
+        color: '#3b82f6', lineWidth: 2.5 });
+    calc3.setExpression({ id: 'cone_bot_back', type: 'expression',
+        latex: '\\operatorname{polygon}((6.5,1),(8,1.6),(9.5,1))',
+        color: '#94a3b8', lineWidth: 2, lineStyle: Desmos.Styles.DASHED });
+
+    // Height dashes for cone
+    calc3.setExpression({ id: 'cone_h', type: 'expression',
+        latex: 'x=8\\{1\\le y\\le5\\}', color: '#94a3b8', lineWidth: 2, lineStyle: Desmos.Styles.DASHED });
+
+    // Apex point
+    calc3.setExpression({ id: 'cone_apex', type: 'expression',
+        latex: '(8,5)', color: '#3b82f6', pointSize: 12 });
+})();
+</script>
+
+</body>
+</html>
