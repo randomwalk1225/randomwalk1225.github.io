@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>수학 문제 카드</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+  svg: { fontCache: 'global' },
+  startup: { ready() { MathJax.startup.defaultReady(); } }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    width: 1080px;
+    height: 1080px;
+    background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8e 50%, #1a2f4e 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    color: #ffffff;
+    overflow: hidden;
+  }
+
+  .card {
+    width: 960px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    padding: 56px 64px;
+    text-align: center;
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(99, 179, 237, 0.25);
+    border: 1px solid rgba(99, 179, 237, 0.5);
+    color: #90cdf4;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 20px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+  }
+
+  .question-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .question {
+    font-size: 26px;
+    font-weight: 400;
+    color: #e2e8f0;
+    line-height: 1.65;
+    margin-bottom: 40px;
+    min-height: 80px;
+  }
+
+  .divider {
+    width: 60px;
+    height: 2px;
+    background: rgba(99, 179, 237, 0.4);
+    margin: 0 auto 36px;
+    border-radius: 2px;
+  }
+
+  .answer-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .answer {
+    font-size: 36px;
+    font-weight: 600;
+    color: #90cdf4;
+    line-height: 1.4;
+  }
+
+  .hint {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.55);
+    margin-top: 32px;
+    line-height: 1.7;
+  }
+
+  .footer {
+    margin-top: 48px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.08em;
+  }
+
+  .footer span {
+    color: rgba(99, 179, 237, 0.6);
+    font-weight: 600;
+  }
+
+  mjx-container {
+    font-size: 1.1em !important;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="badge" id="badge">수능 수학</div>
+
+  <div class="question-label">문제 (Problem)</div>
+  <div class="question" id="question"><!-- 문제 내용 --></div>
+
+  <div class="divider"></div>
+
+  <div class="answer-label">정답 (Answer)</div>
+  <div class="answer" id="answer"><!-- 정답 --></div>
+
+  <div class="hint" id="hint"><!-- 풀이 힌트 --></div>
+
+  <div class="footer">mathhub.io &nbsp;·&nbsp; <span>MathHub</span></div>
+</div>
+
+<script>
+  // 서버에서 주입되는 데이터
+  const cardData = CARD_DATA_PLACEHOLDER;
+
+  document.getElementById('badge').textContent = cardData.badge || '수능 수학';
+  document.getElementById('question').innerHTML = cardData.question || '';
+  document.getElementById('answer').innerHTML = cardData.answer || '';
+  document.getElementById('hint').innerHTML = cardData.hint || '';
+
+  // MathJax 재렌더링
+  if (window.MathJax) {
+    MathJax.typesetPromise([document.body]);
+  }
+</script>
+</body>
+</html>
