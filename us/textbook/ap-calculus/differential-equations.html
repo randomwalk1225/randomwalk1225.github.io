@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Calculus BC: Differential Equations - Chapter 9 | MathHub</title>
+    <meta name="description" content="AP Calculus BC Chapter 9: Differential Equations. Slope fields, separable differential equations, Euler's method, and logistic growth with worked examples and practice problems.">
+    <meta name="keywords" content="AP Calculus BC differential equations, slope fields, separable equations, Euler method, logistic growth, AP Calculus BC">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/ap-calculus/differential-equations.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/ap-calculus/differential-equations.html">
+    <meta property="og:title" content="AP Calculus BC: Differential Equations - Chapter 9">
+    <meta property="og:description" content="Slope fields, separable DEs, Euler's method, and logistic growth for AP Calculus BC with worked examples.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Calculus BC: Differential Equations - Chapter 9">
+    <meta name="twitter:description" content="Differential equations for AP Calculus BC: slope fields, separable equations, Euler method, logistic growth.">
+
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "AP Calculus BC: Differential Equations - Chapter 9",
+        "description": "AP Calculus BC Chapter 9 covering slope fields, separable differential equations, Euler's method, and logistic growth models.",
+        "url": "https://mathhub.io/us/textbook/ap-calculus/differential-equations.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "AP",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Differential Equations" },
+            { "@type": "Thing", "name": "AP Calculus BC" },
+            { "@type": "Thing", "name": "Logistic Growth" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #2563eb; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .bc-badge { display: inline-block; background: #f5f3ff; color: #6d28d9; border: 1.5px solid #ddd6fe; padding: 3px 12px; border-radius: 20px; font-size: .82em; font-weight: 700; margin-bottom: 8px; }
+
+        .learning-objectives { background: #eff6ff; border-left: 4px solid #2563eb; padding: 20px 24px; margin: 24px 0 32px; border-radius: 0 10px 10px 0; }
+        .learning-objectives h4 { color: #1e40af; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #1e3a8a; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box { background: #eff6ff; border-left: 4px solid #2563eb; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1e40af; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li, .example-box ol { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #16a34a; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box { background: #eff6ff; border: 1.5px dashed #93c5fd; padding: 16px 20px; margin: -4px 0 24px; border-radius: 0 0 8px 8px; }
+        .try-it-box .try-it-label { display: inline-block; background: #2563eb; color: white; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px; }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary { cursor: pointer; color: #1e40af; font-weight: 600; font-size: 0.9em; user-select: none; }
+        .try-it-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7; }
+
+        .ap-tip { background: #fefce8; border-left: 4px solid #eab308; padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .ap-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #92400e; }
+
+        .desmos-wrap { margin: 24px auto; background: #f8fafc; border-radius: 12px; padding: 4px; border: 1px solid #e2e8f0; text-align: center; }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label { text-align: center; font-size: 0.82em; color: #64748b; margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em; }
+
+        .euler-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.92em; }
+        .euler-table th { background: #1e3a5f; color: white; padding: 9px 14px; text-align: center; font-weight: 600; }
+        .euler-table td { padding: 9px 14px; border-bottom: 1px solid #e2e8f0; color: #334155; text-align: center; }
+        .euler-table tr:nth-child(even) { background: #f8fafc; }
+
+        .practice-section { margin-top: 50px; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { border-top: none; padding-top: 0; margin-top: 0; }
+        .practice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 640px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card { background: #f8fafc; border-radius: 10px; padding: 20px; border: 1px solid #e2e8f0; }
+        .practice-card .p-num { display: inline-block; background: #2563eb; color: white; border-radius: 50%; width: 26px; height: 26px; text-align: center; line-height: 26px; font-size: 0.85em; font-weight: 700; margin-bottom: 10px; }
+        .practice-card p { margin: 0 0 12px; color: #334155; font-size: 0.95em; line-height: 1.7; }
+        .practice-card details summary { cursor: pointer; color: #2563eb; font-size: 0.88em; font-weight: 600; user-select: none; }
+        .practice-answer { margin-top: 8px; padding: 10px 14px; background: white; border-radius: 6px; font-size: 0.9em; color: #334155; line-height: 1.7; }
+
+        .chapter-nav { display: flex; justify-content: space-between; gap: 16px; margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0; }
+        .chapter-nav a { display: inline-flex; align-items: center; gap: 6px; color: #2563eb; text-decoration: none; font-weight: 600; font-size: 0.95em; }
+        .chapter-nav a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="blog-article">
+        <div class="breadcrumb">
+            <a href="/us/">US</a> &rsaquo; <a href="/us/textbook/ap-calculus/">AP Calculus</a> &rsaquo; Chapter 9
+        </div>
+
+        <div class="bc-badge">AP Calculus BC</div>
+        <h1>Chapter 9: Differential Equations</h1>
+        <div class="blog-meta">AP Calculus BC &nbsp;|&nbsp; Unit 4: BC Topics</div>
+
+        <div class="learning-objectives">
+            <h4>Learning Objectives</h4>
+            <ul>
+                <li>Interpret slope fields as visual representations of differential equations</li>
+                <li>Solve separable differential equations using separation of variables</li>
+                <li>Apply Euler's method to approximate solutions numerically</li>
+                <li>Solve and interpret the logistic growth model $\dfrac{dP}{dt} = kP(M-P)$</li>
+                <li>Identify equilibrium solutions and analyze their stability</li>
+            </ul>
+        </div>
+
+        <h2>9.1 Slope Fields</h2>
+
+        <p>A <strong>differential equation</strong> is an equation involving a function and its derivatives, such as $\dfrac{dy}{dx} = f(x, y)$. Rather than finding an explicit solution immediately, we can visualize the family of solutions using a <strong>slope field</strong>.</p>
+
+        <div class="definition-box">
+            <h4>Slope Field</h4>
+            <p>A slope field (or direction field) for $\dfrac{dy}{dx} = f(x, y)$ is drawn by computing the slope $f(x_0, y_0)$ at a grid of points $(x_0, y_0)$ and drawing a short line segment with that slope at each point.</p>
+            <p>Each solution curve $y(x)$ is tangent to the slope field at every point it passes through — the slope field <em>encodes all solutions simultaneously</em>.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.1 — Reading a Slope Field</h4>
+            <p>Consider $\dfrac{dy}{dx} = y$. At any point $(x, y)$, the slope equals $y$.</p>
+            <ul>
+                <li>Along $y = 0$: slope $= 0$ (horizontal segments)</li>
+                <li>Along $y = 1$: slope $= 1$</li>
+                <li>Along $y = -1$: slope $= -1$ (segments tilt down)</li>
+                <li>Along $y = 2$: slope $= 2$ (steeper)</li>
+            </ul>
+            <p>The solution curves are $y = Ce^x$ for various constants $C$. A particular solution through $(0, 1)$ gives $C = 1$, so $y = e^x$.</p>
+        </div>
+
+        <div class="ap-tip">
+            <div class="ap-tip-icon">★</div>
+            <p><strong>AP Exam Tip:</strong> On the AP exam, slope field questions typically ask you to: (1) match a slope field to a DE, (2) sketch a solution curve through a given point, or (3) determine which slope field matches a given DE. Key strategy: check special lines — what happens along $y=0$? Along $x=0$? Along $y=x$? These "zero-slope" or "unit-slope" lines narrow down the answer quickly.</p>
+        </div>
+
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">Slope field for $dy/dx = y$ — the solution curves are exponentials $y = Ce^x$. Notice how the slopes get steeper as $|y|$ increases.</p>
+            <div id="graph-slope-field" style="width:100%; height:420px;"></div>
+            <p class="fig-label">Figure 9.1 — Slope Field for $\dfrac{dy}{dx} = y$ with solution curves</p>
+        </div>
+
+        <h2>9.2 Separable Differential Equations</h2>
+
+        <p>A differential equation is <strong>separable</strong> if it can be written as $\dfrac{dy}{dx} = g(x) \cdot h(y)$ — functions of $x$ and $y$ fully separated. We solve by moving all $y$ terms to one side and $x$ terms to the other, then integrating.</p>
+
+        <div class="definition-box">
+            <h4>Separation of Variables</h4>
+            <ol>
+                <li>Rewrite as $\dfrac{dy}{h(y)} = g(x)\,dx$.</li>
+                <li>Integrate both sides: $\displaystyle\int \dfrac{dy}{h(y)} = \int g(x)\,dx$.</li>
+                <li>Solve for $y$ (if possible). Include the constant $C$ on one side.</li>
+                <li>Apply initial conditions to determine $C$.</li>
+            </ol>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.2 — Exponential Growth: $\dfrac{dy}{dx} = ky$</h4>
+            <p>This is the most important separable DE. Separate: $\dfrac{dy}{y} = k\,dx$</p>
+            <p>Integrate: $\ln|y| = kx + C_1$</p>
+            <p>Solve: $|y| = e^{kx+C_1} = e^{C_1}e^{kx}$, so $y = Ce^{kx}$ where $C = \pm e^{C_1}$.</p>
+            <p><strong>With initial condition $y(0) = y_0$:</strong> $y = y_0 e^{kx}$.</p>
+            <p>If $k > 0$: exponential growth. If $k < 0$: exponential decay (e.g., radioactive decay).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.3 — General Separable DE</h4>
+            <p>Solve $\dfrac{dy}{dx} = \dfrac{x}{y}$ with $y(0) = 3$.</p>
+            <p>Separate: $y\,dy = x\,dx$</p>
+            <p>Integrate: $\dfrac{y^2}{2} = \dfrac{x^2}{2} + C$, so $y^2 = x^2 + K$ where $K = 2C$.</p>
+            <p>Apply IC: $9 = 0 + K \Rightarrow K = 9$. Solution: $y = \sqrt{x^2 + 9}$ (positive branch since $y(0)=3>0$).</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Solve $\dfrac{dy}{dx} = -2xy$ with $y(0) = 5$.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    Separate: $\dfrac{dy}{y} = -2x\,dx$<br>
+                    Integrate: $\ln|y| = -x^2 + C$<br>
+                    Solve: $y = Ce^{-x^2}$<br>
+                    IC: $5 = Ce^0 = C$<br>
+                    Answer: $y = 5e^{-x^2}$ (a Gaussian bell curve)
+                </div>
+            </details>
+        </div>
+
+        <h2>9.3 Euler's Method</h2>
+
+        <p>When a DE can't be solved analytically, <strong>Euler's method</strong> approximates the solution numerically by stepping along tangent lines from an initial point.</p>
+
+        <div class="definition-box">
+            <h4>Euler's Method</h4>
+            <p>Given $\dfrac{dy}{dx} = f(x,y)$ with initial condition $y(x_0) = y_0$ and step size $h$:</p>
+            <p>$$x_{n+1} = x_n + h \qquad y_{n+1} = y_n + h \cdot f(x_n, y_n)$$</p>
+            <p>Each step uses the <em>current slope</em> to predict the next $y$ value. Smaller $h$ gives more accuracy but requires more steps.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.4 — Euler's Method on $\dfrac{dy}{dx} = x + y$</h4>
+            <p>Use $y(0) = 1$, step size $h = 0.5$. Approximate $y(1)$.</p>
+            <table class="euler-table">
+                <thead><tr><th>$n$</th><th>$x_n$</th><th>$y_n$</th><th>$f(x_n, y_n) = x_n + y_n$</th><th>$y_{n+1} = y_n + 0.5f$</th></tr></thead>
+                <tbody>
+                    <tr><td>0</td><td>0</td><td>1</td><td>1</td><td>1.5</td></tr>
+                    <tr><td>1</td><td>0.5</td><td>1.5</td><td>2</td><td>2.5</td></tr>
+                    <tr><td>2</td><td>1.0</td><td>2.5</td><td>—</td><td>—</td></tr>
+                </tbody>
+            </table>
+            <p>Euler approximation: $y(1) \approx 2.5$. (Actual solution is $y = 2e^x - x - 1$; exact value $y(1) = 2e - 2 \approx 3.436$. Error is large here because $h=0.5$ is big.)</p>
+        </div>
+
+        <div class="ap-tip">
+            <div class="ap-tip-icon">★</div>
+            <p><strong>AP Exam Tip:</strong> Euler's method problems on the AP exam usually use 2–4 steps with a given step size and ask you to fill in a table or state whether the approximation is an overestimate or underestimate. <strong>If $f$ is increasing</strong> (concave up), Euler underestimates. <strong>If $f$ is decreasing</strong> (concave down), Euler overestimates.</p>
+        </div>
+
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">Euler's method with $dy/dx = x+y$, $y(0)=1$. Adjust the step size $h$ to see how accuracy improves as steps get smaller.</p>
+            <div id="graph-euler" style="width:100%; height:380px;"></div>
+            <p class="fig-label">Figure 9.2 — Euler's Method vs. Exact Solution for $dy/dx = x + y$</p>
+        </div>
+
+        <h2>9.4 Logistic Growth</h2>
+
+        <p>Exponential growth $\dfrac{dP}{dt} = kP$ is unrealistic for populations — resources limit growth. The <strong>logistic model</strong> adds a carrying capacity $M$:</p>
+
+        <div class="theorem-box">
+            <h4>Logistic Differential Equation</h4>
+            <p>$$\frac{dP}{dt} = kP\left(1 - \frac{P}{M}\right) \quad \text{or equivalently} \quad \frac{dP}{dt} = kP(M-P)/M$$</p>
+            <p>where $M$ is the <strong>carrying capacity</strong> (maximum sustainable population) and $k > 0$.</p>
+            <p><strong>Behavior:</strong></p>
+            <ul>
+                <li>When $P \ll M$: $\dfrac{dP}{dt} \approx kP$ (approximately exponential growth)</li>
+                <li>When $P \to M$: $\dfrac{dP}{dt} \to 0$ (growth slows to zero)</li>
+                <li>When $P > M$: $\dfrac{dP}{dt} < 0$ (population declines back to $M$)</li>
+            </ul>
+            <p><strong>Solution:</strong> $P(t) = \dfrac{M}{1 + Ae^{-kt}}$ where $A = \dfrac{M - P_0}{P_0}$.</p>
+            <p><strong>Maximum growth rate</strong> occurs at $P = M/2$ (inflection point of $P(t)$).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 9.5 — Fish Population Logistic Model</h4>
+            <p>A lake can support 1000 fish ($M = 1000$). Currently $P_0 = 100$, and $k = 0.2$. Find $P(t)$ and when the population reaches 500.</p>
+            <p>$A = \dfrac{1000-100}{100} = 9$, so $P(t) = \dfrac{1000}{1 + 9e^{-0.2t}}$</p>
+            <p>Set $P = 500$: $500 = \dfrac{1000}{1+9e^{-0.2t}} \Rightarrow 1 + 9e^{-0.2t} = 2 \Rightarrow e^{-0.2t} = \dfrac{1}{9}$</p>
+            <p>$t = \dfrac{\ln 9}{0.2} = 5\ln 9 \approx 10.99$ years.</p>
+            <p>Note: $P = 500 = M/2$ is where growth is fastest — this is the inflection point.</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>For $\dfrac{dP}{dt} = 0.3P\!\left(1 - \dfrac{P}{500}\right)$ with $P(0) = 50$: What is the carrying capacity? At what population is the growth rate maximum?</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    Carrying capacity: $M = 500$.<br>
+                    Maximum growth rate at $P = M/2 = 250$.<br>
+                    At $P=250$: $\dfrac{dP}{dt} = 0.3(250)(1-250/500) = 0.3(250)(0.5) = 37.5$ per unit time.
+                </div>
+            </details>
+        </div>
+
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">Logistic growth: population $P(t)$ approaches carrying capacity $M$ as an S-curve. Adjust $k$ and $M$ with the sliders to see how they affect the growth.</p>
+            <div id="graph-logistic" style="width:100%; height:380px;"></div>
+            <p class="fig-label">Figure 9.3 — Logistic Growth Model: S-curve approaching carrying capacity $M$</p>
+        </div>
+
+        <!-- Practice Problems -->
+        <div class="practice-section">
+            <h2>Practice Problems</h2>
+            <div class="practice-grid">
+
+                <div class="practice-card">
+                    <span class="p-num">1</span>
+                    <p>For the slope field of $\dfrac{dy}{dx} = x - y$, what is the slope at $(2, 1)$? At $(0, 0)$? Sketch a solution curve through $(0, 1)$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            At $(2,1)$: slope $= 2-1 = 1$.<br>
+                            At $(0,0)$: slope $= 0-0 = 0$.<br>
+                            The DE $y'-y=x$ has solution $y = Ce^x - x - 1$. Through $(0,1)$: $1 = C - 0 - 1 \Rightarrow C = 2$, so $y = 2e^x - x - 1$. The curve rises steeply for $x > 0$.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">2</span>
+                    <p>Solve the initial value problem $\dfrac{dy}{dx} = \dfrac{2x}{y}$, $y(1) = 4$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Separate: $y\,dy = 2x\,dx$<br>
+                            Integrate: $\dfrac{y^2}{2} = x^2 + C$<br>
+                            IC at $(1,4)$: $8 = 1 + C \Rightarrow C = 7$<br>
+                            $y^2 = 2x^2 + 14$, so $y = \sqrt{2x^2+14}$ (positive since $y(1)=4>0$)
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">3</span>
+                    <p>A sample of radioactive material decays at rate $\dfrac{dA}{dt} = -0.05A$. If initially $A(0) = 200$ grams, find $A(t)$ and the half-life.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Solution: $A(t) = 200e^{-0.05t}$<br>
+                            Half-life: set $100 = 200e^{-0.05t}$<br>
+                            $e^{-0.05t} = 0.5 \Rightarrow t = \dfrac{\ln 2}{0.05} = 20\ln 2 \approx 13.86$ years
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">4</span>
+                    <p>Use Euler's method with $h = 0.25$ to approximate $y(0.5)$ for $\dfrac{dy}{dx} = x^2 + y$, $y(0) = 1$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Step 1: $x_0=0$, $y_0=1$, $f=0+1=1$<br>
+                            $y_1 = 1 + 0.25(1) = 1.25$<br>
+                            Step 2: $x_1=0.25$, $y_1=1.25$, $f=0.0625+1.25=1.3125$<br>
+                            $y_2 = 1.25 + 0.25(1.3125) = 1.578$<br>
+                            Approximation: $y(0.5) \approx 1.578$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">5</span>
+                    <p>A population grows logistically with $M = 2000$, $k = 0.1$, and $P(0) = 400$. Find $P(t)$ and the time when $P = 1000$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $A = \dfrac{2000-400}{400} = 4$<br>
+                            $P(t) = \dfrac{2000}{1+4e^{-0.1t}}$<br>
+                            Set $P = 1000$: $1 + 4e^{-0.1t} = 2 \Rightarrow e^{-0.1t} = 0.25$<br>
+                            $t = \dfrac{\ln 4}{0.1} = 10\ln 4 \approx 13.86$ years
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">6</span>
+                    <p>Identify the equilibrium solutions of $\dfrac{dy}{dx} = y^2(y-4)$ and classify each as stable or unstable.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Equilibria where $\dfrac{dy}{dx} = 0$: $y=0$ (double root) and $y=4$.<br>
+                            Analyze sign of $\dfrac{dy}{dx}$:<br>
+                            $y < 0$: $y^2 > 0$, $(y-4) < 0$ → $dy/dx < 0$ (decreasing)<br>
+                            $0 < y < 4$: $y^2 > 0$, $(y-4) < 0$ → $dy/dx < 0$ (decreasing)<br>
+                            $y > 4$: $y^2 > 0$, $(y-4) > 0$ → $dy/dx > 0$ (increasing)<br>
+                            $y=4$: solutions move away → <strong>unstable</strong>.<br>
+                            $y=0$: solutions approach from above but move away below → <strong>semi-stable</strong>.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">7</span>
+                    <p>Solve $\dfrac{dy}{dx} = \dfrac{y\cos x}{1+2y^2}$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Separate: $\dfrac{1+2y^2}{y}\,dy = \cos x\,dx$<br>
+                            Rewrite left: $\left(\dfrac{1}{y} + 2y\right)dy = \cos x\,dx$<br>
+                            Integrate: $\ln|y| + y^2 = \sin x + C$<br>
+                            (This is an implicit solution — cannot be solved for $y$ explicitly.)
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">8</span>
+                    <p><strong>(AP Style)</strong> For $\dfrac{dP}{dt} = 0.4P\!\left(1-\dfrac{P}{800}\right)$: (a) What are the equilibrium solutions? (b) At what value of $P$ is $dP/dt$ greatest? (c) For what values of $P$ is the population increasing?</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            (a) Equilibria: $P=0$ (unstable) and $P=800$ (stable — carrying capacity).<br>
+                            (b) Max growth rate at $P = M/2 = 400$.<br>
+                            At $P=400$: $dP/dt = 0.4(400)(0.5) = 80$ per time unit.<br>
+                            (c) Population increasing when $dP/dt > 0$: when $0 < P < 800$.
+                        </div>
+                    </details>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <a href="/us/textbook/ap-calculus/applications-integration.html">&#8592; Chapter 8: Applications of Integration</a>
+            <a href="/us/textbook/ap-calculus/parametric-polar.html">Chapter 10: Parametric, Polar &amp; Vectors &#8250;</a>
+        </div>
+    </div>
+
+    <script>
+    // Figure 9.1 — Slope field for dy/dx = y
+    (function() {
+        var elt = document.getElementById('graph-slope-field');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false
+        });
+        calc.setMathBounds({ left: -3, right: 3, bottom: -3, top: 3 });
+        calc.setExpressions([
+            // Slope field segments approximated via many short lines
+            { id: 'sf', latex: "y' = y", color: '#94a3b8', lineWidth: 1 },
+            // Solution curves y = Ce^x
+            { id: 's1', latex: 'y = e^x', color: '#1e3a5f', lineWidth: 2.5, label: 'y = eˣ (C=1)', showLabel: true },
+            { id: 's2', latex: 'y = 2e^x', color: '#2563eb', lineWidth: 2, lineStyle: Desmos.Styles.DASHED, label: 'y = 2eˣ', showLabel: true },
+            { id: 's3', latex: 'y = 0.5e^x', color: '#16a34a', lineWidth: 2, lineStyle: Desmos.Styles.DASHED, label: 'y = ½eˣ', showLabel: true },
+            { id: 's4', latex: 'y = -e^x', color: '#e11d48', lineWidth: 2, lineStyle: Desmos.Styles.DASHED, label: 'y = −eˣ', showLabel: true },
+            { id: 'eq', latex: 'y = 0', color: '#ea580c', lineWidth: 2, label: 'equilibrium y=0', showLabel: true }
+        ]);
+    })();
+
+    // Figure 9.2 — Euler's method vs exact for dy/dx = x + y
+    (function() {
+        var elt = document.getElementById('graph-euler');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false
+        });
+        calc.setMathBounds({ left: -0.2, right: 1.2, bottom: 0, top: 5 });
+        calc.setExpressions([
+            { id: 'exact', latex: 'y = 2e^x - x - 1', color: '#1e3a5f', lineWidth: 2.5, label: 'Exact: y = 2eˣ−x−1', showLabel: true },
+            // Euler h=0.5: (0,1) → (0.5,1.5) → (1,2.5)
+            { id: 'e1', latex: '(0, 1)', color: '#e11d48', pointSize: 10 },
+            { id: 'e2', latex: '(0.5, 1.5)', color: '#e11d48', pointSize: 10 },
+            { id: 'e3', latex: '(1, 2.5)', color: '#e11d48', pointSize: 10 },
+            { id: 'seg1', latex: '\\left((1-t)\\cdot0 + t\\cdot0.5,\\ (1-t)\\cdot1+t\\cdot1.5\\right)', color: '#e11d48', lineWidth: 2, lineStyle: Desmos.Styles.DASHED },
+            { id: 'seg2', latex: '\\left((1-t)\\cdot0.5 + t\\cdot1,\\ (1-t)\\cdot1.5+t\\cdot2.5\\right)', color: '#e11d48', lineWidth: 2, lineStyle: Desmos.Styles.DASHED },
+            // Euler h=0.25 (more accurate)
+            { id: 'euler_fine', latex: 'y = 1\\{0 \\le x \\le 0\\}', color: '#ea580c', lineWidth: 1.5 }
+        ]);
+    })();
+
+    // Figure 9.3 — Logistic Growth
+    (function() {
+        var elt = document.getElementById('graph-logistic');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false
+        });
+        calc.setMathBounds({ left: -2, right: 50, bottom: -50, top: 1100 });
+        calc.setExpressions([
+            { id: 'M', latex: 'M = 1000', sliderBounds: { min: 500, max: 2000, step: 100 } },
+            { id: 'k', latex: 'k = 0.2', sliderBounds: { min: 0.05, max: 0.5, step: 0.05 } },
+            { id: 'P0', latex: 'P_0 = 100', sliderBounds: { min: 10, max: 500, step: 10 } },
+            { id: 'A', latex: 'A = \\frac{M - P_0}{P_0}' },
+            { id: 'P', latex: 'P(t) = \\frac{M}{1 + A e^{-k t}}', color: '#1e3a5f', lineWidth: 3, label: 'P(t) — logistic', showLabel: true },
+            { id: 'cap', latex: 'y = M', color: '#e11d48', lineWidth: 1.5, lineStyle: Desmos.Styles.DASHED, label: 'carrying capacity M', showLabel: true },
+            { id: 'half', latex: 'y = M/2', color: '#16a34a', lineWidth: 1.5, lineStyle: Desmos.Styles.DASHED, label: 'M/2 (max growth)', showLabel: true },
+            { id: 'init', latex: '(0, P_0)', color: '#2563eb', pointSize: 10, label: 'initial pop', showLabel: true }
+        ]);
+    })();
+    </script>
+</body>
+</html>
