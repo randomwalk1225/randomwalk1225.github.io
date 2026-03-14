@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Calculus: Applications of Integration - Chapter 8 | MathHub</title>
+    <meta name="description" content="AP Calculus Chapter 7: Applications of Integration. Learn to find area between curves, volume of revolution using disk/washer/shell methods, and accumulation functions.">
+    <meta name="keywords" content="AP Calculus applications of integration, area between curves, volume of revolution, disk method, washer method, shell method, accumulation, AP Calculus AB BC chapter 7">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/ap-calculus/applications-integration.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/ap-calculus/applications-integration.html">
+    <meta property="og:title" content="AP Calculus: Applications of Integration - Chapter 7">
+    <meta property="og:description" content="Find area between curves and volumes of revolution using disk, washer, and shell methods for AP Calculus AB and BC.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Calculus: Applications of Integration - Chapter 7">
+    <meta name="twitter:description" content="AP Calculus Chapter 7: area between curves, disk/washer/shell methods for volumes of revolution.">
+
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "AP Calculus: Applications of Integration - Chapter 8",
+        "description": "AP Calculus Chapter 7 covering area between curves, volume by disk/washer method, volume by cylindrical shells, and accumulation functions.",
+        "url": "https://mathhub.io/us/textbook/ap-calculus/applications-integration.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "AP",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Integration" },
+            { "@type": "Thing", "name": "Area Between Curves" },
+            { "@type": "Thing", "name": "AP Calculus" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #2563eb; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives { background: #eff6ff; border-left: 4px solid #2563eb; padding: 20px 24px; margin: 24px 0 32px; border-radius: 0 10px 10px 0; }
+        .learning-objectives h4 { color: #1e40af; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #1e3a8a; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box { background: #eff6ff; border-left: 4px solid #2563eb; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1e40af; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+
+        .definition-box { background: #f0fdf4; border-left: 4px solid #16a34a; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box { background: #eff6ff; border: 1.5px dashed #93c5fd; padding: 16px 20px; margin: -4px 0 24px; border-radius: 0 0 8px 8px; }
+        .try-it-box .try-it-label { display: inline-block; background: #2563eb; color: white; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px; }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary { cursor: pointer; color: #1e40af; font-weight: 600; font-size: 0.9em; user-select: none; }
+        .try-it-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7; }
+
+        .ap-tip { background: #fefce8; border-left: 4px solid #eab308; padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .ap-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #92400e; }
+
+        .desmos-wrap { margin: 24px auto; background: #f8fafc; border-radius: 12px; padding: 4px; border: 1px solid #e2e8f0; text-align: center; }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label { text-align: center; font-size: 0.82em; color: #64748b; margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em; }
+
+        .formula-block { background: #1e293b; color: #e2e8f0; border-radius: 8px; padding: 16px 20px; margin: 16px 0; text-align: center; }
+
+        .practice-section { margin-top: 50px; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { border-top: none; padding-top: 0; margin-top: 0; }
+        .practice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 640px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card { background: #f8fafc; border-radius: 10px; padding: 20px; border: 1px solid #e2e8f0; }
+        .practice-card .p-num { display: inline-block; background: #2563eb; color: white; border-radius: 50%; width: 26px; height: 26px; text-align: center; line-height: 26px; font-size: 0.85em; font-weight: 700; margin-bottom: 10px; }
+        .practice-card p { margin: 0 0 12px; color: #334155; font-size: 0.95em; line-height: 1.7; }
+        .practice-card details summary { cursor: pointer; color: #2563eb; font-size: 0.88em; font-weight: 600; user-select: none; }
+        .practice-answer { margin-top: 8px; padding: 10px 14px; background: white; border-radius: 6px; font-size: 0.9em; color: #334155; line-height: 1.7; }
+
+        .chapter-nav { display: flex; justify-content: space-between; gap: 16px; margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0; }
+        .chapter-nav a { display: inline-flex; align-items: center; gap: 6px; color: #2563eb; text-decoration: none; font-weight: 600; font-size: 0.95em; }
+        .chapter-nav a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="blog-article">
+        <div class="breadcrumb">
+            <a href="/us/">US Math</a> &rsaquo;
+            <a href="/us/textbook/ap-calculus/">AP Calculus</a> &rsaquo;
+            Chapter 8: Applications of Integration
+        </div>
+
+        <h1>Chapter 8: Applications of Integration</h1>
+        <div class="blog-meta">AP Calculus AB &amp; BC &middot; MathHub &middot; 2026</div>
+
+        <div class="learning-objectives">
+            <h4>Learning Objectives</h4>
+            <ul>
+                <li>Set up and evaluate integrals for the area between two curves</li>
+                <li>Find area when curves intersect at more than two points</li>
+                <li>Compute volumes of revolution using the Disk Method</li>
+                <li>Compute volumes of revolution using the Washer Method</li>
+                <li>Use integrals to find displacement and total distance traveled</li>
+                <li>Interpret and use accumulation functions in context</li>
+            </ul>
+        </div>
+
+        <h2>7.1 Area Between Two Curves</h2>
+
+        <p>The area between two curves $y = f(x)$ (top) and $y = g(x)$ (bottom) from $x = a$ to $x = b$ is:</p>
+
+        <div class="definition-box">
+            <h4>Area Between Curves Formula</h4>
+            <p>$$A = \int_a^b \bigl[f(x) - g(x)\bigr]\,dx \quad \text{where } f(x) \ge g(x) \text{ on } [a,b]$$</p>
+            <p>If the curves switch which is on top, split the integral at the crossing point(s) and handle each piece separately.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.1 — Area Between Two Curves</h4>
+            <p>Find the area enclosed by $y = x^2$ and $y = x + 2$.</p>
+            <p><strong>Step 1 — Find intersection points:</strong> $x^2 = x + 2 \Rightarrow x^2 - x - 2 = 0 \Rightarrow (x-2)(x+1) = 0$<br>
+            Intersections at $x = -1$ and $x = 2$.</p>
+            <p><strong>Step 2 — Determine which is on top:</strong> At $x = 0$: $f(0) = 2$ (line) and $g(0) = 0$ (parabola). So $y = x+2$ is on top on $[-1, 2]$.</p>
+            <p><strong>Step 3 — Integrate:</strong></p>
+            <p>$$A = \int_{-1}^{2} \bigl[(x+2) - x^2\bigr]\,dx = \int_{-1}^{2}(x + 2 - x^2)\,dx$$</p>
+            <p>$$= \left[\frac{x^2}{2} + 2x - \frac{x^3}{3}\right]_{-1}^{2}$$</p>
+            <p>$$= \left(2 + 4 - \frac{8}{3}\right) - \left(\frac{1}{2} - 2 + \frac{1}{3}\right) = \frac{10}{3} - \left(-\frac{7}{6}\right) = \frac{20}{6} + \frac{7}{6} = \mathbf{\frac{27}{6} = \frac{9}{2}}$$</p>
+        </div>
+
+        <!-- Desmos: Area between curves interactive -->
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">Interactive: Area between $y = x + 2$ and $y = x^2$ — the shaded region has area 9/2</p>
+            <div id="graph-area" style="width:100%;height:360px;"></div>
+            <p class="fig-label">Figure 7.1 — Area Between $y = x^2$ and $y = x + 2$</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Find the area enclosed by $y = 4 - x^2$ and $y = x^2 - 4$.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    Intersection: $4-x^2=x^2-4 \Rightarrow 8=2x^2 \Rightarrow x=\pm 2$<br>
+                    Top function: $4-x^2 \ge x^2-4$ on $[-2,2]$<br>
+                    $A=\int_{-2}^{2}[(4-x^2)-(x^2-4)]\,dx=\int_{-2}^{2}(8-2x^2)\,dx$<br>
+                    $=\left[8x-\dfrac{2x^3}{3}\right]_{-2}^{2}=(16-\frac{16}{3})-(-16+\frac{16}{3})=\dfrac{64}{3}$
+                </div>
+            </details>
+        </div>
+
+        <h3>Area with Multiple Intersection Points</h3>
+
+        <div class="example-box">
+            <h4>Example 7.2 — Curves That Cross</h4>
+            <p>Find the total area between $f(x) = \sin x$ and $g(x) = 0$ on $[0, 2\pi]$.</p>
+            <p>On $[0,\pi]$: $\sin x \ge 0$, so area = $\int_0^\pi \sin x\,dx = [-\cos x]_0^\pi = 2$</p>
+            <p>On $[\pi, 2\pi]$: $\sin x \le 0$, so area = $\int_\pi^{2\pi}|\sin x|\,dx = \int_\pi^{2\pi}(-\sin x)\,dx = [\cos x]_\pi^{2\pi} = 2$</p>
+            <p><strong>Total area = 2 + 2 = 4</strong></p>
+            <p>Note: $\int_0^{2\pi}\sin x\,dx = 0$ gives <em>net signed area</em> (not total area). Always split at zeros when computing total area.</p>
+        </div>
+
+        <h2>7.2 Volume: The Disk Method</h2>
+
+        <p>When a region is rotated about the $x$-axis (or another axis), it sweeps out a solid. The <strong>Disk Method</strong> computes the volume by integrating cross-sectional areas.</p>
+
+        <div class="definition-box">
+            <h4>Disk Method (Rotation About the $x$-axis)</h4>
+            <p>If $f(x) \ge 0$ on $[a, b]$, rotating $y = f(x)$ about the $x$-axis gives a solid with volume:</p>
+            <p>$$V = \pi \int_a^b [f(x)]^2\,dx$$</p>
+            <p>Each cross-section is a disk (circle) with radius $r = f(x)$ and area $\pi r^2 = \pi[f(x)]^2$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.3 — Volume by Disk Method</h4>
+            <p>Find the volume of the solid formed by rotating $y = \sqrt{x}$ about the $x$-axis, from $x=0$ to $x=4$.</p>
+            <p>$$V = \pi\int_0^4 (\sqrt{x})^2\,dx = \pi\int_0^4 x\,dx = \pi\left[\frac{x^2}{2}\right]_0^4 = \pi \cdot 8 = \mathbf{8\pi}$$</p>
+        </div>
+
+        <!-- Desmos: Disk method visualization -->
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">Area under $y = \sqrt{x}$ from 0 to 4 — rotate this region about the $x$-axis to get a solid of volume $8\pi$</p>
+            <div id="graph-disk" style="width:100%;height:320px;"></div>
+            <p class="fig-label">Figure 7.2 — Region for Disk Method: $y = \sqrt{x}$ on $[0,4]$</p>
+        </div>
+
+        <h2>7.3 Volume: The Washer Method</h2>
+
+        <p>When the region between <em>two</em> curves is rotated, each cross-section is an annulus (washer) — a disk with a hole. The area of a washer is $\pi(R^2 - r^2)$, where $R$ is the outer radius and $r$ is the inner radius.</p>
+
+        <div class="definition-box">
+            <h4>Washer Method (Rotation About the $x$-axis)</h4>
+            <p>If $f(x) \ge g(x) \ge 0$ on $[a, b]$, rotating about the $x$-axis gives:</p>
+            <p>$$V = \pi \int_a^b \bigl([f(x)]^2 - [g(x)]^2\bigr)\,dx$$</p>
+            <p>$R = f(x)$ = outer radius; $r = g(x)$ = inner radius (the hole).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.4 — Volume by Washer Method</h4>
+            <p>Rotate the region between $y = x$ and $y = x^2$ about the $x$-axis (region on $[0,1]$).</p>
+            <p>On $[0,1]$: $x \ge x^2$, so $f(x) = x$ (outer) and $g(x) = x^2$ (inner).</p>
+            <p>$$V = \pi\int_0^1 (x^2 - x^4)\,dx = \pi\left[\frac{x^3}{3} - \frac{x^5}{5}\right]_0^1 = \pi\left(\frac{1}{3} - \frac{1}{5}\right) = \pi \cdot \frac{2}{15} = \mathbf{\frac{2\pi}{15}}$$</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Find the volume of the solid formed by rotating the region between $y = \sqrt{x}$ and $y = x$ about the $x$-axis.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    Intersections: $\sqrt{x}=x \Rightarrow x=0,1$. On [0,1]: $\sqrt{x}\ge x$.<br>
+                    $V=\pi\int_0^1[(\sqrt{x})^2-x^2]\,dx=\pi\int_0^1(x-x^2)\,dx$<br>
+                    $=\pi\left[\dfrac{x^2}{2}-\dfrac{x^3}{3}\right]_0^1=\pi\left(\dfrac{1}{2}-\dfrac{1}{3}\right)=\dfrac{\pi}{6}$
+                </div>
+            </details>
+        </div>
+
+        <!-- Desmos: Washer method region -->
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">Region between $y = \sqrt{x}$ and $y = x$ — rotating this region about the $x$-axis gives the washer method</p>
+            <div id="graph-washer" style="width:100%;height:320px;"></div>
+            <p class="fig-label">Figure 7.3 — Washer Method: Region Between $y = \sqrt{x}$ and $y = x$</p>
+        </div>
+
+        <h2>7.4 Motion and Accumulation</h2>
+
+        <p>Integration naturally models <strong>accumulation</strong>: any rate function, integrated, gives the total accumulated quantity.</p>
+
+        <div class="theorem-box">
+            <h4>Displacement vs. Total Distance</h4>
+            <p>Given velocity $v(t)$:</p>
+            <ul>
+                <li><strong>Displacement</strong> (signed): $\displaystyle\int_a^b v(t)\,dt = s(b) - s(a)$</li>
+                <li><strong>Total distance</strong>: $\displaystyle\int_a^b |v(t)|\,dt$ — split at zeros of $v(t)$</li>
+            </ul>
+            <p>If $v(t) > 0$: moving right/up. If $v(t) < 0$: moving left/down.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 7.5 — Displacement vs. Distance</h4>
+            <p>A particle moves with $v(t) = t^2 - 3t + 2$ m/s on $[0, 3]$.</p>
+            <p><strong>Zeros:</strong> $t^2-3t+2=(t-1)(t-2)=0$ at $t=1, 2$.</p>
+            <p><strong>Displacement:</strong></p>
+            <p>$$\int_0^3 (t^2-3t+2)\,dt = \left[\frac{t^3}{3} - \frac{3t^2}{2} + 2t\right]_0^3 = 9 - \frac{27}{2} + 6 = \frac{3}{2}$$</p>
+            <p><strong>Total distance:</strong> Check sign on each interval:</p>
+            <ul>
+                <li>$[0,1]$: $v > 0$ → $\int_0^1(t^2-3t+2)\,dt = \frac{5}{6}$</li>
+                <li>$[1,2]$: $v < 0$ → $\int_1^2|v|\,dt = \int_1^2(3t-t^2-2)\,dt = \frac{1}{6}$</li>
+                <li>$[2,3]$: $v > 0$ → $\int_2^3(t^2-3t+2)\,dt = \frac{5}{6}$</li>
+            </ul>
+            <p><strong>Total distance = $\frac{5}{6} + \frac{1}{6} + \frac{5}{6} = \mathbf{\frac{11}{6}}$ m</strong></p>
+        </div>
+
+        <div class="ap-tip">
+            <span class="ap-tip-icon">★</span>
+            <p><strong>AP Exam Tip:</strong> A very common Free Response question asks for (a) position at a given time, (b) total distance, (c) times when the particle changes direction. Always find zeros of $v(t)$ first, then check signs of $v$ in each subinterval. Remember: the particle changes direction <em>only</em> when $v$ changes sign (not just equals zero).</p>
+        </div>
+
+        <!-- Practice Problems -->
+        <div class="practice-section">
+            <h2>Practice Problems</h2>
+            <div class="practice-grid">
+
+                <div class="practice-card">
+                    <span class="p-num">1</span>
+                    <p>Find the area of the region enclosed by $y = 3 - x^2$ and $y = -1$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Intersection: $3-x^2=-1 \Rightarrow x^2=4 \Rightarrow x=\pm 2$<br>
+                            $A=\int_{-2}^{2}[(3-x^2)-(-1)]\,dx=\int_{-2}^{2}(4-x^2)\,dx$<br>
+                            $=\left[4x-\dfrac{x^3}{3}\right]_{-2}^{2}=(8-\frac{8}{3})-(-8+\frac{8}{3})=\dfrac{32}{3}$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">2</span>
+                    <p>Find the area of the region bounded by $y = x^3$, $y = x$, for $x \ge 0$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Intersections for $x\ge 0$: $x^3=x \Rightarrow x(x^2-1)=0 \Rightarrow x=0,1$<br>
+                            On [0,1]: $x \ge x^3$<br>
+                            $A=\int_0^1(x-x^3)\,dx=\left[\dfrac{x^2}{2}-\dfrac{x^4}{4}\right]_0^1=\dfrac{1}{4}$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">3</span>
+                    <p>Find the volume when $y = x^2$ on $[0, 3]$ is rotated about the $x$-axis.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Disk method: $V=\pi\int_0^3 (x^2)^2\,dx=\pi\int_0^3 x^4\,dx$<br>
+                            $=\pi\left[\dfrac{x^5}{5}\right]_0^3=\pi\cdot\dfrac{243}{5}=\dfrac{243\pi}{5}$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">4</span>
+                    <p>Rotate the region between $y = x^2 + 1$ and $y = 1$ from $x=0$ to $x=2$ about the $x$-axis. Find the volume (Washer Method).</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Outer radius: $R=x^2+1$; Inner radius: $r=1$<br>
+                            $V=\pi\int_0^2[(x^2+1)^2-1]\,dx=\pi\int_0^2(x^4+2x^2)\,dx$<br>
+                            $=\pi\left[\dfrac{x^5}{5}+\dfrac{2x^3}{3}\right]_0^2=\pi\left(\dfrac{32}{5}+\dfrac{16}{3}\right)=\pi\cdot\dfrac{96+80}{15}=\dfrac{176\pi}{15}$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">5</span>
+                    <p>A particle has $v(t) = 6 - 2t$ m/s. Find (a) displacement on $[0, 5]$, (b) total distance on $[0, 5]$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Zero of $v$: $t=3$<br>
+                            <strong>(a)</strong> Displacement: $\int_0^5(6-2t)\,dt=[6t-t^2]_0^5=30-25=\mathbf{5}$ m<br>
+                            <strong>(b)</strong> v>0 on [0,3], v<0 on [3,5]:<br>
+                            $\int_0^3(6-2t)\,dt=[6t-t^2]_0^3=18-9=9$<br>
+                            $\int_3^5(2t-6)\,dt=[t^2-6t]_3^5=(25-30)-(9-18)=(-5)-(-9)=4$<br>
+                            Total distance = 9+4=<strong>13 m</strong>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">6</span>
+                    <p>Water flows into a tank at rate $R(t) = 4 + 2t$ gallons per minute. How much water enters the tank from $t=1$ to $t=4$ minutes?</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $\int_1^4(4+2t)\,dt=[4t+t^2]_1^4=(16+16)-(4+1)=32-5=\mathbf{27}$ gallons
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">7</span>
+                    <p><strong>(AP Free Response)</strong> A particle moves with $v(t) = t^2 - 5t + 4$ on $[0,4]$. (a) Find all times when the particle changes direction. (b) Find total distance on $[0,4]$. (c) Find displacement on $[0,4]$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            (a) $v(t)=(t-1)(t-4)=0$ at $t=1$ and $t=4$. $v$ changes sign at $t=1$ (pos→neg) and $t=4$ (neg→pos — endpoint). <strong>Changes direction at $t=1$.</strong><br><br>
+                            (b) [0,1]: v>0: $\int_0^1(t^2-5t+4)=[t^3/3-5t^2/2+4t]_0^1=1/3-5/2+4=11/6$<br>
+                            [1,4]: v≤0: $\int_1^4|v|\,dt=\int_1^4(5t-t^2-4)=[5t^2/2-t^3/3-4t]_1^4$<br>
+                            $=(40-64/3-16)-(5/2-1/3-4)=(-40/3)-(11/6... wait)<br>
+                            = (40-21.33-16)-(2.5-0.33-4) = 2.67-(-1.83) = 4.5 = 9/2<br>
+                            Total = 11/6+9/2 = 11/6+27/6 = <strong>38/6 = 19/3</strong><br><br>
+                            (c) Displacement = $\int_0^4(t^2-5t+4)\,dt=[t^3/3-5t^2/2+4t]_0^4$<br>
+                            $=64/3-40+16=64/3-24=64/3-72/3=\mathbf{-8/3}$ m
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">8</span>
+                    <p>Find the area bounded by $y = e^x$, $y = 1$, $x = 0$, and $x = 2$. Then find the volume when this region is rotated about the $x$-axis (Washer Method).</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            <strong>Area:</strong> $\int_0^2(e^x-1)\,dx=[e^x-x]_0^2=(e^2-2)-(1-0)=e^2-3\approx 4.39$<br><br>
+                            <strong>Volume (Washer):</strong> Outer: $e^x$, Inner: $1$<br>
+                            $V=\pi\int_0^2(e^{2x}-1)\,dx=\pi\left[\dfrac{e^{2x}}{2}-x\right]_0^2$<br>
+                            $=\pi\left[(\dfrac{e^4}{2}-2)-\dfrac{1}{2}\right]=\pi\left(\dfrac{e^4-1}{2}-2\right)=\dfrac{\pi(e^4-5)}{2}$
+                        </div>
+                    </details>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <a href="/us/textbook/ap-calculus/integration.html">&#8592; Chapter 6: Integration</a>
+            <a href="/us/textbook/ap-calculus/">All Chapters</a>
+        </div>
+    </div>
+
+    <script>
+    // Figure 7.1 — Area between x+2 and x^2
+    (function() {
+        var elt = document.getElementById('graph-area');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: true, border: false, showGrid: true, showXAxis: true, showYAxis: true
+        });
+        calc.setMathBounds({ left: -2.5, right: 3.5, bottom: -1.5, top: 5.5 });
+        calc.setExpressions([
+            // Shade the region
+            { id: 'shade', latex: 'x^2\\le y\\le x+2\\left\\{-1\\le x\\le 2\\right\\}', color: '#2563eb', fillOpacity: 0.3 },
+            // Curves
+            { id: 'line', latex: 'y=x+2', color: '#dc2626', lineWidth: 3 },
+            { id: 'parab', latex: 'y=x^2', color: '#1e3a5f', lineWidth: 3 },
+            // Intersection points
+            { id: 'p1', latex: '(-1,1)', label: '(-1, 1)', showLabel: true, color: '#16a34a', pointSize: 12 },
+            { id: 'p2', latex: '(2,4)', label: '(2, 4)', showLabel: true, color: '#16a34a', pointSize: 12 },
+            // Labels
+            { id: 'll', latex: '(2.5, 4.5)', label: 'y = x+2', showLabel: true, pointOpacity: 0, color: '#dc2626' },
+            { id: 'lp', latex: '(-2, 4)', label: 'y = x²', showLabel: true, pointOpacity: 0, color: '#1e3a5f' },
+            { id: 'la', latex: '(0.5, 1.5)', label: 'A = 9/2', showLabel: true, pointOpacity: 0, color: '#2563eb' },
+        ]);
+    })();
+
+    // Figure 7.2 — Disk method: y = sqrt(x)
+    (function() {
+        var elt = document.getElementById('graph-disk');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: true, border: false, showGrid: true, showXAxis: true, showYAxis: true
+        });
+        calc.setMathBounds({ left: -0.5, right: 4.8, bottom: -0.5, top: 2.8 });
+        calc.setExpressions([
+            { id: 'shade', latex: '0\\le y\\le\\sqrt{x}\\left\\{0\\le x\\le 4\\right\\}', color: '#2563eb', fillOpacity: 0.3 },
+            { id: 'curve', latex: 'y=\\sqrt{x}', color: '#1e3a5f', lineWidth: 3 },
+            { id: 'label', latex: '(2, 0.8)', label: 'Rotate about x-axis → Vol = 8π', showLabel: true, pointOpacity: 0, color: '#1e3a5f' },
+        ]);
+    })();
+
+    // Figure 7.3 — Washer: sqrt(x) and x
+    (function() {
+        var elt = document.getElementById('graph-washer');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: true, border: false, showGrid: true, showXAxis: true, showYAxis: true
+        });
+        calc.setMathBounds({ left: -0.3, right: 1.5, bottom: -0.3, top: 1.3 });
+        calc.setExpressions([
+            // Shade region between sqrt(x) and x
+            { id: 'shade', latex: 'x\\le y\\le\\sqrt{x}\\left\\{0\\le x\\le 1\\right\\}', color: '#2563eb', fillOpacity: 0.35 },
+            { id: 'c1', latex: 'y=\\sqrt{x}', color: '#dc2626', lineWidth: 3 },
+            { id: 'c2', latex: 'y=x', color: '#1e3a5f', lineWidth: 3 },
+            { id: 'p1', latex: '(0,0)', label: '(0,0)', showLabel: true, color: '#16a34a', pointSize: 10 },
+            { id: 'p2', latex: '(1,1)', label: '(1,1)', showLabel: true, color: '#16a34a', pointSize: 10 },
+            { id: 'll1', latex: '(0.5, 0.9)', label: 'y=√x (outer)', showLabel: true, pointOpacity: 0, color: '#dc2626' },
+            { id: 'll2', latex: '(0.7, 0.3)', label: 'y=x (inner)', showLabel: true, pointOpacity: 0, color: '#1e3a5f' },
+        ]);
+    })();
+    </script>
+</body>
+</html>
