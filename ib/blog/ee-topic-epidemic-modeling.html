@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IB EE Topic: Modeling Epidemic Spread with Differential Equations | MathHub IB</title>
+    <meta name="description" content="How to write an IB Extended Essay on epidemic modeling using the SIR model. Sample research questions, differential equations, numerical methods, real data sources, and essay structure.">
+    <meta name="keywords" content="IB Extended Essay SIR model, IB EE epidemic modeling, IB Mathematics EE differential equations, SIR model IB, SEIR model Extended Essay, R0 basic reproduction number, Euler method IB EE">
+    <meta name="author" content="MathHub IB">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/ib/blog/ee-topic-epidemic-modeling.html">
+    <link rel="alternate" hreflang="en" href="https://mathhub.io/ib/blog/ee-topic-epidemic-modeling.html" />
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/blog/ee-topic-epidemic-modeling.html" />
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/ib/blog/ee-topic-epidemic-modeling.html">
+    <meta property="og:title" content="IB EE Topic: Modeling Epidemic Spread with Differential Equations">
+    <meta property="og:description" content="Complete guide to writing an IB Extended Essay on epidemic modeling — SIR model, numerical methods, real data comparison.">
+    <meta property="og:site_name" content="MathHub Global">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif; line-height:1.8; color:#333; background:#f5f7fa; }
+        nav.global-nav { background:#1e3a5f; display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:52px; }
+        nav.global-nav a { color:rgba(255,255,255,.85); text-decoration:none; font-size:.9em; }
+        nav.global-nav .nav-brand { font-weight:700; font-size:1.1em; color:white; }
+        nav.global-nav .nav-links { display:flex; gap:18px; align-items:center; }
+        nav.global-nav .nav-links a.active { color:white; font-weight:700; }
+        .header { background:linear-gradient(135deg,#0f766e,#14b8a6); color:white; padding:50px 20px; text-align:center; }
+        .header h1 { font-size:2em; margin-bottom:10px; line-height:1.3; }
+        .category-badge { display:inline-block; background:rgba(255,255,255,0.2); padding:5px 16px; border-radius:20px; font-size:.85em; margin-bottom:14px; }
+        .date { opacity:.85; font-size:.9em; margin-top:8px; }
+        .container { max-width:900px; margin:40px auto; background:white; padding:50px; box-shadow:0 2px 10px rgba(0,0,0,.08); border-radius:10px; }
+        .back-link { display:inline-block; margin-bottom:28px; color:#0f766e; text-decoration:none; font-weight:600; font-size:.9em; }
+        h2 { color:#0f766e; margin-top:40px; margin-bottom:18px; padding-bottom:10px; border-bottom:2px solid #14b8a6; font-size:1.4em; }
+        h3 { color:#334155; margin-top:28px; margin-bottom:12px; font-size:1.1em; }
+        p { margin-bottom:14px; }
+        ul, ol { margin-left:28px; margin-bottom:14px; }
+        li { margin-bottom:7px; }
+        .info-box { background:#f0fdfa; border-left:4px solid #0f766e; padding:18px 20px; margin:22px 0; border-radius:4px; }
+        .warning-box { background:#fef3c7; border-left:4px solid #f59e0b; padding:18px 20px; margin:22px 0; border-radius:4px; }
+        .highlight-box { background:#eff6ff; border-left:4px solid #2563eb; padding:18px 20px; margin:22px 0; border-radius:4px; }
+        .toc { background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:20px 24px; margin:0 0 32px; }
+        .toc h3 { margin-top:0; font-size:1em; color:#0f766e; }
+        .toc ol { margin:10px 0 0 20px; }
+        .toc a { color:#0f766e; text-decoration:none; font-size:.92em; }
+        code { background:#f1f5f9; padding:2px 6px; border-radius:4px; font-size:.9em; font-family:'Courier New',monospace; }
+        pre { background:#1e293b; color:#e2e8f0; padding:18px; border-radius:8px; overflow-x:auto; margin:16px 0; font-size:.88em; line-height:1.6; }
+        table { width:100%; border-collapse:collapse; margin:18px 0; font-size:.93em; }
+        th, td { border:1px solid #e2e8f0; padding:10px 13px; text-align:left; }
+        th { background:#0f766e; color:white; font-weight:600; }
+        tr:nth-child(even) { background:#f8fafc; }
+        .cta-box { background:linear-gradient(135deg,#0f766e,#14b8a6); color:white; border-radius:12px; padding:28px; text-align:center; margin:36px 0; }
+        .cta-box h3 { color:white; margin:0 0 10px; font-size:1.2em; }
+        .cta-box p { opacity:.9; margin-bottom:16px; }
+        .cta-btn { display:inline-block; background:#f59e0b; color:white; padding:10px 26px; border-radius:8px; text-decoration:none; font-weight:700; }
+        .related-posts { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; margin-top:14px; }
+        .related-card { background:#f8fafc; border-radius:8px; padding:14px; text-decoration:none; color:inherit; border:1px solid #e2e8f0; transition:box-shadow .2s; }
+        .related-card:hover { box-shadow:0 4px 12px rgba(0,0,0,.1); }
+        .related-card h4 { color:#0f766e; margin:0 0 4px; font-size:.9em; }
+        .related-card p { color:#64748b; font-size:.8em; margin:0; }
+        .footer-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; max-width:900px; margin:0 auto; padding:40px 20px; }
+        .footer-col h4 { color:#1e293b; margin-bottom:10px; font-size:.95em; }
+        .footer-col ul { list-style:none; }
+        .footer-col li { margin-bottom:6px; }
+        .footer-col a { color:#64748b; text-decoration:none; font-size:.88em; }
+        .footer-col a:hover { color:#0f766e; }
+        .footer-bottom { text-align:center; padding:20px; color:#94a3b8; font-size:.85em; border-top:1px solid #e2e8f0; }
+        @media (max-width:768px) { .container { padding:28px 18px; margin:16px; } .header h1 { font-size:1.5em; } .footer-grid { grid-template-columns:1fr; } }
+    </style>
+</head>
+<body>
+<nav class="global-nav">
+    <a href="/" class="nav-brand">MathHub</a>
+    <div class="nav-links">
+        <a href="/kr/">KR</a>
+        <a href="/us/">US</a>
+        <a href="/uk/">UK</a>
+        <a href="/ca/">CA</a>
+        <a href="/ib/" class="active">IB</a>
+    </div>
+</nav>
+
+<div class="header">
+    <div class="category-badge">EE Topic Guide — Mathematics</div>
+    <h1>IB EE Topic: Modeling Epidemic Spread with Differential Equations</h1>
+    <div class="date">March 2026 · MathHub IB</div>
+</div>
+
+<div class="container">
+    <a href="/ib/blog/" class="back-link">&larr; Back to IB Blog</a>
+
+    <div class="toc">
+        <h3>Contents</h3>
+        <ol>
+            <li><a href="#why-sir">Why Epidemic Modeling Is an Excellent EE Topic</a></li>
+            <li><a href="#research-questions">Sample Research Questions</a></li>
+            <li><a href="#key-concepts">Key Mathematical Concepts</a></li>
+            <li><a href="#data-sources">Data Sources</a></li>
+            <li><a href="#methodology">Methodology: Modeling and Validation</a></li>
+            <li><a href="#structure">How to Structure This EE</a></li>
+            <li><a href="#grade-potential">Expected Grade Potential</a></li>
+        </ol>
+    </div>
+
+    <h2 id="why-sir">Why Epidemic Modeling Is an Excellent EE Topic</h2>
+    <p>The SIR model (Susceptible-Infected-Recovered) is one of the most elegant applications of differential equations in mathematics. It takes a complex real-world phenomenon — the spread of infectious disease through a population — and reduces it to a system of three coupled ordinary differential equations that can be analyzed, solved numerically, and validated against real data.</p>
+
+    <p>For an IB Mathematics Extended Essay, epidemic modeling hits every assessment criterion. The mathematics is genuinely sophisticated: coupled differential equations, numerical methods, parameter estimation, and sensitivity analysis go well beyond the IB syllabus while remaining accessible to a strong HL student. The real-world application provides authentic personal engagement. And the natural methodology — build a model, compare it to data, analyze the discrepancy — gives you a clear analytical framework that supports critical thinking.</p>
+
+    <p>The COVID-19 pandemic has made epidemic modeling tangible for a generation of students. You have lived through the consequences of R0 values, flattening the curve, and herd immunity thresholds. Writing an EE on this topic allows you to understand the mathematics behind the headlines you grew up with. That authenticity is exactly what Criterion E (Engagement) rewards.</p>
+
+    <div class="info-box">
+        <strong>Why this topic works for AA HL students specifically:</strong> The SIR model uses coupled first-order ODEs, which are natural extensions of the calculus you study in Topic 5. Numerical methods (Euler's method) appear in the AA HL syllabus. This means you are building on existing knowledge rather than learning entirely new mathematics from scratch — which is the ideal positioning for an EE.
+    </div>
+
+    <h2 id="research-questions">Sample Research Questions</h2>
+    <p>A strong research question for an epidemic modeling EE should specify the model, the disease, the population, and the analytical focus. Here are tested options:</p>
+
+    <ul>
+        <li><strong>"How accurately does the SIR model predict the spread of COVID-19 in South Korea during the first wave (February–April 2020)?"</strong> — This is the strongest option. South Korea's first wave is well-documented, the population is relatively isolated (peninsula), and the data is publicly available from KCDC. The focused time period keeps the analysis manageable.</li>
+        <li><strong>"How does the basic reproduction number R0 affect the predicted peak infection rate and time to herd immunity in the SIR model?"</strong> — A more theoretical question. You vary R0 systematically and analyze the mathematical relationship between R0, peak infection, and equilibrium. Less data-dependent but requires strong analytical skills.</li>
+        <li><strong>"To what extent does extending the SIR model to SEIR (adding an Exposed compartment) improve the accuracy of COVID-19 predictions for a specific population?"</strong> — Ambitious. Compares two models against the same data. Demonstrates mathematical sophistication through model comparison.</li>
+        <li><strong>"How does the accuracy of Euler's method compare to the fourth-order Runge-Kutta method when applied to the SIR model with different step sizes?"</strong> — A numerical methods focus. Less about the disease and more about the mathematics of solving ODEs. Strong for students who prefer pure mathematics.</li>
+    </ul>
+
+    <h2 id="key-concepts">Key Mathematical Concepts</h2>
+
+    <h3>The SIR Model</h3>
+    <p>The SIR model divides a population of size N into three compartments: Susceptible (S), Infected (I), and Recovered (R), where S + I + R = N at all times. The model is governed by three coupled differential equations:</p>
+
+    <div class="highlight-box">
+        <strong>The SIR equations:</strong><br>
+        <code>dS/dt = -βSI/N</code> — susceptible individuals become infected at rate β<br>
+        <code>dI/dt = βSI/N - γI</code> — infected individuals recover at rate γ<br>
+        <code>dR/dt = γI</code> — recovered individuals gain immunity<br><br>
+        Where β is the transmission rate and γ is the recovery rate. The basic reproduction number is <code>R0 = β/γ</code>.
+    </div>
+
+    <p>The parameter β represents the average number of adequate contacts per unit time (contacts sufficient to transmit infection), and γ is the reciprocal of the average infectious period. If the average infectious period is 7 days, then γ = 1/7 per day. These two parameters fully determine the dynamics of the basic SIR model.</p>
+
+    <h3>The Basic Reproduction Number R0</h3>
+    <p>R0 is the average number of secondary infections produced by a single infected individual in a fully susceptible population. It is the single most important parameter in epidemiology. When R0 > 1, an epidemic occurs. When R0 < 1, the disease dies out. The herd immunity threshold is 1 - 1/R0, meaning that if a fraction exceeding this threshold is immune, the epidemic cannot sustain itself.</p>
+
+    <p>For your essay, R0 is not just a number to quote — it is a mathematical consequence of the model parameters. Deriving R0 = β/γ from the SIR equations, and explaining what this ratio means geometrically (the initial exponential growth rate), demonstrates the kind of mathematical understanding that earns high marks on Criterion B.</p>
+
+    <h3>Numerical Methods: Euler's Method</h3>
+    <p>The SIR system cannot be solved analytically in closed form. You must use numerical methods. Euler's method is the simplest: given the current state (S, I, R) at time t, compute the derivatives, then step forward by a small time increment h:</p>
+
+    <pre>
+# Euler's method for SIR model (Python)
+import numpy as np
+
+def sir_euler(S0, I0, R0, beta, gamma, N, days, h=0.1):
+    steps = int(days / h)
+    S, I, R = np.zeros(steps), np.zeros(steps), np.zeros(steps)
+    S[0], I[0], R[0] = S0, I0, R0
+
+    for t in range(steps - 1):
+        dS = -beta * S[t] * I[t] / N
+        dI = beta * S[t] * I[t] / N - gamma * I[t]
+        dR = gamma * I[t]
+        S[t+1] = S[t] + h * dS
+        I[t+1] = I[t] + h * dI
+        R[t+1] = R[t] + h * dR
+
+    return S, I, R</pre>
+
+    <h3>Runge-Kutta Methods</h3>
+    <p>The fourth-order Runge-Kutta (RK4) method is significantly more accurate than Euler's method for the same step size. While Euler's method has a local truncation error of O(h^2), RK4 has O(h^5). If your research question involves comparing numerical methods, demonstrating this accuracy difference with concrete calculations and error analysis is a powerful way to earn marks on Criterion C.</p>
+
+    <h2 id="data-sources">Data Sources</h2>
+    <p>A data-driven EE requires reliable epidemiological data. Here are the best sources:</p>
+
+    <table>
+        <thead><tr><th>Source</th><th>Data Available</th><th>Access</th></tr></thead>
+        <tbody>
+            <tr><td>WHO Situation Reports</td><td>Daily case counts, deaths, recoveries by country</td><td>who.int (free)</td></tr>
+            <tr><td>Our World in Data</td><td>Cleaned, downloadable CSV files for COVID-19 by country</td><td>ourworldindata.org (free)</td></tr>
+            <tr><td>Johns Hopkins CSSE</td><td>Time series data, global confirmed/deaths/recovered</td><td>GitHub repository (free)</td></tr>
+            <tr><td>Korea CDC (KCDC)</td><td>Detailed daily case data for South Korea</td><td>kdca.go.kr (free)</td></tr>
+            <tr><td>UK Government Dashboard</td><td>Daily cases, hospitalizations, vaccinations for UK</td><td>coronavirus.data.gov.uk (free)</td></tr>
+        </tbody>
+    </table>
+
+    <div class="warning-box">
+        <strong>Data quality matters.</strong> Early COVID-19 data from some countries has reporting gaps, retroactive corrections, and inconsistent definitions of "recovered." Choose a country and time period where data quality is high. South Korea (Feb–Apr 2020), New Zealand (Mar–May 2020), and Iceland (Mar–May 2020) are particularly clean because of comprehensive testing and transparent reporting.
+    </div>
+
+    <h2 id="methodology">Methodology: Modeling and Validation</h2>
+    <p>The methodology for an epidemic modeling EE follows a natural scientific structure:</p>
+
+    <ol>
+        <li><strong>Parameter estimation:</strong> Estimate β and γ from the early phase of the epidemic data. During the initial exponential growth phase (before susceptible depletion), the growth rate approximates β - γ, and the recovery rate γ can be estimated from the average time from diagnosis to recovery.</li>
+        <li><strong>Model implementation:</strong> Solve the SIR system numerically using Euler's method (and optionally RK4) with your estimated parameters.</li>
+        <li><strong>Comparison with data:</strong> Overlay your model predictions on the real data. Calculate a quantitative measure of fit — mean squared error (MSE) or coefficient of determination (R-squared).</li>
+        <li><strong>Sensitivity analysis:</strong> Vary β and γ within reasonable ranges and observe how the model predictions change. This is critical for Criterion C — it shows you understand the limitations of your model and the sensitivity of your conclusions to parameter choices.</li>
+        <li><strong>Discussion:</strong> Explain where and why the model deviates from real data. The SIR model assumes homogeneous mixing, constant parameters, and no births/deaths. Real epidemics violate all of these assumptions. Analyzing these discrepancies is where you demonstrate critical thinking.</li>
+    </ol>
+
+    <h2 id="structure">How to Structure This EE</h2>
+    <ol>
+        <li><strong>Introduction (400 words):</strong> Context of epidemics, motivation (COVID-19 experience), research question, overview of approach.</li>
+        <li><strong>Mathematical Background (700 words):</strong> Derivation of SIR equations from first principles, explanation of parameters, definition of R0 and herd immunity threshold.</li>
+        <li><strong>Numerical Methods (600 words):</strong> Euler's method derivation, step size selection, error analysis. Optional: RK4 for comparison.</li>
+        <li><strong>Data and Parameter Estimation (500 words):</strong> Data source description, parameter estimation procedure, justification of chosen values.</li>
+        <li><strong>Results (800 words):</strong> Model predictions vs. real data. Graphs showing S(t), I(t), R(t) curves overlaid on actual case data. Quantitative fit metrics.</li>
+        <li><strong>Sensitivity Analysis and Discussion (600 words):</strong> How results change with different parameters. Model limitations. Why the SIR model over-predicts or under-predicts in specific phases.</li>
+        <li><strong>Conclusion (400 words):</strong> Direct answer to research question. What the analysis reveals about the predictive power and limitations of compartmental models.</li>
+    </ol>
+
+    <h2 id="grade-potential">Expected Grade Potential</h2>
+    <p>Epidemic modeling is one of the highest-potential Mathematics EE topics. It naturally provides:</p>
+    <ul>
+        <li><strong>Mathematical sophistication:</strong> Coupled ODEs, numerical methods, and error analysis go well beyond the IB syllabus.</li>
+        <li><strong>Clear methodology:</strong> The model-predict-compare-analyze structure is academically rigorous and easy for examiners to follow.</li>
+        <li><strong>Authentic engagement:</strong> COVID-19 provides genuine personal context that does not feel forced.</li>
+        <li><strong>Visual clarity:</strong> Graphs comparing model predictions to real data are compelling and satisfy Criterion D.</li>
+    </ul>
+
+    <p>The main risk is over-ambition. Attempting to model multiple waves, vaccination effects, and variant emergence within 4,000 words will result in a superficial treatment of each. Focus on one wave, one country, one model, and analyze it deeply. Depth beats breadth in every EE assessment criterion.</p>
+
+    <div class="cta-box">
+        <h3>Need Help with Your Extended Essay?</h3>
+        <p>Our experienced IB tutors can guide you through topic selection, research, and writing. We specialize in Mathematics EEs involving differential equations and modeling.</p>
+        <a href="/contact-en.html" class="cta-btn">Request Free Consultation</a>
+    </div>
+
+    <h2>Related Posts</h2>
+    <div class="related-posts">
+        <a href="/ib/blog/ib-extended-essay-writing-guide.html" class="related-card">
+            <h4>EE Writing Guide: How to Score an A</h4>
+            <p>Complete guide to all five criteria</p>
+        </a>
+        <a href="/ib/blog/ee-topic-cfd-airfoil.html" class="related-card">
+            <h4>EE Topic: CFD Airfoil Simulation</h4>
+            <p>Navier-Stokes and fluid dynamics</p>
+        </a>
+        <a href="/ib/blog/ee-topic-rsa-cryptography.html" class="related-card">
+            <h4>EE Topic: RSA Cryptography</h4>
+            <p>Number theory meets security</p>
+        </a>
+    </div>
+</div>
+
+<footer style="background:#f8fafc; margin-top:40px;">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Resources</h4>
+            <ul>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/ib/blog/">IB Blog</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Countries</h4>
+            <ul>
+                <li><a href="/kr/">Korea</a></li>
+                <li><a href="/us/">USA</a></li>
+                <li><a href="/uk/">UK</a></li>
+                <li><a href="/ca/">Canada</a></li>
+                <li><a href="/ib/">IB</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="/about.html">About Us</a></li>
+                <li><a href="/contact-en.html">Contact</a></li>
+                <li><a href="/privacy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+    </div>
+</footer>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "IB EE Topic: Modeling Epidemic Spread with Differential Equations",
+    "description": "How to write an IB Extended Essay on epidemic modeling using the SIR model — differential equations, numerical methods, real data comparison.",
+    "author": {"@type": "Organization", "name": "MathHub"},
+    "publisher": {"@type": "Organization", "name": "MathHub Global", "url": "https://mathhub.io"},
+    "datePublished": "2026-03-16",
+    "dateModified": "2026-03-16",
+    "mainEntityOfPage": "https://mathhub.io/ib/blog/ee-topic-epidemic-modeling.html",
+    "keywords": ["IB Extended Essay", "SIR model", "epidemic modeling", "differential equations", "numerical methods", "COVID-19"]
+}
+</script>
+</body>
+</html>

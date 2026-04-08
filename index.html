@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="r9UcF77YDnBPQmN1ffcpHb8lculr-u-0YjNaqsD8QkM" />
 
     <!-- SEO Meta Tags -->
-    <title>MathHub Global - Math Exam Resources for Korea, USA & UK</title>
-    <meta name="description" content="Math exam resources: Korean CSAT, US SAT/AP, UK A-Level/IGCSE past papers. Online workbooks with instant grading. Your gateway to math excellence.">
-    <meta name="keywords" content="math, CSAT, SAT, AP Calculus, A-Level, IGCSE, past papers, math workbook, 수능, 수학, 기출문제">
+    <title>MathHub Global - Free Math Textbooks & Past Papers for Korea, USA, UK & Canada</title>
+    <meta name="description" content="Free online math textbooks, 4,200+ exam past papers, and study guides. Korean CSAT, US SAT/AP, UK A-Level/IGCSE, Canadian CEMC resources.">
+    <meta name="keywords" content="math, CSAT, SAT, AP Calculus, A-Level, IGCSE, past papers, math textbook, free math resources">
     <meta name="author" content="MathHub Global">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://mathhub.io/">
@@ -23,14 +24,14 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mathhub.io/">
-    <meta property="og:title" content="MathHub Global - Math Resources for KR, US & UK">
-    <meta property="og:description" content="Math exam past papers and online workbooks for Korean CSAT, US SAT/AP, and UK A-Level/IGCSE.">
+    <meta property="og:title" content="MathHub Global - Free Math Textbooks & Past Papers">
+    <meta property="og:description" content="Free online math textbooks, 4,200+ exam past papers across Korea, USA, UK & Canada.">
     <meta property="og:site_name" content="MathHub Global">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="MathHub Global - Math Resources for KR, US & UK">
-    <meta property="twitter:description" content="Math exam past papers and online workbooks.">
+    <meta property="twitter:title" content="MathHub Global - Free Math Textbooks & Past Papers">
+    <meta property="twitter:description" content="Free math resources for students worldwide.">
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
@@ -45,304 +46,733 @@
         gtag('config', 'G-99124077');
     </script>
 
+    <link rel="stylesheet" href="/assets/css/common.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Noto Sans KR', Arial, sans-serif;
-            background: #0f0f1a;
-            color: #fff;
-            min-height: 100vh;
-        }
+        body { background: #0f0f1a; color: #fff; }
 
         /* Hero */
         .hero {
             text-align: center;
-            padding: 80px 20px 40px;
-            background: #0f0f1a;
+            padding: 60px 20px 30px;
         }
         .hero h1 {
-            font-size: 3em;
+            font-size: 2.8em;
             margin-bottom: 12px;
             color: #fff;
             letter-spacing: -0.02em;
         }
         .hero p {
-            font-size: 1.2em;
+            font-size: 1.15em;
             color: rgba(255,255,255,0.6);
-            max-width: 600px;
+            max-width: 620px;
             margin: 0 auto;
-        }
-
-        /* Country Cards */
-        .countries {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            max-width: 1000px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
-        .country-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
-            padding: 36px 28px;
-            text-decoration: none;
-            color: #fff;
-            transition: all 0.3s;
             text-align: center;
-        }
-        .country-card:hover {
-            transform: translateY(-8px);
-            background: rgba(255,255,255,0.1);
-            border-color: rgba(102, 126, 234, 0.5);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
-        }
-        .country-flag {
-            font-size: 3.5em;
-            margin-bottom: 16px;
-        }
-        .country-card h2 {
-            font-size: 1.5em;
-            margin-bottom: 6px;
-        }
-        .country-card .country-sub {
-            color: rgba(255,255,255,0.5);
-            font-size: 0.9em;
-            margin-bottom: 20px;
-        }
-        .country-card ul {
-            list-style: none;
-            text-align: left;
-            margin-bottom: 24px;
-        }
-        .country-card ul li {
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            color: rgba(255,255,255,0.8);
-            font-size: 0.95em;
-        }
-        .country-card ul li::before {
-            content: '\2192 ';
-            color: #667eea;
-        }
-        .enter-btn {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 10px 28px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.95em;
-            transition: all 0.2s;
-        }
-        .country-card:hover .enter-btn { background: #5a6fd6; }
-
-        /* CTA Section */
-        .cta-section {
-            text-align: center;
-            padding: 50px 20px;
-            margin: 20px auto;
-            max-width: 700px;
-        }
-        .cta-section h3 {
-            font-size: 1.3em;
-            margin-bottom: 12px;
-            color: rgba(255,255,255,0.9);
-        }
-        .cta-section p {
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 20px;
-        }
-        .cta-main-btn {
-            display: inline-block;
-            background: transparent;
-            color: #667eea;
-            border: 2px solid #667eea;
-            padding: 14px 36px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 1.1em;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-        .cta-main-btn:hover {
-            background: rgba(102, 126, 234, 0.1);
         }
 
         /* Stats */
         .stats {
             display: flex;
             justify-content: center;
-            gap: 60px;
-            padding: 40px 20px;
-            max-width: 800px;
+            gap: 48px;
+            padding: 30px 20px;
+            max-width: 900px;
             margin: 0 auto;
         }
         .stat-item { text-align: center; }
-        .stat-num {
-            font-size: 2em;
-            font-weight: 800;
-            color: #667eea;
-        }
-        .stat-label { color: rgba(255,255,255,0.5); font-size: 0.9em; margin-top: 4px; }
+        .stat-num { font-size: 1.8em; font-weight: 800; color: #667eea; }
+        .stat-label { color: rgba(255,255,255,0.5); font-size: 0.85em; margin-top: 4px; }
 
-        /* Footer */
-        .footer {
+        /* Country Cards */
+        .countries {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .country-slot {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #fff;
+        }
+        .country-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 28px 18px 24px;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s;
             text-align: center;
-            padding: 40px 20px;
-            color: rgba(255,255,255,0.3);
+            width: 100%;
+            flex: 1;
+        }
+        .country-slot:hover .country-card {
+            transform: translateY(-6px);
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 16px 32px rgba(102, 126, 234, 0.15);
+        }
+        .country-flag { font-size: 2.8em; margin-bottom: 10px; }
+        .country-card h2 { font-size: 1.3em; margin-bottom: 6px; border: none; padding: 0; color: #fff; }
+        /* Curriculum tags */
+        .curriculum-tags { display: flex; gap: 5px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
+        .cur-tag {
+            font-size: 0.7em; letter-spacing: 0.04em;
+            padding: 3px 10px; border-radius: 10px;
+        }
+        .cur-tag.country-cur { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); font-weight: 500; }
+        .cur-tag.program-cur { background: rgba(234,179,8,0.15); color: #fbbf24; border: 1px solid rgba(234,179,8,0.3); font-weight: 800; font-size: 0.75em; }
+        .country-card ul {
+            list-style: none;
+            text-align: left;
+            margin: 0;
+            padding: 0;
+        }
+        .country-card ul li {
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.8);
             font-size: 0.85em;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            margin-top: 40px;
+        }
+        .country-card ul li::before { content: '\2192 '; color: #667eea; }
+        .enter-btn {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 8px 22px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9em;
+            transition: all 0.2s;
+            margin-top: 14px;
+        }
+        .country-slot:hover .enter-btn { background: #5a6fd6; }
+
+        /* Hub Sections */
+        .hub-section {
+            max-width: 1100px;
+            margin: 70px auto;
+            padding: 0 20px;
+        }
+        .hub-title {
+            text-align: center;
+            font-size: 1.8em;
+            color: #fff;
+            margin-bottom: 8px;
+            border: none;
+            padding: 0;
+        }
+        .hub-subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 1em;
+            margin-bottom: 32px;
+        }
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .hub-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px;
+            padding: 24px;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s;
+        }
+        .hub-card:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(102,126,234,0.4);
+            transform: translateY(-4px);
+        }
+        .hub-flag { font-size: 2em; display: block; margin-bottom: 8px; }
+        .hub-card h3 { font-size: 1.15em; margin-bottom: 12px; color: #fff; }
+        .hub-card ul { list-style: none; margin: 0; padding: 0; }
+        .hub-card li {
+            padding: 5px 0;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.88em;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .hub-card li::before { content: '\2192 '; color: #667eea; }
+        .hub-count {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 0.8em;
+            color: #667eea;
+            font-weight: 600;
+            background: rgba(102,126,234,0.1);
+            padding: 3px 10px;
+            border-radius: 12px;
         }
 
+        /* About + FAQ */
+        .about-section {
+            max-width: 800px;
+            margin: 70px auto 0;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .about-section h2 { font-size: 1.6em; color: #fff; margin-bottom: 14px; border: none; padding: 0; }
+        .about-section p { color: rgba(255,255,255,0.6); font-size: 0.95em; line-height: 1.8; margin-bottom: 12px; }
+
+        /* Featured Articles */
+        .featured-section {
+            max-width: 1100px;
+            margin: 60px auto 0;
+            padding: 0 20px;
+        }
+        .featured-section h2 { font-size: 1.6em; color: #fff; text-align: center; margin-bottom: 8px; border: none; padding: 0; }
+        .featured-subtitle { text-align: center; color: rgba(255,255,255,0.5); font-size: 0.95em; margin-bottom: 32px; }
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .featured-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 24px;
+            text-decoration: none;
+            color: #fff;
+            transition: background 0.2s, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .featured-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+        .featured-tag {
+            display: inline-block;
+            background: rgba(102,126,234,0.15);
+            color: #667eea;
+            font-size: 0.75em;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            align-self: flex-start;
+        }
+        .featured-card h3 { font-size: 1.05em; font-weight: 700; margin-bottom: 10px; line-height: 1.4; }
+        .featured-card p { font-size: 0.85em; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 16px; flex: 1; }
+        .featured-meta { font-size: 0.75em; color: rgba(255,255,255,0.35); font-weight: 600; }
+
+        .faq-section {
+            max-width: 800px;
+            margin: 60px auto 0;
+            padding: 0 20px;
+        }
+        .faq-section h2 { font-size: 1.6em; color: #fff; text-align: center; margin-bottom: 28px; border: none; padding: 0; }
+        .faq-item {
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 18px 0;
+        }
+        .faq-q {
+            font-weight: 700;
+            font-size: 1em;
+            color: rgba(255,255,255,0.9);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-q::after { content: '+'; font-size: 1.3em; color: #667eea; transition: transform 0.2s; }
+        .faq-item.open .faq-q::after { content: '\2212'; }
+        .faq-a {
+            color: rgba(255,255,255,0.55);
+            font-size: 0.92em;
+            line-height: 1.7;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding-top: 0;
+        }
+        .faq-item.open .faq-a { max-height: 200px; padding-top: 12px; }
+
+        /* Footer override for dark page */
+        .site-footer { background: #0f0f1a; margin-top: 40px; }
+
+        @media (max-width: 1024px) {
+            .countries { grid-template-columns: repeat(3, 1fr); }
+        }
         @media (max-width: 768px) {
             .hero h1 { font-size: 2em; }
-            .countries { grid-template-columns: 1fr; max-width: 420px; }
-            .stats { gap: 30px; }
-            .stat-num { font-size: 1.5em; }
+            .countries { grid-template-columns: 1fr 1fr; max-width: 500px; }
+            .stats { gap: 24px; flex-wrap: wrap; }
+            .stat-num { font-size: 1.4em; }
+        }
+        @media (max-width: 480px) {
+            .countries { grid-template-columns: 1fr; max-width: 400px; }
         }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <h1>MathHub Global</h1>
-        <p>Exam past papers, answer keys & online workbooks for students worldwide</p>
-    </div>
+    <!-- Global Nav -->
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="/ib/">IB</a>
+        </div>
+    </nav>
 
+    <!-- Hero -->
+    <header class="hero">
+        <h1>MathHub Global</h1>
+        <p>Free math textbooks, past papers &amp; study guides for students in Korea, USA, UK &amp; Canada</p>
+    </header>
+
+    <main>
+    <!-- Stats -->
     <div class="stats">
         <div class="stat-item">
-            <div class="stat-num">4</div>
-            <div class="stat-label">Countries</div>
+            <div class="stat-num">5</div>
+            <div class="stat-label">Regions</div>
         </div>
         <div class="stat-item">
-            <div class="stat-num">20+</div>
-            <div class="stat-label">Articles</div>
+            <div class="stat-num">4,200+</div>
+            <div class="stat-label">Past Papers</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">60+</div>
+            <div class="stat-label">Textbook Chapters</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">50+</div>
+            <div class="stat-label">Blog Posts</div>
         </div>
     </div>
 
+    <!-- Country Cards -->
     <div class="countries">
-        <!-- Korea -->
-        <a href="/kr/" class="country-card">
-            <div class="country-flag">&#x1F1F0;&#x1F1F7;</div>
-            <h2>Korea</h2>
-            <div class="country-sub">&#xD55C;&#xAD6D; &#xC218;&#xD559;</div>
-            <ul>
-                <li>&#xC218;&#xB2A5; &#xAE30;&#xCD9C;&#xBB38;&#xC81C;</li>
-                <li>&#xD3C9;&#xAC00;&#xC6D0; &#xBAA8;&#xC758;&#xACE0;&#xC0AC;</li>
-                <li>&#xAD50;&#xC7AC; &#xB2F5;&#xC9C0; (EBS, &#xC308;, &#xBE44;&#xC0C1;)</li>
-                <li>&#xC218;&#xD559; &#xBE14;&#xB85C;&#xADF8;</li>
-            </ul>
-            <span class="enter-btn">&#xC785;&#xC7A5;&#xD558;&#xAE30;</span>
-        </a>
-
-        <!-- USA -->
-        <a href="/us/" class="country-card">
-            <div class="country-flag">&#x1F1FA;&#x1F1F8;</div>
-            <h2>USA</h2>
-            <div class="country-sub">US Mathematics</div>
-            <ul>
-                <li>SAT Math Practice</li>
-                <li>AP Calculus AB/BC</li>
-                <li>AP Statistics</li>
-                <li>AMC / AIME / USAMO</li>
-            </ul>
+        <a href="/kr/" class="country-slot">
+            <div class="country-card">
+                <div class="country-flag">&#x1F1F0;&#x1F1F7;</div>
+                <h2>Korea</h2>
+                <div class="curriculum-tags">
+                    <span class="cur-tag program-cur" lang="ko">수능</span>
+                    <span class="cur-tag country-cur">KMO</span>
+                </div>
+                <ul lang="ko">
+                    <li>수능 · 모의고사 기출</li>
+                    <li>교재 답지</li>
+                    <li>수학 경시대회</li>
+                    <li>수학 블로그</li>
+                </ul>
+            </div>
             <span class="enter-btn">Enter</span>
         </a>
-
-        <!-- UK -->
-        <a href="/uk/" class="country-card">
-            <div class="country-flag">&#x1F1EC;&#x1F1E7;</div>
-            <h2>UK</h2>
-            <div class="country-sub">UK Maths</div>
-            <ul>
-                <li>A-Level Maths</li>
-                <li>IGCSE Mathematics</li>
-                <li>TMUA (Cambridge)</li>
-                <li>MAT (Oxford)</li>
-            </ul>
+        <a href="/us/" class="country-slot">
+            <div class="country-card">
+                <div class="country-flag">&#x1F1FA;&#x1F1F8;</div>
+                <h2>USA</h2>
+                <div class="curriculum-tags">
+                    <span class="cur-tag program-cur">AP</span>
+                    <span class="cur-tag country-cur">SAT</span>
+                    <span class="cur-tag country-cur">AMC</span>
+                </div>
+                <ul>
+                    <li>SAT Math Practice</li>
+                    <li>AP Calculus &amp; Statistics</li>
+                    <li>Online Textbooks</li>
+                    <li>AMC / AIME / USAMO</li>
+                </ul>
+            </div>
             <span class="enter-btn">Enter</span>
         </a>
-
-        <!-- Canada -->
-        <a href="/ca/" class="country-card">
-            <div class="country-flag">&#x1F1E8;&#x1F1E6;</div>
-            <h2>Canada</h2>
-            <div class="country-sub">Canadian Mathematics</div>
-            <ul>
-                <li>Gauss (Grades 7&ndash;8)</li>
-                <li>Pascal / Cayley / Fermat</li>
-                <li>Euclid (Grade 12)</li>
-                <li>CEMC Competitions</li>
-            </ul>
+        <a href="/uk/" class="country-slot">
+            <div class="country-card">
+                <div class="country-flag">&#x1F1EC;&#x1F1E7;</div>
+                <h2>UK</h2>
+                <div class="curriculum-tags">
+                    <span class="cur-tag program-cur">A-Level</span>
+                    <span class="cur-tag country-cur">IGCSE</span>
+                </div>
+                <ul>
+                    <li>A-Level Maths &amp; Sciences</li>
+                    <li>IGCSE Mathematics</li>
+                    <li>TMUA / MAT Admissions</li>
+                    <li>UKMT Competitions</li>
+                </ul>
+            </div>
+            <span class="enter-btn">Enter</span>
+        </a>
+        <a href="/ca/" class="country-slot">
+            <div class="country-card">
+                <div class="country-flag">&#x1F1E8;&#x1F1E6;</div>
+                <h2>Canada</h2>
+                <div class="curriculum-tags">
+                    <span class="cur-tag country-cur">CEMC</span>
+                </div>
+                <ul>
+                    <li>CEMC Competitions</li>
+                    <li>Ontario Curriculum</li>
+                    <li>Qu&eacute;bec (fran&ccedil;ais)</li>
+                    <li>Online Textbooks</li>
+                </ul>
+            </div>
+            <span class="enter-btn">Enter</span>
+        </a>
+        <a href="/ib/" class="country-slot">
+            <div class="country-card">
+                <div class="country-flag">&#x1F30D;</div>
+                <h2>IB</h2>
+                <div class="curriculum-tags">
+                    <span class="cur-tag program-cur">AA</span>
+                    <span class="cur-tag program-cur">AI</span>
+                    <span class="cur-tag program-cur">EE</span>
+                </div>
+                <ul>
+                    <li>Math AA SL/HL</li>
+                    <li>Math AI SL/HL</li>
+                    <li>Online Textbooks</li>
+                    <li>Extended Essay</li>
+                </ul>
+            </div>
             <span class="enter-btn">Enter</span>
         </a>
     </div>
 
-    <!-- Tutoring CTA -->
-    <div class="cta-section">
-        <h3>📐 수학 과외 무료 상담</h3>
-        <p>수능 · 내신 · SAT · AP · TMUA 전문 | 강남·도곡동·서초 지역 및 온라인</p>
-        <a href="/contact.html" class="cta-main-btn" onclick="gtag('event','cta_click',{event_category:'acquisition',event_label:'home_tutoring_cta'})">
-            무료 진단테스트 신청 &rarr;
-        </a>
-    </div>
+    <!-- Free Online Textbooks -->
+    <section id="textbooks" class="hub-section">
+        <h2 class="hub-title">Free Online Textbooks</h2>
+        <p class="hub-subtitle">Interactive math textbooks with Desmos visualizations</p>
+        <div class="hub-grid">
+            <a href="/us/" class="hub-card">
+                <span class="hub-flag">&#x1F1FA;&#x1F1F8;</span>
+                <h3>USA</h3>
+                <ul>
+                    <li>Pre-Algebra (8 chapters)</li>
+                    <li>Algebra 2 (10 chapters)</li>
+                    <li>Precalculus (10 chapters)</li>
+                    <li>AP Calculus AB/BC (11 chapters)</li>
+                </ul>
+            </a>
+            <a href="/uk/" class="hub-card">
+                <span class="hub-flag">&#x1F1EC;&#x1F1E7;</span>
+                <h3>UK</h3>
+                <ul>
+                    <li>IGCSE Mathematics (9 ch)</li>
+                    <li>A-Level Maths (12 ch)</li>
+                    <li>Further Maths (12 ch)</li>
+                </ul>
+            </a>
+            <a href="/ca/textbook/" class="hub-card">
+                <span class="hub-flag">&#x1F1E8;&#x1F1E6;</span>
+                <h3>Canada</h3>
+                <ul>
+                    <li>Ontario Curriculum (6 courses)</li>
+                    <li>Qu&eacute;bec Secondaire (11 ch)</li>
+                </ul>
+            </a>
+            <a href="/ib/" class="hub-card">
+                <span class="hub-flag">&#x1F30D;</span>
+                <h3>IB</h3>
+                <ul>
+                    <li>Math AA SL/HL (9 ch)</li>
+                    <li>Math AI SL/HL (7 ch)</li>
+                </ul>
+            </a>
+        </div>
+    </section>
 
-    <!-- Blog -->
-    <div class="cta-section">
-        <h3>Study Guides &amp; Tips</h3>
-        <p>Articles on SAT strategies, A-Level revision, and IGCSE preparation</p>
-        <a href="/blog" class="cta-main-btn">
-            Read the Blog &rarr;
-        </a>
-    </div>
+    <!-- Past Papers & Exams -->
+    <section id="papers" class="hub-section">
+        <h2 class="hub-title">Past Papers &amp; Exams</h2>
+        <p class="hub-subtitle">4,200+ official exam papers with answer keys &mdash; free PDF download</p>
+        <div class="hub-grid">
+            <a href="/kr/exams/" class="hub-card">
+                <span class="hub-flag">&#x1F1F0;&#x1F1F7;</span>
+                <h3>Korea</h3>
+                <ul>
+                    <li>&#xC218;&#xB2A5; (CSAT)</li>
+                    <li>&#xD3C9;&#xAC00;&#xC6D0; &#xBAA8;&#xC758;&#xACE0;&#xC0AC;</li>
+                    <li>&#xAD50;&#xC721;&#xCCAD; &#xBAA8;&#xC758;&#xACE0;&#xC0AC;</li>
+                    <li>KMO (Olympiad)</li>
+                </ul>
+                <span class="hub-count">512 papers</span>
+            </a>
+            <a href="/us/sat/" class="hub-card">
+                <span class="hub-flag">&#x1F1FA;&#x1F1F8;</span>
+                <h3>USA</h3>
+                <ul>
+                    <li>SAT Released Tests</li>
+                    <li>PSAT / NMSQT</li>
+                    <li>AP Calculus &amp; Statistics</li>
+                    <li>AMC / AIME / USAMO</li>
+                </ul>
+                <span class="hub-count">69 papers</span>
+            </a>
+            <a href="/uk/a-level/" class="hub-card">
+                <span class="hub-flag">&#x1F1EC;&#x1F1E7;</span>
+                <h3>UK</h3>
+                <ul>
+                    <li>A-Level Maths &amp; Sciences</li>
+                    <li>IGCSE Mathematics</li>
+                    <li>TMUA (Cambridge)</li>
+                    <li>MAT (Oxford)</li>
+                </ul>
+                <span class="hub-count">3,600+ papers</span>
+            </a>
+            <a href="/ca/" class="hub-card">
+                <span class="hub-flag">&#x1F1E8;&#x1F1E6;</span>
+                <h3>Canada</h3>
+                <ul>
+                    <li>Gauss (Grades 7&ndash;8)</li>
+                    <li>Pascal / Cayley / Fermat</li>
+                    <li>Euclid (Grade 12)</li>
+                </ul>
+                <span class="hub-count">CEMC Archive</span>
+            </a>
+        </div>
+    </section>
 
-    <!-- CTA -->
-    <div class="cta-section">
-        <h3>Want more practice?</h3>
-        <p>Try our online question bank with thousands of math problems</p>
-        <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="cta-main-btn">
-            Online Question Bank &rarr;
-        </a>
-    </div>
 
-    <!-- Support Section -->
-    <div style="text-align:center; padding:40px 20px; border-top:1px solid rgba(255,255,255,0.05);">
-        <p style="color:rgba(255,255,255,0.5); font-size:0.9em; margin-bottom:14px;">MathHub is free for everyone. If it helped you, consider supporting us.</p>
-        <a href="https://ko-fi.com/mathhubglobal" target="_blank" rel="noopener noreferrer"
-           style="display:inline-block; background:#FF5E5B; color:#fff; text-decoration:none; padding:10px 24px; border-radius:8px; font-size:0.95em; font-weight:600;">
-            ☕ Support on Ko-fi
-        </a>
-    </div>
+    <!-- About -->
+    <section class="about-section">
+        <h2>About MathHub</h2>
+        <p>MathHub is a free math education platform created by <strong>Daniel Park</strong>, a mathematics educator based in Seoul, serving students in Korea, the United States, the United Kingdom, Canada, and IB programs worldwide. We provide <strong>60+ interactive textbook chapters</strong> with Desmos visualizations, <strong>4,200+ official exam past papers</strong> with answer keys as free PDF downloads, and study blogs in English and Korean.</p>
+        <p>All resources are organized by country and curriculum so students find exactly what they need &mdash; whether preparing for the SAT, AP Calculus, A-Level Maths, IGCSE, CSAT (&#xC218;&#xB2A5;), IB Mathematics, or math competitions like AMC, UKMT, and CEMC.</p>
+    </section>
 
-    <div class="footer">
-        <p>&copy; 2026 MathHub Global. All rights reserved.</p>
-        <p style="margin-top:8px; font-size:0.9em;">
-            <a href="/about.html" style="color:rgba(255,255,255,0.6); text-decoration:none;">About</a> &middot;
-            <a href="/contact.html" style="color:rgba(255,255,255,0.6); text-decoration:none;">수학 과외 상담</a> &middot;
-            <a href="/privacy.html" style="color:rgba(255,255,255,0.6); text-decoration:none;">Privacy Policy</a> &middot;
-            <a href="/blog/" style="color:rgba(255,255,255,0.6); text-decoration:none;">Blog</a>
-        </p>
-    </div>
+    <!-- Featured Articles -->
+    <section class="featured-section" id="featured">
+        <h2>Featured Articles</h2>
+        <p class="featured-subtitle">In-depth educational content written by our team</p>
+        <div class="featured-grid">
+            <a href="/blog/ap-calculus-derivatives-textbook.html" class="featured-card">
+                <span class="featured-tag">AP Calculus</span>
+                <h3>Derivatives: Definition, Rules &amp; Applications</h3>
+                <p>Master the concept of derivatives from first principles through the power rule, product rule, and chain rule. Includes 15+ worked examples and interactive Desmos graphs.</p>
+                <span class="featured-meta">Textbook Chapter &middot; 8,000+ words</span>
+            </a>
+            <a href="/blog/algebra2-quadratic-textbook.html" class="featured-card">
+                <span class="featured-tag">Algebra 2</span>
+                <h3>Quadratic Functions &amp; Equations</h3>
+                <p>Complete guide to quadratics: factoring, completing the square, the quadratic formula, discriminant analysis, and real-world optimization problems.</p>
+                <span class="featured-meta">Textbook Chapter &middot; 10,000+ words</span>
+            </a>
+            <a href="/posts/riemann-sum.html" class="featured-card">
+                <span class="featured-tag">Calculus</span>
+                <h3>Riemann Sums &amp; Numerical Integration</h3>
+                <p>Understanding definite integrals through left, right, midpoint, and trapezoidal Riemann sums with visual explanations and convergence analysis.</p>
+                <span class="featured-meta">Blog Post &middot; In-depth guide</span>
+            </a>
+            <a href="/posts/origami-cubic-equation.html" class="featured-card">
+                <span class="featured-tag">Math &amp; Art</span>
+                <h3>Solving Cubic Equations with Origami</h3>
+                <p>How paper folding can solve equations that rulers and compasses cannot. Explores the intersection of mathematics and the ancient art of origami.</p>
+                <span class="featured-meta">Blog Post &middot; Original research</span>
+            </a>
+        </div>
+    </section>
 
-    <!-- Schema.org -->
+    <!-- FAQ -->
+    <section class="faq-section" id="faq">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Where can I download free math past papers?</div>
+            <div class="faq-a">MathHub offers 4,200+ free math past papers including SAT, AP Calculus, A-Level (CIE, Edexcel, OCR, AQA), IGCSE, CSAT (Korean), and CEMC (Canadian) exams. All papers are available as free PDF downloads organized by year and exam board. Visit the country section that matches your curriculum.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Are there free online math textbooks for AP Calculus?</div>
+            <div class="faq-a">Yes. MathHub provides free interactive AP Calculus AB/BC textbooks with 11 chapters, Desmos visualizations, worked examples, and practice problems. We also offer Pre-Algebra (8 chapters), Algebra 2 (10 chapters), and Precalculus (10 chapters) textbooks.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the Digital SAT format in 2026?</div>
+            <div class="faq-a">The Digital SAT is 2 hours 14 minutes, scored out of 1600, with two sections: Reading &amp; Writing (64 min, 54 questions) and Math (70 min, 44 questions). It uses multistage adaptive testing on the Bluebook app. All SAT administrations since March 2024 are fully digital.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Where can I find free A-Level and IGCSE past papers?</div>
+            <div class="faq-a">MathHub UK section offers 3,600+ A-Level and IGCSE past papers from CIE (Cambridge), Edexcel, OCR, and AQA exam boards. Papers include mark schemes and solutions, organized by subject, exam board, and year.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does MathHub have IB Mathematics resources?</div>
+            <div class="faq-a">Yes. MathHub provides free IB Math AA (Analysis &amp; Approaches) and AI (Applications &amp; Interpretation) online textbooks for both SL and HL levels, plus study guides, Internal Assessment tips, and Extended Essay resources.</div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/blog/">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Countries</h4>
+                <ul>
+                    <li><a href="/kr/">&#x1F1F0;&#x1F1F7; Korea</a></li>
+                    <li><a href="/us/">&#x1F1FA;&#x1F1F8; USA</a></li>
+                    <li><a href="/uk/">&#x1F1EC;&#x1F1E7; UK</a></li>
+                    <li><a href="/ca/">&#x1F1E8;&#x1F1E6; Canada</a></li>
+                    <li><a href="/ib/">&#x1F30D; IB</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/terms.html">Terms of Service</a></li>
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                    <li><a href="https://ko-fi.com/mathhubglobal" target="_blank" rel="noopener noreferrer nofollow">Support Us &#x2615;</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Schema.org: WebSite + SearchAction -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "MathHub Global",
+        "alternateName": ["MathHub", "매스허브"],
         "url": "https://mathhub.io/",
-        "description": "Math exam past papers and online workbooks for Korean CSAT, US SAT/AP, and UK A-Level/IGCSE.",
+        "description": "Free online math textbooks, 4,200+ exam past papers, and study guides for students in Korea, USA, UK & Canada.",
+        "inLanguage": ["en", "ko"],
         "publisher": {
             "@type": "Organization",
-            "name": "MathHub Global"
+            "name": "MathHub Global",
+            "url": "https://mathhub.io/",
+            "logo": "https://mathhub.io/assets/img/logo.png"
         },
         "potentialAction": {
             "@type": "SearchAction",
             "target": "https://mathhub.io/?q={search_term_string}",
             "query-input": "required name=search_term_string"
         }
+    }
+    </script>
+
+    <!-- Schema.org: Organization (Google Knowledge Panel) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "MathHub Global",
+        "url": "https://mathhub.io/",
+        "description": "Free math education platform providing textbooks, past exam papers, and study resources across 5 regions.",
+        "areaServed": [
+            {"@type": "Country", "name": "South Korea"},
+            {"@type": "Country", "name": "United States"},
+            {"@type": "Country", "name": "United Kingdom"},
+            {"@type": "Country", "name": "Canada"}
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Free Math Resources",
+            "itemListElement": [
+                {"@type": "OfferCatalog", "name": "Online Textbooks", "numberOfItems": 60},
+                {"@type": "OfferCatalog", "name": "Past Exam Papers", "numberOfItems": 4200}
+            ]
+        }
+    }
+    </script>
+
+    <!-- Schema.org: ItemList (Textbooks - for rich snippets) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Free Online Math Textbooks",
+        "description": "Interactive math textbooks with Desmos visualizations for AP, A-Level, IB, and more",
+        "numberOfItems": 60,
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "AP Calculus AB/BC", "url": "https://mathhub.io/us/"},
+            {"@type": "ListItem", "position": 2, "name": "A-Level Mathematics", "url": "https://mathhub.io/uk/"},
+            {"@type": "ListItem", "position": 3, "name": "IB Math AA/AI", "url": "https://mathhub.io/ib/"},
+            {"@type": "ListItem", "position": 4, "name": "Pre-Algebra & Algebra 2", "url": "https://mathhub.io/us/"},
+            {"@type": "ListItem", "position": 5, "name": "IGCSE Mathematics", "url": "https://mathhub.io/uk/"},
+            {"@type": "ListItem", "position": 6, "name": "Ontario & Quebec Curriculum", "url": "https://mathhub.io/ca/"}
+        ]
+    }
+    </script>
+
+    <!-- Schema.org: FAQ (Google featured snippets) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Where can I download free math past papers?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "MathHub offers 4,200+ free math past papers including SAT, AP Calculus, A-Level, IGCSE, CSAT (Korean), and CEMC (Canadian) exams. All papers are available as free PDF downloads organized by year and exam board."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are there free online math textbooks for AP Calculus?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. MathHub provides free interactive AP Calculus AB/BC textbooks with 11 chapters, Desmos visualizations, worked examples, and practice problems. Also available: Pre-Algebra, Algebra 2, and Precalculus textbooks."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the Digital SAT format in 2026?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The Digital SAT is 2 hours 14 minutes, scored out of 1600, with two sections: Reading & Writing (64 min) and Math (70 min). It uses adaptive testing on the Bluebook app. All SAT administrations since March 2024 are fully digital."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where can I find free A-Level and IGCSE past papers?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "MathHub UK section offers 3,600+ A-Level and IGCSE past papers from CIE (Cambridge), Edexcel, OCR, and AQA exam boards. Papers include mark schemes and solutions, organized by subject and year."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does MathHub have IB Mathematics resources?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. MathHub provides free IB Math AA (Analysis & Approaches) and AI (Applications & Interpretation) online textbooks for both SL and HL levels, plus study guides and Extended Essay resources."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Schema.org: BreadcrumbList (Google sitelinks) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://mathhub.io/"},
+            {"@type": "ListItem", "position": 2, "name": "Korea", "item": "https://mathhub.io/kr/"},
+            {"@type": "ListItem", "position": 3, "name": "USA", "item": "https://mathhub.io/us/"},
+            {"@type": "ListItem", "position": 4, "name": "UK", "item": "https://mathhub.io/uk/"},
+            {"@type": "ListItem", "position": 5, "name": "Canada", "item": "https://mathhub.io/ca/"},
+            {"@type": "ListItem", "position": 6, "name": "IB", "item": "https://mathhub.io/ib/"}
+        ]
     }
     </script>
 </body>

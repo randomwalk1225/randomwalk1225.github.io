@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>OEIS에 새로운 정수 수열 등록 — A392303 포물선 격자 경로 | 수학 블로그</title>
+    <meta name="description" content="이산화된 포물선 경계 y = floor(x²/n) 아래의 NE 격자 경로를 세는 새로운 수열 A392303이 OEIS에 정식 등록되었습니다. 카탈란 수의 비선형 변형 연구 과정을 소개합니다.">
+    <meta name="keywords" content="OEIS, A392303, 격자 경로, lattice paths, 카탈란 수, Catalan number, 포물선 경계, 정수 수열, 조합론">
+    <meta name="author" content="수학 블로그">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/kr/blog/oeis-a392303-lattice-paths.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/kr/blog/oeis-a392303-lattice-paths.html">
+    <meta property="og:title" content="OEIS에 새로운 정수 수열 등록 — A392303">
+    <meta property="og:description" content="포물선 경계 아래 격자 경로를 세는 수열 A392303이 OEIS에 정식 등록되었습니다.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://mathhub.io/kr/blog/oeis-a392303-lattice-paths.html">
+    <meta property="twitter:title" content="OEIS에 새로운 정수 수열 등록 — A392303">
+    <meta property="twitter:description" content="포물선 경계 아래 격자 경로를 세는 수열 A392303이 OEIS에 정식 등록되었습니다.">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
+            crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <!-- MathJax Configuration -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        nav.global-nav {
+            background: #667eea;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            height: 52px;
+        }
+        nav.global-nav a {
+            color: rgba(255,255,255,.85);
+            text-decoration: none;
+            font-size: .9em;
+        }
+        nav.global-nav .nav-brand {
+            font-weight: 700;
+            font-size: 1.1em;
+            color: white;
+        }
+        nav.global-nav .nav-links {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+        nav.global-nav .nav-links a.active {
+            color: white;
+            font-weight: 700;
+        }
+        nav.global-nav .nav-cta {
+            background: rgba(255,255,255,0.2);
+            color: white !important;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+        .header {
+            background: #667eea;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        .category-badge {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .date {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .definition-box {
+            background-color: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .theorem-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .example-box {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .highlight-box {
+            background: #667eea;
+            color: white;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.3em;
+        }
+        .formula {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px 14px;
+            text-align: center;
+        }
+        th {
+            background-color: #f0f4ff;
+            font-weight: 700;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+            margin: 20px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 4px;
+            bottom: 4px;
+            width: 3px;
+            background: #d4e6f1;
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 24px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -22px;
+            top: 8px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: #667eea;
+        }
+        .timeline-item.approved::before {
+            background: #27ae60;
+            box-shadow: 0 0 0 4px rgba(39,174,96,0.15);
+        }
+        .timeline-date {
+            font-size: 0.9em;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 4px;
+        }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            background: #f0f4ff;
+            border: 1px solid #d4e6f1;
+            border-radius: 8px;
+            padding: 18px;
+            text-align: center;
+        }
+        .stat-card .num {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #667eea;
+        }
+        .stat-card .label {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 4px;
+        }
+        .oeis-quote {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 16px 20px;
+            margin: 20px 0;
+            font-size: 0.95em;
+            color: #555;
+        }
+        .oeis-quote strong {
+            color: #333;
+        }
+        .open-problems {
+            counter-reset: qnum;
+            list-style: none;
+            margin-left: 0;
+        }
+        .open-problems li {
+            counter-increment: qnum;
+            padding-left: 40px;
+            position: relative;
+            margin-bottom: 12px;
+        }
+        .open-problems li::before {
+            content: "Q" counter(qnum);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            color: #667eea;
+            font-size: 0.9em;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            margin-top: 50px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/" class="active">KR</a>
+            <a href="/us/">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" rel="noopener nofollow" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <div class="header">
+        <div class="category-badge">Research</div>
+        <h1>OEIS에 새로운 정수 수열이 등록되기까지<br>— A392303의 여정</h1>
+        <div class="date">2026년 3월 12일</div>
+    </div>
+
+    <div class="container">
+        <a href="/kr/blog/" class="back-link">&larr; 목록으로 돌아가기</a>
+
+        <p style="font-style:italic; color:#555; border-left:3px solid #667eea; padding-left:14px; margin-bottom:30px;">
+            이산화된 포물선 경계 아래의 격자 경로를 세는 수열 A392303이 OEIS에 정식 등록되었습니다.
+        </p>
+
+        <!-- 1. 하나의 질문 -->
+        <h2>1. 시작: 하나의 질문</h2>
+
+        <div class="highlight-box">
+            "대각선 대신 포물선 아래로 제한하면 격자 경로가 몇 개나 될까?"
+        </div>
+
+        <p>
+            조합론에서 가장 유명한 수 중 하나인 <strong>카탈란 수(Catalan number)</strong>
+            $C_n$은 $(0,0)$에서 $(n,n)$까지 대각선 $y \leq x$ 아래를 지나는
+            북-동(NE) 격자 경로의 개수입니다.
+            이 문제는 수백 년의 역사를 가지고 있고,
+            닫힌 공식도 잘 알려져 있습니다.
+        </p>
+
+        <div class="formula">
+            $$C_n = \frac{1}{n+1}\binom{2n}{n}$$
+        </div>
+
+        <p>그런데 경계를 직선이 아닌 <strong>포물선</strong>으로 바꾸면 어떻게 될까요?</p>
+
+        <div class="formula">
+            $$y \;\leq\; \left\lfloor \frac{x^2}{n} \right\rfloor$$
+        </div>
+
+        <p>이 질문에서 출발한 연구가 하나의 논문이 되고, 새로운 정수 수열로 OEIS에 등록되기까지의 과정을 정리해 봅니다.</p>
+
+        <!-- 2. 문제 정의 -->
+        <h2>2. 문제 정의</h2>
+
+        <p>
+            정수 $n \geq 1$에 대해, $(0,0)$에서 $(n,n)$까지의 NE 격자 경로 중
+            모든 꼭짓점이 이산화된 포물선 경계 아래에 머무는 경로의 수를 $p_n$이라 정의합니다.
+        </p>
+
+        <div class="definition-box">
+            <strong>정의.</strong> 이산화된 포물선 경계:
+            $$\hat{f}_n(x) = \left\lfloor \frac{x^2}{n} \right\rfloor, \quad 0 \leq x \leq n$$
+            이 경계 아래에 머무는 NE 격자 경로의 수: $p_n = N_n(n,n)$
+        </div>
+
+        <p>이 문제가 고전적인 카탈란 경로 문제와 결정적으로 다른 점은 두 가지입니다:</p>
+
+        <ol>
+            <li><strong>경계가 곡선</strong>이다 &mdash; 직선이 아닌 포물선</li>
+            <li><strong>경계가 $n$에 의존</strong>한다 &mdash; 끝점이 바뀌면 경계 자체가 변한다</li>
+        </ol>
+
+        <p>
+            이 두 번째 성질 때문에, 전이행렬(transfer-matrix)이나 커널 방법(kernel method)
+            같은 표준 기법이 곧바로 적용되지 않습니다.
+        </p>
+
+        <!-- 3. 주요 결과 -->
+        <h2>3. 주요 결과</h2>
+
+        <p>논문에서 증명한 핵심 결과들은 다음과 같습니다:</p>
+
+        <div class="theorem-box">
+            <strong>주요 정리 요약</strong>
+            <ul style="margin-top:10px;">
+                <li><strong>기본 점화식</strong>: $N_n(x,y) = N_n(x-1,y) + N_n(x,y-1)$, 경계 조건 포함</li>
+                <li><strong>효율적 계산</strong>: $O(n^2)$ 시간, $O(n)$ 공간의 DP 알고리즘</li>
+                <li><strong>카탈란 수와의 비교</strong>: 모든 $n \geq 2$에 대해 $1 \leq p_n < C_n$</li>
+                <li><strong>P-recursive 탐색</strong>: 500개 항에서 차수 $\leq 6$, 계수 차수 $\leq 5$인 P-recursive 관계 없음</li>
+            </ul>
+        </div>
+
+        <p>수열의 처음 몇 항은 다음과 같습니다:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>$n$</th>
+                    <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th>
+                    <th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>$p_n$</th>
+                    <td>0</td><td>1</td><td>1</td><td>1</td><td>2</td>
+                    <td>5</td><td>7</td><td>19</td><td>56</td><td>174</td><td>392</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box">
+            <strong>예시 ($n=4$)</strong><br>
+            각 $x$ 좌표에서의 경계 높이: $(0,\, 0,\, 1,\, 2,\, 4)$<br>
+            이 경계 아래를 지나는 경로: 정확히 <strong>5개</strong>
+        </div>
+
+        <!-- 4. OEIS 등록 과정 -->
+        <h2>4. OEIS 등록 과정</h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <p class="timeline-date">2026년 3월 9일 &mdash; 제출</p>
+                <p>논문의 핵심 수열을 OEIS에 제출했습니다. 처음 제출한 내용에는 10개의 항과 Python 구현, 수학적 설명이 포함되어 있었습니다.</p>
+            </div>
+            <div class="timeline-item">
+                <p class="timeline-date">2026년 3월 10일 &mdash; 편집자 리뷰</p>
+                <p>
+                    제출 후 하루 만에 OEIS 편집자 <strong>Hugo Pfoertner</strong>가 리뷰를 시작했고,
+                    <strong>Alois P. Heinz</strong>가 Maple 코드를 작성하여 수열을 검증하고 대폭 확장했습니다.
+                </p>
+            </div>
+            <div class="timeline-item approved">
+                <p class="timeline-date" style="color:#27ae60;">2026년 3월 10일경 &mdash; 승인</p>
+                <p>리뷰와 검증을 거쳐 수열은 <strong>A392303</strong>으로 정식 승인되었습니다.</p>
+            </div>
+        </div>
+
+        <div class="oeis-quote">
+            <strong>A392303</strong>: Number of NE lattice paths from (0,0) to (n,n)
+            staying weakly below the discretized parabolic boundary $y = \lfloor x^2/n \rfloor$.
+        </div>
+
+        <!-- 5. 등록된 내용 -->
+        <h2>5. 등록된 OEIS 항목의 내용</h2>
+
+        <p>현재 <a href="https://oeis.org/A392303" target="_blank" style="color:#667eea; font-weight:600;">OEIS A392303</a> 페이지에는 다음이 수록되어 있습니다:</p>
+
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="num">33</div>
+                <div class="label">웹 페이지 표시 항</div>
+            </div>
+            <div class="stat-card">
+                <div class="num">1,830</div>
+                <div class="label">전체 계산 항 (A.P. Heinz)</div>
+            </div>
+            <div class="stat-card">
+                <div class="num">2</div>
+                <div class="label">프로그램 (Maple + Python)</div>
+            </div>
+        </div>
+
+        <ul>
+            <li><strong>Maple 프로그램</strong> (Alois P. Heinz 작성)</li>
+            <li><strong>Python 프로그램</strong> (저자 원본)</li>
+            <li><strong>카탈란 수 <a href="https://oeis.org/A000108" target="_blank">A000108</a>과의 교차 참조</strong></li>
+            <li>$n$에 의존하는 경계의 특수성에 대한 해설</li>
+        </ul>
+
+        <!-- 6. 열린 문제들 -->
+        <h2>6. 열린 문제들</h2>
+
+        <p>이 수열에는 여전히 풀리지 않은 문제들이 남아 있습니다:</p>
+
+        <ul class="open-problems">
+            <li><strong>점근 공식</strong>: $p_n$의 성장률은? &ensp; $p_n \sim\; ?$ &ensp; as $n \to \infty$</li>
+            <li><strong>닫힌 공식</strong>: 카탈란 수처럼 깔끔한 공식이 존재하는가?</li>
+            <li><strong>D-유한성(D-finiteness)</strong>: 생성함수가 미분 유한 함수인가?</li>
+            <li><strong>확률론적 해석</strong>: 이산 브라운 브릿지와의 연결?</li>
+        </ul>
+
+        <p>이 문제들 중 하나라도 해결된다면, 그것 자체로 하나의 논문이 될 수 있을 것입니다.</p>
+
+        <!-- 7. 되돌아보며 -->
+        <h2>7. 되돌아보며</h2>
+
+        <p>
+            독립 연구자로서 OEIS에 새로운 수열을 등록하는 과정은 논문 투고와는 또 다른 경험이었습니다.
+            제출한 지 하루 만에 전문 편집자들이 코드를 검증하고, 항을 1,830개까지 확장해 주는 것을 보면서
+            OEIS 커뮤니티의 놀라운 역량과 헌신을 실감할 수 있었습니다.
+        </p>
+
+        <p>수학 연구의 결과물이 공개 데이터베이스에 영구히 기록된다는 것 &mdash; 그 자체가 연구의 보람입니다.</p>
+
+        <hr style="margin:40px 0; border:none; border-top:1px solid #ddd;">
+
+        <ul style="list-style:none; margin-left:0; font-size:0.95em; color:#555;">
+            <li><strong>OEIS 수열</strong>: <a href="https://oeis.org/A392303" target="_blank">A392303</a></li>
+            <li><strong>논문</strong>: "Enumeration of North-East Lattice Paths Under a Discretized Parabolic Boundary" (Integers 저널 심사 중)</li>
+            <li><strong>저자</strong>: 이상열 (Sang Yeol Lee), iWorkMath Research Institute</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 MathHub. All rights reserved.
+    </div>
+</body>
+</html>

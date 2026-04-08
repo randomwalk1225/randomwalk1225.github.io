@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IB EE 주제 추천: 몬테카를로 시뮬레이션으로 원주율 추정 | MathHub</title>
+    <meta name="description" content="IB Extended Essay 수학 주제 추천: 몬테카를로 시뮬레이션으로 원주율(π)을 추정합니다. 난수 표본, 큰 수의 법칙, 수렴 속도의 수학적 분석을 EE에서 탐구합니다.">
+    <meta name="keywords" content="IB EE 주제, 몬테카를로, 원주율 추정, 파이, 난수, 큰 수의 법칙, 수렴 속도, Extended Essay, IB 수학 EE, 확률 시뮬레이션">
+    <meta name="author" content="MathHub Korea">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/kr/blog/ee-topic-monte-carlo.html">
+    <link rel="alternate" hreflang="en" href="https://mathhub.io/ib/blog/ee-topic-monte-carlo-pi.html" />
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/blog/ee-topic-monte-carlo.html" />
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/kr/blog/ee-topic-monte-carlo.html">
+    <meta property="og:title" content="IB EE 주제 추천: 몬테카를로 시뮬레이션으로 원주율 추정">
+    <meta property="og:description" content="난수 표본과 큰 수의 법칙으로 원주율을 추정하는 IB 수학 EE 가이드.">
+    <meta property="og:site_name" content="MathHub Korea">
+    <meta property="og:locale" content="ko_KR">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="IB EE 주제: 몬테카를로 시뮬레이션으로 원주율 추정">
+    <meta name="twitter:description" content="난수, 큰 수의 법칙, 수렴 속도 — 몬테카를로 원주율 추정 EE 가이드.">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] } };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans KR', Arial, sans-serif; line-height: 1.85; color: #333; background: #f5f7fa; }
+        nav.global-nav { background:#1e3a5f; display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:52px; }
+        nav.global-nav a { color:rgba(255,255,255,.85); text-decoration:none; font-size:.9em; }
+        nav.global-nav .nav-brand { font-weight:700; font-size:1.1em; color:white; }
+        nav.global-nav .nav-links { display:flex; gap:18px; align-items:center; }
+        nav.global-nav .nav-links a.active { color:white; font-weight:700; }
+        .header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 50px 20px; text-align: center; }
+        .header h1 { font-size: 2em; margin-bottom: 10px; line-height: 1.35; }
+        .category-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 16px; border-radius: 20px; font-size: 0.85em; margin-bottom: 14px; }
+        .date { opacity: 0.85; font-size: 0.9em; margin-top: 8px; }
+        .container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); border-radius: 10px; }
+        .back-link { display: inline-block; margin-bottom: 28px; color: #667eea; text-decoration: none; font-weight: 600; font-size: 0.9em; }
+        .back-link:hover { text-decoration: underline; }
+        h2 { color: #2c3e50; margin-top: 40px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid #667eea; font-size: 1.4em; }
+        h3 { color: #334155; margin-top: 28px; margin-bottom: 12px; font-size: 1.1em; }
+        p { margin-bottom: 14px; text-align: justify; }
+        ul, ol { margin-left: 28px; margin-bottom: 14px; }
+        li { margin-bottom: 7px; }
+        strong { color: #1e293b; }
+        .formula { background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 15px 0; overflow-x: auto; }
+        .info-box { background: #f0ebff; border-left: 4px solid #667eea; padding: 18px 20px; margin: 22px 0; border-radius: 4px; }
+        .tip-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 18px 20px; margin: 22px 0; border-radius: 4px; }
+        .example-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 20px; margin: 25px 0; border-radius: 4px; }
+        .consultation-cta { background: #f5f3ff; border-left: 4px solid #667eea; padding: 20px; border-radius: 8px; margin: 36px 0 0; }
+        .consultation-cta a { color: #667eea; font-weight: 700; text-decoration: none; }
+        .consultation-cta a:hover { text-decoration: underline; }
+        .footer { text-align: center; padding: 30px 20px; color: #666; margin-top: 50px; }
+        @media (max-width: 768px) { .container { padding: 30px 20px; margin: 20px; } .header h1 { font-size: 1.6em; } }
+    </style>
+</head>
+<body>
+<nav class="global-nav">
+    <a href="/" class="nav-brand">MathHub</a>
+    <div class="nav-links">
+        <a href="/kr/" class="active">KR</a>
+        <a href="/us/">US</a>
+        <a href="/uk/">UK</a>
+        <a href="/ca/">CA</a>
+        <a href="/ib/">IB</a>
+    </div>
+</nav>
+
+<div class="header">
+    <div class="category-badge">IB EE 주제 추천 &mdash; 수학</div>
+    <h1>몬테카를로 시뮬레이션으로 원주율 추정</h1>
+    <div class="date">2026년 3월 16일</div>
+</div>
+
+<div class="container">
+    <a href="/kr/blog/" class="back-link">&larr; 블로그 목록으로</a>
+
+    <h2>1. 몬테카를로 방법이란</h2>
+
+    <p>몬테카를로 방법(Monte Carlo method)은 난수(random number)를 이용하여 수학적 문제를 근사적으로 해결하는 계산 기법입니다. 이 방법의 이름은 모나코의 몬테카를로 카지노에서 유래했는데, 카지노의 룰렛처럼 무작위성(randomness)을 핵심 도구로 사용하기 때문입니다.</p>
+
+    <p>몬테카를로 방법은 해석적 풀이가 어렵거나 불가능한 문제에서 위력을 발휘합니다. 금융공학의 옵션 가격 산정, 핵물리학의 입자 수송 시뮬레이션, 통계 역학의 배치 계산 등 현대 과학과 공학의 다양한 분야에서 핵심적인 역할을 합니다.</p>
+
+    <p>IB EE에서 몬테카를로 방법을 주제로 선택하면, 확률론과 기하학을 결합한 우아한 수학을 탐구할 수 있습니다. 특히 원주율($\pi$) 추정은 몬테카를로 방법의 가장 직관적인 응용이며, 실험 설계와 통계적 분석이 자연스럽게 결합되는 주제입니다.</p>
+
+    <p>연구 질문 예시: "몬테카를로 시뮬레이션에서 표본 크기가 원주율 추정의 정확도와 수렴 속도에 미치는 영향을 수학적으로 분석하고, 이론적 수렴률과 비교하라."</p>
+
+    <h2>2. 원주율 추정의 기하학적 원리</h2>
+
+    <p>가장 고전적인 몬테카를로 원주율 추정 방법은 다음과 같습니다. 한 변의 길이가 2인 정사각형 내에 반지름 1인 원을 내접시킵니다. 정사각형의 넓이는 $4$이고 원의 넓이는 $\pi r^2 = \pi$입니다.</p>
+
+    <p>정사각형 내에 균일하게 난수 점 $(x, y)$를 생성합니다. 이때 $x, y \in [-1, 1]$입니다. 점이 원 내부에 있을 조건은:</p>
+
+    <div class="formula">
+        $$x^2 + y^2 \leq 1$$
+    </div>
+
+    <p>$N$개의 점 중 원 내부에 떨어진 점의 수를 $N_{\text{in}}$이라 하면, 큰 수의 법칙(Law of Large Numbers)에 의해:</p>
+
+    <div class="formula">
+        $$\frac{N_{\text{in}}}{N} \approx \frac{\text{원의 넓이}}{\text{정사각형의 넓이}} = \frac{\pi}{4}$$
+    </div>
+
+    <p>따라서:</p>
+
+    <div class="formula">
+        $$\pi \approx 4 \cdot \frac{N_{\text{in}}}{N}$$
+    </div>
+
+    <div class="example-box">
+        <strong>구체적 예시:</strong><br>
+        $N = 10{,}000$개의 점을 생성하여 $N_{\text{in}} = 7{,}856$개가 원 내부에 떨어졌다면:<br>
+        $\pi \approx 4 \times \frac{7856}{10000} = 3.1424$<br>
+        실제값 $\pi = 3.14159\ldots$와의 오차: $|3.1424 - 3.14159| = 0.00081$, 상대오차 약 0.026%
+    </div>
+
+    <h2>3. 큰 수의 법칙과 수렴</h2>
+
+    <p>몬테카를로 추정이 작동하는 수학적 근거는 큰 수의 법칙입니다. 각 점이 원 내부에 있는지를 나타내는 확률변수 $X_i$를 정의합니다: $X_i = 1$이면 원 내부, $X_i = 0$이면 원 외부. 이때 $E[X_i] = \pi/4$이고 $\text{Var}(X_i) = \frac{\pi}{4}(1 - \frac{\pi}{4})$입니다.</p>
+
+    <p>표본 평균 $\bar{X} = \frac{1}{N}\sum_{i=1}^{N} X_i$에 대해 큰 수의 법칙은 $N \to \infty$일 때 $\bar{X} \to \frac{\pi}{4}$를 보장합니다. 이것이 몬테카를로 추정의 일관성(consistency)입니다.</p>
+
+    <h3>3.1 수렴 속도</h3>
+
+    <p>중심극한정리(Central Limit Theorem)에 의해 추정값의 오차는 다음과 같이 분포합니다:</p>
+
+    <div class="formula">
+        $$\hat{\pi} - \pi \sim N\left(0, \frac{16 \cdot \text{Var}(X_i)}{N}\right)$$
+    </div>
+
+    <p>표준편차는 $\frac{4\sigma}{\sqrt{N}}$에 비례하므로, 몬테카를로 추정의 수렴 속도는 $O(1/\sqrt{N})$입니다. 이것은 매우 중요한 결과입니다: 정확도를 10배 높이려면 표본 수를 100배로 늘려야 합니다. 이 느린 수렴은 몬테카를로 방법의 본질적 한계이자, EE에서 비판적으로 논의할 핵심 포인트입니다.</p>
+
+    <div class="info-box">
+        <strong>수렴 속도 비교:</strong><br>
+        소수점 1자리 정확도($\pi \approx 3.1$): 약 $10^2$개의 표본<br>
+        소수점 2자리 정확도($\pi \approx 3.14$): 약 $10^4$개의 표본<br>
+        소수점 3자리 정확도($\pi \approx 3.142$): 약 $10^6$개의 표본<br>
+        소수점 4자리 정확도: 약 $10^8$개의 표본
+    </div>
+
+    <h2>4. EE에서 탐구할 수 있는 방향</h2>
+
+    <p><strong>수렴 속도 실험:</strong> $N = 10, 100, 1000, \ldots, 10^7$으로 변화시키며 $|\hat{\pi} - \pi|$를 측정합니다. 이 오차를 $\log N$에 대해 $\log$-$\log$ 그래프로 그리면 기울기가 약 $-0.5$인 직선이 나타나야 합니다. 이것이 $O(1/\sqrt{N})$ 수렴의 실험적 확인입니다. 각 $N$에서 50회 이상 반복하여 평균과 표준편차를 보고하면 통계적 엄밀성이 높아집니다.</p>
+
+    <p><strong>다른 기하학적 방법과 비교:</strong> 원 내부 점 세기 외에도 뷔퐁의 바늘(Buffon's needle) 문제로 $\pi$를 추정할 수 있습니다. 길이 $l$인 바늘을 간격 $d$인 평행선 위에 무작위로 떨어뜨릴 때, 바늘이 선과 교차할 확률은 $P = \frac{2l}{\pi d}$입니다. 두 방법의 수렴 속도를 비교하면 어떤 방법이 더 효율적인지 분석할 수 있습니다.</p>
+
+    <p><strong>의사 난수 생성기의 영향:</strong> 컴퓨터가 생성하는 난수는 진정한 난수가 아니라 의사 난수(pseudo-random number)입니다. 선형 합동법(Linear Congruential Generator), 메르센 트위스터(Mersenne Twister) 등 서로 다른 생성기를 사용했을 때 추정의 정확도가 달라지는지 실험적으로 비교할 수 있습니다.</p>
+
+    <p><strong>분산 감소 기법:</strong> 층화 표본(stratified sampling)이나 대조 변량(antithetic variates) 기법을 적용하여 같은 표본 수에서 더 높은 정확도를 달성할 수 있는지 분석합니다. 이는 고급 통계 기법이지만 IB HL 수준에서 접근 가능하며, 비판적 사고 점수를 크게 높일 수 있습니다.</p>
+
+    <h2>5. 몬테카를로의 확장 응용</h2>
+
+    <p>원주율 추정 이후, 몬테카를로 방법을 다른 문제에 적용하는 것으로 EE의 범위를 확장할 수 있습니다. 예를 들어 정적분의 근사값을 구할 수 있습니다:</p>
+
+    <div class="formula">
+        $$\int_a^b f(x) \, dx \approx (b - a) \cdot \frac{1}{N} \sum_{i=1}^{N} f(x_i)$$
+    </div>
+
+    <p>여기서 $x_i$는 $[a, b]$에서 균일하게 생성된 난수입니다. 해석적 적분이 어려운 함수(예: $e^{-x^2}$)에 대해 이 방법을 적용하고, 해석적 결과(가우스 적분)와 비교하면 몬테카를로 방법의 범용성을 보여줄 수 있습니다.</p>
+
+    <div class="tip-box">
+        <strong>A등급 전략:</strong> 단순히 "시뮬레이션을 돌려서 $\pi$에 가까운 값을 얻었다"에 그치지 마세요. 수렴 속도의 이론적 유도($O(1/\sqrt{N})$), 실험 결과와의 비교, 그리고 이 수렴 속도의 한계와 개선 방법(분산 감소 기법)까지 논의해야 A등급 수준의 비판적 분석이 됩니다.
+    </div>
+
+    <div class="consultation-cta">
+        <strong>Extended Essay 작성에 도움이 필요하신가요?</strong>
+        <p>주제 선정부터 리서치, 작성까지 경험 많은 IB 튜터가 안내해 드립니다.</p>
+        <a href="/contact.html">무료 상담 신청 &rarr;</a>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+    <p style="margin-top:6px; font-size:0.85em;">
+        <a href="/about.html" style="color:inherit;opacity:0.7;text-decoration:none;">About</a> &middot;
+        <a href="/privacy.html" style="color:inherit;opacity:0.7;text-decoration:none;">Privacy Policy</a>
+    </p>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "IB EE 주제 추천: 몬테카를로 시뮬레이션으로 원주율 추정",
+    "description": "난수 표본, 큰 수의 법칙, 수렴 속도를 활용한 몬테카를로 원주율 추정 IB EE 가이드.",
+    "author": { "@type": "Organization", "name": "MathHub Korea" },
+    "publisher": { "@type": "Organization", "name": "MathHub Global", "url": "https://mathhub.io/" },
+    "url": "https://mathhub.io/kr/blog/ee-topic-monte-carlo.html",
+    "datePublished": "2026-03-16",
+    "dateModified": "2026-03-16",
+    "inLanguage": "ko"
+}
+</script>
+
+</body>
+</html>

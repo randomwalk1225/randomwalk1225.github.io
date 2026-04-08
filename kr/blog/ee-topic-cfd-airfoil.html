@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IB EE 주제 추천: CFD(전산유체역학) — 에어포일 기류 시뮬레이션 | MathHub</title>
+    <meta name="description" content="IB Extended Essay 수학/물리 주제 추천: 전산유체역학(CFD)으로 에어포일 기류를 시뮬레이션합니다. 나비에-스토크스 방정식, 레이놀즈 수, 양력·항력 계수를 EE에서 탐구하는 방법을 안내합니다.">
+    <meta name="keywords" content="IB EE 주제, CFD, 전산유체역학, 에어포일, 나비에-스토크스, 레이놀즈 수, 양력 항력, Extended Essay, IB 수학 EE, 유체역학">
+    <meta name="author" content="MathHub Korea">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/kr/blog/ee-topic-cfd-airfoil.html">
+    <link rel="alternate" hreflang="en" href="https://mathhub.io/ib/blog/ee-topic-cfd-airfoil.html" />
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/blog/ee-topic-cfd-airfoil.html" />
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/kr/blog/ee-topic-cfd-airfoil.html">
+    <meta property="og:title" content="IB EE 주제 추천: CFD — 에어포일 기류 시뮬레이션">
+    <meta property="og:description" content="나비에-스토크스 방정식과 CFD 시뮬레이션으로 에어포일 양력을 분석하는 IB EE 가이드.">
+    <meta property="og:site_name" content="MathHub Korea">
+    <meta property="og:locale" content="ko_KR">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="IB EE 주제: CFD 에어포일 기류 시뮬레이션">
+    <meta name="twitter:description" content="나비에-스토크스 방정식, 레이놀즈 수, 양력/항력 — CFD 기반 에어포일 EE 가이드.">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] } };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans KR', Arial, sans-serif; line-height: 1.85; color: #333; background: #f5f7fa; }
+        nav.global-nav { background:#1e3a5f; display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:52px; }
+        nav.global-nav a { color:rgba(255,255,255,.85); text-decoration:none; font-size:.9em; }
+        nav.global-nav .nav-brand { font-weight:700; font-size:1.1em; color:white; }
+        nav.global-nav .nav-links { display:flex; gap:18px; align-items:center; }
+        nav.global-nav .nav-links a.active { color:white; font-weight:700; }
+        .header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 50px 20px; text-align: center; }
+        .header h1 { font-size: 2em; margin-bottom: 10px; line-height: 1.35; }
+        .category-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 16px; border-radius: 20px; font-size: 0.85em; margin-bottom: 14px; }
+        .date { opacity: 0.85; font-size: 0.9em; margin-top: 8px; }
+        .container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); border-radius: 10px; }
+        .back-link { display: inline-block; margin-bottom: 28px; color: #667eea; text-decoration: none; font-weight: 600; font-size: 0.9em; }
+        .back-link:hover { text-decoration: underline; }
+        h2 { color: #2c3e50; margin-top: 40px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid #667eea; font-size: 1.4em; }
+        h3 { color: #334155; margin-top: 28px; margin-bottom: 12px; font-size: 1.1em; }
+        p { margin-bottom: 14px; text-align: justify; }
+        ul, ol { margin-left: 28px; margin-bottom: 14px; }
+        li { margin-bottom: 7px; }
+        strong { color: #1e293b; }
+        .formula { background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 15px 0; overflow-x: auto; }
+        .info-box { background: #f0ebff; border-left: 4px solid #667eea; padding: 18px 20px; margin: 22px 0; border-radius: 4px; }
+        .tip-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 18px 20px; margin: 22px 0; border-radius: 4px; }
+        .warning-box { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 18px 20px; margin: 22px 0; border-radius: 4px; }
+        .consultation-cta { background: #f5f3ff; border-left: 4px solid #667eea; padding: 20px; border-radius: 8px; margin: 36px 0 0; }
+        .consultation-cta a { color: #667eea; font-weight: 700; text-decoration: none; }
+        .consultation-cta a:hover { text-decoration: underline; }
+        .footer { text-align: center; padding: 30px 20px; color: #666; margin-top: 50px; }
+        @media (max-width: 768px) { .container { padding: 30px 20px; margin: 20px; } .header h1 { font-size: 1.6em; } }
+    </style>
+</head>
+<body>
+<nav class="global-nav">
+    <a href="/" class="nav-brand">MathHub</a>
+    <div class="nav-links">
+        <a href="/kr/" class="active">KR</a>
+        <a href="/us/">US</a>
+        <a href="/uk/">UK</a>
+        <a href="/ca/">CA</a>
+        <a href="/ib/">IB</a>
+    </div>
+</nav>
+
+<div class="header">
+    <div class="category-badge">IB EE 주제 추천 &mdash; 수학/물리</div>
+    <h1>CFD(전산유체역학) — 에어포일 기류 시뮬레이션</h1>
+    <div class="date">2026년 3월 16일</div>
+</div>
+
+<div class="container">
+    <a href="/kr/blog/" class="back-link">&larr; 블로그 목록으로</a>
+
+    <h2>1. CFD가 EE 주제로 매력적인 이유</h2>
+
+    <p>전산유체역학(Computational Fluid Dynamics, CFD)은 유체의 흐름을 컴퓨터 시뮬레이션으로 분석하는 학문으로, 항공우주, 자동차, 에너지 산업에서 핵심적인 설계 도구입니다. IB EE에서 CFD를 다루면, 편미분방정식이라는 고등 수학과 물리적 현상을 결합하여 학제적(interdisciplinary) 탐구가 가능합니다.</p>
+
+    <p>에어포일(airfoil, 익형)은 항공기 날개의 단면 형상을 말하며, CFD의 가장 전통적인 응용 분야입니다. 에어포일 주변의 기류를 시뮬레이션하고 양력(lift)과 항력(drag)을 계산하는 것은 항공우주공학 연구의 출발점이자, EE에서 수학적 깊이와 실용적 관련성을 동시에 보여줄 수 있는 주제입니다.</p>
+
+    <p>연구 질문 예시: "NACA 0012 에어포일의 받음각(angle of attack) 변화에 따른 양력계수와 항력계수의 관계를 CFD 시뮬레이션으로 분석하고, 이론적 예측과 비교하라."</p>
+
+    <h2>2. 나비에-스토크스 방정식</h2>
+
+    <p>CFD의 수학적 기반은 나비에-스토크스 방정식(Navier-Stokes equations)입니다. 이 방정식은 뉴턴의 제2법칙($F = ma$)을 유체 요소에 적용한 것으로, 비압축성(incompressible) 유체의 경우 다음과 같이 표현됩니다:</p>
+
+    <div class="formula">
+        $$\rho \left( \frac{\partial \mathbf{u}}{\partial t} + (\mathbf{u} \cdot \nabla)\mathbf{u} \right) = -\nabla p + \mu \nabla^2 \mathbf{u} + \rho \mathbf{g}$$
+    </div>
+
+    <p>여기서 $\rho$는 유체 밀도, $\mathbf{u}$는 속도 벡터, $p$는 압력, $\mu$는 동적 점성 계수(dynamic viscosity), $\mathbf{g}$는 중력 가속도입니다. 좌변은 유체의 관성력, 우변은 압력 기울기, 점성력, 체적력을 나타냅니다.</p>
+
+    <p>연속 방정식(continuity equation)도 함께 풀어야 합니다:</p>
+
+    <div class="formula">
+        $$\nabla \cdot \mathbf{u} = 0$$
+    </div>
+
+    <p>나비에-스토크스 방정식의 일반적인 해석해(analytical solution)는 존재하지 않으며, 이것이 바로 수치적 방법, 즉 CFD가 필요한 이유입니다. 참고로 나비에-스토크스 방정식의 해의 존재성과 매끄러움(smoothness)은 아직 수학적으로 증명되지 않았으며, 클레이 수학 연구소의 밀레니엄 문제 중 하나입니다.</p>
+
+    <h2>3. 레이놀즈 수와 유동 특성</h2>
+
+    <p>레이놀즈 수(Reynolds number) $Re$는 유동의 특성을 결정하는 무차원 수입니다:</p>
+
+    <div class="formula">
+        $$Re = \frac{\rho u L}{\mu} = \frac{u L}{\nu}$$
+    </div>
+
+    <p>여기서 $u$는 유동 속도, $L$은 특성 길이(에어포일의 경우 시위 길이, chord length), $\nu$는 동점성 계수입니다. $Re$의 크기에 따라 유동은 크게 달라집니다:</p>
+
+    <ul>
+        <li><strong>$Re < 2,000$</strong>: 층류(laminar flow) — 유체 입자가 규칙적으로 흐름</li>
+        <li><strong>$2,000 < Re < 500,000$</strong>: 전이 영역(transition) — 층류에서 난류로 전환</li>
+        <li><strong>$Re > 500,000$</strong>: 난류(turbulent flow) — 불규칙적이고 혼합이 활발한 흐름</li>
+    </ul>
+
+    <p>실제 항공기 날개의 $Re$는 수백만에서 수천만에 이르지만, IB EE에서는 낮은 $Re$(수만 수준)에서의 시뮬레이션이 더 적합합니다. 낮은 $Re$에서는 층류 해석이 가능하여 난류 모델의 복잡성을 피할 수 있으면서도, 흥미로운 물리 현상(층류 박리 버블 등)을 관찰할 수 있습니다.</p>
+
+    <h2>4. 양력계수와 항력계수</h2>
+
+    <p>에어포일 주변의 압력 분포와 벽면 전단응력을 적분하면 양력과 항력을 구할 수 있습니다. 이를 무차원화한 것이 양력계수 $C_L$과 항력계수 $C_D$입니다:</p>
+
+    <div class="formula">
+        $$C_L = \frac{L}{\frac{1}{2} \rho u_\infty^2 c}, \quad C_D = \frac{D}{\frac{1}{2} \rho u_\infty^2 c}$$
+    </div>
+
+    <p>여기서 $L$은 양력, $D$는 항력, $u_\infty$는 자유류 속도, $c$는 시위 길이입니다. 받음각(angle of attack, $\alpha$)을 변화시키며 $C_L$과 $C_D$를 구하면 에어포일의 공력 특성을 파악할 수 있습니다.</p>
+
+    <p>얇은 에어포일 이론(thin airfoil theory)에 따르면, 작은 받음각에서 양력계수는 선형적으로 증가합니다:</p>
+
+    <div class="formula">
+        $$C_L \approx 2\pi \alpha$$
+    </div>
+
+    <p>이 이론적 예측과 CFD 시뮬레이션 결과를 비교하면 기준 C(비판적 사고)에서 높은 점수를 받을 수 있습니다. 특히 받음각이 커지면 실속(stall)이 발생하여 이론과 시뮬레이션의 차이가 커지는데, 이 불일치의 원인을 분석하는 것이 EE의 핵심 논의가 됩니다.</p>
+
+    <h2>5. 시뮬레이션 도구와 접근법</h2>
+
+    <p>IB 학생이 접근 가능한 CFD 도구를 소개합니다:</p>
+
+    <ul>
+        <li><strong>XFOIL</strong>: MIT에서 개발한 무료 에어포일 분석 프로그램. 패널 방법(panel method)과 경계층 해석을 결합하여 빠르게 $C_L$, $C_D$를 계산합니다. EE에서 가장 추천하는 도구입니다.</li>
+        <li><strong>OpenFOAM</strong>: 오픈소스 범용 CFD 소프트웨어. 설정이 복잡하지만 실제 산업 수준의 시뮬레이션이 가능합니다.</li>
+        <li><strong>SimScale</strong>: 웹 기반 CFD 플랫폼. 무료 계정으로도 기본적인 에어포일 시뮬레이션이 가능합니다.</li>
+    </ul>
+
+    <div class="warning-box">
+        <strong>주의:</strong> CFD 도구를 "블랙박스"처럼 사용하면 안 됩니다. 소프트웨어가 내부적으로 어떤 방정식을 풀고 있는지, 격자(mesh)의 밀도가 결과에 어떤 영향을 미치는지를 이해하고 설명해야 합니다. 도구의 사용법을 아는 것과 수학을 이해하는 것은 다릅니다.
+    </div>
+
+    <h2>6. EE 구성 제안</h2>
+
+    <p>CFD 에어포일 EE의 구성을 제안하면 다음과 같습니다. 서론에서 연구 배경과 질문을 밝히고, 이론적 배경에서 나비에-스토크스 방정식과 무차원 매개변수를 설명합니다. 방법론에서 사용한 소프트웨어, 에어포일 형상(NACA 프로파일), 격자 설정, 경계 조건을 기술합니다. 결과 분석에서 받음각별 $C_L$, $C_D$ 데이터를 표와 그래프로 제시하고 이론값과 비교합니다. 마지막으로 격자 독립성 검증(mesh independence study)과 모델의 한계를 논의합니다.</p>
+
+    <p>격자 독립성 검증은 CFD EE에서 반드시 포함해야 하는 요소입니다. 격자를 점점 미세하게 만들면서 결과가 더 이상 변하지 않는 지점을 확인하는 과정인데, 이것이 수치 해석의 신뢰성을 보증하는 방법이기 때문입니다.</p>
+
+    <div class="tip-box">
+        <strong>A등급 전략:</strong> 단순히 시뮬레이션 결과를 나열하지 말고, "왜 특정 받음각에서 양력이 급감하는가?", "왜 이론과 시뮬레이션이 특정 조건에서 일치하지 않는가?"와 같은 질문에 대한 물리적·수학적 해석을 제시하세요. 이것이 기준 C에서 높은 점수를 받는 비결입니다.
+    </div>
+
+    <div class="consultation-cta">
+        <strong>Extended Essay 작성에 도움이 필요하신가요?</strong>
+        <p>주제 선정부터 리서치, 작성까지 경험 많은 IB 튜터가 안내해 드립니다.</p>
+        <a href="/contact.html">무료 상담 신청 &rarr;</a>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+    <p style="margin-top:6px; font-size:0.85em;">
+        <a href="/about.html" style="color:inherit;opacity:0.7;text-decoration:none;">About</a> &middot;
+        <a href="/privacy.html" style="color:inherit;opacity:0.7;text-decoration:none;">Privacy Policy</a>
+    </p>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "IB EE 주제 추천: CFD(전산유체역학) — 에어포일 기류 시뮬레이션",
+    "description": "나비에-스토크스 방정식과 CFD 시뮬레이션으로 에어포일 양력·항력을 분석하는 IB EE 가이드.",
+    "author": { "@type": "Organization", "name": "MathHub Korea" },
+    "publisher": { "@type": "Organization", "name": "MathHub Global", "url": "https://mathhub.io/" },
+    "url": "https://mathhub.io/kr/blog/ee-topic-cfd-airfoil.html",
+    "datePublished": "2026-03-16",
+    "dateModified": "2026-03-16",
+    "inLanguage": "ko"
+}
+</script>
+
+</body>
+</html>

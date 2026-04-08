@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IB EE 주제 추천: 프랙탈 기하학과 만델브로 집합 | MathHub</title>
+    <meta name="description" content="IB Extended Essay 수학 주제 추천: 프랙탈 기하학과 만델브로 집합. 복소수 반복, 자기유사성, 프랙탈 차원(하우스도르프 차원)의 수학적 원리를 EE에서 탐구합니다.">
+    <meta name="keywords" content="IB EE 주제, 프랙탈, 만델브로 집합, 복소수, 자기유사성, 프랙탈 차원, Extended Essay, IB 수학 EE, 줄리아 집합, 하우스도르프 차원">
+    <meta name="author" content="MathHub Korea">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/kr/blog/ee-topic-fractals.html">
+    <link rel="alternate" hreflang="en" href="https://mathhub.io/ib/blog/ee-topic-fractals-mandelbrot.html" />
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/blog/ee-topic-fractals.html" />
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/kr/blog/ee-topic-fractals.html">
+    <meta property="og:title" content="IB EE 주제 추천: 프랙탈 기하학과 만델브로 집합">
+    <meta property="og:description" content="복소수 반복과 자기유사성으로 탐구하는 프랙탈 기하학 IB EE 가이드.">
+    <meta property="og:site_name" content="MathHub Korea">
+    <meta property="og:locale" content="ko_KR">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="IB EE 주제: 프랙탈 기하학과 만델브로 집합">
+    <meta name="twitter:description" content="복소수, 자기유사성, 프랙탈 차원 — 만델브로 집합 EE 가이드.">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] } };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans KR', Arial, sans-serif; line-height: 1.85; color: #333; background: #f5f7fa; }
+        nav.global-nav { background:#1e3a5f; display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:52px; }
+        nav.global-nav a { color:rgba(255,255,255,.85); text-decoration:none; font-size:.9em; }
+        nav.global-nav .nav-brand { font-weight:700; font-size:1.1em; color:white; }
+        nav.global-nav .nav-links { display:flex; gap:18px; align-items:center; }
+        nav.global-nav .nav-links a.active { color:white; font-weight:700; }
+        .header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 50px 20px; text-align: center; }
+        .header h1 { font-size: 2em; margin-bottom: 10px; line-height: 1.35; }
+        .category-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 16px; border-radius: 20px; font-size: 0.85em; margin-bottom: 14px; }
+        .date { opacity: 0.85; font-size: 0.9em; margin-top: 8px; }
+        .container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); border-radius: 10px; }
+        .back-link { display: inline-block; margin-bottom: 28px; color: #667eea; text-decoration: none; font-weight: 600; font-size: 0.9em; }
+        .back-link:hover { text-decoration: underline; }
+        h2 { color: #2c3e50; margin-top: 40px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid #667eea; font-size: 1.4em; }
+        h3 { color: #334155; margin-top: 28px; margin-bottom: 12px; font-size: 1.1em; }
+        p { margin-bottom: 14px; text-align: justify; }
+        ul, ol { margin-left: 28px; margin-bottom: 14px; }
+        li { margin-bottom: 7px; }
+        strong { color: #1e293b; }
+        .formula { background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 15px 0; overflow-x: auto; }
+        .info-box { background: #f0ebff; border-left: 4px solid #667eea; padding: 18px 20px; margin: 22px 0; border-radius: 4px; }
+        .tip-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 18px 20px; margin: 22px 0; border-radius: 4px; }
+        .example-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 20px; margin: 25px 0; border-radius: 4px; }
+        .consultation-cta { background: #f5f3ff; border-left: 4px solid #667eea; padding: 20px; border-radius: 8px; margin: 36px 0 0; }
+        .consultation-cta a { color: #667eea; font-weight: 700; text-decoration: none; }
+        .consultation-cta a:hover { text-decoration: underline; }
+        .footer { text-align: center; padding: 30px 20px; color: #666; margin-top: 50px; }
+        @media (max-width: 768px) { .container { padding: 30px 20px; margin: 20px; } .header h1 { font-size: 1.6em; } }
+    </style>
+</head>
+<body>
+<nav class="global-nav">
+    <a href="/" class="nav-brand">MathHub</a>
+    <div class="nav-links">
+        <a href="/kr/" class="active">KR</a>
+        <a href="/us/">US</a>
+        <a href="/uk/">UK</a>
+        <a href="/ca/">CA</a>
+        <a href="/ib/">IB</a>
+    </div>
+</nav>
+
+<div class="header">
+    <div class="category-badge">IB EE 주제 추천 &mdash; 수학</div>
+    <h1>프랙탈 기하학과 만델브로 집합</h1>
+    <div class="date">2026년 3월 16일</div>
+</div>
+
+<div class="container">
+    <a href="/kr/blog/" class="back-link">&larr; 블로그 목록으로</a>
+
+    <h2>1. 프랙탈이란 무엇인가</h2>
+
+    <p>프랙탈(fractal)은 1975년 수학자 브누아 만델브로(Benoit Mandelbrot)가 명명한 기하학적 대상으로, 어떤 스케일로 확대해도 전체와 유사한 구조가 반복되는 자기유사성(self-similarity)을 특징으로 합니다. 유클리드 기하학의 점(0차원), 선(1차원), 면(2차원), 공간(3차원)과 달리, 프랙탈은 정수가 아닌 비정수 차원을 가질 수 있습니다.</p>
+
+    <p>자연에서 프랙탈 구조는 놀라울 정도로 흔합니다. 해안선의 굴곡, 고사리 잎의 가지치기, 번개의 갈라짐, 혈관의 분기, 구름의 윤곽 — 모두 프랙탈적 특성을 보입니다. 만델브로가 던진 유명한 질문 "영국의 해안선 길이는 얼마인가?"는 프랙탈 기하학의 출발점입니다. 측정 자(ruler)의 길이를 줄일수록 해안선의 측정 길이는 계속 증가하며, 이론적으로는 무한대로 발산합니다.</p>
+
+    <p>IB EE에서 프랙탈은 시각적으로 매혹적이면서도 수학적으로 풍부한 주제입니다. 복소수, 반복(iteration), 차원 이론이라는 세 가지 수학 영역을 자연스럽게 통합할 수 있습니다.</p>
+
+    <p>연구 질문 예시: "만델브로 집합의 경계에서 반복 횟수에 따른 탈출 속도(escape speed)의 분포가 집합의 기하학적 구조에 대해 무엇을 알려주는가?"</p>
+
+    <h2>2. 만델브로 집합의 정의</h2>
+
+    <p>만델브로 집합(Mandelbrot set) $\mathcal{M}$은 복소 평면에서 다음 반복 관계의 궤도가 발산하지 않는 복소수 $c$의 집합으로 정의됩니다:</p>
+
+    <div class="formula">
+        $$z_{n+1} = z_n^2 + c, \quad z_0 = 0$$
+    </div>
+
+    <p>좀 더 형식적으로, $c \in \mathcal{M}$이면 수열 $\{z_n\}$이 유계(bounded)입니다. 즉 $|z_n|$이 무한대로 발산하지 않습니다. 수학적으로 $|z_n| > 2$가 되는 순간 수열은 반드시 발산하므로, 이 값을 탈출 반경(escape radius)으로 사용합니다.</p>
+
+    <div class="example-box">
+        <strong>예시:</strong><br>
+        $c = 0$: $z_1 = 0, z_2 = 0, z_3 = 0, \ldots$ → 유계 → $c = 0 \in \mathcal{M}$<br>
+        $c = 1$: $z_1 = 1, z_2 = 2, z_3 = 5, z_4 = 26, \ldots$ → 발산 → $c = 1 \notin \mathcal{M}$<br>
+        $c = -1$: $z_1 = -1, z_2 = 0, z_3 = -1, z_4 = 0, \ldots$ → 주기 2 → $c = -1 \in \mathcal{M}$<br>
+        $c = i$: $z_1 = i, z_2 = -1+i, z_3 = -i, z_4 = -1+i, \ldots$ → 주기 2 → $c = i \in \mathcal{M}$
+    </div>
+
+    <h2>3. 만델브로 집합의 시각화</h2>
+
+    <p>만델브로 집합을 시각화하는 알고리즘은 직관적입니다. 복소 평면의 각 점 $c$에 대해 반복을 수행하고, 발산까지의 반복 횟수에 따라 색상을 부여합니다. 집합에 속하는 점(발산하지 않는 점)은 보통 검은색으로 칠합니다.</p>
+
+    <p>Python으로 구현하면 약 20줄의 코드로 만델브로 집합을 그릴 수 있습니다. 복소 평면에서 실수부 $[-2.5, 1.0]$, 허수부 $[-1.25, 1.25]$ 범위를 격자(grid)로 나누고, 각 격자점에서 최대 반복 횟수(예: 100회)까지 반복을 수행합니다.</p>
+
+    <p>만델브로 집합의 경계를 확대하면, 놀랍게도 원래 전체 형상과 유사한 소형 만델브로 집합들이 무한히 나타납니다. 이것이 바로 자기유사성이며, 확대 배율을 $10^{14}$ 이상으로 올려도 새로운 구조가 계속 드러납니다. 이 성질은 집합의 경계가 프랙탈임을 보여줍니다.</p>
+
+    <h2>4. 줄리아 집합과의 관계</h2>
+
+    <p>만델브로 집합과 밀접한 관계에 있는 것이 줄리아 집합(Julia set)입니다. 줄리아 집합은 고정된 $c$에 대해 다양한 초기값 $z_0$로 반복을 수행했을 때, 궤도가 유계인 $z_0$의 집합입니다. 즉 만델브로 집합이 "매개변수 공간"에서의 집합이라면, 줄리아 집합은 "초기값 공간"에서의 집합입니다.</p>
+
+    <p>핵심적인 정리가 있습니다: $c \in \mathcal{M}$이면 대응하는 줄리아 집합 $J_c$는 연결(connected)되고, $c \notin \mathcal{M}$이면 $J_c$는 완전 불연결(totally disconnected, Cantor dust)됩니다. 이 정리를 시각적으로 보여주는 것은 EE에서 매우 효과적인 분석 소재입니다.</p>
+
+    <h2>5. 프랙탈 차원</h2>
+
+    <p>프랙탈의 가장 중요한 수학적 특성은 비정수 차원입니다. 프랙탈 차원을 정량화하는 방법 중 IB 수준에서 접근 가능한 것이 박스 카운팅 차원(box-counting dimension)입니다:</p>
+
+    <div class="formula">
+        $$D = \lim_{\epsilon \to 0} \frac{\ln N(\epsilon)}{\ln(1/\epsilon)}$$
+    </div>
+
+    <p>여기서 $N(\epsilon)$은 한 변의 길이가 $\epsilon$인 정사각형(박스)으로 프랙탈을 덮을 때 필요한 최소 박스 수입니다. $\epsilon$을 줄여가며 $N(\epsilon)$을 측정하고, $\ln N(\epsilon)$ 대 $\ln(1/\epsilon)$의 그래프를 그리면 기울기가 프랙탈 차원 $D$에 해당합니다.</p>
+
+    <div class="info-box">
+        <strong>고전적 프랙탈의 차원:</strong><br>
+        코흐 눈송이(Koch snowflake): $D = \frac{\ln 4}{\ln 3} \approx 1.262$<br>
+        시어핀스키 삼각형(Sierpinski triangle): $D = \frac{\ln 3}{\ln 2} \approx 1.585$<br>
+        만델브로 집합의 경계: $D = 2$ (경계가 놀랍도록 복잡)
+    </div>
+
+    <h2>6. EE에서의 탐구 방향</h2>
+
+    <p><strong>반복 횟수와 경계의 복잡도:</strong> 최대 반복 횟수를 10, 50, 100, 500, 1000으로 변화시키며 만델브로 집합의 시각화가 어떻게 변하는지 분석합니다. 반복 횟수가 증가할수록 경계의 세부 구조가 드러나며, 이를 통해 "무한 반복의 극한"이라는 수학적 개념을 직관적으로 이해할 수 있습니다.</p>
+
+    <p><strong>줄리아 집합의 형태 탐구:</strong> 만델브로 집합의 다양한 위치에서 $c$를 선택하여 대응하는 줄리아 집합을 그리고, $c$의 위치(집합 내부, 경계, 외부)에 따른 줄리아 집합의 형태 변화를 분류합니다.</p>
+
+    <p><strong>코흐 눈송이의 박스 카운팅 차원 측정:</strong> 실제로 격자를 사용하여 코흐 눈송이의 프랙탈 차원을 실험적으로 측정하고, 이론값 $\ln 4 / \ln 3$과 비교합니다. 측정의 오차 원인을 분석하는 것도 비판적 사고 요소입니다.</p>
+
+    <div class="tip-box">
+        <strong>A등급 전략:</strong> 만델브로 집합의 아름다운 이미지에 매료되어 시각적 측면만 강조하지 마세요. 이미지 생성은 개인적 참여를 보여주는 수단이며, EE의 본질은 "왜 이 구조가 나타나는가?"에 대한 수학적 분석입니다. 반복 함수의 고정점(fixed point), 주기 궤도(periodic orbit), 분기(bifurcation) 등을 논의하여 깊이를 더하세요.
+    </div>
+
+    <div class="consultation-cta">
+        <strong>Extended Essay 작성에 도움이 필요하신가요?</strong>
+        <p>주제 선정부터 리서치, 작성까지 경험 많은 IB 튜터가 안내해 드립니다.</p>
+        <a href="/contact.html">무료 상담 신청 &rarr;</a>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+    <p style="margin-top:6px; font-size:0.85em;">
+        <a href="/about.html" style="color:inherit;opacity:0.7;text-decoration:none;">About</a> &middot;
+        <a href="/privacy.html" style="color:inherit;opacity:0.7;text-decoration:none;">Privacy Policy</a>
+    </p>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "IB EE 주제 추천: 프랙탈 기하학과 만델브로 집합",
+    "description": "복소수 반복, 자기유사성, 프랙탈 차원으로 탐구하는 만델브로 집합 IB EE 가이드.",
+    "author": { "@type": "Organization", "name": "MathHub Korea" },
+    "publisher": { "@type": "Organization", "name": "MathHub Global", "url": "https://mathhub.io/" },
+    "url": "https://mathhub.io/kr/blog/ee-topic-fractals.html",
+    "datePublished": "2026-03-16",
+    "dateModified": "2026-03-16",
+    "inLanguage": "ko"
+}
+</script>
+
+</body>
+</html>

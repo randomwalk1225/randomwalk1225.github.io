@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IB EE Topic: Monte Carlo Simulation — Estimating Pi and Beyond | MathHub IB</title>
+    <meta name="description" content="Monte Carlo simulation as an IB Extended Essay topic. Learn how to estimate pi using random sampling, analyze convergence rates, and explore advanced applications for your Math or CS EE.">
+    <meta name="keywords" content="IB Extended Essay, Monte Carlo simulation, estimate pi, IB Math EE, random sampling, convergence rate, law of large numbers, IB EE topic ideas 2026, variance reduction">
+    <meta name="author" content="MathHub IB">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/ib/blog/ee-topic-monte-carlo-pi.html">
+    <link rel="alternate" hreflang="en" href="https://mathhub.io/ib/blog/ee-topic-monte-carlo-pi.html" />
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/blog/ee-topic-monte-carlo.html" />
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/ib/blog/ee-topic-monte-carlo-pi.html">
+    <meta property="og:title" content="IB EE Topic: Monte Carlo Simulation — Estimating Pi and Beyond">
+    <meta property="og:description" content="Why Monte Carlo methods make an excellent IB Extended Essay topic, with research questions, statistical methodology, and Python implementation guidance.">
+    <meta property="og:site_name" content="MathHub Global">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif; line-height:1.8; color:#333; background:#f5f7fa; }
+        nav.global-nav { background:#1e3a5f; display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:52px; }
+        nav.global-nav a { color:rgba(255,255,255,.85); text-decoration:none; font-size:.9em; }
+        nav.global-nav .nav-brand { font-weight:700; font-size:1.1em; color:white; }
+        nav.global-nav .nav-links { display:flex; gap:18px; align-items:center; }
+        nav.global-nav .nav-links a.active { color:white; font-weight:700; }
+        .header { background:linear-gradient(135deg,#0f766e,#1e3a5f); color:white; padding:50px 20px; text-align:center; }
+        .header h1 { font-size:2em; margin-bottom:10px; line-height:1.3; }
+        .category-badge { display:inline-block; background:rgba(255,255,255,0.2); padding:5px 16px; border-radius:20px; font-size:.85em; margin-bottom:14px; }
+        .date { opacity:.85; font-size:.9em; margin-top:8px; }
+        .container { max-width:900px; margin:40px auto; background:white; padding:50px; box-shadow:0 2px 10px rgba(0,0,0,.08); border-radius:10px; }
+        .back-link { display:inline-block; margin-bottom:28px; color:#0f766e; text-decoration:none; font-weight:600; font-size:.9em; }
+        h2 { color:#0f766e; margin-top:40px; margin-bottom:18px; padding-bottom:10px; border-bottom:2px solid #0f766e; font-size:1.4em; }
+        h3 { color:#334155; margin-top:28px; margin-bottom:12px; font-size:1.1em; }
+        p { margin-bottom:14px; }
+        ul, ol { margin-left:28px; margin-bottom:14px; }
+        li { margin-bottom:7px; }
+        .info-box { background:#f0fdfa; border-left:4px solid #0f766e; padding:18px 20px; margin:22px 0; border-radius:4px; }
+        .warning-box { background:#fef3c7; border-left:4px solid #f59e0b; padding:18px 20px; margin:22px 0; border-radius:4px; }
+        code { background:#f1f5f9; padding:2px 6px; border-radius:4px; font-size:.9em; }
+        .cta-box { background:#f0fdf4; border-left:4px solid #0f766e; padding:20px; border-radius:8px; margin:36px 0; }
+        .cta-box h3 { color:#0f766e; margin:0 0 10px; font-size:1.15em; }
+        .cta-box p { margin-bottom:12px; }
+        .cta-box a { color:#0f766e; font-weight:700; text-decoration:none; }
+        .cta-box a:hover { text-decoration:underline; }
+        .site-footer { background:#1e293b; color:#94a3b8; padding:40px 24px 20px; font-size:.88em; }
+        .footer-grid { max-width:900px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
+        .footer-col h4 { color:white; margin-bottom:12px; font-size:.95em; }
+        .footer-col ul { list-style:none; margin:0; padding:0; }
+        .footer-col li { margin-bottom:6px; }
+        .footer-col a { color:#94a3b8; text-decoration:none; }
+        .footer-col a:hover { color:white; }
+        .footer-bottom { max-width:900px; margin:24px auto 0; padding-top:16px; border-top:1px solid #334155; text-align:center; }
+        @media (max-width:768px) { .container { padding:28px 18px; margin:16px; } .header h1 { font-size:1.5em; } .footer-grid { grid-template-columns:1fr; } }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "IB EE Topic: Monte Carlo Simulation — Estimating Pi and Beyond",
+        "description": "Monte Carlo simulation as an IB Extended Essay topic with research questions, statistical methodology, and Python implementation.",
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "publisher": { "@type": "Organization", "name": "MathHub Global", "url": "https://mathhub.io" },
+        "datePublished": "2026-03-16",
+        "dateModified": "2026-03-16",
+        "mainEntityOfPage": "https://mathhub.io/ib/blog/ee-topic-monte-carlo-pi.html"
+    }
+    </script>
+</head>
+<body>
+<nav class="global-nav">
+    <a href="/" class="nav-brand">MathHub</a>
+    <div class="nav-links">
+        <a href="/kr/">KR</a>
+        <a href="/us/">US</a>
+        <a href="/uk/">UK</a>
+        <a href="/ca/">CA</a>
+        <a href="/ib/" class="active">IB</a>
+    </div>
+</nav>
+
+<div class="header">
+    <div class="category-badge">IB Extended Essay — Mathematics</div>
+    <h1>IB EE Topic: Monte Carlo Simulation — Estimating Pi and Beyond</h1>
+    <div class="date">March 2026 · MathHub IB</div>
+</div>
+
+<div class="container">
+    <a href="/ib/blog/" class="back-link">&larr; Back to IB Blog</a>
+
+    <p>Monte Carlo simulation is one of those rare topics that feels almost like magic when you first encounter it: generate random numbers, and somehow extract precise mathematical truths. For IB students looking for an Extended Essay topic that bridges probability, statistics, and computational thinking, Monte Carlo methods offer a deeply rewarding path. The mathematics is accessible yet profound, the experiments are reproducible and visually compelling, and the real-world applications span finance, physics, engineering, and beyond.</p>
+
+    <p>I have supervised several Extended Essays on Monte Carlo methods, and the best ones share a common trait: they go beyond simply estimating pi. They investigate <em>why</em> the method converges, <em>how fast</em> it converges, and <em>what factors</em> affect accuracy. That analytical depth is what separates a strong essay from a demonstration project.</p>
+
+    <h2>The Core Idea: Randomness as a Computational Tool</h2>
+
+    <p>The fundamental Monte Carlo approach to estimating pi is beautifully simple. Inscribe a circle of radius 1 inside a 2x2 square. The area of the circle is pi, and the area of the square is 4, so the ratio of circle area to square area is pi/4. If you generate random points uniformly distributed within the square and count how many fall inside the circle, the fraction of points inside the circle should approximate pi/4 as the number of points grows large.</p>
+
+    <p>Mathematically, for a random point (x, y) where x and y are uniformly distributed on [-1, 1], the point lies inside the unit circle if and only if x^2 + y^2 &le; 1. After generating N random points and counting M that satisfy this condition, the estimate is pi &approx; 4M/N. This is a direct application of the frequentist interpretation of probability — the ratio of favorable outcomes to total trials approaches the theoretical probability as trials increase.</p>
+
+    <p>What makes this topic rich enough for an Extended Essay is that the simple statement above opens doors to deep questions about convergence, accuracy, and efficiency.</p>
+
+    <h2>Recommended Research Questions</h2>
+
+    <div class="info-box">
+        <strong>Primary recommendation:</strong> "How does the number of random samples in a Monte Carlo simulation affect the accuracy and convergence rate of pi estimation?"
+    </div>
+
+    <p>This question is well-scoped because it has a clear independent variable (sample count N), measurable dependent variables (estimation error, convergence rate), and connects to established statistical theory (the law of large numbers and central limit theorem).</p>
+
+    <p>Stronger alternative questions that push into more advanced territory:</p>
+    <ul>
+        <li>"How do quasi-random sequences (Halton, Sobol) compare to pseudo-random numbers in Monte Carlo estimation of pi, and what explains the difference in convergence rates?"</li>
+        <li>"To what extent do variance reduction techniques (antithetic variates, stratified sampling) improve the efficiency of Monte Carlo integration?"</li>
+        <li>"How does the dimensionality of the integration problem affect the relative advantage of Monte Carlo methods over deterministic numerical integration?"</li>
+    </ul>
+
+    <h2>Key Concepts for Your Essay</h2>
+
+    <h3>The Law of Large Numbers</h3>
+    <p>The theoretical foundation of Monte Carlo simulation is the law of large numbers (LLN). The weak law states that for independent, identically distributed random variables with finite mean, the sample average converges in probability to the population mean as sample size increases. In the context of pi estimation, each random point is a Bernoulli trial with probability pi/4 of landing inside the circle. The LLN guarantees that our estimate 4M/N converges to pi. Your essay should state and explain this theorem — do not merely cite it. Show that you understand why convergence is guaranteed.</p>
+
+    <h3>Convergence Rate: The 1/sqrt(N) Rule</h3>
+    <p>The central limit theorem tells us something more precise: the standard error of a Monte Carlo estimate decreases proportionally to 1/sqrt(N), where N is the number of samples. This means that to gain one additional decimal digit of accuracy (reducing error by a factor of 10), you need 100 times as many samples. This slow convergence rate is both the fundamental limitation and the key analytical opportunity in your essay.</p>
+
+    <p>You can verify this empirically by running your simulation at various sample sizes (100, 1000, 10,000, 100,000, 1,000,000) and plotting the absolute error against N on a log-log scale. The slope should be approximately -0.5, corresponding to the theoretical 1/sqrt(N) rate. When your experimental data matches the theoretical prediction, it makes for a powerful conclusion.</p>
+
+    <h3>Confidence Intervals</h3>
+    <p>For each estimate, you should construct confidence intervals. Since each sample is a Bernoulli trial, the standard error of the proportion p = M/N is sqrt(p(1-p)/N). A 95% confidence interval for pi is then 4p &plusmn; 4 * 1.96 * sqrt(p(1-p)/N). Presenting your results with confidence intervals demonstrates statistical rigor that examiners reward highly. Track how the width of your confidence interval shrinks as N increases and compare this shrinkage to the theoretical 1/sqrt(N) prediction.</p>
+
+    <h3>Variance Reduction Techniques</h3>
+    <p>If you want to push your essay into higher-scoring territory, investigate variance reduction. The simplest technique is <strong>antithetic variates</strong>: for each random point (x, y), also evaluate the "mirror" point (-x, -y). Since these two points are negatively correlated, their average has lower variance than two independent samples. <strong>Stratified sampling</strong> divides the square into sub-regions and samples each region proportionally, reducing the chance that random clustering skews the estimate. Both techniques can reduce the constant factor in the convergence rate without changing the 1/sqrt(N) asymptotic behavior — a nuanced finding that demonstrates deep understanding.</p>
+
+    <h2>Methodology: Designing Your Experiment</h2>
+
+    <p>Your simulation should be implemented in Python using <code>numpy</code> for random number generation and <code>matplotlib</code> for visualization. Here is the experimental design I recommend:</p>
+
+    <ol>
+        <li><strong>Basic pi estimation</strong>: Run simulations at N = 10^k for k = 1, 2, 3, 4, 5, 6. For each N, repeat 100 trials with different random seeds. Record the mean estimate, standard deviation, and 95% confidence interval.</li>
+        <li><strong>Convergence analysis</strong>: Plot absolute error versus N on a log-log scale. Fit a power law and verify the exponent is approximately -0.5.</li>
+        <li><strong>Visual demonstration</strong>: For small N (500-2000 points), create scatter plots showing points inside the circle (one color) and outside (another color). These visualizations are compelling in your essay and help the reader grasp the method intuitively.</li>
+        <li><strong>Variance reduction comparison</strong>: Implement antithetic variates and stratified sampling. Compare their convergence rates to the basic method using the same total number of function evaluations.</li>
+        <li><strong>Statistical testing</strong>: Use a chi-squared goodness-of-fit test or a z-test to verify that your estimates are statistically consistent with the true value of pi.</li>
+    </ol>
+
+    <div class="warning-box">
+        <strong>Common pitfall:</strong> Students often present a single simulation run and declare "Monte Carlo works." This is insufficient. You need repeated trials, statistical analysis, and comparison across conditions. The strength of your essay comes from the <em>analysis</em> of results, not from the fact that the simulation produces a number close to pi.
+    </div>
+
+    <h2>Extensions: Monte Carlo Beyond Pi</h2>
+
+    <p>To demonstrate breadth and sophistication, devote a section of your essay to applications beyond pi estimation. Monte Carlo integration is a general technique for evaluating integrals that are difficult or impossible to compute analytically. For example, you could estimate the integral of e^(-x^2) over [0, 1] (related to the Gaussian error function) and compare your Monte Carlo result with the known value.</p>
+
+    <p>In finance, Monte Carlo simulation is used to price options. The Black-Scholes model assumes stock prices follow geometric Brownian motion, and Monte Carlo methods simulate thousands of possible price paths to estimate the expected payoff of an option. While a full treatment of option pricing may be beyond the scope of your EE, mentioning it demonstrates awareness of the method's significance.</p>
+
+    <p>In physics, Monte Carlo methods simulate particle interactions, thermal equilibrium, and quantum systems. The method's power lies in its ability to handle high-dimensional problems where deterministic methods are computationally infeasible — a property known as the "curse of dimensionality" that Monte Carlo uniquely overcomes.</p>
+
+    <h2>Structuring Your Extended Essay</h2>
+
+    <ol>
+        <li><strong>Introduction</strong> (400 words): motivation, research question, scope</li>
+        <li><strong>Mathematical Background</strong> (700 words): probability theory, LLN, CLT, convergence rate derivation</li>
+        <li><strong>Methodology</strong> (500 words): simulation design, Python implementation, statistical methods</li>
+        <li><strong>Results</strong> (1000 words): data tables, convergence plots, confidence intervals, variance reduction comparison</li>
+        <li><strong>Discussion</strong> (800 words): interpretation, limitations, extensions, real-world applications</li>
+        <li><strong>Conclusion</strong> (400 words): answer the research question, reflect on mathematical significance</li>
+    </ol>
+
+    <p>The key to a high-scoring Monte Carlo essay is balance: enough mathematical theory to demonstrate understanding, enough experimental data to support your claims, and enough critical analysis to show you can evaluate results rather than just present them.</p>
+
+    <div class="cta-box">
+        <h3>Need help with your Extended Essay?</h3>
+        <p>Our experienced IB tutors can guide you through topic selection, research, and writing. From designing your simulation methodology to interpreting your statistical results, we provide expert support at every stage.</p>
+        <p><a href="/contact-en.html">&rarr; Request Free Consultation</a></p>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Resources</h4>
+            <ul><li><a href="/blog/">Blog</a></li></ul>
+        </div>
+        <div class="footer-col">
+            <h4>Countries</h4>
+            <ul>
+                <li><a href="/kr/">Korea</a></li>
+                <li><a href="/us/">USA</a></li>
+                <li><a href="/uk/">UK</a></li>
+                <li><a href="/ca/">Canada</a></li>
+                <li><a href="/ib/">IB</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="/about.html">About Us</a></li>
+                <li><a href="/contact-en.html">Contact</a></li>
+                <li><a href="/privacy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

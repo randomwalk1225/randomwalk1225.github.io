@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IB EE 주제 추천: A* 경로 탐색 알고리즘 분석 | MathHub</title>
+    <meta name="description" content="IB Extended Essay 수학/CS 주제 추천: A* 경로 탐색 알고리즘. 그래프 이론, 휴리스틱 함수, 시간 복잡도 분석을 EE에서 탐구하는 방법을 안내합니다.">
+    <meta name="keywords" content="IB EE 주제, A* 알고리즘, 경로 탐색, 그래프 이론, 휴리스틱, 시간 복잡도, Extended Essay, IB 수학 EE, 다익스트라, 최단경로">
+    <meta name="author" content="MathHub Korea">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/kr/blog/ee-topic-pathfinding.html">
+    <link rel="alternate" hreflang="en" href="https://mathhub.io/ib/blog/ee-topic-pathfinding-algorithms.html" />
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/blog/ee-topic-pathfinding.html" />
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/kr/blog/ee-topic-pathfinding.html">
+    <meta property="og:title" content="IB EE 주제 추천: A* 경로 탐색 알고리즘 분석">
+    <meta property="og:description" content="그래프 이론과 휴리스틱으로 분석하는 A* 최단경로 알고리즘 IB EE 가이드.">
+    <meta property="og:site_name" content="MathHub Korea">
+    <meta property="og:locale" content="ko_KR">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="IB EE 주제: A* 경로 탐색 알고리즘 분석">
+    <meta name="twitter:description" content="그래프 이론, 휴리스틱, 시간 복잡도 — A* 알고리즘 EE 가이드.">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] } };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans KR', Arial, sans-serif; line-height: 1.85; color: #333; background: #f5f7fa; }
+        nav.global-nav { background:#1e3a5f; display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:52px; }
+        nav.global-nav a { color:rgba(255,255,255,.85); text-decoration:none; font-size:.9em; }
+        nav.global-nav .nav-brand { font-weight:700; font-size:1.1em; color:white; }
+        nav.global-nav .nav-links { display:flex; gap:18px; align-items:center; }
+        nav.global-nav .nav-links a.active { color:white; font-weight:700; }
+        .header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 50px 20px; text-align: center; }
+        .header h1 { font-size: 2em; margin-bottom: 10px; line-height: 1.35; }
+        .category-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 16px; border-radius: 20px; font-size: 0.85em; margin-bottom: 14px; }
+        .date { opacity: 0.85; font-size: 0.9em; margin-top: 8px; }
+        .container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); border-radius: 10px; }
+        .back-link { display: inline-block; margin-bottom: 28px; color: #667eea; text-decoration: none; font-weight: 600; font-size: 0.9em; }
+        .back-link:hover { text-decoration: underline; }
+        h2 { color: #2c3e50; margin-top: 40px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid #667eea; font-size: 1.4em; }
+        h3 { color: #334155; margin-top: 28px; margin-bottom: 12px; font-size: 1.1em; }
+        p { margin-bottom: 14px; text-align: justify; }
+        ul, ol { margin-left: 28px; margin-bottom: 14px; }
+        li { margin-bottom: 7px; }
+        strong { color: #1e293b; }
+        .formula { background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 15px 0; overflow-x: auto; }
+        .info-box { background: #f0ebff; border-left: 4px solid #667eea; padding: 18px 20px; margin: 22px 0; border-radius: 4px; }
+        .tip-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 18px 20px; margin: 22px 0; border-radius: 4px; }
+        .example-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 20px; margin: 25px 0; border-radius: 4px; }
+        .consultation-cta { background: #f5f3ff; border-left: 4px solid #667eea; padding: 20px; border-radius: 8px; margin: 36px 0 0; }
+        .consultation-cta a { color: #667eea; font-weight: 700; text-decoration: none; }
+        .consultation-cta a:hover { text-decoration: underline; }
+        .footer { text-align: center; padding: 30px 20px; color: #666; margin-top: 50px; }
+        @media (max-width: 768px) { .container { padding: 30px 20px; margin: 20px; } .header h1 { font-size: 1.6em; } }
+    </style>
+</head>
+<body>
+<nav class="global-nav">
+    <a href="/" class="nav-brand">MathHub</a>
+    <div class="nav-links">
+        <a href="/kr/" class="active">KR</a>
+        <a href="/us/">US</a>
+        <a href="/uk/">UK</a>
+        <a href="/ca/">CA</a>
+        <a href="/ib/">IB</a>
+    </div>
+</nav>
+
+<div class="header">
+    <div class="category-badge">IB EE 주제 추천 &mdash; 수학/CS</div>
+    <h1>A* 경로 탐색 알고리즘 분석</h1>
+    <div class="date">2026년 3월 16일</div>
+</div>
+
+<div class="container">
+    <a href="/kr/blog/" class="back-link">&larr; 블로그 목록으로</a>
+
+    <h2>1. 왜 A* 알고리즘이 좋은 EE 주제인가</h2>
+
+    <p>경로 탐색(pathfinding)은 컴퓨터 과학과 수학이 만나는 대표적인 영역입니다. 내비게이션 앱이 최적 경로를 찾는 원리, 게임에서 캐릭터가 장애물을 피해 이동하는 메커니즘, 로봇이 환경을 탐색하는 방법 — 모두 경로 탐색 알고리즘에 기반합니다. 그중 A*(A-star) 알고리즘은 가장 널리 사용되는 최단경로 알고리즘으로, 그래프 이론의 기초 위에 휴리스틱이라는 지능적 탐색 전략을 결합한 것입니다.</p>
+
+    <p>A* 알고리즘은 IB EE 주제로서 여러 장점을 가집니다. 첫째, 알고리즘의 수학적 분석(최적성 증명, 시간 복잡도 분석)이 HL 수준에서 접근 가능합니다. 둘째, 직접 구현하여 시각화할 수 있어 개인적 참여를 보여주기 쉽습니다. 셋째, 다른 알고리즘(다익스트라, BFS, 그리디)과의 비교 분석이 자연스러운 연구 구조를 만들어줍니다.</p>
+
+    <p>연구 질문 예시: "격자 기반 지도에서 A* 알고리즘의 휴리스틱 함수(맨해튼, 유클리드, 체비셰프)가 탐색 효율성에 미치는 영향을 분석하라."</p>
+
+    <h2>2. 그래프 이론의 기초</h2>
+
+    <p>A* 알고리즘을 이해하려면 먼저 그래프 이론의 기본 개념이 필요합니다. 그래프 $G = (V, E)$는 정점(vertex)의 집합 $V$와 간선(edge)의 집합 $E$로 구성됩니다. 경로 탐색 문제에서 정점은 위치(도시, 교차로, 격자 칸)를, 간선은 두 위치를 연결하는 경로를 나타냅니다.</p>
+
+    <p>가중 그래프(weighted graph)에서는 각 간선에 비용(cost)이 부여됩니다. 이 비용은 거리, 시간, 또는 다른 양을 나타낼 수 있습니다. 최단경로 문제는 시작 정점 $s$에서 목표 정점 $t$까지의 간선 비용 합이 최소인 경로를 찾는 것입니다.</p>
+
+    <h2>3. 다익스트라 알고리즘에서 A*로</h2>
+
+    <p>A*를 이해하기 위해 먼저 다익스트라(Dijkstra) 알고리즘을 살펴봅시다. 다익스트라 알고리즘은 시작점에서 각 정점까지의 최단거리 $g(n)$을 계산합니다. 우선순위 큐(priority queue)를 사용하여 $g(n)$이 가장 작은 정점부터 탐색합니다. 이 알고리즘은 항상 최단경로를 찾지만, 모든 방향으로 균일하게 탐색하므로 비효율적일 수 있습니다.</p>
+
+    <p>A*는 다익스트라를 개선한 것입니다. 핵심 아이디어는 "목표 방향으로의 추정 거리"를 추가로 고려하는 것입니다. A*는 다음 평가 함수를 사용합니다:</p>
+
+    <div class="formula">
+        $$f(n) = g(n) + h(n)$$
+    </div>
+
+    <p>여기서 $g(n)$은 시작점에서 정점 $n$까지의 실제 비용이고, $h(n)$은 정점 $n$에서 목표점까지의 추정 비용인 휴리스틱 함수(heuristic function)입니다. A*는 $f(n)$이 가장 작은 정점부터 탐색하므로, 목표 방향으로 편향된 탐색을 수행합니다.</p>
+
+    <h2>4. 휴리스틱 함수</h2>
+
+    <p>휴리스틱 함수의 선택은 A* 알고리즘의 성능을 결정합니다. 좋은 휴리스틱은 두 가지 조건을 만족해야 합니다:</p>
+
+    <ul>
+        <li><strong>허용성(admissibility):</strong> $h(n) \leq h^*(n)$ — 실제 최단거리 $h^*(n)$를 과대추정하지 않음. 이 조건이 만족되면 A*는 최적해(최단경로)를 보장합니다.</li>
+        <li><strong>일관성(consistency):</strong> $h(n) \leq c(n, n') + h(n')$ — 삼각부등식을 만족. 일관성은 허용성보다 강한 조건이며, 효율적인 구현을 보장합니다.</li>
+    </ul>
+
+    <p>격자 기반 지도에서 흔히 사용되는 휴리스틱 함수들을 비교해 봅시다:</p>
+
+    <div class="formula">
+        $$\text{맨해튼 거리: } h(n) = |x_n - x_t| + |y_n - y_t|$$
+    </div>
+
+    <div class="formula">
+        $$\text{유클리드 거리: } h(n) = \sqrt{(x_n - x_t)^2 + (y_n - y_t)^2}$$
+    </div>
+
+    <div class="formula">
+        $$\text{체비셰프 거리: } h(n) = \max(|x_n - x_t|, |y_n - y_t|)$$
+    </div>
+
+    <p>4방향 이동만 허용하는 격자에서 맨해튼 거리는 정확한 최단거리의 하한을 제공하며 가장 효율적입니다. 8방향 이동이 가능하면 유클리드 거리나 대각선 거리(octile distance)가 더 적합합니다. 이 선택에 따라 탐색하는 노드 수가 크게 달라지며, 이를 실험적으로 비교하는 것이 EE의 핵심 분석이 됩니다.</p>
+
+    <h2>5. 시간 복잡도 분석</h2>
+
+    <p>A*의 시간 복잡도는 휴리스틱의 질에 크게 의존합니다. $h(n) = 0$이면 A*는 다익스트라 알고리즘과 동일하게 작동하며, 시간 복잡도는 $O(|V| \log |V| + |E|)$입니다. 반면 $h(n) = h^*(n)$, 즉 휴리스틱이 실제 최단거리와 정확히 일치하면, A*는 최적 경로 위의 노드만 탐색하여 최대 효율을 달성합니다.</p>
+
+    <p>최악의 경우 A*는 그래프의 모든 노드를 탐색해야 할 수도 있지만, 실제 응용에서는 좋은 휴리스틱 덕분에 다익스트라보다 훨씬 적은 노드를 탐색합니다. 이 차이를 실험적으로 측정하고 시각화하는 것이 EE에서 강력한 분석 요소가 됩니다.</p>
+
+    <h2>6. EE에서 탐구할 수 있는 방향</h2>
+
+    <p><strong>휴리스틱 함수 비교 실험:</strong> 동일한 지도에서 맨해튼, 유클리드, 체비셰프 거리를 사용했을 때의 탐색 노드 수, 경로 길이, 실행 시간을 비교합니다. 장애물의 밀도를 0%, 10%, 20%, 30%, 40%로 변화시키며 실험하면 체계적인 분석이 가능합니다.</p>
+
+    <p><strong>다익스트라 vs A* 비교:</strong> 격자 크기를 10x10, 20x20, 50x50, 100x100으로 변화시키며 두 알고리즘의 탐색 효율성 차이를 그래프로 나타냅니다. A*가 다익스트라 대비 몇 %의 노드를 절약하는지를 정량적으로 분석하세요.</p>
+
+    <p><strong>가중 A*:</strong> 평가 함수를 $f(n) = g(n) + w \cdot h(n)$으로 변형하여 가중치 $w$의 영향을 분석합니다. $w > 1$이면 속도는 빠르지만 최적성이 보장되지 않으며, 경로의 품질과 탐색 속도 사이의 trade-off를 실험적으로 보일 수 있습니다.</p>
+
+    <div class="example-box">
+        <strong>시각화 제안:</strong> A*의 탐색 과정을 격자 위에 색상으로 표현하세요. 탐색 완료된 노드(closed set)를 파란색, 탐색 대기 중인 노드(open set)를 초록색, 최종 경로를 빨간색으로 표시하면 A*의 "지능적 탐색"이 한눈에 드러납니다.
+    </div>
+
+    <div class="tip-box">
+        <strong>A등급 전략:</strong> 알고리즘을 "구현"하는 것에 그치지 말고, "왜 A*가 최적해를 보장하는가?"에 대한 수학적 증명을 포함하세요. 허용성 조건 하에서의 최적성 증명은 IB HL 수준에서 충분히 이해 가능하며, 기준 B(지식과 이해)와 기준 C(비판적 사고) 모두에서 높은 점수를 받는 핵심입니다.
+    </div>
+
+    <div class="consultation-cta">
+        <strong>Extended Essay 작성에 도움이 필요하신가요?</strong>
+        <p>주제 선정부터 리서치, 작성까지 경험 많은 IB 튜터가 안내해 드립니다.</p>
+        <a href="/contact.html">무료 상담 신청 &rarr;</a>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+    <p style="margin-top:6px; font-size:0.85em;">
+        <a href="/about.html" style="color:inherit;opacity:0.7;text-decoration:none;">About</a> &middot;
+        <a href="/privacy.html" style="color:inherit;opacity:0.7;text-decoration:none;">Privacy Policy</a>
+    </p>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "IB EE 주제 추천: A* 경로 탐색 알고리즘 분석",
+    "description": "그래프 이론, 휴리스틱 함수, 시간 복잡도 분석을 통한 A* 알고리즘 IB EE 가이드.",
+    "author": { "@type": "Organization", "name": "MathHub Korea" },
+    "publisher": { "@type": "Organization", "name": "MathHub Global", "url": "https://mathhub.io/" },
+    "url": "https://mathhub.io/kr/blog/ee-topic-pathfinding.html",
+    "datePublished": "2026-03-16",
+    "dateModified": "2026-03-16",
+    "inLanguage": "ko"
+}
+</script>
+
+</body>
+</html>

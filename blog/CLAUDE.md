@@ -49,9 +49,6 @@
 | #9986 | " | 🟣 | Precalculus Chapter 9 (Sequences and Series) Completed with Mathematical Induction | ~619 |
 | #9984 | " | 🟣 | Precalculus Chapter 7 Vectors and Polar Coordinates Created | ~894 |
 | #9982 | " | 🟣 | Precalculus Chapter 1 Functions Textbook Created with Interactive Desmos Visualizations | ~566 |
-| #9983 | " | 🟣 | Precalculus Chapter 6 Trigonometric Identities Comprehensive Reference Created | ~678 |
-| #9980 | 10:00 PM | 🟣 | Precalculus Chapter 2 Polynomial Functions Textbook Chapter Created | ~662 |
-| #9979 | " | 🟣 | Precalculus Chapter 4 Created Covering Exponential and Logarithmic Functions | ~751 |
 
 ### Mar 2, 2026
 
@@ -62,4 +59,12 @@
 | #11006 | 9:05 PM | 🔵 | AP Calculus Derivatives Chapter Exists in Blog Directory Separate from Textbook Structure | ~686 |
 | #10681 | 2:30 PM | 🔵 | English AP Calculus blog uses static SVG diagrams similar to French textbooks | ~407 |
 | #10672 | 2:28 PM | 🔵 | Desmos integration provides interactive sliders for function transformations | ~383 |
+
+### Mar 15, 2026
+
+| ID | Time | T | Title | Read |
+|----|------|---|-------|------|
+| #12971 | 7:38 PM | 🔵 | Blog Hub Page Footer Contains Blog Self-Reference Link | ~431 |
+| #12891 | 3:40 PM | 🔵 | Content organization reveals blog/textbook identity crisis in URL structure | ~781 |
+| #12882 | 3:38 PM | 🔵 | Global blog hosts complete interactive AP Calculus and Precalculus textbooks | ~616 |
 </claude-mem-context>

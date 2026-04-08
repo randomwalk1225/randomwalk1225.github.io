@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IB EE 주제 추천: 머신러닝 손글씨 숫자 인식 | MathHub</title>
+    <meta name="description" content="IB Extended Essay 수학/컴퓨터과학 주제 추천: 신경망을 활용한 손글씨 숫자 인식. MNIST 데이터셋, 지도학습, 역전파 알고리즘의 수학적 원리를 EE로 탐구합니다.">
+    <meta name="keywords" content="IB EE 주제, 머신러닝, 신경망, MNIST, 손글씨 인식, 지도학습, 역전파, Extended Essay, IB 수학 EE, 딥러닝">
+    <meta name="author" content="MathHub Korea">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/kr/blog/ee-topic-machine-learning.html">
+    <link rel="alternate" hreflang="en" href="https://mathhub.io/ib/blog/ee-topic-machine-learning-digits.html" />
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/blog/ee-topic-machine-learning.html" />
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/kr/blog/ee-topic-machine-learning.html">
+    <meta property="og:title" content="IB EE 주제 추천: 머신러닝 손글씨 숫자 인식">
+    <meta property="og:description" content="신경망과 MNIST 데이터셋으로 손글씨 숫자 인식을 구현하는 IB 수학 EE 가이드.">
+    <meta property="og:site_name" content="MathHub Korea">
+    <meta property="og:locale" content="ko_KR">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="IB EE 주제: 머신러닝 손글씨 숫자 인식">
+    <meta name="twitter:description" content="신경망, MNIST, 역전파 알고리즘 — 머신러닝 EE 주제 가이드.">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] } };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans KR', Arial, sans-serif; line-height: 1.85; color: #333; background: #f5f7fa; }
+        nav.global-nav { background:#1e3a5f; display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:52px; }
+        nav.global-nav a { color:rgba(255,255,255,.85); text-decoration:none; font-size:.9em; }
+        nav.global-nav .nav-brand { font-weight:700; font-size:1.1em; color:white; }
+        nav.global-nav .nav-links { display:flex; gap:18px; align-items:center; }
+        nav.global-nav .nav-links a.active { color:white; font-weight:700; }
+        .header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 50px 20px; text-align: center; }
+        .header h1 { font-size: 2em; margin-bottom: 10px; line-height: 1.35; }
+        .category-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 16px; border-radius: 20px; font-size: 0.85em; margin-bottom: 14px; }
+        .date { opacity: 0.85; font-size: 0.9em; margin-top: 8px; }
+        .container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); border-radius: 10px; }
+        .back-link { display: inline-block; margin-bottom: 28px; color: #667eea; text-decoration: none; font-weight: 600; font-size: 0.9em; }
+        .back-link:hover { text-decoration: underline; }
+        h2 { color: #2c3e50; margin-top: 40px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid #667eea; font-size: 1.4em; }
+        h3 { color: #334155; margin-top: 28px; margin-bottom: 12px; font-size: 1.1em; }
+        p { margin-bottom: 14px; text-align: justify; }
+        ul, ol { margin-left: 28px; margin-bottom: 14px; }
+        li { margin-bottom: 7px; }
+        strong { color: #1e293b; }
+        .formula { background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 15px 0; overflow-x: auto; }
+        .info-box { background: #f0ebff; border-left: 4px solid #667eea; padding: 18px 20px; margin: 22px 0; border-radius: 4px; }
+        .tip-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 18px 20px; margin: 22px 0; border-radius: 4px; }
+        .example-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 20px; margin: 25px 0; border-radius: 4px; }
+        .consultation-cta { background: #f5f3ff; border-left: 4px solid #667eea; padding: 20px; border-radius: 8px; margin: 36px 0 0; }
+        .consultation-cta a { color: #667eea; font-weight: 700; text-decoration: none; }
+        .consultation-cta a:hover { text-decoration: underline; }
+        .footer { text-align: center; padding: 30px 20px; color: #666; margin-top: 50px; }
+        @media (max-width: 768px) { .container { padding: 30px 20px; margin: 20px; } .header h1 { font-size: 1.6em; } }
+    </style>
+</head>
+<body>
+<nav class="global-nav">
+    <a href="/" class="nav-brand">MathHub</a>
+    <div class="nav-links">
+        <a href="/kr/" class="active">KR</a>
+        <a href="/us/">US</a>
+        <a href="/uk/">UK</a>
+        <a href="/ca/">CA</a>
+        <a href="/ib/">IB</a>
+    </div>
+</nav>
+
+<div class="header">
+    <div class="category-badge">IB EE 주제 추천 &mdash; 수학/CS</div>
+    <h1>머신러닝 손글씨 숫자 인식</h1>
+    <div class="date">2026년 3월 16일</div>
+</div>
+
+<div class="container">
+    <a href="/kr/blog/" class="back-link">&larr; 블로그 목록으로</a>
+
+    <h2>1. 왜 손글씨 인식이 좋은 EE 주제인가</h2>
+
+    <p>머신러닝은 현재 가장 빠르게 발전하는 기술 분야 중 하나이며, 그 핵심에는 수학이 있습니다. IB EE에서 머신러닝을 주제로 선택하면 선형대수, 미적분, 확률·통계라는 수학적 도구가 실제 문제 해결에 어떻게 활용되는지를 보여줄 수 있습니다.</p>
+
+    <p>그중에서도 손글씨 숫자 인식(handwritten digit recognition)은 머신러닝의 "Hello World"와 같은 표준 문제입니다. MNIST 데이터셋이라는 잘 정리된 공개 데이터가 존재하고, 비교적 간단한 신경망으로도 높은 정확도를 달성할 수 있으며, 결과를 시각적으로 확인할 수 있다는 장점이 있습니다.</p>
+
+    <p>연구 질문 예시: "단일 은닉층 신경망에서 은닉 뉴런 수와 학습률이 MNIST 손글씨 숫자 인식 정확도에 미치는 영향을 분석하라."</p>
+
+    <h2>2. MNIST 데이터셋</h2>
+
+    <p>MNIST(Modified National Institute of Standards and Technology)는 60,000개의 훈련 이미지와 10,000개의 테스트 이미지로 구성된 손글씨 숫자(0~9) 데이터셋입니다. 각 이미지는 28 x 28 픽셀의 흑백 이미지이며, 각 픽셀은 0(흰색)부터 255(검은색)까지의 정수 값을 가집니다.</p>
+
+    <p>수학적으로 볼 때, 하나의 이미지는 784차원($28 \times 28 = 784$) 벡터 $\mathbf{x} \in \mathbb{R}^{784}$로 표현됩니다. 이 벡터를 입력으로 받아 0부터 9까지의 숫자 중 하나로 분류하는 것이 목표입니다. 이것은 결국 784차원 공간에서 10개의 클래스 영역을 구분하는 결정 경계(decision boundary)를 찾는 문제입니다.</p>
+
+    <div class="info-box">
+        <strong>MNIST 데이터 접근:</strong> Python에서 <code>from sklearn.datasets import fetch_openml</code> 또는 TensorFlow/Keras의 <code>mnist.load_data()</code>로 한 줄 만에 데이터를 불러올 수 있습니다. 전처리 부담이 거의 없어 EE에서 분석에 집중할 수 있습니다.
+    </div>
+
+    <h2>3. 신경망의 수학적 구조</h2>
+
+    <h3>3.1 뉴런과 활성화 함수</h3>
+
+    <p>인공 뉴런(artificial neuron)은 생물학적 뉴런을 수학적으로 모방한 것입니다. $n$개의 입력 $x_1, x_2, \ldots, x_n$을 받아 가중합(weighted sum)을 계산하고, 활성화 함수(activation function)를 적용하여 출력을 생성합니다:</p>
+
+    <div class="formula">
+        $$z = \sum_{i=1}^{n} w_i x_i + b = \mathbf{w}^T \mathbf{x} + b$$
+    </div>
+
+    <div class="formula">
+        $$a = \sigma(z)$$
+    </div>
+
+    <p>여기서 $w_i$는 가중치(weight), $b$는 편향(bias), $\sigma$는 활성화 함수입니다. 대표적인 활성화 함수로는 시그모이드(sigmoid) $\sigma(z) = \frac{1}{1+e^{-z}}$와 ReLU(Rectified Linear Unit) $\sigma(z) = \max(0, z)$가 있습니다.</p>
+
+    <h3>3.2 다층 신경망</h3>
+
+    <p>손글씨 인식을 위한 기본 신경망은 세 개의 층으로 구성됩니다. 입력층(input layer)은 784개의 뉴런으로 각 픽셀 값을 받습니다. 은닉층(hidden layer)은 학생이 설정하는 수의 뉴런을 가지며 특징(feature)을 추출합니다. 출력층(output layer)은 10개의 뉴런으로 각 숫자의 확률을 나타냅니다.</p>
+
+    <p>출력층에서는 소프트맥스(softmax) 함수를 사용하여 출력값을 확률로 변환합니다:</p>
+
+    <div class="formula">
+        $$\text{softmax}(z_j) = \frac{e^{z_j}}{\sum_{k=0}^{9} e^{z_k}}$$
+    </div>
+
+    <p>이 함수는 모든 출력의 합이 1이 되도록 보장하며, 가장 높은 확률을 가진 숫자가 신경망의 예측이 됩니다.</p>
+
+    <h2>4. 학습 과정 — 역전파 알고리즘</h2>
+
+    <p>신경망이 "학습"한다는 것은 가중치 $\mathbf{w}$와 편향 $b$를 최적화하여 예측 오차를 줄이는 것입니다. 이를 위해 손실 함수(loss function)를 정의합니다. 분류 문제에서는 교차 엔트로피(cross-entropy) 손실이 표준입니다:</p>
+
+    <div class="formula">
+        $$L = -\sum_{j=0}^{9} y_j \ln(\hat{y}_j)$$
+    </div>
+
+    <p>여기서 $y_j$는 정답 레이블(one-hot 인코딩), $\hat{y}_j$는 신경망의 예측 확률입니다. 학습의 목표는 이 손실을 최소화하는 것이며, 경사 하강법(gradient descent)을 사용합니다:</p>
+
+    <div class="formula">
+        $$w_i \leftarrow w_i - \eta \frac{\partial L}{\partial w_i}$$
+    </div>
+
+    <p>$\eta$는 학습률(learning rate)이며, 편미분 $\frac{\partial L}{\partial w_i}$는 역전파 알고리즘(backpropagation)으로 효율적으로 계산됩니다. 역전파는 연쇄 법칙(chain rule)을 체계적으로 적용하여 출력층에서 입력층 방향으로 기울기를 전파하는 알고리즘입니다.</p>
+
+    <h2>5. EE에서 탐구할 수 있는 방향</h2>
+
+    <p><strong>은닉 뉴런 수의 영향:</strong> 은닉 뉴런을 10개, 30개, 100개, 300개로 변화시키며 정확도와 학습 시간을 측정합니다. 뉴런 수가 적으면 과소적합(underfitting), 많으면 과대적합(overfitting)이 발생하는데, 이 trade-off를 실험적으로 보이세요.</p>
+
+    <p><strong>학습률의 영향:</strong> 학습률 $\eta$를 $0.001$, $0.01$, $0.1$, $1.0$으로 변화시키며 손실 함수의 수렴 과정을 그래프로 나타냅니다. 학습률이 너무 크면 발산하고, 너무 작으면 수렴이 느리다는 것을 시각적으로 보여줄 수 있습니다.</p>
+
+    <p><strong>혼동 행렬(confusion matrix) 분석:</strong> 어떤 숫자 쌍이 가장 혼동되는지 분석합니다. 예를 들어 3과 8, 4와 9가 자주 혼동되는데, 그 이유를 시각적 유사성과 픽셀 분포의 관점에서 논의하면 비판적 사고력을 보여줄 수 있습니다.</p>
+
+    <div class="example-box">
+        <strong>실험 설계 예시:</strong><br>
+        독립변수: 은닉 뉴런 수 (16, 32, 64, 128, 256)<br>
+        종속변수: 테스트 정확도(%), 에포크당 학습 시간(s)<br>
+        통제변수: 학습률(0.01), 에포크 수(50), 배치 크기(32), 활성화 함수(ReLU)<br>
+        반복: 각 조건에서 5회 반복하여 평균과 표준편차 보고
+    </div>
+
+    <h2>6. EE 작성 시 주의사항</h2>
+
+    <p>머신러닝 EE에서 가장 흔한 실수는 코드에 집중하고 수학을 소홀히 하는 것입니다. IB 채점관은 Python 코딩 능력이 아니라 수학적 이해를 평가합니다. 코드는 부록에 첨부하되, 본문에서는 신경망의 수학적 구조, 경사 하강법의 원리, 활성화 함수의 수학적 특성을 충분히 설명해야 합니다.</p>
+
+    <p>또한 TensorFlow나 Keras 같은 라이브러리를 사용할 때, 내부적으로 어떤 수학적 연산이 수행되는지를 이해하고 설명해야 합니다. 단순히 model.fit()을 호출하는 것은 EE가 아닙니다. 가능하다면 NumPy만으로 간단한 신경망을 직접 구현하여 역전파 과정을 코드 수준에서 보여주는 것이 더 높은 평가를 받습니다.</p>
+
+    <div class="tip-box">
+        <strong>A등급 전략:</strong> 신경망을 "만든 것"보다 "분석한 것"이 중요합니다. 정확도 97%를 달성했다는 결과보다, 은닉 뉴런 수를 변화시켰을 때 정확도가 어떤 패턴으로 변하는지, 그 수학적 이유는 무엇인지를 깊이 분석하세요.
+    </div>
+
+    <div class="consultation-cta">
+        <strong>Extended Essay 작성에 도움이 필요하신가요?</strong>
+        <p>주제 선정부터 리서치, 작성까지 경험 많은 IB 튜터가 안내해 드립니다.</p>
+        <a href="/contact.html">무료 상담 신청 &rarr;</a>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+    <p style="margin-top:6px; font-size:0.85em;">
+        <a href="/about.html" style="color:inherit;opacity:0.7;text-decoration:none;">About</a> &middot;
+        <a href="/privacy.html" style="color:inherit;opacity:0.7;text-decoration:none;">Privacy Policy</a>
+    </p>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "IB EE 주제 추천: 머신러닝 손글씨 숫자 인식",
+    "description": "신경망, MNIST 데이터셋, 역전파 알고리즘을 활용한 손글씨 숫자 인식 IB EE 가이드.",
+    "author": { "@type": "Organization", "name": "MathHub Korea" },
+    "publisher": { "@type": "Organization", "name": "MathHub Global", "url": "https://mathhub.io/" },
+    "url": "https://mathhub.io/kr/blog/ee-topic-machine-learning.html",
+    "datePublished": "2026-03-16",
+    "dateModified": "2026-03-16",
+    "inLanguage": "ko"
+}
+</script>
+
+</body>
+</html>

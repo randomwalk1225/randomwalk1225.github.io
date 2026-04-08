@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IB EE Topic: Machine Learning for Handwritten Digit Recognition | MathHub IB</title>
+    <meta name="description" content="How to write an IB Extended Essay on machine learning digit recognition using the MNIST dataset. Neural network architecture, training methodology, confusion matrices, and essay structure.">
+    <meta name="keywords" content="IB Extended Essay machine learning, IB EE MNIST digit recognition, IB Mathematics EE neural networks, IB Computer Science EE, neural network IB, MNIST dataset Extended Essay, supervised learning IB EE">
+    <meta name="author" content="MathHub IB">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/ib/blog/ee-topic-machine-learning-digits.html">
+    <link rel="alternate" hreflang="en" href="https://mathhub.io/ib/blog/ee-topic-machine-learning-digits.html" />
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/blog/ee-topic-machine-learning.html" />
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/ib/blog/ee-topic-machine-learning-digits.html">
+    <meta property="og:title" content="IB EE Topic: Machine Learning for Handwritten Digit Recognition">
+    <meta property="og:description" content="Complete guide to writing an IB Extended Essay on ML digit recognition — neural networks, MNIST, training methodology, and mathematical analysis.">
+    <meta property="og:site_name" content="MathHub Global">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif; line-height:1.8; color:#333; background:#f5f7fa; }
+        nav.global-nav { background:#1e3a5f; display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:52px; }
+        nav.global-nav a { color:rgba(255,255,255,.85); text-decoration:none; font-size:.9em; }
+        nav.global-nav .nav-brand { font-weight:700; font-size:1.1em; color:white; }
+        nav.global-nav .nav-links { display:flex; gap:18px; align-items:center; }
+        nav.global-nav .nav-links a.active { color:white; font-weight:700; }
+        .header { background:linear-gradient(135deg,#0f766e,#14b8a6); color:white; padding:50px 20px; text-align:center; }
+        .header h1 { font-size:1.9em; margin-bottom:10px; line-height:1.3; }
+        .category-badge { display:inline-block; background:rgba(255,255,255,0.2); padding:5px 16px; border-radius:20px; font-size:.85em; margin-bottom:14px; }
+        .date { opacity:.85; font-size:.9em; margin-top:8px; }
+        .container { max-width:900px; margin:40px auto; background:white; padding:50px; box-shadow:0 2px 10px rgba(0,0,0,.08); border-radius:10px; }
+        .back-link { display:inline-block; margin-bottom:28px; color:#0f766e; text-decoration:none; font-weight:600; font-size:.9em; }
+        h2 { color:#0f766e; margin-top:40px; margin-bottom:18px; padding-bottom:10px; border-bottom:2px solid #14b8a6; font-size:1.4em; }
+        h3 { color:#334155; margin-top:28px; margin-bottom:12px; font-size:1.1em; }
+        p { margin-bottom:14px; }
+        ul, ol { margin-left:28px; margin-bottom:14px; }
+        li { margin-bottom:7px; }
+        .info-box { background:#f0fdfa; border-left:4px solid #0f766e; padding:18px 20px; margin:22px 0; border-radius:4px; }
+        .warning-box { background:#fef3c7; border-left:4px solid #f59e0b; padding:18px 20px; margin:22px 0; border-radius:4px; }
+        .highlight-box { background:#eff6ff; border-left:4px solid #2563eb; padding:18px 20px; margin:22px 0; border-radius:4px; }
+        .toc { background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:20px 24px; margin:0 0 32px; }
+        .toc h3 { margin-top:0; font-size:1em; color:#0f766e; }
+        .toc ol { margin:10px 0 0 20px; }
+        .toc a { color:#0f766e; text-decoration:none; font-size:.92em; }
+        code { background:#f1f5f9; padding:2px 6px; border-radius:4px; font-size:.9em; font-family:'Courier New',monospace; }
+        pre { background:#1e293b; color:#e2e8f0; padding:18px; border-radius:8px; overflow-x:auto; margin:16px 0; font-size:.88em; line-height:1.6; }
+        table { width:100%; border-collapse:collapse; margin:18px 0; font-size:.93em; }
+        th, td { border:1px solid #e2e8f0; padding:10px 13px; text-align:left; }
+        th { background:#0f766e; color:white; font-weight:600; }
+        tr:nth-child(even) { background:#f8fafc; }
+        .cta-box { background:linear-gradient(135deg,#0f766e,#14b8a6); color:white; border-radius:12px; padding:28px; text-align:center; margin:36px 0; }
+        .cta-box h3 { color:white; margin:0 0 10px; font-size:1.2em; }
+        .cta-box p { opacity:.9; margin-bottom:16px; }
+        .cta-btn { display:inline-block; background:#f59e0b; color:white; padding:10px 26px; border-radius:8px; text-decoration:none; font-weight:700; }
+        .related-posts { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; margin-top:14px; }
+        .related-card { background:#f8fafc; border-radius:8px; padding:14px; text-decoration:none; color:inherit; border:1px solid #e2e8f0; transition:box-shadow .2s; }
+        .related-card:hover { box-shadow:0 4px 12px rgba(0,0,0,.1); }
+        .related-card h4 { color:#0f766e; margin:0 0 4px; font-size:.9em; }
+        .related-card p { color:#64748b; font-size:.8em; margin:0; }
+        .footer-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; max-width:900px; margin:0 auto; padding:40px 20px; }
+        .footer-col h4 { color:#1e293b; margin-bottom:10px; font-size:.95em; }
+        .footer-col ul { list-style:none; }
+        .footer-col li { margin-bottom:6px; }
+        .footer-col a { color:#64748b; text-decoration:none; font-size:.88em; }
+        .footer-col a:hover { color:#0f766e; }
+        .footer-bottom { text-align:center; padding:20px; color:#94a3b8; font-size:.85em; border-top:1px solid #e2e8f0; }
+        @media (max-width:768px) { .container { padding:28px 18px; margin:16px; } .header h1 { font-size:1.5em; } .footer-grid { grid-template-columns:1fr; } }
+    </style>
+</head>
+<body>
+<nav class="global-nav">
+    <a href="/" class="nav-brand">MathHub</a>
+    <div class="nav-links">
+        <a href="/kr/">KR</a>
+        <a href="/us/">US</a>
+        <a href="/uk/">UK</a>
+        <a href="/ca/">CA</a>
+        <a href="/ib/" class="active">IB</a>
+    </div>
+</nav>
+
+<div class="header">
+    <div class="category-badge">EE Topic Guide — Mathematics / Computer Science</div>
+    <h1>IB EE Topic: Machine Learning for Handwritten Digit Recognition</h1>
+    <div class="date">March 2026 · MathHub IB</div>
+</div>
+
+<div class="container">
+    <a href="/ib/blog/" class="back-link">&larr; Back to IB Blog</a>
+
+    <div class="toc">
+        <h3>Contents</h3>
+        <ol>
+            <li><a href="#why-ml">Why ML Digit Recognition Is a Strong EE Topic</a></li>
+            <li><a href="#research-questions">Sample Research Questions</a></li>
+            <li><a href="#key-concepts">Key Mathematical Concepts</a></li>
+            <li><a href="#tools">Tools and Dataset</a></li>
+            <li><a href="#methodology">Methodology: Train, Test, Analyze</a></li>
+            <li><a href="#math-focus">Keeping the Focus on Mathematics</a></li>
+            <li><a href="#structure">How to Structure This EE</a></li>
+            <li><a href="#grade-potential">Expected Grade Potential</a></li>
+        </ol>
+    </div>
+
+    <h2 id="why-ml">Why ML Digit Recognition Is a Strong EE Topic</h2>
+    <p>Handwritten digit recognition using the MNIST dataset is often called the "hello world" of machine learning. It is the problem that every machine learning practitioner solves first, and for good reason: the dataset is clean, the task is well-defined, the results are measurable, and the mathematical concepts underlying the solution are rich enough to sustain a 4,000-word investigation.</p>
+
+    <p>For an IB Extended Essay, this topic offers a rare combination of accessibility and depth. The basic task — training a model to recognize digits from 0 to 9 in 28x28 pixel grayscale images — can be accomplished with a few lines of Python using TensorFlow or scikit-learn. But the mathematical questions behind why the model works, how different architectures affect performance, and what the model gets wrong are substantial enough to demonstrate genuine analytical thinking.</p>
+
+    <p>This topic works as either a Mathematics EE or a Computer Science EE. If you submit it as Mathematics, the emphasis should be on the linear algebra (matrix operations, weight optimization), calculus (gradient descent, backpropagation), and statistical analysis (accuracy metrics, confusion matrices). If you submit it as Computer Science, the emphasis shifts toward architecture decisions, computational efficiency, and algorithmic comparison. I recommend Mathematics for students taking AA HL, and Computer Science for students who want to showcase programming skill.</p>
+
+    <div class="info-box">
+        <strong>Why MNIST specifically?</strong> The MNIST dataset contains 70,000 labeled images (60,000 training, 10,000 test). It is universally available, requires no data cleaning, and has decades of published benchmark results for comparison. This means you can focus your entire essay on mathematical analysis rather than data wrangling.
+    </div>
+
+    <h2 id="research-questions">Sample Research Questions</h2>
+    <ul>
+        <li><strong>"How does the architecture of a neural network affect its accuracy in classifying handwritten digits from the MNIST dataset?"</strong> — The core question. You implement multiple architectures (single-layer perceptron, two-layer network, three-layer network) and compare their performance systematically. Clear, focused, and naturally generates quantitative results.</li>
+        <li><strong>"To what extent does the number of hidden neurons in a single hidden layer affect the classification accuracy and training time for MNIST digit recognition?"</strong> — More narrow. You fix the architecture (one hidden layer) and vary the number of neurons (16, 32, 64, 128, 256, 512). Plots accuracy and training time as functions of network width.</li>
+        <li><strong>"How does the choice of activation function (sigmoid, tanh, ReLU) affect the convergence speed and final accuracy of a neural network trained on the MNIST dataset?"</strong> — Mathematically rich because each activation function has different derivative properties that affect gradient flow.</li>
+        <li><strong>"What patterns emerge in the misclassification of handwritten digits by a neural network, and can confusion matrix analysis explain why certain digit pairs are more frequently confused?"</strong> — Analytical focus. You train one good model and then spend most of the essay analyzing its errors. Particularly strong for critical thinking (Criterion C).</li>
+    </ul>
+
+    <h2 id="key-concepts">Key Mathematical Concepts</h2>
+
+    <h3>Neural Networks as Mathematical Functions</h3>
+    <p>A neural network is a parameterized mathematical function that maps inputs to outputs through a series of linear transformations and nonlinear activations. For a single hidden layer with input vector x, weight matrices W1 and W2, bias vectors b1 and b2, and activation function f:</p>
+
+    <div class="highlight-box">
+        <code>output = softmax(W2 · f(W1 · x + b1) + b2)</code><br><br>
+        The network learns by adjusting W1, W2, b1, and b2 to minimize the difference between predicted and actual outputs across all training examples.
+    </div>
+
+    <p>For MNIST, the input x is a 784-dimensional vector (28 x 28 pixels flattened), and the output is a 10-dimensional vector representing the probability of each digit 0–9. The softmax function converts raw output scores into probabilities that sum to 1.</p>
+
+    <h3>Supervised Learning and the Training Process</h3>
+    <p>Supervised learning means the model learns from labeled examples. Each training image has a known correct label (the digit it represents). The training process iteratively adjusts the network weights to minimize a loss function — typically cross-entropy loss for classification:</p>
+
+    <p><code>L = -Σ yi log(ŷi)</code></p>
+
+    <p>where yi is the true label (1 for the correct class, 0 for others) and ŷi is the predicted probability. This loss function has a clean mathematical interpretation: it measures the information-theoretic distance between the true distribution and the predicted distribution.</p>
+
+    <h3>Gradient Descent and Backpropagation</h3>
+    <p>The network learns through gradient descent: compute the gradient of the loss function with respect to every weight, then update each weight in the direction that reduces the loss. Backpropagation is the algorithm that efficiently computes these gradients using the chain rule of calculus, propagating error signals backward from the output layer through the hidden layers to the input.</p>
+
+    <p>For a Mathematics EE, explaining backpropagation for a small network (e.g., 2 inputs, 2 hidden neurons, 1 output) with explicit numerical examples is an excellent way to demonstrate mathematical understanding. Show the forward pass, compute the loss, then trace the chain rule backward through each layer to compute the gradient of each weight.</p>
+
+    <h3>Training/Test Split and Overfitting</h3>
+    <p>The training data is used to learn the weights; the test data is used to evaluate performance on unseen examples. Overfitting occurs when the model memorizes the training data instead of learning general patterns — it performs well on training data but poorly on test data. The gap between training accuracy and test accuracy is a direct measure of overfitting, and analyzing this gap for different architectures provides quantitative evidence for your analysis.</p>
+
+    <h3>Accuracy Metrics and Confusion Matrices</h3>
+    <p>Overall accuracy (percentage of correctly classified test images) is the simplest metric, but it hides important details. A confusion matrix is a 10x10 grid showing, for each true digit, how many times the model predicted each digit. This reveals which digit pairs the model confuses most frequently — typically 4/9, 3/5, and 7/1 — and provides material for mathematical analysis of why those confusions occur (visual similarity of certain handwriting styles).</p>
+
+    <h2 id="tools">Tools and Dataset</h2>
+    <table>
+        <thead><tr><th>Tool</th><th>Best For</th><th>Difficulty</th></tr></thead>
+        <tbody>
+            <tr><td>Python + scikit-learn</td><td>Simple models (logistic regression, SVM, basic MLP)</td><td>Low — clean API, good documentation</td></tr>
+            <tr><td>Python + TensorFlow/Keras</td><td>Neural networks with full control over architecture</td><td>Medium — more verbose but very flexible</td></tr>
+            <tr><td>Python + PyTorch</td><td>Custom architectures, research-style code</td><td>Medium-High — preferred in academia</td></tr>
+        </tbody>
+    </table>
+
+    <p>For most IB students, <strong>Keras</strong> (the high-level API for TensorFlow) is the best choice. It provides clean, readable code that you can include in your essay and appendix without overwhelming the reader:</p>
+
+    <pre>
+# Basic neural network for MNIST (Keras)
+from tensorflow import keras
+from tensorflow.keras import layers
+
+model = keras.Sequential([
+    layers.Flatten(input_shape=(28, 28)),
+    layers.Dense(128, activation='relu'),
+    layers.Dense(10, activation='softmax')
+])
+
+model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+
+model.fit(x_train, y_train, epochs=10, validation_split=0.1)
+test_loss, test_acc = model.evaluate(x_test, y_test)</pre>
+
+    <h2 id="math-focus">Keeping the Focus on Mathematics</h2>
+    <p>The biggest mistake students make with ML-based Extended Essays is writing a programming tutorial instead of a mathematical investigation. Your essay is not about how to use Keras. It is about what the mathematics reveals.</p>
+
+    <p><strong>Do this:</strong> Explain the mathematical operation at each layer. Show that the first layer performs a matrix multiplication of a 784-dimensional vector by a 784x128 weight matrix, producing a 128-dimensional hidden representation. Explain what the ReLU activation does mathematically (f(x) = max(0, x)) and why this nonlinearity is essential (without it, the entire network reduces to a single linear transformation, regardless of depth).</p>
+
+    <p><strong>Do this:</strong> Derive the gradient of the loss function for a small example. Even a 2-input, 2-hidden, 2-output network with explicit numbers shows that you understand backpropagation, not just that you can call <code>model.fit()</code>.</p>
+
+    <p><strong>Do this:</strong> Analyze the confusion matrix mathematically. If your model confuses 4 and 9 fifteen times more often than 0 and 1, quantify this ratio and explain it in terms of pixel overlap between the average 4 and average 9 in the dataset.</p>
+
+    <p><strong>Do not do this:</strong> Spend 1,000 words explaining how to install Python and TensorFlow. Do not include full code listings in the body of the essay (put them in an appendix). Do not describe the training process as a black box ("the model learned to recognize digits").</p>
+
+    <div class="warning-box">
+        <strong>The IB examiner's perspective:</strong> An examiner reading a Mathematics EE wants to see mathematical reasoning on every page. If three consecutive paragraphs contain no equations, no mathematical notation, and no quantitative analysis, you are drifting into description and losing marks on Criterion C.
+    </div>
+
+    <h2 id="structure">How to Structure This EE</h2>
+    <ol>
+        <li><strong>Introduction (400 words):</strong> Context of digit recognition and machine learning, research question, overview of approach.</li>
+        <li><strong>Mathematical Background (800 words):</strong> Neural network as a mathematical function, activation functions and their derivatives, loss function definition, gradient descent, backpropagation with a small worked example.</li>
+        <li><strong>Methodology (500 words):</strong> Dataset description (MNIST), architectures to be compared, hyperparameter choices, training/test split rationale, hardware and software used.</li>
+        <li><strong>Results (900 words):</strong> Training curves (loss and accuracy vs. epoch) for each architecture, test accuracy comparison table, confusion matrices, analysis of misclassified examples.</li>
+        <li><strong>Analysis and Discussion (800 words):</strong> Why deeper/wider networks perform better (or do not), overfitting analysis, which digits are hardest to classify and why, comparison with published benchmarks.</li>
+        <li><strong>Conclusion (400 words):</strong> Direct answer to research question, what the investigation reveals about the relationship between neural network architecture and classification performance.</li>
+    </ol>
+
+    <h2 id="grade-potential">Expected Grade Potential</h2>
+    <p>ML digit recognition is a reliable A-grade topic when the mathematical emphasis is maintained throughout. The topic provides clear experimental results, natural opportunities for quantitative analysis, and rich material for critical discussion. The IB examiner will have seen many ML essays, so what distinguishes an A from a B is the depth of mathematical reasoning — not the sophistication of the code.</p>
+
+    <p>Students who score As on this topic typically include a backpropagation derivation by hand, present confusion matrix analysis with quantitative explanations, and discuss the mathematical reasons for their results (not just "network A was better than network B" but "the additional hidden layer allows the network to learn hierarchical features — edge detectors in layer 1 that combine into digit-part detectors in layer 2 — which reduces the test error from 3.2% to 1.8%").</p>
+
+    <div class="cta-box">
+        <h3>Need Help with Your Extended Essay?</h3>
+        <p>Our experienced IB tutors can guide you through topic selection, research, and writing. We help you keep the mathematical focus that examiners want to see in an ML-based essay.</p>
+        <a href="/contact-en.html" class="cta-btn">Request Free Consultation</a>
+    </div>
+
+    <h2>Related Posts</h2>
+    <div class="related-posts">
+        <a href="/ib/blog/ib-extended-essay-writing-guide.html" class="related-card">
+            <h4>EE Writing Guide: How to Score an A</h4>
+            <p>Complete guide to all five criteria</p>
+        </a>
+        <a href="/ib/blog/ee-topic-rsa-cryptography.html" class="related-card">
+            <h4>EE Topic: RSA Cryptography</h4>
+            <p>Number theory meets security</p>
+        </a>
+        <a href="/ib/blog/ee-topic-fractals-mandelbrot.html" class="related-card">
+            <h4>EE Topic: Fractals &amp; Mandelbrot Set</h4>
+            <p>Complex dynamics and iteration</p>
+        </a>
+    </div>
+</div>
+
+<footer style="background:#f8fafc; margin-top:40px;">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Resources</h4>
+            <ul>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/ib/blog/">IB Blog</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Countries</h4>
+            <ul>
+                <li><a href="/kr/">Korea</a></li>
+                <li><a href="/us/">USA</a></li>
+                <li><a href="/uk/">UK</a></li>
+                <li><a href="/ca/">Canada</a></li>
+                <li><a href="/ib/">IB</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="/about.html">About Us</a></li>
+                <li><a href="/contact-en.html">Contact</a></li>
+                <li><a href="/privacy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+    </div>
+</footer>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "IB EE Topic: Machine Learning for Handwritten Digit Recognition",
+    "description": "How to write an IB Extended Essay on ML digit recognition — neural networks, MNIST dataset, training methodology, and mathematical analysis.",
+    "author": {"@type": "Organization", "name": "MathHub"},
+    "publisher": {"@type": "Organization", "name": "MathHub Global", "url": "https://mathhub.io"},
+    "datePublished": "2026-03-16",
+    "dateModified": "2026-03-16",
+    "mainEntityOfPage": "https://mathhub.io/ib/blog/ee-topic-machine-learning-digits.html",
+    "keywords": ["IB Extended Essay", "machine learning", "MNIST", "neural networks", "digit recognition", "supervised learning"]
+}
+</script>
+</body>
+</html>
