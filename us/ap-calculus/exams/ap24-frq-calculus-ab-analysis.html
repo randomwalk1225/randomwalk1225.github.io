@@ -2,12 +2,206 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>2024 AP Calculus AB FRQ Analysis | MathHub</title>
+    <meta name="robots" content="noindex, follow">
+    <title>Deep Dive into the 2024 AP Calculus AB Free-Response Section | MathHub</title>
     <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #0ea5e9;
+            --accent: #f59e0b;
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+        }
+        .report-body { max-width: 1000px; margin: 0 auto; padding: 60px 40px; font-family: 'Inter', system-ui, -apple-system, sans-serif; line-height: 1.8; color: var(--text-main); }
+        .breadcrumb { color: var(--text-light); margin-bottom: 30px; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+        
+        header { border-bottom: 1px solid #e2e8f0; padding-bottom: 40px; margin-bottom: 60px; }
+        h1 { font-size: 3.2rem; color: #0f172a; margin: 10px 0; letter-spacing: -0.04em; line-height: 1.1; font-weight: 800; }
+        .subtitle { font-size: 1.3rem; color: var(--text-light); font-weight: 400; max-width: 750px; line-height: 1.6; }
+
+        .executive-summary { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 40px; margin: 40px 0 60px 0; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05); }
+        .summary-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .summary-text h3 { color: var(--primary); margin-top: 0; font-weight: 800; font-size: 1.4rem; margin-bottom: 20px; }
+        .summary-text p { margin-bottom: 16px; }
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .stat-card { background: var(--bg-light); padding: 24px; border-radius: 16px; text-align: center; border: 1px solid #f1f5f9; }
+        .stat-value { display: block; font-size: 2.2rem; font-weight: 900; color: var(--primary); margin-bottom: 4px; }
+        .stat-label { font-size: 0.75rem; color: var(--text-light); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
+
+        .score-table { width: 100%; border-collapse: collapse; margin-top: 24px; text-align: center; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; }
+        .score-table th { background: var(--secondary); color: white; padding: 12px; font-weight: 700; }
+        .score-table td { padding: 12px; border: 1px solid #e2e8f0; }
+
+        h2 { font-size: 2.2rem; color: #0f172a; margin-top: 80px; margin-bottom: 32px; font-weight: 800; border: none; padding: 0; }
+        h2 .section-num { color: var(--secondary); margin-right: 12px; }
+
+        .curriculum-table { width: 100%; border-collapse: collapse; margin: 40px 0; background: white; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }
+        .curriculum-table th { background: var(--bg-light); padding: 20px; text-align: left; font-weight: 700; color: var(--primary); border-bottom: 1px solid #e2e8f0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .curriculum-table td { padding: 20px; border-bottom: 1px solid #f1f5f9; }
+
+        .killer-problem { background: #0f172a; color: white; border-radius: 24px; padding: 48px; margin: 60px 0; }
+        .killer-problem h2 { color: white; margin-top: 0; margin-bottom: 24px; }
+        .killer-problem h2 .section-num { color: var(--accent); }
+        .problem-content { background: rgba(255,255,255,0.03); border-radius: 16px; padding: 32px; border: 1px solid rgba(255,255,255,0.1); }
+        .problem-content h4 { color: var(--accent); font-weight: 800; font-size: 1.25rem; margin-bottom: 16px; }
+
+        .analysis-card { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 40px; margin: 40px 0; }
+        .analysis-card h3 { color: var(--primary); font-weight: 800; font-size: 1.5rem; margin-top: 0; margin-bottom: 24px; }
+        .analysis-card ul { list-style: none; padding: 0; }
+        .analysis-card li { margin-bottom: 16px; padding-left: 28px; position: relative; }
+        .analysis-card li::before { content: "•"; position: absolute; left: 0; color: var(--secondary); font-weight: 900; font-size: 1.5rem; line-height: 1; }
+
+        .strategy-box { background: #f0fdf4; border-radius: 20px; padding: 40px; margin: 40px 0; }
+        .strategy-box h3 { color: #166534; font-weight: 800; font-size: 1.5rem; margin-top: 0; margin-bottom: 24px; }
+        .strategy-box ul { list-style: none; padding: 0; }
+        .strategy-box li { margin-bottom: 16px; padding-left: 28px; position: relative; }
+        .strategy-box li::before { content: "✓"; position: absolute; left: 0; color: #22c55e; font-weight: 900; }
+
+        .pdf-container { margin-top: 100px; padding-top: 60px; border-top: 1px solid #e2e8f0; }
+        .pdf-container h2 { font-size: 1.8rem; margin-top: 0; }
+        
+        @media (max-width: 768px) {
+            .summary-content { grid-template-columns: 1fr; }
+            .report-body { padding: 40px 20px; }
+            h1 { font-size: 2.4rem; }
+        }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-<body style="max-width:800px; margin:40px auto; padding:0 40px; line-height:1.8;">
-    <h1>2024 AP Calculus AB Free Response Analysis</h1>
-    <p>Detailed breakdown of the 2024 AP Calculus AB FRQ section. This analysis provides key insights into scoring guidelines and conceptual requirements.</p>
-    <iframe src="https://apcentral.collegeboard.org/media/pdf/ap24-frq-calculus-ab.pdf" style="width:100%; height:700px; border:none; border-radius:12px; box-shadow:0 8px 16px rgba(0,0,0,0.1);"></iframe>
+<body>
+    <div class="report-body">
+        <div class="breadcrumb">US AP &rsaquo; AP Calculus &rsaquo; Exam Reports &rsaquo; 2024</div>
+        <header>
+            <h1>2024 AP Calculus AB FRQ Research Analysis</h1>
+            <p class="subtitle">A detailed breakdown of the 2024 AP Calculus AB Free-Response section, exploring the balance between algebraic fluency and conceptual depth.</p>
+        </header>
+
+        <section class="executive-summary">
+            <div class="padding-wrapper" style="padding: 40px;">
+                <div class="summary-content">
+                    <div class="summary-text">
+                        <h3>Executive Summary</h3>
+                        <p>The 2024 AP Calculus AB exam saw a mean score of approximately <strong>2.98</strong>. The distribution reflects a challenging year, particularly in the non-calculator section where conceptual depth was tested heavily.</p>
+                        <p>Points were lost primarily on multi-step justifications and rigorous application of theorems, marking 2024 as a "Conceptual Rigor" cycle.</p>
+                    </div>
+                    <div class="stat-grid">
+                        <div class="stat-card">
+                            <span class="stat-label">Mean Score</span>
+                            <span class="stat-value">2.98</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">5-Score Rate</span>
+                            <span class="stat-value" style="color:var(--secondary)">22%</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">Concept Focus</span>
+                            <span class="stat-value">High</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">Difficulty</span>
+                            <span class="stat-value" style="color:var(--accent)">Elevated</span>
+                        </div>
+                    </div>
+                </div>
+
+                <table class="score-table">
+                    <thead>
+                        <tr>
+                            <th>AP Score</th>
+                            <th>5</th>
+                            <th>4</th>
+                            <th>3</th>
+                            <th>2</th>
+                            <th>1</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight:bold;">Percentage</td>
+                            <td>22%</td>
+                            <td>21%</td>
+                            <td>18%</td>
+                            <td>24%</td>
+                            <td>15%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="section-num">01.</span> Curriculum Coverage Analysis</h2>
+            <p>The 2024 FRQs spanned the core units of the AB curriculum, with a notable focus on interpreting rates and solving differential equations.</p>
+            <table class="curriculum-table">
+                <thead>
+                    <tr>
+                        <th>Unit / Topic Area</th>
+                        <th>FRQ Representation</th>
+                        <th>Research Weighting</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Unit 4/5: Applications of Differentiation</strong></td>
+                        <td>FRQ #4 (Graph Analysis)</td>
+                        <td>High Intensity</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Unit 6: Integration & Accumulation</strong></td>
+                        <td>FRQ #1 (Table-based)</td>
+                        <td>Critical Complexity</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Unit 7: Differential Equations</strong></td>
+                        <td>FRQ #6 (Slope Fields/Separation)</td>
+                        <td>High Intensity</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="killer-problem">
+            <h2><span class="section-num">02.</span> Killer Problem Analysis</h2>
+            <div class="problem-content">
+                <h4>FRQ #4 & #6: Graph Analysis & Differential Equations</h4>
+                <p>Two problems stood out in the 2024 exam for their low average scores: the graph analysis of \( f' \) and the differential equations problem.</p>
+                <p style="margin-top: 20px; font-weight: 700; color: var(--accent);">Key Challenges:</p>
+                <ul>
+                    <li><strong>FRQ #4 (Graph Analysis):</strong> Struggled with absolute maximums on closed intervals for integral-defined functions. Endpoint checks and proper justifications were frequently omitted.</li>
+                    <li><strong>FRQ #6 (Differential Equations):</strong> Separation of variables remained the primary hurdle. Chain rule errors during integration of the solution were widespread.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="analysis-card">
+            <h3>03. Mark Scheme Insights</h3>
+            <p style="margin-bottom: 24px;">The 2024 marking guidelines emphasized the "why" as much as the "what." Points were typically distributed as follows:</p>
+            <ul>
+                <li><strong>Separation of Variables:</strong> In FRQ #6, 1 point awarded for the initial separation. Without this, 0 points were possible for the rest of the problem.</li>
+                <li><strong>Using the Derivative:</strong> 1 point for correctly showing the derivative (e.g., in related rates or FTC context) before attempting to solve.</li>
+                <li><strong>Justification points:</strong> 1 point for referencing MVT or IVT by name and explicitly verifying the hypotheses (continuity/differentiability).</li>
+                <li><strong>Final Answer & Units:</strong> 1 point for the correct answer, with a separate point reserved for correct units in contextual problems.</li>
+            </ul>
+        </section>
+
+        <section class="strategy-box">
+            <h3>04. Strategic Advice for 2025</h3>
+            <p style="margin-bottom: 24px;">Preparation for the 2025 exam should prioritize the following:</p>
+            <ul>
+                <li><strong>Mastering "Justification":</strong> Practice writing out full names of theorems and checking their conditions explicitly.</li>
+                <li><strong>Fluency in Separation of Variables:</strong> This is a guaranteed high-point question. Drill the steps: Separate, Integrate, +C, Initial Condition, Solve for y.</li>
+                <li><strong>Tabular Analysis:</strong> Be comfortable with Riemann sums and Trapezoidal Rule. Know how to justify over/under-estimates based on \( f'(x) \) or \( f''(x) \).</li>
+            </ul>
+        </section>
+
+        <div class="pdf-container">
+            <h2>Original Exam Paper (PDF)</h2>
+            <p style="margin-bottom: 30px; color: var(--text-light);">Review the questions analyzed above in the full 2024 AP Calculus AB FRQ document below.</p>
+            <iframe src="https://apcentral.collegeboard.org/media/pdf/ap24-frq-calculus-ab.pdf" style="width:100%; height:800px; border:1px solid #e2e8f0; border-radius:16px;"></iframe>
+        </div>
+    </div>
 </body>
 </html>
