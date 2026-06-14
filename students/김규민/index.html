@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>김규민 · SAT Vocabulary Test · Word Smart E (79 words)</title>
+<style>
+:root{
+  --ink:#172033; --muted:#647084; --line:#dbe2ec; --paper:#fff;
+  --accent:#4338ca; --accent2:#eef2ff; --bg:#f4f6fa;
+  --good:#16794d; --good-bg:#e7f6ec; --bad:#c0392b; --bad-bg:#fdecea;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);background:var(--bg);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Arial,sans-serif;line-height:1.6}
+button,input,select{font:inherit}
+.wrap{width:min(820px,calc(100% - 26px));margin:22px auto 70px}
+.hero{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:24px 26px}
+.eyebrow{color:var(--accent);font-weight:850;letter-spacing:.12em;font-size:12px}
+h1{margin:6px 0 6px;font-size:clamp(26px,5vw,40px);letter-spacing:-.03em;line-height:1.1}
+.lead{margin:0;color:var(--muted);font-size:15px}
+.stats{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.stat{flex:1 1 120px;background:var(--accent2);border:1px solid #e0e7ff;border-radius:14px;padding:12px 14px}
+.stat b{display:block;font-size:24px;letter-spacing:-.02em}
+.stat span{font-size:12px;color:var(--muted);font-weight:700}
+.menu{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+@media(max-width:560px){.menu{grid-template-columns:1fr}}
+.tile{border:1px solid var(--line);background:var(--paper);border-radius:16px;padding:18px;text-align:left;cursor:pointer;transition:.15s}
+.tile:hover{border-color:#c7d2fe;background:#fafbff;transform:translateY(-1px)}
+.tile .ic{font-size:24px}
+.tile h3{margin:8px 0 3px;font-size:17px}
+.tile p{margin:0;color:var(--muted);font-size:13px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:22px 24px;margin-top:16px}
+.btn{border:1px solid #c7d2fe;background:#fff;color:#3730a3;border-radius:12px;padding:11px 16px;cursor:pointer;font-weight:750}
+.btn:hover{background:#eef2ff}
+.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn.primary:hover{background:#3730a3}
+.btn.ghost{border-color:var(--line);color:var(--muted)}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.row.end{justify-content:flex-end}
+.between{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.muted{color:var(--muted);font-size:13px}
+.hidden{display:none!important}
+/* progress */
+.pbar{height:8px;border-radius:99px;background:#e5e7eb;overflow:hidden;flex:1}
+.pbar>span{display:block;height:100%;width:0;background:var(--accent);transition:width .25s}
+/* study */
+.word-big{font-size:clamp(32px,7vw,52px);letter-spacing:-.03em;margin:4px 0}
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:6px 0 14px}
+.chip{display:inline-flex;align-items:center;min-height:28px;padding:3px 11px;border-radius:999px;font-size:13px;font-weight:750}
+.chip.ipa{background:var(--accent2);color:#3730a3}
+.chip.pos{background:#f1f5f9;color:#475569}
+.def-en{font-size:19px;font-weight:760;margin:2px 0}
+.def-ko{color:var(--muted);font-size:16px;margin:2px 0 14px}
+.ex{border-top:1px solid var(--line);padding-top:12px;margin-top:6px}
+.ex-en{font-weight:650;margin:2px 0}
+.ex-ko{color:var(--muted);font-size:14px;margin:0}
+.speak{border:0;background:transparent;color:var(--accent);cursor:pointer;font-weight:800;font-size:15px}
+/* quiz */
+.q-prompt{font-size:clamp(22px,5vw,34px);font-weight:800;letter-spacing:-.02em;margin:6px 0 4px}
+.q-sub{color:var(--muted);font-size:14px;margin:0 0 16px}
+.opts{display:grid;gap:10px}
+.opt{border:1.5px solid var(--line);background:#fff;border-radius:13px;padding:14px 16px;text-align:left;cursor:pointer;font-size:16px;font-weight:600;transition:.12s}
+.opt:hover{border-color:#c7d2fe;background:#fafbff}
+.opt .k{display:inline-block;width:22px;color:var(--accent);font-weight:850}
+.opt.correct{border-color:var(--good);background:var(--good-bg);color:var(--good)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.opt:disabled{cursor:default}
+.tinput{width:100%;padding:14px 16px;border:1.5px solid #cbd5e1;border-radius:13px;font-size:18px;font-weight:700;text-align:center;letter-spacing:.02em}
+.feedback{margin-top:14px;border-radius:13px;padding:13px 16px;font-weight:650;display:none}
+.feedback.show{display:block}
+.feedback.ok{background:var(--good-bg);color:var(--good)}
+.feedback.no{background:var(--bad-bg);color:var(--bad)}
+.feedback .ans{font-weight:850}
+/* result */
+.score-ring{font-size:54px;font-weight:850;letter-spacing:-.03em;text-align:center;margin:6px 0}
+.score-ring small{display:block;font-size:14px;color:var(--muted);font-weight:700;letter-spacing:0}
+.wlist{margin-top:12px;border-top:1px solid var(--line)}
+.wlist .item{display:flex;justify-content:space-between;gap:12px;padding:10px 2px;border-bottom:1px solid var(--line);align-items:baseline}
+.wlist .item b{font-size:16px}
+.wlist .item span{color:var(--muted);font-size:14px;text-align:right}
+.badge{display:inline-block;background:#fef2f2;color:var(--bad);border:1px solid #fecaca;border-radius:999px;padding:1px 9px;font-size:12px;font-weight:800;margin-left:6px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:11px;overflow:hidden}
+.seg button{border:0;background:#fff;padding:9px 14px;cursor:pointer;font-weight:700;color:var(--muted)}
+.seg button.on{background:var(--accent);color:#fff}
+.foot{margin-top:22px;color:var(--muted);font-size:12px;text-align:center}
+label.fld{display:block;font-size:12px;font-weight:800;letter-spacing:.06em;color:var(--accent);margin:14px 0 6px;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ===== HOME ===== -->
+  <section id="home">
+    <div class="hero">
+      <div class="eyebrow">아이워크수학 · 김규민 학생 전용</div>
+      <h1>SAT Vocabulary Test</h1>
+      <p class="lead">Word Smart E · 총 <b id="totalWords">79</b>개 단어 · 자동 채점 + 오답노트 반복 학습</p>
+      <div class="stats">
+        <div class="stat"><b id="stMastered">0</b><span>외운 단어</span></div>
+        <div class="stat"><b id="stWrong">0</b><span>오답노트</span></div>
+        <div class="stat"><b id="stAcc">–</b><span>누적 정답률</span></div>
+      </div>
+      <div class="menu">
+        <button class="tile" onclick="go('study')"><div class="ic">📖</div><h3>단어 학습</h3><p>카드로 뜻·예문·발음 보기</p></button>
+        <button class="tile" onclick="go('setup')"><div class="ic">📝</div><h3>테스트 시작</h3><p>객관식·스펠링 자동 채점</p></button>
+        <button class="tile" onclick="go('bank')"><div class="ic">🔁</div><h3>오답노트</h3><p>틀린 단어만 반복</p></button>
+      </div>
+    </div>
+    <p class="foot">진도는 이 기기(브라우저)에 자동 저장됩니다. · iWork Math</p>
+  </section>
+
+  <!-- ===== STUDY ===== -->
+  <section id="study" class="hidden">
+    <div class="between">
+      <button class="btn ghost" onclick="go('home')">← 홈</button>
+      <div class="row"><span class="muted" id="studyPos"></span>
+        <button class="btn" onclick="shuffleStudy()">🔀 섞기</button></div>
+    </div>
+    <div class="card" id="studyCard"></div>
+    <div class="row" style="margin-top:14px;justify-content:space-between">
+      <button class="btn" onclick="studyNav(-1)">← 이전</button>
+      <button class="btn" id="studyKnow" onclick="toggleKnow()">외움 표시</button>
+      <button class="btn primary" onclick="studyNav(1)">다음 →</button>
+    </div>
+  </section>
+
+  <!-- ===== QUIZ SETUP ===== -->
+  <section id="setup" class="hidden">
+    <button class="btn ghost" onclick="go('home')">← 홈</button>
+    <div class="card">
+      <h2 style="margin:0 0 4px">테스트 설정</h2>
+      <p class="muted" style="margin:0">유형과 범위를 고른 뒤 시작하세요. 매 문항 즉시 채점됩니다.</p>
+
+      <label class="fld">문제 유형</label>
+      <div class="seg" id="segMode">
+        <button class="on" data-v="en2ko">영어 → 뜻</button>
+        <button data-v="ko2en">뜻 → 영어</button>
+        <button data-v="spell">스펠링 입력</button>
+      </div>
+
+      <label class="fld">범위</label>
+      <div class="seg" id="segScope">
+        <button class="on" data-v="all">전체 단어</button>
+        <button data-v="wrong">오답노트만</button>
+      </div>
+
+      <label class="fld">문항 수</label>
+      <div class="seg" id="segCount">
+        <button data-v="10" class="on">10문제</button>
+        <button data-v="20">20문제</button>
+        <button data-v="999">전체</button>
+      </div>
+
+      <div class="row end" style="margin-top:22px">
+        <span class="muted" id="setupInfo" style="margin-right:auto"></span>
+        <button class="btn primary" onclick="startQuiz()">시작하기 →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== QUIZ ===== -->
+  <section id="quiz" class="hidden">
+    <div class="between">
+      <button class="btn ghost" onclick="quitQuiz()">✕ 그만</button>
+      <div class="row" style="flex:1;max-width:340px">
+        <div class="pbar"><span id="qProg"></span></div>
+        <span class="muted" id="qCount"></span>
+      </div>
+    </div>
+    <div class="card">
+      <p class="q-sub" id="qHint"></p>
+      <div class="q-prompt" id="qPrompt"></div>
+      <div class="opts" id="qOpts"></div>
+      <div id="qSpell" class="hidden">
+        <input class="tinput" id="qInput" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="영어 단어 입력 후 Enter">
+      </div>
+      <div class="feedback" id="qFeedback"></div>
+      <div class="row end" style="margin-top:16px">
+        <button class="btn primary hidden" id="qNext" onclick="nextQ()">다음 →</button>
+        <button class="btn primary hidden" id="qSubmit" onclick="submitSpell()">제출</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESULT ===== -->
+  <section id="result" class="hidden">
+    <div class="card">
+      <div class="score-ring" id="rScore"></div>
+      <p class="muted" id="rLine" style="text-align:center;margin:0 0 6px"></p>
+      <div id="rWrongWrap">
+        <div class="between" style="margin-top:16px"><b>이번에 틀린 단어</b><span class="muted" id="rWrongN"></span></div>
+        <div class="wlist" id="rWrong"></div>
+      </div>
+      <div class="row" style="margin-top:20px;justify-content:center">
+        <button class="btn primary" id="rRetry" onclick="retryWrong()">🔁 오답만 다시 풀기</button>
+        <button class="btn" onclick="go('setup')">새 테스트</button>
+        <button class="btn ghost" onclick="go('home')">홈</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WRONG BANK ===== -->
+  <section id="bank" class="hidden">
+    <button class="btn ghost" onclick="go('home')">← 홈</button>
+    <div class="card">
+      <div class="between">
+        <h2 style="margin:0">오답노트 <span class="muted" id="bankN"></span></h2>
+        <button class="btn ghost" onclick="clearBank()">전체 비우기</button>
+      </div>
+      <p class="muted">틀린 단어는 여기 모입니다. 테스트에서 <b>연속 2번 맞히면</b> 자동으로 졸업합니다.</p>
+      <div class="row" style="margin:10px 0 4px">
+        <button class="btn primary" id="bankTest" onclick="startBankTest()">오답노트 전체 테스트 →</button>
+      </div>
+      <div class="wlist" id="bankList"></div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+const WORDS = [{"word": "ebullient", "ipa": "/ɪˈbʊl.i.ənt/", "pos": "adjective", "en": "cheerful, energetic, and full of enthusiasm", "ko": "열정이 넘치는, 활기찬", "ex_en": "Her ebullient personality lifted the mood of the entire research team.", "ex_ko": "그녀의 활기 넘치는 성격은 연구팀 전체의 분위기를 북돋웠다."}, {"word": "eccentric", "ipa": "/ɪkˈsen.trɪk/", "pos": "adjective / noun", "en": "unconventional and slightly strange", "ko": "별난, 기이한; 별난 사람", "ex_en": "The eccentric inventor tested his machines only after midnight.", "ex_ko": "그 별난 발명가는 자정이 지난 뒤에만 자신의 기계들을 시험했다."}, {"word": "eclectic", "ipa": "/ɪˈklek.tɪk/", "pos": "adjective", "en": "selected from a wide range of sources or styles", "ko": "여러 출처나 양식에서 고른, 절충적인", "ex_en": "The museum's eclectic collection ranges from ancient pottery to digital art.", "ex_ko": "그 박물관의 다채로운 소장품은 고대 도자기부터 디지털 예술까지 아우른다."}, {"word": "edify", "ipa": "/ˈed.ɪ.faɪ/", "pos": "verb", "en": "to instruct or improve someone morally or intellectually", "ko": "교화하다, 지적으로 가르치다", "ex_en": "The documentary seeks to edify viewers without oversimplifying the issue.", "ex_ko": "그 다큐멘터리는 쟁점을 지나치게 단순화하지 않으면서 시청자를 교육하려 한다."}, {"word": "efface", "ipa": "/ɪˈfeɪs/", "pos": "verb", "en": "to erase, remove, or make less noticeable", "ko": "지우다, 없애다, 희미하게 하다", "ex_en": "Time had effaced most of the inscription on the stone monument.", "ex_ko": "세월이 돌기념비의 비문 대부분을 지워 버렸다."}, {"word": "effusion", "ipa": "/ɪˈfjuː.ʒən/", "pos": "noun", "en": "an unrestrained outpouring of emotion, words, or liquid", "ko": "감정의 분출, 유출", "ex_en": "The scientist responded to the award with an effusion of gratitude.", "ex_ko": "그 과학자는 수상에 대해 감사의 감정을 한껏 쏟아냈다."}, {"word": "egalitarian", "ipa": "/ɪˌɡæl.ɪˈteə.ri.ən/", "pos": "adjective / noun", "en": "favoring social, political, or economic equality", "ko": "평등주의의; 평등주의자", "ex_en": "The organization adopted an egalitarian structure in which every member had one vote.", "ex_ko": "그 조직은 모든 구성원이 한 표씩 갖는 평등주의적 구조를 채택했다."}, {"word": "egocentric", "ipa": "/ˌiː.ɡəʊˈsen.trɪk/", "pos": "adjective", "en": "self-centered and unable to consider other perspectives", "ko": "자기중심적인", "ex_en": "His egocentric argument ignored how the policy would affect low-income families.", "ex_ko": "그의 자기중심적인 주장은 그 정책이 저소득 가정에 미칠 영향을 무시했다."}, {"word": "egregious", "ipa": "/ɪˈɡriː.dʒəs/", "pos": "adjective", "en": "outstandingly bad or shockingly unacceptable", "ko": "터무니없이 나쁜, 지독한", "ex_en": "The audit uncovered an egregious misuse of public funds.", "ex_ko": "감사 결과 공공 자금의 터무니없이 심각한 오용이 드러났다."}, {"word": "elicit", "ipa": "/ɪˈlɪs.ɪt/", "pos": "verb", "en": "to draw out a response, fact, or reaction", "ko": "반응이나 정보를 이끌어 내다", "ex_en": "The interviewer used an open-ended question to elicit a detailed response.", "ex_ko": "면접관은 자세한 답변을 이끌어 내기 위해 개방형 질문을 사용했다."}, {"word": "elliptical", "ipa": "/ɪˈlɪp.tɪ.kəl/", "pos": "adjective", "en": "oval-shaped; indirect or intentionally incomplete", "ko": "타원형의; 생략이 많은, 간접적인", "ex_en": "Her elliptical reply suggested disagreement without stating it directly.", "ex_ko": "그녀의 생략적이고 간접적인 답변은 직접 말하지 않고도 반대 의사를 드러냈다."}, {"word": "elusive", "ipa": "/iˈluː.sɪv/", "pos": "adjective", "en": "difficult to find, catch, understand, or define", "ko": "붙잡기 어려운, 이해하기 어려운", "ex_en": "A simple explanation for the unexpected result remained elusive.", "ex_ko": "예상 밖의 결과에 대한 간단한 설명은 좀처럼 찾아지지 않았다."}, {"word": "emigrate", "ipa": "/ˈem.ɪ.ɡreɪt/", "pos": "verb", "en": "to leave one's country to live permanently in another", "ko": "다른 나라로 이주하다", "ex_en": "Political instability prompted many families to emigrate.", "ex_ko": "정치적 불안정 때문에 많은 가정이 해외로 이주했다."}, {"word": "eminent", "ipa": "/ˈem.ɪ.nənt/", "pos": "adjective", "en": "famous, respected, and distinguished in a field", "ko": "저명한, 뛰어난", "ex_en": "An eminent biologist delivered the opening lecture at the conference.", "ex_ko": "한 저명한 생물학자가 학회의 개막 강연을 했다."}, {"word": "empirical", "ipa": "/ɪmˈpɪr.ɪ.kəl/", "pos": "adjective", "en": "based on observation, experiment, or measurable evidence", "ko": "경험적·실증적인", "ex_en": "The claim is persuasive only if it is supported by empirical evidence.", "ex_ko": "그 주장은 실증적 증거로 뒷받침될 때에만 설득력이 있다."}, {"word": "emulate", "ipa": "/ˈem.jə.leɪt/", "pos": "verb", "en": "to try to equal or surpass someone by imitation", "ko": "본받아 따라가다, 능가하려 하다", "ex_en": "Young researchers often emulate the methods of scholars they admire.", "ex_ko": "젊은 연구자들은 흔히 자신이 존경하는 학자들의 방법을 본받는다."}, {"word": "encroach", "ipa": "/ɪnˈkrəʊtʃ/", "pos": "verb", "en": "to intrude gradually on another's territory, rights, or time", "ko": "침범하다, 잠식하다", "ex_en": "Commercial development began to encroach on the protected wetland.", "ex_ko": "상업 개발이 보호 습지를 서서히 침범하기 시작했다."}, {"word": "endemic", "ipa": "/enˈdem.ɪk/", "pos": "adjective", "en": "native to or regularly found in a particular place", "ko": "특정 지역에 고유한, 풍토적인", "ex_en": "The frog is endemic to a small chain of tropical islands.", "ex_ko": "그 개구리는 열대의 작은 군도에만 고유하게 서식한다."}, {"word": "enervate", "ipa": "/ˈen.ə.veɪt/", "pos": "verb", "en": "to weaken or drain energy from", "ko": "기력을 약화시키다, 무기력하게 하다", "ex_en": "Weeks of extreme heat enervated both the workers and the livestock.", "ex_ko": "몇 주간 이어진 극심한 더위가 노동자들과 가축 모두를 기진맥진하게 했다."}, {"word": "enfranchise", "ipa": "/ɪnˈfræn.tʃaɪz/", "pos": "verb", "en": "to give voting rights or full political privileges", "ko": "선거권을 주다, 권리를 부여하다", "ex_en": "The reform sought to enfranchise citizens who had long been excluded from elections.", "ex_ko": "그 개혁은 오랫동안 선거에서 배제된 시민들에게 투표권을 주려 했다."}, {"word": "engender", "ipa": "/ɪnˈdʒen.dər/", "pos": "verb", "en": "to cause or give rise to a feeling or condition", "ko": "감정이나 상황을 낳다, 야기하다", "ex_en": "Transparent decision-making can engender trust among employees.", "ex_ko": "투명한 의사 결정은 직원들 사이에 신뢰를 형성할 수 있다."}, {"word": "enigma", "ipa": "/ɪˈnɪɡ.mə/", "pos": "noun", "en": "a mysterious or difficult-to-understand person or thing", "ko": "수수께끼, 불가사의한 사람이나 사물", "ex_en": "The sudden disappearance of the manuscript remains an enigma.", "ex_ko": "그 원고가 갑자기 사라진 사건은 여전히 수수께끼로 남아 있다."}, {"word": "enormity", "ipa": "/ɪˈnɔː.mə.ti/", "pos": "noun", "en": "the extreme seriousness or wickedness of an act; immense scale", "ko": "극악함, 심각성; 막대한 규모", "ex_en": "Only later did officials grasp the enormity of the environmental damage.", "ex_ko": "관리들은 나중에야 환경 피해의 엄청난 심각성을 깨달았다."}, {"word": "ephemeral", "ipa": "/ɪˈfem.ər.əl/", "pos": "adjective", "en": "lasting for only a very short time", "ko": "아주 짧게 지속되는, 덧없는", "ex_en": "Online fame can be ephemeral, disappearing as quickly as it arises.", "ex_ko": "온라인상의 명성은 생겨난 만큼이나 빠르게 사라지는 덧없는 것일 수 있다."}, {"word": "epigram", "ipa": "/ˈep.ɪ.ɡræm/", "pos": "noun", "en": "a short, witty, and memorable saying or poem", "ko": "경구, 짧고 재치 있는 문구", "ex_en": "The essay begins with an epigram that captures its central argument.", "ex_ko": "그 에세이는 핵심 주장을 압축한 경구로 시작한다."}, {"word": "epigraph", "ipa": "/ˈep.ɪ.ɡrɑːf/", "pos": "noun", "en": "a quotation placed at the beginning of a book or chapter", "ko": "책이나 장의 앞머리에 붙이는 인용문", "ex_en": "The novel's epigraph foreshadows the conflict that follows.", "ex_ko": "그 소설의 제사는 뒤이어 벌어질 갈등을 암시한다."}, {"word": "epitaph", "ipa": "/ˈep.ɪ.tɑːf/", "pos": "noun", "en": "words written in memory of a deceased person, often on a tomb", "ko": "묘비명, 추도문", "ex_en": "The poet chose a simple line from her work as her epitaph.", "ex_ko": "그 시인은 자신의 묘비명으로 작품 속 한 구절을 골랐다."}, {"word": "epitome", "ipa": "/ɪˈpɪt.ə.mi/", "pos": "noun", "en": "a perfect example of a particular quality or type", "ko": "전형, 완벽한 본보기", "ex_en": "Her calm response under pressure was the epitome of professionalism.", "ex_ko": "압박 속에서도 침착했던 그녀의 대응은 전문성의 전형이었다."}, {"word": "equanimity", "ipa": "/ˌek.wəˈnɪm.ə.ti/", "pos": "noun", "en": "mental calmness and composure, especially under stress", "ko": "평정, 침착", "ex_en": "He accepted both praise and criticism with remarkable equanimity.", "ex_ko": "그는 칭찬과 비판을 모두 놀라울 만큼 침착하게 받아들였다."}, {"word": "equitable", "ipa": "/ˈek.wɪ.tə.bəl/", "pos": "adjective", "en": "fair and impartial, taking different needs into account", "ko": "공정한, 공평한", "ex_en": "The committee proposed an equitable distribution of limited resources.", "ex_ko": "위원회는 제한된 자원을 공정하게 배분하는 방안을 제안했다."}, {"word": "equivocal", "ipa": "/ɪˈkwɪv.ə.kəl/", "pos": "adjective", "en": "ambiguous or deliberately avoiding a clear commitment", "ko": "애매한, 확답을 피하는", "ex_en": "The minister's equivocal statement satisfied neither side of the debate.", "ex_ko": "장관의 애매한 성명은 논쟁의 어느 쪽도 만족시키지 못했다."}, {"word": "erudite", "ipa": "/ˈer.jə.daɪt/", "pos": "adjective", "en": "having or showing extensive scholarly knowledge", "ko": "박식한, 학식이 높은", "ex_en": "The professor's erudite lecture connected philosophy, mathematics, and history.", "ex_ko": "그 교수의 박식한 강의는 철학, 수학, 역사를 서로 연결했다."}, {"word": "esoteric", "ipa": "", "pos": "adjective", "en": "understood by only a few", "ko": "난해한, 소수만 아는", "ex_en": "", "ex_ko": ""}, {"word": "ethereal", "ipa": "", "pos": "adjective", "en": "delicate, light, or otherworldly", "ko": "천상의, 섬세하고 가벼운", "ex_en": "", "ex_ko": ""}, {"word": "evanescent", "ipa": "", "pos": "adjective", "en": "quickly fading from sight or memory", "ko": "덧없이 사라지는", "ex_en": "", "ex_ko": ""}, {"word": "exacting", "ipa": "", "pos": "adjective", "en": "demanding great precision or effort", "ko": "까다로운, 정밀함을 요구하는", "ex_en": "", "ex_ko": ""}, {"word": "exhaustive", "ipa": "", "pos": "adjective", "en": "covering all details thoroughly", "ko": "철저한, 빠짐없는", "ex_en": "", "ex_ko": ""}, {"word": "existential", "ipa": "", "pos": "adjective", "en": "concerning existence or human meaning", "ko": "실존의, 존재에 관한", "ex_en": "", "ex_ko": ""}, {"word": "expedient", "ipa": "", "pos": "adjective", "en": "practical but possibly unprincipled", "ko": "편의적인, 방편의", "ex_en": "", "ex_ko": ""}, {"word": "explicit", "ipa": "", "pos": "adjective", "en": "clearly and directly stated", "ko": "명백한, 분명히 표현된", "ex_en": "", "ex_ko": ""}, {"word": "extraneous", "ipa": "", "pos": "adjective", "en": "irrelevant or unnecessary", "ko": "관련 없는, 불필요한", "ex_en": "", "ex_ko": ""}, {"word": "facetious", "ipa": "", "pos": "adjective", "en": "joking inappropriately or unseriously", "ko": "경박하게 농담하는", "ex_en": "", "ex_ko": ""}, {"word": "facile", "ipa": "", "pos": "adjective", "en": "overly easy or simplistic", "ko": "안이한, 지나치게 쉬운", "ex_en": "", "ex_ko": ""}, {"word": "farcical", "ipa": "", "pos": "adjective", "en": "ridiculously absurd", "ko": "터무니없는, 우스꽝스러운", "ex_en": "", "ex_ko": ""}, {"word": "fastidious", "ipa": "", "pos": "adjective", "en": "very attentive to detail or cleanliness", "ko": "까다로운, 꼼꼼한", "ex_en": "", "ex_ko": ""}, {"word": "fatuous", "ipa": "", "pos": "adjective", "en": "foolish and complacently silly", "ko": "어리석은, 얼빠진", "ex_en": "", "ex_ko": ""}, {"word": "fecund", "ipa": "", "pos": "adjective", "en": "fertile or highly productive", "ko": "비옥한, 다산의", "ex_en": "", "ex_ko": ""}, {"word": "figurative", "ipa": "", "pos": "adjective", "en": "not literal; metaphorical", "ko": "비유적인", "ex_en": "", "ex_ko": ""}, {"word": "flagrant", "ipa": "", "pos": "adjective", "en": "obviously and offensively wrong", "ko": "노골적인, 명백히 나쁜", "ex_en": "", "ex_ko": ""}, {"word": "fortuitous", "ipa": "", "pos": "adjective", "en": "happening by chance, often favorably", "ko": "우연한, 운 좋은", "ex_en": "", "ex_ko": ""}, {"word": "fraternal", "ipa": "", "pos": "adjective", "en": "brotherly or associated with brotherhood", "ko": "형제의, 우애의", "ex_en": "", "ex_ko": ""}, {"word": "frenetic", "ipa": "", "pos": "adjective", "en": "frantic and uncontrolled", "ko": "정신없이 바쁜, 광란의", "ex_en": "", "ex_ko": ""}, {"word": "frugal", "ipa": "", "pos": "adjective", "en": "careful with money or resources", "ko": "검소한, 절약하는", "ex_en": "", "ex_ko": ""}, {"word": "furtive", "ipa": "", "pos": "adjective", "en": "secretive because of guilt or fear", "ko": "은밀한, 몰래 하는", "ex_en": "", "ex_ko": ""}, {"word": "futile", "ipa": "", "pos": "adjective", "en": "unable to produce any useful result", "ko": "헛된, 소용없는", "ex_en": "", "ex_ko": ""}, {"word": "garrulous", "ipa": "", "pos": "adjective", "en": "excessively talkative", "ko": "수다스러운", "ex_en": "", "ex_ko": ""}, {"word": "genteel", "ipa": "", "pos": "adjective", "en": "polite and refined, sometimes affected", "ko": "점잖은, 우아한", "ex_en": "", "ex_ko": ""}, {"word": "grandiloquent", "ipa": "", "pos": "adjective", "en": "pompous and overly elaborate", "ko": "과장된, 호언장담하는", "ex_en": "", "ex_ko": ""}, {"word": "grandiose", "ipa": "", "pos": "adjective", "en": "impressively ambitious but unrealistic", "ko": "거창한, 과장된", "ex_en": "", "ex_ko": ""}, {"word": "gratuitous", "ipa": "", "pos": "adjective", "en": "unnecessary and unjustified", "ko": "불필요한, 까닭 없는", "ex_en": "", "ex_ko": ""}, {"word": "gregarious", "ipa": "", "pos": "adjective", "en": "sociable and fond of company", "ko": "사교적인", "ex_en": "", "ex_ko": ""}, {"word": "hackneyed", "ipa": "", "pos": "adjective", "en": "overused and lacking originality", "ko": "진부한, 상투적인", "ex_en": "", "ex_ko": ""}, {"word": "hapless", "ipa": "", "pos": "adjective", "en": "unlucky or unfortunate", "ko": "운 없는, 불운한", "ex_en": "", "ex_ko": ""}, {"word": "hermetic", "ipa": "", "pos": "adjective", "en": "tightly sealed or isolated", "ko": "밀폐된, 외부와 차단된", "ex_en": "", "ex_ko": ""}, {"word": "histrionic", "ipa": "", "pos": "adjective", "en": "overly dramatic or theatrical", "ko": "과장된, 연극적인", "ex_en": "", "ex_ko": ""}, {"word": "homogeneous", "ipa": "", "pos": "adjective", "en": "uniform in composition or kind", "ko": "동질의, 균일한", "ex_en": "", "ex_ko": ""}, {"word": "hypothetical", "ipa": "", "pos": "adjective", "en": "assumed for reasoning, not factual", "ko": "가상의, 가정의", "ex_en": "", "ex_ko": ""}, {"word": "idyllic", "ipa": "", "pos": "adjective", "en": "peaceful, simple, and picturesque", "ko": "목가적인, 평화로운", "ex_en": "", "ex_ko": ""}, {"word": "illicit", "ipa": "", "pos": "adjective", "en": "illegal or socially forbidden", "ko": "불법의, 금지된", "ex_en": "", "ex_ko": ""}, {"word": "imminent", "ipa": "", "pos": "adjective", "en": "about to happen very soon", "ko": "임박한", "ex_en": "", "ex_ko": ""}, {"word": "immutable", "ipa": "", "pos": "adjective", "en": "unchanging and permanent", "ko": "불변의", "ex_en": "", "ex_ko": ""}, {"word": "impartial", "ipa": "", "pos": "adjective", "en": "not favoring either side", "ko": "공정한, 편파적이지 않은", "ex_en": "", "ex_ko": ""}, {"word": "impeccable", "ipa": "", "pos": "adjective", "en": "flawless and faultless", "ko": "흠잡을 데 없는", "ex_en": "", "ex_ko": ""}, {"word": "imperial", "ipa": "", "pos": "adjective", "en": "related to empire or command", "ko": "제국의, 황제의", "ex_en": "", "ex_ko": ""}, {"word": "impervious", "ipa": "", "pos": "adjective", "en": "unaffected or resistant to influence", "ko": "영향받지 않는, 둔감한", "ex_en": "", "ex_ko": ""}, {"word": "impetuous", "ipa": "", "pos": "adjective", "en": "acting rashly and hastily", "ko": "충동적인, 성급한", "ex_en": "", "ex_ko": ""}, {"word": "impotent", "ipa": "", "pos": "adjective", "en": "powerless or ineffective", "ko": "무력한, 효력 없는", "ex_en": "", "ex_ko": ""}, {"word": "inane", "ipa": "", "pos": "adjective", "en": "silly and lacking sense", "ko": "어리석은, 무의미한", "ex_en": "", "ex_ko": ""}, {"word": "incandescent", "ipa": "", "pos": "adjective", "en": "glowing intensely or brilliantly", "ko": "백열하는, 눈부시게 빛나는", "ex_en": "", "ex_ko": ""}];
+const SKEY = 'kgm_sat_e_v1';
+
+/* ---------- storage ---------- */
+function load(){ try{ return JSON.parse(localStorage.getItem(SKEY)) || {}; }catch(e){ return {}; } }
+function save(s){ localStorage.setItem(SKEY, JSON.stringify(s)); }
+let STATE = Object.assign({ wrong:{}, known:{}, totAns:0, totCor:0 }, load());
+function persist(){ save(STATE); }
+
+const byWord = Object.fromEntries(WORDS.map(w=>[w.word,w]));
+
+/* ---------- view switch ---------- */
+function go(id){
+  ['home','study','setup','quiz','result','bank'].forEach(v=>document.getElementById(v).classList.toggle('hidden', v!==id));
+  window.scrollTo(0,0);
+  if(id==='home') renderHome();
+  if(id==='study') initStudy();
+  if(id==='setup') renderSetup();
+  if(id==='bank') renderBank();
+}
+function renderHome(){
+  document.getElementById('totalWords').textContent = WORDS.length;
+  document.getElementById('stMastered').textContent = Object.keys(STATE.known).length;
+  document.getElementById('stWrong').textContent = Object.keys(STATE.wrong).length;
+  document.getElementById('stAcc').textContent = STATE.totAns ? Math.round(STATE.totCor/STATE.totAns*100)+'%' : '–';
+}
+
+/* ---------- TTS ---------- */
+function speak(t){
+  if(!window.speechSynthesis) return;
+  const u = new SpeechSynthesisUtterance(t); u.lang='en-US'; u.rate=.92;
+  speechSynthesis.cancel(); speechSynthesis.speak(u);
+}
+
+/* ---------- STUDY ---------- */
+let studyOrder=[], studyIdx=0;
+function initStudy(){
+  if(!studyOrder.length){ studyOrder = WORDS.map((_,i)=>i); }
+  renderStudy();
+}
+function shuffleStudy(){ studyOrder = shuffle(WORDS.map((_,i)=>i)); studyIdx=0; renderStudy(); }
+function studyNav(d){ studyIdx=(studyIdx+d+studyOrder.length)%studyOrder.length; renderStudy(); }
+function toggleKnow(){
+  const w = WORDS[studyOrder[studyIdx]].word;
+  if(STATE.known[w]) delete STATE.known[w]; else STATE.known[w]=1;
+  persist(); renderStudy();
+}
+function renderStudy(){
+  const w = WORDS[studyOrder[studyIdx]];
+  document.getElementById('studyPos').textContent = (studyIdx+1)+' / '+studyOrder.length;
+  const known = STATE.known[w.word];
+  document.getElementById('studyKnow').textContent = known ? '✓ 외움' : '외움 표시';
+  document.getElementById('studyKnow').classList.toggle('primary', !!known);
+  document.getElementById('studyCard').innerHTML = `
+    <div class="between">
+      <div class="word-big">${w.word}</div>
+      <button class="speak" onclick="speak('${w.word}')">🔊 듣기</button>
+    </div>
+    <div class="chips">
+      ${w.ipa?`<span class="chip ipa">${w.ipa}</span>`:''}
+      <span class="chip pos">${w.pos||''}</span>
+    </div>
+    <p class="def-en">${w.en}</p>
+    <p class="def-ko">${w.ko}</p>
+    ${w.ex_en?`<div class="ex"><p class="ex-en">"${w.ex_en}"</p><p class="ex-ko">${w.ex_ko}</p></div>`:''}
+  `;
+}
+
+/* ---------- SETUP ---------- */
+function seg(id){ return document.querySelector('#'+id+' button.on').dataset.v; }
+document.querySelectorAll('.seg').forEach(s=>{
+  s.addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b)return;
+    s.querySelectorAll('button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+    if(s.id==='segScope'||s.id==='segMode') renderSetup();
+  });
+});
+function renderSetup(){
+  const scope = seg('segScope');
+  const pool = scope==='wrong' ? Object.keys(STATE.wrong) : WORDS.map(w=>w.word);
+  const info = document.getElementById('setupInfo');
+  if(scope==='wrong' && pool.length<1){ info.textContent='오답노트가 비어 있어요. 먼저 전체 테스트를 풀어보세요.'; }
+  else info.textContent = '출제 가능 단어 '+pool.length+'개';
+}
+
+/* ---------- QUIZ ENGINE ---------- */
+let quiz=null;
+function startQuiz(){
+  const mode=seg('segMode'), scope=seg('segScope'); let n=parseInt(seg('segCount'),10);
+  let pool = scope==='wrong' ? Object.keys(STATE.wrong).map(w=>byWord[w]).filter(Boolean) : WORDS.slice();
+  if(pool.length<1){ alert('오답노트가 비어 있어요. 전체 테스트부터 풀어보세요.'); return; }
+  if(pool.length<4 && mode!=='spell'){ /* still ok, options will pad from全 */ }
+  const items = shuffle(pool).slice(0, Math.min(n,pool.length));
+  quiz = { mode, items, i:0, correct:0, wrongList:[], fromWrong: scope==='wrong' };
+  go('quiz'); renderQ();
+}
+function startBankTest(){
+  const pool = Object.keys(STATE.wrong).map(w=>byWord[w]).filter(Boolean);
+  if(!pool.length){ alert('오답노트가 비어 있어요.'); return; }
+  quiz = { mode:'en2ko', items:shuffle(pool), i:0, correct:0, wrongList:[], fromWrong:true };
+  go('quiz'); renderQ();
+}
+function retryWrong(){
+  const pool = quiz ? quiz.wrongList.map(w=>byWord[w]) : [];
+  if(!pool.length){ go('setup'); return; }
+  quiz = { mode:quiz.mode, items:shuffle(pool), i:0, correct:0, wrongList:[], fromWrong:true };
+  go('quiz'); renderQ();
+}
+function quitQuiz(){ if(confirm('테스트를 끝낼까요? 지금까지 채점은 저장됩니다.')) { go('home'); } }
+
+function renderQ(){
+  const q=quiz.items[quiz.i], m=quiz.mode;
+  document.getElementById('qCount').textContent=(quiz.i+1)+' / '+quiz.items.length;
+  document.getElementById('qProg').style.width=(quiz.i/quiz.items.length*100)+'%';
+  const fb=document.getElementById('qFeedback'); fb.className='feedback'; fb.innerHTML='';
+  document.getElementById('qNext').classList.add('hidden');
+  const optBox=document.getElementById('qOpts'), spellBox=document.getElementById('qSpell'),
+        submit=document.getElementById('qSubmit');
+  const hint=document.getElementById('qHint'), prompt=document.getElementById('qPrompt');
+
+  if(m==='spell'){
+    optBox.classList.add('hidden'); spellBox.classList.remove('hidden'); submit.classList.remove('hidden');
+    hint.textContent='뜻을 보고 영어 단어를 입력하세요';
+    prompt.innerHTML = `${q.ko}<div class="muted" style="font-size:15px;font-weight:600;margin-top:6px">${q.en}</div>`;
+    const inp=document.getElementById('qInput'); inp.value=''; inp.disabled=false;
+    setTimeout(()=>inp.focus(),50);
+    inp.onkeydown=e=>{ if(e.key==='Enter') submitSpell(); };
+  } else {
+    spellBox.classList.add('hidden'); submit.classList.add('hidden'); optBox.classList.remove('hidden');
+    let promptText, correct, options;
+    if(m==='en2ko'){
+      hint.innerHTML='다음 단어의 뜻은? <button class="speak" onclick="speak(\''+q.word+'\')">🔊</button>';
+      prompt.textContent=q.word; correct=q.ko;
+      options = pick(WORDS.filter(w=>w.word!==q.word),3).map(w=>w.ko);
+    } else {
+      hint.textContent='다음 뜻에 맞는 단어는?';
+      prompt.innerHTML=`${q.ko}<div class="muted" style="font-size:15px;font-weight:600;margin-top:4px">${q.en}</div>`;
+      correct=q.word;
+      options = pick(WORDS.filter(w=>w.word!==q.word),3).map(w=>w.word);
+    }
+    options.push(correct); options=shuffle(options);
+    optBox.innerHTML='';
+    options.forEach((o,k)=>{
+      const b=document.createElement('button'); b.className='opt';
+      b.innerHTML=`<span class="k">${'ABCD'[k]}</span>${o}`;
+      b.onclick=()=>choose(b,o,correct,optBox);
+      optBox.appendChild(b);
+    });
+  }
+}
+function choose(btn,chosen,correct,box){
+  [...box.children].forEach(b=>b.disabled=true);
+  const ok = chosen===correct;
+  btn.classList.add(ok?'correct':'wrong');
+  if(!ok){ [...box.children].forEach(b=>{ if(b.textContent.endsWith(correct)) b.classList.add('correct'); }); }
+  grade(ok);
+}
+function submitSpell(){
+  const inp=document.getElementById('qInput'); const q=quiz.items[quiz.i];
+  const norm=s=>s.toLowerCase().trim().replace(/[^a-z]/g,'');
+  const ok = norm(inp.value)===norm(q.word);
+  inp.disabled=true; document.getElementById('qSubmit').classList.add('hidden');
+  grade(ok, q.word);
+}
+function grade(ok, spellAns){
+  const q=quiz.items[quiz.i];
+  STATE.totAns++; if(ok) STATE.totCor++;
+  // wrong-bank logic (streak to graduate)
+  const w=q.word;
+  if(ok){ quiz.correct++;
+    if(STATE.wrong[w]){ STATE.wrong[w].streak=(STATE.wrong[w].streak||0)+1;
+      if(STATE.wrong[w].streak>=2) delete STATE.wrong[w]; }
+  } else {
+    quiz.wrongList.push(w);
+    STATE.wrong[w]=STATE.wrong[w]||{miss:0,streak:0};
+    STATE.wrong[w].miss++; STATE.wrong[w].streak=0;
+  }
+  persist();
+  const fb=document.getElementById('qFeedback');
+  fb.className='feedback show '+(ok?'ok':'no');
+  fb.innerHTML = ok
+    ? `✓ 정답!  <span class="ans">${q.word}</span> — ${q.ko}`
+    : `✗ 오답.  정답은 <span class="ans">${q.word}</span> — ${q.ko}${spellAns!==undefined?` <span class="muted">(입력: ${spellAns||'∅'})</span>`:''}`;
+  document.getElementById('qProg').style.width=((quiz.i+1)/quiz.items.length*100)+'%';
+  document.getElementById('qNext').classList.remove('hidden');
+  document.getElementById('qNext').textContent = (quiz.i+1>=quiz.items.length)?'결과 보기 →':'다음 →';
+  document.getElementById('qNext').focus();
+}
+function nextQ(){ quiz.i++; if(quiz.i>=quiz.items.length){ showResult(); } else renderQ(); }
+
+/* ---------- RESULT ---------- */
+function showResult(){
+  const tot=quiz.items.length, cor=quiz.correct, pct=Math.round(cor/tot*100);
+  document.getElementById('rScore').innerHTML=`${pct}<small>점 · ${cor}/${tot} 정답</small>`;
+  let msg = pct===100?'완벽해요! 🎉':pct>=80?'잘했어요. 조금만 더!':pct>=50?'반복하면 금방 외워집니다.':'오답노트로 다시 풀어봐요.';
+  document.getElementById('rLine').textContent=msg;
+  const wrongWrap=document.getElementById('rWrongWrap'), list=document.getElementById('rWrong');
+  if(quiz.wrongList.length){
+    wrongWrap.classList.remove('hidden');
+    document.getElementById('rWrongN').textContent=quiz.wrongList.length+'개';
+    list.innerHTML=quiz.wrongList.map(w=>{const x=byWord[w];
+      return `<div class="item"><b>${x.word}</b><span>${x.ko}</span></div>`;}).join('');
+    document.getElementById('rRetry').classList.remove('hidden');
+  } else {
+    wrongWrap.classList.add('hidden');
+    document.getElementById('rRetry').classList.add('hidden');
+  }
+  go2('result');
+}
+function go2(id){ ['home','study','setup','quiz','result','bank'].forEach(v=>document.getElementById(v).classList.toggle('hidden', v!==id)); window.scrollTo(0,0); }
+
+/* ---------- BANK ---------- */
+function renderBank(){
+  const keys=Object.keys(STATE.wrong);
+  document.getElementById('bankN').textContent='('+keys.length+')';
+  document.getElementById('bankTest').disabled = keys.length<1;
+  const el=document.getElementById('bankList');
+  if(!keys.length){ el.innerHTML='<p class="muted" style="padding:14px 2px">아직 틀린 단어가 없어요. 테스트를 풀면 여기에 모입니다.</p>'; return; }
+  keys.sort((a,b)=>(STATE.wrong[b].miss||0)-(STATE.wrong[a].miss||0));
+  el.innerHTML=keys.map(w=>{const x=byWord[w]||{word:w,ko:''}; const d=STATE.wrong[w];
+    return `<div class="item"><b>${x.word} <span class="badge">${d.miss}회 틀림</span></b>
+      <span>${x.ko}${d.streak?` · 졸업까지 ${2-d.streak}번`:''}</span></div>`;}).join('');
+}
+function clearBank(){ if(confirm('오답노트를 모두 비울까요?')){ STATE.wrong={}; persist(); renderBank(); } }
+
+/* ---------- helpers ---------- */
+function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+function pick(arr,n){ return shuffle(arr).slice(0,n); }
+
+renderHome();
+</script>
+</body>
+</html>
