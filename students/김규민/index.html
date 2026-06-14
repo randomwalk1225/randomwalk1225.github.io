@@ -417,14 +417,20 @@ function setupExtras(q,m){
   } else wrap.classList.add('hidden');
 }
 function exampleHTML(q,m,reveal){
-  const full=(m==='en2ko'||reveal);
-  const body= full ? `<p class="ex-en">"${hiWord(q.word,q.ex_en)}"</p>`
-                   : `<p class="ex-en">"${clozeWord(q.word,q.ex_en)}"</p>`;
-  const ko = `<p class="ex-ko">${q.ex_ko}</p>`;
-  const tail= full
-    ? `<div class="between" style="margin-top:6px"><span></span><button class="speak" onclick="speakExample('${q.word}')">🔊 예문 듣기</button></div>`
-    : `<p class="ex-ko" style="margin-top:6px">빈칸에 들어갈 단어를 추론해 보세요. <span style="opacity:.7">(정답을 맞히면 해석이 표시됩니다)</span></p>`;
-  return body+(full?ko:'')+tail;   // 한글 해석은 정답 공개 후에만 (힌트 단계에선 답 노출 방지)
+  // 정답 노출 방지: 한글 해석은 '정답 공개(reveal)' 후에만 — 모든 모드 공통.
+  // en2ko(영어→뜻)는 뜻 자체가 정답이므로 한글 예문도 정답 전엔 숨김.
+  // 단어가 정답인 모드(뜻→영어·스펠링)는 정답 전 영어 예문의 단어를 빈칸 처리.
+  const showWord = (m==='en2ko' || reveal);   // 실제 단어 노출 여부 (아니면 빈칸)
+  const body = showWord ? `<p class="ex-en">"${hiWord(q.word,q.ex_en)}"</p>`
+                        : `<p class="ex-en">"${clozeWord(q.word,q.ex_en)}"</p>`;
+  if(reveal){
+    return body
+      + `<p class="ex-ko">${q.ex_ko}</p>`
+      + `<div class="between" style="margin-top:6px"><span></span><button class="speak" onclick="speakExample('${q.word}')">🔊 예문 듣기</button></div>`;
+  }
+  // 정답 전: 영어 예문만, 한글 해석 숨김
+  const note = (m==='en2ko') ? '영어 예문으로 뜻을 떠올려 보세요.' : '빈칸에 들어갈 단어를 추론해 보세요.';
+  return body + `<p class="ex-ko" style="margin-top:6px">${note} <span style="opacity:.7">(정답을 맞히면 해석이 표시됩니다)</span></p>`;
 }
 function toggleExample(){
   const box=document.getElementById('qExample'); _exOpen=!_exOpen;
