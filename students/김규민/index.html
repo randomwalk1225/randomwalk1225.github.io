@@ -423,8 +423,8 @@ function exampleHTML(q,m,reveal){
   const ko = `<p class="ex-ko">${q.ex_ko}</p>`;
   const tail= full
     ? `<div class="between" style="margin-top:6px"><span></span><button class="speak" onclick="speakExample('${q.word}')">🔊 예문 듣기</button></div>`
-    : `<p class="ex-ko" style="margin-top:6px">빈칸에 들어갈 단어를 추론해 보세요.</p>`;
-  return body+ko+tail;
+    : `<p class="ex-ko" style="margin-top:6px">빈칸에 들어갈 단어를 추론해 보세요. <span style="opacity:.7">(정답을 맞히면 해석이 표시됩니다)</span></p>`;
+  return body+(full?ko:'')+tail;   // 한글 해석은 정답 공개 후에만 (힌트 단계에선 답 노출 방지)
 }
 function toggleExample(){
   const box=document.getElementById('qExample'); _exOpen=!_exOpen;
