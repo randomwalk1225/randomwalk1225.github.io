@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HMMT November 2025 — General Round 채점 리포트</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},chtml:{scale:1.05}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+:root{
+  /* 따뜻한 학술 종이 톤 (design-research/principles/05-anti-mechanical.md) */
+  --ink:#1a1a1a; --muted:#6b665f; --paper:#faf9f7; --header:#2b3a42; --accent:#2b6cb0;
+  --ok:#2f7a55; --okbg:#eef3ef; --wrong:#a4472f; --wrongbg:#f6efea;
+  --blank:#b06a2b; --blankbg:#f5eee2; --line:#e7e1d7;
+  /* 2026-06-14 원장 지시: 18px는 작고 36px는 큼 → 중간값 24px. */
+  --fs-base:24px; --fs-step:23px; --fs-meta:16px; --fs-h:38px;
+}
+*{box-sizing:border-box}
+@font-face{font-family:'MaruBuri';src:local('MaruBuri'),local('MaruBuri-Regular');font-weight:400}
+@font-face{font-family:'MaruBuri';src:local('MaruBuri SemiBold'),local('MaruBuri-SemiBold');font-weight:600}
+@font-face{font-family:'MaruBuri';src:local('MaruBuri Bold'),local('MaruBuri-Bold');font-weight:700}
+html{scroll-behavior:smooth}
+body{font-family:'MaruBuri','Noto Serif KR','Apple SD Gothic Neo',serif;
+  font-size:var(--fs-base); line-height:1.85; color:var(--ink); margin:0; background:var(--paper)}
+.wrap{max-width:1240px; margin:0 auto; padding:0 22px 80px}
+header.top{background:var(--header); color:#fff; padding:26px 22px 22px}
+header.top .inner{max-width:1240px; margin:0 auto}
+header.top h1{margin:0 0 4px; font-size:var(--fs-h); font-weight:700; letter-spacing:-.3px}
+header.top .sub{font-size:18px; opacity:.92}
+header.top .ex{font-size:16px; opacity:.80; margin-top:7px}
+nav.jump{position:sticky; top:0; z-index:20; background:var(--paper); border-bottom:1px solid var(--line);
+  padding:11px 22px}
+nav.jump .inner{max-width:1240px; margin:0 auto; display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+nav.jump .brand{font-weight:700; color:var(--header); font-size:17px; margin-right:auto}
+.btn{display:inline-block; text-decoration:none; font-weight:600; font-size:17px;
+  padding:9px 18px; border-radius:8px; background:var(--accent); color:#fff; transition:.15s}
+.btn:hover{background:var(--header); transform:translateY(-1px)}
+.btn.ghost{background:#eef3fb; color:var(--accent)}
+.note{font-size:var(--fs-meta); color:var(--muted); margin:16px 0 8px}
+.note a{color:var(--accent)}
+/* scorecard */
+.score{display:flex; gap:14px; flex-wrap:wrap; margin:18px 0 6px}
+.score .box{flex:1 1 150px; background:#fff; border:1px solid var(--line); border-radius:12px;
+  padding:16px; text-align:center}
+.score .box .n{font-size:34px; font-weight:700; line-height:1.1}
+.score .box .l{font-size:var(--fs-meta); color:var(--muted); margin-top:4px}
+.score .main .n{color:var(--accent)} .score .ok .n{color:var(--ok)}
+.score .wrong .n{color:var(--wrong)} .score .blank .n{color:var(--blank)}
+.verify{background:var(--blankbg); border:1px solid #ead9c2; border-radius:8px; padding:14px 18px; margin:18px 0 8px}
+.verify h3{margin:0 0 8px; color:var(--blank); font-size:20px}
+.verify li{margin:8px 0; font-size:17px}
+.sec{display:flex; align-items:center; gap:14px; margin:38px 0 16px}
+.sec h2{background:var(--header); color:#fff; padding:10px 20px; border-radius:8px; margin:0; font-size:24px}
+.sec a.top{margin-left:auto; font-size:var(--fs-meta); color:var(--accent); text-decoration:none}
+.card{background:#fff; border:1px solid var(--line); border-radius:10px; padding:20px 24px; margin:18px 0}
+.card.wrong{background:var(--wrongbg)} .card.blank{background:var(--blankbg)}
+.chead{display:flex; justify-content:space-between; align-items:flex-start; gap:18px; flex-wrap:wrap; margin-bottom:10px}
+.cleft{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap}
+.qn{font-weight:700; color:var(--header); font-size:27px}
+.area{font-size:var(--fs-meta); color:var(--muted)}
+.chip{padding:4px 16px; border-radius:24px; font-weight:600; font-size:var(--fs-meta)}
+.chip.ok{background:var(--okbg); color:var(--ok)} .chip.wrong{background:var(--wrongbg); color:var(--wrong)}
+.chip.blank{background:var(--blankbg); color:var(--blank)}
+/* 답 표시: 오른쪽 정렬 + 공식/학생 색 분리 */
+.ans{display:flex; gap:14px; flex-shrink:0; flex-wrap:wrap}
+.abox{display:flex; flex-direction:column; align-items:center; padding:8px 20px; border-radius:12px; border:1px solid var(--line); min-width:110px}
+.abox .k{font-size:var(--fs-meta); color:var(--muted); font-weight:600}
+.abox .val{font-size:23px; font-weight:700; margin-top:2px}
+.abox.off{background:#edf1f5; border-color:#d6dde4} .abox.off .val{color:var(--header)}
+.abox.stu.ok{background:var(--okbg); border-color:#d2e2d8} .abox.stu.ok .val{color:var(--ok)}
+.abox.stu.wrong{background:var(--wrongbg); border-color:#e6cabf} .abox.stu.wrong .val{color:var(--wrong)}
+.abox.stu.blank{background:var(--blankbg); border-color:#e7d6bd} .abox.stu.blank .val{color:var(--blank)}
+/* 문제 / 풀이 라벨 — 확실한 구분 */
+.blabel{font-size:var(--fs-meta); font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--accent); margin:18px 0 6px; padding-bottom:5px; border-bottom:2px solid #dfe6ec}
+.blabel.sol{color:var(--ok); border-bottom-color:#d8e6dd}
+.prob{font-size:var(--fs-base); margin:4px 0 8px; line-height:1.8; color:#2c2925}
+.fig{margin:12px 0; text-align:center}
+.fig img{max-width:100%; border:1px solid var(--line); border-radius:8px; background:#fff; padding:8px}
+.fig.grid img{max-width:230px} .fig.diagram img{max-width:520px}
+.fig .cap{font-size:var(--fs-meta); color:var(--muted); margin-top:6px}
+ol.steps{margin:8px 0 2px; padding-left:0; list-style:none}
+ol.steps li{padding:7px 0; font-size:var(--fs-step); line-height:1.9; border-top:1px solid var(--line)}
+ol.steps li:first-child{border-top:none}
+.sollink{font-size:var(--fs-meta); margin-top:8px}
+.sollink a{color:var(--accent)}
+/* deep dive */
+.dd{background:#fff; border:1px solid var(--line); border-radius:12px; margin:24px 0; overflow:hidden}
+.dd h3{background:var(--header); color:#fff; margin:0; padding:14px 20px; font-size:22px}
+.dd .body{padding:18px 24px}
+.dd .concept li{font-size:var(--fs-step); margin:11px 0; padding-left:6px; line-height:1.8}
+.pq{background:#f4f1ea; border:1px solid #e3dccf; border-radius:10px; padding:14px 18px; margin:16px 0 0; font-size:var(--fs-step)}
+.pq .pl{font-weight:700; color:var(--accent); margin-right:6px}
+details.pt{border:1px solid #e3dccf; border-top:none; border-radius:0 0 10px 10px; margin:0 0 6px}
+details.pt summary{cursor:pointer; padding:10px 16px; font-weight:600; color:var(--ok); font-size:17px; list-style:none}
+details.pt summary::-webkit-details-marker{display:none}
+details.pt summary::before{content:"▶ "; font-size:11px} details.pt[open] summary::before{content:"▼ "}
+details.pt ol.steps{padding:2px 16px 12px}
+footer{max-width:1240px; margin:30px auto 0; padding:18px 22px; color:var(--muted); font-size:var(--fs-meta);
+  border-top:1px solid var(--line); text-align:center}
+</style>
+</head>
+<body>
+<header class="top"><div class="inner">
+  <h1>HMMT November 2025 — General Round 채점 리포트</h1>
+  <div class="sub">HMMT November 2025 · General Round · 10문항</div>
+  <div class="ex">학생: 유윤제 · 채점일시 2026-06-14 14:38 · 결과 8 / 10</div>
+</div></header>
+<nav class="jump" id="topnav"><div class="inner">
+  <span class="brand">아이워크수학 · iWork Math</span>
+  <span style="font-size:16px;color:#6b665f">Bookmark</span>
+  <a class="btn" href="#eng">▶ English Solutions</a>
+  <a class="btn ghost" href="#kor">▶ 한글 해설</a>
+</div></nav>
+<div class="wrap">
+  <div class="note">정답은 HMMT 공식 해설 PDF 기준 검증. 모든 문제 해설 링크는 공식 아카이브 solutions.pdf 로 연결됩니다.
+    · <a href="assets/pdf/problems.pdf" target="_blank">problems.pdf</a>
+    · <a href="assets/pdf/solutions.pdf" target="_blank">solutions.pdf</a></div>
+  <div class="score">
+    <div class="box main"><div class="n">8 / 10</div><div class="l">정답 / Correct</div></div>
+    <div class="box ok"><div class="n">8</div><div class="l">맞음 / Right</div></div>
+    <div class="box wrong"><div class="n">1</div><div class="l">틀림 / Wrong</div></div>
+    <div class="box blank"><div class="n">1</div><div class="l">미응답 / Blank</div></div>
+  </div>
+  <div class="verify"><h3>총평 / Notes</h3>
+    <ul>
+      <li><b>Q9</b> — 정답은 \(abc=\tfrac{1}{91}\) 인데 유윤제는 그 역수 91을 적음 — \(\tfrac{11}{1001}\) 을 뒤집어 \(\tfrac{1001}{11}=91\) 로 계산한 실수.<br><span style='color:#7a6a55'>the answer is \(\tfrac{1}{91}\) but Yunje wrote its reciprocal 91 — flipping \(\tfrac{11}{1001}\) into \(\tfrac{1001}{11}=91\).</span></li>
+      <li><b>Q8</b> — 미응답. 방멱정리(Power of a Point) + 닮음으로 푸는 문제 — 아래 도형과 풀이 참고.<br><span style='color:#7a6a55'>not attempted. Solve with Power of a Point + similar triangles (see the figure below).</span></li>
+    </ul></div>
+  <div class="sec"><h2 id="eng">English Solutions</h2><a class="top" href="#topnav">▲ Top / 맨 위로</a></div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q1</span> <span class="chip ok">✓ Correct</span> <span class="area">Geometry · similar triangles</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(3\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(3\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Rectangle \(ABCD\); \(X\in BC,\ Y\in AD\) with \(\angle AXY=\angle XYC=90^\circ\) and \(AX:XY:YC=1:2:1\). Given \(AB=1\), compute \(BC\).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Drop the foot \(Z\) from \(Y\) to \(BC\).</li>
+      <li>\(\triangle ABX\sim\triangle XZY\) (right angle + shared angle).</li>
+      <li>Since \(XY/AX=2\), \(XZ=2\,AB=2\) and \(BX=ZY/2=\tfrac12\).</li>
+      <li>By symmetry \(CZ=\tfrac12\).</li>
+      <li>\(\therefore BC=\tfrac12+2+\tfrac12=3.\)</li>
+    </ol>
+    <div class="sollink"><a href="assets/pdf/solutions.pdf" target="_blank">→ Official solution (P1)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q2</span> <span class="chip ok">✓ Correct</span> <span class="area">Combinatorics · parity</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(12\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(12\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">\(n\) integers are placed in a circle: at least one is \(0\); adjacent integers differ by exactly \(1\); the sum is \(24\). Find the smallest possible \(n\).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Adjacent integers alternate in parity, so \(n\) is even.</li>
+      <li>If \(n\le 8\), the sum \(\le 0+1+2+3+4+3+2+1=16&lt;24\).</li>
+      <li>If \(n=10\), there are five evens and five odds, so the sum is odd — cannot equal \(24\).</li>
+      <li>\(\therefore n\ge 12\), and \(12\) is achievable.</li>
+    </ol>
+    <div class="sollink"><a href="assets/pdf/solutions.pdf" target="_blank">→ Official solution (P2)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q3</span> <span class="chip ok">✓ Correct</span> <span class="area">Combinatorics · counting</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(1296\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(1296\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Fill each cell of a \(3\times3\) grid with some of \(1,2,3,4\) so that each row and each column contains each of \(1,2,3,4\) exactly once. Count the number of ways.</div>
+    <div class="fig grid"><img src="assets/img/q3.png" alt="Q3 figure"><div class="cap">example grid given in the problem</div></div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Count the placements of \(1,2,3,4\) separately.</li>
+      <li>Each digit goes once per row in distinct columns: \(3!=6\) ways.</li>
+      <li>The four digits are independent, so \(6^4=1296.\)</li>
+    </ol>
+    <div class="sollink"><a href="assets/pdf/solutions.pdf" target="_blank">→ Official solution (P3)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q4</span> <span class="chip ok">✓ Correct</span> <span class="area">Algebra · quadratics</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(31\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(31\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Integers \(a,b,c\) with \(c\le 2025\) such that \(|x^2+ax+b|=c\) has exactly \(3\) distinct integer solutions. Find the number of possible values of \(c\).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>The condition \(\iff\) the two quadratics \(x^2+ax+b=c\) and \(=-c\) have 3 integer roots total.</li>
+      <li>One has 2 roots, the other 1, so the vertex lies on \(y=-c\).</li>
+      <li>Then \(x^2+ax+(b+c)=(x+\tfrac a2)^2\), so \(\tfrac a2\) is an integer.</li>
+      <li>And \((x+\tfrac a2)^2=2c\), so \(2c=(2k)^2\Rightarrow c=2k^2\).</li>
+      <li>\(1\le c\le 2025\Rightarrow 1\le k\le 31\): \(\boxed{31}\) values.</li>
+    </ol>
+    <div class="sollink"><a href="assets/pdf/solutions.pdf" target="_blank">→ Official solution (P4)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q5</span> <span class="chip ok">✓ Correct</span> <span class="area">Geometry · similar triangles</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(21\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(21\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Points \(A,B,C,D\) lie on a line in that order. A point \(E\) satisfies \(\angle AED=120^\circ\) and \(\triangle BEC\) is equilateral. Given \(BC=10,\ AD=39\), compute \(|AB-CD|\).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>From the \(120^\circ\) angles, \(\triangle ABE\sim\triangle ECD\).</li>
+      <li>With \(AB=x,\ CD=y\): \(\tfrac{x}{10}=\tfrac{10}{y}\Rightarrow xy=100\).</li>
+      <li>\(x+y=AD-BC=29\).</li>
+      <li>\((x-y)^2=29^2-4\cdot100=441\).</li>
+      <li>\(\therefore |AB-CD|=\sqrt{441}=21.\)</li>
+    </ol>
+    <div class="sollink"><a href="assets/pdf/solutions.pdf" target="_blank">→ Official solution (P5)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q6</span> <span class="chip ok">✓ Correct</span> <span class="area">Combinatorics · lattice paths</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(81920\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(81920\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">A frog goes from \((0,0,0)\) to \((3,3,3)\); each move increases one coordinate by \(1\) or decreases \(z\) by \(1\). No point is visited twice and all coordinates stay in \([0,3]\). Count the distinct paths.</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Project the path to the \(xy\)-plane: \(\binom63=20\) up-right paths.</li>
+      <li>Each of the 6 edges occurs at one of the heights \(z=0,1,2,3\): \(4^6\).</li>
+      <li>These connect into a unique path via vertical moves.</li>
+      <li>\(\therefore 4^6\binom63=81920.\)</li>
+    </ol>
+    <div class="sollink"><a href="assets/pdf/solutions.pdf" target="_blank">→ Official solution (P6)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q7</span> <span class="chip ok">✓ Correct</span> <span class="area">Number theory · divisors</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(1305\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(1305\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">A positive integer \(n\) is imbalanced if more than \(99\%\) of its positive divisors are less than \(1\%\) of \(n\). If \(M\) is an imbalanced multiple of \(2000\), find the minimum possible number of divisors of \(M\).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>\(M\) has \(\ge 13\) divisors that are \(\ge M/100\) (namely \(M/1,\dots,M/100\)).</li>
+      <li>Since \(&gt;99\%\) must be \(&lt;M/100\), the total is \(\ge 13\cdot100+1=1301\).</li>
+      <li>\(M=2^4\cdot5^{260}\) has \((4+1)(260+1)=1305\) divisors.</li>
+      <li>\(32\nmid M\Rightarrow\nu_2(M)=4\), so the count is a multiple of \(5\), ruling out 1301–1304.</li>
+      <li>\(\therefore\) minimum \(=1305.\)</li>
+    </ol>
+    <div class="sollink"><a href="assets/pdf/solutions.pdf" target="_blank">→ Official solution (P7)</a></div>
+  </div>
+  <div class="card blank">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q8</span> <span class="chip blank">— Blank</span> <span class="area">Geometry · Power of a Point</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(200\)</span></span>
+        <span class="abox stu blank"><span class="k">Yunje</span><span class="val">미응답 (blank)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Circles \(\Gamma_1,\Gamma_2\) meet at \(P,Q\); their common external tangents \(\ell_1,\ell_2\) touch them at \(U_1,U_2,V_1,V_2\). Given \(PQ=10\) and distances from \(P\) to \(\ell_1,\ell_2\) equal \(3\) and \(12\), find the area of \(U_1U_2V_2V_1\).</div>
+    <div class="fig diagram"><img src="assets/img/q8.png" alt="Q8 figure"><div class="cap">Power of a Point figure</div></div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Let \(PQ\) meet \(\ell_1,\ell_2\) at \(X,Y\); let \(A,B\) be the feet from \(P\).</li>
+      <li>\(\triangle PXA\sim\triangle PYB\Rightarrow\tfrac{PY}{XP}-1=\tfrac{12}{3}-1=3\).</li>
+      <li>So \(XP=\tfrac{10}{3},\ XQ=\tfrac{40}{3}\).</li>
+      <li>Power of a Point: \(XU_1^2=XP\cdot XQ=XV_1^2\), so \(X,Y\) are midpoints and \(U_1V_1=\tfrac{40}{3}\).</li>
+      <li>Midline \(XY=PQ+2\,PX=\tfrac{50}{3}\); height \(=\tfrac{9}{10}U_1V_1=12\).</li>
+      <li>\(\therefore\) area \(=\) midline \(\times\) height \(=\tfrac{50}{3}\times12=200.\)</li>
+    </ol>
+    <div class="sollink"><a href="assets/pdf/solutions.pdf" target="_blank">→ Official solution (P8)</a></div>
+  </div>
+  <div class="card wrong">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q9</span> <span class="chip wrong">✗ Wrong</span> <span class="area">Algebra · polynomials</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(\dfrac{1}{91}\)</span></span>
+        <span class="abox stu wrong"><span class="k">Yunje</span><span class="val">\(91\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Distinct nonzero complex numbers \(a,b,c\) satisfy \((10a+b)(10a+c)=a+\tfrac1a\) and the two cyclic analogues. Compute \(abc\).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Let \(f(x)=(x+a)(x+b)(x+c)\); then \(f(10a)=11(a^2+1)\), similarly for \(b,c\).</li>
+      <li>So \(10a,10b,10c\) are the roots of \(f(x)-11\!\left(\tfrac{x^2}{100}+1\right)\).</li>
+      <li>Compare constant terms: \(abc=-1000\,abc+11\Rightarrow 1001\,abc=11\).</li>
+      <li>\(\therefore abc=\tfrac{11}{1001}=\tfrac{1}{91}.\)</li>
+      <li><b>Error:</b> Yunje wrote the reciprocal \(91\) — careful with \(\tfrac{11}{1001}\) vs \(\tfrac{1001}{11}\).</li>
+    </ol>
+    <div class="sollink"><a href="assets/pdf/solutions.pdf" target="_blank">→ Official solution (P9)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q10</span> <span class="chip ok">✓ Correct</span> <span class="area">Combinatorics · invariants</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(372\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(372\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Jacob and Bojac each start in a cell of the same \(8\times8\) grid and hear the same directions. Jacob steps in the called direction; Bojac \(90^\circ\) counterclockwise of it; either stays put if the move leaves the grid. Find the maximum number of distinct ordered pairs (Jacob, Bojac).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Replace Bojac by its \(90^\circ\) clockwise rotation Caboj, who moves in the called direction.</li>
+      <li>Rotation is a bijection, so #(Jacob,Bojac) \(=\) #(Jacob,Caboj).</li>
+      <li>Their bounding rectangle translates (both move) or shrinks (one blocked): taxicab distance is non-increasing.</li>
+      <li>At distance \(d\), size \(x\times y\), there are \((9-x)(9-y)\) placements; sum over all \(d\).</li>
+      <li>\(\therefore 2(1^2+\cdots+7^2)+(1+\cdots+7)+8^2=372.\)</li>
+    </ol>
+    <div class="sollink"><a href="assets/pdf/solutions.pdf" target="_blank">→ Official solution (P10)</a></div>
+  </div>
+  <div class="dd">
+    <h3>Deep Dive — Problem 10 (Jacob &amp; Bojac)</h3>
+    <div class="body">
+      <ol class="steps concept">
+      <li>Two people hear the <b>same</b> direction calls; Jacob moves in it, Bojac \(90^\circ\) counterclockwise, staying put if a move would leave the grid.</li>
+      <li><b>Rotation trick:</b> Caboj = the \(90^\circ\) clockwise rotation of Bojac moves <b>in the called direction</b>. Rotation is a bijection, so the count is preserved — two same-direction movers.</li>
+      <li><b>Monovariant:</b> the bounding rectangle translates (both move) or shrinks (one blocked) → the taxicab distance never increases.</li>
+      <li><b>Counting:</b> at distance \(d\), size \(x\times y\), there are \((9-x)(9-y)\) placements; summing gives \(2(1^2+\cdots+7^2)+(1+\cdots+7)+8^2=372\). General \(n\times n\): \(2(1^2+\cdots+(n-1)^2)+(1+\cdots+(n-1))+n^2\).</li>
+      </ol>
+      <div class="pq"><span class="pl">Practice 1.</span> Tokens \(A,B\) on a row of cells \(1\)–\(5\). Each second the same direction (L/R) is called; each moves one cell, staying put if it would fall off. From \(A=1,B=5\), max number of ordered pairs \((A,B)\)?</div>
+      <details class="pt"><summary>Show solution</summary><ol class="steps">
+        <li>Both move the same way, never pass each other; the gap \(B-A\) only decreases.</li>
+        <li>Distances \(d=4,3,2,1,0\); at distance \(d\) there are \(5-d\) placements.</li>
+        <li>\(\therefore (5{-}4)+(5{-}3)+(5{-}2)+(5{-}1)+(5{-}0)=1+2+3+4+5=\mathbf{15}.\)</li>
+      </ol></details>
+      <div class="pq"><span class="pl">Practice 2.</span> On a \(3\times3\) grid Jacob moves in the called direction, Bojac \(90^\circ\) clockwise (staying put at edges). Max number of ordered pairs (Jacob,Bojac)?</div>
+      <details class="pt"><summary>Show solution</summary><ol class="steps">
+        <li>Rotate Bojac \(90^\circ\) counterclockwise to Caboj → same-direction problem (bijection).</li>
+        <li>For \(n=3\), sum \((4-x)(4-y)\) from \(3\times3\) down to \(1\times1\).</li>
+        <li>\(1\cdot1+1\cdot2+2\cdot2+2\cdot3+3\cdot3=1+2+4+6+9=\mathbf{22}.\)</li>
+      </ol></details>
+    </div>
+  </div>
+  <div class="sec"><h2 id="kor">한글 해설</h2><a class="top" href="#topnav">▲ Top / 맨 위로</a></div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q1</span> <span class="chip ok">✓ 정답</span> <span class="area">기하 · 닮음</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(3\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(3\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">직사각형 \(ABCD\)에서 \(X\in BC,\ Y\in AD\), \(\angle AXY=\angle XYC=90^\circ\), \(AX:XY:YC=1:2:1\). \(AB=1\)일 때 \(BC\)를 구하라.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>\(Y\)에서 \(BC\)에 내린 수선의 발을 \(Z\)라 둔다.</li>
+      <li>\(\triangle ABX\sim\triangle XZY\) (직각 + 각 공유로 닮음).</li>
+      <li>\(XY/AX=2\) 이므로 \(XZ=2\,AB=2\), \(BX=ZY/2=\tfrac12\).</li>
+      <li>대칭으로 \(CZ=\tfrac12\).</li>
+      <li>\(\therefore BC=\tfrac12+2+\tfrac12=3.\)</li>
+    </ol>
+    <div class="sollink"><a href="assets/pdf/solutions.pdf" target="_blank">→ 공식 해설 (문제 1)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q2</span> <span class="chip ok">✓ 정답</span> <span class="area">조합 · 패리티</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(12\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(12\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">정수 \(n\)개를 원형으로 배치: 적어도 하나는 \(0\), 이웃한 두 수의 차는 정확히 \(1\), 합은 \(24\). 가능한 최소 \(n\)을 구하라.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>이웃한 정수는 패리티가 교대하므로 \(n\)은 짝수.</li>
+      <li>\(n\le 8\) 이면 합 \(\le 0+1+2+3+4+3+2+1=16&lt;24\).</li>
+      <li>\(n=10\) 이면 짝수 5개·홀수 5개 → 합이 홀수가 되어 \(24\) 불가.</li>
+      <li>\(\therefore n\ge 12\), 그리고 \(12\)는 실제로 구성 가능.</li>
+    </ol>
+    <div class="sollink"><a href="assets/pdf/solutions.pdf" target="_blank">→ 공식 해설 (문제 2)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q3</span> <span class="chip ok">✓ 정답</span> <span class="area">조합 · 경우의 수</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(1296\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(1296\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">\(3\times3\) 격자의 각 칸에 \(1,2,3,4\) 중 일부를 넣어 각 행·열이 \(1,2,3,4\)를 정확히 한 번씩 포함하게 하는 경우의 수.</div>
+    <div class="fig grid"><img src="assets/img/q3.png" alt="Q3 figure"><div class="cap">문제에 주어진 예시 격자</div></div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>숫자 \(1,2,3,4\)의 배치를 각각 따로 센다.</li>
+      <li>각 숫자는 행마다 하나씩 서로 다른 열에 → \(3!=6\)가지.</li>
+      <li>네 숫자는 독립이므로 \(6^4=1296.\)</li>
+    </ol>
+    <div class="sollink"><a href="assets/pdf/solutions.pdf" target="_blank">→ 공식 해설 (문제 3)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q4</span> <span class="chip ok">✓ 정답</span> <span class="area">대수 · 이차식</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(31\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(31\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">정수 \(a,b,c\) (\(c\le 2025\))에서 \(|x^2+ax+b|=c\)가 서로 다른 정수해를 정확히 \(3\)개 가질 때, 가능한 \(c\)의 개수.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>조건 \(\iff\) \(x^2+ax+b=c\)와 \(=-c\) 두 이차식의 정수해가 합쳐서 3개.</li>
+      <li>한 식은 근 2개, 다른 식은 1개 → 꼭짓점이 \(y=-c\) 위.</li>
+      <li>\(x^2+ax+(b+c)=(x+\tfrac a2)^2\) → \(\tfrac a2\)는 정수.</li>
+      <li>\((x+\tfrac a2)^2=2c\) → \(2c=(2k)^2\Rightarrow c=2k^2\).</li>
+      <li>\(1\le c\le 2025\Rightarrow 1\le k\le 31\): 가능한 \(c\)는 \(31\)개.</li>
+    </ol>
+    <div class="sollink"><a href="assets/pdf/solutions.pdf" target="_blank">→ 공식 해설 (문제 4)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q5</span> <span class="chip ok">✓ 정답</span> <span class="area">기하 · 닮음</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(21\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(21\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">직선 위에 순서대로 \(A,B,C,D\). 점 \(E\)가 \(\angle AED=120^\circ\)이고 \(\triangle BEC\)는 정삼각형. \(BC=10,\ AD=39\)일 때 \(|AB-CD|\)를 구하라.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>\(120^\circ\) 각에서 \(\triangle ABE\sim\triangle ECD\).</li>
+      <li>\(AB=x,\ CD=y\)면 \(\tfrac{x}{10}=\tfrac{10}{y}\Rightarrow xy=100\).</li>
+      <li>\(x+y=AD-BC=29\).</li>
+      <li>\((x-y)^2=29^2-4\cdot100=441\).</li>
+      <li>\(\therefore |AB-CD|=\sqrt{441}=21.\)</li>
+    </ol>
+    <div class="sollink"><a href="assets/pdf/solutions.pdf" target="_blank">→ 공식 해설 (문제 5)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q6</span> <span class="chip ok">✓ 정답</span> <span class="area">조합 · 격자경로</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(81920\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(81920\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">개구리가 \((0,0,0)\)에서 \((3,3,3)\)로. 한 번에 한 좌표를 \(+1\) 하거나 \(z\)를 \(-1\). 같은 점 재방문 금지, 모든 좌표는 \([0,3]\). 경로의 수를 구하라.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>경로를 \(xy\)평면에 사영: \((0,0)\to(3,3)\) up-right 경로 \(\binom63=20\)가지.</li>
+      <li>6개 변 각각이 높이 \(z=0,1,2,3\) 중 하나에서 일어남: \(4^6\).</li>
+      <li>수직 이동으로 유일한 경로로 연결됨.</li>
+      <li>\(\therefore 4^6\binom63=81920.\)</li>
+    </ol>
+    <div class="sollink"><a href="assets/pdf/solutions.pdf" target="_blank">→ 공식 해설 (문제 6)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q7</span> <span class="chip ok">✓ 정답</span> <span class="area">정수론 · 약수</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(1305\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(1305\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">양의 정수 \(n\)이 imbalanced란 양의 약수의 \(99\%\) 초과가 \(n\)의 \(1\%\) 미만임을 뜻한다. \(M\)이 \(2000\)의 배수이면서 imbalanced일 때 약수 개수의 최솟값을 구하라.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>\(M\)은 \(M/1,\dots,M/100\) 중 13개 약수가 \(M/100\) 이상.</li>
+      <li>\(&gt;99\%\)가 \(M/100\) 미만이어야 하므로 전체 약수 \(\ge 13\cdot100+1=1301\).</li>
+      <li>\(M=2^4\cdot5^{260}\) → 약수 \((4+1)(260+1)=1305\)개.</li>
+      <li>\(32\nmid M\Rightarrow\nu_2(M)=4\) → 약수 수가 \(5\)의 배수 → 1301~1304 불가.</li>
+      <li>\(\therefore\) 최소 \(1305.\)</li>
+    </ol>
+    <div class="sollink"><a href="assets/pdf/solutions.pdf" target="_blank">→ 공식 해설 (문제 7)</a></div>
+  </div>
+  <div class="card blank">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q8</span> <span class="chip blank">— 미응답</span> <span class="area">기하 · 방멱정리</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(200\)</span></span>
+        <span class="abox stu blank"><span class="k">유윤제</span><span class="val">미응답 (blank)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">두 원 \(\Gamma_1,\Gamma_2\)가 \(P,Q\)에서 만남. 공통외접선 \(\ell_1,\ell_2\)의 접점이 \(U_1,U_2,V_1,V_2\). \(PQ=10\), \(P\)에서 \(\ell_1,\ell_2\)까지 거리 \(3,12\)일 때 사각형 \(U_1U_2V_2V_1\)의 넓이를 구하라.</div>
+    <div class="fig diagram"><img src="assets/img/q8.png" alt="Q8 figure"><div class="cap">방멱정리 도형 — 접점 \(U_1,U_2,V_1,V_2\), 교점 \(P,Q\)</div></div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>\(PQ\)가 \(\ell_1,\ell_2\)와 만나는 점을 \(X,Y\), \(P\)의 수선의 발을 \(A,B\)라 둔다.</li>
+      <li>\(\triangle PXA\sim\triangle PYB\Rightarrow\tfrac{PY}{XP}-1=\tfrac{12}{3}-1=3\).</li>
+      <li>따라서 \(XP=\tfrac{10}{3},\ XQ=\tfrac{40}{3}\).</li>
+      <li>방멱정리 \(XU_1^2=XP\cdot XQ=XV_1^2\) → \(X,Y\)는 중점, \(U_1V_1=\tfrac{40}{3}\).</li>
+      <li>중선 \(XY=PQ+2\,PX=\tfrac{50}{3}\); 높이 \(=\tfrac{9}{10}U_1V_1=12\).</li>
+      <li>\(\therefore\) 넓이 \(=\) 중선 \(\times\) 높이 \(=\tfrac{50}{3}\times12=200.\)</li>
+    </ol>
+    <div class="sollink"><a href="assets/pdf/solutions.pdf" target="_blank">→ 공식 해설 (문제 8)</a></div>
+  </div>
+  <div class="card wrong">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q9</span> <span class="chip wrong">✗ 오답</span> <span class="area">대수 · 다항식</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(\dfrac{1}{91}\)</span></span>
+        <span class="abox stu wrong"><span class="k">유윤제</span><span class="val">\(91\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">서로 다른 \(0\) 아닌 복소수 \(a,b,c\)가 \((10a+b)(10a+c)=a+\tfrac1a\) 와 순환식 두 개를 만족. \(abc\)를 구하라.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>\(f(x)=(x+a)(x+b)(x+c)\)로 두면 \(f(10a)=11(a^2+1)\), \(b,c\)도 동일.</li>
+      <li>따라서 \(10a,10b,10c\)는 \(f(x)-11\!\left(\tfrac{x^2}{100}+1\right)\)의 세 근.</li>
+      <li>상수항 비교: \(abc=-1000\,abc+11\Rightarrow 1001\,abc=11\).</li>
+      <li>\(\therefore abc=\tfrac{11}{1001}=\tfrac{1}{91}.\)</li>
+      <li><b>오답:</b> 유윤제는 역수 \(91\)을 적음 — \(\tfrac{11}{1001}\)과 \(\tfrac{1001}{11}\)을 혼동.</li>
+    </ol>
+    <div class="sollink"><a href="assets/pdf/solutions.pdf" target="_blank">→ 공식 해설 (문제 9)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q10</span> <span class="chip ok">✓ 정답</span> <span class="area">조합 · 불변량</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(372\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(372\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">Jacob과 Bojac이 같은 \(8\times8\) 격자에서 출발해 같은 방향 지시를 듣는다. Jacob은 그 방향으로, Bojac은 반시계 \(90^\circ\) 방향으로 한 칸; 격자를 벗어나면 멈춤. 도달 가능한 순서쌍 (Jacob, Bojac)의 최대 개수를 구하라.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>Bojac을 중심에 대해 시계 \(90^\circ\) 회전한 Caboj 도입 → 호출 방향대로 이동.</li>
+      <li>회전은 전단사 → (Jacob,Bojac) 수 \(=\) (Jacob,Caboj) 수.</li>
+      <li>두 점의 직사각형: 둘 다 이동=평행이동, 한 명 멈춤=축소 → 택시거리 비증가.</li>
+      <li>거리 \(d\)·크기 \(x\times y\)에서 위치 \((9-x)(9-y)\), 모든 \(d\) 합산.</li>
+      <li>\(\therefore 2(1^2+\cdots+7^2)+(1+\cdots+7)+8^2=372.\)</li>
+    </ol>
+    <div class="sollink"><a href="assets/pdf/solutions.pdf" target="_blank">→ 공식 해설 (문제 10)</a></div>
+  </div>
+  <div class="dd">
+    <h3>심화 — 10번 Jacob &amp; Bojac 개념 해설</h3>
+    <div class="body">
+      <ol class="steps concept">
+      <li>두 사람이 <b>같은 방향 지시</b>를 듣지만 Jacob은 그 방향대로, Bojac은 반시계 \(90^\circ\) 방향으로 움직이고 격자를 벗어나면 멈춘다.</li>
+      <li><b>회전 트릭:</b> Bojac을 중심에 대해 시계 \(90^\circ\) 회전한 Caboj는 <b>지시 방향대로</b> 움직인다. 회전은 전단사이므로 순서쌍 개수가 보존되어 '두 사람이 같은 방향으로 움직이는' 문제로 바뀐다.</li>
+      <li><b>단조감소량:</b> 두 점을 대각으로 하는 직사각형은 둘 다 이동하면 평행이동, 한 명만 벽에 막히면 축소된다 → 택시거리는 절대 증가하지 않는다.</li>
+      <li><b>개수:</b> 거리 \(d\)·크기 \(x\times y\)에서 \((9-x)(9-y)\)가지, 모두 더하면 \(2(1^2+\cdots+7^2)+(1+\cdots+7)+8^2=372\). 일반 \(n\times n\): \(2(1^2+\cdots+(n-1)^2)+(1+\cdots+(n-1))+n^2\).</li>
+      </ol>
+      <div class="pq"><span class="pl">연습문제 1.</span> 1~5번 칸 일렬 위 토큰 \(A,B\). 매 초 같은 방향(좌/우)으로 한 칸씩 이동(밖이면 멈춤). \(A=1,B=5\) 출발 시, 만들 수 있는 순서쌍 \((A,B)\)의 최대 개수는?</div>
+      <details class="pt"><summary>해설 보기</summary><ol class="steps">
+        <li>둘 다 같은 방향이라 서로 추월 불가, 간격 \(B-A\)는 줄기만 한다.</li>
+        <li>거리 \(d=4,3,2,1,0\); 거리 \(d\)에서 \((a,a+d)\)를 놓을 자리는 \(5-d\)가지.</li>
+        <li>\(\therefore (5{-}4)+(5{-}3)+(5{-}2)+(5{-}1)+(5{-}0)=1+2+3+4+5=\mathbf{15}.\)</li>
+      </ol></details>
+      <div class="pq"><span class="pl">연습문제 2.</span> \(3\times3\) 격자에서 Jacob은 호출 방향대로, Bojac은 시계 \(90^\circ\) 방향으로 이동(밖이면 멈춤). 순서쌍 (Jacob,Bojac)의 최대 개수는?</div>
+      <details class="pt"><summary>해설 보기</summary><ol class="steps">
+        <li>Bojac을 반시계 \(90^\circ\) 회전한 Caboj 도입 → 같은 방향 문제로 환원(전단사).</li>
+        <li>\(n=3\)에서 \((4-x)(4-y)\)를 \(3\times3\)부터 \(1\times1\)까지 합산.</li>
+        <li>\(1\cdot1+1\cdot2+2\cdot2+2\cdot3+3\cdot3=1+2+4+6+9=\mathbf{22}.\)</li>
+      </ol></details>
+    </div>
+  </div>
+</div>
+<footer>아이워크수학 · iWork Math · 제작·편집 원장 이상열 · HMMT-2511-GEN · 생성 2026-06-14 14:38 · 파일 HMMT_Nov2025_General_채점_2606141438.html · 무단복제 금지</footer>
+</body>
+</html>
