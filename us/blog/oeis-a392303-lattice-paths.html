@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>A New Integer Sequence in the OEIS — The Journey of A392303 | MathHub</title>
+    <meta name="description" content="Sequence A392303, counting NE lattice paths under a discretized parabolic boundary y = floor(x²/n), has been officially approved in the OEIS. A nonlinear generalization of the Catalan path problem.">
+    <meta name="keywords" content="OEIS, A392303, lattice paths, Catalan numbers, parabolic boundary, integer sequences, combinatorics, enumerative combinatorics">
+    <meta name="author" content="MathHub US">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/blog/oeis-a392303-lattice-paths.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/blog/oeis-a392303-lattice-paths.html">
+    <meta property="og:title" content="A New Integer Sequence in the OEIS — A392303">
+    <meta property="og:description" content="Counting lattice paths under a parabolic boundary: sequence A392303 is now in the OEIS.">
+    <meta property="og:site_name" content="MathHub Global">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="A New Integer Sequence in the OEIS — A392303">
+    <meta name="twitter:description" content="Counting lattice paths under a parabolic boundary: sequence A392303 is now in the OEIS.">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+
+    <!-- MathJax Configuration -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; line-height: 1.8; color: #333; background: #f5f7fa; }
+        nav.global-nav { background:#1e3a5f; display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:52px; }
+        nav.global-nav a { color:rgba(255,255,255,.85); text-decoration:none; font-size:.9em; }
+        nav.global-nav .nav-brand { font-weight:700; font-size:1.1em; color:white; }
+        nav.global-nav .nav-links { display:flex; gap:18px; align-items:center; }
+        nav.global-nav .nav-links a.active { color:white; font-weight:700; }
+        nav.global-nav .nav-cta { background:#2563eb; color:white!important; padding:6px 14px; border-radius:6px; font-weight:600; }
+
+        .header { background: linear-gradient(135deg, #1e3a5f, #2563eb); color: white; padding: 50px 20px; text-align: center; }
+        .header h1 { font-size: 2.1em; margin-bottom: 10px; line-height: 1.3; }
+        .category-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 16px; border-radius: 20px; font-size: 0.85em; margin-bottom: 14px; letter-spacing: 0.04em; }
+        .date { opacity: 0.85; font-size: 0.9em; margin-top: 8px; }
+
+        .container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); border-radius: 10px; }
+        .back-link { display: inline-block; margin-bottom: 28px; color: #2563eb; text-decoration: none; font-weight: 600; font-size: 0.9em; }
+        .back-link:hover { text-decoration: underline; }
+        h2 { color: #1e3a5f; margin-top: 40px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid #2563eb; font-size: 1.4em; }
+        h3 { color: #334155; margin-top: 28px; margin-bottom: 12px; font-size: 1.1em; }
+        p { margin-bottom: 14px; }
+        ul, ol { margin-left: 28px; margin-bottom: 14px; }
+        li { margin-bottom: 7px; }
+        a { color: #2563eb; }
+
+        .definition-box {
+            background-color: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .theorem-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .example-box {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #1e3a5f, #2563eb);
+            color: white;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.3em;
+            font-style: italic;
+        }
+        .formula {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px 14px;
+            text-align: center;
+        }
+        th {
+            background-color: #f0f4ff;
+            font-weight: 700;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+            margin: 20px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 4px;
+            bottom: 4px;
+            width: 3px;
+            background: #d4e6f1;
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 24px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -22px;
+            top: 8px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: #2563eb;
+        }
+        .timeline-item.approved::before {
+            background: #27ae60;
+            box-shadow: 0 0 0 4px rgba(39,174,96,0.15);
+        }
+        .timeline-date {
+            font-size: 0.9em;
+            font-weight: 700;
+            color: #1e3a5f;
+            margin-bottom: 4px;
+        }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            background: #f0f4ff;
+            border: 1px solid #d4e6f1;
+            border-radius: 8px;
+            padding: 18px;
+            text-align: center;
+        }
+        .stat-card .num {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #1e3a5f;
+        }
+        .stat-card .label {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 4px;
+        }
+        .oeis-quote {
+            background: #f8f9fa;
+            border-left: 4px solid #2563eb;
+            padding: 16px 20px;
+            margin: 20px 0;
+            font-size: 0.95em;
+            color: #555;
+        }
+        .oeis-quote strong { color: #333; }
+        .open-problems {
+            counter-reset: qnum;
+            list-style: none;
+            margin-left: 0;
+        }
+        .open-problems li {
+            counter-increment: qnum;
+            padding-left: 40px;
+            position: relative;
+            margin-bottom: 12px;
+        }
+        .open-problems li::before {
+            content: "Q" counter(qnum);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            color: #1e3a5f;
+            font-size: 0.9em;
+        }
+        .footer { text-align: center; padding: 30px 20px; color: #666; margin-top: 50px; font-size: 0.9em; }
+        @media (max-width: 768px) {
+            .container { padding: 30px 20px; margin: 20px; }
+            .header h1 { font-size: 1.7em; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/" class="active">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="/ib/">IB</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" rel="noopener nofollow" class="nav-cta">Question Bank</a>
+        </div>
+    </nav>
+
+    <div class="header">
+        <div class="category-badge">Research</div>
+        <h1>A New Integer Sequence in the OEIS<br>&mdash; The Journey of A392303</h1>
+        <div class="date">March 12, 2026</div>
+    </div>
+
+    <div class="container">
+        <a href="/us/blog/" class="back-link">&larr; Back to Blog</a>
+
+        <p style="font-style:italic; color:#555; border-left:3px solid #2563eb; padding-left:14px; margin-bottom:30px;">
+            Sequence A392303, counting NE lattice paths under a discretized parabolic boundary, has been officially approved in the OEIS.
+        </p>
+
+        <!-- 1. The Question -->
+        <h2>1. It Started with a Question</h2>
+
+        <div class="highlight-box">
+            "What if we replace the diagonal with a parabola?"
+        </div>
+
+        <p>
+            One of the most celebrated numbers in combinatorics is the <strong>Catalan number</strong>
+            $C_n$: the count of north-east (NE) lattice paths from $(0,0)$ to $(n,n)$ that stay weakly
+            below the diagonal $y \leq x$. The Catalan numbers have a centuries-long history and
+            a well-known closed form:
+        </p>
+
+        <div class="formula">
+            $$C_n = \frac{1}{n+1}\binom{2n}{n}$$
+        </div>
+
+        <p>But what happens if we replace the linear boundary with a <strong>parabolic</strong> one?</p>
+
+        <div class="formula">
+            $$y \;\leq\; \left\lfloor \frac{x^2}{n} \right\rfloor$$
+        </div>
+
+        <p>This article traces how that question became a research paper and, ultimately, a new entry in the Online Encyclopedia of Integer Sequences.</p>
+
+        <!-- 2. The Problem -->
+        <h2>2. Problem Definition</h2>
+
+        <p>
+            For each integer $n \geq 1$, we count NE lattice paths from $(0,0)$ to $(n,n)$
+            whose every vertex lies on or below the discretized parabolic boundary.
+        </p>
+
+        <div class="definition-box">
+            <strong>Definition.</strong> The discretized parabolic boundary:
+            $$\hat{f}_n(x) = \left\lfloor \frac{x^2}{n} \right\rfloor, \quad 0 \leq x \leq n$$
+            Number of admissible paths: $p_n = N_n(n,n)$
+        </div>
+
+        <p>Two features distinguish this from the classical Catalan setting:</p>
+
+        <ol>
+            <li><strong>The boundary is curved</strong> &mdash; a parabola, not a line.</li>
+            <li><strong>The boundary depends on $n$</strong> &mdash; changing the endpoint changes the constraint itself.</li>
+        </ol>
+
+        <p>
+            Because of the second property, standard fixed-boundary techniques such as the
+            transfer-matrix method and the kernel method do not directly apply.
+        </p>
+
+        <!-- 3. Main Results -->
+        <h2>3. Main Results</h2>
+
+        <div class="theorem-box">
+            <strong>Summary of Results</strong>
+            <ul style="margin-top:10px;">
+                <li><strong>Fundamental recurrence</strong>: $N_n(x,y) = N_n(x-1,y) + N_n(x,y-1)$ with boundary conditions</li>
+                <li><strong>Efficient computation</strong>: $O(n^2)$ time, $O(n)$ space via column-by-column DP</li>
+                <li><strong>Catalan comparison</strong>: $1 \leq p_n < C_n$ for all $n \geq 2$</li>
+                <li><strong>P-recursive search</strong>: No P-recursive relation of order $\leq 6$, degree $\leq 5$ found in the first 500 terms</li>
+            </ul>
+        </div>
+
+        <p>The first few values of the sequence:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>$n$</th>
+                    <th>0</th><th>1</th><th>2</th><th>3</th><th>4</th>
+                    <th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>$p_n$</th>
+                    <td>0</td><td>1</td><td>1</td><td>1</td><td>2</td>
+                    <td>5</td><td>7</td><td>19</td><td>56</td><td>174</td><td>392</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box">
+            <strong>Example ($n=4$)</strong><br>
+            Boundary heights at each $x$-coordinate: $(0,\, 0,\, 1,\, 2,\, 4)$<br>
+            Number of admissible paths: exactly <strong>5</strong>.
+        </div>
+
+        <!-- 4. OEIS Registration -->
+        <h2>4. The OEIS Registration Process</h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <p class="timeline-date">March 9, 2026 &mdash; Submission</p>
+                <p>The core sequence was submitted to the OEIS with 10 initial terms, a Python implementation, and a mathematical description.</p>
+            </div>
+            <div class="timeline-item">
+                <p class="timeline-date">March 10, 2026 &mdash; Editor Review</p>
+                <p>
+                    Within a day, OEIS editor <strong>Hugo Pfoertner</strong> began the review.
+                    <strong>Alois P. Heinz</strong> wrote a Maple program to independently verify and massively extend the sequence.
+                </p>
+            </div>
+            <div class="timeline-item approved">
+                <p class="timeline-date" style="color:#27ae60;">March 10, 2026 &mdash; Approved</p>
+                <p>After review and cross-verification, the sequence was officially approved as <strong>A392303</strong>.</p>
+            </div>
+        </div>
+
+        <div class="oeis-quote">
+            <strong>A392303</strong>: Number of NE lattice paths from (0,0) to (n,n)
+            staying weakly below the discretized parabolic boundary $y = \lfloor x^2/n \rfloor$.
+        </div>
+
+        <!-- 5. What's on the OEIS Page -->
+        <h2>5. What's on the OEIS Page</h2>
+
+        <p>The <a href="https://oeis.org/A392303" target="_blank">OEIS A392303</a> entry now contains:</p>
+
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="num">33</div>
+                <div class="label">terms displayed</div>
+            </div>
+            <div class="stat-card">
+                <div class="num">1,830</div>
+                <div class="label">terms computed (A.P. Heinz)</div>
+            </div>
+            <div class="stat-card">
+                <div class="num">2</div>
+                <div class="label">programs (Maple + Python)</div>
+            </div>
+        </div>
+
+        <ul>
+            <li><strong>Maple program</strong> by Alois P. Heinz</li>
+            <li><strong>Python program</strong> (original, by the author)</li>
+            <li><strong>Cross-reference</strong> to Catalan numbers <a href="https://oeis.org/A000108" target="_blank">A000108</a></li>
+            <li>Commentary on the $n$-dependent boundary and its implications</li>
+        </ul>
+
+        <!-- 6. Open Problems -->
+        <h2>6. Open Problems</h2>
+
+        <p>Several natural questions remain unanswered:</p>
+
+        <ul class="open-problems">
+            <li><strong>Asymptotics</strong>: What is the growth rate of $p_n$? &ensp; $p_n \sim\; ?$ &ensp; as $n \to \infty$</li>
+            <li><strong>Closed form</strong>: Does a neat formula exist, analogous to the Catalan formula?</li>
+            <li><strong>D-finiteness</strong>: Is the generating function D-finite?</li>
+            <li><strong>Probabilistic interpretation</strong>: Is there a connection to discrete Brownian bridges?</li>
+        </ul>
+
+        <p>Resolving any one of these would be a meaningful contribution in its own right.</p>
+
+        <!-- 7. Reflections -->
+        <h2>7. Reflections</h2>
+
+        <p>
+            Registering a new sequence in the OEIS as an independent researcher was a different experience
+            from submitting a journal paper. Within a single day, expert editors verified the code and
+            extended the sequence to 1,830 terms &mdash; a testament to the remarkable capability and
+            dedication of the OEIS community.
+        </p>
+
+        <p>
+            Having a piece of mathematical research permanently recorded in a public database is,
+            in itself, one of the most rewarding outcomes of this work.
+        </p>
+
+        <hr style="margin:40px 0; border:none; border-top:1px solid #ddd;">
+
+        <ul style="list-style:none; margin-left:0; font-size:0.95em; color:#555;">
+            <li><strong>OEIS entry</strong>: <a href="https://oeis.org/A392303" target="_blank">A392303</a></li>
+            <li><strong>Paper</strong>: "Enumeration of North-East Lattice Paths Under a Discretized Parabolic Boundary" (under review, <em>Integers</em>)</li>
+            <li><strong>Author</strong>: Sang Yeol Lee, iWorkMath Research Institute</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 MathHub. All rights reserved.
+    </div>
+</body>
+</html>

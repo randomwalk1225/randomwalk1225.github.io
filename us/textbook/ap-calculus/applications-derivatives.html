@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Calculus: Applications of Derivatives - Chapter 4 | MathHub</title>
+    <meta name="description" content="AP Calculus Chapter 4: Applications of Derivatives. Related rates, linear approximation, differentials, and the Mean Value Theorem with worked examples and practice problems.">
+    <meta name="keywords" content="AP Calculus related rates, linear approximation, Mean Value Theorem, differentials, Rolle's theorem, AP Calculus AB BC applications">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/ap-calculus/applications-derivatives.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/ap-calculus/applications-derivatives.html">
+    <meta property="og:title" content="AP Calculus: Applications of Derivatives - Chapter 4">
+    <meta property="og:description" content="Related rates, linear approximation, and the Mean Value Theorem for AP Calculus AB and BC.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Calculus: Applications of Derivatives - Chapter 4">
+    <meta name="twitter:description" content="Related rates, linear approximation, and Mean Value Theorem for AP Calculus AB/BC.">
+
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "AP Calculus: Applications of Derivatives - Chapter 4",
+        "description": "AP Calculus Chapter 4 covering related rates, linear approximation, differentials, and the Mean Value Theorem.",
+        "url": "https://mathhub.io/us/textbook/ap-calculus/applications-derivatives.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "AP",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Related Rates" },
+            { "@type": "Thing", "name": "Mean Value Theorem" },
+            { "@type": "Thing", "name": "AP Calculus" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <link rel="stylesheet" href="../../../assets/css/textbook-ux.css">
+    <style>
+        .blog-article {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 16px;
+        }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #2563eb; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives {
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            padding: 20px 24px; margin: 24px 0 32px;
+            border-radius: 0 10px 10px 0;
+        }
+        .learning-objectives h4 { color: #1e40af; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #1e3a8a; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box {
+            background: #eff6ff; border-left: 4px solid #2563eb;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .example-box h4 { color: #1e40af; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li, .example-box ol { color: #334155; line-height: 1.8; }
+        .definition-box {
+            background: #f0fdf4; border-left: 4px solid #16a34a;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box {
+            background: #faf5ff; border-left: 4px solid #8b5cf6;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box {
+            background: #eff6ff;
+            border: 1.5px dashed #93c5fd;
+            padding: 16px 20px; margin: -4px 0 24px;
+            border-radius: 0 0 8px 8px;
+        }
+        .try-it-box .try-it-label {
+            display: inline-block; background: #2563eb; color: white;
+            font-size: 0.75em; font-weight: 700; padding: 2px 10px;
+            border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px;
+        }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary {
+            cursor: pointer; color: #1e40af; font-weight: 600;
+            font-size: 0.9em; user-select: none;
+        }
+        .try-it-answer {
+            padding: 10px 14px; background: white; border-radius: 6px;
+            margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7;
+        }
+
+        .ap-tip {
+            background: #fefce8; border-left: 4px solid #eab308;
+            padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0;
+            display: flex; gap: 12px; align-items: flex-start;
+        }
+        .ap-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #92400e; }
+
+        .desmos-wrap {
+            margin: 24px auto; background: #f8fafc; border-radius: 12px;
+            padding: 4px; border: 1px solid #e2e8f0; text-align: center;
+        }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label {
+            text-align: center; font-size: 0.82em; color: #64748b;
+            margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em;
+        }
+
+        .strategy-box {
+            background: #fff7ed; border-left: 4px solid #f97316;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .strategy-box h4 { color: #c2410c; margin: 0 0 12px; font-size: 1.05em; }
+        .strategy-box p, .strategy-box li, .strategy-box ol { color: #334155; line-height: 1.8; }
+
+        .practice-section { margin-top: 50px; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { border-top: none; padding-top: 0; margin-top: 0; }
+        .practice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 640px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card {
+            background: #f8fafc; border-radius: 10px; padding: 20px; border: 1px solid #e2e8f0;
+        }
+        .practice-card .p-num {
+            display: inline-block; background: #2563eb; color: white;
+            border-radius: 50%; width: 26px; height: 26px; text-align: center;
+            line-height: 26px; font-size: 0.85em; font-weight: 700; margin-bottom: 10px;
+        }
+        .practice-card p { margin: 0 0 12px; color: #334155; font-size: 0.95em; line-height: 1.7; }
+        .practice-card details summary {
+            cursor: pointer; color: #2563eb; font-size: 0.88em; font-weight: 600; user-select: none;
+        }
+        .practice-answer {
+            margin-top: 8px; padding: 10px 14px; background: white; border-radius: 6px;
+            font-size: 0.9em; color: #334155; line-height: 1.7;
+        }
+
+        .chapter-nav {
+            display: flex; justify-content: space-between; gap: 16px;
+            margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0;
+        }
+        .chapter-nav a {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: #2563eb; text-decoration: none; font-weight: 600; font-size: 0.95em;
+        }
+        .chapter-nav a:hover { text-decoration: underline; }
+
+        /* ── Section Summary ── */
+        .section-summary {
+            background: #f8fafc; border: 2px solid #e2e8f0;
+            padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px;
+        }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;
+        }
+        .summary-card {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 14px 18px;
+        }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 10px; margin: 16px 0;
+        }
+        .key-term-item {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 12px 16px;
+        }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <div class="blog-article">
+        <div class="breadcrumb">
+            <a href="/us/">US</a> &rsaquo; <a href="/us/textbook/ap-calculus/">AP Calculus</a> &rsaquo; Chapter 4
+        </div>
+
+        <h1>Chapter 4: Applications of Derivatives</h1>
+        <div class="blog-meta">AP Calculus AB &amp; BC &nbsp;|&nbsp; Unit 2: Applications of Derivatives</div>
+
+        <div class="learning-objectives">
+            <h4>Learning Objectives</h4>
+            <ul>
+                <li>Set up and solve related rates problems using implicit differentiation</li>
+                <li>Construct linear approximations and use differentials to estimate changes</li>
+                <li>State and apply Rolle's Theorem and the Mean Value Theorem</li>
+                <li>Use the MVT to reason about function behavior from derivative information</li>
+                <li>Connect derivatives to increasing/decreasing behavior of functions</li>
+            </ul>
+        </div>
+
+        <h2>4.1 Related Rates</h2>
+
+        <p>In related rates problems, two or more quantities change over time and are linked by an equation. We differentiate that equation with respect to time $t$ (using the chain rule) to relate their rates of change.</p>
+
+        <div class="strategy-box">
+            <h4>Related Rates Strategy</h4>
+            <ol>
+                <li><strong>Identify</strong> all quantities that change with time and assign variables.</li>
+                <li><strong>Write an equation</strong> relating those quantities (geometric formula, Pythagorean theorem, etc.).</li>
+                <li><strong>Differentiate both sides</strong> with respect to $t$, using the chain rule.</li>
+                <li><strong>Substitute</strong> the known values and solve for the unknown rate.</li>
+            </ol>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.1 — Ladder Sliding Down a Wall</h4>
+            <p>A 10-foot ladder leans against a wall. The bottom slides away from the wall at 2 ft/sec. How fast is the top sliding down when the bottom is 6 ft from the wall?</p>
+            <p><strong>Setup:</strong> Let $x$ = distance from wall (bottom), $y$ = height on wall. Pythagorean: $x^2 + y^2 = 100$.</p>
+            <p><strong>Differentiate w.r.t. $t$:</strong> $2x\dfrac{dx}{dt} + 2y\dfrac{dy}{dt} = 0$</p>
+            <p><strong>Find $y$ when $x = 6$:</strong> $y = \sqrt{100 - 36} = 8$</p>
+            <p><strong>Substitute</strong> ($\dfrac{dx}{dt} = 2$, $x=6$, $y=8$):
+            $2(6)(2) + 2(8)\dfrac{dy}{dt} = 0$</p>
+            <p>$\dfrac{dy}{dt} = -\dfrac{24}{16} = -\dfrac{3}{2}$ ft/sec</p>
+            <p>The top slides down at $\dfrac{3}{2}$ ft/sec (negative = downward).</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>A spherical balloon is being inflated so its volume increases at 10 cm³/sec. How fast is the radius growing when $r = 5$ cm? (Recall: $V = \frac{4}{3}\pi r^3$)</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    $\dfrac{dV}{dt} = 4\pi r^2 \dfrac{dr}{dt}$<br>
+                    At $r=5$: $10 = 4\pi(25)\dfrac{dr}{dt}$<br>
+                    $\dfrac{dr}{dt} = \dfrac{10}{100\pi} = \dfrac{1}{10\pi}$ cm/sec $\approx 0.032$ cm/sec
+                </div>
+            </details>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.2 — Shadow Problem</h4>
+            <p>A 6-foot person walks away from a 15-foot streetlight at 4 ft/sec. How fast is their shadow lengthening?</p>
+            <p>Let $x$ = person's distance from the lamp, $s$ = shadow length. By similar triangles: $\dfrac{15}{x+s} = \dfrac{6}{s}$, so $15s = 6(x+s)$, giving $9s = 6x \Rightarrow s = \dfrac{2x}{3}$.</p>
+            <p>Differentiate: $\dfrac{ds}{dt} = \dfrac{2}{3}\dfrac{dx}{dt} = \dfrac{2}{3}(4) = \dfrac{8}{3}$ ft/sec.</p>
+            <p>The shadow always lengthens at $\dfrac{8}{3}$ ft/sec regardless of position.</p>
+        </div>
+
+        <div class="ap-tip">
+            <div class="ap-tip-icon">★</div>
+            <p><strong>AP Exam Tip:</strong> Related rates are a classic FRQ topic. <strong>Always state what each variable represents and its units.</strong> Identify given rates (with sign: negative if decreasing) and the rate being sought. Show the differentiated equation before substituting values — this earns partial credit.</p>
+        </div>
+
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">The sliding ladder: as $x$ (distance from wall) increases, $y$ (height) decreases. Use the slider to see both rates in action.</p>
+            <div id="graph-rr" style="width:100%; height:380px;"></div>
+            <p class="fig-label">Figure 4.1 — Related Rates: Ladder Sliding Down Wall ($x^2 + y^2 = 100$)</p>
+        </div>
+
+        <h2>4.2 Linear Approximation and Differentials</h2>
+
+        <p>Near a point $(a, f(a))$, a differentiable function is well approximated by its tangent line. This is the foundation of <strong>linear approximation</strong>.</p>
+
+        <div class="definition-box">
+            <h4>Linear Approximation (Linearization)</h4>
+            <p>The linearization of $f$ at $x = a$ is the tangent line:
+            $$L(x) = f(a) + f'(a)(x - a)$$</p>
+            <p>For $x$ near $a$: $f(x) \approx L(x)$.</p>
+            <p><strong>Differential:</strong> If $y = f(x)$, then $dy = f'(x)\,dx$. For small change $\Delta x \approx dx$: $\Delta y \approx dy = f'(x)\,dx$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.3 — Estimate $\sqrt{4.02}$</h4>
+            <p>Let $f(x) = \sqrt{x}$, so $f'(x) = \dfrac{1}{2\sqrt{x}}$. Linearize at $a = 4$:</p>
+            <p>$L(x) = f(4) + f'(4)(x-4) = 2 + \dfrac{1}{4}(x-4)$</p>
+            <p>At $x = 4.02$: $L(4.02) = 2 + \dfrac{1}{4}(0.02) = 2 + 0.005 = 2.005$</p>
+            <p>Actual: $\sqrt{4.02} \approx 2.00499...$. Very close!</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Use linear approximation to estimate $\sin(0.1)$ using $f(x) = \sin x$ at $a = 0$.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    $f(0) = 0$, $f'(x) = \cos x$, $f'(0) = 1$<br>
+                    $L(x) = 0 + 1\cdot(x - 0) = x$<br>
+                    $\sin(0.1) \approx 0.1$ (actual: 0.09983... — excellent approximation!)
+                </div>
+            </details>
+        </div>
+
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">Linear approximation: the tangent line (red) hugs the curve (blue) near the base point. Drag the slider to change the base point $a$.</p>
+            <div id="graph-linear" style="width:100%; height:360px;"></div>
+            <p class="fig-label">Figure 4.2 — Linear Approximation of $f(x) = \sqrt{x}$ at $a = 4$</p>
+        </div>
+
+        <h2>4.3 Mean Value Theorem</h2>
+
+        <p>The Mean Value Theorem (MVT) is one of the most important theoretical results in calculus. It guarantees that somewhere on a smooth curve, the instantaneous rate of change equals the average rate of change.</p>
+
+        <div class="theorem-box">
+            <h4>Theorem: Mean Value Theorem (MVT)</h4>
+            <p>If $f$ is:</p>
+            <ul>
+                <li><strong>Continuous</strong> on the closed interval $[a, b]$, and</li>
+                <li><strong>Differentiable</strong> on the open interval $(a, b)$,</li>
+            </ul>
+            <p>then there exists at least one $c \in (a, b)$ such that:</p>
+            <p>$$f'(c) = \frac{f(b) - f(a)}{b - a}$$</p>
+            <p>The slope of the tangent line at $x = c$ equals the slope of the secant line from $a$ to $b$.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Corollary: Rolle's Theorem</h4>
+            <p>If additionally $f(a) = f(b)$, then there exists $c \in (a, b)$ with $f'(c) = 0$. (At least one horizontal tangent exists between equal endpoints.)</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 4.4 — Applying the MVT</h4>
+            <p>Let $f(x) = x^3 - x$ on $[0, 2]$. Find the value(s) of $c$ guaranteed by the MVT.</p>
+            <p><strong>Average rate:</strong> $\dfrac{f(2)-f(0)}{2-0} = \dfrac{(8-2)-0}{2} = \dfrac{6}{2} = 3$</p>
+            <p><strong>Set $f'(c) = 3$:</strong> $f'(x) = 3x^2 - 1 = 3 \Rightarrow 3x^2 = 4 \Rightarrow x^2 = \dfrac{4}{3}$</p>
+            <p>$c = \dfrac{2}{\sqrt{3}} = \dfrac{2\sqrt{3}}{3} \approx 1.155 \in (0, 2)$ ✓</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Verify the MVT applies to $f(x) = x^2$ on $[1, 3]$, then find $c$.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    $f$ is a polynomial — continuous and differentiable everywhere. ✓<br>
+                    Average rate: $\dfrac{f(3)-f(1)}{3-1} = \dfrac{9-1}{2} = 4$<br>
+                    Set $f'(c) = 2c = 4 \Rightarrow c = 2 \in (1,3)$ ✓
+                </div>
+            </details>
+        </div>
+
+        <h3>Using MVT to Argue About Functions</h3>
+
+        <p>The MVT is often used to <strong>prove facts</strong> from derivative information. For example: if $f'(x) > 0$ for all $x \in (a,b)$, then $f$ is increasing on $(a,b)$. This follows because for any $x_1 < x_2$ in the interval, the MVT guarantees $f(x_2) - f(x_1) = f'(c)(x_2 - x_1) > 0$.</p>
+
+        <div class="ap-tip">
+            <div class="ap-tip-icon">★</div>
+            <p><strong>AP Exam Tip:</strong> The MVT is often tested as a <em>justification</em> problem. Given a table of values, you may be asked: "Explain why there must exist a $c$ such that $f'(c) = k$." The key is to first verify the conditions (continuous, differentiable on the interval), then invoke the MVT explicitly by name.</p>
+        </div>
+
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">The Mean Value Theorem: the red tangent at $c$ is parallel to the blue secant from $(a, f(a))$ to $(b, f(b))$. Adjust $a$ and $b$ to explore.</p>
+            <div id="graph-mvt" style="width:100%; height:380px;"></div>
+            <p class="fig-label">Figure 4.3 — Mean Value Theorem for $f(x) = x^3 - x$ on $[0, 2]$</p>
+        </div>
+
+        <!-- Practice Problems -->
+        <div class="practice-section">
+            <h2>Practice Problems</h2>
+            <div class="practice-grid">
+
+                <div class="practice-card">
+                    <span class="p-num">1</span>
+                    <p>A conical tank (vertex down) has radius 3 m and height 6 m. Water fills at 2 m³/min. How fast is the water level rising when the depth is 4 m? ($V = \frac{1}{3}\pi r^2 h$; by similar triangles, $r = h/2$.)</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $r = h/2$, so $V = \dfrac{1}{3}\pi(h/2)^2 h = \dfrac{\pi h^3}{12}$<br>
+                            $\dfrac{dV}{dt} = \dfrac{\pi h^2}{4}\dfrac{dh}{dt}$<br>
+                            At $h=4$: $2 = \dfrac{\pi(16)}{4}\dfrac{dh}{dt} = 4\pi\dfrac{dh}{dt}$<br>
+                            $\dfrac{dh}{dt} = \dfrac{1}{2\pi} \approx 0.159$ m/min
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">2</span>
+                    <p>Two cars leave an intersection simultaneously. Car A travels north at 60 mph, Car B travels east at 80 mph. How fast is the distance between them increasing after 1 hour?</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            After $t$ hours: $x = 80t$, $y = 60t$, $D = \sqrt{x^2+y^2}$<br>
+                            $D\dfrac{dD}{dt} = x\dfrac{dx}{dt} + y\dfrac{dy}{dt}$<br>
+                            At $t=1$: $D = \sqrt{6400+3600} = 100$<br>
+                            $100\dfrac{dD}{dt} = 80(80) + 60(60) = 6400 + 3600 = 10000$<br>
+                            $\dfrac{dD}{dt} = 100$ mph
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">3</span>
+                    <p>Use linear approximation to estimate $(1.03)^{10}$. Use $f(x) = x^{10}$ at $a = 1$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $f(1) = 1$, $f'(x) = 10x^9$, $f'(1) = 10$<br>
+                            $L(x) = 1 + 10(x-1)$<br>
+                            $(1.03)^{10} \approx L(1.03) = 1 + 10(0.03) = 1.3$<br>
+                            (Actual: $\approx 1.344$)
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">4</span>
+                    <p>A cube's side length is measured as 5 cm with error $\pm 0.02$ cm. Use differentials to estimate the maximum error in the calculated volume.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $V = s^3$, $dV = 3s^2\,ds$<br>
+                            At $s=5$, $|ds| = 0.02$:<br>
+                            $|dV| = 3(25)(0.02) = 1.5$ cm³<br>
+                            Maximum error in volume: $\pm 1.5$ cm³
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">5</span>
+                    <p>Verify the MVT conditions for $f(x) = x^2 + 2x$ on $[-1, 2]$ and find all values of $c$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Polynomial — continuous and differentiable on all reals. ✓<br>
+                            Average rate: $\dfrac{f(2)-f(-1)}{2-(-1)} = \dfrac{8-(-1)}{3} = 3$<br>
+                            $f'(c) = 2c+2 = 3 \Rightarrow c = \dfrac{1}{2} \in (-1, 2)$ ✓
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">6</span>
+                    <p>Use Rolle's Theorem to show $f(x) = x^3 - x$ has a zero of $f'$ in $(-1, 0)$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $f(-1) = -1 - (-1) = 0$ and $f(0) = 0$.<br>
+                            Since $f(-1) = f(0) = 0$, $f$ is continuous on $[-1,0]$ and differentiable on $(-1,0)$, Rolle's Theorem guarantees a $c \in (-1, 0)$ with $f'(c) = 0$.<br>
+                            (Indeed: $f'(x) = 3x^2-1=0 \Rightarrow x = -1/\sqrt{3} \approx -0.577 \in (-1,0)$)
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">7</span>
+                    <p>A particle's position is $s(t) = t^3 - 6t$ for $t \geq 0$. Find the time(s) when the instantaneous velocity equals the average velocity on $[0, 3]$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Average velocity: $\dfrac{s(3)-s(0)}{3-0} = \dfrac{(27-18)-0}{3} = 3$ m/s<br>
+                            Set $v(t) = s'(t) = 3t^2-6 = 3 \Rightarrow t^2 = 3 \Rightarrow t = \sqrt{3} \approx 1.73 \in (0,3)$ ✓
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">8</span>
+                    <p><strong>(AP Style)</strong> The table shows values of a differentiable function $f$. Explain why there must exist a value $c \in (1, 4)$ with $f'(c) = 2$.</p>
+                    <div style="overflow-x:auto;margin:8px 0;">
+                    <table style="width:100%;border-collapse:collapse;font-size:.88em;">
+                        <tr style="background:#1e3a5f;color:white;"><th style="padding:6px 10px;">$x$</th><th style="padding:6px 10px;">1</th><th style="padding:6px 10px;">4</th></tr>
+                        <tr><td style="padding:6px 10px;font-weight:600;">$f(x)$</td><td style="padding:6px 10px;">3</td><td style="padding:6px 10px;">9</td></tr>
+                    </table></div>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Since $f$ is differentiable on $(1,4)$, it is also continuous on $[1,4]$. Both conditions of the MVT are satisfied.<br>
+                            The average rate of change is $\dfrac{f(4)-f(1)}{4-1} = \dfrac{9-3}{3} = 2$.<br>
+                            By the Mean Value Theorem, there exists at least one $c \in (1,4)$ such that $f'(c) = 2$.
+                        </div>
+                    </details>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION SUMMARY -->
+        <!-- ============================================================ -->
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+
+            <h4>Core Theorems</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Mean Value Theorem</strong>
+                    <p>If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then $\exists\, c \in (a,b)$ such that $f'(c) = \dfrac{f(b)-f(a)}{b-a}$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Rolle's Theorem</strong>
+                    <p>Special case of MVT: if $f(a) = f(b)$, then $\exists\, c$ where $f'(c) = 0$. Used to prove MVT.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>L'Hôpital's Rule</strong>
+                    <p>If $\lim\frac{f}{g}$ yields $\frac{0}{0}$ or $\frac{\infty}{\infty}$, then $\lim\dfrac{f(x)}{g(x)} = \lim\dfrac{f'(x)}{g'(x)}$ (if the latter exists).</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Linearization</strong>
+                    <p>$L(x) = f(a) + f'(a)(x-a)$ approximates $f$ near $x = a$ using the tangent line.</p>
+                </div>
+            </div>
+
+            <h4>Key Formulas</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>MVT Conclusion</strong>
+                    <p>$f'(c) = \dfrac{f(b)-f(a)}{b-a}$ — the instantaneous rate equals the average rate at some interior point.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Differential</strong>
+                    <p>$dy = f'(x)\,dx$ — approximates the change in $f$ for a small change $dx$ in $x$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Newton's Method</strong>
+                    <p>$x_{n+1} = x_n - \dfrac{f(x_n)}{f'(x_n)}$ — iteratively approximates roots of $f(x) = 0$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Indeterminate Forms</strong>
+                    <p>$\frac{0}{0}$, $\frac{\infty}{\infty}$, $0\cdot\infty$, $\infty-\infty$, $0^0$, $1^\infty$, $\infty^0$ — apply L'Hôpital or algebraic manipulation.</p>
+                </div>
+            </div>
+
+            <h4>Applying L'Hôpital's Rule</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Verify the indeterminate form</strong> — confirm $\frac{0}{0}$ or $\frac{\infty}{\infty}$ by substitution</li>
+                <li><strong>Differentiate numerator and denominator separately</strong> — do NOT use quotient rule</li>
+                <li><strong>Evaluate the new limit</strong> — substitute; repeat if still indeterminate</li>
+                <li><strong>Convert other forms</strong> — write $0 \cdot \infty$ as $\frac{0}{1/\infty}$ first</li>
+            </ol>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- KEY TERMS -->
+        <!-- ============================================================ -->
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item">
+                    <strong>Mean Value Theorem</strong>
+                    <span>Guarantees the existence of a point where the instantaneous rate equals the average rate over $[a,b]$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>L'Hôpital's Rule</strong>
+                    <span>Evaluates indeterminate limits by replacing $\lim f/g$ with $\lim f'/g'$ when the original is $0/0$ or $\infty/\infty$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Differential</strong>
+                    <span>$dy = f'(x)\,dx$ — a linear approximation of the change in $y$ for a small change in $x$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Linearization</strong>
+                    <span>The tangent line $L(x) = f(a) + f'(a)(x-a)$ used to approximate values of $f$ near $x = a$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Newton's Method</strong>
+                    <span>An iterative numerical method for approximating roots of equations using tangent lines.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Indeterminate Form</strong>
+                    <span>A limit expression like $0/0$ or $\infty/\infty$ whose value cannot be determined by direct substitution.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <a href="/us/textbook/ap-calculus/chain-rule.html">&#8592; Chapter 3: Chain Rule</a>
+            <a href="/us/textbook/ap-calculus/curve-sketching.html">Chapter 5: Curve Sketching &amp; Optimization &#8250;</a>
+        </div>
+    </div>
+
+    <script>
+    // Figure 4.1 — Ladder sliding down wall
+    (function() {
+        var elt = document.getElementById('graph-rr');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: false,
+            border: false
+        });
+        calc.setMathBounds({ left: -1, right: 12, bottom: -1, top: 12 });
+        calc.setExpressions([
+            { id: 'x0', latex: 'x_0 = 6', sliderBounds: { min: 0.1, max: 9.9, step: 0.1 } },
+            { id: 'y0', latex: 'y_0 = \\sqrt{100 - x_0^2}' },
+            { id: 'wall', latex: 'x = 0', color: '#475569', lineWidth: 3 },
+            { id: 'floor', latex: 'y = 0', color: '#475569', lineWidth: 3 },
+            { id: 'ladder', latex: '\\left(\\left[(1-t)x_0, (1-t) \\cdot 0\\right], \\left[(1-t) \\cdot 0, (1-t)y_0\\right]\\right)', color: '#1e3a5f', lineWidth: 3 },
+            { id: 'seg', latex: '(1-t)(x_0,0) + t(0,y_0)', color: '#1e3a5f', lineWidth: 3, parametricDomain: { min: 0, max: 1 } },
+            { id: 'bot', latex: '(x_0, 0)', color: '#e11d48', pointSize: 12, label: 'bottom', showLabel: true },
+            { id: 'top', latex: '(0, y_0)', color: '#2563eb', pointSize: 12, label: 'top', showLabel: true },
+            { id: 'arc', latex: 'x^2 + y^2 = 100\\{x \\geq 0\\}\\{y \\geq 0\\}', color: '#94a3b8', lineWidth: 1.5, lineStyle: Desmos.Styles.DASHED }
+        ]);
+    })();
+
+    // Figure 4.2 — Linear Approximation of sqrt(x) at a=4
+    (function() {
+        var elt = document.getElementById('graph-linear');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: false,
+            border: false
+        });
+        calc.setMathBounds({ left: 0, right: 12, bottom: -0.5, top: 4 });
+        calc.setExpressions([
+            { id: 'a', latex: 'a = 4', sliderBounds: { min: 0.5, max: 10, step: 0.5 } },
+            { id: 'f', latex: 'f(x) = \\sqrt{x}', color: '#1e3a5f', lineWidth: 2.5, label: 'f(x) = √x', showLabel: true },
+            { id: 'L', latex: 'L(x) = \\sqrt{a} + \\frac{1}{2\\sqrt{a}}(x - a)', color: '#e11d48', lineWidth: 2, lineStyle: Desmos.Styles.DASHED, label: 'L(x) = linearization', showLabel: true },
+            { id: 'pt', latex: '(a, \\sqrt{a})', color: '#e11d48', pointSize: 10, label: '(a, f(a))', showLabel: true }
+        ]);
+    })();
+
+    // Figure 4.3 — Mean Value Theorem
+    (function() {
+        var elt = document.getElementById('graph-mvt');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: false,
+            border: false
+        });
+        calc.setMathBounds({ left: -0.5, right: 2.5, bottom: -2, top: 7 });
+        calc.setExpressions([
+            { id: 'f', latex: 'f(x) = x^3 - x', color: '#1e3a5f', lineWidth: 2.5 },
+            { id: 'secant', latex: 'y = 3x', color: '#2563eb', lineWidth: 2, lineStyle: Desmos.Styles.DASHED, label: 'secant slope = 3', showLabel: true },
+            { id: 'c', latex: 'c = \\frac{2}{\\sqrt{3}}' },
+            { id: 'tangent', latex: 'y = 3(x - c) + c^3 - c', color: '#e11d48', lineWidth: 2 },
+            { id: 'cpt', latex: '(c, c^3 - c)', color: '#e11d48', pointSize: 10, label: 'c ≈ 1.155', showLabel: true },
+            { id: 'pa', latex: '(0, 0)', color: '#1e3a5f', pointSize: 8, label: '(0, 0)', showLabel: true },
+            { id: 'pb', latex: '(2, 6)', color: '#1e3a5f', pointSize: 8, label: '(2, 6)', showLabel: true }
+        ]);
+    })();
+    </script>
+    <script src="../../../assets/js/textbook-ux.js"></script>
+</body>
+</html>

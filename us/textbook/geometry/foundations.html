@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Geometry: Points, Lines, and Planes - Chapter 1 | MathHub</title>
+    <meta name="description" content="Geometry Chapter 1: Points, lines, and planes. Learn segments, rays, angles, angle pairs, and angle bisectors with interactive diagrams and practice problems.">
+    <meta name="keywords" content="geometry, points lines planes, segments, rays, angles, supplementary angles, complementary angles, angle bisector, high school geometry chapter 1">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/geometry/foundations.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/geometry/foundations.html">
+    <meta property="og:title" content="Geometry: Points, Lines, and Planes - Chapter 1">
+    <meta property="og:description" content="Learn the foundations of geometry: points, lines, planes, angles, and angle pairs with interactive Desmos diagrams and practice problems.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Geometry: Points, Lines, Planes - Chapter 1">
+    <meta name="twitter:description" content="Geometry foundations: segments, rays, angles, complementary/supplementary pairs, angle bisectors with practice problems.">
+
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "Geometry: Points, Lines, and Planes - Chapter 1",
+        "description": "High school Geometry Chapter 1 covering points, lines, planes, segments, rays, angles, and angle pairs.",
+        "url": "https://mathhub.io/us/textbook/geometry/foundations.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "High School",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Geometry" },
+            { "@type": "Thing", "name": "Angles" },
+            { "@type": "Thing", "name": "Points Lines Planes" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <link rel="stylesheet" href="../../../assets/css/textbook-ux.css">
+    <style>
+        .blog-article {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 16px;
+        }
+        .blog-article h1 { font-size: 2.2em; color: #4c1d95; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #4c1d95; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #8b5cf6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        /* Learning Objectives */
+        .learning-objectives {
+            background: #f5f3ff;
+            border-left: 4px solid #8b5cf6;
+            padding: 20px 24px; margin: 24px 0 32px;
+            border-radius: 0 10px 10px 0;
+        }
+        .learning-objectives h4 { color: #4c1d95; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #3b0764; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        /* Content Boxes */
+        .example-box {
+            background: #f5f3ff; border-left: 4px solid #8b5cf6;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .example-box h4 { color: #4c1d95; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box {
+            background: #f0f7ff; border-left: 4px solid #3b82f6;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .definition-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box {
+            background: #ecfdf5; border-left: 4px solid #22c55e;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .theorem-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p { color: #334155; line-height: 1.8; }
+
+        /* Try It */
+        .try-it-box {
+            background: #f5f3ff;
+            border: 1.5px dashed #c4b5fd;
+            padding: 16px 20px; margin: -4px 0 24px;
+            border-radius: 0 0 8px 8px;
+        }
+        .try-it-box .try-it-label {
+            display: inline-block; background: #8b5cf6; color: white;
+            font-size: 0.75em; font-weight: 700; padding: 2px 10px;
+            border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px;
+        }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary {
+            cursor: pointer; color: #4c1d95; font-weight: 600;
+            font-size: 0.9em; user-select: none;
+        }
+        .try-it-answer {
+            padding: 10px 14px; background: white; border-radius: 6px;
+            margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7;
+        }
+
+        /* Geometry Tip */
+        .geo-tip {
+            background: #fefce8; border-left: 4px solid #eab308;
+            padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0;
+            display: flex; gap: 12px; align-items: flex-start;
+        }
+        .geo-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .geo-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .geo-tip strong { color: #92400e; }
+
+        /* Desmos */
+        .desmos-wrap {
+            margin: 24px auto; background: #f8fafc; border-radius: 12px;
+            padding: 4px; border: 1px solid #e2e8f0; text-align: center;
+        }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label {
+            text-align: center; font-size: 0.82em; color: #64748b;
+            margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em;
+        }
+
+        /* Chapter Nav */
+        .chapter-nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 24px 0; border-top: 2px solid #e2e8f0; margin-top: 48px;
+        }
+        .chapter-nav a {
+            color: #8b5cf6; text-decoration: none; font-weight: 600; font-size: 0.9em;
+        }
+        .chapter-nav a:hover { text-decoration: underline; }
+        .chapter-nav .nav-label { font-size: 0.8em; color: #94a3b8; display: block; }
+
+        /* Practice Problems */
+        .practice-section { margin-top: 40px; }
+        .practice-section h2 { color: #4c1d95; }
+        .problem {
+            background: white; border: 1.5px solid #e2e8f0; border-radius: 10px;
+            padding: 20px 24px; margin: 16px 0;
+        }
+        .problem-num {
+            display: inline-block; background: #4c1d95; color: white;
+            font-size: 0.78em; font-weight: 700; padding: 2px 10px;
+            border-radius: 4px; margin-bottom: 10px;
+        }
+        .problem p { margin: 0 0 12px; color: #334155; line-height: 1.7; }
+        .problem details summary {
+            cursor: pointer; color: #8b5cf6; font-weight: 600;
+            font-size: 0.9em; user-select: none;
+        }
+        .problem-solution {
+            margin-top: 10px; padding: 14px 18px; background: #f5f3ff;
+            border-radius: 8px; color: #334155; font-size: 0.92em; line-height: 1.7;
+        }
+
+        /* Notation table */
+        .notation-table { width:100%; border-collapse:collapse; margin:16px 0; font-size:0.93em; }
+        .notation-table th { background:#4c1d95; color:white; padding:9px 14px; text-align:left; }
+        .notation-table td { padding:9px 14px; border-bottom:1px solid #e2e8f0; color:#334155; }
+        .notation-table tr:nth-child(even) td { background:#f8fafc; }
+
+        /* ── Section Summary ── */
+        .section-summary { background: #f8fafc; border: 2px solid #e2e8f0; padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px; }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .summary-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin: 16px 0; }
+        .key-term-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/">KR</a>
+            <a href="/us/" class="active">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+        </div>
+    </nav>
+
+    <article class="blog-article">
+        <div class="breadcrumb">
+            <a href="/us/">US</a> &rsaquo; <a href="/us/textbook/geometry/">Geometry</a> &rsaquo; Chapter 1
+        </div>
+
+        <h1>Chapter 1: Points, Lines, and Planes</h1>
+        <div class="blog-meta">
+            High School Geometry &bull; Chapter 1 &bull; Updated March 2026 &bull; ~40 min read
+        </div>
+
+        <div class="learning-objectives">
+            <h4>Learning Objectives</h4>
+            <ul>
+                <li>Identify and describe points, lines, line segments, rays, and planes using correct notation</li>
+                <li>Apply the Segment Addition Postulate and the Angle Addition Postulate</li>
+                <li>Classify angles as acute, right, obtuse, or straight</li>
+                <li>Identify complementary, supplementary, vertical, and adjacent angle pairs</li>
+                <li>Use an angle bisector to find unknown angle measures</li>
+                <li>Apply properties of perpendicular lines</li>
+                <li><a href="#section-summary">Chapter Summary</a></li>
+                <li><a href="#key-terms">Key Terms</a></li>
+            </ul>
+        </div>
+
+        <h2>1.1 Undefined Terms: Points, Lines, and Planes</h2>
+
+        <p>
+            Geometry begins with three <strong>undefined terms</strong> — concepts that are fundamental but cannot
+            be precisely defined using simpler terms. Instead, we describe them intuitively.
+        </p>
+
+        <div class="definition-box">
+            <h4>The Three Undefined Terms</h4>
+            <ul>
+                <li>A <strong>point</strong> has no size — it indicates a location. Labeled with a capital letter: point $A$.</li>
+                <li>A <strong>line</strong> has no thickness and extends infinitely in both directions. Named by two points on it: $\overleftrightarrow{AB}$, or by a lowercase letter $\ell$.</li>
+                <li>A <strong>plane</strong> has no thickness and extends infinitely in all directions. Named by three non-collinear points or an uppercase letter: plane $ABC$ or plane $P$.</li>
+            </ul>
+        </div>
+
+        <p>
+            From these undefined terms we build <strong>defined terms</strong>:
+        </p>
+
+        <div class="definition-box">
+            <h4>Segments and Rays</h4>
+            <ul>
+                <li>A <strong>line segment</strong> $\overline{AB}$ consists of endpoints $A$ and $B$ and all points between them. Its length is $AB$ (no bar).</li>
+                <li>A <strong>ray</strong> $\overrightarrow{AB}$ starts at endpoint $A$, passes through $B$, and extends infinitely in one direction.</li>
+                <li>Two rays that share an endpoint and point in opposite directions form a <strong>line</strong>.</li>
+            </ul>
+        </div>
+
+        <table class="notation-table">
+            <thead><tr><th>Object</th><th>Symbol</th><th>Read as</th></tr></thead>
+            <tbody>
+                <tr><td>Point A</td><td>$A$</td><td>"point A"</td></tr>
+                <tr><td>Line through A and B</td><td>$\overleftrightarrow{AB}$</td><td>"line AB"</td></tr>
+                <tr><td>Segment from A to B</td><td>$\overline{AB}$</td><td>"segment AB"</td></tr>
+                <tr><td>Length of AB</td><td>$AB$</td><td>"the distance AB"</td></tr>
+                <tr><td>Ray from A through B</td><td>$\overrightarrow{AB}$</td><td>"ray AB"</td></tr>
+            </tbody>
+        </table>
+
+        <!-- Desmos Figure 1.1 — Points, segments, and rays -->
+        <div class="desmos-wrap" style="max-width:630px; height:300px; margin:24px auto;">
+            <p class="desmos-caption">Points A and B form a segment, a line, and a ray. Drag the points to explore.</p>
+            <div id="points-lines" style="width:100%; height:260px;"></div>
+            <p class="fig-label">Figure 1.1 — Points, Line Segment, Ray, and Line</p>
+        </div>
+
+        <h3>The Segment Addition Postulate</h3>
+
+        <div class="theorem-box">
+            <h4>Postulate 1.1 — Segment Addition Postulate</h4>
+            <p>
+                If $B$ is between $A$ and $C$, then $AB + BC = AC$.
+                Conversely, if $AB + BC = AC$, then $B$ is between $A$ and $C$.
+            </p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 1.1 — Using the Segment Addition Postulate</h4>
+            <p>
+                Points $A$, $B$, $C$ are collinear with $B$ between $A$ and $C$.
+                If $AB = 3x + 1$, $BC = 2x - 4$, and $AC = 22$, find $x$ and $BC$.
+            </p>
+            <p><strong>Step 1:</strong> Apply the postulate: $AB + BC = AC$</p>
+            <p>$(3x + 1) + (2x - 4) = 22$</p>
+            <p>$5x - 3 = 22$</p>
+            <p>$5x = 25 \implies x = 5$</p>
+            <p><strong>Step 2:</strong> $BC = 2(5) - 4 = \mathbf{6}$</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>$P$ is between $Q$ and $R$. $QP = 2x + 3$, $PR = x + 7$, $QR = 25$. Find $x$ and $PR$.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    $QP + PR = QR$<br>
+                    $(2x + 3) + (x + 7) = 25$<br>
+                    $3x + 10 = 25 \implies 3x = 15 \implies x = 5$<br>
+                    $PR = 5 + 7 = \mathbf{12}$
+                </div>
+            </details>
+        </div>
+
+        <h2>1.2 Angles and Angle Measurement</h2>
+
+        <p>
+            An <strong>angle</strong> is formed by two rays (called <strong>sides</strong>) that share a common endpoint
+            called the <strong>vertex</strong>. We write $\angle ABC$ where $B$ is the vertex, or simply $\angle B$ if
+            there is no ambiguity.
+        </p>
+
+        <div class="definition-box">
+            <h4>Classifying Angles by Measure</h4>
+            <ul>
+                <li><strong>Acute angle</strong>: $0° &lt; m\angle A &lt; 90°$</li>
+                <li><strong>Right angle</strong>: $m\angle A = 90°$ (indicated by a small square at the vertex)</li>
+                <li><strong>Obtuse angle</strong>: $90° &lt; m\angle A &lt; 180°$</li>
+                <li><strong>Straight angle</strong>: $m\angle A = 180°$ (a straight line)</li>
+            </ul>
+        </div>
+
+        <!-- Desmos Figure 1.2 — Interactive angle classifier -->
+        <div class="desmos-wrap" style="max-width:630px; height:340px; margin:24px auto;">
+            <p class="desmos-caption">Drag the slider to change the angle measure. Watch how the angle type changes.</p>
+            <div id="angle-types" style="width:100%; height:300px;"></div>
+            <p class="fig-label">Figure 1.2 — Angle Classification by Measure</p>
+        </div>
+
+        <h3>The Angle Addition Postulate</h3>
+
+        <div class="theorem-box">
+            <h4>Postulate 1.2 — Angle Addition Postulate</h4>
+            <p>
+                If point $D$ is in the interior of $\angle ABC$, then
+                $m\angle ABD + m\angle DBC = m\angle ABC$.
+            </p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 1.2 — Applying the Angle Addition Postulate</h4>
+            <p>
+                Ray $BD$ is in the interior of $\angle ABC$. If $m\angle ABD = (2x + 10)°$,
+                $m\angle DBC = (3x - 5)°$, and $m\angle ABC = 90°$, find $x$.
+            </p>
+            <p>$(2x + 10) + (3x - 5) = 90$</p>
+            <p>$5x + 5 = 90 \implies 5x = 85 \implies x = 17$</p>
+            <p>Check: $m\angle ABD = 44°$, $m\angle DBC = 46°$, and $44 + 46 = 90°$ ✓</p>
+        </div>
+
+        <h2>1.3 Angle Pairs</h2>
+
+        <div class="definition-box">
+            <h4>Special Angle Pairs</h4>
+            <ul>
+                <li><strong>Complementary angles</strong>: two angles whose measures sum to $90°$</li>
+                <li><strong>Supplementary angles</strong>: two angles whose measures sum to $180°$</li>
+                <li><strong>Adjacent angles</strong>: two angles that share a vertex and a side, with no overlap</li>
+                <li><strong>Vertical angles</strong>: opposite angles formed when two lines intersect; vertical angles are always congruent</li>
+                <li><strong>Linear pair</strong>: adjacent angles that form a straight line; their measures sum to $180°$</li>
+            </ul>
+        </div>
+
+        <!-- Desmos Figure 1.3 — Vertical angles and linear pairs -->
+        <div class="desmos-wrap" style="max-width:630px; height:340px; margin:24px auto;">
+            <p class="desmos-caption">Two intersecting lines form vertical angles (equal) and linear pairs (supplementary). Drag to explore.</p>
+            <div id="vertical-angles" style="width:100%; height:300px;"></div>
+            <p class="fig-label">Figure 1.3 — Vertical Angles and Linear Pairs</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Theorem 1.1 — Vertical Angles Theorem</h4>
+            <p>
+                Vertical angles are congruent: if two lines intersect, the opposite (vertical) angles are equal in measure.
+            </p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 1.3 — Finding Angles with Vertical Angles</h4>
+            <p>
+                Two lines intersect forming four angles. One angle measures $(5x + 12)°$ and its vertical angle
+                measures $(8x - 15)°$. Find the measure of each angle.
+            </p>
+            <p><strong>Since vertical angles are equal:</strong> $5x + 12 = 8x - 15$</p>
+            <p>$27 = 3x \implies x = 9$</p>
+            <p>Angle measure = $5(9) + 12 = \mathbf{57°}$</p>
+            <p>The adjacent supplementary angle = $180° - 57° = \mathbf{123°}$</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Two angles are supplementary. One measures $(3x + 20)°$ and the other measures $(x + 40)°$. Find both angles.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    $(3x + 20) + (x + 40) = 180$<br>
+                    $4x + 60 = 180 \implies 4x = 120 \implies x = 30$<br>
+                    First angle: $3(30)+20 = \mathbf{110°}$ &nbsp; Second angle: $30+40 = \mathbf{70°}$<br>
+                    Check: $110 + 70 = 180°$ ✓
+                </div>
+            </details>
+        </div>
+
+        <h2>1.4 Angle Bisectors</h2>
+
+        <div class="definition-box">
+            <h4>Definition: Angle Bisector</h4>
+            <p>
+                An <strong>angle bisector</strong> is a ray that divides an angle into two congruent angles.
+                If $\overrightarrow{BD}$ bisects $\angle ABC$, then $m\angle ABD = m\angle DBC = \frac{1}{2} m\angle ABC$.
+            </p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 1.4 — Angle Bisector Problem</h4>
+            <p>
+                $\overrightarrow{BD}$ bisects $\angle ABC$. If $m\angle ABD = (4x - 8)°$ and $m\angle DBC = (2x + 16)°$,
+                find $m\angle ABC$.
+            </p>
+            <p><strong>Since $\overrightarrow{BD}$ bisects, the two angles are equal:</strong></p>
+            <p>$4x - 8 = 2x + 16 \implies 2x = 24 \implies x = 12$</p>
+            <p>$m\angle ABD = 4(12) - 8 = 40°$</p>
+            <p>$m\angle ABC = 2 \times 40° = \mathbf{80°}$</p>
+        </div>
+
+        <div class="geo-tip">
+            <span class="geo-tip-icon">&#9670;</span>
+            <p><strong>Geometry Tip:</strong> When an angle bisector splits an angle, the two resulting angles are always <strong>congruent</strong> (equal measure). Set the two expressions equal to each other, then solve — don't sum them to get the total angle.</p>
+        </div>
+
+        <!-- Practice Problems -->
+        <div class="practice-section">
+            <h2>Practice Problems</h2>
+
+            <div class="problem">
+                <span class="problem-num">Problem 1</span>
+                <p>
+                    $M$ is between $L$ and $N$. $LM = 4x - 2$, $MN = 2x + 8$, $LN = 42$. Find $x$, $LM$, and $MN$.
+                </p>
+                <details>
+                    <summary>Show Solution</summary>
+                    <div class="problem-solution">
+                        $LM + MN = LN$<br>
+                        $(4x - 2) + (2x + 8) = 42$<br>
+                        $6x + 6 = 42 \implies 6x = 36 \implies x = 6$<br>
+                        $LM = 4(6) - 2 = \mathbf{22}$, $MN = 2(6) + 8 = \mathbf{20}$<br>
+                        Check: $22 + 20 = 42$ ✓
+                    </div>
+                </details>
+            </div>
+
+            <div class="problem">
+                <span class="problem-num">Problem 2</span>
+                <p>
+                    Classify each angle as acute, right, obtuse, or straight:<br>
+                    (a) $m\angle A = 35°$ &nbsp; (b) $m\angle B = 90°$ &nbsp; (c) $m\angle C = 127°$ &nbsp; (d) $m\angle D = 180°$
+                </p>
+                <details>
+                    <summary>Show Solution</summary>
+                    <div class="problem-solution">
+                        (a) 35° — <strong>Acute</strong> (between 0° and 90°)<br>
+                        (b) 90° — <strong>Right</strong><br>
+                        (c) 127° — <strong>Obtuse</strong> (between 90° and 180°)<br>
+                        (d) 180° — <strong>Straight</strong>
+                    </div>
+                </details>
+            </div>
+
+            <div class="problem">
+                <span class="problem-num">Problem 3</span>
+                <p>
+                    Two angles are complementary. One angle is 14° more than three times the other. Find both angles.
+                </p>
+                <details>
+                    <summary>Show Solution</summary>
+                    <div class="problem-solution">
+                        Let the smaller angle = $x$. Then the larger = $3x + 14$.<br>
+                        Complementary: $x + (3x + 14) = 90$<br>
+                        $4x + 14 = 90 \implies 4x = 76 \implies x = 19$<br>
+                        Angles: <strong>19°</strong> and <strong>71°</strong><br>
+                        Check: $19 + 71 = 90°$ ✓
+                    </div>
+                </details>
+            </div>
+
+            <div class="problem">
+                <span class="problem-num">Problem 4</span>
+                <p>
+                    Two lines intersect. One of the four angles formed measures $(6x - 30)°$ and an adjacent angle
+                    measures $(2x + 10)°$. These two angles form a linear pair. Find all four angle measures.
+                </p>
+                <details>
+                    <summary>Show Solution</summary>
+                    <div class="problem-solution">
+                        Linear pair: $(6x - 30) + (2x + 10) = 180$<br>
+                        $8x - 20 = 180 \implies 8x = 200 \implies x = 25$<br>
+                        First angle: $6(25) - 30 = \mathbf{120°}$<br>
+                        Adjacent angle: $2(25) + 10 = \mathbf{60°}$<br>
+                        By vertical angles: the other two angles are also <strong>120°</strong> and <strong>60°</strong>.
+                    </div>
+                </details>
+            </div>
+
+            <div class="problem">
+                <span class="problem-num">Problem 5</span>
+                <p>
+                    $\overrightarrow{KM}$ bisects $\angle JKL$. If $m\angle JKL = (10x - 20)°$ and $m\angle MKL = (3x + 12)°$,
+                    find $m\angle JKL$.
+                </p>
+                <details>
+                    <summary>Show Solution</summary>
+                    <div class="problem-solution">
+                        The bisector means $m\angle JKM = m\angle MKL$.<br>
+                        Since $m\angle JKL = 2 \cdot m\angle MKL$:<br>
+                        $10x - 20 = 2(3x + 12)$<br>
+                        $10x - 20 = 6x + 24$<br>
+                        $4x = 44 \implies x = 11$<br>
+                        $m\angle JKL = 10(11) - 20 = \mathbf{90°}$<br>
+                        Check: $m\angle MKL = 3(11)+12 = 45°$; $2 \times 45° = 90°$ ✓
+                    </div>
+                </details>
+            </div>
+
+            <div class="problem">
+                <span class="problem-num">Problem 6</span>
+                <p>
+                    Name each figure using correct geometric notation:<br>
+                    (a) A line passing through points $P$ and $Q$<br>
+                    (b) A segment with endpoints $X$ and $Y$<br>
+                    (c) A ray starting at $A$ passing through $B$<br>
+                    (d) The length of segment $CD$
+                </p>
+                <details>
+                    <summary>Show Solution</summary>
+                    <div class="problem-solution">
+                        (a) $\overleftrightarrow{PQ}$ (line PQ, with arrows on both ends)<br>
+                        (b) $\overline{XY}$ (segment XY, bar on top)<br>
+                        (c) $\overrightarrow{AB}$ (ray AB, arrow on one end pointing from A through B)<br>
+                        (d) $CD$ (no bar — just the letters represent the numerical length)
+                    </div>
+                </details>
+            </div>
+
+            <div class="problem">
+                <span class="problem-num">Problem 7</span>
+                <p>
+                    Ray $\overrightarrow{EG}$ is in the interior of $\angle DEF$. $m\angle DEF = 124°$ and
+                    $m\angle DEG = (3x + 7)°$. If $\overrightarrow{EG}$ bisects $\angle DEF$, find $x$.
+                </p>
+                <details>
+                    <summary>Show Solution</summary>
+                    <div class="problem-solution">
+                        If $\overrightarrow{EG}$ bisects $\angle DEF$, then $m\angle DEG = \frac{1}{2} \cdot 124° = 62°$<br>
+                        $3x + 7 = 62$<br>
+                        $3x = 55$<br>
+                        $x = \frac{55}{3} \approx 18.3$<br>
+                        (If the problem expects a whole-number answer, check whether the bisector condition
+                        or the expression is slightly different in your version.)
+                    </div>
+                </details>
+            </div>
+
+            <div class="problem">
+                <span class="problem-num">Problem 8 — Multi-Step</span>
+                <p>
+                    Angle $A$ and angle $B$ are supplementary. Angle $B$ and angle $C$ are complementary.
+                    If $m\angle A = 110°$, find $m\angle B$ and $m\angle C$.
+                </p>
+                <details>
+                    <summary>Show Solution</summary>
+                    <div class="problem-solution">
+                        <strong>Step 1 — Find angle B:</strong><br>
+                        $A$ and $B$ are supplementary: $m\angle A + m\angle B = 180°$<br>
+                        $110° + m\angle B = 180°$<br>
+                        $m\angle B = \mathbf{70°}$<br><br>
+                        <strong>Step 2 — Find angle C:</strong><br>
+                        $B$ and $C$ are complementary: $m\angle B + m\angle C = 90°$<br>
+                        $70° + m\angle C = 90°$<br>
+                        $m\angle C = \mathbf{20°}$
+                    </div>
+                </details>
+            </div>
+
+        </div>
+
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+            <h4>Basic Elements</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Points, Lines, Planes</strong>
+                    <p>A <em>point</em> has no dimension. A <em>line</em> extends infinitely in two directions. A <em>plane</em> is a flat surface extending infinitely. These are undefined terms in geometry.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Segments and Rays</strong>
+                    <p>A <em>segment</em> $\overline{AB}$ has two endpoints. A <em>ray</em> $\overrightarrow{AB}$ starts at $A$ and extends through $B$ infinitely. Midpoint divides a segment into two equal parts.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Angle Types</strong>
+                    <p>Acute: $0° &lt; m\angle &lt; 90°$. Right: $90°$. Obtuse: $90° &lt; m\angle &lt; 180°$. Straight: $180°$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Special Angle Pairs</strong>
+                    <p>Complementary: sum $= 90°$. Supplementary: sum $= 180°$. Vertical angles: formed by intersecting lines, always congruent.</p>
+                </div>
+            </div>
+            <h4>Key Postulates</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Segment Addition Postulate</strong>: If $B$ is between $A$ and $C$, then $AB + BC = AC$</li>
+                <li><strong>Angle Addition Postulate</strong>: If $D$ is in the interior of $\angle ABC$, then $m\angle ABD + m\angle DBC = m\angle ABC$</li>
+                <li><strong>Unique Line Postulate</strong>: Through any two points, exactly one line exists</li>
+            </ol>
+        </div>
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item"><strong>Collinear</strong><span>Points that lie on the same line.</span></div>
+                <div class="key-term-item"><strong>Coplanar</strong><span>Points or lines that lie in the same plane.</span></div>
+                <div class="key-term-item"><strong>Midpoint</strong><span>The point that divides a segment into two congruent parts.</span></div>
+                <div class="key-term-item"><strong>Angle Bisector</strong><span>A ray that divides an angle into two congruent angles.</span></div>
+                <div class="key-term-item"><strong>Vertical Angles</strong><span>Non-adjacent angles formed by two intersecting lines. Always congruent.</span></div>
+                <div class="key-term-item"><strong>Linear Pair</strong><span>Two adjacent angles that form a straight line. Always supplementary (sum = 180°).</span></div>
+            </div>
+        </div>
+
+        <!-- Chapter Navigation -->
+        <div class="chapter-nav">
+            <div>
+                <span class="nav-label">← Back to</span>
+                <a href="/us/textbook/geometry/">Geometry Contents</a>
+            </div>
+            <div style="text-align:right;">
+                <span class="nav-label">Next Chapter →</span>
+                <a href="/us/textbook/geometry/">Chapter 2: Reasoning and Proof</a>
+            </div>
+        </div>
+
+    </article>
+
+    <footer style="background:#1e293b;color:#94a3b8;text-align:center;padding:28px 16px;font-size:.85em;margin-top:40px;">
+        <p style="margin:0 0 6px;">&#169; 2026 MathHub Global &mdash; Free math education for everyone</p>
+        <p style="margin:0;"><a href="/privacy.html" style="color:#64748b;text-decoration:none;">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+    // Figure 1.1 — Points, Segment, Ray, Line
+    (function() {
+        var elt = document.getElementById('points-lines');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: true, border: false, showGrid: false, showXAxis: false, showYAxis: false
+        });
+        calc.setMathBounds({ left: -6, right: 6, bottom: -2.5, top: 3.5 });
+        // Line (extended)
+        calc.setExpression({ id:'line', latex: 'y=0.8', color:'#94a3b8', lineStyle: Desmos.Styles.DASHED, lineWidth:1.5 });
+        // Segment from (-3, 0.8) to (3, 0.8) — shown as bold
+        calc.setExpression({ id:'seg', latex: 'polygon((-3,0.8),(3,0.8))', color:'#4c1d95', lineWidth:3 });
+        // Points A and B
+        calc.setExpression({ id:'ptA', latex: '(-3, 0.8)', color:'#4c1d95', pointSize:14, label:'A', showLabel:true });
+        calc.setExpression({ id:'ptB', latex: '(3, 0.8)', color:'#4c1d95', pointSize:14, label:'B', showLabel:true });
+        // Ray below: from A going right
+        calc.setExpression({ id:'ray', latex: 'y=-0.8 \\left\\{x \\ge -3\\right\\}', color:'#10b981', lineWidth:3 });
+        calc.setExpression({ id:'rayPt', latex: '(-3,-0.8)', color:'#10b981', pointSize:14, label:'C', showLabel:true });
+        // Labels
+        calc.setExpression({ id:'lSeg', latex: '(0,1.35)', label:'Segment $\\overline{AB}$', color:'#4c1d95', hidden:true, showLabel:true });
+        calc.setExpression({ id:'lRay', latex: '(0,-0.2)', label:'Ray $\\overrightarrow{CD}$', color:'#10b981', hidden:true, showLabel:true });
+        calc.setExpression({ id:'lLine', latex: '(5,1.35)', label:'Line', color:'#94a3b8', hidden:true, showLabel:true });
+    })();
+
+    // Figure 1.2 — Angle types (using a movable arm)
+    (function() {
+        var elt = document.getElementById('angle-types');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false, showGrid: false, showXAxis: false, showYAxis: false
+        });
+        calc.setMathBounds({ left: -4, right: 4, bottom: -2, top: 4 });
+        // Fixed horizontal ray
+        calc.setExpression({ id:'ray1', latex: 'y=0 \\left\\{x \\ge 0\\right\\}', color:'#334155', lineWidth:2.5 });
+        // 60-degree ray
+        calc.setExpression({ id:'ray2', latex: 'y=\\sqrt{3}x \\left\\{x \\ge 0\\right\\}', color:'#8b5cf6', lineWidth:2.5 });
+        // Arc for the angle
+        calc.setExpression({ id:'arc', latex: '\\left(\\cos\\left(t\\right),\\sin\\left(t\\right)\\right)', color:'#8b5cf6', lineWidth:2 });
+        calc.setExpression({ id:'arcP', latex: '\\left(\\cos\\left(t\\right),\\sin\\left(t\\right)\\right)', domain: {min: '0', max: '1.0472'} });
+        // Right angle box (at origin for 90-degree)
+        // Vertex
+        calc.setExpression({ id:'vertex', latex: '(0,0)', color:'#334155', pointSize:14, label:'V', showLabel:true });
+        // Label
+        calc.setExpression({ id:'angleLbl', latex: '(0.8, 0.3)', label:'60° (acute)', color:'#8b5cf6', hidden:true, showLabel:true });
+        // 90-degree ray (dashed, for reference)
+        calc.setExpression({ id:'ray90', latex: 'y=x \\left\\{x \\ge 0, x \\le 2.5\\right\\}', color:'#ef4444', lineStyle: Desmos.Styles.DASHED, lineWidth:1.5 });
+        calc.setExpression({ id:'lRight', latex: '(2.5, 2.7)', label:'90° = right angle', color:'#ef4444', hidden:true, showLabel:true });
+    })();
+
+    // Figure 1.3 — Vertical angles
+    (function() {
+        var elt = document.getElementById('vertical-angles');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: true, border: false, showGrid: false, showXAxis: false, showYAxis: false
+        });
+        calc.setMathBounds({ left: -4, right: 4, bottom: -3, top: 3 });
+        // Two intersecting lines
+        calc.setExpression({ id:'l1', latex: 'y=0.7x', color:'#334155', lineWidth:2.5 });
+        calc.setExpression({ id:'l2', latex: 'y=-1.5x', color:'#334155', lineWidth:2.5 });
+        // Color the vertical angle pairs
+        // Angle 1 (upper right — between the two positive sides)
+        calc.setExpression({ id:'v1fill', latex: 'polygon((0,0),(2,1.4),(1,-1.5),(0,0))', color:'#3b82f6', fillOpacity:0.25, lineWidth:0 });
+        // Angle 2 (lower left — vertical to angle 1)
+        calc.setExpression({ id:'v2fill', latex: 'polygon((0,0),(-2,-1.4),(-1,1.5),(0,0))', color:'#3b82f6', fillOpacity:0.25, lineWidth:0 });
+        // Angle 3 (upper left)
+        calc.setExpression({ id:'v3fill', latex: 'polygon((0,0),(-2,-1.4),(2,1.4),(0,0))', color:'#ef4444', fillOpacity:0, lineWidth:0 });
+        // Labels
+        calc.setExpression({ id:'la1', latex: '(1.2, -0.3)', label:'∠1', color:'#3b82f6', hidden:true, showLabel:true });
+        calc.setExpression({ id:'la2', latex: '(-1.2, 0.3)', label:'∠2 = ∠1 (vertical)', color:'#3b82f6', hidden:true, showLabel:true });
+        calc.setExpression({ id:'la3', latex: '(-1, -0.8)', label:'∠3 (supplementary to ∠1)', color:'#64748b', hidden:true, showLabel:true });
+        // Vertex
+        calc.setExpression({ id:'vx', latex: '(0,0)', color:'#334155', pointSize:12 });
+    })();
+    </script>
+    <script src="../../../assets/js/textbook-ux.js"></script>
+</body>
+</html>

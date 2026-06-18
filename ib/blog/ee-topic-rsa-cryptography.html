@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IB EE Topic: The Mathematics of RSA Cryptography | MathHub IB</title>
+    <meta name="description" content="How to write an IB Extended Essay on RSA cryptography. Sample research questions, key mathematical concepts (prime factorization, modular arithmetic, Euler's totient), methodology, and structure guide.">
+    <meta name="keywords" content="IB Extended Essay RSA, IB EE cryptography, IB Mathematics EE topic, RSA encryption mathematics, prime factorization EE, modular arithmetic IB, Euler totient function EE">
+    <meta name="author" content="MathHub IB">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/ib/blog/ee-topic-rsa-cryptography.html">
+    <link rel="alternate" hreflang="en" href="https://mathhub.io/ib/blog/ee-topic-rsa-cryptography.html" />
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/blog/ee-topic-rsa-cryptography.html" />
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/ib/blog/ee-topic-rsa-cryptography.html">
+    <meta property="og:title" content="IB EE Topic: The Mathematics of RSA Cryptography">
+    <meta property="og:description" content="Complete guide to writing an IB Extended Essay on RSA encryption — research questions, mathematical foundations, and essay structure.">
+    <meta property="og:site_name" content="MathHub Global">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif; line-height:1.8; color:#333; background:#f5f7fa; }
+        nav.global-nav { background:#1e3a5f; display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:52px; }
+        nav.global-nav a { color:rgba(255,255,255,.85); text-decoration:none; font-size:.9em; }
+        nav.global-nav .nav-brand { font-weight:700; font-size:1.1em; color:white; }
+        nav.global-nav .nav-links { display:flex; gap:18px; align-items:center; }
+        nav.global-nav .nav-links a.active { color:white; font-weight:700; }
+        .header { background:linear-gradient(135deg,#0f766e,#14b8a6); color:white; padding:50px 20px; text-align:center; }
+        .header h1 { font-size:2em; margin-bottom:10px; line-height:1.3; }
+        .category-badge { display:inline-block; background:rgba(255,255,255,0.2); padding:5px 16px; border-radius:20px; font-size:.85em; margin-bottom:14px; }
+        .date { opacity:.85; font-size:.9em; margin-top:8px; }
+        .container { max-width:900px; margin:40px auto; background:white; padding:50px; box-shadow:0 2px 10px rgba(0,0,0,.08); border-radius:10px; }
+        .back-link { display:inline-block; margin-bottom:28px; color:#0f766e; text-decoration:none; font-weight:600; font-size:.9em; }
+        h2 { color:#0f766e; margin-top:40px; margin-bottom:18px; padding-bottom:10px; border-bottom:2px solid #14b8a6; font-size:1.4em; }
+        h3 { color:#334155; margin-top:28px; margin-bottom:12px; font-size:1.1em; }
+        p { margin-bottom:14px; }
+        ul, ol { margin-left:28px; margin-bottom:14px; }
+        li { margin-bottom:7px; }
+        .info-box { background:#f0fdfa; border-left:4px solid #0f766e; padding:18px 20px; margin:22px 0; border-radius:4px; }
+        .warning-box { background:#fef3c7; border-left:4px solid #f59e0b; padding:18px 20px; margin:22px 0; border-radius:4px; }
+        .highlight-box { background:#eff6ff; border-left:4px solid #2563eb; padding:18px 20px; margin:22px 0; border-radius:4px; }
+        .toc { background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:20px 24px; margin:0 0 32px; }
+        .toc h3 { margin-top:0; font-size:1em; color:#0f766e; }
+        .toc ol { margin:10px 0 0 20px; }
+        .toc a { color:#0f766e; text-decoration:none; font-size:.92em; }
+        code { background:#f1f5f9; padding:2px 6px; border-radius:4px; font-size:.9em; font-family:'Courier New',monospace; }
+        pre { background:#1e293b; color:#e2e8f0; padding:18px; border-radius:8px; overflow-x:auto; margin:16px 0; font-size:.88em; line-height:1.6; }
+        .cta-box { background:linear-gradient(135deg,#0f766e,#14b8a6); color:white; border-radius:12px; padding:28px; text-align:center; margin:36px 0; }
+        .cta-box h3 { color:white; margin:0 0 10px; font-size:1.2em; }
+        .cta-box p { opacity:.9; margin-bottom:16px; }
+        .cta-btn { display:inline-block; background:#f59e0b; color:white; padding:10px 26px; border-radius:8px; text-decoration:none; font-weight:700; }
+        .related-posts { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; margin-top:14px; }
+        .related-card { background:#f8fafc; border-radius:8px; padding:14px; text-decoration:none; color:inherit; border:1px solid #e2e8f0; transition:box-shadow .2s; }
+        .related-card:hover { box-shadow:0 4px 12px rgba(0,0,0,.1); }
+        .related-card h4 { color:#0f766e; margin:0 0 4px; font-size:.9em; }
+        .related-card p { color:#64748b; font-size:.8em; margin:0; }
+        .footer-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; max-width:900px; margin:0 auto; padding:40px 20px; }
+        .footer-col h4 { color:#1e293b; margin-bottom:10px; font-size:.95em; }
+        .footer-col ul { list-style:none; }
+        .footer-col li { margin-bottom:6px; }
+        .footer-col a { color:#64748b; text-decoration:none; font-size:.88em; }
+        .footer-col a:hover { color:#0f766e; }
+        .footer-bottom { text-align:center; padding:20px; color:#94a3b8; font-size:.85em; border-top:1px solid #e2e8f0; }
+        @media (max-width:768px) { .container { padding:28px 18px; margin:16px; } .header h1 { font-size:1.5em; } .footer-grid { grid-template-columns:1fr; } }
+    </style>
+</head>
+<body>
+<nav class="global-nav">
+    <a href="/" class="nav-brand">MathHub</a>
+    <div class="nav-links">
+        <a href="/kr/">KR</a>
+        <a href="/us/">US</a>
+        <a href="/uk/">UK</a>
+        <a href="/ca/">CA</a>
+        <a href="/ib/" class="active">IB</a>
+    </div>
+</nav>
+
+<div class="header">
+    <div class="category-badge">EE Topic Guide — Mathematics</div>
+    <h1>IB EE Topic: The Mathematics of RSA Cryptography</h1>
+    <div class="date">March 2026 · MathHub IB</div>
+</div>
+
+<div class="container">
+    <a href="/ib/blog/" class="back-link">&larr; Back to IB Blog</a>
+
+    <div class="toc">
+        <h3>Contents</h3>
+        <ol>
+            <li><a href="#why-rsa">Why RSA Is a Strong EE Topic</a></li>
+            <li><a href="#research-questions">Sample Research Questions</a></li>
+            <li><a href="#key-concepts">Key Mathematical Concepts</a></li>
+            <li><a href="#methodology">Methodology: Proofs and Code</a></li>
+            <li><a href="#structure">How to Structure This EE</a></li>
+            <li><a href="#grade-potential">Expected Grade Potential</a></li>
+        </ol>
+    </div>
+
+    <h2 id="why-rsa">Why RSA Is a Strong EE Topic</h2>
+    <p>RSA (Rivest-Shamir-Adleman) is the encryption algorithm that secures virtually every online transaction, from banking to email. It sits at the intersection of pure number theory and applied computer science, which makes it one of the strongest possible topics for a Mathematics Extended Essay.</p>
+
+    <p>What makes RSA exceptional as an EE topic is that its security rests on a mathematical conjecture that is easy to state but profoundly difficult to resolve: multiplying two large prime numbers together is computationally trivial, but factoring the resulting product back into its prime components is extraordinarily hard. This asymmetry — easy in one direction, practically impossible in the other — is the foundation of modern public-key cryptography.</p>
+
+    <p>From an assessment perspective, RSA offers everything the IB wants to see in a Mathematics EE. The mathematical content is genuinely sophisticated (Criterion C), drawing on number theory concepts that go well beyond the standard IB syllabus. The topic has immediate real-world relevance, which demonstrates personal engagement (Criterion E). And the mathematics can be verified computationally, providing a natural methodology that combines proof with demonstration.</p>
+
+    <div class="info-box">
+        <strong>Subject fit:</strong> An RSA essay works as a Mathematics EE or a Computer Science EE, depending on your emphasis. If your focus is on the mathematical proofs (why RSA works, why factorization is hard), submit it as Mathematics. If your focus is on implementation and computational complexity, Computer Science may be more appropriate.
+    </div>
+
+    <p>I have supervised several RSA-focused Extended Essays, and the students who score As share a common trait: they do not merely explain how RSA works. Instead, they investigate a specific mathematical question about RSA — the relationship between key size and security, the role of Euler's theorem in the decryption process, or the vulnerability introduced by weak prime selection.</p>
+
+    <h2 id="research-questions">Sample Research Questions</h2>
+    <p>The research question is the backbone of your EE. Here are several options, ranging from accessible to ambitious:</p>
+
+    <ul>
+        <li><strong>"To what extent does the security of RSA encryption depend on the difficulty of prime factorization?"</strong> — This is the classic question. It allows you to explore the mathematical foundations of RSA, prove why the algorithm works, and then analyze the factorization problem. Accessible and reliable.</li>
+        <li><strong>"How does the choice of prime numbers in RSA key generation affect the vulnerability of the encryption to Fermat's factorization method?"</strong> — More focused. This question lets you explore a specific attack vector and demonstrate mathematically when RSA becomes vulnerable (when p and q are close together).</li>
+        <li><strong>"To what extent does Euler's theorem provide the mathematical guarantee that RSA decryption correctly recovers the original message?"</strong> — A proof-focused question. Ideal for students who want to emphasize pure mathematics over application.</li>
+        <li><strong>"How does the computational time required to factor RSA moduli grow as a function of key length, and what does this imply for the future security of 2048-bit RSA?"</strong> — Combines mathematical analysis with computational experiment. Requires Python or similar tools.</li>
+    </ul>
+
+    <h2 id="key-concepts">Key Mathematical Concepts</h2>
+    <p>Before you begin writing, you need to understand and be able to explain the following concepts. These form the mathematical backbone of any RSA essay.</p>
+
+    <h3>Prime Numbers and the Fundamental Theorem of Arithmetic</h3>
+    <p>Every integer greater than 1 has a unique prime factorization. RSA exploits the fact that while the existence of this factorization is guaranteed, computing it for large numbers is computationally infeasible. Your essay should include a clear statement of the Fundamental Theorem and explain why uniqueness of factorization matters for RSA.</p>
+
+    <h3>Modular Arithmetic</h3>
+    <p>RSA operates entirely within modular arithmetic. You need to be comfortable with congruences, modular exponentiation, and the properties of modular inverses. The statement <code>a ≡ b (mod n)</code> means that n divides (a - b). For RSA, the critical operation is computing <code>m^e mod n</code> for encryption and <code>c^d mod n</code> for decryption, where m is the message, e is the public exponent, d is the private exponent, and n is the modulus.</p>
+
+    <h3>Euler's Totient Function</h3>
+    <p>Euler's totient function, denoted <code>φ(n)</code>, counts the number of integers from 1 to n that are coprime to n. For RSA, the critical property is that if <code>n = p × q</code> where p and q are distinct primes, then <code>φ(n) = (p-1)(q-1)</code>. This formula is what allows the key generator to compute the private key d as the modular inverse of e modulo <code>φ(n)</code>.</p>
+
+    <h3>Euler's Theorem and Fermat's Little Theorem</h3>
+    <p>Euler's theorem states that if gcd(a, n) = 1, then <code>a^φ(n) ≡ 1 (mod n)</code>. This is the mathematical reason RSA decryption works. When you encrypt a message m to get <code>c = m^e mod n</code>, then decrypt with <code>c^d mod n = m^(ed) mod n</code>, Euler's theorem guarantees that <code>m^(ed) ≡ m (mod n)</code> because ed ≡ 1 (mod φ(n)) by construction.</p>
+
+    <h3>Public and Private Key Pairs</h3>
+    <p>The public key is the pair (n, e), where n = pq and e is chosen coprime to φ(n) (commonly e = 65537). The private key is d, computed so that <code>ed ≡ 1 (mod φ(n))</code>. Anyone who knows n and e can encrypt, but only someone who knows d (which requires knowing φ(n), which requires knowing p and q) can decrypt.</p>
+
+    <div class="highlight-box">
+        <strong>The core insight for your essay:</strong> The security of RSA reduces to a single mathematical question — given n = pq, can an attacker find p and q? If factoring n is easy, RSA is broken. If factoring n is hard, RSA is secure. Your essay should investigate what "hard" means mathematically and computationally.
+    </div>
+
+    <h2 id="methodology">Methodology: Proofs and Code</h2>
+    <p>The strongest RSA essays combine mathematical proof with computational demonstration. Here is what that looks like in practice.</p>
+
+    <h3>Mathematical Proofs</h3>
+    <p>Your essay should include at least two rigorous proofs:</p>
+    <ol>
+        <li><strong>Proof that RSA decryption recovers the original message.</strong> Starting from <code>c = m^e mod n</code>, show that <code>c^d mod n = m</code> using Euler's theorem. This is the central proof of the essay.</li>
+        <li><strong>Proof that the extended Euclidean algorithm correctly computes the modular inverse.</strong> Since d is computed as the modular inverse of e, demonstrating this algorithm shows that key generation is well-defined.</li>
+    </ol>
+
+    <h3>Computational Demonstration</h3>
+    <p>Use Python to implement a simplified RSA system. This is not a programming exercise — it is a mathematical demonstration. Your code should:</p>
+    <pre>
+# Simplified RSA demonstration (Python)
+from sympy import isprime, gcd, mod_inverse
+import random
+
+def generate_keys(bit_length=64):
+    """Generate RSA public and private keys."""
+    p = random_prime(bit_length)
+    q = random_prime(bit_length)
+    n = p * q
+    phi_n = (p - 1) * (q - 1)
+    e = 65537  # Standard public exponent
+    d = mod_inverse(e, phi_n)
+    return (n, e), (n, d), (p, q)
+
+def encrypt(message, public_key):
+    n, e = public_key
+    return pow(message, e, n)
+
+def decrypt(ciphertext, private_key):
+    n, d = private_key
+    return pow(ciphertext, d, n)</pre>
+
+    <p>Then demonstrate encryption and decryption with small numbers where you can verify each step by hand, and large numbers where the computational difficulty of factorization becomes apparent.</p>
+
+    <h3>Factorization Timing Experiment</h3>
+    <p>A particularly effective addition is a timing experiment: generate RSA moduli of increasing bit lengths (32, 64, 128, 256, 512 bits), attempt to factor each using trial division or Pollard's rho algorithm, and plot the time required. This provides concrete evidence for the computational difficulty of factorization and can support an analysis of how security scales with key length.</p>
+
+    <h2 id="structure">How to Structure This EE</h2>
+    <ol>
+        <li><strong>Introduction (400 words):</strong> Context of internet security, statement of research question, why this matters, brief overview of approach.</li>
+        <li><strong>Mathematical Background (800 words):</strong> Modular arithmetic, Euler's totient function, Euler's theorem. Definitions, key properties, and examples with small numbers.</li>
+        <li><strong>The RSA Algorithm (600 words):</strong> Key generation, encryption, decryption. Step-by-step worked example with small primes (p=61, q=53).</li>
+        <li><strong>Proof of Correctness (500 words):</strong> Formal proof that decryption recovers the original message. This is where you demonstrate mathematical sophistication.</li>
+        <li><strong>The Factorization Problem (800 words):</strong> Why factoring is hard, computational complexity, known algorithms (trial division, Pollard's rho, general number field sieve). Timing experiment results.</li>
+        <li><strong>Implications and Limitations (500 words):</strong> What your analysis reveals about RSA security, quantum computing threat (Shor's algorithm), current recommendations for key sizes.</li>
+        <li><strong>Conclusion (400 words):</strong> Direct answer to research question, summary of evidence, reflection on what the investigation revealed.</li>
+    </ol>
+
+    <div class="info-box">
+        <strong>Word budget tip:</strong> The 4,000-word limit is tight for this topic. Resist the urge to explain everything about cryptographic history. Focus ruthlessly on the mathematics. Put supplementary code and detailed calculations in appendices (which do not count toward the word limit).
+    </div>
+
+    <h2 id="grade-potential">Expected Grade Potential</h2>
+    <p>A well-executed RSA essay has strong potential for an A grade. The topic naturally satisfies the assessment criteria:</p>
+    <ul>
+        <li><strong>Focus &amp; Method (A):</strong> RSA provides a naturally focused research question with clear methodology (mathematical proof + computational experiment).</li>
+        <li><strong>Knowledge &amp; Understanding (B):</strong> The number theory involved goes beyond the IB syllabus, demonstrating genuine academic depth.</li>
+        <li><strong>Critical Thinking (C):</strong> Analyzing why factorization is hard, evaluating different attack methods, and assessing implications for security all require sustained analytical reasoning.</li>
+        <li><strong>Presentation (D):</strong> Mathematical notation is well-defined, code can be formatted clearly, and the logical structure is natural.</li>
+        <li><strong>Engagement (E):</strong> Cryptography is inherently fascinating, and the connection to real-world internet security makes personal engagement authentic.</li>
+    </ul>
+
+    <div class="warning-box">
+        <strong>The main risk</strong> is being too descriptive. If your essay reads like a Wikipedia article about RSA, you will score a B at best. The key to an A is original analysis: run your own experiments, prove results with your own notation and phrasing, and critically evaluate what your findings mean.
+    </div>
+
+    <div class="cta-box">
+        <h3>Need Help with Your Extended Essay?</h3>
+        <p>Our experienced IB tutors can guide you through topic selection, research, and writing. We have supervised dozens of Mathematics EEs on cryptography and number theory topics.</p>
+        <a href="/contact-en.html" class="cta-btn">Request Free Consultation</a>
+    </div>
+
+    <h2>Related Posts</h2>
+    <div class="related-posts">
+        <a href="/ib/blog/ib-extended-essay-writing-guide.html" class="related-card">
+            <h4>EE Writing Guide: How to Score an A</h4>
+            <p>Complete guide to all five criteria</p>
+        </a>
+        <a href="/ib/blog/ee-topic-fractals-mandelbrot.html" class="related-card">
+            <h4>EE Topic: Fractals &amp; Mandelbrot Set</h4>
+            <p>Complex dynamics and iteration</p>
+        </a>
+        <a href="/ib/blog/ee-topic-machine-learning-digits.html" class="related-card">
+            <h4>EE Topic: ML Digit Recognition</h4>
+            <p>Neural networks and MNIST</p>
+        </a>
+    </div>
+</div>
+
+<footer style="background:#f8fafc; margin-top:40px;">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Resources</h4>
+            <ul>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/ib/blog/">IB Blog</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Countries</h4>
+            <ul>
+                <li><a href="/kr/">Korea</a></li>
+                <li><a href="/us/">USA</a></li>
+                <li><a href="/uk/">UK</a></li>
+                <li><a href="/ca/">Canada</a></li>
+                <li><a href="/ib/">IB</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="/about.html">About Us</a></li>
+                <li><a href="/contact-en.html">Contact</a></li>
+                <li><a href="/privacy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+    </div>
+</footer>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "IB EE Topic: The Mathematics of RSA Cryptography",
+    "description": "How to write an IB Extended Essay on RSA cryptography — research questions, key mathematical concepts, methodology, and structure guide.",
+    "author": {"@type": "Organization", "name": "MathHub"},
+    "publisher": {"@type": "Organization", "name": "MathHub Global", "url": "https://mathhub.io"},
+    "datePublished": "2026-03-16",
+    "dateModified": "2026-03-16",
+    "mainEntityOfPage": "https://mathhub.io/ib/blog/ee-topic-rsa-cryptography.html",
+    "keywords": ["IB Extended Essay", "RSA cryptography", "number theory", "modular arithmetic", "Euler totient function"]
+}
+</script>
+</body>
+</html>

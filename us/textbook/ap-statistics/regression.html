@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Statistics: Regression and Prediction - Chapter 5 | MathHub</title>
+    <meta name="description" content="AP Statistics Chapter 5: Regression and Prediction. Learn the Least-Squares Regression Line (LSRL), interpret slope and intercept, analyze residuals, understand r², and avoid extrapolation.">
+    <meta name="keywords" content="AP Statistics, least squares regression, LSRL, regression line, residuals, r squared, coefficient of determination, extrapolation, AP Stats Chapter 5">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/ap-statistics/regression.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/ap-statistics/regression.html">
+    <meta property="og:title" content="AP Statistics: Regression and Prediction - Chapter 5">
+    <meta property="og:description" content="Learn LSRL, residuals, r², and prediction for AP Statistics regression analysis.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Statistics: Regression and Prediction - Chapter 5">
+    <meta name="twitter:description" content="AP Statistics Chapter 5: LSRL, residuals, r², and extrapolation cautions.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "AP Statistics: Regression and Prediction - Chapter 5",
+        "description": "AP Statistics Chapter 5 covering the least-squares regression line, slope and intercept interpretation, residuals, r², and extrapolation.",
+        "url": "https://mathhub.io/us/textbook/ap-statistics/regression.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "AP",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Linear Regression" },
+            { "@type": "Thing", "name": "Statistics" },
+            { "@type": "Thing", "name": "AP Statistics" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <link rel="stylesheet" href="../../../assets/css/textbook-ux.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #064e3b; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #064e3b; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #10b981; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives { background: #ecfdf5; border-left: 4px solid #10b981; padding: 20px 24px; margin: 24px 0 32px; border-radius: 0 10px 10px 0; }
+        .learning-objectives h4 { color: #065f46; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #064e3b; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box { background: #f0fdf4; border-left: 4px solid #10b981; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #065f46; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+
+        .definition-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box { background: #f0fdf4; border: 1.5px dashed #86efac; padding: 16px 20px; margin: -4px 0 24px; border-radius: 0 0 8px 8px; }
+        .try-it-box .try-it-label { display: inline-block; background: #10b981; color: white; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px; }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary { cursor: pointer; color: #065f46; font-weight: 600; font-size: 0.9em; user-select: none; }
+        .try-it-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7; }
+
+        .ap-tip { background: #fefce8; border-left: 4px solid #eab308; padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .ap-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #92400e; }
+
+        .desmos-wrap { margin: 24px auto; background: #f8fafc; border-radius: 12px; padding: 4px; border: 1px solid #e2e8f0; text-align: center; }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label { text-align: center; font-size: 0.82em; color: #64748b; margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em; }
+
+        .practice-section { margin: 48px 0 0; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { color: #064e3b; margin-bottom: 20px; }
+        .practice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        @media (max-width: 600px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; }
+        .practice-card .p-num { display: inline-block; background: #064e3b; color: white; font-weight: 700; font-size: 0.78em; padding: 2px 9px; border-radius: 4px; margin-bottom: 8px; }
+        .practice-card p { color: #334155; font-size: 0.92em; line-height: 1.7; margin: 0 0 10px; }
+        .practice-card details summary { cursor: pointer; color: #065f46; font-weight: 600; font-size: 0.88em; user-select: none; }
+        .practice-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 8px; color: #334155; font-size: 0.9em; line-height: 1.7; border: 1px solid #e2e8f0; }
+
+        .chapter-nav { display: flex; justify-content: space-between; margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid #e2e8f0; flex-wrap: wrap; gap: 12px; }
+        .chapter-nav a { color: #10b981; text-decoration: none; font-weight: 600; font-size: 0.95em; padding: 8px 16px; border: 1.5px solid #10b981; border-radius: 8px; transition: background .15s; }
+        .chapter-nav a:hover { background: #ecfdf5; }
+
+        .residual-note { background: #fff7ed; border: 1.5px solid #fdba74; border-radius: 8px; padding: 14px 20px; margin: 16px 0; font-size: 0.93em; color: #334155; }
+        .residual-note strong { color: #9a3412; }
+
+        /* ── Section Summary ── */
+        .section-summary { background: #f8fafc; border: 2px solid #e2e8f0; padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px; }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .summary-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin: 16px 0; }
+        .key-term-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<div style="background:#064e3b; padding:12px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+    <a href="/" style="color:#6ee7b7; text-decoration:none; font-weight:700; font-size:1.1em;">MathHub</a>
+    <span style="color:#34d399;">›</span>
+    <a href="/us" style="color:#a7f3d0; text-decoration:none; font-size:.9em;">US</a>
+    <span style="color:#34d399;">›</span>
+    <a href="/us/textbook/ap-statistics" style="color:#a7f3d0; text-decoration:none; font-size:.9em;">AP Statistics</a>
+    <span style="color:#34d399;">›</span>
+    <span style="color:white; font-size:.9em;">Chapter 5</span>
+</div>
+
+<article class="blog-article">
+    <div class="breadcrumb">
+        <a href="/">MathHub</a> › <a href="/us">US</a> › <a href="/us/textbook/ap-statistics">AP Statistics</a> › Chapter 5
+    </div>
+
+    <h1>Chapter 5: Regression and Prediction</h1>
+    <div class="blog-meta">AP Statistics · Exploring Two-Variable Data · 3 interactive graphs · 8 practice problems</div>
+
+    <div class="learning-objectives">
+        <h4>Learning Objectives</h4>
+        <ul>
+            <li>Find and use the equation of the least-squares regression line (LSRL)</li>
+            <li>Interpret the slope and y-intercept in context</li>
+            <li>Calculate and interpret residuals</li>
+            <li>Construct and analyze residual plots to check linearity</li>
+            <li>Calculate and interpret the coefficient of determination $r^2$</li>
+            <li>Identify dangers of extrapolation and influential observations</li>
+        </ul>
+    </div>
+
+    <!-- 5.1 -->
+    <h2>5.1 The Least-Squares Regression Line</h2>
+    <p>The <strong>least-squares regression line (LSRL)</strong> is the line that minimizes the sum of the squared vertical distances (residuals) from each data point to the line.</p>
+
+    <div class="theorem-box">
+        <h4>LSRL Equation and Formulas</h4>
+        <p>The LSRL has the form: $\hat{y} = a + bx$, where</p>
+        <p>$$b = r \cdot \frac{s_y}{s_x} \qquad \text{and} \qquad a = \bar{y} - b\bar{x}$$</p>
+        <ul>
+            <li>$b$ = slope; $a$ = y-intercept</li>
+            <li>$r$ = correlation coefficient; $s_x, s_y$ = standard deviations; $\bar{x}, \bar{y}$ = means</li>
+            <li>The LSRL always passes through the point $(\bar{x}, \bar{y})$</li>
+        </ul>
+    </div>
+
+    <h3>Interpreting the Slope and Intercept</h3>
+    <p>The AP exam requires careful contextual interpretation:</p>
+    <ul>
+        <li><strong>Slope $b$:</strong> "For each additional [unit of x], the predicted [y] increases/decreases by $|b|$ [units of y], on average."</li>
+        <li><strong>Intercept $a$:</strong> "When [x] = 0, the predicted [y] is $a$ [units of y]." (Only interpret if $x = 0$ is meaningful.)</li>
+    </ul>
+
+    <div class="example-box">
+        <h4>Example 5.1 — Finding and Interpreting the LSRL</h4>
+        <p>Using the study hours data from Chapter 4: $\bar{x} = 8.5$, $\bar{y} = 76.3$, $s_x = 5.07$, $s_y = 13.5$, $r = 0.993$.</p>
+        <p>$$b = 0.993 \cdot \frac{13.5}{5.07} \approx 2.64 \qquad a = 76.3 - 2.64(8.5) \approx 53.9$$</p>
+        <p><strong>LSRL:</strong> $\hat{y} = 53.9 + 2.64x$</p>
+        <p><strong>Slope:</strong> For each additional hour of study per week, the predicted exam score increases by about 2.64 points, on average.</p>
+        <p><strong>Intercept:</strong> A student who studies 0 hours is predicted to score about 53.9. (Borderline meaningful — a score of ~54 with no studying is plausible.)</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A regression of height (inches) on shoe size gives: $\hat{\text{height}} = 50.2 + 1.8(\text{shoe size})$. Interpret the slope in context.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">For each one-unit increase in shoe size, the predicted height increases by 1.8 inches, on average.</div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Interactive LSRL fitting — drag the slope and intercept sliders to see how the line fits the data and how residuals change.</p>
+        <div id="graph-lsrl" style="width:100%; height:420px;"></div>
+        <p class="fig-label">Figure 5.1 — Least-Squares Regression Line with Residuals</p>
+    </div>
+
+    <!-- 5.2 -->
+    <h2>5.2 Residuals and Residual Plots</h2>
+
+    <div class="definition-box">
+        <h4>Definition: Residual</h4>
+        <p>A <strong>residual</strong> is the difference between an observed y-value and the predicted y-value from the LSRL:</p>
+        <p>$$\text{residual} = y - \hat{y} = \text{observed} - \text{predicted}$$</p>
+        <p>A positive residual means the point is above the line (actual > predicted). A negative residual means the point is below the line (actual < predicted).</p>
+    </div>
+
+    <div class="residual-note">
+        <strong>Important property:</strong> The sum of all residuals from the LSRL is always exactly 0. The LSRL balances positive and negative residuals perfectly.
+    </div>
+
+    <h3>Residual Plots</h3>
+    <p>A <strong>residual plot</strong> graphs the residuals ($y - \hat{y}$) on the vertical axis versus the explanatory variable ($x$) on the horizontal axis. Use residual plots to check whether a linear model is appropriate:</p>
+    <ul>
+        <li><strong>Good (linear model appropriate):</strong> Residuals scattered randomly with no pattern; residuals roughly centered at 0</li>
+        <li><strong>Bad (curved pattern):</strong> A systematic curved pattern in residuals indicates a linear model is NOT appropriate — use a different model</li>
+        <li><strong>Bad (fan shape):</strong> Increasing spread indicates non-constant variance</li>
+    </ul>
+
+    <div class="example-box">
+        <h4>Example 5.2 — Computing Residuals</h4>
+        <p>Using $\hat{y} = 53.9 + 2.64x$, find the residual for the student who studies 10 hours and scores 79.</p>
+        <p>$\hat{y} = 53.9 + 2.64(10) = 80.3$</p>
+        <p>Residual $= 79 - 80.3 = -1.3$</p>
+        <p><strong>Interpretation:</strong> This student scored 1.3 points below what the LSRL predicted for someone who studies 10 hours.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A student studies 12 hours and scores 84. Using $\hat{y} = 53.9 + 2.64x$, find the residual and interpret it.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">$\hat{y} = 53.9 + 2.64(12) = 85.6$. Residual $= 84 - 85.6 = -1.6$. This student scored 1.6 points below what the model predicted for 12 hours of study.</div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Residual plot for the study hours data — residuals scattered randomly confirms the linear model is appropriate.</p>
+        <div id="graph-residual" style="width:100%; height:360px;"></div>
+        <p class="fig-label">Figure 5.2 — Residual Plot: No Systematic Pattern (Linear Model Appropriate)</p>
+    </div>
+
+    <!-- 5.3 -->
+    <h2>5.3 The Coefficient of Determination r²</h2>
+
+    <div class="definition-box">
+        <h4>Definition: r² (Coefficient of Determination)</h4>
+        <p>$r^2$ is the fraction of the variation in $y$ that is explained by the linear relationship with $x$:</p>
+        <p>$$r^2 = 1 - \frac{\text{SSE}}{\text{SST}} = \frac{\text{variation explained by } x}{\text{total variation in } y}$$</p>
+        <p>where SSE = sum of squared residuals, SST = total sum of squares around $\bar{y}$.</p>
+    </div>
+
+    <h3>Interpreting r²</h3>
+    <p>The standard AP template: <em>"About [r² × 100]% of the variation in [y] is explained by the linear relationship with [x]."</em></p>
+
+    <div class="example-box">
+        <h4>Example 5.3 — Interpreting r²</h4>
+        <p>For the study hours data, $r = 0.993$, so $r^2 = (0.993)^2 \approx 0.986$.</p>
+        <p><strong>Interpretation:</strong> About 98.6% of the variation in exam scores is explained by the linear relationship with study hours. The remaining 1.4% is due to other factors (individual ability, test-day conditions, etc.).</p>
+    </div>
+
+    <div class="ap-tip">
+        <div class="ap-tip-icon">★</div>
+        <p><strong>AP Exam Tip:</strong> Always interpret $r^2$ using the phrase "explained by the linear relationship with..." Never say "explained by" alone without specifying the linear relationship. Also note $r^2$ is always between 0 and 1, regardless of the sign of $r$.</p>
+    </div>
+
+    <!-- 5.4 -->
+    <h2>5.4 Regression Cautions: Extrapolation and Influential Points</h2>
+
+    <div class="definition-box">
+        <h4>Extrapolation</h4>
+        <p><strong>Extrapolation</strong> means using the LSRL to predict $y$ for values of $x$ outside the range of the data. Extrapolated predictions are often unreliable because the linear relationship may not hold beyond the observed data range.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 5.4 — Danger of Extrapolation</h4>
+        <p>Using $\hat{y} = 53.9 + 2.64x$ for study hours, predict the score for someone who studies 40 hours per week.</p>
+        <p>$\hat{y} = 53.9 + 2.64(40) = 159.5$</p>
+        <p>An exam score of 159.5 is impossible (scores max at 100). Extrapolating far beyond the data range of 2–18 hours produces absurd predictions. The linear model breaks down outside its range.</p>
+    </div>
+
+    <h3>Influential Observations in Regression</h3>
+    <p>An <strong>influential observation</strong> in regression is a point whose removal would substantially change the LSRL slope or intercept. Points far from $\bar{x}$ in the x-direction have the most leverage and tend to be most influential.</p>
+
+    <div class="ap-tip">
+        <div class="ap-tip-icon">★</div>
+        <p><strong>AP Exam Tip:</strong> A point that is an outlier in y (high residual) is not necessarily influential. An influential point is one that, if removed, would significantly change the regression line. Always check both the residual plot and the scatterplot for unusual points.</p>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">LSRL with an influential point in red — observe how far the line moves when the influential point is added.</p>
+        <div id="graph-influence" style="width:100%; height:380px;"></div>
+        <p class="fig-label">Figure 5.3 — Influential Point Pulling the LSRL</p>
+    </div>
+
+    <!-- Practice -->
+    <div class="practice-section">
+        <h2>Practice Problems</h2>
+        <div class="practice-grid">
+            <div class="practice-card">
+                <span class="p-num">1</span>
+                <p>A regression of weight (kg) on height (cm) gives $\hat{y} = -80 + 0.65x$. Interpret the slope and decide whether the intercept is meaningful.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer"><strong>Slope:</strong> For each additional cm of height, predicted weight increases by 0.65 kg, on average. <strong>Intercept:</strong> $x = 0$ cm (height = 0) is not meaningful — no person has zero height, so $-80$ kg has no practical interpretation.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">2</span>
+                <p>Given $r = -0.75$, $s_x = 4$, $s_y = 6$, $\bar{x} = 10$, $\bar{y} = 30$. Find the LSRL equation.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$b = -0.75 \cdot (6/4) = -1.125$. $a = 30 - (-1.125)(10) = 30 + 11.25 = 41.25$. <strong>LSRL:</strong> $\hat{y} = 41.25 - 1.125x$</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">3</span>
+                <p>A residual plot shows a clear curved pattern (points go low, then high, then low as x increases). What does this indicate?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">The curved pattern indicates that a <strong>linear model is not appropriate</strong> for this data. A nonlinear model (e.g., quadratic or exponential) would be more suitable. The LSRL predictions will be systematically off in a predictable way.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">4</span>
+                <p>For a dataset, $r^2 = 0.64$. A student says "64% of the data points fall on the regression line." Correct this statement.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">The correct interpretation: <strong>"About 64% of the variation in y is explained by the linear relationship with x."</strong> It does NOT mean 64% of points are on the line — in fact, very few points are ever exactly on the LSRL.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">5</span>
+                <p>LSRL: $\hat{y} = 12 + 3.5x$. An observed point has $x = 8$, $y = 38$. Find the residual and state whether the point is above or below the line.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$\hat{y} = 12 + 3.5(8) = 40$. Residual $= 38 - 40 = -2$. The point is <strong>below the line</strong> by 2 units (actual < predicted).</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">6</span>
+                <p>A researcher uses a regression line fit to data from students ages 8–16 to predict reading level for a 5-year-old. What concern does this raise?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer"><strong>Extrapolation:</strong> Age 5 is outside the range 8–16 used to fit the model. The linear relationship may not hold at age 5, making the prediction unreliable. Extrapolated predictions should not be trusted.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">7</span>
+                <p>AP FRQ: A linear regression of test score ($y$) on hours tutored ($x$) gives $\hat{y} = 58 + 6.2x$ with $r^2 = 0.81$. (a) Predict the score for 5 hours tutored. (b) Interpret $r^2$. (c) A student tutored 5 hours scored 72. Find and interpret the residual.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">(a) $\hat{y} = 58 + 6.2(5) = 89$. (b) About 81% of the variation in test scores is explained by the linear relationship with tutoring hours. (c) Residual $= 72 - 89 = -17$. This student scored 17 points below what the model predicted for 5 hours of tutoring.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">8</span>
+                <p>Two datasets both have LSRL $\hat{y} = 5 + 2x$. Dataset A has $r^2 = 0.95$; Dataset B has $r^2 = 0.30$. What does this tell you about the two datasets?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Both datasets have the same regression line, but the linear model fits Dataset A <strong>much better</strong>. In Dataset A, 95% of the variation in y is explained by x (points cluster tightly around the line). In Dataset B, only 30% is explained — points are much more scattered around the same line.</div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+            <h4>Least-Squares Regression Line</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>LSRL Equation</strong>
+                    <p>$\hat{y} = a + bx$ where $b = r\dfrac{s_y}{s_x}$ and $a = \bar{y} - b\bar{x}$. The line always passes through $(\bar{x}, \bar{y})$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Slope Interpretation</strong>
+                    <p>For each 1-unit increase in $x$, $\hat{y}$ increases by $b$ units on average. Always interpret in context with units.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Residuals</strong>
+                    <p>$e = y - \hat{y}$ — the vertical distance from a point to the LSRL. Positive: point above line. Negative: point below line. $\sum e = 0$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>$r^2$ (Coefficient of Determination)</strong>
+                    <p>The fraction of variation in $y$ explained by the LSRL. $r^2 = 0.85$ means 85% of variation in $y$ is explained by $x$.</p>
+                </div>
+            </div>
+            <h4>Checking Conditions</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Linear</strong> — scatterplot shows a linear trend; residual plot shows no pattern</li>
+                <li><strong>Constant variance</strong> — spread of residuals roughly equal across all $x$ values</li>
+                <li><strong>No strong outliers</strong> — high-leverage or influential points distort the line</li>
+                <li><strong>Check $r^2$</strong> — higher values indicate stronger linear fit</li>
+            </ol>
+        </div>
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item"><strong>LSRL</strong><span>Least-Squares Regression Line — the line minimizing the sum of squared residuals $\sum(y-\hat{y})^2$.</span></div>
+                <div class="key-term-item"><strong>Residual</strong><span>$e = y - \hat{y}$ — the difference between an observed value and the value predicted by the regression line.</span></div>
+                <div class="key-term-item"><strong>$r^2$</strong><span>Coefficient of determination — the proportion of variation in $y$ explained by the linear relationship with $x$.</span></div>
+                <div class="key-term-item"><strong>Residual Plot</strong><span>A graph of residuals vs. $x$ or $\hat{y}$. A random scatter indicates a good linear fit.</span></div>
+                <div class="key-term-item"><strong>Influential Point</strong><span>A point that, if removed, would markedly change the slope or intercept of the LSRL.</span></div>
+                <div class="key-term-item"><strong>Extrapolation</strong><span>Using the LSRL to predict $y$ for $x$ values far outside the data range — often unreliable.</span></div>
+            </div>
+        </div>
+    <div class="chapter-nav">
+        <a href="/us/textbook/ap-statistics/scatterplots.html">← Chapter 4: Scatterplots</a>
+        <a href="/us/textbook/ap-statistics">AP Statistics Home →</a>
+    </div>
+</article>
+
+<script>
+(function() {
+    // Figure 5.1 — LSRL with data points and residuals
+    var elt1 = document.getElementById('graph-lsrl');
+    var calc1 = Desmos.GraphingCalculator(elt1, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false
+    });
+    calc1.setMathBounds({ left: 0, right: 22, bottom: 45, top: 105 });
+    var pts = [[2,55],[4,62],[5,65],[7,71],[8,74],[10,79],[12,84],[14,87],[15,91],[18,95]];
+    pts.forEach(function(pt, i) {
+        calc1.setExpression({ id: 'dp'+i, type: 'expression', latex: '('+pt[0]+','+pt[1]+')', color: '#065f46', pointSize: 14 });
+        var pred = 53.9 + 2.64 * pt[0];
+        // Residual segment
+        calc1.setExpression({
+            id: 'res'+i, type: 'expression',
+            latex: '('+pt[0]+' \\le x \\le '+pt[0]+') \\{'+Math.min(pt[1],pred)+'\\le y \\le '+Math.max(pt[1],pred)+'\\}',
+            color: '#f97316', lineStyle: Desmos.Styles.DASHED, lineWidth: 2
+        });
+    });
+    calc1.setExpression({ id: 'lsrl', type: 'expression', latex: 'y=53.9+2.64x', color: '#1d4ed8', lineWidth: 2.5 });
+})();
+
+(function() {
+    // Figure 5.2 — Residual plot
+    var elt2 = document.getElementById('graph-residual');
+    var calc2 = Desmos.GraphingCalculator(elt2, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false
+    });
+    calc2.setMathBounds({ left: 0, right: 22, bottom: -6, top: 6 });
+    var pts = [[2,55],[4,62],[5,65],[7,71],[8,74],[10,79],[12,84],[14,87],[15,91],[18,95]];
+    var resids = pts.map(function(pt){ return [pt[0], pt[1] - (53.9 + 2.64*pt[0])]; });
+    resids.forEach(function(pt, i) {
+        calc2.setExpression({ id: 'rp'+i, type: 'expression', latex: '('+pt[0]+','+pt[1].toFixed(2)+')', color: '#065f46', pointSize: 13 });
+    });
+    // Zero line
+    calc2.setExpression({ id: 'zero', type: 'expression', latex: 'y=0', color: '#94a3b8', lineWidth: 1.5, lineStyle: Desmos.Styles.DASHED });
+})();
+
+(function() {
+    // Figure 5.3 — Influential point
+    var elt3 = document.getElementById('graph-influence');
+    var calc3 = Desmos.GraphingCalculator(elt3, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false
+    });
+    calc3.setMathBounds({ left: 0, right: 14, bottom: 0, top: 12 });
+    var main = [[1,1.5],[2,2.3],[3,3.1],[4,4.0],[5,4.8],[6,5.7],[7,6.4]];
+    main.forEach(function(pt, i) {
+        calc3.setExpression({ id: 'mp'+i, type: 'expression', latex: '('+pt[0]+','+pt[1]+')', color: '#065f46', pointSize: 13 });
+    });
+    // Influential point (far right, low y)
+    calc3.setExpression({ id: 'inf', type: 'expression', latex: '(13,1)', color: '#dc2626', pointSize: 16 });
+    // LSRL without influential
+    calc3.setExpression({ id: 'no_inf', type: 'expression', latex: 'y=0.97x+0.6', color: '#065f46', lineWidth: 2.5 });
+    // LSRL with influential
+    calc3.setExpression({ id: 'with_inf', type: 'expression', latex: 'y=0.1x+3.5', color: '#dc2626', lineWidth: 2.5, lineStyle: Desmos.Styles.DASHED });
+    calc3.setExpression({ id: 'lbl1', type: 'expression', latex: '\\text{Without influential point}', color: '#065f46' });
+    calc3.setExpression({ id: 'lbl2', type: 'expression', latex: '\\text{With influential point (red)}', color: '#dc2626' });
+})();
+</script>
+
+    <script src="../../../assets/js/textbook-ux.js"></script>
+</body>
+</html>

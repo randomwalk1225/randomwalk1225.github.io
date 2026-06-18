@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, follow">
+    <title>2022 May SAT Math Section: Research Analysis | MathHub</title>
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #0ea5e9;
+            --accent: #f59e0b;
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+        }
+        .report-body { max-width: 1000px; margin: 0 auto; padding: 60px 40px; font-family: 'Inter', system-ui, -apple-system, sans-serif; line-height: 1.8; color: var(--text-main); }
+        .breadcrumb { color: var(--text-light); margin-bottom: 30px; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+        
+        header { border-bottom: 1px solid #e2e8f0; padding-bottom: 40px; margin-bottom: 60px; }
+        h1 { font-size: 3.2rem; color: #0f172a; margin: 10px 0; letter-spacing: -0.04em; line-height: 1.1; font-weight: 800; }
+        .subtitle { font-size: 1.3rem; color: var(--text-light); font-weight: 400; max-width: 750px; line-height: 1.6; }
+
+        .executive-summary { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 40px; margin: 40px 0 60px 0; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .summary-text h3 { color: var(--primary); margin-top: 0; font-weight: 800; font-size: 1.4rem; margin-bottom: 20px; }
+        .summary-text p { margin-bottom: 16px; }
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .stat-card { background: var(--bg-light); padding: 24px; border-radius: 16px; text-align: center; border: 1px solid #f1f5f9; }
+        .stat-value { display: block; font-size: 2.2rem; font-weight: 900; color: var(--primary); margin-bottom: 4px; }
+        .stat-label { font-size: 0.75rem; color: var(--text-light); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
+
+        h2 { font-size: 2.2rem; color: #0f172a; margin-top: 80px; margin-bottom: 32px; font-weight: 800; border: none; padding: 0; }
+        h2 .section-num { color: var(--secondary); margin-right: 12px; }
+
+        .distribution-table { width: 100%; border-collapse: collapse; margin: 40px 0; background: white; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }
+        .distribution-table th { background: var(--bg-light); padding: 20px; text-align: left; font-weight: 700; color: var(--primary); border-bottom: 1px solid #e2e8f0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .distribution-table td { padding: 20px; border-bottom: 1px solid #f1f5f9; }
+        .progress-bar { height: 10px; background: #e2e8f0; border-radius: 5px; overflow: hidden; width: 100%; margin-top: 12px; }
+        .progress-fill { height: 100%; background: var(--secondary); border-radius: 5px; }
+
+        .analysis-card { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 40px; margin: 40px 0; }
+        .analysis-card h3 { color: var(--primary); font-weight: 800; font-size: 1.5rem; margin-top: 0; margin-bottom: 24px; }
+
+        .question-block { margin-bottom: 40px; padding: 0; }
+        .question-block:last-child { margin-bottom: 0; }
+        .question-block h4 { color: #0f172a; font-weight: 800; font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .question-block h4::before { content: "•"; color: var(--accent); font-size: 1.5rem; }
+        .question-block p { color: var(--text-main); line-height: 1.7; }
+
+        .killer-problem { background: #0f172a; color: white; border-radius: 24px; padding: 48px; margin: 60px 0; }
+        .killer-problem h2 { color: white; margin-top: 0; margin-bottom: 24px; }
+        .killer-problem h2 .section-num { color: var(--accent); }
+        .problem-content { background: rgba(255,255,255,0.03); border-radius: 16px; padding: 32px; border: 1px solid rgba(255,255,255,0.1); }
+
+        .strategy-box { background: #f0fdf4; border-radius: 20px; padding: 40px; margin: 40px 0; }
+        .strategy-box h3 { color: #166534; font-weight: 800; font-size: 1.5rem; margin-top: 0; margin-bottom: 20px; }
+        .strategy-box ul { list-style: none; padding: 0; }
+        .strategy-box li { margin-bottom: 16px; padding-left: 28px; position: relative; }
+        .strategy-box li::before { content: "✓"; position: absolute; left: 0; color: #22c55e; font-weight: 900; }
+
+        .pdf-container { margin-top: 100px; padding-top: 60px; border-top: 1px solid #e2e8f0; }
+        .pdf-container h2 { font-size: 1.8rem; margin-top: 0; }
+        
+        @media (max-width: 768px) {
+            .executive-summary { grid-template-columns: 1fr; padding: 30px; }
+            .report-body { padding: 40px 20px; }
+            h1 { font-size: 2.4rem; }
+        }
+
+        .killer-problem .question-block h4 { color: white; }
+        .killer-problem .question-block p { color: rgba(255,255,255,0.8); }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="report-body">
+        <div class="breadcrumb">US SAT &rsaquo; Research Reports &rsaquo; 2022</div>
+        <header>
+            <h1>Navigating Complexity: May 2022 US SAT Math Analysis</h1>
+            <p class="subtitle">A comprehensive look at difficulty trends, conceptual shifts, and key problem-solving strategies from the May 7, 2022 administration.</p>
+        </header>
+
+        <section class="executive-summary">
+            <div class="summary-text">
+                <h3>Executive Summary</h3>
+                <p>The May 2022 exam highlighted a deeper level of Passport to Advanced Math requirements. We observed a shift toward testing the symmetries of parabolas and their multiple representations (vertex form, factored form, standard form). One notable question asked students to identify the x-coordinate of the vertex of a quadratic function by using only the x-intercepts, reinforcing the concept that the vertex is always midway between the roots.</p>
+                <p>This level of conceptual agility is becoming the standard for higher-difficulty SAT sittings, moving beyond simple "plug and chug" methodologies.</p>
+            </div>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <span class="stat-label">Exam Year</span>
+                    <span class="stat-value">2022</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Difficulty</span>
+                    <span class="stat-value" style="color:var(--accent)">High</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Primary Focus</span>
+                    <span class="stat-value">Non-linear</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Time Intensity</span>
+                    <span class="stat-value" style="color:#e11d48">High</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="analysis-section">
+            <h2><span class="section-num">01.</span> Conceptual Shifts: Focus on Quadratic Symmetries</h2>
+            <p>The May 2022 exam highlighted a deeper level of <strong>Passport to Advanced Math</strong> requirements. We observed a shift toward testing the symmetries of parabolas and their multiple representations (vertex form, factored form, standard form). One notable question asked students to identify the x-coordinate of the vertex of a quadratic function by using only the x-intercepts, reinforcing the concept that the vertex is always midway between the roots.</p>
+            <p>This level of conceptual agility is becoming the standard for higher-difficulty SAT sittings, moving beyond simple "plug and chug" methodologies.</p>
+
+            <h2><span class="section-num">02.</span> Topic Distribution & Geometry Challenges</h2>
+            <p>While algebra remains dominant, the May 2022 sitting was distinguished by its **Geometry and Trigonometry** rigor. Several questions involved multi-step problem solving within circles and right triangles.</p>
+            <ul>
+                <li><strong>Non-linear Functions:</strong> Exponential decay and compound interest models were tested through literal equations, where students had to isolate a specific variable within a complex exponent.</li>
+                <li><strong>Circle Properties:</strong> Standard circle equations were paired with coordinate geometry, requiring students to find the length of a chord using the distance formula and the Pythagorean Theorem.</li>
+                <li><strong>Data Analysis:</strong> Standardized sampling and "margin of error" was tested conceptually—students were asked how changing the sample size would impact the confidence level of the result.</li>
+            </ul>
+
+            <h2><span class="section-num">03.</span> Strategic Recommendations</h2>
+            <p>Students looking to master this exam level should focus on <strong>Advanced Geometry and Non-linear Models</strong>. Specifically, practice completing the square for circle equations and mastering the properties of right triangles (especially 30-60-90 and 45-45-90). For the data section, ensure you understand how sample size and sample bias affect the generalizability of statistical results.</p>
+        </section>
+
+        <div class="pdf-container">
+            <h2><span class="section-num">04.</span> Original Exam Paper (PDF)</h2>
+            <p style="margin-bottom: 30px; color: var(--text-light);">Review the questions analyzed above in the full May 2022 SAT QAS document below.</p>
+            <iframe src="../papers/2022-05-sat-qas.pdf" style="width:100%; height:800px; border:1px solid #e2e8f0; border-radius:16px;"></iframe>
+        </div>
+    </div>
+</body>
+</html>

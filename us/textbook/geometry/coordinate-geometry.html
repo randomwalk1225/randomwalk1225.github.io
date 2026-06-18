@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Geometry: Coordinate Geometry - Chapter 13 | MathHub</title>
+    <meta name="description" content="Geometry Chapter 13: Coordinate Geometry. Learn distance, midpoint, slope, equations of lines and circles, segment partitioning, and coordinate plane transformations.">
+    <meta name="keywords" content="geometry, coordinate geometry, distance formula, midpoint formula, slope, equation of a circle, completing the square, partitioning a segment, transformations, high school geometry chapter 13">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/geometry/coordinate-geometry.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/geometry/coordinate-geometry.html">
+    <meta property="og:title" content="Geometry: Coordinate Geometry - Chapter 13">
+    <meta property="og:description" content="Distance, midpoint, slope, circle equations, segment partitioning, and transformations in the coordinate plane.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "Geometry: Coordinate Geometry - Chapter 13",
+        "description": "Geometry Chapter 13 covering distance and midpoint formulas, equations of lines and circles, partitioning segments, coordinate proofs, and transformations.",
+        "url": "https://mathhub.io/us/textbook/geometry/coordinate-geometry.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "High School",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Coordinate Geometry" },
+            { "@type": "Thing", "name": "Geometry" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <link rel="stylesheet" href="../../../assets/css/textbook-ux.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #4c1d95; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #4c1d95; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #8b5cf6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives { background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 24px 0 32px; border-radius: 0 10px 10px 0; }
+        .learning-objectives h4 { color: #4c1d95; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #3b0764; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box { background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #4c1d95; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+
+        .definition-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+
+        .theorem-box { background: #fdf2f8; border-left: 4px solid #ec4899; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #9d174d; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+        .theorem-box table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .theorem-box th { background: #fce7f3; color: #9d174d; padding: 7px 12px; text-align: left; font-weight: 700; border: 1px solid #fbcfe8; }
+        .theorem-box td { padding: 7px 12px; border: 1px solid #fbcfe8; color: #334155; }
+        .theorem-box tr:nth-child(even) td { background: #fff0f8; }
+
+        .try-it-box { background: #f5f3ff; border: 1.5px dashed #c4b5fd; padding: 16px 20px; margin: -4px 0 24px; border-radius: 0 0 8px 8px; }
+        .try-it-box .try-it-label { display: inline-block; background: #8b5cf6; color: white; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px; }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary { cursor: pointer; color: #4c1d95; font-weight: 600; font-size: 0.9em; user-select: none; }
+        .try-it-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7; }
+
+        .geo-tip { background: #fefce8; border-left: 4px solid #eab308; padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .geo-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .geo-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .geo-tip strong { color: #92400e; }
+
+        .desmos-wrap { margin: 24px auto; background: #faf8ff; border-radius: 12px; padding: 4px; border: 1px solid #e9d5ff; text-align: center; }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label { text-align: center; font-size: 0.82em; color: #64748b; margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em; }
+
+        /* Transformation rules table */
+        .transform-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.9em; }
+        .transform-table th { background: #4c1d95; color: white; padding: 9px 14px; text-align: left; font-weight: 700; }
+        .transform-table td { padding: 9px 14px; border: 1px solid #e2e8f0; color: #334155; vertical-align: top; }
+        .transform-table tr:nth-child(even) td { background: #f8fafc; }
+        .transform-table .rule { color: #4c1d95; font-weight: 600; font-family: monospace; }
+
+        .practice-section { margin: 48px 0 0; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { color: #4c1d95; margin-bottom: 20px; }
+        .practice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        @media (max-width: 600px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; }
+        .practice-card .p-num { display: inline-block; background: #4c1d95; color: white; font-weight: 700; font-size: 0.78em; padding: 2px 9px; border-radius: 4px; margin-bottom: 8px; }
+        .practice-card p { color: #334155; font-size: 0.92em; line-height: 1.7; margin: 0 0 10px; }
+        .practice-card details summary { cursor: pointer; color: #4c1d95; font-weight: 600; font-size: 0.88em; user-select: none; }
+        .practice-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 8px; color: #334155; font-size: 0.9em; line-height: 1.7; border: 1px solid #e2e8f0; }
+
+        .chapter-nav { display: flex; justify-content: space-between; margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid #e2e8f0; flex-wrap: wrap; gap: 12px; }
+        .chapter-nav a { color: #8b5cf6; text-decoration: none; font-weight: 600; font-size: 0.95em; padding: 8px 16px; border: 1.5px solid #8b5cf6; border-radius: 8px; transition: background .15s; }
+        .chapter-nav a:hover { background: #f5f3ff; }
+
+        /* ── Section Summary ── */
+        .section-summary { background: #f8fafc; border: 2px solid #e2e8f0; padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px; }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .summary-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin: 16px 0; }
+        .key-term-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<div style="background:#4c1d95; padding:12px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+    <a href="/" style="color:#ddd6fe; text-decoration:none; font-weight:700; font-size:1.1em;">MathHub</a>
+    <span style="color:#a78bfa;">›</span>
+    <a href="/us" style="color:#c4b5fd; text-decoration:none; font-size:.9em;">US</a>
+    <span style="color:#a78bfa;">›</span>
+    <a href="/us/textbook/geometry" style="color:#c4b5fd; text-decoration:none; font-size:.9em;">Geometry</a>
+    <span style="color:#a78bfa;">›</span>
+    <span style="color:white; font-size:.9em;">Chapter 13</span>
+</div>
+
+<article class="blog-article">
+    <div class="breadcrumb">
+        <a href="/">MathHub</a> › <a href="/us">US</a> › <a href="/us/textbook/geometry">Geometry</a> › Chapter 13
+    </div>
+
+    <h1>Chapter 13: Coordinate Geometry</h1>
+    <div class="blog-meta">High School Geometry · Unit 6: Coordinate Methods · 3 interactive diagrams · 8 practice problems</div>
+
+    <div class="learning-objectives">
+        <h4>Learning Objectives</h4>
+        <ul>
+            <li>Apply the distance and midpoint formulas to find lengths and midpoints in the coordinate plane</li>
+            <li>Use slope to identify parallel and perpendicular lines</li>
+            <li>Write equations of lines in slope-intercept, point-slope, and standard form</li>
+            <li>Write and convert equations of circles; complete the square to find center and radius</li>
+            <li>Apply the section formula to partition a directed segment in a given ratio</li>
+            <li>Use coordinate geometry to prove geometric theorems</li>
+            <li>Perform and describe translations, reflections, rotations, and dilations in the coordinate plane</li>
+        </ul>
+    </div>
+
+    <!-- 13.1 -->
+    <h2>13.1 Distance, Midpoint, and Slope</h2>
+
+    <p>Coordinate geometry connects algebra and geometry by placing geometric figures in a coordinate plane. The three foundational tools are the <strong>distance formula</strong>, the <strong>midpoint formula</strong>, and <strong>slope</strong>.</p>
+
+    <div class="theorem-box">
+        <h4>Theorem: Distance, Midpoint, and Slope Formulas</h4>
+        <ul>
+            <li><strong>Distance:</strong> $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$ (derived from the Pythagorean Theorem)</li>
+            <li><strong>Midpoint:</strong> $M = \left(\dfrac{x_1 + x_2}{2},\ \dfrac{y_1 + y_2}{2}\right)$</li>
+            <li><strong>Slope:</strong> $m = \dfrac{y_2 - y_1}{x_2 - x_1} = \dfrac{\text{rise}}{\text{run}}$</li>
+            <li><strong>Parallel lines:</strong> equal slopes ($m_1 = m_2$)</li>
+            <li><strong>Perpendicular lines:</strong> negative reciprocal slopes ($m_1 \cdot m_2 = -1$)</li>
+        </ul>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 13.1 — Distance, Midpoint, and Slope</h4>
+        <p>Given $A = (2, 3)$ and $B = (8, 11)$, find $AB$, the midpoint $M$, and the slope of $\overline{AB}$.</p>
+        <p><strong>Distance:</strong> $d = \sqrt{(8-2)^2 + (11-3)^2} = \sqrt{36 + 64} = \sqrt{100} = \mathbf{10}$</p>
+        <p><strong>Midpoint:</strong> $M = \left(\dfrac{2+8}{2},\ \dfrac{3+11}{2}\right) = \mathbf{(5, 7)}$</p>
+        <p><strong>Slope:</strong> $m = \dfrac{11-3}{8-2} = \dfrac{8}{6} = \mathbf{\dfrac{4}{3}}$</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 13.2 — Parallel and Perpendicular Lines</h4>
+        <p>A line through $A = (0, 0)$ has slope $3$: equation $y = 3x$.</p>
+        <p>A line <em>perpendicular</em> to it through $A$ has slope $m = -\dfrac{1}{3}$: equation $y = -\dfrac{1}{3}x$.</p>
+        <p>Any line <em>parallel</em> to $y = 3x$ also has slope $3$, but a different $y$-intercept.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>Find the perimeter of the triangle with vertices $P = (0, 0)$, $Q = (6, 0)$, $R = (3, 4)$.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                $PQ = 6$<br>
+                $QR = \sqrt{(6-3)^2 + (0-4)^2} = \sqrt{9 + 16} = 5$<br>
+                $PR = \sqrt{(0-3)^2 + (0-4)^2} = \sqrt{9 + 16} = 5$<br>
+                <strong>Perimeter</strong> $= 6 + 5 + 5 = \mathbf{16}$
+            </div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Right triangle showing the distance formula derivation — the hypotenuse is the distance, horizontal and vertical legs are the coordinate differences.</p>
+        <div id="graph-distance" style="width:100%; max-width:630px; height:400px; margin:0 auto;"></div>
+        <p class="fig-label">Figure 13.1 — Distance Formula from the Pythagorean Theorem</p>
+    </div>
+
+    <!-- 13.2 -->
+    <h2>13.2 Equations of Lines and Circles</h2>
+
+    <p>Every non-vertical line in the plane has a slope. Three standard forms of line equations allow us to write and interpret lines efficiently.</p>
+
+    <div class="definition-box">
+        <h4>Forms of Line Equations</h4>
+        <ul>
+            <li><strong>Slope-intercept:</strong> $y = mx + b$ (slope $m$, $y$-intercept $b$)</li>
+            <li><strong>Point-slope:</strong> $y - y_1 = m(x - x_1)$ (slope $m$, point $(x_1, y_1)$)</li>
+            <li><strong>Standard form:</strong> $Ax + By = C$ (integers, $A \geq 0$)</li>
+        </ul>
+    </div>
+
+    <p>A <strong>circle</strong> with center $(h, k)$ and radius $r$ is the set of all points equidistant from $(h, k)$. Applying the distance formula gives the standard equation.</p>
+
+    <div class="theorem-box">
+        <h4>Theorem: Standard Form of a Circle</h4>
+        <p>$(x - h)^2 + (y - k)^2 = r^2$, where $(h, k)$ is the center and $r$ is the radius.</p>
+        <p>The general form $x^2 + y^2 + Dx + Ey + F = 0$ can be converted by <strong>completing the square</strong> on both $x$ and $y$ terms.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 13.3 — Equation of a Circle</h4>
+        <p>Write the equation of the circle with center $(3, -2)$ and radius $5$.</p>
+        <p>$(x - 3)^2 + (y + 2)^2 = 25$</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 13.4 — Completing the Square</h4>
+        <p>Convert $x^2 + y^2 - 6x + 4y - 3 = 0$ to standard form. Find the center and radius.</p>
+        <p>Group: $(x^2 - 6x) + (y^2 + 4y) = 3$</p>
+        <p>Complete the square: $(x^2 - 6x + 9) + (y^2 + 4y + 4) = 3 + 9 + 4$</p>
+        <p>$(x - 3)^2 + (y + 2)^2 = 16$</p>
+        <p><strong>Center:</strong> $(3, -2)$, $\quad$ <strong>Radius:</strong> $r = 4$</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 13.5 — Line Parallel to a Given Line</h4>
+        <p>Find the equation of the line through $(4, 7)$ parallel to $y = 2x - 3$.</p>
+        <p>Parallel lines have equal slopes: $m = 2$.</p>
+        <p>Point-slope: $y - 7 = 2(x - 4) \Rightarrow y = 2x - 8 + 7 \Rightarrow \mathbf{y = 2x - 1}$</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>Find the equation of the line through $(1, 5)$ perpendicular to $y = 3x + 2$.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                Perpendicular slope: $m = -\dfrac{1}{3}$<br>
+                $y - 5 = -\dfrac{1}{3}(x - 1) \Rightarrow y = -\dfrac{1}{3}x + \dfrac{1}{3} + 5 = -\dfrac{1}{3}x + \dfrac{16}{3}$
+            </div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Circle $(x-3)^2+(y-2)^2=9$ with center marked and radius drawn — axes visible for reference.</p>
+        <div id="graph-circle" style="width:100%; max-width:630px; height:400px; margin:0 auto;"></div>
+        <p class="fig-label">Figure 13.2 — Circle in Standard Form: Center and Radius</p>
+    </div>
+
+    <!-- 13.3 -->
+    <h2>13.3 Partitioning a Segment and Coordinate Proofs</h2>
+
+    <p>The <strong>section formula</strong> (also called the partition formula) finds the point $P$ that divides segment $\overline{AB}$ in a given ratio from $A$.</p>
+
+    <div class="theorem-box">
+        <h4>Theorem: Section Formula (Partitioning)</h4>
+        <p>The point $P$ that divides $\overline{AB}$ with $A = (x_1, y_1)$ and $B = (x_2, y_2)$ in ratio $m:n$ from $A$ is:</p>
+        <p>$$P = \left(\frac{nx_1 + mx_2}{m + n},\ \frac{ny_1 + my_2}{m + n}\right)$$</p>
+        <p>Equivalently: $P = A + \dfrac{m}{m+n}(B - A)$, i.e., move $\dfrac{m}{m+n}$ of the way from $A$ to $B$.</p>
+    </div>
+
+    <p><strong>Coordinate geometry proofs</strong> use the distance and midpoint formulas to verify geometric properties with algebra:</p>
+    <ul>
+        <li>Prove two segments are congruent: show their lengths are equal (distance formula)</li>
+        <li>Prove two lines are parallel: show their slopes are equal</li>
+        <li>Prove a point is a midpoint: show it equals the midpoint formula result</li>
+        <li>Prove diagonals bisect each other: show they share the same midpoint</li>
+    </ul>
+
+    <div class="example-box">
+        <h4>Example 13.6 — Partitioning a Segment</h4>
+        <p>Divide $\overline{AB}$ with $A = (0, 0)$ and $B = (12, 6)$ in ratio $1:3$ from $A$.</p>
+        <p>$P = \left(\dfrac{1 \cdot 12}{1+3},\ \dfrac{1 \cdot 6}{1+3}\right) = \left(\dfrac{12}{4},\ \dfrac{6}{4}\right) = \mathbf{(3,\ 1.5)}$</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 13.7 — Coordinate Proof: Diagonals of a Square Are Congruent</h4>
+        <p><strong>Given:</strong> Square $ABCD$ with $A = (0,0)$, $B = (a, 0)$, $C = (a, a)$, $D = (0, a)$. Prove $AC = BD$.</p>
+        <p>$AC = \sqrt{(a-0)^2 + (a-0)^2} = \sqrt{2a^2} = a\sqrt{2}$</p>
+        <p>$BD = \sqrt{(0-a)^2 + (a-0)^2} = \sqrt{a^2 + a^2} = a\sqrt{2}$</p>
+        <p>$AC = BD = a\sqrt{2}$ $\checkmark$ — the diagonals are congruent. $\square$</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>Divide segment from $P = (2, 4)$ to $Q = (10, 12)$ in ratio $3:1$ from $P$. Find the point.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                Move $\dfrac{3}{4}$ of the way from $P$ to $Q$:<br>
+                $x = 2 + \dfrac{3}{4}(10 - 2) = 2 + 6 = 8$<br>
+                $y = 4 + \dfrac{3}{4}(12 - 4) = 4 + 6 = 10$<br>
+                <strong>Point: $(8, 10)$</strong>
+            </div>
+        </details>
+    </div>
+
+    <!-- 13.4 -->
+    <h2>13.4 Transformations in the Coordinate Plane</h2>
+
+    <p>A <strong>transformation</strong> is a mapping of each point in the plane to another point. <strong>Rigid transformations</strong> (isometries) preserve distances and angle measures. <strong>Dilations</strong> preserve shape but change size.</p>
+
+    <div class="theorem-box">
+        <h4>Transformation Rules Table</h4>
+        <table>
+            <tr><th>Transformation</th><th>Rule: $(x, y) \to$</th><th>Preserves</th></tr>
+            <tr><td>Translation by $(a, b)$</td><td class="rule">$(x+a,\ y+b)$</td><td>Size and shape (rigid)</td></tr>
+            <tr><td>Reflection over $x$-axis</td><td class="rule">$(x,\ -y)$</td><td>Size and shape (rigid)</td></tr>
+            <tr><td>Reflection over $y$-axis</td><td class="rule">$(-x,\ y)$</td><td>Size and shape (rigid)</td></tr>
+            <tr><td>Reflection over $y = x$</td><td class="rule">$(y,\ x)$</td><td>Size and shape (rigid)</td></tr>
+            <tr><td>Reflection over origin</td><td class="rule">$(-x,\ -y)$</td><td>Size and shape (rigid)</td></tr>
+            <tr><td>Rotation 90° CCW</td><td class="rule">$(-y,\ x)$</td><td>Size and shape (rigid)</td></tr>
+            <tr><td>Rotation 180°</td><td class="rule">$(-x,\ -y)$</td><td>Size and shape (rigid)</td></tr>
+            <tr><td>Rotation 270° CCW</td><td class="rule">$(y,\ -x)$</td><td>Size and shape (rigid)</td></tr>
+            <tr><td>Dilation by factor $k$</td><td class="rule">$(kx,\ ky)$</td><td>Shape only (similarity)</td></tr>
+        </table>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 13.8 — Reflection and Rotation</h4>
+        <p>$\triangle PQR$ has $P = (2,3)$, $Q = (5,3)$, $R = (5,7)$.</p>
+        <p><strong>Reflection over $y$-axis:</strong> $P' = (-2,3)$, $Q' = (-5,3)$, $R' = (-5,7)$</p>
+        <p><strong>Rotation 90° CCW from original:</strong> Rule $(-y, x)$:</p>
+        <p>$P'' = (-3, 2)$, $Q'' = (-3, 5)$, $R'' = (-7, 5)$</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 13.9 — Dilation</h4>
+        <p>Dilate $\triangle PQR$ with scale factor $k = 2$, center at origin.</p>
+        <p>Rule: $(x, y) \to (2x, 2y)$</p>
+        <p>$P' = (4, 6)$, $Q' = (10, 6)$, $R' = (10, 14)$</p>
+        <p>The image is similar to the original with all sides doubled.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>Reflect $A = (3, -4)$ over the line $y = x$. What is $A'$?</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                Reflection over $y = x$ swaps coordinates: $(x, y) \to (y, x)$<br>
+                $A' = (-4, 3)$
+            </div>
+        </details>
+    </div>
+
+    <div class="geo-tip">
+        <div class="geo-tip-icon">★</div>
+        <p><strong>AP Tip:</strong> <strong>Rigid transformations</strong> (translation, reflection, rotation) produce <em>congruent</em> figures — same size and shape. <strong>Dilation</strong> produces a <em>similar</em> figure — same shape, different size. Only rigid transformations preserve congruence; dilations (unless $k = 1$) do not.</p>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Original triangle ABC (purple) and its reflection over the y-axis (blue) — the y-axis acts as a line of symmetry.</p>
+        <div id="graph-reflect" style="width:100%; max-width:630px; height:400px; margin:0 auto;"></div>
+        <p class="fig-label">Figure 13.3 — Reflection over the Y-Axis</p>
+    </div>
+
+    <!-- Practice -->
+    <div class="practice-section">
+        <h2>Practice Problems</h2>
+        <div class="practice-grid">
+            <div class="practice-card">
+                <span class="p-num">1</span>
+                <p>Find the distance between $(-3, 2)$ and $(5, -4)$, and find the midpoint.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    <strong>Distance:</strong> $d = \sqrt{(5-(-3))^2 + (-4-2)^2} = \sqrt{64 + 36} = \sqrt{100} = \mathbf{10}$<br>
+                    <strong>Midpoint:</strong> $M = \left(\dfrac{-3+5}{2},\ \dfrac{2+(-4)}{2}\right) = \mathbf{(1, -1)}$
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">2</span>
+                <p>Prove that $A = (0,0)$, $B = (6,0)$, $C = (6,4)$, $D = (0,4)$ is a rectangle. Use slopes and distances.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    <strong>Slopes:</strong> $AB$: $m=0$ (horizontal). $BC$: undefined (vertical). $CD$: $m=0$. $DA$: undefined. Adjacent sides have slopes $0$ and undefined → perpendicular → all right angles.<br>
+                    <strong>Opposite sides equal:</strong> $AB = CD = 6$; $BC = DA = 4$.<br>
+                    $ABCD$ has four right angles and opposite sides equal. $\Rightarrow$ <strong>Rectangle</strong>. $\square$
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">3</span>
+                <p>Find the equation of the circle with center $(-2, 3)$ and passing through $(2, 6)$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    $r = \sqrt{(2-(-2))^2 + (6-3)^2} = \sqrt{16 + 9} = 5$<br>
+                    <strong>Equation:</strong> $(x+2)^2 + (y-3)^2 = 25$
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">4</span>
+                <p>Convert $x^2 + y^2 + 8x - 10y + 5 = 0$ to standard form. Find the center and radius.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    $(x^2 + 8x + 16) + (y^2 - 10y + 25) = -5 + 16 + 25 = 36$<br>
+                    $(x+4)^2 + (y-5)^2 = 36$<br>
+                    <strong>Center:</strong> $(-4, 5)$, $\quad$ <strong>Radius:</strong> $r = 6$
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">5</span>
+                <p>Find the point that divides the segment from $A = (-4, 2)$ to $B = (8, 14)$ in ratio $2:1$ from $A$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    Move $\dfrac{2}{3}$ of the way from $A$ to $B$:<br>
+                    $x = -4 + \dfrac{2}{3}(8-(-4)) = -4 + \dfrac{2}{3}(12) = -4 + 8 = 4$<br>
+                    $y = 2 + \dfrac{2}{3}(14-2) = 2 + 8 = 10$<br>
+                    <strong>Point: $(4, 10)$</strong>
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">6</span>
+                <p>Write the transformation rule for reflecting over the $x$-axis. Apply it to $A = (3, 4)$. What is $A'$?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    <strong>Rule:</strong> $(x, y) \to (x, -y)$<br>
+                    <strong>$A' = (3, -4)$</strong><br>
+                    The $x$-coordinate stays the same; the $y$-coordinate changes sign.
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">7</span>
+                <p>Dilate $\triangle JKL$ with $J = (1,2)$, $K = (3,0)$, $L = (2,4)$ by factor $k = 3$ from the origin. Find $J'$, $K'$, $L'$ and the ratio of perimeters.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    $J' = (3, 6)$, $K' = (9, 0)$, $L' = (6, 12)$<br>
+                    For a dilation with scale factor $k$, all lengths scale by $k$.<br>
+                    <strong>Ratio of perimeters</strong> $\triangle J'K'L' : \triangle JKL = 3 : 1$
+                </div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">8</span>
+                <p><strong>AP Problem:</strong> Use coordinate geometry to prove that the diagonals of a parallelogram bisect each other. Place the parallelogram at $A = (0,0)$, $B = (a,0)$, $C = (a+b,c)$, $D = (b,c)$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    <strong>Diagonal $AC$:</strong> from $(0,0)$ to $(a+b, c)$<br>
+                    Midpoint $= \left(\dfrac{a+b}{2},\ \dfrac{c}{2}\right)$<br><br>
+                    <strong>Diagonal $BD$:</strong> from $(a, 0)$ to $(b, c)$<br>
+                    Midpoint $= \left(\dfrac{a+b}{2},\ \dfrac{c}{2}\right)$<br><br>
+                    Both diagonals share the same midpoint $\Rightarrow$ the diagonals bisect each other. $\square$
+                </div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+            <h4>Key Formulas</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Distance Formula</strong>
+                    <p>$d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$ — derived from the Pythagorean theorem.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Midpoint Formula</strong>
+                    <p>$M = \left(\dfrac{x_1+x_2}{2},\, \dfrac{y_1+y_2}{2}\right)$ — the average of coordinates.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Slope</strong>
+                    <p>$m = \dfrac{y_2-y_1}{x_2-x_1} = \dfrac{\text{rise}}{\text{run}}$. Parallel lines: equal slopes. Perpendicular: slopes are negative reciprocals.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Equations of Lines</strong>
+                    <p>Slope-intercept: $y = mx + b$. Point-slope: $y - y_1 = m(x - x_1)$. Standard: $Ax + By = C$.</p>
+                </div>
+            </div>
+            <h4>Coordinate Proof Strategy</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Place figure</strong> conveniently — put one vertex at origin, align sides with axes</li>
+                <li><strong>Use general coordinates</strong> — label vertices with variables like $(a, 0)$, $(0, b)$</li>
+                <li><strong>Apply formulas</strong> — distance, midpoint, slope as needed</li>
+                <li><strong>State conclusion</strong> — connect algebraic result to geometric property</li>
+            </ol>
+        </div>
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item"><strong>Distance Formula</strong><span>$\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$ — finds the length of a segment given its endpoints.</span></div>
+                <div class="key-term-item"><strong>Midpoint</strong><span>$\left(\frac{x_1+x_2}{2}, \frac{y_1+y_2}{2}\right)$ — the point exactly halfway between two given points.</span></div>
+                <div class="key-term-item"><strong>Slope</strong><span>$m = (y_2-y_1)/(x_2-x_1)$ — the rate of change or steepness of a line.</span></div>
+                <div class="key-term-item"><strong>Parallel Lines</strong><span>Lines with equal slopes ($m_1 = m_2$) that never intersect.</span></div>
+                <div class="key-term-item"><strong>Perpendicular Lines</strong><span>Lines whose slopes are negative reciprocals ($m_1 \cdot m_2 = -1$). Meet at right angles.</span></div>
+                <div class="key-term-item"><strong>Coordinate Proof</strong><span>A proof that uses coordinates and algebraic formulas to verify geometric properties.</span></div>
+            </div>
+        </div>
+
+    <div class="chapter-nav">
+        <a href="/us/textbook/geometry/surface-area-volume.html">← Chapter 12: Surface Area and Volume</a>
+        <a href="/us/">Geometry Exam Guide →</a>
+    </div>
+</article>
+
+<script>
+(function() {
+    // Figure 13.1 — Distance formula derivation triangle
+    var elt1 = document.getElementById('graph-distance');
+    var calc1 = Desmos.GraphingCalculator(elt1, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: false, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc1.setMathBounds({ left: 0, right: 9, bottom: 0, top: 7 });
+
+    // Triangle PQR: P=(1,1), Q=(7,1), R=(7,5)
+    // Hypotenuse: P to R
+    calc1.setExpression({ id: 'hyp', type: 'expression',
+        latex: '\\operatorname{polygon}((1,1),(7,5))',
+        color: '#8b5cf6', lineWidth: 3.5 });
+
+    // Dashed horizontal leg: P(1,1) to Q'(7,1)
+    calc1.setExpression({ id: 'horiz', type: 'expression',
+        latex: '\\operatorname{polygon}((1,1),(7,1))',
+        color: '#94a3b8', lineWidth: 2.5, lineStyle: Desmos.Styles.DASHED });
+
+    // Dashed vertical leg: Q'(7,1) to R(7,5)
+    calc1.setExpression({ id: 'vert', type: 'expression',
+        latex: '\\operatorname{polygon}((7,1),(7,5))',
+        color: '#94a3b8', lineWidth: 2.5, lineStyle: Desmos.Styles.DASHED });
+
+    // Right angle mark at (7,1)
+    calc1.setExpression({ id: 'ra', type: 'expression',
+        latex: '\\operatorname{polygon}((7,1),(6.7,1),(6.7,1.3),(7,1.3))',
+        color: '#3b82f6', lineWidth: 2 });
+
+    // Points
+    calc1.setExpression({ id: 'ptP', type: 'expression', latex: '(1,1)', color: '#4c1d95', pointSize: 14 });
+    calc1.setExpression({ id: 'ptR', type: 'expression', latex: '(7,5)', color: '#4c1d95', pointSize: 14 });
+    calc1.setExpression({ id: 'ptQ', type: 'expression', latex: '(7,1)', color: '#94a3b8', pointSize: 10 });
+})();
+
+(function() {
+    // Figure 13.2 — Circle (x-3)^2+(y-2)^2=9 — axes visible for this figure
+    var elt2 = document.getElementById('graph-circle');
+    var calc2 = Desmos.GraphingCalculator(elt2, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: false, border: false, showGrid: true, showXAxis: true, showYAxis: true
+    });
+    calc2.setMathBounds({ left: -1, right: 8, bottom: -2, top: 6 });
+
+    // Circle equation
+    calc2.setExpression({ id: 'circle', type: 'expression',
+        latex: '(x-3)^2+(y-2)^2=9',
+        color: '#8b5cf6', lineWidth: 3 });
+
+    // Center point
+    calc2.setExpression({ id: 'center', type: 'expression',
+        latex: '(3,2)', color: '#4c1d95', pointSize: 14 });
+
+    // Radius to (6,2) — dashed
+    calc2.setExpression({ id: 'radius', type: 'expression',
+        latex: '\\operatorname{polygon}((3,2),(6,2))',
+        color: '#94a3b8', lineWidth: 2.5, lineStyle: Desmos.Styles.DASHED });
+
+    // Right angle mark at (6,2) — small indicator
+    calc2.setExpression({ id: 'rpt', type: 'expression', latex: '(6,2)', color: '#3b82f6', pointSize: 10 });
+})();
+
+(function() {
+    // Figure 13.3 — Original triangle and reflection over y-axis
+    var elt3 = document.getElementById('graph-reflect');
+    var calc3 = Desmos.GraphingCalculator(elt3, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: false, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc3.setMathBounds({ left: -6, right: 6, bottom: 0, top: 7 });
+
+    // Original triangle: A=(1,2), B=(4,2), C=(1,5) — purple
+    calc3.setExpression({ id: 'orig', type: 'expression',
+        latex: '\\operatorname{polygon}((1,2),(4,2),(1,5))',
+        color: '#8b5cf6', lineWidth: 3, fillOpacity: 0.1 });
+
+    // Reflected triangle: A'=(-1,2), B'=(-4,2), C'=(-1,5) — blue
+    calc3.setExpression({ id: 'refl', type: 'expression',
+        latex: '\\operatorname{polygon}((-1,2),(-4,2),(-1,5))',
+        color: '#3b82f6', lineWidth: 3, fillOpacity: 0.1 });
+
+    // y-axis line (dashed)
+    calc3.setExpression({ id: 'yaxis', type: 'expression',
+        latex: 'x=0\\{0\\le y\\le7\\}',
+        color: '#94a3b8', lineWidth: 2.5, lineStyle: Desmos.Styles.DASHED });
+
+    // Vertices of original
+    calc3.setExpression({ id: 'vA', type: 'expression', latex: '(1,2)', color: '#4c1d95', pointSize: 12 });
+    calc3.setExpression({ id: 'vB', type: 'expression', latex: '(4,2)', color: '#4c1d95', pointSize: 12 });
+    calc3.setExpression({ id: 'vC', type: 'expression', latex: '(1,5)', color: '#4c1d95', pointSize: 12 });
+
+    // Vertices of reflection
+    calc3.setExpression({ id: 'vA2', type: 'expression', latex: '(-1,2)', color: '#1d4ed8', pointSize: 12 });
+    calc3.setExpression({ id: 'vB2', type: 'expression', latex: '(-4,2)', color: '#1d4ed8', pointSize: 12 });
+    calc3.setExpression({ id: 'vC2', type: 'expression', latex: '(-1,5)', color: '#1d4ed8', pointSize: 12 });
+})();
+</script>
+
+    <script src="../../../assets/js/textbook-ux.js"></script>
+</body>
+</html>

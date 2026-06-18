@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>AP Calculus: Differential Equations - Chapter 7 | MathHub</title>
@@ -26,7 +27,7 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Article",
+        "@type": "LearningResource",
         "headline": "AP Calculus: Differential Equations - Chapter 7",
         "description": "AP Calculus differential equations: slope fields, Euler's method, separation of variables, and exponential growth with worked examples.",
         "author": {
@@ -37,8 +38,8 @@
             "@type": "Organization",
             "name": "MathHub Global"
         },
-        "datePublished": "2026-02-23",
-        "dateModified": "2026-02-23",
+        "datePublished": "2026-01-16",
+        "dateModified": "2026-01-16",
         "mainEntityOfPage": "https://mathhub.io/blog/ap-calculus-differential-equations-textbook.html",
         "educationalLevel": "Advanced Placement",
         "about": "Differential Equations in AP Calculus AB/BC"
@@ -67,7 +68,7 @@
             }
         };
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <link rel="stylesheet" href="../assets/css/common.css">
     <style>
@@ -235,6 +236,58 @@
         }
         .chapter-nav a:hover { text-decoration: underline; }
 
+        /* Special Topic */
+        .special-tag {
+            display: inline-block;
+            background: #7c2d12;
+            color: #fef3c7;
+            font-size: 0.65em;
+            padding: 3px 10px;
+            border-radius: 4px;
+            vertical-align: middle;
+            margin-left: 8px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+        .special-notice {
+            background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+            border: 2px solid #d97706;
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+        .special-notice strong { color: #92400e; display: block; font-size: 1.05em; margin-bottom: 8px; }
+        .special-notice p { color: #451a03; margin: 0; }
+        .classify-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.92em;
+        }
+        .classify-table th, .classify-table td {
+            padding: 10px 14px;
+            border: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+        .classify-table th {
+            background: #f0f9ff;
+            color: #1e3a5f;
+            font-weight: 600;
+        }
+        .classify-table tr:nth-child(even) td { background: #f8fafc; }
+        .badge-linear   { display:inline-block; background:#dcfce7; color:#15803d; border-radius:4px; padding:1px 8px; font-size:0.82em; font-weight:700; }
+        .badge-nonlinear{ display:inline-block; background:#fee2e2; color:#b91c1c; border-radius:4px; padding:1px 8px; font-size:0.82em; font-weight:700; }
+        .badge-homo     { display:inline-block; background:#e0f2fe; color:#0369a1; border-radius:4px; padding:1px 8px; font-size:0.82em; font-weight:700; }
+        .badge-nonhomo  { display:inline-block; background:#fdf4ff; color:#7e22ce; border-radius:4px; padding:1px 8px; font-size:0.82em; font-weight:700; }
+        .warning-box {
+            background: #fff1f2;
+            border-left: 4px solid #f43f5e;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .warning-box strong { color: #be123c; }
+
         /* Desmos Interactive Graphs */
         .desmos-container {
             width: 100%;
@@ -262,7 +315,7 @@
             <a href="/us/" class="active">US</a>
             <a href="/uk/">UK</a>
             <a href="/ca/">CA</a>
-            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" rel="noopener nofollow" class="nav-cta">Question Bank</a>
         </div>
     </nav>
 
@@ -651,9 +704,233 @@
         <!-- ============================================ -->
         <!-- 7.7 Practice Problems                        -->
         <!-- ============================================ -->
-        <h2 id="section-7-7">7.7 Practice Problems</h2>
+        <!-- ============================================================ -->
+        <!-- 7.7 Special Topic: Classifying DEs                          -->
+        <!-- ============================================================ -->
+        <h2 id="section-7-7">7.7 Classifying Differential Equations <span class="special-tag">★ Special Topic</span></h2>
 
-        <p>Test your understanding with these 18 problems covering all topics from this chapter, including direction fields, Euler's method, separation of variables, and growth models. Click "Show Solution" to check your work.</p>
+        <div class="special-notice">
+            <strong>★ Special Topic — Beyond Standard AP Curriculum</strong>
+            <p>The classification of differential equations as <em>linear vs. nonlinear</em> and <em>homogeneous vs. nonhomogeneous</em> is not explicitly tested on the AP Calculus AB or BC exam. However, this framework is the foundation of every university-level ODE course. Understanding it now will give you a major head start and explain <em>why</em> certain solution methods (like separation of variables) apply to some equations but not others.</p>
+        </div>
+
+        <!-- --------------------------------------------------------- -->
+        <h3>Part 1 — Linear vs. Nonlinear Differential Equations</h3>
+
+        <div class="definition-box">
+            <strong>Definition: Linear First-Order ODE.</strong> A first-order differential equation is called <em>linear</em> if it can be written in the form
+            $$\frac{dy}{dx} + P(x)\,y = Q(x)$$
+            where $P(x)$ and $Q(x)$ are functions of $x$ <em>only</em> (not of $y$). If the equation cannot be put in this form, it is called <em>nonlinear</em>.
+        </div>
+
+        <p>The word "linear" here refers to how $y$ appears in the equation—$y$ and its derivative must occur to the <strong>first power</strong> and must not be multiplied together. Coefficients like $P(x)$ and $Q(x)$ may be arbitrarily complicated functions of $x$, and that does not affect linearity.</p>
+
+        <h3>The Three-Question Test for Linearity</h3>
+        <p>Before writing the equation in standard form, ask three questions about how $y$ appears:</p>
+        <ol>
+            <li><strong>Is $y$ raised to a power other than 1?</strong> (e.g., $y^2$, $\sqrt{y}$, $y^{-1}$) → <strong>Nonlinear</strong></li>
+            <li><strong>Is $y$ inside a function?</strong> (e.g., $\sin y$, $e^y$, $\ln y$) → <strong>Nonlinear</strong></li>
+            <li><strong>Is $y$ multiplied by its own derivative?</strong> (e.g., $y\,\frac{dy}{dx}$) → <strong>Nonlinear</strong></li>
+        </ol>
+        <p>If all three answers are "No," the equation is <strong>linear</strong> (provided you can isolate $\frac{dy}{dx}$ and match the standard form).</p>
+
+        <div class="tip-box">
+            <strong>Key Distinction:</strong> The <em>coefficient</em> of $y$ can be any function of $x$ — that never causes nonlinearity. Only the way $y$ itself appears matters. So $\sin(x)\cdot y$ is fine (linear), but $\sin(y)$ is not (nonlinear).
+        </div>
+
+        <!-- Examples 7.7.1 – 7.7.6 : Linear vs Nonlinear -->
+
+        <div class="example-box">
+            <strong>Example 7.7.1.</strong> Classify each equation as linear or nonlinear.
+            <p>(a) $\dfrac{dy}{dx} + 4xy = e^x$ &emsp; (b) $\dfrac{dy}{dx} = y^2 - x$ &emsp; (c) $\dfrac{dy}{dx} + y\cos x = 0$ &emsp; (d) $y\,\dfrac{dy}{dx} = x^2$</p>
+            <p><strong>Solution.</strong></p>
+            <p><strong>(a)</strong> The equation is already in standard form with $P(x) = 4x$ and $Q(x) = e^x$. $y$ appears only to the first power. <span class="badge-linear">LINEAR</span></p>
+            <p><strong>(b)</strong> The right side contains $y^2$ — $y$ is squared. This violates the first test. <span class="badge-nonlinear">NONLINEAR</span></p>
+            <p><strong>(c)</strong> Rewrite: $\dfrac{dy}{dx} + (\cos x)\,y = 0$. This has $P(x) = \cos x$ and $Q(x) = 0$. The $\cos x$ is a coefficient of $y$, not an argument; $y$ appears to the first power. <span class="badge-linear">LINEAR</span></p>
+            <p><strong>(d)</strong> The left side has $y \cdot \dfrac{dy}{dx}$ — a product of $y$ with its own derivative. This violates the third test. <span class="badge-nonlinear">NONLINEAR</span></p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 7.7.2.</strong> Is $\dfrac{dy}{dx} = e^x \cdot y$ linear?
+            <p><strong>Solution.</strong> Rewrite: $\dfrac{dy}{dx} - e^x y = 0$. Now $P(x) = -e^x$ and $Q(x) = 0$. The exponential $e^x$ is a coefficient of $y$, and $y$ appears to the first power. <span class="badge-linear">LINEAR</span></p>
+            <p><em>Compare this carefully with $\dfrac{dy}{dx} = e^y$</em>, where $y$ is in the exponent. That equation is <span class="badge-nonlinear">NONLINEAR</span> because $y$ appears inside an exponential function.</p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 7.7.3.</strong> Classify $\left(x^2 + 1\right)\dfrac{dy}{dx} - 3xy = x$.
+            <p><strong>Solution.</strong> Divide every term by $(x^2 + 1)$:
+            $$\frac{dy}{dx} - \frac{3x}{x^2+1}\,y = \frac{x}{x^2+1}.$$
+            This is standard form with $P(x) = -\dfrac{3x}{x^2+1}$ and $Q(x) = \dfrac{x}{x^2+1}$. Although the coefficients are complicated, $y$ appears only to the first power. <span class="badge-linear">LINEAR</span></p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 7.7.4.</strong> Classify $\dfrac{dy}{dx} = xy^2 - y$.
+            <p><strong>Solution.</strong> Try to rearrange into standard form:
+            $$\frac{dy}{dx} + y = xy^2.$$
+            The right side is $xy^2$, which contains $y^2$. There is no algebraic manipulation that removes $y^2$. <span class="badge-nonlinear">NONLINEAR</span></p>
+            <p><em>This equation is a <strong>Bernoulli equation</strong> — a special nonlinear type solvable by a substitution $v = y^{1-n}$. You will encounter this in a university ODE course.</em></p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 7.7.5.</strong> Classify $\dfrac{dy}{dx} = \sin(x)\cdot y - x^2$.
+            <p><strong>Solution.</strong> Rewrite: $\dfrac{dy}{dx} - \sin(x)\,y = -x^2$. Standard form with $P(x) = -\sin x$ and $Q(x) = -x^2$. $y$ appears once, to the first power, as part of the coefficient term $-\sin(x)\cdot y$. <span class="badge-linear">LINEAR</span></p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 7.7.6 (Tricky).</strong> Is $\sqrt{x}\,\dfrac{dy}{dx} + \dfrac{1}{\sqrt{x}}\,y = x$ linear?
+            <p><strong>Solution.</strong> Divide by $\sqrt{x}$:
+            $$\frac{dy}{dx} + \frac{1}{x}\,y = \sqrt{x}.$$
+            Standard form with $P(x) = \dfrac{1}{x}$ (defined for $x > 0$) and $Q(x) = \sqrt{x}$. The complicated-looking $\sqrt{x}$ factors are all functions of $x$ only. <span class="badge-linear">LINEAR</span></p>
+        </div>
+
+        <!-- --------------------------------------------------------- -->
+        <h3>Part 2 — Homogeneous vs. Nonhomogeneous Linear DEs</h3>
+
+        <p>Once we know an equation is linear and write it in standard form $\dfrac{dy}{dx} + P(x)\,y = Q(x)$, we make a second classification based on the right-hand side $Q(x)$.</p>
+
+        <div class="definition-box">
+            <strong>Definition.</strong> A linear ODE $\dfrac{dy}{dx} + P(x)\,y = Q(x)$ is called
+            <ul style="margin-top:10px;">
+                <li><em>homogeneous</em> (동차) if $Q(x) = 0$ for all $x$, i.e., $\dfrac{dy}{dx} + P(x)\,y = 0$.</li>
+                <li><em>nonhomogeneous</em> (비동차) if $Q(x) \not\equiv 0$, meaning $Q(x)$ is not identically zero.</li>
+            </ul>
+        </div>
+
+        <p>Intuitively, a homogeneous equation has "no forcing term" — the system evolves purely under its own internal law. A nonhomogeneous equation has an external "input" or "source" on the right side.</p>
+
+        <div class="example-box">
+            <strong>Example 7.7.7.</strong> Classify each linear equation as homogeneous or nonhomogeneous.
+            <p>(a) $\dfrac{dy}{dx} + 3y = 0$ &emsp; (b) $\dfrac{dy}{dx} - 2y = e^x$ &emsp; (c) $\dfrac{dy}{dx} + \dfrac{y}{x} = \ln x$ &emsp; (d) $\dfrac{dy}{dx} - ky = 0$</p>
+            <p><strong>Solution.</strong></p>
+            <p><strong>(a)</strong> $Q(x) = 0$. <span class="badge-homo">HOMOGENEOUS</span>. General solution: $y = Ce^{-3x}$.</p>
+            <p><strong>(b)</strong> $Q(x) = e^x \neq 0$. <span class="badge-nonhomo">NONHOMOGENEOUS</span>. Requires an integrating factor or undetermined coefficients to solve.</p>
+            <p><strong>(c)</strong> $Q(x) = \ln x \neq 0$ (for $x > 0$). <span class="badge-nonhomo">NONHOMOGENEOUS</span>.</p>
+            <p><strong>(d)</strong> $Q(x) = 0$. <span class="badge-homo">HOMOGENEOUS</span>. This is exactly the exponential growth/decay equation — its solution $y = Ce^{kx}$ is already familiar from Section 7.5.</p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 7.7.8.</strong> Determine whether $x\,\dfrac{dy}{dx} = 5x - 2y$ is homogeneous or nonhomogeneous.
+            <p><strong>Solution.</strong> First check linearity. Rewrite:</p>
+            $$x\,\frac{dy}{dx} + 2y = 5x.$$
+            <p>Divide by $x$ (assuming $x \neq 0$):</p>
+            $$\frac{dy}{dx} + \frac{2}{x}\,y = 5.$$
+            <p>$P(x) = \dfrac{2}{x}$, $Q(x) = 5 \neq 0$. The equation is linear and <span class="badge-nonhomo">NONHOMOGENEOUS</span>.</p>
+        </div>
+
+        <!-- --------------------------------------------------------- -->
+        <div class="warning-box">
+            <strong>⚠ Warning: The Word "Homogeneous" Has Two Different Meanings!</strong>
+            <p style="margin:10px 0 6px;">This is one of the most common sources of confusion in differential equations:</p>
+            <p><strong>Meaning 1 (for linear DEs):</strong> $Q(x) = 0$. Example: $\dfrac{dy}{dx} + 3y = 0$ is homogeneous.</p>
+            <p style="margin-top:8px;"><strong>Meaning 2 (for nonlinear DEs — a completely separate concept):</strong> A nonlinear equation $\dfrac{dy}{dx} = f(x,y)$ where $f$ depends only on the ratio $y/x$ is also called "homogeneous" (degree-based sense). For example, $\dfrac{dy}{dx} = \dfrac{x+y}{x} = 1 + \dfrac{y}{x}$ is "homogeneous" in this second sense — solvable by substituting $v = y/x$.</p>
+            <p style="margin-top:8px;">These two uses of "homogeneous" are completely unrelated. Context tells you which definition applies: if the equation is linear, homogeneous means $Q(x) = 0$. If the equation is nonlinear, homogeneous means it depends only on $y/x$.</p>
+        </div>
+
+        <!-- --------------------------------------------------------- -->
+        <h3>Part 3 — Combined Classification and the Full Picture</h3>
+
+        <p>Every first-order ODE can be placed into this two-axis classification:</p>
+
+        <table class="classify-table">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Standard Form</th>
+                    <th>Key Signature</th>
+                    <th>AP Solution Method</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="badge-linear">Linear</span> &amp; <span class="badge-homo">Homogeneous</span></td>
+                    <td>$\dfrac{dy}{dx} + P(x)\,y = 0$</td>
+                    <td>Right side is zero; separable</td>
+                    <td>Separation of variables → $y = Ce^{-\int P\,dx}$</td>
+                </tr>
+                <tr>
+                    <td><span class="badge-linear">Linear</span> &amp; <span class="badge-nonhomo">Nonhomogeneous</span></td>
+                    <td>$\dfrac{dy}{dx} + P(x)\,y = Q(x)$</td>
+                    <td>Right side $Q(x) \neq 0$</td>
+                    <td>Integrating factor $\mu = e^{\int P\,dx}$ (beyond AP)</td>
+                </tr>
+                <tr>
+                    <td><span class="badge-nonlinear">Nonlinear</span> &amp; Separable</td>
+                    <td>$\dfrac{dy}{dx} = g(x)\,h(y)$</td>
+                    <td>$x$-part times $y$-part</td>
+                    <td>Separation of variables (AP Section 7.4)</td>
+                </tr>
+                <tr>
+                    <td><span class="badge-nonlinear">Nonlinear</span> &amp; Non-separable</td>
+                    <td>e.g., $\dfrac{dy}{dx} = x + y^2$</td>
+                    <td>Cannot separate; nonlinear terms</td>
+                    <td>Euler's method (numerical, AP Section 7.3); no closed form</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box">
+            <strong>Example 7.7.9 (Full Classification).</strong> Classify each equation completely (linear/nonlinear, and if linear: homogeneous/nonhomogeneous).
+            <p>(a) $\dfrac{dy}{dx} = ky$ &emsp; (b) $\dfrac{dy}{dx} = ky + b$ &emsp; (c) $\dfrac{dy}{dx} = \dfrac{L - y}{L}\cdot y$ &emsp; (d) $\dfrac{dy}{dx} + \dfrac{y}{x} = x\sin x$</p>
+            <p><strong>Solution.</strong></p>
+            <p><strong>(a)</strong> Rewrite: $\dfrac{dy}{dx} - ky = 0$. $y$ appears to the first power, right side zero. <span class="badge-linear">Linear</span>, <span class="badge-homo">Homogeneous</span>. This is the exponential growth model from Section 7.5. Solution: $y = Ce^{kx}$.</p>
+            <p><strong>(b)</strong> Rewrite: $\dfrac{dy}{dx} - ky = b$ (where $b$ is a nonzero constant). $y$ is linear; right side $Q = b \neq 0$. <span class="badge-linear">Linear</span>, <span class="badge-nonhomo">Nonhomogeneous</span>. This models growth with a constant input rate $b$. Separation still works here: $\dfrac{dy}{ky+b} = dx$, giving $y = Ce^{kx} - \dfrac{b}{k}$.</p>
+            <p><strong>(c)</strong> Expand: $\dfrac{dy}{dx} = \dfrac{Ly - y^2}{L} = y - \dfrac{y^2}{L}$. The $y^2$ term makes this <span class="badge-nonlinear">Nonlinear</span>. (This is the logistic growth equation from Section 7.6, which is separable despite being nonlinear.)</p>
+            <p><strong>(d)</strong> Already in standard form with $P(x) = \dfrac{1}{x}$ and $Q(x) = x\sin x$. No $y^n$ or $f(y)$ terms. <span class="badge-linear">Linear</span>, <span class="badge-nonhomo">Nonhomogeneous</span>.</p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 7.7.10 (Choosing a Method).</strong> For each equation below, identify what solution method applies and why.
+            <p>(a) $\dfrac{dy}{dx} = \dfrac{x}{y}$ &emsp; (b) $\dfrac{dy}{dx} + 2y = 4x$ &emsp; (c) $\dfrac{dy}{dx} = x + y^2$ &emsp; (d) $\dfrac{dy}{dx} + 3y = 0$</p>
+            <p><strong>Solution.</strong></p>
+            <p><strong>(a)</strong> $y\,dy = x\,dx$: the equation is separable (nonlinear but separable). Integrate both sides: $\dfrac{y^2}{2} = \dfrac{x^2}{2} + C$, so $y^2 - x^2 = K$. Method: <strong>Separation of Variables</strong>.</p>
+            <p><strong>(b)</strong> Linear nonhomogeneous. Not directly separable because of the $4x$ term. At AP level, Euler's method estimates solutions numerically. In university, an integrating factor $\mu = e^{2x}$ yields the exact solution $y = 2x - 1 + Ce^{-2x}$. Method: <strong>Integrating Factor</strong> (university) or <strong>Euler's Method</strong> (AP).</p>
+            <p><strong>(c)</strong> Nonlinear and non-separable ($x$ and $y^2$ cannot be factored apart). No elementary closed-form solution exists. Method: <strong>Euler's Method</strong> (numerical approximation) or power series (university).</p>
+            <p><strong>(d)</strong> Linear homogeneous. Also separable: $\dfrac{dy}{y} = -3\,dx \Rightarrow \ln|y| = -3x + C_1 \Rightarrow y = Ce^{-3x}$. Method: <strong>Separation of Variables</strong> (or direct formula).</p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 7.7.11 (Spotting the Nonlinearity).</strong> A student claims that $\dfrac{dy}{dx} = \dfrac{x-y}{x+y}$ is linear because "it's a ratio of linear expressions." Is the student correct?
+            <p><strong>Solution.</strong> No. To test linearity, we try to rearrange into standard form. Multiply both sides by $(x+y)$:</p>
+            $$(x+y)\,\frac{dy}{dx} = x - y.$$
+            <p>The left side contains $y\cdot\dfrac{dy}{dx}$, which is a product of $y$ with its derivative — a violation of the third linearity test. The equation is <span class="badge-nonlinear">NONLINEAR</span>.</p>
+            <p><em>Note: This equation is actually a "degree-0 homogeneous nonlinear DE" (in the second sense of homogeneous). Substituting $v = y/x$ separates it into a solvable form — a technique studied in university ODE courses.</em></p>
+        </div>
+
+        <div class="example-box">
+            <strong>Example 7.7.12 (Second-Order Preview).</strong> The same classification extends to second-order equations. Is $y'' + 3y' - 4y = \sin x$ linear or nonlinear? Homogeneous or nonhomogeneous?
+            <p><strong>Solution.</strong> The general form of a linear second-order ODE is $a(x)y'' + b(x)y' + c(x)y = f(x)$.  Here $a = 1$, $b = 3$, $c = -4$, and $f(x) = \sin x$. The dependent variable $y$ and its derivatives $y', y''$ appear only to the first power, with no products like $yy'$ or functions like $\sin(y)$.  <span class="badge-linear">LINEAR</span>.</p>
+            <p>Since $f(x) = \sin x \neq 0$, this is <span class="badge-nonhomo">NONHOMOGENEOUS</span>. This is a key equation type in university-level ODE courses, solved by finding the complementary solution (of $y'' + 3y' - 4y = 0$) plus a particular solution of the full equation.</p>
+        </div>
+
+        <div class="tip-box">
+            <strong>Why This Matters for AP:</strong> On the AP exam, you mostly separate variables or apply formulas directly. But understanding that the exponential growth model $\frac{dy}{dx} = ky$ is linear and homogeneous — and that the logistic model $\frac{dy}{dx} = ky(1-y/L)$ is nonlinear — explains why you <em>can</em> write down the solution to the first from a formula, but must derive the second through careful separation. Classification gives you a roadmap before you start solving.
+        </div>
+
+        <!-- Summary table -->
+        <h3>Quick Reference: 12 Equations Classified</h3>
+        <table class="classify-table">
+            <thead>
+                <tr><th>#</th><th>Equation</th><th>Linear?</th><th>If Linear: Homogeneous?</th><th>Reason / Method</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>$y' + 3y = 0$</td><td><span class="badge-linear">Linear</span></td><td><span class="badge-homo">Homo</span></td><td>$Q=0$; solution $Ce^{-3x}$</td></tr>
+                <tr><td>2</td><td>$y' + 3y = 6$</td><td><span class="badge-linear">Linear</span></td><td><span class="badge-nonhomo">Nonhomo</span></td><td>$Q=6\ne0$; particular solution $y_p=2$</td></tr>
+                <tr><td>3</td><td>$y' = y^2$</td><td><span class="badge-nonlinear">Nonlinear</span></td><td>N/A</td><td>$y^2$ term; separable: $y=-1/(x+C)$</td></tr>
+                <tr><td>4</td><td>$y' = e^y$</td><td><span class="badge-nonlinear">Nonlinear</span></td><td>N/A</td><td>$y$ in exponent; separable: $e^{-y}dy=dx$</td></tr>
+                <tr><td>5</td><td>$y' = e^x y$</td><td><span class="badge-linear">Linear</span></td><td><span class="badge-homo">Homo</span></td><td>$e^x$ is coefficient of $y$; $Q=0$</td></tr>
+                <tr><td>6</td><td>$y' - xy = x$</td><td><span class="badge-linear">Linear</span></td><td><span class="badge-nonhomo">Nonhomo</span></td><td>$Q=x\ne0$; integrating factor method</td></tr>
+                <tr><td>7</td><td>$y y' = x$</td><td><span class="badge-nonlinear">Nonlinear</span></td><td>N/A</td><td>Product $y\cdot y'$; separable: $y^2=x^2+C$</td></tr>
+                <tr><td>8</td><td>$y' = \sin(y)$</td><td><span class="badge-nonlinear">Nonlinear</span></td><td>N/A</td><td>$y$ inside $\sin$; separable but not elementary</td></tr>
+                <tr><td>9</td><td>$y' + (\sin x)y = 0$</td><td><span class="badge-linear">Linear</span></td><td><span class="badge-homo">Homo</span></td><td>$\sin x$ is coefficient; $Q=0$</td></tr>
+                <tr><td>10</td><td>$y' + (\sin x)y = \cos x$</td><td><span class="badge-linear">Linear</span></td><td><span class="badge-nonhomo">Nonhomo</span></td><td>$Q=\cos x\ne0$</td></tr>
+                <tr><td>11</td><td>$y' = ky(L-y)$</td><td><span class="badge-nonlinear">Nonlinear</span></td><td>N/A</td><td>$y^2$ term (logistic); separable</td></tr>
+                <tr><td>12</td><td>$(1+x^2)y' = y$</td><td><span class="badge-linear">Linear</span></td><td><span class="badge-homo">Homo</span></td><td>Divide by $(1+x^2)$: $y'-\frac{y}{1+x^2}=0$</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="section-7-8">7.8 Practice Problems</h2>
+
+        <p>Test your understanding with these 18 problems covering all topics from this chapter, including direction fields, Euler's method, separation of variables, and growth models. Click "Show Solution" to check your work. Some problems also touch on the classification ideas from Section 7.7.</p>
 
         <!-- Problem 1 -->
         <div class="practice-problem">
@@ -961,7 +1238,9 @@
         <p style="margin-top: 6px;">
             <a href="/blog" style="color: rgba(255,255,255,0.6); text-decoration: none;">Blog</a> &middot;
             <a href="/us/ap-calculus" style="color: rgba(255,255,255,0.6); text-decoration: none;">AP Calculus</a> &middot;
-            <a href="/us/sat" style="color: rgba(255,255,255,0.6); text-decoration: none;">SAT</a>
+            <a href="/us/sat" style="color: rgba(255,255,255,0.6); text-decoration: none;">SAT</a> &middot;
+            <a href="/about.html" style="color: rgba(255,255,255,0.6); text-decoration: none;">About</a> &middot;
+            <a href="/privacy.html" style="color: rgba(255,255,255,0.6); text-decoration: none;">Privacy</a>
         </p>
     </footer>
 

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Statistics: The Normal Distribution - Chapter 3 | MathHub</title>
+    <meta name="description" content="AP Statistics Chapter 3: The Normal Distribution. Learn Normal curves, the empirical rule, z-scores, percentiles, and how to find Normal probabilities.">
+    <meta name="keywords" content="AP Statistics, normal distribution, normal curve, z-score, percentile, empirical rule, standard normal, normal probability, AP Stats Chapter 3, z-table">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/ap-statistics/normal-distributions.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/ap-statistics/normal-distributions.html">
+    <meta property="og:title" content="AP Statistics: The Normal Distribution - Chapter 3">
+    <meta property="og:description" content="Learn Normal curves, z-scores, percentiles, and Normal probability calculations for AP Statistics.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Statistics: Normal Distributions - Chapter 3">
+    <meta name="twitter:description" content="AP Statistics Chapter 3: Normal curves, empirical rule, z-scores, percentiles, and Normal probability.">
+
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "AP Statistics: The Normal Distribution - Chapter 3",
+        "description": "AP Statistics Chapter 3 covering Normal curves, the empirical rule, z-scores, percentiles, and Normal probability calculations.",
+        "url": "https://mathhub.io/us/textbook/ap-statistics/normal-distributions.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "AP",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Normal Distribution" },
+            { "@type": "Thing", "name": "Statistics" },
+            { "@type": "Thing", "name": "AP Statistics" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <link rel="stylesheet" href="../../../assets/css/textbook-ux.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #064e3b; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #064e3b; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #10b981; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives { background: #ecfdf5; border-left: 4px solid #10b981; padding: 20px 24px; margin: 24px 0 32px; border-radius: 0 10px 10px 0; }
+        .learning-objectives h4 { color: #065f46; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #064e3b; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box { background: #f0fdf4; border-left: 4px solid #10b981; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #065f46; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+
+        .definition-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box { background: #f0fdf4; border: 1.5px dashed #86efac; padding: 16px 20px; margin: -4px 0 24px; border-radius: 0 0 8px 8px; }
+        .try-it-box .try-it-label { display: inline-block; background: #10b981; color: white; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px; }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary { cursor: pointer; color: #065f46; font-weight: 600; font-size: 0.9em; user-select: none; }
+        .try-it-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7; }
+
+        .ap-tip { background: #fefce8; border-left: 4px solid #eab308; padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .ap-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #92400e; }
+
+        .desmos-wrap { margin: 24px auto; background: #f8fafc; border-radius: 12px; padding: 4px; border: 1px solid #e2e8f0; text-align: center; }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label { text-align: center; font-size: 0.82em; color: #64748b; margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em; }
+
+        .z-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.82em; }
+        .z-table th { background: #065f46; color: white; padding: 7px 10px; text-align: center; font-weight: 600; }
+        .z-table td { padding: 6px 10px; border: 1px solid #e2e8f0; text-align: center; color: #334155; }
+        .z-table tr:nth-child(even) { background: #f8fafc; }
+        .z-table .row-header { background: #ecfdf5; font-weight: 700; color: #065f46; }
+
+        .steps-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+        .steps-box ol { margin: 0 0 0 20px; }
+        .steps-box li { color: #334155; line-height: 1.8; margin-bottom: 6px; font-size: 0.95em; }
+
+        .practice-section { margin-top: 50px; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { border-top: none; padding-top: 0; margin-top: 0; }
+        .practice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 640px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card { background: #f8fafc; border-radius: 10px; padding: 20px; border: 1px solid #e2e8f0; }
+        .practice-card .p-num { display: inline-block; background: #10b981; color: white; border-radius: 50%; width: 26px; height: 26px; text-align: center; line-height: 26px; font-size: 0.85em; font-weight: 700; margin-bottom: 10px; }
+        .practice-card p { margin: 0 0 12px; color: #334155; font-size: 0.95em; line-height: 1.7; }
+        .practice-card details summary { cursor: pointer; color: #10b981; font-size: 0.88em; font-weight: 600; user-select: none; }
+        .practice-answer { margin-top: 8px; padding: 10px 14px; background: white; border-radius: 6px; font-size: 0.9em; color: #334155; line-height: 1.7; }
+
+        .chapter-nav { display: flex; justify-content: space-between; gap: 16px; margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0; }
+        .chapter-nav a { display: inline-flex; align-items: center; gap: 6px; color: #10b981; text-decoration: none; font-weight: 600; font-size: 0.95em; }
+        .chapter-nav a:hover { text-decoration: underline; }
+
+        /* ── Section Summary ── */
+        .section-summary { background: #f8fafc; border: 2px solid #e2e8f0; padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px; }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .summary-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin: 16px 0; }
+        .key-term-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <div class="blog-article">
+        <div class="breadcrumb">
+            <a href="/us/">US Math</a> &rsaquo;
+            <a href="/us/textbook/ap-statistics/">AP Statistics</a> &rsaquo;
+            Chapter 3: The Normal Distribution
+        </div>
+
+        <h1>Chapter 3: The Normal Distribution</h1>
+        <div class="blog-meta">AP Statistics &middot; MathHub &middot; 2026</div>
+
+        <div class="learning-objectives">
+            <h4>Learning Objectives</h4>
+            <ul>
+                <li>Describe the properties of Normal curves and the Normal distribution</li>
+                <li>Apply the 68-95-99.7 rule to answer probability questions</li>
+                <li>Standardize values using z-scores and use the standard Normal table</li>
+                <li>Find the proportion of values in any interval of a Normal distribution</li>
+                <li>Find a value given a percentile (inverse Normal calculations)</li>
+                <li>Assess whether a distribution is approximately Normal using a Normal probability plot</li>
+            </ul>
+        </div>
+
+        <h2>3.1 Normal Curves</h2>
+
+        <p>The <strong>Normal distribution</strong> is one of the most important probability models in statistics. It describes many real-world phenomena: heights, test scores, measurement errors, and more.</p>
+
+        <div class="definition-box">
+            <h4>Properties of Normal Curves</h4>
+            <ul>
+                <li><strong>Bell-shaped and symmetric</strong> about the mean $\mu$</li>
+                <li>The mean, median, and mode are all <strong>equal</strong></li>
+                <li>Completely described by two parameters: mean $\mu$ and standard deviation $\sigma$</li>
+                <li><strong>Notation:</strong> $N(\mu, \sigma)$ — a Normal distribution with mean $\mu$ and SD $\sigma$</li>
+                <li>The curve approaches but never crosses the $x$-axis (asymptotic)</li>
+                <li>Total area under the curve = 1 (represents 100% probability)</li>
+                <li>Larger $\sigma$ → flatter, wider curve; smaller $\sigma$ → taller, narrower curve</li>
+            </ul>
+        </div>
+
+        <!-- Desmos: Normal curve with mu/sigma sliders -->
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">Interactive: Adjust $\mu$ and $\sigma$ to see how the Normal curve changes shape and location</p>
+            <div id="graph-normal-shape" style="width:100%;height:320px;"></div>
+            <p class="fig-label">Figure 3.1 — Normal Distribution $N(\mu, \sigma)$ — Shape and Location</p>
+        </div>
+
+        <h2>3.2 The 68-95-99.7 Rule</h2>
+
+        <p>For any Normal distribution $N(\mu, \sigma)$, the <strong>Empirical Rule</strong> gives the percentage of data within 1, 2, and 3 standard deviations of the mean. (Reviewed from Chapter 2, now applied to Normal models.)</p>
+
+        <div class="theorem-box">
+            <h4>68-95-99.7 Rule (Empirical Rule)</h4>
+            <p>
+                <strong>68%</strong> of values lie within $\mu \pm \sigma$<br>
+                <strong>95%</strong> of values lie within $\mu \pm 2\sigma$<br>
+                <strong>99.7%</strong> of values lie within $\mu \pm 3\sigma$
+            </p>
+            <p>Equivalently: 16% are below $\mu - \sigma$ (and 16% above $\mu + \sigma$); 2.5% are below $\mu - 2\sigma$; 0.15% are below $\mu - 3\sigma$.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3.1 — Applying the Empirical Rule</h4>
+            <p>Women's heights are approximately $N(64.5, 2.5)$ inches (mean 64.5 in, SD 2.5 in).</p>
+            <p><strong>(a)</strong> What percent of women are between 59.5 and 69.5 inches?</p>
+            <p>59.5 = 64.5 − 2(2.5) = $\mu - 2\sigma$ and 69.5 = $\mu + 2\sigma$ → <strong>95%</strong></p>
+            <p><strong>(b)</strong> What percent are shorter than 57 inches?</p>
+            <p>57 = 64.5 − 3(2.5) = $\mu - 3\sigma$. Below $\mu - 3\sigma$: 0.3%/2 = <strong>0.15%</strong></p>
+            <p><strong>(c)</strong> Between what heights are the middle 68% of women?</p>
+            <p>$\mu \pm \sigma = 64.5 \pm 2.5$ → between <strong>62 and 67 inches</strong></p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>SAT Math scores are $N(530, 115)$. (a) What percent score between 185 and 875? (b) What percent score above 760? (c) Between what scores are the middle 95%?</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    (a) 185=530−3(115)=μ−3σ; 875=μ+3σ → <strong>99.7%</strong><br>
+                    (b) 760=530+2(115)=μ+2σ. Above μ+2σ: 5%/2=<strong>2.5%</strong><br>
+                    (c) μ±2σ = 530±230 → between <strong>300 and 760</strong>
+                </div>
+            </details>
+        </div>
+
+        <h2>3.3 The Standard Normal Distribution</h2>
+
+        <p>The <strong>standard Normal distribution</strong> is the special case $N(0,1)$ — mean 0, standard deviation 1. We convert any Normal value to a <strong>z-score</strong> to use the standard Normal table.</p>
+
+        <div class="definition-box">
+            <h4>Standardizing: The Z-Score Formula</h4>
+            <p>$$z = \frac{x - \mu}{\sigma}$$</p>
+            <p>The z-score tells us how many standard deviations $x$ is from $\mu$. After standardizing, all Normal distributions become $N(0,1)$, so we can use one table.</p>
+        </div>
+
+        <h3>Reading the Standard Normal Table (z-table)</h3>
+
+        <p>The standard Normal table gives the proportion of values <strong>at or below</strong> a given z-score (the area to the left of $z$ under the $N(0,1)$ curve). This proportion equals the <strong>percentile</strong> of the value.</p>
+
+        <p>A partial z-table (positive z-scores):</p>
+
+        <table class="z-table">
+            <tr>
+                <th>z</th><th>.00</th><th>.01</th><th>.02</th><th>.03</th><th>.04</th><th>.05</th><th>.06</th><th>.07</th><th>.08</th><th>.09</th>
+            </tr>
+            <tr>
+                <td class="row-header">0.0</td><td>.5000</td><td>.5040</td><td>.5080</td><td>.5120</td><td>.5160</td><td>.5199</td><td>.5239</td><td>.5279</td><td>.5319</td><td>.5359</td>
+            </tr>
+            <tr>
+                <td class="row-header">0.5</td><td>.6915</td><td>.6950</td><td>.6985</td><td>.7019</td><td>.7054</td><td>.7088</td><td>.7123</td><td>.7157</td><td>.7190</td><td>.7224</td>
+            </tr>
+            <tr>
+                <td class="row-header">1.0</td><td>.8413</td><td>.8438</td><td>.8461</td><td>.8485</td><td>.8508</td><td>.8531</td><td>.8554</td><td>.8577</td><td>.8599</td><td>.8621</td>
+            </tr>
+            <tr>
+                <td class="row-header">1.5</td><td>.9332</td><td>.9345</td><td>.9357</td><td>.9370</td><td>.9382</td><td>.9394</td><td>.9406</td><td>.9418</td><td>.9429</td><td>.9441</td>
+            </tr>
+            <tr>
+                <td class="row-header">2.0</td><td>.9772</td><td>.9778</td><td>.9783</td><td>.9788</td><td>.9793</td><td>.9798</td><td>.9803</td><td>.9808</td><td>.9812</td><td>.9817</td>
+            </tr>
+            <tr>
+                <td class="row-header">2.5</td><td>.9938</td><td>.9940</td><td>.9941</td><td>.9943</td><td>.9945</td><td>.9946</td><td>.9948</td><td>.9949</td><td>.9951</td><td>.9952</td>
+            </tr>
+            <tr>
+                <td class="row-header">3.0</td><td>.9987</td><td>.9987</td><td>.9987</td><td>.9988</td><td>.9988</td><td>.9989</td><td>.9989</td><td>.9989</td><td>.9990</td><td>.9990</td>
+            </tr>
+        </table>
+
+        <div class="ap-tip">
+            <span class="ap-tip-icon">★</span>
+            <p><strong>AP Exam Tip:</strong> The table gives area to the <em>left</em>. To find area to the <em>right</em>, compute $1 - \text{table value}$. To find area between two z-scores, compute (larger area) − (smaller area). Always draw a sketch first.</p>
+        </div>
+
+        <h2>3.4 Normal Probability Calculations</h2>
+
+        <h3>Finding a Proportion (Area) — Forward Problem</h3>
+
+        <div class="steps-box">
+            <ol>
+                <li>State the problem: what value(s) of $x$ and what distribution $N(\mu, \sigma)$?</li>
+                <li>Draw a Normal curve and shade the region of interest.</li>
+                <li>Standardize: compute $z = (x - \mu)/\sigma$.</li>
+                <li>Use the z-table (or calculator) to find the area.</li>
+                <li>State the answer in context.</li>
+            </ol>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3.2 — Finding a Proportion</h4>
+            <p>IQ scores are $N(100, 15)$. What proportion of people have IQ above 118?</p>
+            <p><strong>Step 1:</strong> $\mu = 100$, $\sigma = 15$, want $P(X > 118)$.</p>
+            <p><strong>Step 2:</strong> (Sketch — shade right tail above 118.)</p>
+            <p><strong>Step 3 — Standardize:</strong> $z = (118 - 100)/15 = 18/15 = 1.20$</p>
+            <p><strong>Step 4 — Table:</strong> $P(Z \le 1.20) = 0.8849$</p>
+            <p><strong>Step 5:</strong> $P(X > 118) = 1 - 0.8849 = \mathbf{0.1151}$</p>
+            <p>About <strong>11.5%</strong> of people have IQ above 118.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3.3 — Area Between Two Values</h4>
+            <p>Adult male blood pressure is $N(125, 14)$ mmHg. What percent have pressure between 111 and 139?</p>
+            <p><strong>Standardize both:</strong><br>
+            $z_1 = (111 - 125)/14 = -14/14 = -1.00$<br>
+            $z_2 = (139 - 125)/14 = 14/14 = 1.00$</p>
+            <p><strong>Area between:</strong> $P(-1 \le Z \le 1) = P(Z \le 1) - P(Z \le -1)$<br>
+            $= 0.8413 - 0.1587 = \mathbf{0.6826}$</p>
+            <p>About <strong>68.3%</strong> — confirming the Empirical Rule ($\mu \pm \sigma$).</p>
+        </div>
+
+        <!-- Desmos: Normal probability shading -->
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">Interactive: Find the shaded area — drag the left and right z-score bounds</p>
+            <div id="graph-prob" style="width:100%;height:320px;"></div>
+            <p class="fig-label">Figure 3.2 — Normal Probability: Shaded Area Between Two Z-Scores</p>
+        </div>
+
+        <h3>Finding a Value Given a Percentile — Inverse Problem</h3>
+
+        <div class="steps-box">
+            <ol>
+                <li>State the percentile (area to the left).</li>
+                <li>Look up the z-score in the body of the z-table (reverse lookup).</li>
+                <li>Unstandardize: $x = \mu + z\sigma$.</li>
+                <li>State the answer in context.</li>
+            </ol>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 3.4 — Inverse Normal (Percentile → Value)</h4>
+            <p>AP Calculus scores are approximately $N(2.9, 1.1)$ (on a 1–5 scale). What score is at the 90th percentile?</p>
+            <p><strong>Step 1:</strong> Need $x$ such that $P(X \le x) = 0.90$.</p>
+            <p><strong>Step 2:</strong> Look up 0.90 in z-table → $z \approx 1.28$.</p>
+            <p><strong>Step 3 — Unstandardize:</strong> $x = 2.9 + (1.28)(1.1) = 2.9 + 1.408 = \mathbf{4.31}$</p>
+            <p>A score of about <strong>4.3</strong> is at the 90th percentile for AP Calculus.</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Heights of adult males are $N(70, 3)$ inches. (a) What percent are between 64 and 73 inches? (b) A man is at the 25th percentile — what is his height?</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <strong>(a)</strong> z₁=(64−70)/3=−2.00; z₂=(73−70)/3=1.00<br>
+                    P(−2 ≤ Z ≤ 1) = 0.8413 − 0.0228 = <strong>0.8185 (about 81.9%)</strong><br><br>
+                    <strong>(b)</strong> 25th percentile: z ≈ −0.67 (from table: 0.2514)<br>
+                    x = 70 + (−0.67)(3) = 70 − 2.01 ≈ <strong>68.0 inches</strong>
+                </div>
+            </details>
+        </div>
+
+        <!-- Desmos: Inverse Normal -->
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">Interactive: Given a percentile (shaded area), find the corresponding z-score — adjust the area slider</p>
+            <div id="graph-inverse" style="width:100%;height:300px;"></div>
+            <p class="fig-label">Figure 3.3 — Inverse Normal: Finding a Value from a Percentile</p>
+        </div>
+
+        <h2>3.5 Assessing Normality</h2>
+
+        <p>We can assess whether a dataset is approximately Normal using:</p>
+        <ul>
+            <li><strong>Histogram:</strong> Look for a symmetric, bell-shaped distribution with no major outliers or skewness.</li>
+            <li><strong>Boxplot:</strong> Should be roughly symmetric with median near the center and whiskers of similar length.</li>
+            <li><strong>Normal probability plot (Normal quantile plot):</strong> If the data are approximately Normal, the points should follow a roughly linear pattern. Systematic curves suggest non-Normality.</li>
+        </ul>
+
+        <div class="ap-tip">
+            <span class="ap-tip-icon">★</span>
+            <p><strong>AP Exam Tip:</strong> On the AP exam, you often need to check the <em>Large Counts</em> or <em>Normality</em> condition before performing inference. For sample means, the Central Limit Theorem (Ch 9) handles this. For now, state "approximately Normal" only when the data graph looks symmetric and bell-shaped, or when the problem states Normality.</p>
+        </div>
+
+        <!-- Practice Problems -->
+        <div class="practice-section">
+            <h2>Practice Problems</h2>
+            <div class="practice-grid">
+
+                <div class="practice-card">
+                    <span class="p-num">1</span>
+                    <p>Scores on a standardized test are $N(500, 100)$. Using the Empirical Rule, find the percent of scores (a) between 300 and 700, (b) above 600, (c) below 400.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            (a) 300=500−2(100)=μ−2σ; 700=μ+2σ → <strong>95%</strong><br>
+                            (b) 600=μ+σ. Above μ+σ: (100%−68%)/2 = <strong>16%</strong><br>
+                            (c) 400=μ−σ. Below μ−σ: <strong>16%</strong>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">2</span>
+                    <p>Find the z-score for each value, given $N(85, 12)$: (a) $x = 97$ (b) $x = 73$ (c) $x = 85$</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            (a) z=(97−85)/12=<strong>1.00</strong><br>
+                            (b) z=(73−85)/12=−12/12=<strong>−1.00</strong><br>
+                            (c) z=(85−85)/12=<strong>0</strong> (at the mean)
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">3</span>
+                    <p>Newborn weights are $N(7.5, 1.1)$ lb. What percent of newborns weigh less than 6 pounds?</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            z=(6−7.5)/1.1=−1.5/1.1≈−1.36<br>
+                            Table: P(Z ≤ −1.36) ≈ <strong>0.0869 (about 8.7%)</strong>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">4</span>
+                    <p>Lifetime of a light bulb is $N(1200, 80)$ hours. Find the probability a bulb lasts between 1100 and 1350 hours.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            z₁=(1100−1200)/80=−1.25 → table: 0.1056<br>
+                            z₂=(1350−1200)/80=1.875 → table ≈ 0.9699<br>
+                            P(1100 ≤ X ≤ 1350) = 0.9699 − 0.1056 = <strong>0.8643 (≈86.4%)</strong>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">5</span>
+                    <p>AP Biology scores are $N(2.8, 1.0)$. What score corresponds to the (a) 75th percentile? (b) 10th percentile?</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            (a) 75th pctile: z≈0.67<br>
+                            x=2.8+(0.67)(1.0)=<strong>3.47</strong><br>
+                            (b) 10th pctile: z≈−1.28<br>
+                            x=2.8+(−1.28)(1.0)=<strong>1.52</strong>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">6</span>
+                    <p>Resting heart rate is $N(72, 10)$ bpm. (a) What percent have rate above 90? (b) Between what rates are the middle 90% of people?</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            (a) z=(90−72)/10=1.80 → P(Z &gt; 1.80)=1−0.9641=<strong>0.0359 (3.6%)</strong><br>
+                            (b) Middle 90% → 5% each tail → z=±1.645<br>
+                            72±(1.645)(10) → between <strong>55.6 and 88.5 bpm</strong>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">7</span>
+                    <p>Two students compare scores. Student A got 82 on a test with $N(75, 8)$. Student B got 72 on a test with $N(65, 5)$. Who performed better relative to their class?</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            A: z=(82−75)/8=<strong>0.875</strong><br>
+                            B: z=(72−65)/5=<strong>1.40</strong><br>
+                            Student B's z-score is higher → <strong>Student B performed better</strong> relative to their class (at the 91.9th vs 80.9th percentile).
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">8</span>
+                    <p><strong>(AP Free Response Style)</strong> Annual rainfall in a city is approximately $N(32, 5)$ inches. (a) Find $P(25 \le X \le 40)$. (b) The city issues a drought warning when annual rainfall is below the 15th percentile. What is the drought warning threshold?</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            <strong>(a)</strong> z₁=(25−32)/5=−1.40 → 0.0808; z₂=(40−32)/5=1.60 → 0.9452<br>
+                            P = 0.9452−0.0808=<strong>0.8644 (≈86.4%)</strong><br><br>
+                            <strong>(b)</strong> 15th pctile: z≈−1.04<br>
+                            x=32+(−1.04)(5)=32−5.2=<strong>26.8 inches</strong>
+                        </div>
+                    </details>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+            <h4>Normal Distribution Properties</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Normal Distribution</strong>
+                    <p>Bell-shaped, symmetric, described by mean $\mu$ and standard deviation $\sigma$. Notation: $N(\mu, \sigma)$. The curve extends infinitely in both directions.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>68-95-99.7 Rule</strong>
+                    <p>In any Normal distribution: ~68% within $\pm 1\sigma$, ~95% within $\pm 2\sigma$, ~99.7% within $\pm 3\sigma$ of the mean.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>z-score</strong>
+                    <p>$z = \dfrac{x - \mu}{\sigma}$ — number of standard deviations from the mean. Standardizes values to $N(0,1)$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Standard Normal Table</strong>
+                    <p>Table of $P(Z \leq z)$ for $Z \sim N(0,1)$. Use to find areas (probabilities) by looking up the z-score.</p>
+                </div>
+            </div>
+            <h4>Using the Normal Table</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Convert to z-score</strong>: $z = (x-\mu)/\sigma$</li>
+                <li><strong>Look up $P(Z \leq z)$</strong> in the standard Normal table</li>
+                <li><strong>For $P(Z \geq z)$</strong>: compute $1 - P(Z \leq z)$</li>
+                <li><strong>For $P(a \leq Z \leq b)$</strong>: compute $P(Z \leq b) - P(Z \leq a)$</li>
+                <li><strong>Working backwards</strong>: given probability, find $z$, then $x = \mu + z\sigma$</li>
+            </ol>
+        </div>
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item"><strong>Normal Distribution</strong><span>A symmetric, bell-shaped distribution completely described by its mean $\mu$ and standard deviation $\sigma$.</span></div>
+                <div class="key-term-item"><strong>z-score</strong><span>$(x-\mu)/\sigma$ — standardized score telling how many SDs a value is above or below the mean.</span></div>
+                <div class="key-term-item"><strong>Standard Normal</strong><span>The Normal distribution with $\mu = 0$ and $\sigma = 1$, written $N(0,1)$ or $Z$.</span></div>
+                <div class="key-term-item"><strong>68-95-99.7 Rule</strong><span>Empirical rule: 68%, 95%, 99.7% of Normal data fall within 1, 2, 3 standard deviations of the mean.</span></div>
+                <div class="key-term-item"><strong>Percentile</strong><span>The value below which a given percent of observations fall. The 90th percentile has 90% of data below it.</span></div>
+                <div class="key-term-item"><strong>Normality Assessment</strong><span>Check using a histogram (bell-shaped?), a Normal probability plot (linear?), or the 68-95-99.7 rule.</span></div>
+            </div>
+        </div>
+        <div class="chapter-nav">
+            <a href="/us/textbook/ap-statistics/numerical-summaries.html">&#8592; Chapter 2: Numerical Summaries</a>
+            <a href="/us/textbook/ap-statistics/">All Chapters</a>
+        </div>
+    </div>
+
+    <script>
+    // Figure 3.1 — Normal shape with mu/sigma sliders
+    (function() {
+        var elt = document.getElementById('graph-normal-shape');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: true, border: false, showGrid: true, showXAxis: true, showYAxis: false
+        });
+        calc.setMathBounds({ left: -6, right: 6, bottom: -0.05, top: 0.55 });
+        calc.setExpressions([
+            { id: 'mu', latex: '\\mu=0', sliderBounds: { min: -3, max: 3, step: 0.5 } },
+            { id: 'sigma', latex: '\\sigma=1', sliderBounds: { min: 0.5, max: 2.5, step: 0.25 } },
+            { id: 'n1', latex: 'y=\\frac{1}{\\sigma\\sqrt{2\\pi}}e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}', color: '#10b981', lineWidth: 3 },
+            { id: 'mean_line', latex: 'x=\\mu', color: '#ef4444', lineStyle: Desmos.Styles.DASHED, lineWidth: 2 },
+            { id: 'sd1l', latex: 'x=\\mu-\\sigma', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5 },
+            { id: 'sd1r', latex: 'x=\\mu+\\sigma', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5 },
+        ]);
+    })();
+
+    // Figure 3.2 — Probability shading
+    (function() {
+        var elt = document.getElementById('graph-prob');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: true, border: false, showGrid: false, showXAxis: true, showYAxis: false
+        });
+        calc.setMathBounds({ left: -4, right: 4, bottom: -0.04, top: 0.48 });
+        calc.setExpressions([
+            { id: 'za', latex: 'a=-1', sliderBounds: { min: -3.5, max: 0, step: 0.1 } },
+            { id: 'zb', latex: 'b=1', sliderBounds: { min: 0, max: 3.5, step: 0.1 } },
+            { id: 'shade', latex: 'y=\\frac{1}{\\sqrt{2\\pi}}e^{-x^2/2}\\left\\{a\\le x\\le b\\right\\}', color: '#10b981', fillOpacity: 0.45 },
+            { id: 'curve', latex: 'y=\\frac{1}{\\sqrt{2\\pi}}e^{-x^2/2}', color: '#064e3b', lineWidth: 2.5 },
+            { id: 'la', latex: '(a,0)', label: 'z=a', showLabel: true, color: '#ef4444', pointSize: 9 },
+            { id: 'lb', latex: '(b,0)', label: 'z=b', showLabel: true, color: '#ef4444', pointSize: 9 },
+        ]);
+    })();
+
+    // Figure 3.3 — Inverse Normal (percentile → z)
+    (function() {
+        var elt = document.getElementById('graph-inverse');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: true, border: false, showGrid: false, showXAxis: true, showYAxis: false
+        });
+        calc.setMathBounds({ left: -4, right: 4, bottom: -0.04, top: 0.48 });
+        calc.setExpressions([
+            { id: 'pct', latex: 'p=0.75', sliderBounds: { min: 0.01, max: 0.99, step: 0.01 } },
+            // Approximate inverse normal: z ≈ probit — use a Desmos-friendly approximation
+            // Shade from -∞ to some value. Use the percentile directly as a left shade.
+            { id: 'z0', latex: 'z=\\Phi^{-1}\\left(p\\right)', color: '#10b981' },
+            // Show normal curve
+            { id: 'curve', latex: 'y=\\frac{1}{\\sqrt{2\\pi}}e^{-x^2/2}', color: '#064e3b', lineWidth: 2.5 },
+            // Shade left portion (parameterically up to approximate z)
+            // Use a numeric z slider tied to p as label
+            { id: 'ptlabel', latex: '(0, 0.42)', label: 'Adjust p to find z', showLabel: true, pointOpacity: 0, color: '#064e3b' },
+        ]);
+        // Simpler approach: use a z slider and show area
+        calc.setExpressions([
+            { id: 'zval', latex: 'z=0.67', sliderBounds: { min: -3.5, max: 3.5, step: 0.01 } },
+            { id: 'shade2', latex: 'y=\\frac{1}{\\sqrt{2\\pi}}e^{-x^2/2}\\left\\{x\\le z\\right\\}', color: '#10b981', fillOpacity: 0.45 },
+            { id: 'curve2', latex: 'y=\\frac{1}{\\sqrt{2\\pi}}e^{-x^2/2}', color: '#064e3b', lineWidth: 2.5 },
+            { id: 'vline', latex: 'x=z', color: '#ef4444', lineWidth: 2.5, lineStyle: Desmos.Styles.DASHED },
+            { id: 'pt', latex: '(z,0)', label: 'z = ${z}', showLabel: true, color: '#ef4444', pointSize: 10 },
+        ]);
+    })();
+    </script>
+    <script src="../../../assets/js/textbook-ux.js"></script>
+</body>
+</html>

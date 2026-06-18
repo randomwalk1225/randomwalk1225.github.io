@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Statistics: Confidence Intervals - Chapter 10 | MathHub</title>
+    <meta name="description" content="AP Statistics Chapter 10: Confidence Intervals. Learn to estimate population proportions and means, construct one-proportion z-intervals, one-sample t-intervals, and choose appropriate sample sizes.">
+    <meta name="keywords" content="AP Statistics, confidence interval, z-interval, t-interval, margin of error, critical value, sample size, population proportion, population mean, AP Stats Chapter 10">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/ap-statistics/confidence-intervals.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/ap-statistics/confidence-intervals.html">
+    <meta property="og:title" content="AP Statistics: Confidence Intervals - Chapter 10">
+    <meta property="og:description" content="Learn to construct and interpret confidence intervals for proportions and means in AP Statistics.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Statistics: Confidence Intervals - Chapter 10">
+    <meta name="twitter:description" content="AP Statistics Chapter 10: Confidence intervals for proportions and means, margin of error, and sample size determination.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "AP Statistics: Confidence Intervals - Chapter 10",
+        "description": "AP Statistics Chapter 10 covering one-proportion z-intervals, one-sample t-intervals, paired vs. two-sample procedures, and sample size determination.",
+        "url": "https://mathhub.io/us/textbook/ap-statistics/confidence-intervals.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "AP",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Confidence Interval" },
+            { "@type": "Thing", "name": "Margin of Error" },
+            { "@type": "Thing", "name": "AP Statistics" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <link rel="stylesheet" href="../../../assets/css/textbook-ux.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #064e3b; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #064e3b; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #10b981; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives { background: #ecfdf5; border-left: 4px solid #10b981; padding: 20px 24px; margin: 24px 0 32px; border-radius: 0 10px 10px 0; }
+        .learning-objectives h4 { color: #065f46; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #064e3b; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box { background: #f0fdf4; border-left: 4px solid #10b981; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #065f46; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+
+        .definition-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box { background: #f0fdf4; border: 1.5px dashed #86efac; padding: 16px 20px; margin: -4px 0 24px; border-radius: 0 0 8px 8px; }
+        .try-it-box .try-it-label { display: inline-block; background: #10b981; color: white; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px; }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary { cursor: pointer; color: #065f46; font-weight: 600; font-size: 0.9em; user-select: none; }
+        .try-it-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7; }
+
+        .ap-tip { background: #fefce8; border-left: 4px solid #eab308; padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .ap-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #92400e; }
+
+        .desmos-wrap { margin: 24px auto; background: #f8fafc; border-radius: 12px; padding: 4px; border: 1px solid #e2e8f0; text-align: center; }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label { text-align: center; font-size: 0.82em; color: #64748b; margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em; }
+
+        .practice-section { margin: 48px 0 0; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { color: #064e3b; margin-bottom: 20px; }
+        .practice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        @media (max-width: 600px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; }
+        .practice-card .p-num { display: inline-block; background: #064e3b; color: white; font-weight: 700; font-size: 0.78em; padding: 2px 9px; border-radius: 4px; margin-bottom: 8px; }
+        .practice-card p { color: #334155; font-size: 0.92em; line-height: 1.7; margin: 0 0 10px; }
+        .practice-card details summary { cursor: pointer; color: #065f46; font-weight: 600; font-size: 0.88em; user-select: none; }
+        .practice-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 8px; color: #334155; font-size: 0.9em; line-height: 1.7; border: 1px solid #e2e8f0; }
+
+        .chapter-nav { display: flex; justify-content: space-between; margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid #e2e8f0; flex-wrap: wrap; gap: 12px; }
+        .chapter-nav a { color: #10b981; text-decoration: none; font-weight: 600; font-size: 0.95em; padding: 8px 16px; border: 1.5px solid #10b981; border-radius: 8px; transition: background .15s; }
+        .chapter-nav a:hover { background: #ecfdf5; }
+
+        .data-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.9em; }
+        .data-table th { background: #064e3b; color: white; padding: 8px 12px; text-align: center; font-weight: 600; }
+        .data-table td { padding: 7px 12px; border: 1px solid #e2e8f0; text-align: center; color: #334155; }
+        .data-table tr:nth-child(even) { background: #f8fafc; }
+
+        .ci-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.88em; }
+        .ci-table th { background: #065f46; color: white; padding: 8px 12px; text-align: center; font-weight: 600; }
+        .ci-table td { padding: 7px 12px; border: 1px solid #e2e8f0; text-align: center; color: #334155; }
+        .ci-table tr:nth-child(even) { background: #f0fdf4; }
+
+        /* ── Section Summary ── */
+        .section-summary { background: #f8fafc; border: 2px solid #e2e8f0; padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px; }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .summary-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin: 16px 0; }
+        .key-term-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<div style="background:#064e3b; padding:12px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+    <a href="/" style="color:#6ee7b7; text-decoration:none; font-weight:700; font-size:1.1em;">MathHub</a>
+    <span style="color:#34d399;">›</span>
+    <a href="/us" style="color:#a7f3d0; text-decoration:none; font-size:.9em;">US</a>
+    <span style="color:#34d399;">›</span>
+    <a href="/us/textbook/ap-statistics" style="color:#a7f3d0; text-decoration:none; font-size:.9em;">AP Statistics</a>
+    <span style="color:#34d399;">›</span>
+    <span style="color:white; font-size:.9em;">Chapter 10</span>
+</div>
+
+<article class="blog-article">
+    <div class="breadcrumb">
+        <a href="/">MathHub</a> › <a href="/us">US</a> › <a href="/us/textbook/ap-statistics">AP Statistics</a> › Chapter 10
+    </div>
+
+    <h1>Chapter 10: Confidence Intervals</h1>
+    <div class="blog-meta">AP Statistics · Statistical Inference · 3 interactive graphs · 8 practice problems</div>
+
+    <div class="learning-objectives">
+        <h4>Learning Objectives</h4>
+        <ul>
+            <li>Construct and interpret a one-proportion $z$-interval for a population proportion $p$</li>
+            <li>Determine the minimum sample size needed to achieve a desired margin of error</li>
+            <li>Construct and interpret a one-sample $t$-interval for a population mean $\mu$</li>
+            <li>Verify the conditions (Random, Large Counts / Normal, 10%) before constructing a CI</li>
+            <li>Distinguish between paired and two-sample procedures</li>
+            <li>Identify how confidence level, sample size, and variability affect CI width</li>
+        </ul>
+    </div>
+
+    <!-- 10.1 -->
+    <h2>10.1 Estimating a Population Proportion</h2>
+    <p>When we want to know a population proportion $p$ (the true fraction of individuals with some characteristic), we use a sample proportion $\hat{p}$ as our best single estimate. But a single number ignores sampling variability — a <strong>confidence interval</strong> captures that uncertainty by providing a range of plausible values.</p>
+
+    <div class="definition-box">
+        <h4>Definition: Point Estimate and Confidence Interval</h4>
+        <p>A <strong>point estimate</strong> is a single value used to estimate a parameter. For a population proportion, the point estimate is the <strong>sample proportion</strong> $\hat{p} = \frac{\text{count of successes}}{n}$.</p>
+        <p>A <strong>confidence interval</strong> is an interval computed from sample data that, under repeated sampling, captures the true parameter a specified percentage of the time (the <strong>confidence level</strong>).</p>
+    </div>
+
+    <h3>Conditions for a One-Proportion z-Interval</h3>
+    <p>Before constructing any confidence interval, you must verify three conditions:</p>
+    <ul>
+        <li><strong>Random:</strong> The sample was obtained by random sampling (SRS, stratified random sample, etc.).</li>
+        <li><strong>Large Counts:</strong> $n\hat{p} \geq 10$ and $n(1-\hat{p}) \geq 10$ — ensures the sampling distribution of $\hat{p}$ is approximately Normal.</li>
+        <li><strong>10% Condition:</strong> $n \leq 0.10N$ — the sample is at most 10% of the population, so observations are approximately independent.</li>
+    </ul>
+
+    <div class="theorem-box">
+        <h4>One-Proportion z-Interval</h4>
+        <p>When conditions are met, a $C$% confidence interval for the population proportion $p$ is:</p>
+        <p>$$\hat{p} \pm z^* \cdot \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$</p>
+        <ul>
+            <li>$\hat{p}$ = sample proportion (center / point estimate)</li>
+            <li>$z^* \cdot \sqrt{\hat{p}(1-\hat{p})/n}$ = margin of error (ME)</li>
+            <li>Common critical values: $z^* = 1.645$ (90%), $z^* = 1.960$ (95%), $z^* = 2.576$ (99%)</li>
+        </ul>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 10.1 — Constructing a 95% Confidence Interval for $p$</h4>
+        <p>In a random sample of $n = 200$ voters, $\hat{p} = 0.62$ said they support a ballot measure. Construct a 95% confidence interval for the true proportion $p$.</p>
+        <p><strong>Step 1 — Conditions:</strong></p>
+        <ul>
+            <li>Random: stated to be a random sample. ✓</li>
+            <li>Large Counts: $200(0.62) = 124 \geq 10$ ✓ and $200(0.38) = 76 \geq 10$ ✓</li>
+            <li>10%: assumes population of voters is large. ✓</li>
+        </ul>
+        <p><strong>Step 2 — Calculate:</strong> For 95%, $z^* = 1.960$.</p>
+        <p>$$\text{ME} = 1.960 \cdot \sqrt{\frac{0.62 \cdot 0.38}{200}} = 1.960 \cdot 0.0343 = 0.0672$$</p>
+        <p>$$\text{CI}: \quad 0.62 \pm 0.0672 \implies (0.553,\ 0.687)$$</p>
+        <p><strong>Interpretation:</strong> We are 95% confident that the true proportion of voters who support the ballot measure is between 55.3% and 68.7%.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 10.2 — Minimum Sample Size</h4>
+        <p>How large a sample is needed so that the margin of error is at most 0.04 at 95% confidence? Use the conservative estimate $\hat{p} = 0.5$.</p>
+        <p>Solve $z^* \cdot \sqrt{\hat{p}(1-\hat{p})/n} \leq \text{ME}$ for $n$:</p>
+        <p>$$n \geq \left(\frac{z^*}{\text{ME}}\right)^2 \hat{p}(1-\hat{p}) = \left(\frac{1.96}{0.04}\right)^2 \cdot 0.25 = 2401 \cdot 0.25 = 600.25$$</p>
+        <p>Always round <em>up</em>: $n = 601$. Using $\hat{p} = 0.5$ gives the most conservative (largest) required sample size.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A random sample of $n = 150$ adults found $\hat{p} = 0.45$ use a streaming service. Construct a 90% confidence interval for $p$. ($z^* = 1.645$)</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                <strong>Conditions:</strong> Random ✓; Large Counts: $150(0.45)=67.5\geq10$ ✓, $150(0.55)=82.5\geq10$ ✓; 10% ✓.<br>
+                ME $= 1.645 \cdot \sqrt{(0.45)(0.55)/150} = 1.645 \cdot 0.04062 = 0.0668$.<br>
+                CI: $0.45 \pm 0.0668 \implies (0.383,\ 0.517)$.<br>
+                We are 90% confident the true proportion is between 38.3% and 51.7%.
+            </div>
+        </details>
+    </div>
+
+    <div class="ap-tip">
+        <div class="ap-tip-icon">★</div>
+        <p><strong>AP Exam Tip:</strong> <strong>Always state and verify all three conditions</strong> before constructing a CI — you will lose points for skipping this step. When interpreting, say "We are $C$% confident the true proportion $p$ is between __ and __." Never say "the probability that $p$ is in this interval is 95%" — $p$ is fixed; the interval is random.</p>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Simulation of 10 confidence intervals — most capture the true proportion $p = 0.50$ (dashed line), but some miss. Green = contains $p$; red = misses $p$.</p>
+        <div id="graph-ci-sim" style="width:100%; height:360px;"></div>
+        <p class="fig-label">Figure 10.1 — Simulated Confidence Intervals for $p$</p>
+    </div>
+
+    <!-- 10.2 -->
+    <h2>10.2 Estimating a Population Mean</h2>
+    <p>When estimating a population mean $\mu$ and the population standard deviation $\sigma$ is <em>unknown</em> (almost always in practice), we cannot use the $z$-procedures. Instead, we substitute the sample standard deviation $s$ and use the <strong>$t$-distribution</strong>, which has heavier tails than the Normal to account for the extra uncertainty.</p>
+
+    <div class="definition-box">
+        <h4>Definition: $t$-Distribution</h4>
+        <p>The <strong>$t$-distribution</strong> is symmetric and bell-shaped like the Normal, but has heavier tails. It is indexed by <strong>degrees of freedom</strong> $df = n - 1$. As $df \to \infty$, the $t$-distribution approaches the standard Normal $N(0,1)$.</p>
+        <p>The $t$-statistic for a sample mean is: $t = \dfrac{\bar{x} - \mu_0}{s/\sqrt{n}}$</p>
+    </div>
+
+    <h3>Conditions for a One-Sample t-Interval</h3>
+    <ul>
+        <li><strong>Random:</strong> Data come from a random sample.</li>
+        <li><strong>Normal/Large Sample:</strong> Population is Normal, OR $n \geq 30$ (by CLT), OR the data show no strong skewness/outliers when $n$ is small.</li>
+        <li><strong>10% Condition:</strong> $n \leq 0.10N$.</li>
+    </ul>
+
+    <div class="theorem-box">
+        <h4>One-Sample $t$-Interval for $\mu$</h4>
+        <p>When conditions are met, a $C$% confidence interval for the population mean $\mu$ is:</p>
+        <p>$$\bar{x} \pm t^* \cdot \frac{s}{\sqrt{n}}$$</p>
+        <ul>
+            <li>$t^*$ = critical value from the $t$-distribution with $df = n-1$ at confidence level $C$</li>
+            <li>$s/\sqrt{n}$ = standard error of $\bar{x}$</li>
+            <li>Use a $t$-table or calculator to find $t^*$ for given $df$ and $C$</li>
+        </ul>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 10.3 — One-Sample $t$-Interval</h4>
+        <p>A random sample of $n = 20$ students has mean test score $\bar{x} = 84.5$ and standard deviation $s = 6.2$. Construct a 95% CI for the true mean $\mu$.</p>
+        <p><strong>Conditions:</strong> Random ✓; $n = 20 < 30$ — must assume approximately Normal population ✓; 10% ✓.</p>
+        <p>$df = 19$, $t^* = 2.093$ (from $t$-table at 95%, $df=19$).</p>
+        <p>$$\text{ME} = 2.093 \cdot \frac{6.2}{\sqrt{20}} = 2.093 \cdot 1.387 = 2.903$$</p>
+        <p>$$\text{CI}: \quad 84.5 \pm 2.903 \implies (81.6,\ 87.4)$$</p>
+        <p><strong>Interpretation:</strong> We are 95% confident that the true mean test score is between 81.6 and 87.4 points.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 10.4 — Effect of Sample Size on CI Width</h4>
+        <p>The width of a $t$-interval is $2 \cdot t^* \cdot s/\sqrt{n}$. As $n$ increases:</p>
+        <ul>
+            <li>$\sqrt{n}$ increases → $s/\sqrt{n}$ (standard error) decreases → ME shrinks → <strong>narrower interval</strong>.</li>
+            <li>Additionally, $df = n-1$ increases → $t^*$ decreases (approaches $z^*$) → even smaller ME.</li>
+        </ul>
+        <p>Quadrupling the sample size (e.g., from 25 to 100) approximately <em>halves</em> the margin of error.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A random sample of $n = 40$ has $\bar{x} = 120$ and $s = 15$. Construct a 95% CI for $\mu$. ($df = 39$, $t^* \approx 2.023$)</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                ME $= 2.023 \cdot 15/\sqrt{40} = 2.023 \cdot 2.372 = 4.80$.<br>
+                CI: $120 \pm 4.80 \implies (115.2,\ 124.8)$.<br>
+                We are 95% confident the true mean is between 115.2 and 124.8.
+            </div>
+        </details>
+    </div>
+
+    <div class="ap-tip">
+        <div class="ap-tip-icon">★</div>
+        <p><strong>AP Exam Tip:</strong> Four factors affect CI width — <strong>confidence level</strong> (higher level → wider), <strong>sample size $n$</strong> (larger $n$ → narrower), <strong>variability $s$</strong> (larger $s$ → wider), and <strong>critical value $t^*$</strong> (larger level → larger $t^*$). Know which direction each factor pulls the interval width.</p>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Comparison of $t$-distribution (blue, $df=5$) vs. standard Normal (gray). The $t$-distribution has heavier tails, producing wider confidence intervals for small samples.</p>
+        <div id="graph-t-vs-z" style="width:100%; height:360px;"></div>
+        <p class="fig-label">Figure 10.2 — $t$-Distribution vs. Standard Normal</p>
+    </div>
+
+    <!-- 10.3 -->
+    <h2>10.3 Paired vs. Two-Sample Procedures</h2>
+    <p>When comparing two groups, the choice of procedure depends on how the data were collected. Using the wrong procedure is a common AP exam error.</p>
+
+    <div class="theorem-box">
+        <h4>Paired vs. Two-Sample: Which to Use?</h4>
+        <ul>
+            <li><strong>Paired (Matched Pairs):</strong> Two measurements on the <em>same</em> subject (before/after), or on naturally matched pairs. Compute differences $d_i = x_{1i} - x_{2i}$ and use a <strong>one-sample $t$-interval on the differences</strong>.</li>
+            <li><strong>Two Independent Samples:</strong> Subjects in the two groups are <em>different, unrelated</em> individuals. Use a <strong>two-sample $t$-interval</strong>.</li>
+        </ul>
+        <p>Paired procedures are more powerful (reduce variability) when a natural pairing exists.</p>
+    </div>
+
+    <h3>Paired t-Interval</h3>
+    <p>Let $\bar{d}$ = mean of differences and $s_d$ = standard deviation of differences. The paired $t$-interval is:</p>
+    <p>$$\bar{d} \pm t^* \cdot \frac{s_d}{\sqrt{n}} \qquad df = n-1$$</p>
+
+    <h3>Two-Proportion z-Interval</h3>
+    <p>For the difference of two population proportions $p_1 - p_2$:</p>
+    <p>$$(\hat{p}_1 - \hat{p}_2) \pm z^* \cdot \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}$$</p>
+
+    <div class="example-box">
+        <h4>Example 10.5 — Paired $t$-Interval</h4>
+        <p>Ten students took a pre-test and post-test after a tutoring program. Differences (post $-$ pre): 3, 5, $-$1, 4, 6, 2, 7, 3, 4, 5.</p>
+        <p>$\bar{d} = 3.8$, $s_d = 2.2$, $n = 10$. For 95% CI: $df = 9$, $t^* = 2.262$.</p>
+        <p>$$\text{ME} = 2.262 \cdot \frac{2.2}{\sqrt{10}} = 2.262 \cdot 0.696 = 1.57$$</p>
+        <p>$$\text{CI}: \quad 3.8 \pm 1.57 \implies (2.23,\ 5.37)$$</p>
+        <p><strong>Interpretation:</strong> We are 95% confident the true mean improvement is between 2.23 and 5.37 points. Since the entire interval is positive, there is convincing evidence of improvement.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>When should you use a paired $t$-interval instead of a two-sample $t$-interval? Give a real-world example.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                Use a paired $t$-interval when observations come in natural pairs or the same subjects are measured twice. Example: blood pressure measured on the same patient before and after a medication. The pairing eliminates subject-to-subject variability, making the test more sensitive to a true treatment effect.
+            </div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Comparison of three confidence intervals with the same center ($\hat{p} = 0.50$): wider intervals for lower $n$ or higher confidence level. Narrowest = 95%, $n=100$; middle = 95%, $n=50$; widest = 99%, $n=50$.</p>
+        <div id="graph-ci-width" style="width:100%; height:300px;"></div>
+        <p class="fig-label">Figure 10.3 — Confidence Interval Width Comparison</p>
+    </div>
+
+    <!-- 10.4 -->
+    <h2>10.4 Choosing Confidence Level and Sample Size</h2>
+    <p>Researchers must balance two competing goals: high confidence (wide intervals) and precision (narrow intervals). The key levers are:</p>
+
+    <ul>
+        <li><strong>Decrease ME:</strong> increase $n$, lower confidence level, reduce variability</li>
+        <li><strong>Increase ME:</strong> decrease $n$, raise confidence level, more variability</li>
+    </ul>
+
+    <h3>Summary of Confidence Interval Types</h3>
+    <table class="ci-table">
+        <tr>
+            <th>Procedure</th>
+            <th>Parameter</th>
+            <th>Test Statistic</th>
+            <th>Conditions</th>
+        </tr>
+        <tr>
+            <td>1-proportion $z$-interval</td>
+            <td>$p$</td>
+            <td>$z^*$</td>
+            <td>Random, Large Counts, 10%</td>
+        </tr>
+        <tr>
+            <td>1-sample $t$-interval</td>
+            <td>$\mu$</td>
+            <td>$t^*$ ($df=n-1$)</td>
+            <td>Random, Normal/Large, 10%</td>
+        </tr>
+        <tr>
+            <td>2-proportion $z$-interval</td>
+            <td>$p_1 - p_2$</td>
+            <td>$z^*$</td>
+            <td>Random (both), Large Counts (both), 10%</td>
+        </tr>
+        <tr>
+            <td>2-sample $t$-interval</td>
+            <td>$\mu_1 - \mu_2$</td>
+            <td>$t^*$ (conservative $df$)</td>
+            <td>Random (both), Normal/Large (both), 10%</td>
+        </tr>
+    </table>
+
+    <div class="example-box">
+        <h4>Example 10.6 — Sample Size at 99% Confidence</h4>
+        <p>How large a sample is needed so the margin of error is at most 0.03 at 99% confidence? Use the conservative $\hat{p} = 0.5$.</p>
+        <p>$$n \geq \left(\frac{z^*}{\text{ME}}\right)^2 \cdot \hat{p}(1-\hat{p}) = \left(\frac{2.576}{0.03}\right)^2 \cdot 0.25 = (85.87)^2 \cdot 0.25 \approx 7373 \cdot 0.25 = 1843.25$$</p>
+        <p>Wait — recalculate: $(2.576/0.03)^2 = (85.87)^2 = 7373.5$. Then $7373.5 \cdot 0.25 = 1843.4$. Round up: $n = 1844$.</p>
+        <p>Note: the higher confidence level (99% vs 95%) requires a much larger sample to maintain the same margin of error.</p>
+    </div>
+
+    <!-- Practice -->
+    <div class="practice-section">
+        <h2>Practice Problems</h2>
+        <div class="practice-grid">
+            <div class="practice-card">
+                <span class="p-num">1</span>
+                <p>A random sample of $n = 500$ adults finds $\hat{p} = 0.68$ support stricter environmental laws. Construct a 99% CI for $p$ and interpret it. ($z^* = 2.576$)</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Conditions: Random ✓; Large Counts: $500(0.68)=340\geq10$, $500(0.32)=160\geq10$ ✓; 10% ✓.<br>ME $= 2.576\cdot\sqrt{(0.68)(0.32)/500} = 2.576\cdot0.02087 = 0.0538$.<br>CI: $(0.626,\ 0.734)$. We are 99% confident the true proportion is between 62.6% and 73.4%.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">2</span>
+                <p>A 95% CI for $\mu$ is $(42.1, 51.9)$. What is the point estimate $\bar{x}$ and the margin of error?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Point estimate: $\bar{x} = (42.1 + 51.9)/2 = 47.0$.<br>Margin of error: $(51.9 - 42.1)/2 = 4.9$.<br>The interval is centered at 47.0 with ME of 4.9.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">3</span>
+                <p>A student constructs a CI and reports: "There is a 95% probability that the true proportion is in this interval." Is this correct? Explain.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">No. The true proportion $p$ is a fixed (though unknown) value — it is either in the interval or it is not. The correct interpretation is: "We are 95% confident that this interval captures the true proportion." The 95% refers to the long-run success rate of the method, not probability for a specific interval.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">4</span>
+                <p>$n = 15$, $\bar{x} = 32.4$, $s = 5.1$. Construct a 90% CI for $\mu$. ($df = 14$, $t^* = 1.761$)</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">ME $= 1.761 \cdot 5.1/\sqrt{15} = 1.761 \cdot 1.317 = 2.319$.<br>CI: $32.4 \pm 2.319 \implies (30.1,\ 34.7)$.<br>We are 90% confident the true mean is between 30.1 and 34.7.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">5</span>
+                <p>How does changing from 95% to 99% confidence affect the width of a CI, assuming the same data? Is this a desirable change?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Increasing to 99% confidence requires a larger $z^*$ (2.576 vs 1.960), which increases the ME and <strong>widens</strong> the interval. This is a trade-off: more confidence comes at the cost of less precision. It is desirable when the cost of missing the true parameter is high.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">6</span>
+                <p>A researcher wants ME $\leq 0.05$ at 95% confidence with no prior estimate of $p$. What sample size is required?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Use $\hat{p} = 0.5$ (conservative).<br>$n \geq (1.96/0.05)^2 \cdot 0.25 = (39.2)^2 \cdot 0.25 = 1536.64 \cdot 0.25 = 384.16$.<br>Round up: $n = 385$.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">7</span>
+                <p>Matched pairs experiment: 8 subjects exercise before/after a diet. Differences: 2, 4, 3, 5, 1, 4, 3, 4. Construct a 95% CI for the true mean difference. ($\bar{d}=3.25$, $s_d=1.165$, $t^*=2.365$, $df=7$)</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">ME $= 2.365 \cdot 1.165/\sqrt{8} = 2.365 \cdot 0.412 = 0.974$.<br>CI: $3.25 \pm 0.974 \implies (2.28,\ 4.22)$.<br>We are 95% confident the true mean reduction is between 2.28 and 4.22 units. The interval is entirely positive, providing evidence of a real reduction.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">8</span>
+                <p><strong>AP FRQ:</strong> Group A: $n_1=80$, $\hat{p}_1=0.55$. Group B: $n_2=100$, $\hat{p}_2=0.44$. Construct a 95% CI for $p_1 - p_2$ and determine if there is evidence of a difference.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Conditions: Both random ✓; Large Counts for both ✓.<br>SE $= \sqrt{(0.55)(0.45)/80 + (0.44)(0.56)/100} = \sqrt{0.003094 + 0.002464} = \sqrt{0.005558} = 0.07455$.<br>ME $= 1.96 \cdot 0.07455 = 0.1461$.<br>CI: $(0.55-0.44) \pm 0.1461 = 0.11 \pm 0.1461 = (-0.036,\ 0.256)$.<br>Since the interval contains 0, we do not have convincing evidence of a difference between $p_1$ and $p_2$ at the 95% confidence level.</div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+            <h4>Confidence Interval Structure</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>General Form</strong>
+                    <p>$\text{statistic} \pm \text{critical value} \times \text{standard error}$ — or equivalently $\text{estimate} \pm \text{margin of error}$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Interpretation</strong>
+                    <p>A 95% CI means: if we repeat this procedure many times, 95% of intervals constructed this way will capture the true parameter.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>One-Sample $t$-interval (mean)</strong>
+                    <p>$\bar{x} \pm t^* \cdot \dfrac{s}{\sqrt{n}}$. Use when $\sigma$ unknown. Degrees of freedom: $df = n - 1$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>One-Proportion $z$-interval</strong>
+                    <p>$\hat{p} \pm z^* \sqrt{\dfrac{\hat{p}(1-\hat{p})}{n}}$. Use $z^* = 1.645$ (90%), 1.960 (95%), 2.576 (99%).</p>
+                </div>
+            </div>
+            <h4>Conditions (PLAN acronym)</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Random</strong> — data comes from a random sample or randomized experiment</li>
+                <li><strong>Normal</strong> — $n \geq 30$ (CLT) or population is Normal (for means); $np \geq 10$ and $n(1-p) \geq 10$ (for proportions)</li>
+                <li><strong>Independent</strong> — $n \leq 10\%$ of population (10% condition)</li>
+            </ol>
+        </div>
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item"><strong>Confidence Interval</strong><span>An interval estimate $\text{estimate} \pm \text{margin of error}$ designed to capture the true parameter with a given confidence level.</span></div>
+                <div class="key-term-item"><strong>Confidence Level</strong><span>The probability (e.g., 95%) that the procedure generates an interval capturing the true parameter.</span></div>
+                <div class="key-term-item"><strong>Margin of Error</strong><span>$z^*$ (or $t^*$) times the standard error — half-width of the confidence interval.</span></div>
+                <div class="key-term-item"><strong>Critical Value ($z^*$ or $t^*$)</strong><span>The value from Normal or $t$-table that sets the confidence level. For 95%: $z^* \approx 1.960$.</span></div>
+                <div class="key-term-item"><strong>$t$-distribution</strong><span>Used when $\sigma$ is unknown. Has heavier tails than Normal; shape depends on degrees of freedom $df = n-1$.</span></div>
+                <div class="key-term-item"><strong>Standard Error</strong><span>Estimated standard deviation of the sampling distribution: $s/\sqrt{n}$ for means, $\sqrt{\hat{p}(1-\hat{p})/n}$ for proportions.</span></div>
+            </div>
+        </div>
+    <div class="chapter-nav">
+        <a href="/us/textbook/ap-statistics/sampling-distributions.html">← Chapter 9: Sampling Distributions</a>
+        <a href="/us/textbook/ap-statistics/significance-tests.html">Chapter 11: Significance Tests →</a>
+    </div>
+</article>
+
+<script>
+(function() {
+    // Figure 10.1 — Simulated confidence intervals
+    var elt1 = document.getElementById('graph-ci-sim');
+    var calc1 = Desmos.GraphingCalculator(elt1, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false,
+        showGrid: false, showXAxis: true, showYAxis: false
+    });
+    calc1.setMathBounds({ left: 0.2, right: 0.8, bottom: 0, top: 11 });
+
+    // True p = 0.50 dashed vertical line
+    calc1.setExpression({ id: 'truep', type: 'expression', latex: 'x=0.50', color: '#1d4ed8', lineStyle: Desmos.Styles.DASHED, lineWidth: 2 });
+
+    // 10 simulated CIs as horizontal segments; 9 contain p=0.5, 1 misses
+    var intervals = [
+        { y: 1,  lo: 0.41, hi: 0.59, hit: true  },
+        { y: 2,  lo: 0.44, hi: 0.62, hit: true  },
+        { y: 3,  lo: 0.36, hi: 0.54, hit: true  },
+        { y: 4,  lo: 0.55, hi: 0.73, hit: false }, // misses (0.55 > 0.50 barely but lo > p)
+        { y: 5,  lo: 0.43, hi: 0.61, hit: true  },
+        { y: 6,  lo: 0.38, hi: 0.56, hit: true  },
+        { y: 7,  lo: 0.47, hi: 0.65, hit: true  },
+        { y: 8,  lo: 0.39, hi: 0.57, hit: true  },
+        { y: 9,  lo: 0.42, hi: 0.60, hit: true  },
+        { y: 10, lo: 0.45, hi: 0.63, hit: true  }
+    ];
+
+    intervals.forEach(function(ci, i) {
+        var col = ci.hit ? '#10b981' : '#dc2626';
+        // horizontal segment
+        calc1.setExpression({ id: 'seg'+i, type: 'expression',
+            latex: '\\left(x,'+ci.y+'\\right)\\left\\{'+ci.lo+'\\le x\\le '+ci.hi+'\\right\\}',
+            color: col, lineWidth: 3 });
+        // center dot
+        var mid = ((ci.lo + ci.hi) / 2).toFixed(3);
+        calc1.setExpression({ id: 'ctr'+i, type: 'expression',
+            latex: '('+mid+','+ci.y+')',
+            color: col, pointStyle: Desmos.Styles.POINT, pointSize: 12 });
+        // endpoint ticks
+        calc1.setExpression({ id: 'lo'+i, type: 'expression',
+            latex: '('+ci.lo+','+ci.y+')',
+            color: col, pointStyle: Desmos.Styles.POINT, pointSize: 8 });
+        calc1.setExpression({ id: 'hi'+i, type: 'expression',
+            latex: '('+ci.hi+','+ci.y+')',
+            color: col, pointStyle: Desmos.Styles.POINT, pointSize: 8 });
+    });
+})();
+
+(function() {
+    // Figure 10.2 — t vs Normal
+    var elt2 = document.getElementById('graph-t-vs-z');
+    var calc2 = Desmos.GraphingCalculator(elt2, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false,
+        showGrid: false, showXAxis: true, showYAxis: false
+    });
+    calc2.setMathBounds({ left: -4, right: 4, bottom: -0.02, top: 0.45 });
+
+    // Standard Normal curve (gray)
+    calc2.setExpression({ id: 'normal', type: 'expression',
+        latex: 'y=\\frac{e^{-x^{2}/2}}{\\sqrt{2\\cdot3.14159}}',
+        color: '#94a3b8', lineWidth: 2.5 });
+
+    // t(df=5) approximation: (1 + x^2/5)^(-3) * 0.3796
+    calc2.setExpression({ id: 'tdist', type: 'expression',
+        latex: 'y=0.3796\\cdot\\left(1+\\frac{x^{2}}{5}\\right)^{-3}',
+        color: '#3b82f6', lineWidth: 2.5 });
+
+    // Labels
+    calc2.setExpression({ id: 'lbl_n', type: 'expression',
+        latex: '\\text{Normal } N(0,1)', color: '#94a3b8' });
+    calc2.setExpression({ id: 'lbl_t', type: 'expression',
+        latex: 't\\ (df=5)', color: '#3b82f6' });
+})();
+
+(function() {
+    // Figure 10.3 — CI width comparison
+    var elt3 = document.getElementById('graph-ci-width');
+    var calc3 = Desmos.GraphingCalculator(elt3, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false,
+        showGrid: false, showXAxis: true, showYAxis: false
+    });
+    calc3.setMathBounds({ left: 0.2, right: 0.8, bottom: 0, top: 4 });
+
+    // Three intervals centered at 0.50
+    // Narrow: 95%, n=100 → ME≈1.96*sqrt(0.25/100)=0.098
+    // Medium: 95%, n=50  → ME≈1.96*sqrt(0.25/50)=0.139
+    // Wide:   99%, n=50  → ME≈2.576*sqrt(0.25/50)=0.182
+
+    var cis3 = [
+        { y: 1, lo: 0.402, hi: 0.598, label: '95%, n=100 (narrow)', col: '#065f46' },
+        { y: 2, lo: 0.361, hi: 0.639, label: '95%, n=50 (medium)', col: '#10b981' },
+        { y: 3, lo: 0.318, hi: 0.682, label: '99%, n=50 (wide)', col: '#6d28d9' }
+    ];
+
+    // center line at 0.5
+    calc3.setExpression({ id: 'center', type: 'expression',
+        latex: 'x=0.50', color: '#94a3b8', lineStyle: Desmos.Styles.DASHED, lineWidth: 1.5 });
+
+    cis3.forEach(function(ci, i) {
+        calc3.setExpression({ id: 'seg3_'+i, type: 'expression',
+            latex: '\\left(x,'+ci.y+'\\right)\\left\\{'+ci.lo+'\\le x\\le '+ci.hi+'\\right\\}',
+            color: ci.col, lineWidth: 4 });
+        calc3.setExpression({ id: 'ctr3_'+i, type: 'expression',
+            latex: '(0.50,'+ci.y+')',
+            color: ci.col, pointStyle: Desmos.Styles.POINT, pointSize: 12 });
+    });
+})();
+</script>
+
+    <script src="../../../assets/js/textbook-ux.js"></script>
+</body>
+</html>

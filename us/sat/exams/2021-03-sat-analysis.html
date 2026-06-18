@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, follow">
+    <title>2021 March SAT Math Section: Research Analysis | MathHub</title>
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #0ea5e9;
+            --accent: #f59e0b;
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+        }
+        .report-body { max-width: 1000px; margin: 0 auto; padding: 60px 40px; font-family: 'Inter', system-ui, -apple-system, sans-serif; line-height: 1.8; color: var(--text-main); }
+        .breadcrumb { color: var(--text-light); margin-bottom: 30px; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+        
+        header { border-bottom: 1px solid #e2e8f0; padding-bottom: 40px; margin-bottom: 60px; }
+        h1 { font-size: 3.2rem; color: #0f172a; margin: 10px 0; letter-spacing: -0.04em; line-height: 1.1; font-weight: 800; }
+        .subtitle { font-size: 1.3rem; color: var(--text-light); font-weight: 400; max-width: 750px; line-height: 1.6; }
+
+        .executive-summary { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 40px; margin: 40px 0 60px 0; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .summary-text h3 { color: var(--primary); margin-top: 0; font-weight: 800; font-size: 1.4rem; margin-bottom: 20px; }
+        .summary-text p { margin-bottom: 16px; }
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .stat-card { background: var(--bg-light); padding: 24px; border-radius: 16px; text-align: center; border: 1px solid #f1f5f9; }
+        .stat-value { display: block; font-size: 2.2rem; font-weight: 900; color: var(--primary); margin-bottom: 4px; }
+        .stat-label { font-size: 0.75rem; color: var(--text-light); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
+
+        h2 { font-size: 2.2rem; color: #0f172a; margin-top: 80px; margin-bottom: 32px; font-weight: 800; border: none; padding: 0; }
+        h2 .section-num { color: var(--secondary); margin-right: 12px; }
+
+        .distribution-table { width: 100%; border-collapse: collapse; margin: 40px 0; background: white; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }
+        .distribution-table th { background: var(--bg-light); padding: 20px; text-align: left; font-weight: 700; color: var(--primary); border-bottom: 1px solid #e2e8f0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .distribution-table td { padding: 20px; border-bottom: 1px solid #f1f5f9; }
+        .progress-bar { height: 10px; background: #e2e8f0; border-radius: 5px; overflow: hidden; width: 100%; margin-top: 12px; }
+        .progress-fill { height: 100%; background: var(--secondary); border-radius: 5px; }
+
+        .hardest-questions { background: #0f172a; color: white; border-radius: 24px; padding: 48px; margin: 60px 0; }
+        .hardest-questions h2 { color: white; margin-top: 0; margin-bottom: 24px; }
+        .hardest-questions h2 .section-num { color: var(--accent); }
+        .question-type { background: rgba(255,255,255,0.03); border-radius: 16px; padding: 32px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 24px; }
+        .question-type:last-child { margin-bottom: 0; }
+        .question-type h4 { color: var(--accent); font-weight: 800; font-size: 1.25rem; margin-bottom: 12px; }
+
+        .curve-analysis { background: #fff7ed; border: 1px solid #ffedd5; padding: 40px; border-radius: 20px; margin: 40px 0; }
+        .curve-tag { background: var(--accent); color: white; padding: 6px 16px; border-radius: 8px; font-weight: 800; font-size: 0.85rem; margin-bottom: 20px; display: inline-block; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        .dsat-advice { background: #f0fdf4; border-radius: 20px; padding: 40px; margin: 40px 0; }
+        .dsat-advice h3 { color: #166534; font-weight: 800; font-size: 1.5rem; margin-top: 0; margin-bottom: 20px; }
+        .dsat-advice ul { list-style: none; padding: 0; }
+        .dsat-advice li { margin-bottom: 16px; padding-left: 28px; position: relative; line-height: 1.7; }
+        .dsat-advice li::before { content: "✓"; position: absolute; left: 0; color: #22c55e; font-weight: 900; }
+
+        .pdf-container { margin-top: 100px; padding-top: 60px; border-top: 1px solid #e2e8f0; }
+        .pdf-container h2 { font-size: 1.8rem; margin-top: 0; }
+        
+        @media (max-width: 768px) {
+            .executive-summary { grid-template-columns: 1fr; padding: 30px; }
+            .report-body { padding: 40px 20px; }
+            h1 { font-size: 2.4rem; }
+        }
+
+        .killer-problem .question-block h4 { color: white; }
+        .killer-problem .question-block p { color: rgba(255,255,255,0.8); }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="report-body">
+        <div class="breadcrumb">US SAT &rsaquo; Research Reports &rsaquo; March 2021</div>
+        <header>
+            <h1>March 2021 SAT Math Research Analysis</h1>
+            <p class="subtitle">A detailed evaluation of core algebraic concepts, real-world modeling trends, and statistical interpretation observed in the March 2021 administration.</p>
+        </header>
+
+        <section class="executive-summary">
+            <div class="summary-text">
+                <h3>Executive Summary</h3>
+                <p>The March 2021 SAT administration was characterized by a heavy emphasis on <strong>linear modeling</strong> and the interpretation of variables within a context. The exam followed standard SAT patterns but introduced significant hurdles in Section 4 Statistics.</p>
+                <p>Global data for the 2021 cycle indicates a strong performance in foundational algebra, though complex data interpretation remains a primary differentiator for top-tier scores.</p>
+            </div>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <span class="stat-label">Global Math Mean</span>
+                    <span class="stat-value">528</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Difficulty Rating</span>
+                    <span class="stat-value" style="color:var(--accent)">Moderate</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Algebra Focus</span>
+                    <span class="stat-value">34%</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Curve Bias</span>
+                    <span class="stat-value" style="color:#10b981">Balanced</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="section-num">01.</span> Skill Category Distribution</h2>
+            <p>The March 2021 sitting maintained a balanced distribution, with a notable uptick in Problem Solving & Data Analysis questions compared to the 2020 average.</p>
+            <table class="distribution-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Weight</th>
+                        <th>Key Competencies Tested</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Heart of Algebra</strong></td>
+                        <td>34%</td>
+                        <td>Linear equations, modeling, systems, and "no solution" conditions.
+                            <div class="progress-bar"><div class="progress-fill" style="width: 34%"></div></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Passport to Advanced Math</strong></td>
+                        <td>27%</td>
+                        <td>Quadratic functions, exponential growth, and rational expressions.
+                            <div class="progress-bar"><div class="progress-fill" style="width: 27%"></div></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Problem Solving & Data Analysis</strong></td>
+                        <td>30%</td>
+                        <td>Statistics, frequency tables, mean/median comparisons, and ratios.
+                            <div class="progress-bar"><div class="progress-fill" style="width: 30%"></div></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Additional Topics</strong></td>
+                        <td>9%</td>
+                        <td>Circle geometry (arc length/sector area), trigonometry.
+                            <div class="progress-bar"><div class="progress-fill" style="width: 9%"></div></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="hardest-questions">
+            <h2><span class="section-num">02.</span> "The Hardest Questions" Analysis</h2>
+            <p style="opacity:0.8; margin-bottom: 32px;">The following question types represented the "Killer Questions" and highest error rates in the March 2021 administration:</p>
+            
+            <div class="question-type">
+                <h4>Section 4: Complex Statistical Interpretations</h4>
+                <p>The "Killer Questions" of this sitting were concentrated in Section 4. Mean and median comparisons were tested using frequency tables, requiring students to interpret data sets without calculating every value.</p>
+            </div>
+
+            <div class="question-type">
+                <h4>Circle Geometry (Multi-Step)</h4>
+                <p>A challenging circle question appeared involving arc length and sector area calculations, requiring the synthesis of multiple geometric formulas within a single problem.</p>
+            </div>
+
+            <div class="question-type">
+                <h4>Linear vs Exponential Modeling</h4>
+                <p>Verbal descriptions required distinguishing between constant addition (linear) and constant percentage increase (exponential). The wording was intentionally subtle.</p>
+            </div>
+
+            <div class="question-type">
+                <h4>Systems of Equations: No Solution Logic</h4>
+                <p>Multiple questions focused on the "no solution" condition for linear systems, requiring recognition that parallel lines must have equal slopes but different intercepts.</p>
+            </div>
+        </section>
+
+        <section class="curve-analysis">
+            <div class="curve-tag">Curve Analysis: Balanced</div>
+            <h3>3. Scoring Strategy (Mark Scheme)</h3>
+            <p>The March 2021 curve was remarkably standard. While the Statistics section in the Calculator portion was dense, the foundational Algebra questions were accessible. Students who mastered "translation" (text to equation) drills found the scoring to be fair and predictable.</p>
+            <p><strong>Recommendation:</strong> Focus on reading comprehension for math. The difficulty often lies in translating five-line word problems into simple mathematical models.</p>
+        </section>
+
+        <section class="dsat-advice">
+            <h3>04. Strategic Advice for Digital SAT Transition</h3>
+            <p style="margin-bottom: 24px;">The March 2021 emphasis on context provides a vital blueprint for the Digital SAT (DSAT):</p>
+            <ul>
+                <li><strong>Data Visualization:</strong> DSAT modules frequently use the same frequency table traps seen in Section 4 of this exam.</li>
+                <li><strong>Desmos Efficiency:</strong> System of equations problems (like the 'no solution' cases) can be verified visually in seconds using the DSAT's integrated calculator.</li>
+                <li><strong>Conceptual Purity:</strong> Practice identifying y-intercepts as "initial values" and slopes as "rates," as this remains the core of DSAT Module 1.</li>
+            </ul>
+        </section>
+
+        <div class="pdf-container">
+            <h2>Original Research Source (PDF)</h2>
+            <p style="margin-bottom: 30px; color: var(--text-light);">Review the full March 2021 SAT QAS document for raw data verification.</p>
+            <iframe src="../papers/2021-03-sat-qas.pdf" style="width:100%; height:800px; border:1px solid #e2e8f0; border-radius:16px;"></iframe>
+        </div>
+    </div>
+</body>
+</html>

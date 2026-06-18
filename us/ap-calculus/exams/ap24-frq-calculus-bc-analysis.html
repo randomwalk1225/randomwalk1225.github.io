@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, follow">
+    <title>Deep Dive into the 2024 AP Calculus BC Free-Response Section | MathHub</title>
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #0ea5e9;
+            --accent: #f59e0b;
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+        }
+        .report-body { max-width: 1000px; margin: 0 auto; padding: 60px 40px; font-family: 'Inter', system-ui, -apple-system, sans-serif; line-height: 1.8; color: var(--text-main); }
+        .breadcrumb { color: var(--text-light); margin-bottom: 30px; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+        
+        header { border-bottom: 1px solid #e2e8f0; padding-bottom: 40px; margin-bottom: 60px; }
+        h1 { font-size: 3.2rem; color: #0f172a; margin: 10px 0; letter-spacing: -0.04em; line-height: 1.1; font-weight: 800; }
+        .subtitle { font-size: 1.3rem; color: var(--text-light); font-weight: 400; max-width: 750px; line-height: 1.6; }
+
+        .executive-summary { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 40px; margin: 40px 0 60px 0; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05); }
+        .summary-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .summary-text h3 { color: var(--primary); margin-top: 0; font-weight: 800; font-size: 1.4rem; margin-bottom: 20px; }
+        .summary-text p { margin-bottom: 16px; }
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .stat-card { background: var(--bg-light); padding: 24px; border-radius: 16px; text-align: center; border: 1px solid #f1f5f9; }
+        .stat-value { display: block; font-size: 2.2rem; font-weight: 900; color: var(--primary); margin-bottom: 4px; }
+        .stat-label { font-size: 0.75rem; color: var(--text-light); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
+
+        .score-table { width: 100%; border-collapse: collapse; margin-top: 24px; text-align: center; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; }
+        .score-table th { background: var(--secondary); color: white; padding: 12px; font-weight: 700; }
+        .score-table td { padding: 12px; border: 1px solid #e2e8f0; }
+
+        h2 { font-size: 2.2rem; color: #0f172a; margin-top: 80px; margin-bottom: 32px; font-weight: 800; border: none; padding: 0; }
+        h2 .section-num { color: var(--secondary); margin-right: 12px; }
+
+        .curriculum-table { width: 100%; border-collapse: collapse; margin: 40px 0; background: white; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }
+        .curriculum-table th { background: var(--bg-light); padding: 20px; text-align: left; font-weight: 700; color: var(--primary); border-bottom: 1px solid #e2e8f0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .curriculum-table td { padding: 20px; border-bottom: 1px solid #f1f5f9; }
+
+        .killer-problem { background: #0f172a; color: white; border-radius: 24px; padding: 48px; margin: 60px 0; }
+        .killer-problem h2 { color: white; margin-top: 0; margin-bottom: 24px; }
+        .killer-problem h2 .section-num { color: var(--accent); }
+        .problem-content { background: rgba(255,255,255,0.03); border-radius: 16px; padding: 32px; border: 1px solid rgba(255,255,255,0.1); }
+        .problem-content h4 { color: var(--accent); font-weight: 800; font-size: 1.25rem; margin-bottom: 16px; }
+
+        .analysis-card { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 40px; margin: 40px 0; }
+        .analysis-card h3 { color: var(--primary); font-weight: 800; font-size: 1.5rem; margin-top: 0; margin-bottom: 24px; }
+        .analysis-card ul { list-style: none; padding: 0; }
+        .analysis-card li { margin-bottom: 16px; padding-left: 28px; position: relative; }
+        .analysis-card li::before { content: "•"; position: absolute; left: 0; color: var(--secondary); font-weight: 900; font-size: 1.5rem; line-height: 1; }
+
+        .strategy-box { background: #f0fdf4; border-radius: 20px; padding: 40px; margin: 40px 0; }
+        .strategy-box h3 { color: #166534; font-weight: 800; font-size: 1.5rem; margin-top: 0; margin-bottom: 24px; }
+        .strategy-box ul { list-style: none; padding: 0; }
+        .strategy-box li { margin-bottom: 16px; padding-left: 28px; position: relative; }
+        .strategy-box li::before { content: "✓"; position: absolute; left: 0; color: #22c55e; font-weight: 900; }
+
+        .pdf-container { margin-top: 100px; padding-top: 60px; border-top: 1px solid #e2e8f0; }
+        .pdf-container h2 { font-size: 1.8rem; margin-top: 0; }
+        
+        @media (max-width: 768px) {
+            .summary-content { grid-template-columns: 1fr; }
+            .report-body { padding: 40px 20px; }
+            h1 { font-size: 2.4rem; }
+        }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="report-body">
+        <div class="breadcrumb">US AP &rsaquo; AP Calculus &rsaquo; Exam Reports &rsaquo; 2024</div>
+        <header>
+            <h1>2024 AP Calculus BC FRQ Research Analysis</h1>
+            <p class="subtitle">A comprehensive analysis of the 2024 AP Calculus BC exam, highlighting the integration of BC-specific topics into classic calculus frameworks.</p>
+        </header>
+
+        <section class="executive-summary">
+            <div class="padding-wrapper" style="padding: 40px;">
+                <div class="summary-content">
+                    <div class="summary-text">
+                        <h3>Executive Summary</h3>
+                        <p>The 2024 AP Calculus BC exam continued its trend of high performance, though the Free-Response section remained a significant differentiator for top-tier scores. The mean score was approximately <strong>3.68</strong>.</p>
+                        <p>Most difficult: **FRQ #6** (Power Series/Lagrange Error Bound). Key Topics included Unit 6 (Integration) and Unit 10 (Infinite Sequences and Series).</p>
+                    </div>
+                    <div class="stat-grid">
+                        <div class="stat-card">
+                            <span class="stat-label">Mean Score</span>
+                            <span class="stat-value">3.68</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">5-Score Rate</span>
+                            <span class="stat-value" style="color:var(--secondary)">45%</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">Unit 10 Weight</span>
+                            <span class="stat-value">Critical</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">Difficulty</span>
+                            <span class="stat-value" style="color:var(--accent)">High</span>
+                        </div>
+                    </div>
+                </div>
+
+                <table class="score-table">
+                    <thead>
+                        <tr>
+                            <th>AP Score</th>
+                            <th>5</th>
+                            <th>4</th>
+                            <th>3</th>
+                            <th>2</th>
+                            <th>1</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight:bold;">Percentage</td>
+                            <td>45%</td>
+                            <td>16%</td>
+                            <td>17%</td>
+                            <td>12%</td>
+                            <td>10%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="section-num">01.</span> Curriculum Coverage Analysis</h2>
+            <p>The 2024 FRQs were strategically distributed across the AP Calculus BC CED. Units 6 and 10 were particularly emphasized in the non-calculator section.</p>
+            <table class="curriculum-table">
+                <thead>
+                    <tr>
+                        <th>Unit / Topic Area</th>
+                        <th>FRQ Representation</th>
+                        <th>Research Weighting</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Unit 6: Integration & Accumulation</strong></td>
+                        <td>Heavy (Tables, Area/Volume)</td>
+                        <td>High Intensity</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Unit 9: Parametric, Polar, & Vector</strong></td>
+                        <td>FRQ #2 (Parametric)</td>
+                        <td>Moderate Intensity</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Unit 10: Infinite Sequences & Series</strong></td>
+                        <td>FRQ #6 (Power Series)</td>
+                        <td>Critical Complexity</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="killer-problem">
+            <h2><span class="section-num">02.</span> Killer Problem Analysis</h2>
+            <div class="problem-content">
+                <h4>FRQ #6: Power Series & Lagrange Error Bound</h4>
+                <p>As is tradition, the final FRQ (#6) focused on Infinite Series and was the most difficult question on the exam. Specifically, the inclusion of the <strong>Lagrange Error Bound</strong> proved to be a significant conceptual hurdle.</p>
+                <p style="margin-top: 20px; font-weight: 700; color: var(--accent);">Why Students Struggled:</p>
+                <p>Many students failed to identify the correct value for \( M \) (the maximum value of the \( (n+1) \)-th derivative) or confused it with the Alternating Series Error Bound. Additionally, while most could perform the Ratio Test, many omitted the critical step of checking endpoints in the interval of convergence.</p>
+            </div>
+        </section>
+
+        <section class="analysis-card">
+            <h3>03. Mark Scheme Insights</h3>
+            <p style="margin-bottom: 24px;">Based on 2024 grading patterns, points were awarded for process even when the final answer was incorrect. Key "point-getters" included:</p>
+            <ul>
+                <li><strong>Using the Derivative:</strong> 1 point for correctly identifying and setting up the derivative or anti-derivative in the context of the problem.</li>
+                <li><strong>Setup of Integral:</strong> 1-2 points for the correct limits of integration, even if the integrand had minor errors.</li>
+                <li><strong>Final Answer & Units:</strong> 1-2 points for the final numeric value, but <em>only</em> if correct units (e.g., cubic feet per minute) were included as requested.</li>
+                <li><strong>Chain Rule Application:</strong> In the parametric section, points were heavily weighted toward the correct application of \( dy/dx = (dy/dt) / (dx/dt) \).</li>
+            </ul>
+        </section>
+
+        <section class="strategy-box">
+            <h3>04. Strategic Advice for 2025-2026</h3>
+            <p style="margin-bottom: 24px;">To excel in the upcoming exam cycles, students should focus on:</p>
+            <ul>
+                <li><strong>Mastering Series Error Bounds:</strong> Practice distinguishing between when to use Alternating Series Error vs. Lagrange Error.</li>
+                <li><strong>Calculator Efficiency:</strong> In Section I Part B and FRQ #1-2, fluency with "Math-9" (NINT) and "Math-8" (NDERIV) is essential to save time for conceptual analysis.</li>
+                <li><strong>Justification Language:</strong> Use specific phrasing for theorems (e.g., "Since \( f \) is continuous on \( [a,b] \) and differentiable on \( (a,b) \), by the MVT...") to ensure full credit.</li>
+            </ul>
+        </section>
+
+        <div class="pdf-container">
+            <h2>Original Exam Paper (PDF)</h2>
+            <p style="margin-bottom: 30px; color: var(--text-light);">Review the questions analyzed above in the full 2024 AP Calculus BC FRQ document below.</p>
+            <iframe src="https://apcentral.collegeboard.org/media/pdf/ap24-frq-calculus-bc.pdf" style="width:100%; height:800px; border:1px solid #e2e8f0; border-radius:16px;"></iframe>
+        </div>
+    </div>
+</body>
+</html>

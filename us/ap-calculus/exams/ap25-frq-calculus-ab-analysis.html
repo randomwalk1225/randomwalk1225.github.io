@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, follow">
+    <title>Deep Dive: 2025 AP Calculus AB FRQ Analysis | MathHub</title>
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #0ea5e9;
+            --accent: #f59e0b;
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+        }
+        .report-body { max-width: 1000px; margin: 0 auto; padding: 60px 40px; font-family: 'Inter', system-ui, -apple-system, sans-serif; line-height: 1.8; color: var(--text-main); }
+        .breadcrumb { color: var(--text-light); margin-bottom: 30px; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+        
+        header { border-bottom: 1px solid #e2e8f0; padding-bottom: 40px; margin-bottom: 60px; }
+        h1 { font-size: 3.2rem; color: #0f172a; margin: 10px 0; letter-spacing: -0.04em; line-height: 1.1; font-weight: 800; }
+        .subtitle { font-size: 1.3rem; color: var(--text-light); font-weight: 400; max-width: 750px; line-height: 1.6; }
+
+        .executive-summary { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 40px; margin: 40px 0 60px 0; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05); }
+        .summary-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .summary-text h3 { color: var(--primary); margin-top: 0; font-weight: 800; font-size: 1.4rem; margin-bottom: 20px; }
+        .summary-text p { margin-bottom: 16px; }
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .stat-card { background: var(--bg-light); padding: 24px; border-radius: 16px; text-align: center; border: 1px solid #f1f5f9; }
+        .stat-value { display: block; font-size: 2.2rem; font-weight: 900; color: var(--primary); margin-bottom: 4px; }
+        .stat-label { font-size: 0.75rem; color: var(--text-light); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
+
+        .score-table { width: 100%; border-collapse: collapse; margin-top: 24px; text-align: center; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; }
+        .score-table th { background: var(--secondary); color: white; padding: 12px; font-weight: 700; }
+        .score-table td { padding: 12px; border: 1px solid #e2e8f0; }
+
+        h2 { font-size: 2.2rem; color: #0f172a; margin-top: 80px; margin-bottom: 32px; font-weight: 800; border: none; padding: 0; }
+        h2 .section-num { color: var(--secondary); margin-right: 12px; }
+
+        .curriculum-table { width: 100%; border-collapse: collapse; margin: 40px 0; background: white; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }
+        .curriculum-table th { background: var(--bg-light); padding: 20px; text-align: left; font-weight: 700; color: var(--primary); border-bottom: 1px solid #e2e8f0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .curriculum-table td { padding: 20px; border-bottom: 1px solid #f1f5f9; }
+
+        .killer-problem { background: #0f172a; color: white; border-radius: 24px; padding: 48px; margin: 60px 0; }
+        .killer-problem h2 { color: white; margin-top: 0; margin-bottom: 24px; }
+        .killer-problem h2 .section-num { color: var(--accent); }
+        .problem-content { background: rgba(255,255,255,0.03); border-radius: 16px; padding: 32px; border: 1px solid rgba(255,255,255,0.1); }
+        .problem-content h4 { color: var(--accent); font-weight: 800; font-size: 1.25rem; margin-bottom: 16px; }
+
+        .analysis-card { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 40px; margin: 40px 0; }
+        .analysis-card h3 { color: var(--primary); font-weight: 800; font-size: 1.5rem; margin-top: 0; margin-bottom: 24px; }
+        .analysis-card ul { list-style: none; padding: 0; }
+        .analysis-card li { margin-bottom: 16px; padding-left: 28px; position: relative; }
+        .analysis-card li::before { content: "•"; position: absolute; left: 0; color: var(--secondary); font-weight: 900; font-size: 1.5rem; line-height: 1; }
+
+        .strategy-box { background: #f0fdf4; border-radius: 20px; padding: 40px; margin: 40px 0; }
+        .strategy-box h3 { color: #166534; font-weight: 800; font-size: 1.5rem; margin-top: 0; margin-bottom: 24px; }
+        .strategy-box ul { list-style: none; padding: 0; }
+        .strategy-box li { margin-bottom: 16px; padding-left: 28px; position: relative; }
+        .strategy-box li::before { content: "✓"; position: absolute; left: 0; color: #22c55e; font-weight: 900; }
+
+        .pdf-container { margin-top: 100px; padding-top: 60px; border-top: 1px solid #e2e8f0; }
+        .pdf-container h2 { font-size: 1.8rem; margin-top: 0; }
+        
+        @media (max-width: 768px) {
+            .summary-content { grid-template-columns: 1fr; }
+            .report-body { padding: 40px 20px; }
+            h1 { font-size: 2.4rem; }
+        }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="report-body">
+        <div class="breadcrumb">US AP &rsaquo; AP Calculus &rsaquo; Exam Reports &rsaquo; 2025</div>
+        <header>
+            <h1>2025 AP Calculus AB FRQ Research Analysis</h1>
+            <p class="subtitle">An expert breakdown of the 2025 AP Calculus AB Free-Response section, focusing on performance metrics, curriculum shifts, and scoring nuances.</p>
+        </header>
+
+        <section class="executive-summary">
+            <div class="padding-wrapper" style="padding: 40px;">
+                <div class="summary-content">
+                    <div class="summary-text">
+                        <h3>Executive Summary</h3>
+                        <p>The 2025 AP Calculus AB exam demonstrated a slight recovery in global performance compared to the previous year, with a mean score of <strong>3.02</strong>. While foundational integration skills were strong, the non-calculator section involving geometric transformations proved to be the primary differentiator between 4s and 5s.</p>
+                        <p>Hardest: **FRQ #4** (Complex Area/Volume with rotation about a horizontal line). Unit 8 (Applications of Integration) carried significant weight.</p>
+                    </div>
+                    <div class="stat-grid">
+                        <div class="stat-card">
+                            <span class="stat-label">Mean Score</span>
+                            <span class="stat-value">3.02</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">5-Score Rate</span>
+                            <span class="stat-value" style="color:var(--secondary)">23.5%</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">Unit 8 Weight</span>
+                            <span class="stat-value">High</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">Difficulty</span>
+                            <span class="stat-value" style="color:var(--accent)">Moderate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <table class="score-table">
+                    <thead>
+                        <tr>
+                            <th>AP Score</th>
+                            <th>5</th>
+                            <th>4</th>
+                            <th>3</th>
+                            <th>2</th>
+                            <th>1</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight:bold;">Percentage (Est.)</td>
+                            <td>23.5%</td>
+                            <td>21.8%</td>
+                            <td>18.2%</td>
+                            <td>23.0%</td>
+                            <td>13.5%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="section-num">01.</span> Curriculum Distribution Analysis</h2>
+            <p>The 2025 exam maintained a traditional weighting but increased the complexity of multi-step applications. Unit 8 (Applications of Integration) carried significant weight in the Free-Response section.</p>
+            <table class="curriculum-table">
+                <thead>
+                    <tr>
+                        <th>CED Unit Topic Area</th>
+                        <th>FRQ Representation</th>
+                        <th>Difficulty Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Unit 1/2: Limits & Differentiation Foundations</strong></td>
+                        <td>FRQ #3 (Part a) & FRQ #6</td>
+                        <td>Low to Moderate Intensity</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Unit 6: Integration & Accumulation</strong></td>
+                        <td>FRQ #1 (Table-based)</td>
+                        <td>Moderate Intensity</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Unit 8: Applications of Integration</strong></td>
+                        <td>FRQ #4 (Area/Volume)</td>
+                        <td>High Intensity (Hardest)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="killer-problem">
+            <h2><span class="section-num">02.</span> Killer Problem Analysis</h2>
+            <div class="problem-content">
+                <h4>FRQ #4: Complex Area/Volume with rotation about a horizontal line</h4>
+                <p>This question required students to find the volume of a solid generated by rotating a region bounded by two functions around a horizontal line (e.g., \( y = k \)). The primary hurdle was the setup of the "Washer Method" when the axis of rotation was located above or below the region.</p>
+                <p style="margin-top: 20px; font-weight: 700; color: var(--accent);">Why Students Struggled:</p>
+                <p>Common pitfalls included reversing the order of functions in the outer vs. inner radius calculation, failing to find the correct intersection points for the limits of integration in the non-calculator section, and conceptual confusion between rotation about a horizontal line vs. cross-sections perpendicular to the \( y \)-axis.</p>
+            </div>
+        </section>
+
+        <section class="analysis-card">
+            <h3>03. Mark Scheme Insights</h3>
+            <p style="margin-bottom: 24px;">The 2025 scoring guidelines rewarded conceptual setups even when algebraic execution faltered. Key point distributions included:</p>
+            <ul>
+                <li><strong>Setup vs. Solve:</strong> In FRQ #4, 2 points were often awarded for the correct integrand (the squared radii setup) even if the final integration was incorrect.</li>
+                <li><strong>Justification Rigor:</strong> 1 point was strictly reserved for the mention of "\( f'(x) \) changes sign" or "testing endpoints" for absolute extrema. Phrases like "the graph goes up then down" received 0 points.</li>
+                <li><strong>Notation Precision:</strong> Deduction of 1 point for "linkage errors" (writing equal signs between unequal mathematical expressions) was more strictly enforced in 2025.</li>
+                <li><strong>Units of Measure:</strong> Units were required for 1 point in FRQ #1 and FRQ #2; missing "feet/min" or "cubic inches" resulted in a lost point.</li>
+            </ul>
+        </section>
+
+        <section class="strategy-box">
+            <h3>04. Strategic Advice for 2026-2027</h3>
+            <p style="margin-bottom: 24px;">Based on the 2025 data, students preparing for upcoming administrations should prioritize:</p>
+            <ul>
+                <li><strong>Geometric Visualization:</strong> Practice sketching regions and identifying radii for rotation about arbitrary lines (\( y = k \) or \( x = h \)). This is becoming a standard high-point-value topic.</li>
+                <li><strong>Calculator Efficiency:</strong> For the calculator-active section, ensure you can store intersection points and use them as limits in numerical integration without rounding errors.</li>
+                <li><strong>Formal Justification:</strong> Memorize the standard phrasing for the Mean Value Theorem (MVT) and the Candidates Test for absolute extrema.</li>
+            </ul>
+        </section>
+
+        <div class="pdf-container">
+            <h2>Original Exam Paper (PDF)</h2>
+            <p style="margin-bottom: 30px; color: var(--text-light);">Review the questions analyzed above in the full 2025 AP Calculus AB FRQ document below.</p>
+            <iframe src="https://apcentral.collegeboard.org/media/pdf/ap25-frq-calculus-ab.pdf" style="width:100%; height:800px; border:1px solid #e2e8f0; border-radius:16px;"></iframe>
+        </div>
+    </div>
+</body>
+</html>

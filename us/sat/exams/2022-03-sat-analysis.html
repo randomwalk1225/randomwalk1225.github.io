@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, follow">
+    <title>2022 March SAT Math Section: Research Analysis | MathHub</title>
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #0ea5e9;
+            --accent: #f59e0b;
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+        }
+        .report-body { max-width: 1000px; margin: 0 auto; padding: 60px 40px; font-family: 'Inter', system-ui, -apple-system, sans-serif; line-height: 1.8; color: var(--text-main); }
+        .breadcrumb { color: var(--text-light); margin-bottom: 30px; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+        
+        header { border-bottom: 1px solid #e2e8f0; padding-bottom: 40px; margin-bottom: 60px; }
+        h1 { font-size: 3.2rem; color: #0f172a; margin: 10px 0; letter-spacing: -0.04em; line-height: 1.1; font-weight: 800; }
+        .subtitle { font-size: 1.3rem; color: var(--text-light); font-weight: 400; max-width: 750px; line-height: 1.6; }
+
+        .executive-summary { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 40px; margin: 40px 0 60px 0; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .summary-text h3 { color: var(--primary); margin-top: 0; font-weight: 800; font-size: 1.4rem; margin-bottom: 20px; }
+        .summary-text p { margin-bottom: 16px; }
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .stat-card { background: var(--bg-light); padding: 24px; border-radius: 16px; text-align: center; border: 1px solid #f1f5f9; }
+        .stat-value { display: block; font-size: 2.2rem; font-weight: 900; color: var(--primary); margin-bottom: 4px; }
+        .stat-label { font-size: 0.75rem; color: var(--text-light); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
+
+        h2 { font-size: 2.2rem; color: #0f172a; margin-top: 80px; margin-bottom: 32px; font-weight: 800; border: none; padding: 0; }
+        h2 .section-num { color: var(--secondary); margin-right: 12px; }
+
+        .distribution-table { width: 100%; border-collapse: collapse; margin: 40px 0; background: white; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }
+        .distribution-table th { background: var(--bg-light); padding: 20px; text-align: left; font-weight: 700; color: var(--primary); border-bottom: 1px solid #e2e8f0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .distribution-table td { padding: 20px; border-bottom: 1px solid #f1f5f9; }
+        .progress-bar { height: 10px; background: #e2e8f0; border-radius: 5px; overflow: hidden; width: 100%; margin-top: 12px; }
+        .progress-fill { height: 100%; background: var(--secondary); border-radius: 5px; }
+
+        .analysis-card { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 40px; margin: 40px 0; }
+        .analysis-card h3 { color: var(--primary); font-weight: 800; font-size: 1.5rem; margin-top: 0; margin-bottom: 24px; }
+
+        .question-block { margin-bottom: 40px; padding: 0; }
+        .question-block:last-child { margin-bottom: 0; }
+        .question-block h4 { color: #0f172a; font-weight: 800; font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .question-block h4::before { content: "•"; color: var(--accent); font-size: 1.5rem; }
+        .question-block p { color: var(--text-main); line-height: 1.7; }
+
+        .killer-problem { background: #0f172a; color: white; border-radius: 24px; padding: 48px; margin: 60px 0; }
+        .killer-problem h2 { color: white; margin-top: 0; margin-bottom: 24px; }
+        .killer-problem h2 .section-num { color: var(--accent); }
+        .problem-content { background: rgba(255,255,255,0.03); border-radius: 16px; padding: 32px; border: 1px solid rgba(255,255,255,0.1); }
+
+        .strategy-box { background: #f0fdf4; border-radius: 20px; padding: 40px; margin: 40px 0; }
+        .strategy-box h3 { color: #166534; font-weight: 800; font-size: 1.5rem; margin-top: 0; margin-bottom: 20px; }
+        .strategy-box ul { list-style: none; padding: 0; }
+        .strategy-box li { margin-bottom: 16px; padding-left: 28px; position: relative; }
+        .strategy-box li::before { content: "✓"; position: absolute; left: 0; color: #22c55e; font-weight: 900; }
+
+        .pdf-container { margin-top: 100px; padding-top: 60px; border-top: 1px solid #e2e8f0; }
+        .pdf-container h2 { font-size: 1.8rem; margin-top: 0; }
+        
+        @media (max-width: 768px) {
+            .executive-summary { grid-template-columns: 1fr; padding: 30px; }
+            .report-body { padding: 40px 20px; }
+            h1 { font-size: 2.4rem; }
+        }
+
+        .killer-problem .question-block h4 { color: white; }
+        .killer-problem .question-block p { color: rgba(255,255,255,0.8); }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="report-body">
+        <div class="breadcrumb">US SAT &rsaquo; Research Reports &rsaquo; 2022</div>
+        <header>
+            <h1>The Evolution of Linear Models: March 2022 SAT Math Analysis</h1>
+            <p class="subtitle">A comprehensive look at difficulty trends, conceptual shifts, and key problem-solving strategies from the March 12, 2022 administration.</p>
+        </header>
+
+        <section class="executive-summary">
+            <div class="summary-text">
+                <h3>Executive Summary</h3>
+                <p>The March 2022 SAT Math section continued the trend of prioritizing conceptual interpretation over rote calculation. Many Heart of Algebra questions required students to identify the meaning of a constant or coefficient in a real-world linear model. For instance, rather than simply solving for the slope, students were asked what the slope represented in the context of cost per unit over time.</p>
+                <p>This shift requires students to be comfortable with "word-to-math" translation. Success in this sitting was determined not by how fast a student could use a calculator, but by how accurately they could model the verbal descriptions provided in the prompts.</p>
+            </div>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <span class="stat-label">Exam Year</span>
+                    <span class="stat-value">2022</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Difficulty</span>
+                    <span class="stat-value" style="color:var(--accent)">Moderate</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Primary Focus</span>
+                    <span class="stat-value">Algebra</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Time Intensity</span>
+                    <span class="stat-value" style="color:#e11d48">Medium</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="analysis-section">
+            <h2><span class="section-num">01.</span> Conceptual Shifts: Interpretation over Calculation</h2>
+            <p>The March 2022 SAT Math section continued the trend of prioritizing <strong>conceptual interpretation</strong> over rote calculation. Many Heart of Algebra questions required students to identify the meaning of a constant or coefficient in a real-world linear model. For instance, rather than simply solving for the slope, students were asked what the slope represented in the context of cost per unit over time.</p>
+            <p>This shift requires students to be comfortable with "word-to-math" translation. Success in this sitting was determined not by how fast a student could use a calculator, but by how accurately they could model the verbal descriptions provided in the prompts.</p>
+
+            <h2><span class="section-num">02.</span> Topic Distribution: Systems and Statistics</h2>
+            <p>The exam showed a balanced distribution, but with a notable focus on <strong>Systems of Linear Equations</strong> and <strong>Statistical Inference</strong>. We saw questions testing the nuances of "no solution" and "infinitely many solutions" by manipulating constants in standard form equations.</p>
+            <ul>
+                <li><strong>Algebraic Fluency:</strong> Isolating variables in complex formulas was a recurring theme in Section 3.</li>
+                <li><strong>Data Analysis:</strong> Standard deviation appeared as a conceptual comparison between two histograms, testing the understanding of "spread" without calculation.</li>
+                <li><strong>Geometry:</strong> Trigonometry was limited but precise, focusing on the relationship between sine and cosine of complementary angles (\(\sin x = \cos(90-x)\)).</li>
+            </ul>
+
+            <h2><span class="section-num">03.</span> Strategic Recommendations</h2>
+            <p>Based on the March 2022 release, we recommend that students prioritize <strong>contextual modeling</strong>. Practicing with long-form word problems from the Official Guide and focusing on the "Heart of Algebra" subscore is essential. Additionally, students should master the properties of linear graphs, particularly how shifts in the y-intercept affect the real-world starting point of a scenario.</p>
+        </section>
+
+        <div class="pdf-container">
+            <h2><span class="section-num">04.</span> Original Exam Paper (PDF)</h2>
+            <p style="margin-bottom: 30px; color: var(--text-light);">Review the questions analyzed above in the full March 2022 SAT QAS document below.</p>
+            <iframe src="../papers/2022-03-sat-qas.pdf" style="width:100%; height:800px; border:1px solid #e2e8f0; border-radius:16px;"></iframe>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IB EE 주제 추천: RSA 암호 체계의 수학적 원리 | MathHub</title>
+    <meta name="description" content="IB Extended Essay 수학 주제 추천: RSA 암호 체계. 소수, 모듈러 산술, 오일러 토션트 함수를 활용한 공개키 암호의 수학적 원리를 EE 주제로 탐구합니다.">
+    <meta name="keywords" content="IB EE 주제, RSA 암호, 공개키 암호, 소수 수학, 모듈러 산술, 오일러 토션트, Extended Essay 수학, IB 수학 EE">
+    <meta name="author" content="MathHub Korea">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/kr/blog/ee-topic-rsa-cryptography.html">
+    <link rel="alternate" hreflang="en" href="https://mathhub.io/ib/blog/ee-topic-rsa-cryptography.html" />
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/blog/ee-topic-rsa-cryptography.html" />
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/kr/blog/ee-topic-rsa-cryptography.html">
+    <meta property="og:title" content="IB EE 주제 추천: RSA 암호 체계의 수학적 원리">
+    <meta property="og:description" content="소수와 모듈러 산술로 이해하는 RSA 공개키 암호 — IB 수학 EE 주제 가이드.">
+    <meta property="og:site_name" content="MathHub Korea">
+    <meta property="og:locale" content="ko_KR">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="IB EE 주제: RSA 암호 체계의 수학적 원리">
+    <meta name="twitter:description" content="소수, 모듈러 산술, 오일러 토션트 함수로 풀어보는 RSA 공개키 암호 EE 가이드.">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] } };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans KR', Arial, sans-serif; line-height: 1.85; color: #333; background: #f5f7fa; }
+        nav.global-nav { background:#1e3a5f; display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:52px; }
+        nav.global-nav a { color:rgba(255,255,255,.85); text-decoration:none; font-size:.9em; }
+        nav.global-nav .nav-brand { font-weight:700; font-size:1.1em; color:white; }
+        nav.global-nav .nav-links { display:flex; gap:18px; align-items:center; }
+        nav.global-nav .nav-links a.active { color:white; font-weight:700; }
+        .header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 50px 20px; text-align: center; }
+        .header h1 { font-size: 2em; margin-bottom: 10px; line-height: 1.35; }
+        .category-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 16px; border-radius: 20px; font-size: 0.85em; margin-bottom: 14px; }
+        .date { opacity: 0.85; font-size: 0.9em; margin-top: 8px; }
+        .container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); border-radius: 10px; }
+        .back-link { display: inline-block; margin-bottom: 28px; color: #667eea; text-decoration: none; font-weight: 600; font-size: 0.9em; }
+        .back-link:hover { text-decoration: underline; }
+        h2 { color: #2c3e50; margin-top: 40px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid #667eea; font-size: 1.4em; }
+        h3 { color: #334155; margin-top: 28px; margin-bottom: 12px; font-size: 1.1em; }
+        p { margin-bottom: 14px; text-align: justify; }
+        ul, ol { margin-left: 28px; margin-bottom: 14px; }
+        li { margin-bottom: 7px; }
+        strong { color: #1e293b; }
+        .formula { background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 15px 0; overflow-x: auto; }
+        .info-box { background: #f0ebff; border-left: 4px solid #667eea; padding: 18px 20px; margin: 22px 0; border-radius: 4px; }
+        .tip-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 18px 20px; margin: 22px 0; border-radius: 4px; }
+        .example-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 20px; margin: 25px 0; border-radius: 4px; }
+        .consultation-cta { background: #f5f3ff; border-left: 4px solid #667eea; padding: 20px; border-radius: 8px; margin: 36px 0 0; }
+        .consultation-cta a { color: #667eea; font-weight: 700; text-decoration: none; }
+        .consultation-cta a:hover { text-decoration: underline; }
+        .footer { text-align: center; padding: 30px 20px; color: #666; margin-top: 50px; }
+        @media (max-width: 768px) { .container { padding: 30px 20px; margin: 20px; } .header h1 { font-size: 1.6em; } }
+    </style>
+</head>
+<body>
+<nav class="global-nav">
+    <a href="/" class="nav-brand">MathHub</a>
+    <div class="nav-links">
+        <a href="/kr/" class="active">KR</a>
+        <a href="/us/">US</a>
+        <a href="/uk/">UK</a>
+        <a href="/ca/">CA</a>
+        <a href="/ib/">IB</a>
+    </div>
+</nav>
+
+<div class="header">
+    <div class="category-badge">IB EE 주제 추천 &mdash; 수학</div>
+    <h1>RSA 암호 체계의 수학적 원리</h1>
+    <div class="date">2026년 3월 16일</div>
+</div>
+
+<div class="container">
+    <a href="/kr/blog/" class="back-link">&larr; 블로그 목록으로</a>
+
+    <h2>1. 왜 RSA가 좋은 EE 주제인가</h2>
+
+    <p>RSA 암호 체계는 IB 수학 Extended Essay에서 가장 인기 있는 주제 중 하나입니다. 그 이유는 명확합니다. 첫째, RSA는 우리가 매일 사용하는 인터넷 보안의 핵심 기술이라는 점에서 실생활 관련성이 높습니다. 온라인 쇼핑, 전자서명, 메신저 암호화 등 현대 디지털 사회의 기반을 이루는 기술이 바로 RSA입니다. 둘째, RSA의 수학적 원리는 IB HL 수준에서 충분히 접근 가능하면서도, 깊이 있는 분석의 여지가 풍부합니다.</p>
+
+    <p>EE 연구 질문의 예시를 들면 다음과 같습니다: "RSA 암호 체계에서 사용되는 소수의 비트 길이(bit length)가 암호의 보안 강도에 미치는 수학적 영향을 분석하라." 이 질문은 구체적이고, 수학적 분석이 가능하며, 결론을 도출할 수 있는 범위를 갖추고 있습니다.</p>
+
+    <h2>2. RSA 암호의 배경</h2>
+
+    <p>RSA는 1977년 Ron Rivest, Adi Shamir, Leonard Adleman 세 사람이 개발한 공개키 암호 체계(Public Key Cryptosystem)입니다. 공개키 암호의 핵심 아이디어는 다음과 같습니다: 누구나 메시지를 암호화할 수 있는 공개키(public key)와, 오직 수신자만이 메시지를 복호화할 수 있는 개인키(private key)를 분리한다는 것입니다.</p>
+
+    <p>이전의 대칭키 암호(symmetric key cipher)에서는 암호화와 복호화에 같은 키를 사용했기 때문에, 키를 안전하게 전달하는 것 자체가 난제였습니다. RSA는 이 문제를 수학적으로 해결합니다. 큰 수의 소인수분해가 계산적으로 극히 어렵다는 사실, 즉 소인수분해 문제의 계산 복잡도(computational hardness)를 보안의 근거로 삼습니다.</p>
+
+    <h2>3. RSA의 수학적 원리</h2>
+
+    <h3>3.1 소수와 키 생성</h3>
+
+    <p>RSA 키 생성의 첫 단계는 두 개의 큰 소수 $p$와 $q$를 선택하는 것입니다. 이 두 소수의 곱 $n = p \times q$가 RSA 모듈러스(modulus)가 됩니다. 현대 RSA에서 $n$은 보통 2048비트 이상의 크기를 가지며, 이는 약 617자리의 십진수에 해당합니다.</p>
+
+    <p>$n$을 알고 있더라도 $p$와 $q$를 알아내는 것, 즉 소인수분해를 수행하는 것은 현재까지 알려진 어떤 고전적 알고리즘으로도 합리적인 시간 내에 불가능합니다. 이것이 RSA 보안의 핵심 가정입니다.</p>
+
+    <h3>3.2 오일러 토션트 함수</h3>
+
+    <p>RSA의 수학적 심장부에는 오일러 토션트 함수(Euler's totient function) $\phi(n)$이 있습니다. $\phi(n)$은 1부터 $n$까지의 정수 중 $n$과 서로소(coprime)인 수의 개수를 나타냅니다.</p>
+
+    <p>$n = p \times q$ (여기서 $p$, $q$는 소수)인 경우:</p>
+
+    <div class="formula">
+        $$\phi(n) = (p - 1)(q - 1)$$
+    </div>
+
+    <p>예를 들어 $p = 61$, $q = 53$이면 $n = 3233$이고 $\phi(n) = 60 \times 52 = 3120$입니다. 이 값은 키 생성에서 핵심적인 역할을 합니다.</p>
+
+    <h3>3.3 공개키와 개인키</h3>
+
+    <p>공개키 지수 $e$는 $1 < e < \phi(n)$이고 $\gcd(e, \phi(n)) = 1$인 정수로 선택합니다. 실무에서는 $e = 65537$이 가장 널리 사용됩니다.</p>
+
+    <p>개인키 지수 $d$는 다음 합동식을 만족하는 수입니다:</p>
+
+    <div class="formula">
+        $$d \equiv e^{-1} \pmod{\phi(n)}$$
+    </div>
+
+    <p>즉, $e \times d \equiv 1 \pmod{\phi(n)}$입니다. 이 $d$는 확장 유클리드 알고리즘(Extended Euclidean Algorithm)으로 계산할 수 있습니다.</p>
+
+    <h3>3.4 암호화와 복호화</h3>
+
+    <p>메시지 $m$ (숫자로 변환된 상태)을 암호화하려면:</p>
+
+    <div class="formula">
+        $$c \equiv m^e \pmod{n}$$
+    </div>
+
+    <p>암호문 $c$를 복호화하려면:</p>
+
+    <div class="formula">
+        $$m \equiv c^d \pmod{n}$$
+    </div>
+
+    <p>이 과정이 성립하는 이유는 오일러 정리(Euler's theorem) 덕분입니다. $\gcd(m, n) = 1$일 때 $m^{\phi(n)} \equiv 1 \pmod{n}$이므로:</p>
+
+    <div class="formula">
+        $$c^d \equiv (m^e)^d = m^{ed} = m^{k\phi(n) + 1} = (m^{\phi(n)})^k \cdot m \equiv 1^k \cdot m \equiv m \pmod{n}$$
+    </div>
+
+    <div class="example-box">
+        <strong>구체적 예시:</strong><br>
+        $p = 61$, $q = 53$이면 $n = 3233$, $\phi(n) = 3120$<br>
+        $e = 17$로 선택하면 $d = 2753$ (확장 유클리드 알고리즘으로 계산)<br>
+        메시지 $m = 65$를 암호화: $c = 65^{17} \bmod 3233 = 2790$<br>
+        복호화: $m = 2790^{2753} \bmod 3233 = 65$ — 원래 메시지 복원 성공
+    </div>
+
+    <h2>4. EE에서 탐구할 수 있는 방향</h2>
+
+    <p>RSA를 EE 주제로 선택했다면, 단순히 원리를 설명하는 데 그치지 말고 분석적 탐구를 추가해야 합니다. 다음은 EE에서 깊이를 더할 수 있는 탐구 방향입니다.</p>
+
+    <p><strong>소수 크기와 보안 강도의 관계:</strong> 소수 $p$, $q$의 비트 수를 8비트, 16비트, 32비트, 64비트로 변화시키며 소인수분해에 걸리는 시간을 측정할 수 있습니다. Python의 sympy 라이브러리를 사용하면 실제 소인수분해 실험이 가능하며, 비트 수와 소인수분해 시간 사이의 관계를 그래프로 시각화하여 지수적 증가를 보일 수 있습니다.</p>
+
+    <p><strong>페르마 소인수분해 공격:</strong> $p$와 $q$의 차이가 작을 때, 페르마의 소인수분해 방법이 빠르게 $n$을 분해할 수 있음을 실험으로 보이고, "안전한 소수 선택 기준"을 수학적으로 논의할 수 있습니다.</p>
+
+    <p><strong>양자 컴퓨팅과 쇼어 알고리즘:</strong> 피터 쇼어(Peter Shor)가 1994년에 제안한 양자 알고리즘은 소인수분해를 다항 시간(polynomial time)에 해결합니다. 양자 컴퓨터가 상용화되면 RSA는 무력화됩니다. 이 위협과 포스트-양자 암호(post-quantum cryptography)에 대한 논의를 추가하면 EE의 깊이가 풍부해집니다.</p>
+
+    <h2>5. EE 작성 시 주의사항</h2>
+
+    <div class="tip-box">
+        <strong>수학 EE에서의 핵심:</strong> RSA의 모든 수학적 단계를 직접 유도하고 설명하세요. 교과서에서 공식을 복사하는 것이 아니라, 왜 오일러 정리가 RSA에서 작동하는지, 왜 확장 유클리드 알고리즘이 필요한지를 자신의 언어로 설명하는 것이 기준 B(지식과 이해)에서 높은 점수를 받는 비결입니다.
+    </div>
+
+    <p>참고문헌으로는 Simon Singh의 <em>The Code Book</em>, Christof Paar의 <em>Understanding Cryptography</em> 등이 접근하기 좋은 자료입니다. IB HL 수학 수준을 넘어서는 내용(예: 격자 기반 암호)을 무리하게 포함하기보다, RSA의 핵심 원리를 깊이 있게 탐구하는 것이 더 효과적입니다.</p>
+
+    <p>실험 데이터를 포함하면 기준 C(비판적 사고)에서 유리합니다. Python으로 직접 RSA 구현을 작성하고, 다양한 키 크기에서의 암호화/복호화 시간, 소인수분해 시도 시간 등을 측정하여 표와 그래프로 제시하세요. 이는 개인적 참여(personal engagement)를 보여주는 강력한 증거가 됩니다.</p>
+
+    <div class="consultation-cta">
+        <strong>Extended Essay 작성에 도움이 필요하신가요?</strong>
+        <p>주제 선정부터 리서치, 작성까지 경험 많은 IB 튜터가 안내해 드립니다.</p>
+        <a href="/contact.html">무료 상담 신청 &rarr;</a>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+    <p style="margin-top:6px; font-size:0.85em;">
+        <a href="/about.html" style="color:inherit;opacity:0.7;text-decoration:none;">About</a> &middot;
+        <a href="/privacy.html" style="color:inherit;opacity:0.7;text-decoration:none;">Privacy Policy</a>
+    </p>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "IB EE 주제 추천: RSA 암호 체계의 수학적 원리",
+    "description": "소수, 모듈러 산술, 오일러 토션트 함수를 활용한 RSA 공개키 암호의 수학적 원리를 IB EE 주제로 탐구합니다.",
+    "author": { "@type": "Organization", "name": "MathHub Korea" },
+    "publisher": { "@type": "Organization", "name": "MathHub Global", "url": "https://mathhub.io/" },
+    "url": "https://mathhub.io/kr/blog/ee-topic-rsa-cryptography.html",
+    "datePublished": "2026-03-16",
+    "dateModified": "2026-03-16",
+    "inLanguage": "ko"
+}
+</script>
+
+</body>
+</html>

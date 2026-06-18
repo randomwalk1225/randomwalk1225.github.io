@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Calculus: Curve Sketching &amp; Optimization - Chapter 5 | MathHub</title>
+    <meta name="description" content="AP Calculus Chapter 5: Curve Sketching and Optimization. Critical points, first and second derivative tests, concavity, inflection points, and optimization problems with worked examples.">
+    <meta name="keywords" content="AP Calculus curve sketching, optimization, critical points, first derivative test, second derivative test, concavity, inflection points, AP Calculus AB BC">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/ap-calculus/curve-sketching.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/ap-calculus/curve-sketching.html">
+    <meta property="og:title" content="AP Calculus: Curve Sketching &amp; Optimization - Chapter 5">
+    <meta property="og:description" content="Critical points, concavity, inflection points, and optimization for AP Calculus AB and BC with worked examples.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Calculus: Curve Sketching &amp; Optimization - Chapter 5">
+    <meta name="twitter:description" content="Curve sketching, critical points, and optimization for AP Calculus AB/BC.">
+
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "AP Calculus: Curve Sketching & Optimization - Chapter 5",
+        "description": "AP Calculus Chapter 5 covering critical points, the first and second derivative tests, concavity, inflection points, and optimization problems.",
+        "url": "https://mathhub.io/us/textbook/ap-calculus/curve-sketching.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "AP",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Curve Sketching" },
+            { "@type": "Thing", "name": "Optimization" },
+            { "@type": "Thing", "name": "AP Calculus" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <link rel="stylesheet" href="../../../assets/css/textbook-ux.css">
+    <style>
+        .blog-article {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 16px;
+        }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #2563eb; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives {
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            padding: 20px 24px; margin: 24px 0 32px;
+            border-radius: 0 10px 10px 0;
+        }
+        .learning-objectives h4 { color: #1e40af; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #1e3a8a; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box {
+            background: #eff6ff; border-left: 4px solid #2563eb;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .example-box h4 { color: #1e40af; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li, .example-box ol { color: #334155; line-height: 1.8; }
+        .definition-box {
+            background: #f0fdf4; border-left: 4px solid #16a34a;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box {
+            background: #faf5ff; border-left: 4px solid #8b5cf6;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box {
+            background: #eff6ff;
+            border: 1.5px dashed #93c5fd;
+            padding: 16px 20px; margin: -4px 0 24px;
+            border-radius: 0 0 8px 8px;
+        }
+        .try-it-box .try-it-label {
+            display: inline-block; background: #2563eb; color: white;
+            font-size: 0.75em; font-weight: 700; padding: 2px 10px;
+            border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px;
+        }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary {
+            cursor: pointer; color: #1e40af; font-weight: 600;
+            font-size: 0.9em; user-select: none;
+        }
+        .try-it-answer {
+            padding: 10px 14px; background: white; border-radius: 6px;
+            margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7;
+        }
+
+        .ap-tip {
+            background: #fefce8; border-left: 4px solid #eab308;
+            padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0;
+            display: flex; gap: 12px; align-items: flex-start;
+        }
+        .ap-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #92400e; }
+
+        .desmos-wrap {
+            margin: 24px auto; background: #f8fafc; border-radius: 12px;
+            padding: 4px; border: 1px solid #e2e8f0; text-align: center;
+        }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label {
+            text-align: center; font-size: 0.82em; color: #64748b;
+            margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em;
+        }
+
+        .sign-chart {
+            display: flex; gap: 0; margin: 12px 0 20px; font-size: 0.9em;
+            overflow-x: auto;
+        }
+        .sign-cell {
+            flex: 1; min-width: 70px; text-align: center; padding: 8px 4px;
+            border: 1px solid #e2e8f0; background: #f8fafc;
+        }
+        .sign-cell.header { background: #1e3a5f; color: white; font-weight: 700; }
+        .sign-cell.pos { color: #16a34a; font-weight: 700; font-size: 1.1em; }
+        .sign-cell.neg { color: #dc2626; font-weight: 700; font-size: 1.1em; }
+        .sign-cell.zero { color: #ea580c; font-weight: 700; }
+
+        .practice-section { margin-top: 50px; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { border-top: none; padding-top: 0; margin-top: 0; }
+        .practice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 640px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card {
+            background: #f8fafc; border-radius: 10px; padding: 20px; border: 1px solid #e2e8f0;
+        }
+        .practice-card .p-num {
+            display: inline-block; background: #2563eb; color: white;
+            border-radius: 50%; width: 26px; height: 26px; text-align: center;
+            line-height: 26px; font-size: 0.85em; font-weight: 700; margin-bottom: 10px;
+        }
+        .practice-card p { margin: 0 0 12px; color: #334155; font-size: 0.95em; line-height: 1.7; }
+        .practice-card details summary {
+            cursor: pointer; color: #2563eb; font-size: 0.88em; font-weight: 600; user-select: none;
+        }
+        .practice-answer {
+            margin-top: 8px; padding: 10px 14px; background: white; border-radius: 6px;
+            font-size: 0.9em; color: #334155; line-height: 1.7;
+        }
+
+        .chapter-nav {
+            display: flex; justify-content: space-between; gap: 16px;
+            margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0;
+        }
+        .chapter-nav a {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: #2563eb; text-decoration: none; font-weight: 600; font-size: 0.95em;
+        }
+        .chapter-nav a:hover { text-decoration: underline; }
+
+        /* ── Section Summary ── */
+        .section-summary {
+            background: #f8fafc; border: 2px solid #e2e8f0;
+            padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px;
+        }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;
+        }
+        .summary-card {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 14px 18px;
+        }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 10px; margin: 16px 0;
+        }
+        .key-term-item {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 12px 16px;
+        }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <div class="blog-article">
+        <div class="breadcrumb">
+            <a href="/us/">US</a> &rsaquo; <a href="/us/textbook/ap-calculus/">AP Calculus</a> &rsaquo; Chapter 5
+        </div>
+
+        <h1>Chapter 5: Curve Sketching &amp; Optimization</h1>
+        <div class="blog-meta">AP Calculus AB &amp; BC &nbsp;|&nbsp; Unit 2: Applications of Derivatives</div>
+
+        <div class="learning-objectives">
+            <h4>Learning Objectives</h4>
+            <ul>
+                <li>Find and classify critical points using the First Derivative Test</li>
+                <li>Apply the Second Derivative Test to identify local maxima and minima</li>
+                <li>Analyze concavity and locate inflection points using $f''$</li>
+                <li>Sketch curves using a systematic analysis of $f$, $f'$, and $f''$</li>
+                <li>Set up and solve optimization problems to find absolute extrema</li>
+            </ul>
+        </div>
+
+        <h2>5.1 Critical Points and the First Derivative Test</h2>
+
+        <p>A function's graph rises and falls based on the sign of its derivative. Where $f'$ changes sign, we find local extrema.</p>
+
+        <div class="definition-box">
+            <h4>Definition: Critical Points</h4>
+            <p>A number $c$ in the domain of $f$ is a <strong>critical point</strong> if $f'(c) = 0$ or $f'(c)$ does not exist.</p>
+            <p>Local extrema can only occur at critical points — but not every critical point is a local extremum.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>First Derivative Test</h4>
+            <p>Let $c$ be a critical point of a continuous function $f$:</p>
+            <ul>
+                <li>If $f'$ changes from <strong>positive to negative</strong> at $c$: <strong>local maximum</strong> at $c$.</li>
+                <li>If $f'$ changes from <strong>negative to positive</strong> at $c$: <strong>local minimum</strong> at $c$.</li>
+                <li>If $f'$ <strong>does not change sign</strong> at $c$: <strong>no local extremum</strong> (e.g., an inflection point).</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.1 — Finding and Classifying Critical Points</h4>
+            <p>Analyze $f(x) = x^3 - 3x^2 - 9x + 2$.</p>
+            <p><strong>Step 1 — Find critical points:</strong> $f'(x) = 3x^2 - 6x - 9 = 3(x^2-2x-3) = 3(x-3)(x+1)$</p>
+            <p>Critical points: $x = -1$ and $x = 3$.</p>
+            <p><strong>Step 2 — Sign chart for $f'$:</strong></p>
+            <div class="sign-chart">
+                <div class="sign-cell header">Interval</div>
+                <div class="sign-cell header">$(-\infty,-1)$</div>
+                <div class="sign-cell header">$x=-1$</div>
+                <div class="sign-cell header">$(-1,3)$</div>
+                <div class="sign-cell header">$x=3$</div>
+                <div class="sign-cell header">$(3,\infty)$</div>
+            </div>
+            <div class="sign-chart" style="margin-top:-1px;">
+                <div class="sign-cell header">$f'(x)$</div>
+                <div class="sign-cell pos">+</div>
+                <div class="sign-cell zero">0</div>
+                <div class="sign-cell neg">&minus;</div>
+                <div class="sign-cell zero">0</div>
+                <div class="sign-cell pos">+</div>
+            </div>
+            <p><strong>Conclusion:</strong> Local maximum at $x = -1$: $f(-1) = -1-3+9+2 = 7$. Local minimum at $x = 3$: $f(3) = 27-27-27+2 = -25$.</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Find the critical points of $g(x) = x^4 - 4x^3$ and classify each using the First Derivative Test.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    $g'(x) = 4x^3 - 12x^2 = 4x^2(x-3)$<br>
+                    Critical points: $x = 0$ and $x = 3$.<br>
+                    Sign: $g' < 0$ on $(-\infty,0)$, $g'(0)=0$ (sign doesn't change), $g' < 0$ on $(0,3)$, $g'(3)=0$, $g' > 0$ on $(3,\infty)$.<br>
+                    At $x=0$: no extremum (sign unchanged). At $x=3$: local minimum, $g(3) = 81-108 = -27$.
+                </div>
+            </details>
+        </div>
+
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">$f(x) = x^3-3x^2-9x+2$ (blue) and $f'(x)$ (red). Where $f'$ crosses zero and changes sign, the original function has a local extremum.</p>
+            <div id="graph-critical" style="width:100%; height:380px;"></div>
+            <p class="fig-label">Figure 5.1 — Critical Points: $f$ and $f'$ for $x^3-3x^2-9x+2$</p>
+        </div>
+
+        <h2>5.2 Concavity and the Second Derivative Test</h2>
+
+        <p>The second derivative $f''$ tells us about the <strong>rate of change of the slope</strong> — whether the curve bends upward (concave up) or downward (concave down).</p>
+
+        <div class="definition-box">
+            <h4>Concavity and Inflection Points</h4>
+            <ul>
+                <li><strong>Concave up</strong> on $(a,b)$: $f''(x) > 0$ — graph curves like a bowl $\cup$. Tangent lines lie below the curve.</li>
+                <li><strong>Concave down</strong> on $(a,b)$: $f''(x) < 0$ — graph curves like a cap $\cap$. Tangent lines lie above the curve.</li>
+                <li><strong>Inflection point</strong>: a point where $f''$ changes sign (concavity changes). Find candidates where $f''(x) = 0$ or $f''(x)$ is undefined.</li>
+            </ul>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Second Derivative Test</h4>
+            <p>If $f'(c) = 0$ (so $c$ is a critical point):</p>
+            <ul>
+                <li>If $f''(c) > 0$: <strong>local minimum</strong> at $c$ (concave up, so the critical point is a valley).</li>
+                <li>If $f''(c) < 0$: <strong>local maximum</strong> at $c$ (concave down, so the critical point is a peak).</li>
+                <li>If $f''(c) = 0$: <strong>test is inconclusive</strong> — use the First Derivative Test instead.</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.2 — Second Derivative Test on $f(x) = x^3 - 3x^2 - 9x + 2$</h4>
+            <p>From Example 5.1: critical points at $x = -1$ and $x = 3$.</p>
+            <p>$f''(x) = 6x - 6$</p>
+            <p>$f''(-1) = -6 - 6 = -12 < 0$ → <strong>local maximum</strong> at $x = -1$ ✓</p>
+            <p>$f''(3) = 18 - 6 = 12 > 0$ → <strong>local minimum</strong> at $x = 3$ ✓</p>
+            <p><strong>Inflection point:</strong> $f''(x) = 0 \Rightarrow 6x - 6 = 0 \Rightarrow x = 1$. Check sign change: $f'' < 0$ for $x < 1$, $f'' > 0$ for $x > 1$. Inflection at $(1, f(1)) = (1, -9)$.</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Find all inflection points of $h(x) = x^4 - 6x^2$.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    $h'(x) = 4x^3 - 12x$<br>
+                    $h''(x) = 12x^2 - 12 = 12(x^2-1) = 12(x-1)(x+1)$<br>
+                    $h''=0$ at $x = \pm 1$. Check sign changes:<br>
+                    $h''(-2) = 36 > 0$, $h''(0) = -12 < 0$, $h''(2) = 36 > 0$<br>
+                    Sign changes at both $x = -1$ and $x = 1$. Inflection points at $(-1, -5)$ and $(1, -5)$.
+                </div>
+            </details>
+        </div>
+
+        <div class="ap-tip">
+            <div class="ap-tip-icon">★</div>
+            <p><strong>AP Exam Tip:</strong> A common error is assuming that $f''(c)=0$ automatically means an inflection point. You must verify that $f''$ <em>changes sign</em> at $c$. For example, $f(x)=x^4$ has $f''(0)=0$ but no inflection point at $x=0$ since $f''$ doesn't change sign.</p>
+        </div>
+
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">$f(x)$, $f'(x)$, and $f''(x)$ together. Where $f''$ changes sign, $f$ has an inflection point. Where $f''=0$ and $f'=0$, the Second Derivative Test applies.</p>
+            <div id="graph-concavity" style="width:100%; height:380px;"></div>
+            <p class="fig-label">Figure 5.2 — Concavity: $f$, $f'$, and $f''$ for $x^3-3x^2-9x+2$</p>
+        </div>
+
+        <h2>5.3 Optimization Problems</h2>
+
+        <p>Optimization problems ask for the maximum or minimum value of a quantity subject to a constraint. The key is to express the <strong>objective function</strong> (quantity to optimize) in terms of a <strong>single variable</strong>, then use calculus.</p>
+
+        <div class="definition-box">
+            <h4>Optimization Procedure</h4>
+            <ol>
+                <li><strong>Identify</strong> the quantity to maximize/minimize (objective function $Q$).</li>
+                <li><strong>Identify the constraint</strong> — an equation relating the variables.</li>
+                <li><strong>Reduce to one variable</strong> using the constraint.</li>
+                <li><strong>Find critical points</strong> of $Q$ on the relevant domain.</li>
+                <li><strong>Test</strong> critical points and endpoints to find the absolute extremum.</li>
+            </ol>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.3 — Maximizing Area of a Fenced Rectangle</h4>
+            <p>A farmer has 200 m of fencing to enclose a rectangular field against a barn wall (one side needs no fence). Maximize the area.</p>
+            <p><strong>Variables:</strong> Width $x$ (two sides), length $y$ (one side). <strong>Constraint:</strong> $2x + y = 200 \Rightarrow y = 200 - 2x$.</p>
+            <p><strong>Objective:</strong> $A = xy = x(200-2x) = 200x - 2x^2$, for $0 < x < 100$.</p>
+            <p><strong>Optimize:</strong> $\dfrac{dA}{dx} = 200 - 4x = 0 \Rightarrow x = 50$</p>
+            <p>$\dfrac{d^2A}{dx^2} = -4 < 0$ → maximum ✓</p>
+            <p>$y = 200 - 100 = 100$ m. Maximum area $= 50 \times 100 = 5000$ m².</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Find two positive numbers whose sum is 20 and whose product is as large as possible.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    Let the numbers be $x$ and $20-x$. Maximize $P = x(20-x) = 20x - x^2$.<br>
+                    $P'(x) = 20 - 2x = 0 \Rightarrow x = 10$<br>
+                    $P''(10) = -2 < 0$ → maximum. Both numbers are $10$; product $= 100$.
+                </div>
+            </details>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 5.4 — Minimizing Material for a Can</h4>
+            <p>A cylindrical can must hold $500\pi$ cm³. Find the radius and height that minimize total surface area.</p>
+            <p><strong>Constraint:</strong> $V = \pi r^2 h = 500\pi \Rightarrow h = \dfrac{500}{r^2}$</p>
+            <p><strong>Objective:</strong> $S = 2\pi r^2 + 2\pi r h = 2\pi r^2 + \dfrac{1000\pi}{r}$</p>
+            <p><strong>Optimize:</strong> $\dfrac{dS}{dr} = 4\pi r - \dfrac{1000\pi}{r^2} = 0 \Rightarrow 4r^3 = 1000 \Rightarrow r^3 = 250 \Rightarrow r = \sqrt[3]{250} \approx 6.30$ cm</p>
+            <p>$h = \dfrac{500}{r^2} = \dfrac{500}{250^{2/3}} = 2\sqrt[3]{250} \approx 12.60$ cm</p>
+            <p>Note: $h = 2r$ — the optimal can has height equal to its diameter!</p>
+        </div>
+
+        <div class="ap-tip">
+            <div class="ap-tip-icon">★</div>
+            <p><strong>AP Exam Tip:</strong> For optimization on a <em>closed interval</em>, always check the endpoints in addition to the critical points — the absolute maximum or minimum may occur at an endpoint. Use the Closed Interval Method: evaluate $f$ at all critical points and both endpoints, then compare.</p>
+        </div>
+
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">Fenced rectangle optimization: drag the slider to change $x$ (width). The area curve peaks at the optimal $x = 50$.</p>
+            <div id="graph-opt" style="width:100%; height:380px;"></div>
+            <p class="fig-label">Figure 5.3 — Optimization: Maximizing Area with Fixed Perimeter</p>
+        </div>
+
+        <!-- Practice Problems -->
+        <div class="practice-section">
+            <h2>Practice Problems</h2>
+            <div class="practice-grid">
+
+                <div class="practice-card">
+                    <span class="p-num">1</span>
+                    <p>Find all critical points of $f(x) = 2x^3 - 9x^2 + 12x - 4$ and classify each as a local max, min, or neither.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $f'(x) = 6x^2-18x+12 = 6(x-1)(x-2)$<br>
+                            Critical points: $x=1$ and $x=2$.<br>
+                            $f''(x) = 12x-18$: $f''(1)=-6<0$ → local max; $f''(2)=6>0$ → local min.<br>
+                            Local max at $(1, 1)$; local min at $(2, 0)$.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">2</span>
+                    <p>Find the intervals on which $f(x) = x^4 - 8x^2$ is concave up and concave down, and find all inflection points.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $f''(x) = 12x^2 - 16 = 4(3x^2-4)$<br>
+                            $f''=0$: $x = \pm\dfrac{2}{\sqrt{3}} = \pm\dfrac{2\sqrt{3}}{3}$<br>
+                            Concave up: $\left(-\infty, -\tfrac{2\sqrt{3}}{3}\right)$ and $\left(\tfrac{2\sqrt{3}}{3}, \infty\right)$.<br>
+                            Concave down: $\left(-\tfrac{2\sqrt{3}}{3}, \tfrac{2\sqrt{3}}{3}\right)$.<br>
+                            Inflection points at $x = \pm\dfrac{2\sqrt{3}}{3}$.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">3</span>
+                    <p>Find the absolute maximum and minimum values of $g(x) = x^3 - 3x$ on $[-2, 3]$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $g'(x) = 3x^2-3 = 3(x-1)(x+1)$. Critical points in $[-2,3]$: $x=\pm 1$.<br>
+                            Evaluate: $g(-2)=-2$, $g(-1)=2$, $g(1)=-2$, $g(3)=18$.<br>
+                            <strong>Absolute max: 18 at $x=3$</strong>; Absolute min: $-2$ at $x=-2$ and $x=1$.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">4</span>
+                    <p>A rectangular box (no lid) has a square base. If the total surface area is 300 cm², find the dimensions that maximize the volume.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Let base side $= x$, height $= h$. Surface: $x^2 + 4xh = 300 \Rightarrow h = \dfrac{300-x^2}{4x}$<br>
+                            Volume: $V = x^2 h = \dfrac{x(300-x^2)}{4} = 75x - \dfrac{x^3}{4}$<br>
+                            $V'(x) = 75 - \dfrac{3x^2}{4} = 0 \Rightarrow x^2 = 100 \Rightarrow x = 10$<br>
+                            $h = \dfrac{300-100}{40} = 5$. Box: 10 cm × 10 cm × 5 cm.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">5</span>
+                    <p>Sketch the curve $f(x) = x^3 - 6x^2 + 9x$. Identify all local extrema and inflection points.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $f'(x) = 3x^2-12x+9 = 3(x-1)(x-3)$. Critical: $x=1,3$.<br>
+                            $f(1)=4$ (local max), $f(3)=0$ (local min).<br>
+                            $f''(x) = 6x-12 = 0 \Rightarrow x=2$. $f(2)=2$. Inflection at $(2,2)$.<br>
+                            Concave down for $x<2$, concave up for $x>2$.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">6</span>
+                    <p>Find the point on the curve $y = \sqrt{x}$ closest to the point $(3, 0)$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Minimize $D^2 = (x-3)^2 + y^2 = (x-3)^2 + x$ (easier than minimizing $D$).<br>
+                            Let $Q(x) = (x-3)^2 + x$. $Q'(x) = 2(x-3)+1 = 2x-5 = 0 \Rightarrow x = 5/2$.<br>
+                            $y = \sqrt{5/2} = \dfrac{\sqrt{10}}{2}$. Closest point: $\left(\dfrac{5}{2}, \dfrac{\sqrt{10}}{2}\right)$.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">7</span>
+                    <p>The second derivative of $f$ is $f''(x) = x^2(x-2)(x+3)$. Find the intervals of concavity and inflection points of $f$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Zeros of $f''$: $x=-3, 0, 2$. Analyze sign:<br>
+                            $(-\infty,-3)$: test $x=-4$: $(-4)^2(-6)(-1)>0$ → concave up<br>
+                            $(-3,0)$: test $x=-1$: $(1)(-3)(-2)>0$... $(-1)^2(-3)(-2)=6>0$... wait, sign of $(x-2)(x+3)$ at $x=-1$: $(-3)(2)=-6<0$. So $f''<0$ → concave down<br>
+                            $(0,2)$: $(x-2)(x+3)<0$ for $x\in(0,2)$: same sign → concave down<br>
+                            $(2,\infty)$: both factors positive → concave up<br>
+                            Inflection points at $x=-3$ (sign change) and $x=2$ (sign change). At $x=0$: no sign change → no inflection.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">8</span>
+                    <p><strong>(AP Style)</strong> A particle moves along a line with position $s(t) = t^3 - 6t^2 + 9t$ for $t \geq 0$. Find when the particle is moving right, when it's moving left, and find its total distance traveled on $[0, 4]$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $v(t) = s'(t) = 3t^2-12t+9 = 3(t-1)(t-3)$<br>
+                            Moving right ($v>0$): $t\in[0,1)$ and $t\in(3,4]$.<br>
+                            Moving left ($v<0$): $t\in(1,3)$.<br><br>
+                            Total distance = $|s(1)-s(0)| + |s(3)-s(1)| + |s(4)-s(3)|$<br>
+                            $s(0)=0$, $s(1)=4$, $s(3)=0$, $s(4)=4$<br>
+                            Total $= |4-0|+|0-4|+|4-0| = 4+4+4 = 12$ units.
+                        </div>
+                    </details>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION SUMMARY -->
+        <!-- ============================================================ -->
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+
+            <h4>Core Concepts</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>First Derivative Test</strong>
+                    <p>At a critical point $c$: if $f'$ changes $+\to-$, local max; if $f'$ changes $-\to+$, local min; if no sign change, neither.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Second Derivative Test</strong>
+                    <p>At critical point $c$ where $f'(c)=0$: if $f''(c)>0$, local min; if $f''(c)<0$, local max; if $f''(c)=0$, inconclusive.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Concavity</strong>
+                    <p>$f''>0$ on an interval $\Rightarrow$ concave up (cup shape). $f''<0$ $\Rightarrow$ concave down (cap shape).</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Closed Interval Method (Optimization)</strong>
+                    <p>On $[a,b]$, find all critical points and evaluate $f$ at critical points and endpoints. The largest value is the absolute max, smallest is the absolute min.</p>
+                </div>
+            </div>
+
+            <h4>Key Definitions</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Critical Point</strong>
+                    <p>A point where $f'(c) = 0$ or $f'(c)$ does not exist — candidates for local extrema.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Inflection Point</strong>
+                    <p>A point where $f''$ changes sign — concavity switches from up to down or vice versa.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Absolute Extrema</strong>
+                    <p>The global maximum or minimum value of $f$ over its entire domain or a specified interval.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Increasing/Decreasing</strong>
+                    <p>$f'>0$ on an interval $\Rightarrow$ $f$ is increasing. $f'<0$ $\Rightarrow$ $f$ is decreasing.</p>
+                </div>
+            </div>
+
+            <h4>Curve Sketching Checklist</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Domain</strong> — find where $f$ is defined</li>
+                <li><strong>Intercepts</strong> — set $f(x)=0$ and find $f(0)$</li>
+                <li><strong>Asymptotes</strong> — check for vertical ($f\to\infty$) and horizontal ($\lim_{x\to\pm\infty}$) asymptotes</li>
+                <li><strong>Increasing/Decreasing</strong> — find $f'$, critical points, sign chart</li>
+                <li><strong>Local Extrema</strong> — first or second derivative test at critical points</li>
+                <li><strong>Concavity &amp; Inflection</strong> — find $f''$, sign chart, inflection points</li>
+            </ol>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- KEY TERMS -->
+        <!-- ============================================================ -->
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item">
+                    <strong>Critical Point</strong>
+                    <span>An input $c$ in the domain where $f'(c) = 0$ or $f'(c)$ is undefined — candidates for local extrema.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Local Maximum</strong>
+                    <span>A value $f(c)$ that is greater than all nearby function values. Found via first or second derivative test.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Local Minimum</strong>
+                    <span>A value $f(c)$ that is less than all nearby function values.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Inflection Point</strong>
+                    <span>A point on the graph where concavity changes from up to down (or vice versa) — where $f''$ changes sign.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Concave Up / Down</strong>
+                    <span>Concave up: $f''>0$, graph curves like a cup. Concave down: $f''<0$, graph curves like a cap.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Optimization</strong>
+                    <span>Using calculus to find the absolute maximum or minimum of a function subject to constraints.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <a href="/us/textbook/ap-calculus/applications-derivatives.html">&#8592; Chapter 4: Applications of Derivatives</a>
+            <a href="/us/textbook/ap-calculus/integration.html">Chapter 6: Integration &#8250;</a>
+        </div>
+    </div>
+
+    <script>
+    // Figure 5.1 — Critical Points
+    (function() {
+        var elt = document.getElementById('graph-critical');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: false,
+            border: false
+        });
+        calc.setMathBounds({ left: -4, right: 6, bottom: -35, top: 15 });
+        calc.setExpressions([
+            { id: 'f', latex: 'f(x) = x^3 - 3x^2 - 9x + 2', color: '#1e3a5f', lineWidth: 2.5, label: 'f(x)', showLabel: true },
+            { id: 'fp', latex: "f'(x) = 3x^2 - 6x - 9", color: '#e11d48', lineWidth: 2, lineStyle: Desmos.Styles.DASHED, label: "f'(x)", showLabel: true },
+            { id: 'max', latex: '(-1, 7)', color: '#16a34a', pointSize: 12, label: 'local max (−1, 7)', showLabel: true },
+            { id: 'min', latex: '(3, -25)', color: '#ea580c', pointSize: 12, label: 'local min (3, −25)', showLabel: true },
+            { id: 'zero', latex: 'y = 0', color: '#94a3b8', lineWidth: 1, lineStyle: Desmos.Styles.DASHED }
+        ]);
+    })();
+
+    // Figure 5.2 — Concavity (f, f', f'')
+    (function() {
+        var elt = document.getElementById('graph-concavity');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: false,
+            border: false
+        });
+        calc.setMathBounds({ left: -4, right: 6, bottom: -30, top: 15 });
+        calc.setExpressions([
+            { id: 'f', latex: 'f(x) = x^3 - 3x^2 - 9x + 2', color: '#1e3a5f', lineWidth: 2.5, label: 'f(x)', showLabel: true },
+            { id: 'fp', latex: "f'(x) = 3x^2 - 6x - 9", color: '#e11d48', lineWidth: 2, label: "f'(x)", showLabel: true },
+            { id: 'fpp', latex: "f''(x) = 6x - 6", color: '#16a34a', lineWidth: 2, lineStyle: Desmos.Styles.DASHED, label: "f''(x)", showLabel: true },
+            { id: 'ip', latex: '(1, -9)', color: '#8b5cf6', pointSize: 12, label: 'inflection (1, −9)', showLabel: true },
+            { id: 'zero', latex: 'y = 0', color: '#94a3b8', lineWidth: 1, lineStyle: Desmos.Styles.DASHED }
+        ]);
+    })();
+
+    // Figure 5.3 — Optimization: Rectangle area
+    (function() {
+        var elt = document.getElementById('graph-opt');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: false,
+            border: false
+        });
+        calc.setMathBounds({ left: -5, right: 105, bottom: -500, top: 6000 });
+        calc.setExpressions([
+            { id: 'A', latex: 'A(x) = 200x - 2x^2\\{0 \\leq x \\leq 100\\}', color: '#1e3a5f', lineWidth: 2.5, label: 'Area A(x)', showLabel: true },
+            { id: 'x0', latex: 'x_0 = 50', sliderBounds: { min: 1, max: 99, step: 1 } },
+            { id: 'pt', latex: '(x_0, A(x_0))', color: '#e11d48', pointSize: 10, label: 'current area', showLabel: true },
+            { id: 'opt', latex: '(50, 5000)', color: '#16a34a', pointSize: 12, label: 'max: x=50, A=5000', showLabel: true },
+            { id: 'Ap', latex: "A'(x) = 200 - 4x", color: '#8b5cf6', lineWidth: 1.5, lineStyle: Desmos.Styles.DASHED, label: "A'(x)", showLabel: true }
+        ]);
+    })();
+    </script>
+    <script src="../../../assets/js/textbook-ux.js"></script>
+</body>
+</html>

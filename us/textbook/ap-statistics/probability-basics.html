@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Statistics: Probability: The Basics - Chapter 7 | MathHub</title>
+    <meta name="description" content="AP Statistics Chapter 7: Probability: The Basics. Learn sample spaces, addition rules, conditional probability, independence, tree diagrams, and two-way tables.">
+    <meta name="keywords" content="AP Statistics, probability, sample space, addition rule, conditional probability, independence, tree diagram, two-way table, AP Stats Chapter 7">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/ap-statistics/probability-basics.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/ap-statistics/probability-basics.html">
+    <meta property="og:title" content="AP Statistics: Probability: The Basics - Chapter 7">
+    <meta property="og:description" content="Learn sample spaces, addition rules, conditional probability, independence, tree diagrams, and two-way tables for AP Statistics.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Statistics: Probability: The Basics - Chapter 7">
+    <meta name="twitter:description" content="AP Statistics Chapter 7: Probability basics including sample spaces, addition rule, conditional probability, and independence.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "AP Statistics: Probability: The Basics - Chapter 7",
+        "description": "AP Statistics Chapter 7 covering sample spaces, addition rules, conditional probability, independence, tree diagrams, and two-way tables.",
+        "url": "https://mathhub.io/us/textbook/ap-statistics/probability-basics.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "AP",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Probability" },
+            { "@type": "Thing", "name": "Sample Space" },
+            { "@type": "Thing", "name": "Conditional Probability" },
+            { "@type": "Thing", "name": "AP Statistics" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <link rel="stylesheet" href="../../../assets/css/textbook-ux.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #064e3b; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #064e3b; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #10b981; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives { background: #ecfdf5; border-left: 4px solid #10b981; padding: 20px 24px; margin: 24px 0 32px; border-radius: 0 10px 10px 0; }
+        .learning-objectives h4 { color: #065f46; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #064e3b; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box { background: #f0fdf4; border-left: 4px solid #10b981; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #065f46; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+
+        .definition-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box { background: #f0fdf4; border: 1.5px dashed #86efac; padding: 16px 20px; margin: -4px 0 24px; border-radius: 0 0 8px 8px; }
+        .try-it-box .try-it-label { display: inline-block; background: #10b981; color: white; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px; }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary { cursor: pointer; color: #065f46; font-weight: 600; font-size: 0.9em; user-select: none; }
+        .try-it-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7; }
+
+        .ap-tip { background: #fefce8; border-left: 4px solid #eab308; padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .ap-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #92400e; }
+
+        .desmos-wrap { margin: 24px auto; background: #f8fafc; border-radius: 12px; padding: 4px; border: 1px solid #e2e8f0; text-align: center; }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label { text-align: center; font-size: 0.82em; color: #64748b; margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em; }
+
+        .practice-section { margin: 48px 0 0; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { color: #064e3b; margin-bottom: 20px; }
+        .practice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        @media (max-width: 600px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; }
+        .practice-card .p-num { display: inline-block; background: #064e3b; color: white; font-weight: 700; font-size: 0.78em; padding: 2px 9px; border-radius: 4px; margin-bottom: 8px; }
+        .practice-card p { color: #334155; font-size: 0.92em; line-height: 1.7; margin: 0 0 10px; }
+        .practice-card details summary { cursor: pointer; color: #065f46; font-weight: 600; font-size: 0.88em; user-select: none; }
+        .practice-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 8px; color: #334155; font-size: 0.9em; line-height: 1.7; border: 1px solid #e2e8f0; }
+
+        .chapter-nav { display: flex; justify-content: space-between; margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid #e2e8f0; flex-wrap: wrap; gap: 12px; }
+        .chapter-nav a { color: #10b981; text-decoration: none; font-weight: 600; font-size: 0.95em; padding: 8px 16px; border: 1.5px solid #10b981; border-radius: 8px; transition: background .15s; }
+        .chapter-nav a:hover { background: #ecfdf5; }
+
+        .data-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.9em; }
+        .data-table th { background: #064e3b; color: white; padding: 8px 12px; text-align: center; font-weight: 600; }
+        .data-table td { padding: 7px 12px; border: 1px solid #e2e8f0; text-align: center; color: #334155; }
+        .data-table tr:nth-child(even) { background: #f8fafc; }
+
+        /* ── Section Summary ── */
+        .section-summary { background: #f8fafc; border: 2px solid #e2e8f0; padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px; }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .summary-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin: 16px 0; }
+        .key-term-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<div style="background:#064e3b; padding:12px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+    <a href="/" style="color:#6ee7b7; text-decoration:none; font-weight:700; font-size:1.1em;">MathHub</a>
+    <span style="color:#34d399;">›</span>
+    <a href="/us" style="color:#a7f3d0; text-decoration:none; font-size:.9em;">US</a>
+    <span style="color:#34d399;">›</span>
+    <a href="/us/textbook/ap-statistics" style="color:#a7f3d0; text-decoration:none; font-size:.9em;">AP Statistics</a>
+    <span style="color:#34d399;">›</span>
+    <span style="color:white; font-size:.9em;">Chapter 7</span>
+</div>
+
+<article class="blog-article">
+    <div class="breadcrumb">
+        <a href="/">MathHub</a> › <a href="/us">US</a> › <a href="/us/textbook/ap-statistics">AP Statistics</a> › Chapter 7
+    </div>
+
+    <h1>Chapter 7: Probability: The Basics</h1>
+    <div class="blog-meta">AP Statistics · Probability · 3 interactive graphs · 8 practice problems</div>
+
+    <div class="learning-objectives">
+        <h4>Learning Objectives</h4>
+        <ul>
+            <li>Define sample spaces, outcomes, and events; calculate basic probabilities</li>
+            <li>Apply complement, addition, and multiplication rules correctly</li>
+            <li>Identify mutually exclusive events and use the special addition rule</li>
+            <li>Calculate and interpret conditional probability using $P(B \mid A) = P(A \cap B)/P(A)$</li>
+            <li>Determine whether two events are independent using the multiplication rule</li>
+            <li>Use tree diagrams and two-way tables to organize and calculate probabilities</li>
+        </ul>
+    </div>
+
+    <!-- 7.1 -->
+    <h2>7.1 Sample Spaces and Basic Probability</h2>
+    <p>Probability is the long-run relative frequency of an outcome. Before calculating any probability, we identify the <strong>experiment</strong>, the possible <strong>outcomes</strong>, and the <strong>sample space</strong>.</p>
+
+    <div class="definition-box">
+        <h4>Definition: Key Vocabulary</h4>
+        <ul>
+            <li><strong>Experiment:</strong> Any process with an uncertain result (rolling a die, drawing a card, selecting a student).</li>
+            <li><strong>Outcome:</strong> A single possible result of an experiment.</li>
+            <li><strong>Sample space $S$:</strong> The set of all possible outcomes. For a fair die: $S = \{1, 2, 3, 4, 5, 6\}$.</li>
+            <li><strong>Event:</strong> Any collection of outcomes (a subset of $S$). Events are usually denoted by capital letters.</li>
+        </ul>
+        <p>For equally likely outcomes:
+        $$P(A) = \frac{\text{number of favorable outcomes}}{\text{total number of outcomes in } S}$$</p>
+    </div>
+
+    <h3>Basic Properties of Probability</h3>
+    <ul>
+        <li>$0 \le P(A) \le 1$ for any event $A$</li>
+        <li>$P(S) = 1$ (something in the sample space must occur)</li>
+        <li>$P(\emptyset) = 0$ (the impossible event has probability 0)</li>
+        <li><strong>Complement Rule:</strong> $P(A^c) = 1 - P(A)$, where $A^c$ is the event that $A$ does <em>not</em> occur</li>
+    </ul>
+
+    <div class="theorem-box">
+        <h4>Theorem: Law of Large Numbers</h4>
+        <p>As the number of trials of a random experiment increases, the <strong>relative frequency</strong> of an event approaches its <strong>theoretical probability</strong>. The law guarantees convergence in the long run — it says nothing about short-run behavior.</p>
+        <p><em>Example:</em> Flip a fair coin 10 times and get 7 heads. The proportion 7/10 = 0.70 may be far from 0.50. But after 10,000 flips, the proportion will be very close to 0.50.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 7.1 — Rolling a Fair Die</h4>
+        <p>Roll a fair six-sided die. Sample space: $S = \{1, 2, 3, 4, 5, 6\}$, each equally likely.</p>
+        <ul>
+            <li>$P(\text{even}) = P(\{2,4,6\}) = \dfrac{3}{6} = \dfrac{1}{2}$</li>
+            <li>$P(\text{greater than 4}) = P(\{5,6\}) = \dfrac{2}{6} = \dfrac{1}{3}$</li>
+            <li>$P(\text{not 3}) = 1 - P(3) = 1 - \dfrac{1}{6} = \dfrac{5}{6}$</li>
+        </ul>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 7.2 — Marbles in a Bag</h4>
+        <p>A bag contains 4 red, 3 blue, and 2 green marbles (9 total). One marble is drawn at random.</p>
+        <ul>
+            <li>$P(\text{red}) = \dfrac{4}{9}$</li>
+            <li>$P(\text{not blue}) = 1 - P(\text{blue}) = 1 - \dfrac{3}{9} = \dfrac{6}{9} = \dfrac{2}{3}$</li>
+        </ul>
+        <p>Note: $P(\text{not blue}) = P(\text{red or green}) = \dfrac{4+2}{9} = \dfrac{6}{9}$ — same answer via direct count.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A student guesses on a 5-choice multiple-choice question (options A–E). What is the probability of getting it <em>wrong</em>?</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">$P(\text{correct}) = \dfrac{1}{5}$. By the complement rule, $P(\text{wrong}) = 1 - \dfrac{1}{5} = \dfrac{4}{5} = 0.80$.</div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Sample space for a fair die — even outcomes (2, 4, 6) shown in green, odd outcomes (1, 3, 5) in gray. $P(\text{even}) = 1/2$.</p>
+        <div id="graph-sample" style="width:100%; height:260px;"></div>
+        <p class="fig-label">Figure 7.1 — Sample Space: Rolling a Fair Die</p>
+    </div>
+
+    <!-- 7.2 -->
+    <h2>7.2 Addition Rule and Mutually Exclusive Events</h2>
+    <p>When we want the probability of event $A$ <em>or</em> event $B$ occurring (i.e., their <strong>union</strong> $A \cup B$), we use the addition rule.</p>
+
+    <div class="theorem-box">
+        <h4>Theorem: General Addition Rule</h4>
+        <p>For any two events $A$ and $B$:
+        $$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$</p>
+        <p>We subtract $P(A \cap B)$ because outcomes in both $A$ and $B$ are counted twice when we add $P(A) + P(B)$.</p>
+        <p><strong>Special Case — Mutually Exclusive (Disjoint) Events:</strong> If $A$ and $B$ cannot both occur, then $P(A \cap B) = 0$, so:
+        $$P(A \cup B) = P(A) + P(B)$$</p>
+    </div>
+
+    <p>The <strong>intersection</strong> $A \cap B$ (read "A and B") is the event that both $A$ and $B$ occur. Two events are <strong>mutually exclusive</strong> (disjoint) if they share no outcomes: $A \cap B = \emptyset$.</p>
+
+    <div class="example-box">
+        <h4>Example 7.3 — Activities Survey</h4>
+        <p>A student is selected at random from a school. Let $A$ = plays sports and $B$ = plays a musical instrument.</p>
+        <p>$P(A) = 0.45$, $\quad P(B) = 0.30$, $\quad P(A \cap B) = 0.15$ (both sports and music).</p>
+        <p><strong>Find $P(A \cup B)$:</strong></p>
+        <p>$P(A \cup B) = 0.45 + 0.30 - 0.15 = \mathbf{0.60}$</p>
+        <p>60% of students participate in sports or music (or both).</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 7.4 — Drawing a Card</h4>
+        <p>One card is drawn from a standard 52-card deck. Let $K$ = king and $Q$ = queen.</p>
+        <ul>
+            <li>$P(K) = \dfrac{4}{52}$, $\quad P(Q) = \dfrac{4}{52}$</li>
+            <li>Are $K$ and $Q$ mutually exclusive? <strong>Yes</strong> — a card cannot be both a king and a queen, so $P(K \cap Q) = 0$.</li>
+            <li>$P(K \cup Q) = \dfrac{4}{52} + \dfrac{4}{52} = \dfrac{8}{52} = \dfrac{2}{13}$</li>
+        </ul>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>$P(A) = 0.4$, $P(B) = 0.3$, $P(A \cap B) = 0.12$. Find $P(A \cup B)$. Are $A$ and $B$ mutually exclusive?</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">$P(A \cup B) = 0.4 + 0.3 - 0.12 = \mathbf{0.58}$. Since $P(A \cap B) = 0.12 \neq 0$, $A$ and $B$ are <strong>not</strong> mutually exclusive — they can both occur at the same time.</div>
+        </details>
+    </div>
+
+    <div class="ap-tip">
+        <div class="ap-tip-icon">★</div>
+        <p><strong>AP Exam Tip:</strong> On the AP exam, "or" always means union ($A \cup B$). Always apply the general addition rule and subtract the intersection — unless the problem states or you can verify the events are mutually exclusive.</p>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Venn diagram: two overlapping circles representing events $A$ and $B$. The overlap is $A \cap B$. $P(A \cup B) = P(A) + P(B) - P(A \cap B)$.</p>
+        <div id="graph-venn" style="width:100%; height:340px;"></div>
+        <p class="fig-label">Figure 7.2 — Venn Diagram: Addition Rule for $P(A \cup B)$</p>
+    </div>
+
+    <!-- 7.3 -->
+    <h2>7.3 Conditional Probability and Independence</h2>
+    <p>Sometimes the probability of an event changes when we know that another event has occurred. This is <strong>conditional probability</strong>.</p>
+
+    <div class="definition-box">
+        <h4>Definition: Conditional Probability</h4>
+        <p>The <strong>conditional probability</strong> of event $B$ given that event $A$ has occurred is:
+        $$P(B \mid A) = \frac{P(A \cap B)}{P(A)}, \quad P(A) > 0$$</p>
+        <p>Read "$P(B \mid A)$" as "the probability of $B$ given $A$." Knowing $A$ occurred restricts the sample space to outcomes in $A$.</p>
+    </div>
+
+    <h3>Independence</h3>
+    <p>Events $A$ and $B$ are <strong>independent</strong> if knowing that $A$ occurred does not change the probability of $B$:</p>
+    <ul>
+        <li>$P(B \mid A) = P(B)$ — equivalent definition</li>
+        <li>$P(A \cap B) = P(A) \cdot P(B)$ — the multiplication rule for independent events</li>
+    </ul>
+
+    <div class="theorem-box">
+        <h4>Theorem: Multiplication Rule</h4>
+        <p><strong>General form</strong> (always valid):
+        $$P(A \cap B) = P(A) \cdot P(B \mid A)$$</p>
+        <p><strong>Special case — independent events:</strong>
+        $$P(A \cap B) = P(A) \cdot P(B)$$</p>
+        <p><strong>Testing independence:</strong> $A$ and $B$ are independent if and only if $P(A \cap B) = P(A) \cdot P(B)$.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 7.5 — Athletes and Passing</h4>
+        <p>In a class, 60% of students are athletes. Among athletes, 70% pass an exam. Among non-athletes, 50% pass.</p>
+        <ul>
+            <li>$P(\text{pass} \mid \text{athlete}) = 0.70$</li>
+            <li>$P(\text{athlete and passes}) = P(\text{athlete}) \cdot P(\text{pass} \mid \text{athlete}) = 0.60 \times 0.70 = \mathbf{0.42}$</li>
+        </ul>
+        <p>42% of all students are athletes who pass the exam.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 7.6 — Drawing Cards With Replacement</h4>
+        <p>Two cards are drawn <strong>with replacement</strong> from a standard 52-card deck.</p>
+        <p>$P(\text{both aces}) = P(\text{ace on 1st}) \times P(\text{ace on 2nd}) = \dfrac{4}{52} \times \dfrac{4}{52} = \dfrac{16}{2704} = \dfrac{1}{169}$</p>
+        <p>Because the first card is replaced before drawing the second, the draws are <strong>independent</strong> — the outcome of the first draw does not affect the second.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A fair coin is flipped twice. Are the two flips independent? Find $P(HH)$.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer"><strong>Yes</strong>, the flips are independent — the result of the first flip does not affect the second. $P(HH) = P(H) \times P(H) = \dfrac{1}{2} \times \dfrac{1}{2} = \dfrac{1}{4}$.</div>
+        </details>
+    </div>
+
+    <div class="ap-tip">
+        <div class="ap-tip-icon">★</div>
+        <p><strong>AP Exam Tip:</strong> Independence and mutual exclusivity are frequently confused. If $P(A) > 0$ and $P(B) > 0$, mutually exclusive events <strong>cannot</strong> be independent: if $A$ and $B$ are disjoint, then knowing $A$ occurred means $B$ definitely did not — so $P(B \mid A) = 0 \neq P(B)$. The two concepts are opposites, not synonyms.</p>
+    </div>
+
+    <!-- 7.4 -->
+    <h2>7.4 Tree Diagrams and Two-Way Tables</h2>
+    <p>For multi-step probability problems, <strong>tree diagrams</strong> organize sequential outcomes systematically. <strong>Two-way tables</strong> display joint frequencies for two categorical variables and make conditional probability calculations straightforward.</p>
+
+    <div class="example-box">
+        <h4>Example 7.7 — Drawing Without Replacement (Tree Diagram)</h4>
+        <p>A bag has 5 red and 3 blue marbles (8 total). Two marbles are drawn <strong>without replacement</strong>. Find $P(\text{both red})$.</p>
+        <p><strong>Tree diagram approach:</strong></p>
+        <ul>
+            <li>1st draw Red (probability 5/8) → 2nd draw Red (probability 4/7): $P(RR) = \dfrac{5}{8} \times \dfrac{4}{7} = \dfrac{20}{56} = \dfrac{5}{14}$</li>
+            <li>1st draw Red (5/8) → 2nd draw Blue (3/7): $P(RB) = \dfrac{5}{8} \times \dfrac{3}{7} = \dfrac{15}{56}$</li>
+            <li>1st draw Blue (3/8) → 2nd draw Red (5/7): $P(BR) = \dfrac{3}{8} \times \dfrac{5}{7} = \dfrac{15}{56}$</li>
+            <li>1st draw Blue (3/8) → 2nd draw Blue (2/7): $P(BB) = \dfrac{3}{8} \times \dfrac{2}{7} = \dfrac{6}{56} = \dfrac{3}{28}$</li>
+        </ul>
+        <p><strong>Check:</strong> $\dfrac{20+15+15+6}{56} = \dfrac{56}{56} = 1$ ✓</p>
+        <p>$P(\text{both red}) = \dfrac{5}{14} \approx 0.357$</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 7.8 — Two-Way Table: Gender and Sport Preference</h4>
+        <p>A survey of 200 students records gender and whether they prefer sports or non-sports activities:</p>
+        <table class="data-table">
+            <tr><th></th><th>Plays Sport</th><th>No Sport</th><th>Total</th></tr>
+            <tr><td><strong>Male</strong></td><td>60</td><td>40</td><td>100</td></tr>
+            <tr><td><strong>Female</strong></td><td>50</td><td>50</td><td>100</td></tr>
+            <tr><td><strong>Total</strong></td><td>110</td><td>90</td><td>200</td></tr>
+        </table>
+        <ul>
+            <li>$P(\text{sport} \mid \text{female}) = \dfrac{50}{100} = 0.50$</li>
+            <li>$P(\text{sport} \mid \text{male}) = \dfrac{60}{100} = 0.60$</li>
+            <li>$P(\text{sport}) = \dfrac{110}{200} = 0.55$ (marginal probability)</li>
+        </ul>
+        <p><strong>Are gender and sport preference independent?</strong></p>
+        <p>Test: $P(\text{sport} \mid \text{female}) = 0.50 \neq P(\text{sport}) = 0.55$. Since the conditional probability differs from the marginal, gender and sport preference are <strong>not independent</strong>.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>Using the two-way table in Example 7.8, find $P(\text{male and plays sport})$.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">$P(\text{male and plays sport}) = \dfrac{60}{200} = 0.30$. This is a <em>joint probability</em> read directly from the cell count divided by the grand total.</div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Tree diagram for drawing 2 marbles from a bag of 5 red and 3 blue without replacement. Branch probabilities shown at each level.</p>
+        <div id="graph-tree" style="width:100%; height:380px;"></div>
+        <p class="fig-label">Figure 7.3 — Tree Diagram: Drawing Without Replacement</p>
+    </div>
+
+    <!-- Practice -->
+    <div class="practice-section">
+        <h2>Practice Problems</h2>
+        <div class="practice-grid">
+            <div class="practice-card">
+                <span class="p-num">1</span>
+                <p>A spinner has 8 equal sections numbered 1–8. Find: $P(\text{prime})$, $P(\text{even or} > 5)$, $P(\text{multiple of 3})$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Primes in 1–8: $\{2,3,5,7\}$, so $P(\text{prime}) = 4/8 = 1/2$.<br>
+                Even: $\{2,4,6,8\}$; $> 5$: $\{6,7,8\}$; overlap: $\{6,8\}$. $P(\text{even or} > 5) = 4/8 + 3/8 - 2/8 = 5/8$.<br>
+                Multiples of 3: $\{3,6\}$, so $P(\text{mult of 3}) = 2/8 = 1/4$.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">2</span>
+                <p>$P(A) = 0.55$, $P(B) = 0.40$, $P(A \cup B) = 0.70$. Find $P(A \cap B)$. Are $A$ and $B$ mutually exclusive?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">From the addition rule: $P(A \cap B) = P(A) + P(B) - P(A \cup B) = 0.55 + 0.40 - 0.70 = \mathbf{0.25}$.<br>
+                Since $P(A \cap B) = 0.25 \neq 0$, the events are <strong>not mutually exclusive</strong>.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">3</span>
+                <p>In a class, 40% play video games ($V$), 30% play sports ($S$), 15% do both. Find $P(V \cup S)$ and $P(\text{neither } V \text{ nor } S)$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$P(V \cup S) = 0.40 + 0.30 - 0.15 = \mathbf{0.55}$.<br>
+                $P(\text{neither}) = 1 - P(V \cup S) = 1 - 0.55 = \mathbf{0.45}$.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">4</span>
+                <p>A standard 52-card deck: find $P(\text{heart} \mid \text{face card})$. (Face cards are J, Q, K — 12 total; 3 are hearts.)</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Restrict the sample space to the 12 face cards. 3 of them are hearts (J♥, Q♥, K♥).<br>
+                $P(\text{heart} \mid \text{face card}) = \dfrac{3}{12} = \dfrac{1}{4} = 0.25$.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">5</span>
+                <p>$P(A) = 0.6$, $P(B) = 0.4$, $P(A \cap B) = 0.24$. Are $A$ and $B$ independent? Show your work.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Test: $P(A) \cdot P(B) = 0.6 \times 0.4 = 0.24$.<br>
+                Since $P(A \cap B) = 0.24 = P(A) \cdot P(B)$, the events $A$ and $B$ are <strong>independent</strong>.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">6</span>
+                <p>Of 300 adults, 180 drink coffee and 120 do not. Among coffee drinkers, 90 prefer mornings; among non-coffee drinkers, 30 prefer mornings. Are coffee drinking and morning preference independent?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$P(\text{morning}) = (90+30)/300 = 120/300 = 0.40$.<br>
+                $P(\text{morning} \mid \text{coffee}) = 90/180 = 0.50$.<br>
+                Since $0.50 \neq 0.40$, the events are <strong>not independent</strong> — coffee drinkers are more likely to prefer mornings.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">7</span>
+                <p>Three cards are drawn <strong>without replacement</strong> from a standard 52-card deck. Find $P(\text{all three are aces})$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$P(\text{all 3 aces}) = \dfrac{4}{52} \times \dfrac{3}{51} \times \dfrac{2}{50} = \dfrac{24}{132600} = \dfrac{1}{5525} \approx 0.000181$.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">8</span>
+                <p><strong>AP FRQ:</strong> A medical test is 95% accurate for those WITH disease and 90% accurate for those WITHOUT. In the population, 2% have the disease. A person tests positive. Using 10,000 people, find $P(\text{disease} \mid \text{positive})$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer"><strong>Tree diagram with 10,000 people:</strong><br>
+                With disease (200): test positive = $0.95 \times 200 = 190$; negative = 10.<br>
+                Without disease (9,800): test positive (false) = $0.10 \times 9800 = 980$; negative = 8,820.<br>
+                Total positive = $190 + 980 = 1,170$.<br>
+                $P(\text{disease} \mid \text{positive}) = \dfrac{190}{1170} \approx \mathbf{0.162}$.<br>
+                <em>Only about 16% of those who test positive actually have the disease — this is the base rate effect.</em></div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+            <h4>Core Probability Rules</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Basic Probability</strong>
+                    <p>$0 \leq P(A) \leq 1$ for any event $A$. $P(S) = 1$ where $S$ is the sample space. $P(A^c) = 1 - P(A)$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Addition Rule</strong>
+                    <p>$P(A \cup B) = P(A) + P(B) - P(A \cap B)$. If mutually exclusive: $P(A \cup B) = P(A) + P(B)$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Multiplication Rule</strong>
+                    <p>$P(A \cap B) = P(A) \cdot P(B|A)$. If independent: $P(A \cap B) = P(A) \cdot P(B)$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Conditional Probability</strong>
+                    <p>$P(B|A) = \dfrac{P(A \cap B)}{P(A)}$ — probability of $B$ given that $A$ has occurred.</p>
+                </div>
+            </div>
+            <h4>Key Concepts</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Independence</strong>
+                    <p>Events $A$ and $B$ are independent if $P(B|A) = P(B)$, equivalently $P(A \cap B) = P(A)P(B)$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Mutually Exclusive</strong>
+                    <p>Events $A$ and $B$ cannot both occur: $P(A \cap B) = 0$. Note: mutually exclusive events are NOT independent (unless one has probability 0).</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Two-Way Tables</strong>
+                    <p>Organize joint probabilities. Marginal probabilities are row/column totals. Joint probabilities are cell entries.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Tree Diagrams</strong>
+                    <p>Multiply probabilities along branches to find joint probabilities. Add branch probabilities for mutually exclusive outcomes.</p>
+                </div>
+            </div>
+        </div>
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item"><strong>Sample Space</strong><span>The set $S$ of all possible outcomes of a random phenomenon.</span></div>
+                <div class="key-term-item"><strong>Event</strong><span>Any subset of the sample space. Probability is assigned to events.</span></div>
+                <div class="key-term-item"><strong>Conditional Probability</strong><span>$P(B|A)$ — probability of $B$ given $A$ occurred. Updates probability with new information.</span></div>
+                <div class="key-term-item"><strong>Independence</strong><span>Events $A$ and $B$ are independent if knowing $A$ occurred doesn't change $P(B)$.</span></div>
+                <div class="key-term-item"><strong>Mutually Exclusive</strong><span>Events that cannot both occur: $P(A \cap B) = 0$. Also called disjoint events.</span></div>
+                <div class="key-term-item"><strong>Complement</strong><span>$A^c$ is the event "A does not occur." $P(A^c) = 1 - P(A)$.</span></div>
+            </div>
+        </div>
+    <div class="chapter-nav">
+        <a href="/us/textbook/ap-statistics/designing-studies.html">← Chapter 6: Designing Studies</a>
+        <a href="/us/textbook/ap-statistics/random-variables.html">Chapter 8: Random Variables →</a>
+    </div>
+</article>
+
+<script>
+(function() {
+    // Figure 7.1 — Sample Space: Die faces
+    var elt1 = document.getElementById('graph-sample');
+    var calc1 = Desmos.GraphingCalculator(elt1, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false, showGrid: false,
+        showXAxis: false, showYAxis: false
+    });
+    calc1.setMathBounds({ left: 0, right: 8, bottom: 0, top: 4 });
+    // Even numbers (2,4,6) in green; odd (1,3,5) in gray
+    var evens = [[2,2],[4,2],[6,2]];
+    var odds  = [[1,2],[3,2],[5,2]];
+    evens.forEach(function(pt) {
+        calc1.setExpression({ id: 'e'+pt[0], type: 'expression', latex: '('+pt[0]+','+pt[1]+')', color: '#065f46', pointStyle: Desmos.Styles.POINT, pointSize: 18, label: String(pt[0]), showLabel: true });
+    });
+    odds.forEach(function(pt) {
+        calc1.setExpression({ id: 'o'+pt[0], type: 'expression', latex: '('+pt[0]+','+pt[1]+')', color: '#94a3b8', pointStyle: Desmos.Styles.POINT, pointSize: 18, label: String(pt[0]), showLabel: true });
+    });
+    calc1.setExpression({ id: 'lbl', type: 'expression', latex: '(4,3.3)', color: '#065f46', pointSize: 0, label: 'P(even) = 1/2', showLabel: true });
+    calc1.setExpression({ id: 'lblgr', type: 'expression', latex: '(4,0.7)', color: '#94a3b8', pointSize: 0, label: 'P(odd) = 1/2', showLabel: true });
+})();
+
+(function() {
+    // Figure 7.2 — Venn Diagram (Addition Rule)
+    var elt2 = document.getElementById('graph-venn');
+    var calc2 = Desmos.GraphingCalculator(elt2, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false, showGrid: false,
+        showXAxis: false, showYAxis: false
+    });
+    calc2.setMathBounds({ left: 0, right: 8, bottom: 0, top: 6 });
+    calc2.setExpressions([
+        { id: 'circA', type: 'expression', latex: '(x-3)^{2}+(y-3)^{2}=4', color: '#10b981', lineWidth: 3 },
+        { id: 'circB', type: 'expression', latex: '(x-5)^{2}+(y-3)^{2}=4', color: '#3b82f6', lineWidth: 3 },
+        { id: 'lblA',  type: 'expression', latex: '(2,3)',  color: '#065f46', pointSize: 0, label: 'A',   showLabel: true },
+        { id: 'lblB',  type: 'expression', latex: '(6,3)',  color: '#3b82f6', pointSize: 0, label: 'B',   showLabel: true },
+        { id: 'lblAB', type: 'expression', latex: '(4,3)',  color: '#334155', pointSize: 0, label: 'A\u2229B', showLabel: true },
+        { id: 'lbltop', type: 'expression', latex: '(4,5.5)', color: '#334155', pointSize: 0, label: 'P(A\u222aB) = P(A)+P(B)-P(A\u2229B)', showLabel: true }
+    ]);
+})();
+
+(function() {
+    // Figure 7.3 — Tree Diagram: Drawing without replacement (5R, 3B bag)
+    var elt3 = document.getElementById('graph-tree');
+    var calc3 = Desmos.GraphingCalculator(elt3, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false, showGrid: false,
+        showXAxis: false, showYAxis: false
+    });
+    calc3.setMathBounds({ left: 0, right: 8, bottom: 0, top: 8 });
+
+    // Branches as line segments
+    var branches = [
+        // Root to Level 1
+        { id: 'b1', latex: '\\left(\\left[1,3\\right],\\left[4,6\\right]\\right)', color: '#065f46', lineWidth: 2 },
+        { id: 'b2', latex: '\\left(\\left[1,3\\right],\\left[4,2\\right]\\right)', color: '#3b82f6', lineWidth: 2 },
+        // Level 1 Red -> Level 2
+        { id: 'b3', latex: '\\left(\\left[3,6\\right],\\left[6,7\\right]\\right)', color: '#065f46', lineWidth: 2 },
+        { id: 'b4', latex: '\\left(\\left[3,6\\right],\\left[6,5\\right]\\right)', color: '#3b82f6', lineWidth: 2 },
+        // Level 1 Blue -> Level 2
+        { id: 'b5', latex: '\\left(\\left[3,2\\right],\\left[6,3\\right]\\right)', color: '#065f46', lineWidth: 2 },
+        { id: 'b6', latex: '\\left(\\left[3,2\\right],\\left[6,1\\right]\\right)', color: '#3b82f6', lineWidth: 2 }
+    ];
+    branches.forEach(function(b) {
+        calc3.setExpression({ id: b.id, type: 'expression', latex: b.latex, color: b.color, lineWidth: b.lineWidth });
+    });
+
+    // Level 1 nodes
+    calc3.setExpression({ id: 'root',  type: 'expression', latex: '(1,4)', color: '#334155', pointSize: 14, pointStyle: Desmos.Styles.POINT, label: 'Start', showLabel: true });
+    calc3.setExpression({ id: 'n1R',   type: 'expression', latex: '(3,6)', color: '#065f46', pointSize: 16, pointStyle: Desmos.Styles.POINT, label: 'Red  5/8', showLabel: true });
+    calc3.setExpression({ id: 'n1B',   type: 'expression', latex: '(3,2)', color: '#3b82f6', pointSize: 16, pointStyle: Desmos.Styles.POINT, label: 'Blue  3/8', showLabel: true });
+    // Level 2 nodes
+    calc3.setExpression({ id: 'n2RR',  type: 'expression', latex: '(6,7)', color: '#065f46', pointSize: 14, pointStyle: Desmos.Styles.POINT, label: 'R  4/7', showLabel: true });
+    calc3.setExpression({ id: 'n2RB',  type: 'expression', latex: '(6,5)', color: '#3b82f6', pointSize: 14, pointStyle: Desmos.Styles.POINT, label: 'B  3/7', showLabel: true });
+    calc3.setExpression({ id: 'n2BR',  type: 'expression', latex: '(6,3)', color: '#065f46', pointSize: 14, pointStyle: Desmos.Styles.POINT, label: 'R  5/7', showLabel: true });
+    calc3.setExpression({ id: 'n2BB',  type: 'expression', latex: '(6,1)', color: '#3b82f6', pointSize: 14, pointStyle: Desmos.Styles.POINT, label: 'B  2/7', showLabel: true });
+    // Outcome labels
+    calc3.setExpression({ id: 'outRR', type: 'expression', latex: '(7.5,7)',  color: '#065f46', pointSize: 0, label: 'P=5/14', showLabel: true });
+    calc3.setExpression({ id: 'outRB', type: 'expression', latex: '(7.5,5)',  color: '#334155', pointSize: 0, label: 'P=15/56', showLabel: true });
+    calc3.setExpression({ id: 'outBR', type: 'expression', latex: '(7.5,3)',  color: '#334155', pointSize: 0, label: 'P=15/56', showLabel: true });
+    calc3.setExpression({ id: 'outBB', type: 'expression', latex: '(7.5,1)',  color: '#3b82f6', pointSize: 0, label: 'P=3/28', showLabel: true });
+})();
+</script>
+
+    <script src="../../../assets/js/textbook-ux.js"></script>
+</body>
+</html>

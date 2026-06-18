@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IB EE 주제 추천: 미분방정식으로 전염병 확산 모델링 | MathHub</title>
+    <meta name="description" content="IB Extended Essay 수학 주제 추천: SIR 모델을 활용한 전염병 확산 모델링. 미분방정식, 기초재생산수 R0, 집단면역 임계값의 수학적 분석을 EE로 탐구합니다.">
+    <meta name="keywords" content="IB EE 주제, SIR 모델, 전염병 수학, 미분방정식, R0 기초재생산수, 집단면역, Extended Essay 수학, IB 수학 EE, 전염병 모델링">
+    <meta name="author" content="MathHub Korea">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/kr/blog/ee-topic-epidemic-modeling.html">
+    <link rel="alternate" hreflang="en" href="https://mathhub.io/ib/blog/ee-topic-epidemic-modeling.html" />
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/blog/ee-topic-epidemic-modeling.html" />
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/kr/blog/ee-topic-epidemic-modeling.html">
+    <meta property="og:title" content="IB EE 주제 추천: 미분방정식으로 전염병 확산 모델링">
+    <meta property="og:description" content="SIR 모델과 미분방정식으로 전염병 확산을 분석하는 IB 수학 EE 가이드.">
+    <meta property="og:site_name" content="MathHub Korea">
+    <meta property="og:locale" content="ko_KR">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="IB EE 주제: 미분방정식으로 전염병 확산 모델링">
+    <meta name="twitter:description" content="SIR 모델, R0, 집단면역 — 미분방정식 기반 전염병 확산 EE 가이드.">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] } };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans KR', Arial, sans-serif; line-height: 1.85; color: #333; background: #f5f7fa; }
+        nav.global-nav { background:#1e3a5f; display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:52px; }
+        nav.global-nav a { color:rgba(255,255,255,.85); text-decoration:none; font-size:.9em; }
+        nav.global-nav .nav-brand { font-weight:700; font-size:1.1em; color:white; }
+        nav.global-nav .nav-links { display:flex; gap:18px; align-items:center; }
+        nav.global-nav .nav-links a.active { color:white; font-weight:700; }
+        .header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 50px 20px; text-align: center; }
+        .header h1 { font-size: 2em; margin-bottom: 10px; line-height: 1.35; }
+        .category-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 16px; border-radius: 20px; font-size: 0.85em; margin-bottom: 14px; }
+        .date { opacity: 0.85; font-size: 0.9em; margin-top: 8px; }
+        .container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); border-radius: 10px; }
+        .back-link { display: inline-block; margin-bottom: 28px; color: #667eea; text-decoration: none; font-weight: 600; font-size: 0.9em; }
+        .back-link:hover { text-decoration: underline; }
+        h2 { color: #2c3e50; margin-top: 40px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid #667eea; font-size: 1.4em; }
+        h3 { color: #334155; margin-top: 28px; margin-bottom: 12px; font-size: 1.1em; }
+        p { margin-bottom: 14px; text-align: justify; }
+        ul, ol { margin-left: 28px; margin-bottom: 14px; }
+        li { margin-bottom: 7px; }
+        strong { color: #1e293b; }
+        .formula { background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 15px 0; overflow-x: auto; }
+        .info-box { background: #f0ebff; border-left: 4px solid #667eea; padding: 18px 20px; margin: 22px 0; border-radius: 4px; }
+        .tip-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 18px 20px; margin: 22px 0; border-radius: 4px; }
+        .example-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 20px; margin: 25px 0; border-radius: 4px; }
+        .consultation-cta { background: #f5f3ff; border-left: 4px solid #667eea; padding: 20px; border-radius: 8px; margin: 36px 0 0; }
+        .consultation-cta a { color: #667eea; font-weight: 700; text-decoration: none; }
+        .consultation-cta a:hover { text-decoration: underline; }
+        .footer { text-align: center; padding: 30px 20px; color: #666; margin-top: 50px; }
+        @media (max-width: 768px) { .container { padding: 30px 20px; margin: 20px; } .header h1 { font-size: 1.6em; } }
+    </style>
+</head>
+<body>
+<nav class="global-nav">
+    <a href="/" class="nav-brand">MathHub</a>
+    <div class="nav-links">
+        <a href="/kr/" class="active">KR</a>
+        <a href="/us/">US</a>
+        <a href="/uk/">UK</a>
+        <a href="/ca/">CA</a>
+        <a href="/ib/">IB</a>
+    </div>
+</nav>
+
+<div class="header">
+    <div class="category-badge">IB EE 주제 추천 &mdash; 수학</div>
+    <h1>미분방정식으로 전염병 확산 모델링</h1>
+    <div class="date">2026년 3월 16일</div>
+</div>
+
+<div class="container">
+    <a href="/kr/blog/" class="back-link">&larr; 블로그 목록으로</a>
+
+    <h2>1. 왜 전염병 모델링이 좋은 EE 주제인가</h2>
+
+    <p>전염병 확산 모델링은 수학이 실생활에서 어떻게 활용되는지를 가장 극적으로 보여주는 분야입니다. 코로나19 팬데믹을 경험한 세대로서 IB 학생들은 "확진자 곡선을 평탄화(flatten the curve)하라"는 표현을 직접 들었고, 이 곡선의 수학적 배경을 탐구하는 것은 매우 자연스러운 EE 주제입니다.</p>
+
+    <p>이 주제의 장점은 미분방정식이라는 고등 수학을 다루면서도, 실제 역학 데이터와 비교 분석이 가능하다는 점입니다. 모델의 예측값과 실제 데이터 사이의 차이를 분석하고, 모델의 한계를 논의하는 과정에서 기준 C(비판적 사고)의 높은 점수를 확보할 수 있습니다.</p>
+
+    <p>연구 질문의 예시: "SIR 모델이 2020년 한국의 코로나19 초기 확산 데이터를 얼마나 정확하게 설명하며, 모델의 한계는 무엇인가?"</p>
+
+    <h2>2. SIR 모델의 수학적 구조</h2>
+
+    <p>SIR 모델은 1927년 Kermack과 McKendrick이 제안한 전염병 확산의 기본 모형입니다. 전체 인구를 세 가지 구획(compartment)으로 나눕니다:</p>
+
+    <ul>
+        <li><strong>S(Susceptible, 감수성)</strong>: 아직 감염되지 않았으며 감염될 수 있는 사람</li>
+        <li><strong>I(Infectious, 감염)</strong>: 현재 감염 상태이며 다른 사람에게 전파할 수 있는 사람</li>
+        <li><strong>R(Recovered, 회복)</strong>: 회복되어 면역을 획득한 사람 (또는 사망)</li>
+    </ul>
+
+    <p>이 세 구획 사이의 전이를 미분방정식으로 표현합니다. 전체 인구를 $N$으로 정규화하면($S + I + R = N$):</p>
+
+    <div class="formula">
+        $$\frac{dS}{dt} = -\frac{\beta S I}{N}$$
+    </div>
+
+    <div class="formula">
+        $$\frac{dI}{dt} = \frac{\beta S I}{N} - \gamma I$$
+    </div>
+
+    <div class="formula">
+        $$\frac{dR}{dt} = \gamma I$$
+    </div>
+
+    <p>여기서 $\beta$는 전파율(transmission rate)로, 감염자가 감수성 있는 사람과 접촉하여 감염시키는 비율을 나타냅니다. $\gamma$는 회복률(recovery rate)로, 감염자가 회복되는 비율입니다. 감염 기간의 평균이 $D$일이면 $\gamma = 1/D$입니다.</p>
+
+    <h2>3. 기초재생산수 R₀</h2>
+
+    <p>SIR 모델에서 가장 중요한 매개변수는 기초재생산수(Basic Reproduction Number) $R_0$입니다:</p>
+
+    <div class="formula">
+        $$R_0 = \frac{\beta}{\gamma}$$
+    </div>
+
+    <p>$R_0$는 완전히 감수성이 있는 집단에서 한 명의 감염자가 평균적으로 감염시키는 2차 감염자 수를 의미합니다. $R_0 > 1$이면 전염병이 확산되고, $R_0 < 1$이면 자연 소멸됩니다.</p>
+
+    <div class="info-box">
+        <strong>질병별 R₀ 참고값:</strong><br>
+        홍역: 12&ndash;18 &nbsp;|&nbsp; 수두: 10&ndash;12 &nbsp;|&nbsp; 코로나19 초기주: 2.5&ndash;3.5 &nbsp;|&nbsp; 계절 독감: 1.2&ndash;1.8
+    </div>
+
+    <p>$R_0$로부터 집단면역 임계값(herd immunity threshold) $H$를 유도할 수 있습니다:</p>
+
+    <div class="formula">
+        $$H = 1 - \frac{1}{R_0}$$
+    </div>
+
+    <p>예를 들어 $R_0 = 3$이면 $H = 1 - 1/3 \approx 0.667$, 즉 전체 인구의 약 66.7%가 면역을 가져야 전염병 확산이 멈춥니다. 이 간단한 공식은 백신 접종 정책의 수학적 근거를 제공합니다.</p>
+
+    <h2>4. 수치적 풀이와 시뮬레이션</h2>
+
+    <p>SIR 미분방정식은 해석적(closed-form) 풀이가 일반적으로 불가능합니다. 따라서 수치적 방법을 사용해야 하는데, 이것이 EE에서 큰 강점이 됩니다. 오일러 방법(Euler method)이나 4차 룽게-쿠타 방법(RK4)을 직접 구현하면 개인적 참여를 보여줄 수 있습니다.</p>
+
+    <p>오일러 방법의 기본 아이디어는 미분을 차분(difference)으로 근사하는 것입니다:</p>
+
+    <div class="formula">
+        $$S(t + \Delta t) \approx S(t) + \frac{dS}{dt} \cdot \Delta t = S(t) - \frac{\beta S(t) I(t)}{N} \cdot \Delta t$$
+    </div>
+
+    <p>Python, MATLAB, 또는 스프레드시트에서 이 계산을 반복하면 시간에 따른 $S(t)$, $I(t)$, $R(t)$ 곡선을 그릴 수 있습니다. 시간 간격 $\Delta t$를 다르게 하면서 수렴성을 확인하는 것도 수학적 분석의 좋은 소재입니다.</p>
+
+    <h2>5. EE에서의 심화 탐구 방향</h2>
+
+    <p><strong>실제 데이터와의 비교:</strong> WHO나 질병관리청의 공개 데이터를 활용하여 SIR 모델의 예측과 실제 확진자 수를 비교하세요. 모델이 실제를 과대 또는 과소 추정하는 시기를 식별하고, 그 원인(봉쇄 정책, 행동 변화, 변이 출현 등)을 분석하면 비판적 사고 점수가 올라갑니다.</p>
+
+    <p><strong>SIR 모델의 확장:</strong> 기본 SIR 모델의 한계를 인식하고, SEIR(잠복기 추가), SIRS(면역 소실), SIR with vaccination(백신 접종 반영) 등의 확장 모델을 비교 분석할 수 있습니다. 단, IB EE는 4,000단어 제한이 있으므로 한두 가지 확장만 선택하세요.</p>
+
+    <p><strong>매개변수 민감도 분석:</strong> $\beta$와 $\gamma$를 변화시켰을 때 감염 곡선이 어떻게 달라지는지를 체계적으로 분석하면, 정부 정책(사회적 거리두기 → $\beta$ 감소, 치료법 개선 → $\gamma$ 증가)의 효과를 수학적으로 설명할 수 있습니다.</p>
+
+    <div class="tip-box">
+        <strong>EE 작성 팁:</strong> 시뮬레이션 그래프를 최소 4&ndash;5개 포함하세요. 기본 시나리오, $R_0$ 변화, 봉쇄 정책 시뮬레이션, 실제 데이터 비교 등 각 그래프가 서로 다른 분석적 통찰을 제공해야 합니다. 그래프 캡션은 단어 수에 포함되지 않으므로 적극 활용하세요.
+    </div>
+
+    <h2>6. 참고 자료와 접근법</h2>
+
+    <p>이 주제를 처음 접하는 학생이라면 Matt Keeling의 <em>Modeling Infectious Diseases in Humans and Animals</em>의 처음 두 장(chapters)이 좋은 출발점입니다. Python 코딩에 익숙하다면 scipy.integrate.odeint를 사용하여 ODE를 풀 수 있으며, 코딩이 어려우면 Excel 스프레드시트에서 오일러 방법을 구현해도 충분합니다.</p>
+
+    <p>데이터 출처로는 Johns Hopkins CSSE의 코로나19 데이터셋, 질병관리청의 주간 감시 보고서, 또는 과거 독감 시즌 데이터를 추천합니다. 출처를 명확히 밝히고, 데이터의 한계(보고 지연, 검사율 차이 등)를 논의하는 것이 학술적 글쓰기의 기본입니다.</p>
+
+    <div class="consultation-cta">
+        <strong>Extended Essay 작성에 도움이 필요하신가요?</strong>
+        <p>주제 선정부터 리서치, 작성까지 경험 많은 IB 튜터가 안내해 드립니다.</p>
+        <a href="/contact.html">무료 상담 신청 &rarr;</a>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+    <p style="margin-top:6px; font-size:0.85em;">
+        <a href="/about.html" style="color:inherit;opacity:0.7;text-decoration:none;">About</a> &middot;
+        <a href="/privacy.html" style="color:inherit;opacity:0.7;text-decoration:none;">Privacy Policy</a>
+    </p>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "IB EE 주제 추천: 미분방정식으로 전염병 확산 모델링",
+    "description": "SIR 모델, 미분방정식, 기초재생산수 R0를 활용한 전염병 확산 모델링 IB EE 가이드.",
+    "author": { "@type": "Organization", "name": "MathHub Korea" },
+    "publisher": { "@type": "Organization", "name": "MathHub Global", "url": "https://mathhub.io/" },
+    "url": "https://mathhub.io/kr/blog/ee-topic-epidemic-modeling.html",
+    "datePublished": "2026-03-16",
+    "dateModified": "2026-03-16",
+    "inLanguage": "ko"
+}
+</script>
+
+</body>
+</html>

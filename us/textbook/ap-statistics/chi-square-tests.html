@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Statistics: Chi-Square Tests and Inference for Regression - Chapter 12 | MathHub</title>
+    <meta name="description" content="AP Statistics Chapter 12: Chi-Square Tests and Inference for Regression. Learn goodness-of-fit, independence, homogeneity tests, and regression slope inference.">
+    <meta name="keywords" content="AP Statistics, chi-square test, goodness of fit, test for independence, test for homogeneity, inference for regression, slope, AP Stats Chapter 12">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/ap-statistics/chi-square-tests.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/ap-statistics/chi-square-tests.html">
+    <meta property="og:title" content="AP Statistics: Chi-Square Tests and Inference for Regression - Chapter 12">
+    <meta property="og:description" content="Master chi-square goodness-of-fit, independence, homogeneity tests, and inference for regression slope in AP Statistics.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Statistics: Chi-Square Tests and Inference for Regression - Chapter 12">
+    <meta name="twitter:description" content="AP Statistics Chapter 12: Chi-square tests and inference for regression slope.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "AP Statistics: Chi-Square Tests and Inference for Regression - Chapter 12",
+        "description": "AP Statistics Chapter 12 covering chi-square goodness-of-fit, tests for independence and homogeneity, and inference for the slope of a regression line.",
+        "url": "https://mathhub.io/us/textbook/ap-statistics/chi-square-tests.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "AP",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Chi-Square Test" },
+            { "@type": "Thing", "name": "Inference for Regression" },
+            { "@type": "Thing", "name": "AP Statistics" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <link rel="stylesheet" href="../../../assets/css/textbook-ux.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #064e3b; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #064e3b; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #10b981; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives { background: #ecfdf5; border-left: 4px solid #10b981; padding: 20px 24px; margin: 24px 0 32px; border-radius: 0 10px 10px 0; }
+        .learning-objectives h4 { color: #065f46; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #064e3b; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box { background: #f0fdf4; border-left: 4px solid #10b981; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #065f46; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+
+        .definition-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box { background: #f0fdf4; border: 1.5px dashed #86efac; padding: 16px 20px; margin: -4px 0 24px; border-radius: 0 0 8px 8px; }
+        .try-it-box .try-it-label { display: inline-block; background: #10b981; color: white; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px; }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary { cursor: pointer; color: #065f46; font-weight: 600; font-size: 0.9em; user-select: none; }
+        .try-it-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7; }
+
+        .ap-tip { background: #fefce8; border-left: 4px solid #eab308; padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .ap-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #92400e; }
+
+        .desmos-wrap { margin: 24px auto; background: #f8fafc; border-radius: 12px; padding: 4px; border: 1px solid #e2e8f0; text-align: center; }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label { text-align: center; font-size: 0.82em; color: #64748b; margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em; }
+
+        .practice-section { margin: 48px 0 0; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { color: #064e3b; margin-bottom: 20px; }
+        .practice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        @media (max-width: 600px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; }
+        .practice-card .p-num { display: inline-block; background: #064e3b; color: white; font-weight: 700; font-size: 0.78em; padding: 2px 9px; border-radius: 4px; margin-bottom: 8px; }
+        .practice-card p { color: #334155; font-size: 0.92em; line-height: 1.7; margin: 0 0 10px; }
+        .practice-card details summary { cursor: pointer; color: #065f46; font-weight: 600; font-size: 0.88em; user-select: none; }
+        .practice-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 8px; color: #334155; font-size: 0.9em; line-height: 1.7; border: 1px solid #e2e8f0; }
+
+        .chapter-nav { display: flex; justify-content: space-between; margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid #e2e8f0; flex-wrap: wrap; gap: 12px; }
+        .chapter-nav a { color: #10b981; text-decoration: none; font-weight: 600; font-size: 0.95em; padding: 8px 16px; border: 1.5px solid #10b981; border-radius: 8px; transition: background .15s; }
+        .chapter-nav a:hover { background: #ecfdf5; }
+
+        .data-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.9em; }
+        .data-table th { background: #064e3b; color: white; padding: 8px 12px; text-align: center; font-weight: 600; }
+        .data-table td { padding: 7px 12px; border: 1px solid #e2e8f0; text-align: center; color: #334155; }
+        .data-table tr:nth-child(even) { background: #f8fafc; }
+
+        .two-way-table { width: auto; border-collapse: collapse; margin: 16px auto 24px; font-size: 0.9em; }
+        .two-way-table th { background: #065f46; color: white; padding: 8px 16px; text-align: center; font-weight: 600; }
+        .two-way-table td { padding: 8px 16px; border: 1px solid #e2e8f0; text-align: center; color: #334155; min-width: 80px; }
+        .two-way-table .row-header { background: #f0fdf4; font-weight: 600; color: #065f46; }
+        .two-way-table .total-row { background: #ecfdf5; font-weight: 600; color: #064e3b; }
+
+        /* ── Section Summary ── */
+        .section-summary { background: #f8fafc; border: 2px solid #e2e8f0; padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px; }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .summary-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin: 16px 0; }
+        .key-term-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<div style="background:#064e3b; padding:12px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+    <a href="/" style="color:#6ee7b7; text-decoration:none; font-weight:700; font-size:1.1em;">MathHub</a>
+    <span style="color:#34d399;">›</span>
+    <a href="/us" style="color:#a7f3d0; text-decoration:none; font-size:.9em;">US</a>
+    <span style="color:#34d399;">›</span>
+    <a href="/us/textbook/ap-statistics" style="color:#a7f3d0; text-decoration:none; font-size:.9em;">AP Statistics</a>
+    <span style="color:#34d399;">›</span>
+    <span style="color:white; font-size:.9em;">Chapter 12</span>
+</div>
+
+<article class="blog-article">
+    <div class="breadcrumb">
+        <a href="/">MathHub</a> › <a href="/us">US</a> › <a href="/us/textbook/ap-statistics">AP Statistics</a> › Chapter 12
+    </div>
+
+    <h1>Chapter 12: Chi-Square Tests &amp; Inference for Regression</h1>
+    <div class="blog-meta">AP Statistics · Categorical Data &amp; Regression Inference · 3 interactive graphs · 8 practice problems</div>
+
+    <div class="learning-objectives">
+        <h4>Learning Objectives</h4>
+        <ul>
+            <li>Carry out a chi-square goodness-of-fit test and interpret the result in context</li>
+            <li>Construct and interpret a two-way table; compute expected counts</li>
+            <li>Perform chi-square tests for independence and homogeneity; identify when each applies</li>
+            <li>Distinguish between a test for independence and a test for homogeneity</li>
+            <li>Conduct a $t$-test for the slope of a regression line and construct a CI for $\beta$</li>
+            <li>Interpret computer regression output to extract $b$, $SE_b$, $t$, and $p$-value</li>
+        </ul>
+    </div>
+
+    <!-- 12.1 -->
+    <h2>12.1 Chi-Square Goodness-of-Fit Test</h2>
+    <p>The <strong>goodness-of-fit test</strong> asks: does a single categorical variable follow a specified distribution? It compares the <strong>observed counts</strong> from a sample against the <strong>expected counts</strong> from the hypothesized distribution.</p>
+
+    <div class="definition-box">
+        <h4>Hypotheses and Test Statistic</h4>
+        <p><strong>$H_0$:</strong> The population distribution matches the specified distribution (the stated proportions are correct).<br>
+        <strong>$H_a$:</strong> The population distribution does not match — at least one proportion differs from the specified value.</p>
+        <p>$$\chi^2 = \sum \frac{(O - E)^2}{E}$$</p>
+        <ul>
+            <li>$O$ = observed count; $E$ = expected count = $n \cdot p_i$</li>
+            <li>$df = k - 1$ where $k$ = number of categories</li>
+            <li>$\chi^2$ is always $\geq 0$; large values give small $p$-values</li>
+            <li><strong>Always right-tailed:</strong> $p\text{-value} = P(\chi^2 > \chi^2_{\text{stat}})$</li>
+        </ul>
+    </div>
+
+    <h3>Conditions</h3>
+    <ul>
+        <li><strong>Random:</strong> Data come from a random sample or randomized experiment.</li>
+        <li><strong>Large Counts:</strong> All <em>expected</em> counts are at least 5 (not the observed counts).</li>
+    </ul>
+
+    <div class="example-box">
+        <h4>Example 12.1 — Is a Die Fair?</h4>
+        <p>A die is rolled 60 times. Expected count for each face: $E = 60/6 = 10$. Observed counts:</p>
+        <table class="data-table">
+            <tr><th>Face</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+            <tr><th>Observed</th><td>8</td><td>11</td><td>9</td><td>13</td><td>7</td><td>12</td></tr>
+            <tr><th>Expected</th><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td></tr>
+        </table>
+        <p><strong>Conditions:</strong> Random ✓; all expected counts = 10 $\geq$ 5 ✓.</p>
+        <p>$$\chi^2 = \frac{(8-10)^2}{10} + \frac{(11-10)^2}{10} + \frac{(9-10)^2}{10} + \frac{(13-10)^2}{10} + \frac{(7-10)^2}{10} + \frac{(12-10)^2}{10}$$</p>
+        <p>$$= \frac{4}{10} + \frac{1}{10} + \frac{1}{10} + \frac{9}{10} + \frac{9}{10} + \frac{4}{10} = 0.4 + 0.1 + 0.1 + 0.9 + 0.9 + 0.4 = 2.8$$</p>
+        <p>$df = 6 - 1 = 5$. From the $\chi^2$-table: $P(\chi^2 > 2.8) \approx 0.73$.</p>
+        <p><strong>Conclusion:</strong> Since $p\text{-value} = 0.73 \gg 0.05$, we fail to reject $H_0$. There is not convincing evidence that the die is unfair — the results are consistent with a fair die.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A chi-square goodness-of-fit test yields $\chi^2 = 15.2$, $df = 4$, $p\text{-value} = 0.004$ at $\alpha = 0.05$. Interpret this result.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">Since $p\text{-value} = 0.004 < 0.05 = \alpha$, we reject $H_0$. There is convincing evidence that the population distribution does not match the specified distribution — at least one of the proportions differs from the stated value.</div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Chi-square distributions for $df = 1$ (blue), $df = 5$ (green), and $df = 10$ (purple). All are right-skewed; as $df$ increases, the distribution shifts right and becomes less skewed.</p>
+        <div id="graph-chisq" style="width:100%; height:360px;"></div>
+        <p class="fig-label">Figure 12.1 — Chi-Square Distributions for Various Degrees of Freedom</p>
+    </div>
+
+    <!-- 12.2 -->
+    <h2>12.2 Chi-Square Test for Independence</h2>
+    <p>The <strong>test for independence</strong> asks: are two categorical variables associated in a single population? Data are arranged in a <strong>two-way (contingency) table</strong>.</p>
+
+    <div class="theorem-box">
+        <h4>Expected Counts and Test Statistic</h4>
+        <p>$$E_{ij} = \frac{(\text{row } i \text{ total}) \times (\text{column } j \text{ total})}{\text{table total}}$$</p>
+        <p>$$\chi^2 = \sum_{\text{all cells}} \frac{(O - E)^2}{E}, \qquad df = (r-1)(c-1)$$</p>
+        <p>where $r$ = number of rows and $c$ = number of columns.</p>
+        <p><strong>$H_0$:</strong> The two variables are independent (no association).<br>
+        <strong>$H_a$:</strong> The two variables are associated.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 12.2 — Gender and Subject Preference</h4>
+        <p>200 students are surveyed on gender (Male/Female) and preferred subject (Math/English).</p>
+        <table class="two-way-table">
+            <tr>
+                <th></th><th>Math</th><th>English</th><th>Total</th>
+            </tr>
+            <tr>
+                <td class="row-header">Male</td><td>60</td><td>40</td><td>100</td>
+            </tr>
+            <tr>
+                <td class="row-header">Female</td><td>45</td><td>55</td><td>100</td>
+            </tr>
+            <tr>
+                <td class="total-row">Total</td><td class="total-row">105</td><td class="total-row">95</td><td class="total-row">200</td>
+            </tr>
+        </table>
+        <p><strong>Expected counts</strong> (using $E = \text{row total} \times \text{col total} / \text{grand total}$):</p>
+        <ul>
+            <li>Male–Math: $(100 \times 105)/200 = 52.5$</li>
+            <li>Male–English: $(100 \times 95)/200 = 47.5$</li>
+            <li>Female–Math: $(100 \times 105)/200 = 52.5$</li>
+            <li>Female–English: $(100 \times 95)/200 = 47.5$</li>
+        </ul>
+        <p>All expected counts $\geq 5$ ✓.</p>
+        <p>$$\chi^2 = \frac{(60-52.5)^2}{52.5} + \frac{(40-47.5)^2}{47.5} + \frac{(45-52.5)^2}{52.5} + \frac{(55-47.5)^2}{47.5}$$</p>
+        <p>$$= \frac{56.25}{52.5} + \frac{56.25}{47.5} + \frac{56.25}{52.5} + \frac{56.25}{47.5} = 1.071 + 1.184 + 1.071 + 1.184 = 4.51$$</p>
+        <p>$df = (2-1)(2-1) = 1$. $p\text{-value} = P(\chi^2 > 4.51) \approx 0.034$.</p>
+        <p><strong>Conclusion:</strong> Since $0.034 < 0.05$, we reject $H_0$. There is convincing evidence of an association between gender and preferred subject.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 12.3 — Verifying Conditions</h4>
+        <p>For a test of independence to be valid:</p>
+        <ul>
+            <li><strong>Random:</strong> Data come from a random sample of <em>one</em> population.</li>
+            <li><strong>Large Counts:</strong> All expected counts $\geq 5$ (check every cell of the expected table).</li>
+            <li><strong>Independent observations:</strong> Each individual appears in only one cell.</li>
+        </ul>
+        <p>If any expected count is below 5, combine categories (if meaningful) or collect more data.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A test for independence has $df = (3-1)(4-1) = 6$. How many rows and columns does the table have?</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">From $df = (r-1)(c-1) = 6$, we have $(r-1) = 2$ and $(c-1) = 3$, so the table has <strong>3 rows and 4 columns</strong> (or equivalently 4 rows and 3 columns — both give $df = 6$).</div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Two-way table visualization: each square's shade represents the magnitude of $(O-E)^2/E$ contribution. Darker squares contribute more to the $\chi^2$ statistic, indicating where the association is strongest.</p>
+        <div id="graph-twoway" style="width:100%; height:320px;"></div>
+        <p class="fig-label">Figure 12.2 — Two-Way Table Residual Contributions</p>
+    </div>
+
+    <!-- 12.3 -->
+    <h2>12.3 Chi-Square Test for Homogeneity</h2>
+    <p>The <strong>test for homogeneity</strong> is structurally identical to the test for independence — same formula, same $df$, same conditions — but tests a different question: are the distributions of <em>one</em> categorical variable the same across <em>multiple populations</em>?</p>
+
+    <div class="definition-box">
+        <h4>Independence vs. Homogeneity: Key Distinction</h4>
+        <ul>
+            <li><strong>Test for Independence:</strong> One sample from <em>one</em> population; ask whether two categorical variables are related within that population.</li>
+            <li><strong>Test for Homogeneity:</strong> Separate independent samples from <em>multiple</em> populations; ask whether a single categorical variable has the same distribution across all populations.</li>
+        </ul>
+        <p>How to tell them apart: look at how data were collected. If you took <em>one</em> random sample and measured two variables → independence. If you took <em>separate</em> samples from multiple groups → homogeneity.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 12.4 — Lunch Preferences Across Three Schools</h4>
+        <p>Researchers independently sampled students from three schools (A, B, C) and recorded preferred lunch option (pizza, salad, sandwich). Observed counts:</p>
+        <table class="two-way-table">
+            <tr><th></th><th>Pizza</th><th>Salad</th><th>Sandwich</th><th>Total</th></tr>
+            <tr><td class="row-header">School A</td><td>30</td><td>15</td><td>25</td><td>70</td></tr>
+            <tr><td class="row-header">School B</td><td>25</td><td>20</td><td>15</td><td>60</td></tr>
+            <tr><td class="row-header">School C</td><td>20</td><td>25</td><td>25</td><td>70</td></tr>
+            <tr><td class="total-row">Total</td><td class="total-row">75</td><td class="total-row">60</td><td class="total-row">65</td><td class="total-row">200</td></tr>
+        </table>
+        <p><strong>State:</strong> $H_0$: The distribution of lunch preference is the same in all three schools. $H_a$: At least one school has a different distribution.</p>
+        <p>$df = (3-1)(3-1) = 4$. Compute expected counts, verify all $\geq 5$, calculate $\chi^2$, find $p$-value from chi-square table.</p>
+        <p>Expected for School A–Pizza: $(70 \times 75)/200 = 26.25$. (All other expected counts computed similarly.)</p>
+    </div>
+
+    <div class="ap-tip">
+        <div class="ap-tip-icon">★</div>
+        <p><strong>AP Exam Tip:</strong> The chi-square formula $\chi^2 = \sum(O-E)^2/E$ and the procedure are <strong>identical</strong> for both independence and homogeneity. The only difference is the conclusion language: for independence, say "evidence of an association between [variable A] and [variable B]." For homogeneity, say "evidence that the distribution of [variable] differs across [populations]."</p>
+    </div>
+
+    <!-- 12.4 -->
+    <h2>12.4 Inference for Regression (Slope)</h2>
+    <p>The LSRL computed from sample data, $\hat{y} = a + bx$, is an estimate of the true population regression line $\mu_y = \alpha + \beta x$. We can test whether a linear relationship actually exists in the population by testing whether the true slope $\beta$ is zero.</p>
+
+    <div class="theorem-box">
+        <h4>Hypothesis Test for Slope $\beta$</h4>
+        <p><strong>$H_0$: $\beta = 0$</strong> (no linear relationship between $x$ and $y$ in the population)</p>
+        <p><strong>$H_a$: $\beta \neq 0$</strong> (a linear relationship exists; two-sided is standard)</p>
+        <p>Test statistic: $t = \dfrac{b}{SE_b}$, where $SE_b$ is the standard error of the sample slope.</p>
+        <p>Degrees of freedom: $df = n - 2$.</p>
+        <p><strong>Confidence interval for $\beta$:</strong> $b \pm t^* \cdot SE_b$</p>
+        <p>The value $SE_b$ is almost always given in computer output — you are not expected to compute it by hand on the AP exam.</p>
+    </div>
+
+    <h3>Reading Computer Regression Output</h3>
+    <p>AP exam problems often give a computer output table. The key values to extract are:</p>
+    <ul>
+        <li><strong>Coef (b):</strong> The sample slope (estimate of $\beta$)</li>
+        <li><strong>SE Coef ($SE_b$):</strong> Standard error of the slope</li>
+        <li><strong>T-Value or t-stat:</strong> $t = b / SE_b$</li>
+        <li><strong>P-Value:</strong> Two-sided $p$-value for testing $H_0: \beta = 0$</li>
+    </ul>
+
+    <div class="example-box">
+        <h4>Example 12.5 — Significance Test for Slope</h4>
+        <p>A study of 20 students examines the relationship between study hours ($x$) and exam score ($y$). Computer output gives: $b = 2.45$, $SE_b = 0.38$. Test $H_0: \beta = 0$ vs. $H_a: \beta \neq 0$ at $\alpha = 0.05$.</p>
+        <p><strong>Conditions:</strong> Linear form (check residual plot) ✓; Random sample ✓; Normal/Equal spread of residuals ✓.</p>
+        <p>$df = 20 - 2 = 18$.</p>
+        <p>$$t = \frac{b}{SE_b} = \frac{2.45}{0.38} = 6.45$$</p>
+        <p>$p\text{-value} = 2P(t > 6.45) \approx 0.00004$ (extremely small).</p>
+        <p><strong>Conclusion:</strong> Since $p\text{-value} \approx 0.0001 \ll 0.05$, we reject $H_0$. There is very strong evidence of a positive linear relationship between study hours and exam score.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 12.6 — Confidence Interval for Slope $\beta$</h4>
+        <p>Using the same data: $b = 2.45$, $SE_b = 0.38$, $df = 18$, $t^* = 2.101$ (for 95% CI).</p>
+        <p>$$\beta \in b \pm t^* \cdot SE_b = 2.45 \pm 2.101 \cdot 0.38 = 2.45 \pm 0.798 = (1.65,\ 3.25)$$</p>
+        <p><strong>Interpretation:</strong> We are 95% confident that for each additional hour of study, the true mean exam score increases by between 1.65 and 3.25 points.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A regression test yields $t = 4.2$, $df = 28$, $p\text{-value} = 0.0002$. The null hypothesis is $H_0: \beta = 0$. What does rejecting $H_0$ mean in context?</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">Rejecting $H_0: \beta = 0$ means there is convincing evidence of a linear relationship between the explanatory and response variables in the population. The slope of the true regression line is not zero — knowing $x$ provides useful information for predicting $y$.</div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Regression scatterplot with least-squares line and approximate 95% confidence band for the slope. Each data point represents a student's study hours and exam score. The band widens at extreme $x$-values.</p>
+        <div id="graph-regr" style="width:100%; height:380px;"></div>
+        <p class="fig-label">Figure 12.3 — Regression Line with Confidence Band for Slope</p>
+    </div>
+
+    <!-- Practice -->
+    <div class="practice-section">
+        <h2>Practice Problems</h2>
+        <div class="practice-grid">
+            <div class="practice-card">
+                <span class="p-num">1</span>
+                <p>A sample of 80 people is classified by blood type: A=28, B=20, AB=8, O=24. The U.S. distribution is A=40%, B=11%, AB=4%, O=45%. Test whether this sample matches the U.S. distribution at $\alpha=0.05$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Expected: A=32, B=8.8, AB=3.2, O=36. Expected AB=3.2 &lt; 5 — condition fails! Consider combining AB with another category or note that the large counts condition is not fully met. If proceeding: $\chi^2=(28-32)^2/32+(20-8.8)^2/8.8+(8-3.2)^2/3.2+(24-36)^2/36=0.5+14.2+7.2+4.0=25.9$. $df=3$. $p\text{-value}\approx0.000$. Reject $H_0$ (but note condition violation for AB category).</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">2</span>
+                <p>In a $3 \times 4$ two-way table, what are the degrees of freedom for a chi-square test?</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$df = (r-1)(c-1) = (3-1)(4-1) = 2 \times 3 = 6$.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">3</span>
+                <p>Explain why a chi-square test statistic is always non-negative and why the $p$-value always comes from the right tail.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$\chi^2 = \sum(O-E)^2/E$ is a sum of squared quantities divided by positive expected counts — squares are always $\geq 0$. Large $\chi^2$ values indicate large discrepancies between observed and expected. We use the right tail because larger $\chi^2$ means more evidence against $H_0$; the left tail would correspond to "too close to expected," which is not evidence against the null.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">4</span>
+                <p>A regression of height ($x$, inches) on weight ($y$, lbs) for $n=30$ gives $b=4.8$, $SE_b=1.2$. Construct a 95% CI for $\beta$. ($df=28$, $t^*=2.048$)</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">ME $= 2.048 \cdot 1.2 = 2.458$.<br>CI: $4.8 \pm 2.458 = (2.34,\ 7.26)$.<br>We are 95% confident that for each additional inch of height, the true mean weight increases by between 2.34 and 7.26 pounds.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">5</span>
+                <p>Two schools independently survey students about smartphone ownership (yes/no). School 1: $n=100$, 72 own one. School 2: $n=80$, 52 own one. Should you use a test for independence or homogeneity? Explain.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer"><strong>Homogeneity.</strong> Two independent samples were drawn from two separate populations (schools). The question is whether the distribution of smartphone ownership is the same across both schools. If instead a single sample was surveyed and both school and ownership recorded, independence would apply.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">6</span>
+                <p>Computer output shows: Predictor = temperature, Coef = $-0.82$, SE Coef = $0.19$, T = $-4.32$, P = $0.001$. Interpret the slope and the test result ($\alpha=0.05$).</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">The estimated slope $b = -0.82$ means that for each 1-degree increase in temperature, the predicted response decreases by 0.82 units on average. Since $p = 0.001 < 0.05$, we reject $H_0: \beta = 0$. There is convincing evidence of a negative linear relationship between temperature and the response variable.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">7</span>
+                <p>A goodness-of-fit test has $\chi^2 = 3.2$, $df = 5$. The $p$-value is approximately 0.67. State the conclusion and explain what this $p$-value tells you about the observed vs. expected counts.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Fail to reject $H_0$. There is not convincing evidence that the population distribution differs from the specified distribution. A $p$-value of 0.67 means that if the null model were true, we would get a $\chi^2$ as large as 3.2 about 67% of the time — the observed counts are quite close to what the model predicts.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">8</span>
+                <p><strong>AP FRQ — Four-Step Chi-Square Independence Test:</strong> 150 students are classified by grade level (9th/10th/11th) and participation in extracurriculars (yes/no). Observed: 9th: 30 yes, 20 no; 10th: 25 yes, 25 no; 11th: 35 yes, 15 no. Test for independence at $\alpha=0.05$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer"><strong>State:</strong> $H_0$: Grade level and extracurricular participation are independent. $H_a$: There is an association between grade level and participation. $\alpha=0.05$.<br><strong>Plan:</strong> Chi-square test for independence. Random ✓. Totals: Yes=90, No=60, 9th=50, 10th=50, 11th=50, Total=150. Expected: E(9th,Yes)=50(90)/150=30; E(9th,No)=20; E(10th,Yes)=30; E(10th,No)=20; E(11th,Yes)=30; E(11th,No)=20. All ≥5 ✓.<br><strong>Do:</strong> $\chi^2=(30-30)^2/30+(20-20)^2/20+(25-30)^2/30+(25-20)^2/20+(35-30)^2/30+(15-20)^2/20=0+0+0.833+1.25+0.833+1.25=4.17$. $df=(3-1)(2-1)=2$. $p\text{-value}=P(\chi^2>4.17)\approx0.124$.<br><strong>Conclude:</strong> Since $0.124>0.05$, fail to reject $H_0$. There is not convincing evidence of an association between grade level and extracurricular participation.</div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+            <h4>Chi-Square Tests</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>$\chi^2$ Statistic</strong>
+                    <p>$\chi^2 = \displaystyle\sum \dfrac{(O - E)^2}{E}$ — measures how far observed counts are from expected counts. Larger values suggest more evidence against $H_0$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Goodness-of-Fit Test</strong>
+                    <p>Tests whether a single categorical variable has a specified distribution. $df = k - 1$ where $k$ = number of categories.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Test for Independence</strong>
+                    <p>Tests whether two categorical variables are independent (using a two-way table). $df = (r-1)(c-1)$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Test for Homogeneity</strong>
+                    <p>Tests whether several populations have the same distribution of a categorical variable. Same formula as independence test; different setup.</p>
+                </div>
+            </div>
+            <h4>Conditions</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Random</strong> — data from a random sample or randomized experiment</li>
+                <li><strong>Large counts</strong> — all expected counts $E \geq 5$</li>
+                <li><strong>Independent observations</strong> — 10% condition: $n \leq 10\%$ of population</li>
+            </ol>
+        </div>
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item"><strong>Chi-Square Statistic</strong><span>$\chi^2 = \sum(O-E)^2/E$ — measures discrepancy between observed and expected counts.</span></div>
+                <div class="key-term-item"><strong>Expected Count</strong><span>Under $H_0$: $E = np$ (GOF) or $E = \text{row total} \times \text{col total}/n$ (two-way table).</span></div>
+                <div class="key-term-item"><strong>Goodness-of-Fit</strong><span>Tests if one categorical variable matches a claimed distribution. $H_0$: distribution is as claimed.</span></div>
+                <div class="key-term-item"><strong>Independence Test</strong><span>Uses two-way table to test if two categorical variables are independent. $H_0$: variables are independent.</span></div>
+                <div class="key-term-item"><strong>Degrees of Freedom</strong><span>GOF: $df = k-1$. Two-way: $df = (r-1)(c-1)$. Determines the shape of the $\chi^2$ distribution.</span></div>
+                <div class="key-term-item"><strong>Homogeneity Test</strong><span>Tests if several populations share the same categorical distribution. Differs from independence in study design.</span></div>
+            </div>
+        </div>
+    <div class="chapter-nav">
+        <a href="/us/textbook/ap-statistics/significance-tests.html">← Chapter 11: Significance Tests</a>
+        <a href="/us/ap-statistics">AP Statistics Exam Guide →</a>
+    </div>
+</article>
+
+<script>
+(function() {
+    // Figure 12.1 — Chi-square distributions: df=1, df=5, df=10
+    var elt1 = document.getElementById('graph-chisq');
+    var calc1 = Desmos.GraphingCalculator(elt1, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false,
+        showGrid: false, showXAxis: true, showYAxis: false
+    });
+    calc1.setMathBounds({ left: 0, right: 20, bottom: -0.01, top: 0.25 });
+
+    // df=1: approximately x^(-0.5) * e^(-x/2) / sqrt(2*pi) — very high near 0
+    // Use simplified: 0.5 * x^(-0.5) * e^(-x/2) (chi-sq pdf * sqrt(2*pi) normalization handled)
+    // chi-sq(k) pdf: x^(k/2-1)*e^(-x/2) / (2^(k/2)*Gamma(k/2))
+    // df=1: Gamma(0.5)=sqrt(pi). pdf = x^(-0.5)*e^(-x/2)/(sqrt(2)*sqrt(pi)) ≈ 0.3989*x^(-0.5)*e^(-x/2)
+    calc1.setExpression({ id: 'chi1', type: 'expression',
+        latex: 'y=\\frac{e^{-x/2}}{\\sqrt{2\\cdot3.14159\\cdot x}}\\left\\{x>0.05\\right\\}',
+        color: '#3b82f6', lineWidth: 2.5 });
+
+    // df=5: x^(1.5)*e^(-x/2) / (4*sqrt(2)*Gamma(2.5)) = x^1.5 * e^(-x/2) / (4*sqrt(2)*1.329)
+    // Gamma(2.5) = 1.5*0.5*sqrt(pi) = 0.75*1.7725 = 1.3293
+    // denominator: 2^(5/2)*1.3293 = 5.657*1.3293 = 7.522
+    // pdf ≈ x^1.5 * e^(-x/2) / 7.522 ≈ 0.1329 * x^1.5 * e^(-x/2)
+    calc1.setExpression({ id: 'chi5', type: 'expression',
+        latex: 'y=0.1329\\cdot x^{1.5}\\cdot e^{-x/2}\\left\\{x>0\\right\\}',
+        color: '#10b981', lineWidth: 2.5 });
+
+    // df=10: x^4 * e^(-x/2) / (2^5 * Gamma(5)) = x^4 * e^(-x/2) / (32*24) = x^4*e^(-x/2)/768
+    // ≈ 0.001302 * x^4 * e^(-x/2)
+    calc1.setExpression({ id: 'chi10', type: 'expression',
+        latex: 'y=0.001302\\cdot x^{4}\\cdot e^{-x/2}\\left\\{x>0\\right\\}',
+        color: '#8b5cf6', lineWidth: 2.5 });
+
+    // Labels
+    calc1.setExpression({ id: 'lbl1', type: 'expression', latex: '\\text{df=1}', color: '#3b82f6' });
+    calc1.setExpression({ id: 'lbl5', type: 'expression', latex: '\\text{df=5}', color: '#10b981' });
+    calc1.setExpression({ id: 'lbl10', type: 'expression', latex: '\\text{df=10}', color: '#8b5cf6' });
+})();
+
+(function() {
+    // Figure 12.2 — Two-way table heatmap of (O-E)^2/E contributions
+    var elt2 = document.getElementById('graph-twoway');
+    var calc2 = Desmos.GraphingCalculator(elt2, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false,
+        showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc2.setMathBounds({ left: 0, right: 4, bottom: 0, top: 3 });
+
+    // 2x2 grid of points: centers at (1,1.5), (1,0.5), (3,1.5), (3,0.5)... actually use (0.5,2.5), etc.
+    // Cells: (col, row) — Male-Math, Male-English, Female-Math, Female-English
+    // (O-E)^2/E values: 1.071, 1.184, 1.071, 1.184
+    // Map to colors: higher contribution = darker green
+
+    var cells = [
+        { x: 1,   y: 2,   val: 1.071, label: 'M-Math\\\\1.07',  col: '#065f46', sz: 30 },
+        { x: 3,   y: 2,   val: 1.184, label: 'M-Eng\\\\1.18',   col: '#047857', sz: 32 },
+        { x: 1,   y: 1,   val: 1.071, label: 'F-Math\\\\1.07',  col: '#065f46', sz: 30 },
+        { x: 3,   y: 1,   val: 1.184, label: 'F-Eng\\\\1.18',   col: '#047857', sz: 32 }
+    ];
+
+    cells.forEach(function(cell, i) {
+        calc2.setExpression({ id: 'cell'+i, type: 'expression',
+            latex: '('+cell.x+','+cell.y+')',
+            color: cell.col,
+            pointStyle: Desmos.Styles.POINT,
+            pointSize: cell.sz });
+    });
+
+    // Row/column labels as expressions
+    calc2.setExpression({ id: 'lbl_male',   type: 'expression', latex: '\\text{Male}',   color: '#334155' });
+    calc2.setExpression({ id: 'lbl_female', type: 'expression', latex: '\\text{Female}', color: '#334155' });
+    calc2.setExpression({ id: 'lbl_math',   type: 'expression', latex: '\\text{Math}',   color: '#334155' });
+    calc2.setExpression({ id: 'lbl_eng',    type: 'expression', latex: '\\text{English}',color: '#334155' });
+    calc2.setExpression({ id: 'lbl_title',  type: 'expression', latex: '\\chi^{2}=4.51\\ (df=1)',  color: '#6d28d9' });
+})();
+
+(function() {
+    // Figure 12.3 — Regression scatterplot with LSRL and confidence band
+    var elt3 = document.getElementById('graph-regr');
+    var calc3 = Desmos.GraphingCalculator(elt3, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: true, border: false,
+        showGrid: false, showXAxis: true, showYAxis: true
+    });
+    calc3.setMathBounds({ left: 0, right: 12, bottom: 30, top: 100 });
+
+    // 10 data points: (hours, score) approximately on y = 2.45x + 55
+    var pts = [
+        [1, 57], [2, 60], [3, 63], [4, 65], [5, 69],
+        [6, 70], [7, 75], [8, 76], [9, 80], [10, 80]
+    ];
+    pts.forEach(function(pt, i) {
+        calc3.setExpression({ id: 'dp'+i, type: 'expression',
+            latex: '('+pt[0]+','+pt[1]+')',
+            color: '#065f46', pointStyle: Desmos.Styles.POINT, pointSize: 13 });
+    });
+
+    // LSRL: y = 2.45x + 55 (approximately fitted)
+    calc3.setExpression({ id: 'lsrl', type: 'expression',
+        latex: 'y=2.45x+55\\left\\{0\\le x\\le11\\right\\}',
+        color: '#10b981', lineWidth: 2.5 });
+
+    // Approximate 95% confidence band: y = 2.45x + 55 ± 2*sqrt(MSE/n + MSE*(x-xbar)^2/Sxx)
+    // Simplified approximate bands: y = 2.45x + 55 ± (1 + 0.25*(x-5.5)^2)^0.5 * 3
+    calc3.setExpression({ id: 'upper', type: 'expression',
+        latex: 'y=2.45x+55+3\\cdot\\sqrt{1+0.25\\cdot\\left(x-5.5\\right)^{2}}\\left\\{0\\le x\\le11\\right\\}',
+        color: '#6ee7b7', lineWidth: 1.5, lineStyle: Desmos.Styles.DASHED });
+
+    calc3.setExpression({ id: 'lower', type: 'expression',
+        latex: 'y=2.45x+55-3\\cdot\\sqrt{1+0.25\\cdot\\left(x-5.5\\right)^{2}}\\left\\{0\\le x\\le11\\right\\}',
+        color: '#6ee7b7', lineWidth: 1.5, lineStyle: Desmos.Styles.DASHED });
+
+    // Fill band
+    calc3.setExpression({ id: 'band', type: 'expression',
+        latex: '2.45x+55-3\\cdot\\sqrt{1+0.25\\cdot\\left(x-5.5\\right)^{2}}\\le y\\le 2.45x+55+3\\cdot\\sqrt{1+0.25\\cdot\\left(x-5.5\\right)^{2}}\\left\\{0\\le x\\le11\\right\\}',
+        color: '#d1fae5', lineWidth: 0, fillOpacity: 0.35 });
+})();
+</script>
+
+    <script src="../../../assets/js/textbook-ux.js"></script>
+</body>
+</html>

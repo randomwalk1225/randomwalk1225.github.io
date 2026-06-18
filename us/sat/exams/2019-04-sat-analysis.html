@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, follow">
+    <title>2019 April SAT Math Section: Research Analysis | MathHub</title>
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #0ea5e9;
+            --accent: #f59e0b;
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+        }
+        .report-body { max-width: 1000px; margin: 0 auto; padding: 60px 40px; font-family: 'Inter', system-ui, -apple-system, sans-serif; line-height: 1.8; color: var(--text-main); }
+        .breadcrumb { color: var(--text-light); margin-bottom: 30px; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+        
+        header { border-bottom: 1px solid #e2e8f0; padding-bottom: 40px; margin-bottom: 60px; }
+        h1 { font-size: 3.2rem; color: #0f172a; margin: 10px 0; letter-spacing: -0.04em; line-height: 1.1; font-weight: 800; }
+        .subtitle { font-size: 1.3rem; color: var(--text-light); font-weight: 400; max-width: 750px; line-height: 1.6; }
+
+        .executive-summary { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 40px; margin: 40px 0 60px 0; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .summary-text h3 { color: var(--primary); margin-top: 0; font-weight: 800; font-size: 1.4rem; margin-bottom: 20px; }
+        .summary-text p { margin-bottom: 16px; }
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .stat-card { background: var(--bg-light); padding: 24px; border-radius: 16px; text-align: center; border: 1px solid #f1f5f9; }
+        .stat-value { display: block; font-size: 2.2rem; font-weight: 900; color: var(--primary); margin-bottom: 4px; }
+        .stat-label { font-size: 0.75rem; color: var(--text-light); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
+
+        h2 { font-size: 2.2rem; color: #0f172a; margin-top: 80px; margin-bottom: 32px; font-weight: 800; border: none; padding: 0; }
+        h2 .section-num { color: var(--secondary); margin-right: 12px; }
+
+        .distribution-table { width: 100%; border-collapse: collapse; margin: 40px 0; background: white; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; }
+        .distribution-table th { background: var(--bg-light); padding: 20px; text-align: left; font-weight: 700; color: var(--primary); border-bottom: 1px solid #e2e8f0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .distribution-table td { padding: 20px; border-bottom: 1px solid #f1f5f9; }
+        .progress-bar { height: 10px; background: #e2e8f0; border-radius: 5px; overflow: hidden; width: 100%; margin-top: 12px; }
+        .progress-fill { height: 100%; background: var(--secondary); border-radius: 5px; }
+
+        .analysis-card { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 40px; margin: 40px 0; }
+        .analysis-card h3 { color: var(--primary); font-weight: 800; font-size: 1.5rem; margin-top: 0; margin-bottom: 24px; }
+
+        .question-block { margin-bottom: 40px; padding: 0; }
+        .question-block:last-child { margin-bottom: 0; }
+        .question-block h4 { color: #0f172a; font-weight: 800; font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .question-block h4::before { content: "•"; color: var(--accent); font-size: 1.5rem; }
+        .question-block p { color: var(--text-main); line-height: 1.7; }
+
+        .killer-problem { background: #0f172a; color: white; border-radius: 24px; padding: 48px; margin: 60px 0; }
+        .killer-problem h2 { color: white; margin-top: 0; margin-bottom: 24px; }
+        .killer-problem h2 .section-num { color: var(--accent); }
+        .problem-content { background: rgba(255,255,255,0.03); border-radius: 16px; padding: 32px; border: 1px solid rgba(255,255,255,0.1); }
+
+        .strategy-box { background: #f0fdf4; border-radius: 20px; padding: 40px; margin: 40px 0; }
+        .strategy-box h3 { color: #166534; font-weight: 800; font-size: 1.5rem; margin-top: 0; margin-bottom: 20px; }
+        .strategy-box ul { list-style: none; padding: 0; }
+        .strategy-box li { margin-bottom: 16px; padding-left: 28px; position: relative; }
+        .strategy-box li::before { content: "✓"; position: absolute; left: 0; color: #22c55e; font-weight: 900; }
+
+        .pdf-container { margin-top: 100px; padding-top: 60px; border-top: 1px solid #e2e8f0; }
+        .pdf-container h2 { font-size: 1.8rem; margin-top: 0; }
+        
+        @media (max-width: 768px) {
+            .executive-summary { grid-template-columns: 1fr; padding: 30px; }
+            .report-body { padding: 40px 20px; }
+            h1 { font-size: 2.4rem; }
+        }
+
+        .killer-problem .question-block h4 { color: white; }
+        .killer-problem .question-block p { color: rgba(255,255,255,0.8); }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="report-body">
+        <div class="breadcrumb">US SAT &rsaquo; Research Reports &rsaquo; April 2019</div>
+        <header>
+            <h1>April 2019 SAT Math Research Analysis</h1>
+            <p class="subtitle">A deep dive into statistical inference, data interpretation patterns, and experimental design observed in the Spring 2019 administration.</p>
+        </header>
+
+        <section class="executive-summary">
+            <div class="summary-text">
+                <h3>Executive Summary</h3>
+                <p>The April 2019 SAT administration featured a significant emphasis on the validity of statistical claims and data literacy. Section 4 required efficient information extraction from complex tables and a deep understanding of experimental design.</p>
+                <p>2019 global data shows an average Math score of 528, with the April sitting (School Day) focusing heavily on real-world utility and inference-based problem solving.</p>
+            </div>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <span class="stat-label">2019 Overall Mean</span>
+                    <span class="stat-value">528</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Overall Difficulty</span>
+                    <span class="stat-value" style="color:var(--accent)">Easy-Medium</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Data Analysis</span>
+                    <span class="stat-value">35%</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Time Intensity</span>
+                    <span class="stat-value" style="color:#0ea5e9">Medium</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="section-num">01.</span> Conceptual Shifts: Statistical Generalizability</h2>
+            <p>The April 2019 exam featured a significant emphasis on the <em>validity</em> of statistical claims. Students were asked whether a study’s findings could be generalized to a larger population based on the sample selection method. This conceptual layer rewards students who understand research design over those who only know how to calculate mean and median.</p>
+            <p>This "inference-based" math is a hallmark of School Day SATs (like the April administration), focusing on real-world utility and data literacy.</p>
+        </section>
+
+        <section>
+            <h2><span class="section-num">02.</span> Topic Distribution: Data Sets and Scatterplots</h2>
+            <p><strong>Problem Solving and Data Analysis</strong> was the largest domain by weight in this sitting. Scatterplots and "Line of Best Fit" were tested through multiple lenses, including interpretation of the slope as a "unit increase."</p>
+            <ul>
+                <li><strong>Probability:</strong> Two-way tables were used to test conditional probability, where the "denominator" was restricted by a specific condition.</li>
+                <li><strong>Data Displays:</strong> Box-plots and Dot-plots required comparative analysis of range and median.</li>
+                <li><strong>Modeling:</strong> Exponential growth was tested through a doubling-time scenario.</li>
+            </ul>
+        </section>
+
+        <section class="analysis-card">
+            <h3>03. Strategic Recommendations</h3>
+            <p>Reviewers of the April 2019 exam should prioritize <strong>experimental design vocabulary</strong>. Words like "random assignment," "bias," and "margin of error" must be understood deeply.</p>
+            <p>We also recommend practicing the extraction of information from complex tables where multiple categories are presented simultaneously.</p>
+        </section>
+
+        <div class="pdf-container">
+            <h2>Original Research Source (PDF)</h2>
+            <p style="margin-bottom: 30px; color: var(--text-light);">Review the full April 2019 SAT QAS document for raw data verification.</p>
+            <iframe src="../papers/2019-04-sat-qas.pdf" style="width:100%; height:800px; border:1px solid #e2e8f0; border-radius:16px;"></iframe>
+        </div>
+    </div>
+</body>
+</html>

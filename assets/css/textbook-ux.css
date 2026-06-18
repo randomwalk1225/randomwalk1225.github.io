@@ -1,0 +1,442 @@
+/* ===== MathHub Textbook UX Features ===== */
+/* Dark Mode, Progress Tracking, Bookmarks, Print CSS */
+
+/* ─── Dark Mode Toggle Button ─── */
+.ux-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: fixed;
+    bottom: 24px;
+    right: 20px;
+    z-index: 9999;
+    flex-direction: column;
+}
+
+.ux-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    transition: transform 0.15s, box-shadow 0.15s;
+    background: #fff;
+    color: #334155;
+}
+
+.ux-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.22);
+}
+
+.ux-btn.active {
+    background: #3b82f6;
+    color: #fff;
+}
+
+/* ─── Reading Progress Bar ─── */
+#reading-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    width: 0%;
+    z-index: 10000;
+    transition: width 0.1s linear;
+}
+
+/* ─── Chapter Read Badge ─── */
+.chapter-read-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #dcfce7;
+    color: #15803d;
+    font-size: 0.82em;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-left: 12px;
+    vertical-align: middle;
+}
+
+/* ─── Bookmark Icons on Headings ─── */
+.bookmark-btn {
+    display: inline-block;
+    margin-left: 8px;
+    cursor: pointer;
+    font-size: 0.75em;
+    opacity: 0;
+    transition: opacity 0.15s;
+    vertical-align: middle;
+    background: none;
+    border: none;
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: #94a3b8;
+}
+
+h2:hover .bookmark-btn,
+h3:hover .bookmark-btn,
+.bookmark-btn.bookmarked {
+    opacity: 1;
+}
+
+.bookmark-btn.bookmarked {
+    color: #f59e0b;
+}
+
+/* ─── Bookmarks Panel ─── */
+#bookmarks-panel {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 280px;
+    max-height: 400px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.14);
+    overflow-y: auto;
+    z-index: 9998;
+    display: none;
+    padding: 16px;
+}
+
+#bookmarks-panel.open {
+    display: block;
+}
+
+#bookmarks-panel h4 {
+    font-size: 0.9em;
+    color: #1e3a5f;
+    margin: 0 0 12px;
+    font-weight: 700;
+}
+
+#bookmarks-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#bookmarks-panel li {
+    padding: 6px 0;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.85em;
+}
+
+#bookmarks-panel li:last-child {
+    border-bottom: none;
+}
+
+#bookmarks-panel a {
+    color: #3b82f6;
+    text-decoration: none;
+    display: block;
+    line-height: 1.4;
+}
+
+#bookmarks-panel a:hover {
+    text-decoration: underline;
+}
+
+#bookmarks-panel .bm-source {
+    color: #94a3b8;
+    font-size: 0.8em;
+}
+
+#bookmarks-panel .bm-remove {
+    float: right;
+    cursor: pointer;
+    color: #e2e8f0;
+    font-size: 1.1em;
+    line-height: 1;
+    padding: 0 2px;
+}
+
+#bookmarks-panel .bm-remove:hover {
+    color: #ef4444;
+}
+
+#bookmarks-panel .empty-msg {
+    color: #94a3b8;
+    font-size: 0.88em;
+    text-align: center;
+    padding: 12px 0;
+}
+
+/* ─── Dark Mode ─── */
+body.dark-mode {
+    background-color: #0f172a;
+    color: #e2e8f0;
+}
+
+body.dark-mode .global-nav {
+    background: #0a0f1e;
+}
+
+body.dark-mode .blog-article h1,
+body.dark-mode .blog-article h2,
+body.dark-mode .blog-article h3 {
+    color: #93c5fd;
+}
+
+body.dark-mode .blog-article p,
+body.dark-mode .blog-article li,
+body.dark-mode .blog-article ul,
+body.dark-mode .blog-article ol {
+    color: #cbd5e1;
+}
+
+body.dark-mode .blog-meta {
+    color: #64748b;
+    border-bottom-color: #1e293b;
+}
+
+body.dark-mode .blog-article h2 {
+    border-top-color: #1e293b;
+}
+
+body.dark-mode .learning-objectives {
+    background: #1c1917;
+    border-left-color: #f97316;
+}
+
+body.dark-mode .learning-objectives li {
+    color: #fed7aa;
+}
+
+body.dark-mode .example-box {
+    background: #0f172a;
+    border-left-color: #3b82f6;
+}
+
+body.dark-mode .example-box p,
+body.dark-mode .example-box li {
+    color: #cbd5e1;
+}
+
+body.dark-mode .definition-box {
+    background: #052e16;
+    border-left-color: #22c55e;
+}
+
+body.dark-mode .definition-box p,
+body.dark-mode .definition-box ol,
+body.dark-mode .definition-box li {
+    color: #bbf7d0;
+}
+
+body.dark-mode .theorem-box {
+    background: #1e1b4b;
+    border-left-color: #8b5cf6;
+}
+
+body.dark-mode .theorem-box p { color: #ddd6fe; }
+
+body.dark-mode .try-it-box {
+    background: #052e16;
+    border-color: #16a34a;
+}
+
+body.dark-mode .try-it-box p { color: #bbf7d0; }
+
+body.dark-mode .try-it-answer {
+    background: #0f2016;
+    color: #bbf7d0;
+}
+
+body.dark-mode .chapter-nav {
+    background: #1e293b;
+    border-radius: 8px;
+}
+
+body.dark-mode .chapter-nav a { color: #60a5fa; }
+body.dark-mode .chapter-nav .disabled { color: #475569; }
+
+body.dark-mode .footer {
+    background: #020617;
+    color: #475569;
+}
+
+body.dark-mode .breadcrumb { color: #475569; }
+body.dark-mode .breadcrumb a { color: #60a5fa; }
+
+body.dark-mode .key-term-item {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+body.dark-mode .key-term-item strong { color: #93c5fd; }
+body.dark-mode .key-term-item span { color: #94a3b8; }
+
+body.dark-mode .summary-box,
+body.dark-mode .chapter-summary {
+    background: #1e293b;
+}
+
+body.dark-mode .summary-card {
+    background: #0f172a;
+    border-color: #334155;
+}
+
+body.dark-mode .summary-card strong { color: #93c5fd; }
+body.dark-mode .summary-card p { color: #94a3b8; }
+
+body.dark-mode .desmos-wrap {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+body.dark-mode .fig-label { color: #475569; }
+
+body.dark-mode #bookmarks-panel {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+body.dark-mode #bookmarks-panel h4 { color: #93c5fd; }
+body.dark-mode #bookmarks-panel li { border-bottom-color: #334155; }
+body.dark-mode #bookmarks-panel a { color: #60a5fa; }
+
+body.dark-mode .ux-btn {
+    background: #1e293b;
+    color: #e2e8f0;
+}
+
+body.dark-mode .ux-btn.active {
+    background: #3b82f6;
+    color: #fff;
+}
+
+/* ─── Print Styles ─── */
+@media print {
+    .global-nav,
+    .ux-toolbar,
+    #reading-progress-bar,
+    #bookmarks-panel,
+    .bookmark-btn,
+    .try-it-box details summary,
+    .chapter-nav,
+    .adsbygoogle,
+    script,
+    .footer a {
+        display: none !important;
+    }
+
+    body {
+        background: #fff !important;
+        color: #000 !important;
+        font-size: 11pt;
+        line-height: 1.6;
+    }
+
+    .blog-article {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .blog-article h1 {
+        font-size: 18pt;
+        color: #000 !important;
+        margin-bottom: 6pt;
+    }
+
+    .blog-article h2 {
+        font-size: 14pt;
+        color: #000 !important;
+        page-break-after: avoid;
+        border-top: 1pt solid #ccc !important;
+    }
+
+    .blog-article h3 {
+        font-size: 12pt;
+        color: #000 !important;
+        page-break-after: avoid;
+    }
+
+    .blog-article p,
+    .blog-article li {
+        color: #000 !important;
+        orphans: 3;
+        widows: 3;
+    }
+
+    .example-box,
+    .definition-box,
+    .theorem-box {
+        border-left: 3pt solid #888 !important;
+        background: #f9f9f9 !important;
+        padding: 8pt 12pt !important;
+        margin: 8pt 0 !important;
+        page-break-inside: avoid;
+    }
+
+    .example-box h4,
+    .definition-box h4,
+    .theorem-box h4 {
+        color: #000 !important;
+    }
+
+    .example-box p,
+    .definition-box p,
+    .theorem-box p,
+    .example-box li,
+    .definition-box li {
+        color: #000 !important;
+    }
+
+    .learning-objectives {
+        border-left: 3pt solid #f97316 !important;
+        background: #fff8f0 !important;
+        page-break-inside: avoid;
+    }
+
+    .learning-objectives li { color: #000 !important; }
+
+    .try-it-box {
+        border: 1pt dashed #aaa !important;
+        background: #f9f9f9 !important;
+        page-break-inside: avoid;
+    }
+
+    .try-it-box p { color: #000 !important; }
+
+    .try-it-answer { display: block !important; }
+
+    .desmos-wrap { display: none !important; }
+
+    .key-terms-grid {
+        display: block !important;
+    }
+
+    .key-term-item {
+        border: 1pt solid #ccc !important;
+        padding: 6pt !important;
+        margin-bottom: 6pt !important;
+        page-break-inside: avoid;
+    }
+
+    .summary-grid {
+        display: block !important;
+    }
+
+    .summary-card {
+        border: 1pt solid #ccc !important;
+        padding: 6pt !important;
+        margin-bottom: 6pt !important;
+        page-break-inside: avoid;
+    }
+
+    a[href]:after {
+        content: none !important;
+    }
+}

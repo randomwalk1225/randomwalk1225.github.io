@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공통수학 1 — 다항식과 방정식 | MathHub Korea 고등 수학</title>
+    <meta name="description" content="고등학교 공통수학 1: 다항식의 연산, 나머지 정리, 인수분해, 복소수, 고차방정식. 개념 설명과 예제 풀이. 2022 개정 교육과정.">
+    <meta name="keywords" content="공통수학1, 다항식, 나머지 정리, 인수분해, 고차방정식, 복소수, 고1 수학, 2022 개정 교육과정">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/kr/textbook/high1-polynomial.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/kr/textbook/high1-polynomial.html">
+    <meta property="og:title" content="공통수학 1 다항식과 방정식 | MathHub Korea">
+    <meta property="og:description" content="다항식의 연산, 나머지 정리, 인수분해, 복소수와 방정식.">
+    <meta property="og:site_name" content="MathHub Global">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"공통수학 1 — 다항식과 방정식","description":"다항식의 연산, 나머지 정리, 인수분해, 고차방정식 개념 설명 및 예제","author":{"@type":"Organization","name":"MathHub Global"},"publisher":{"@type":"Organization","name":"MathHub Global"},"datePublished":"2026-03-15","dateModified":"2026-03-15","educationalLevel":"High School","inLanguage":"ko","mainEntityOfPage":"https://mathhub.io/kr/textbook/high1-polynomial.html"}</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .textbook-article { max-width: 820px; margin: 0 auto; padding: 40px 20px 60px; }
+        .breadcrumb { font-size: .85em; color: #64748b; margin-bottom: 16px; }
+        .breadcrumb a { color: #4f46e5; text-decoration: none; }
+        h1 { font-size: 2em; color: #1e3a5f; margin-bottom: 8px; line-height: 1.3; }
+        .chapter-meta { color: #64748b; font-size: .9em; margin-bottom: 32px; padding-bottom: 18px; border-bottom: 1px solid #e2e8f0; }
+        h2 { font-size: 1.45em; color: #1e3a5f; margin: 40px 0 16px; padding-top: 8px; border-top: 2px solid #ede9fe; }
+        h3 { font-size: 1.15em; color: #334155; margin: 24px 0 10px; }
+        p { color: #334155; margin-bottom: 14px; line-height: 1.9; }
+        ul, ol { margin: 10px 0 18px 24px; color: #334155; }
+        li { margin-bottom: 8px; line-height: 1.8; }
+
+        .def-box { background: #ede9fe; border-left: 4px solid #7c3aed; padding: 18px 20px; margin: 18px 0; border-radius: 8px; }
+        .def-box h4 { color: #4c1d95; margin: 0 0 10px; font-size: 1.0em; }
+        .theorem-box { background: #fff3cd; border-left: 4px solid #f59e0b; padding: 18px 20px; margin: 18px 0; border-radius: 8px; }
+        .theorem-box h4 { color: #92400e; margin: 0 0 10px; font-size: 1.0em; }
+        .example-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 18px 20px; margin: 18px 0; border-radius: 8px; }
+        .example-box h4 { color: #0369a1; margin: 0 0 10px; font-size: 1.0em; }
+        .tip-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 18px 20px; margin: 18px 0; border-radius: 8px; }
+        .tip-box h4 { color: #166534; margin: 0 0 10px; font-size: 1.0em; }
+        .warning-box { background: #fff1f2; border-left: 4px solid #f43f5e; padding: 18px 20px; margin: 18px 0; border-radius: 8px; }
+        .warning-box h4 { color: #be123c; margin: 0 0 10px; font-size: 1.0em; }
+        .practice-box { background: #fdf4ff; border-left: 4px solid #a855f7; padding: 18px 20px; margin: 24px 0; border-radius: 8px; }
+        .practice-box h4 { color: #7e22ce; margin: 0 0 12px; font-size: 1.0em; }
+        .practice-box ol { margin: 8px 0 0 20px; }
+
+        .sol { margin-left: 20px; color: #1e293b; }
+        .sol p { margin: 4px 0; }
+
+        table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+        th { background: #1e3a5f; color: white; padding: 10px 14px; text-align: center; font-size: .9em; }
+        td { padding: 9px 14px; border-bottom: 1px solid #e2e8f0; color: #334155; font-size: .9em; }
+        tr:nth-child(even) td { background: #f8fafc; }
+
+        .chapter-nav { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 20px; border-top: 1px solid #e2e8f0; flex-wrap: wrap; gap: 10px; }
+        .chapter-nav a { color: #4f46e5; text-decoration: none; font-weight: 600; font-size: .92em; }
+        .chapter-nav a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/" class="active">KR</a>
+            <a href="/us/">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="/ib/">IB</a>
+            <a href="/contact.html" class="nav-cta">무료 상담</a>
+        </div>
+    </nav>
+
+    <article class="textbook-article">
+        <div class="breadcrumb">
+            <a href="/kr/">한국</a> &rsaquo; <a href="/kr/textbook/">수학 교재</a> &rsaquo; 고등 공통수학 1
+        </div>
+
+        <h1>공통수학 1 — 다항식과 방정식</h1>
+        <div class="chapter-meta">
+            고등학교 1학년 &nbsp;|&nbsp; 2022 개정 교육과정 &nbsp;|&nbsp; 다항식 · 나머지 정리 · 인수분해 · 방정식
+        </div>
+
+        <p>
+            고등학교 수학의 첫 번째 핵심 단원입니다. <strong>다항식의 연산</strong>과 <strong>나머지 정리</strong>는 이후 미적분과 수열에서도 핵심 도구로 사용됩니다. 이 단원을 완전히 이해하면 내신 1등급과 수능 고득점의 기반을 다질 수 있습니다.
+        </p>
+
+        <!-- ====== PART 1: 다항식의 연산 ====== -->
+        <h2>1. 다항식의 연산</h2>
+
+        <h3>1-1. 다항식의 정리와 기본 용어</h3>
+
+        <div class="def-box">
+            <h4>정의: 고등 수학의 다항식</h4>
+            <ul>
+                <li><strong>내림차순</strong>: 차수가 높은 항부터 낮은 순으로 정리. 예: $3x^3 - 2x^2 + x - 5$</li>
+                <li><strong>올림차순</strong>: 차수가 낮은 항부터 높은 순으로 정리. 예: $-5 + x - 2x^2 + 3x^3$</li>
+                <li><strong>최고차항의 계수</strong>: 내림차순으로 정리했을 때 첫째 항의 계수</li>
+                <li><strong>최고차항이 1인 다항식 (모닉 다항식)</strong>: $x^3 - 2x + 1$ 등</li>
+            </ul>
+        </div>
+
+        <h3>1-2. 다항식의 곱셈</h3>
+
+        <div class="theorem-box">
+            <h4>곱셈 공식 (고등 확장)</h4>
+            $$\begin{aligned}
+            &(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3 \\
+            &(a-b)^3 = a^3 - 3a^2b + 3ab^2 - b^3 \\
+            &(a+b)(a^2 - ab + b^2) = a^3 + b^3 \\
+            &(a-b)(a^2 + ab + b^2) = a^3 - b^3 \\
+            &(a+b+c)^2 = a^2 + b^2 + c^2 + 2ab + 2bc + 2ca
+            \end{aligned}$$
+        </div>
+
+        <div class="example-box">
+            <h4>예제 1: 세제곱 전개</h4>
+            <p>$(2x+1)^3$을 전개하여라.</p>
+            <div class="sol">
+                <p>$a = 2x$, $b = 1$로 놓으면:</p>
+                <p>$(2x)^3 + 3(2x)^2(1) + 3(2x)(1)^2 + (1)^3$</p>
+                <p>$= 8x^3 + 12x^2 + 6x + 1$</p>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>예제 2: 합의 제곱 공식 응용</h4>
+            <p>$x + y + z = 4$, $xy + yz + zx = 3$일 때 $x^2 + y^2 + z^2$을 구하여라.</p>
+            <div class="sol">
+                <p>$(x+y+z)^2 = x^2 + y^2 + z^2 + 2(xy+yz+zx)$</p>
+                <p>$16 = x^2 + y^2 + z^2 + 6$</p>
+                <p><strong>$x^2 + y^2 + z^2 = 10$</strong></p>
+            </div>
+        </div>
+
+        <h3>1-3. 다항식의 나눗셈</h3>
+
+        <div class="def-box">
+            <h4>다항식의 나눗셈 등식</h4>
+            <p>다항식 $A$를 다항식 $B$로 나누었을 때 몫을 $Q$, 나머지를 $R$이라 하면:</p>
+            $$A = B \cdot Q + R \quad (\text{단, } R의 차수 &lt; B의 차수)$$
+        </div>
+
+        <div class="example-box">
+            <h4>예제 3: 조립제법</h4>
+            <p>$P(x) = 2x^3 - 3x^2 + x + 4$를 $(x-2)$로 나누어라.</p>
+            <div class="sol">
+                <p>조립제법 (제수의 근 $x = 2$ 사용):</p>
+                <table style="max-width:400px;">
+                    <tr><th></th><th>2</th><th>-3</th><th>1</th><th>4</th></tr>
+                    <tr><td>$\times 2$</td><td></td><td>4</td><td>2</td><td>6</td></tr>
+                    <tr><td></td><td>2</td><td>1</td><td>3</td><td><strong>10</strong></td></tr>
+                </table>
+                <p>몫: $2x^2 + x + 3$, 나머지: $10$</p>
+            </div>
+        </div>
+
+        <!-- ====== PART 2: 나머지 정리 ====== -->
+        <h2>2. 나머지 정리와 인수 정리</h2>
+
+        <div class="theorem-box">
+            <h4>나머지 정리 (Remainder Theorem)</h4>
+            <p>다항식 $P(x)$를 $(x-a)$로 나누었을 때의 <strong>나머지 $= P(a)$</strong></p>
+            <p>즉, $(x-a)$로 나눈 나머지를 구하려면 $P(x)$에 $x=a$를 대입하면 된다.</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>인수 정리 (Factor Theorem)</h4>
+            <p>$P(a) = 0 \;\Leftrightarrow\; (x-a)$는 $P(x)$의 인수</p>
+        </div>
+
+        <div class="example-box">
+            <h4>예제 4: 나머지 정리 응용</h4>
+            <p>$P(x) = x^3 - 2x^2 + 3x - 1$을 $(x-2)$로 나누었을 때의 나머지를 구하여라.</p>
+            <div class="sol">
+                <p>나머지 $= P(2) = 8 - 8 + 6 - 1 = \mathbf{5}$</p>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>예제 5: 인수 정리로 인수 찾기</h4>
+            <p>$P(x) = x^3 - 6x^2 + 11x - 6$을 인수분해하여라.</p>
+            <div class="sol">
+                <p>$P(1) = 1 - 6 + 11 - 6 = 0$ → $(x-1)$이 인수</p>
+                <p>조립제법으로 나누면: $P(x) = (x-1)(x^2 - 5x + 6)$</p>
+                <p>$= (x-1)(x-2)(x-3)$</p>
+            </div>
+        </div>
+
+        <!-- ====== PART 3: 고등 인수분해 ====== -->
+        <h2>3. 고등 수준 인수분해</h2>
+
+        <div class="theorem-box">
+            <h4>고등 인수분해 공식</h4>
+            $$\begin{aligned}
+            a^3 + b^3 &= (a+b)(a^2 - ab + b^2) \\
+            a^3 - b^3 &= (a-b)(a^2 + ab + b^2) \\
+            a^3 + 3a^2b + 3ab^2 + b^3 &= (a+b)^3 \\
+            a^3 - 3a^2b + 3ab^2 - b^3 &= (a-b)^3
+            \end{aligned}$$
+        </div>
+
+        <div class="example-box">
+            <h4>예제 6: 세제곱 차의 인수분해</h4>
+            <p>$8x^3 - 27$을 인수분해하여라.</p>
+            <div class="sol">
+                <p>$a = 2x$, $b = 3$으로 놓으면:</p>
+                <p>$(2x)^3 - 3^3 = (2x-3)(4x^2 + 6x + 9)$</p>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>예제 7: 치환을 이용한 인수분해</h4>
+            <p>$x^4 - 5x^2 + 4$를 인수분해하여라.</p>
+            <div class="sol">
+                <p>$t = x^2$로 치환: $t^2 - 5t + 4 = (t-1)(t-4)$</p>
+                <p>$= (x^2-1)(x^2-4)$</p>
+                <p>$= (x+1)(x-1)(x+2)(x-2)$</p>
+            </div>
+        </div>
+
+        <!-- ====== PART 4: 방정식 ====== -->
+        <h2>4. 복소수와 방정식</h2>
+
+        <h3>4-1. 복소수</h3>
+
+        <div class="def-box">
+            <h4>정의: 복소수</h4>
+            <p>$i = \sqrt{-1}$ (허수단위)라 정의하면 $i^2 = -1$.</p>
+            <p><strong>복소수</strong>: $a + bi$ ($a, b$는 실수) 형태. $a$는 실수부, $b$는 허수부.</p>
+            <ul>
+                <li>$b = 0$이면 실수: $a + 0i = a$</li>
+                <li>$a = 0$이고 $b \neq 0$이면 순허수: $bi$</li>
+                <li>$b \neq 0$이면 허수</li>
+            </ul>
+            <p><strong>켤레복소수</strong>: $\overline{a+bi} = a - bi$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>예제 8: 복소수의 연산</h4>
+            <p>$(3+2i) + (1-5i)$와 $(2+i)(1-3i)$를 계산하여라.</p>
+            <div class="sol">
+                <p><strong>덧셈:</strong> $(3+1) + (2-5)i = 4 - 3i$</p>
+                <p><strong>곱셈:</strong> $2 - 6i + i - 3i^2 = 2 - 5i + 3 = 5 - 5i$</p>
+            </div>
+        </div>
+
+        <h3>4-2. 이차방정식과 판별식</h3>
+
+        <div class="theorem-box">
+            <h4>판별식과 근의 종류</h4>
+            <p>$ax^2 + bx + c = 0$의 판별식 $D = b^2 - 4ac$:</p>
+            <table>
+                <tr><th>판별식</th><th>근의 종류</th></tr>
+                <tr><td>$D &gt; 0$</td><td>서로 다른 두 실근</td></tr>
+                <tr><td>$D = 0$</td><td>중근 (같은 두 실근)</td></tr>
+                <tr><td>$D &lt; 0$</td><td>서로 다른 두 허근 (켤레복소수)</td></tr>
+            </table>
+        </div>
+
+        <div class="theorem-box">
+            <h4>근과 계수의 관계 (비에타 공식)</h4>
+            <p>$ax^2 + bx + c = 0$의 두 근 $\alpha$, $\beta$에 대해:</p>
+            $$\alpha + \beta = -\frac{b}{a}, \quad \alpha\beta = \frac{c}{a}$$
+        </div>
+
+        <div class="example-box">
+            <h4>예제 9: 근과 계수 활용</h4>
+            <p>$x^2 - 5x + 3 = 0$의 두 근 $\alpha$, $\beta$에 대해 $\alpha^2 + \beta^2$을 구하여라.</p>
+            <div class="sol">
+                <p>$\alpha + \beta = 5$, $\alpha\beta = 3$</p>
+                <p>$\alpha^2 + \beta^2 = (\alpha+\beta)^2 - 2\alpha\beta = 25 - 6 = \mathbf{19}$</p>
+            </div>
+        </div>
+
+        <h3>4-3. 삼차방정식과 사차방정식</h3>
+
+        <div class="example-box">
+            <h4>예제 10: 삼차방정식 풀기</h4>
+            <p>$x^3 - 6x^2 + 11x - 6 = 0$을 풀어라.</p>
+            <div class="sol">
+                <p>예제 5에서: $(x-1)(x-2)(x-3) = 0$</p>
+                <p><strong>$x = 1$, $x = 2$, $x = 3$</strong></p>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>예제 11: 연립 이차방정식</h4>
+            <p>$\begin{cases} x + y = 5 \\ xy = 6 \end{cases}$를 풀어라.</p>
+            <div class="sol">
+                <p>$x$, $y$는 $t^2 - 5t + 6 = 0$의 두 근.</p>
+                <p>$(t-2)(t-3) = 0$ → $t = 2$ 또는 $t = 3$</p>
+                <p><strong>$(x, y) = (2, 3)$ 또는 $(3, 2)$</strong></p>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>예제 12: 사차방정식</h4>
+            <p>$x^4 - 3x^2 - 4 = 0$을 풀어라.</p>
+            <div class="sol">
+                <p>$t = x^2$으로 치환: $t^2 - 3t - 4 = 0$</p>
+                <p>$(t-4)(t+1) = 0$ → $t = 4$ 또는 $t = -1$</p>
+                <p>$x^2 = 4$: $x = \pm 2$</p>
+                <p>$x^2 = -1$: $x = \pm i$ (허근)</p>
+                <p><strong>실수 범위에서: $x = 2$ 또는 $x = -2$</strong></p>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>예제 13: 이차방정식의 계수 결정</h4>
+            <p>$x^2 + ax + b = 0$의 한 근이 $1 + 2i$일 때 실수 $a$, $b$의 값을 구하여라.</p>
+            <div class="sol">
+                <p>계수가 실수이므로 켤레복소수 $1 - 2i$도 근.</p>
+                <p>두 근의 합: $(1+2i) + (1-2i) = 2 = -a$ → $a = -2$</p>
+                <p>두 근의 곱: $(1+2i)(1-2i) = 1 + 4 = 5 = b$ → $b = 5$</p>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>예제 14: 나머지 정리와 판별식 복합</h4>
+            <p>$P(x) = x^3 + ax + b$를 $(x-2)$로 나누면 나머지가 3이고, $(x+1)$로 나누면 나머지가 $-9$이다. $a$, $b$를 구하여라.</p>
+            <div class="sol">
+                <p>$P(2) = 8 + 2a + b = 3$ → $2a + b = -5$ … ①</p>
+                <p>$P(-1) = -1 - a + b = -9$ → $-a + b = -8$ … ②</p>
+                <p>① $-$ ②: $3a = 3$ → $a = 1$, $b = -7$</p>
+            </div>
+        </div>
+
+        <!-- Practice Problems -->
+        <div class="practice-box">
+            <h4>연습 문제</h4>
+            <ol>
+                <li>$(x+2)^3$을 전개하여라.</li>
+                <li>$P(x) = x^3 - x^2 - 4x + 4$를 $(x-1)$로 나누었을 때 나머지를 구하고, $P(x)$를 인수분해하여라.</li>
+                <li>$27x^3 + 8$을 인수분해하여라.</li>
+                <li>$x^2 + 4x + 5 = 0$의 두 근 $\alpha$, $\beta$에 대해 $\alpha^2 + \beta^2$을 구하여라.</li>
+                <li>$x^4 - 13x^2 + 36 = 0$을 풀어라.</li>
+            </ol>
+        </div>
+
+        <div class="tip-box">
+            <h4>시험 대비 핵심 정리</h4>
+            <ul>
+                <li><strong>나머지 정리</strong>: $P(x) \div (x-a)$의 나머지 $= P(a)$</li>
+                <li><strong>인수 정리</strong>: $P(a) = 0 \Leftrightarrow (x-a)$는 인수</li>
+                <li><strong>조립제법</strong>: 고차다항식 나눗셈의 빠른 계산법</li>
+                <li><strong>근과 계수의 관계</strong>: $\alpha + \beta = -b/a$, $\alpha\beta = c/a$</li>
+                <li><strong>$\alpha^2 + \beta^2$</strong>: $= (\alpha+\beta)^2 - 2\alpha\beta$로 계산</li>
+                <li><strong>고차방정식</strong>: 하나의 근을 찾아 인수분해 → 차수 낮추기</li>
+            </ul>
+        </div>
+
+        <!-- Chapter Navigation -->
+        <div class="chapter-nav">
+            <a href="/kr/textbook/middle3-algebra.html">← 이전: 중3 이차방정식과 이차함수</a>
+            <a href="/kr/textbook/high1-geometry.html">다음: 공통수학 2 — 도형의 방정식 →</a>
+        </div>
+
+    </article>
+
+    <footer style="background:#1e293b;color:#94a3b8;text-align:center;padding:28px 20px;font-size:.85em;">
+        <p style="margin:0 0 8px;">© 2026 MathHub Global · <a href="/privacy.html" style="color:#94a3b8;">Privacy</a> · <a href="/about.html" style="color:#94a3b8;">About</a></p>
+        <p style="margin:0;">2022 개정 교육과정 기반 무료 수학 교재 | <a href="/contact.html" style="color:#a5b4fc;">1:1 과외 상담 신청</a></p>
+    </footer>
+</body>
+</html>

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>AP Calculus BC: Parametric, Polar & Vectors - Chapter 9 | MathHub</title>
@@ -237,7 +238,7 @@
             <a href="/us/" class="active">US</a>
             <a href="/uk/">UK</a>
             <a href="/ca/">CA</a>
-            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
+            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" rel="noopener nofollow" class="nav-cta">Question Bank</a>
         </div>
     </nav>
 
@@ -267,13 +268,6 @@
 
         <!-- Ad Unit -->
         <div class="ad-container">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-7322143430416257"
-                 data-ad-slot="auto"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
         <!-- ============================================================ -->
@@ -440,7 +434,7 @@
         (function() {
             var elt = document.getElementById('figure-eight');
             if (!elt) return;
-            var calc = Desmos.GraphingCalculator(elt, {expressions: true, settingsMenu: false, zoomButtons: false});
+            var calc = Desmos.GraphingCalculator(elt, {expressions: false, settingsMenu: false, zoomButtons: false});
             calc.setExpression({id: 't0', latex: 't_0 = 0', sliderBounds: {min: '0', max: '6.283', step: '0.05'}});
             calc.setExpression({id: 'curve', latex: '(\\cos(t), \\sin(2t))', color: '#2563eb', parametricDomain: {min: '0', max: '2\\pi'}, lineWidth: 2.5});
             calc.setExpression({id: 'point', latex: '(\\cos(t_0), \\sin(2t_0))', color: '#dc2626', pointSize: 14});
@@ -453,7 +447,7 @@
         <script>
         (function() {
             var elt = document.getElementById('parametric-explorer');
-            var calc = Desmos.GraphingCalculator(elt, {expressions: true, settingsMenu: false, zoomButtons: true});
+            var calc = Desmos.GraphingCalculator(elt, {expressions: false, settingsMenu: false, zoomButtons: true});
             calc.setExpression({id: 'a', latex: 'a_0 = 3', sliderBounds: {min: '0.5', max: '5', step: '0.1'}});
             calc.setExpression({id: 'b', latex: 'b_0 = 2', sliderBounds: {min: '0.5', max: '5', step: '0.1'}});
             calc.setExpression({id: 'curve', latex: '(a_0\\cos(t), b_0\\sin(t))', color: '#2563eb', parametricDomain: {min: '0', max: '2\\pi'}});
@@ -556,15 +550,45 @@
             <p><em>Note:</em> There is no simple Cartesian equation for this curve, so the parametric approach is essential here. The closed loop in a self-intersecting parametric curve is a classic AP BC topic.</p>
         </div>
 
+        <div class="desmos-wrap" style="max-width:600px; margin:24px auto;">
+            <p class="desmos-caption" style="margin:8px 0 4px; font-size:0.9em; color:#475569;">
+                Drag the $t_0$ slider to trace the curve. The <span style="color:#2563eb; font-weight:600;">blue region</span> shows the enclosed loop area $\tfrac{8}{15}$.
+            </p>
+            <div id="area-parametric" style="width:100%; height:360px;"></div>
+            <p class="fig-label">Figure 9.2 &mdash; Area enclosed by the loop of $x = t^2 - 1,\; y = t^3 - t$. The shaded region corresponds to the integral $\left|\int_{-1}^{1}(t^3-t)(2t)\,dt\right| = \tfrac{8}{15}$.</p>
+        </div>
+        <script>
+        (function() {
+            var elt = document.getElementById('area-parametric');
+            if (!elt) return;
+            var calc = Desmos.GraphingCalculator(elt, {
+                expressions: false,
+                settingsMenu: false,
+                zoomButtons: false,
+                lockViewport: false,
+                border: false,
+                showGrid: true,
+                showXAxis: true,
+                showYAxis: true
+            });
+            // Full curve (faint context)
+            calc.setExpression({id: 'full', latex: '(t^2-1, t^3-t)', parametricDomain: {min: '-2', max: '2'}, color: '#94a3b8', lineWidth: 1.5});
+            // Loop portion highlighted
+            calc.setExpression({id: 'loop', latex: '(t^2-1, t^3-t)', parametricDomain: {min: '-1', max: '1'}, color: '#2563eb', lineWidth: 3});
+            // Shaded enclosed area: valid only for x in [-1, 0], naturally bounded by sqrt
+            calc.setExpression({id: 'shade', latex: '(x+1)^{3/2}-\\sqrt{x+1}\\le y\\le-(x+1)^{3/2}+\\sqrt{x+1}', color: '#2563eb'});
+            // Self-intersection point at origin
+            calc.setExpression({id: 'origin', latex: '(0,0)', color: '#dc2626', pointSize: 14, label: 'Self-intersection', showLabel: true, labelSize: Desmos.LabelSizes.SMALL});
+            // Slider for tracing
+            calc.setExpression({id: 't0', latex: 't_0 = 0', sliderBounds: {min: '-2', max: '2', step: '0.04'}});
+            // Tracing dot
+            calc.setExpression({id: 'dot', latex: '(t_0^2-1, t_0^3-t_0)', color: '#f59e0b', pointSize: 13});
+            calc.setMathBounds({left: -1.6, right: 2.0, bottom: -1.0, top: 1.0});
+        })();
+        </script>
+
         <!-- Ad Unit -->
         <div class="ad-container">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-7322143430416257"
-                 data-ad-slot="auto"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
         <!-- ============================================================ -->
@@ -636,7 +660,7 @@
         <script>
         (function() {
             var elt = document.getElementById('polar-explorer');
-            var calc = Desmos.GraphingCalculator(elt, {expressions: true, settingsMenu: false, zoomButtons: true, degreeMode: false});
+            var calc = Desmos.GraphingCalculator(elt, {expressions: false, settingsMenu: false, zoomButtons: true, degreeMode: false});
             calc.setExpression({id: 'a', latex: 'a_0 = 3', sliderBounds: {min: '0.5', max: '5', step: '0.1'}});
             calc.setExpression({id: 'n', latex: 'n_0 = 3', sliderBounds: {min: '1', max: '8', step: '1'}});
             calc.setExpression({id: 'rose', latex: 'r = a_0\\cos(n_0\\theta)', color: '#2563eb'});
@@ -708,13 +732,6 @@
 
         <!-- Ad Unit -->
         <div class="ad-container">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-7322143430416257"
-                 data-ad-slot="auto"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
         <!-- ============================================================ -->
@@ -1051,13 +1068,6 @@
 
         <!-- Ad Unit -->
         <div class="ad-container">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-7322143430416257"
-                 data-ad-slot="auto"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
         <!-- ============================================================ -->
@@ -1236,25 +1246,19 @@
 
         <!-- Ad Unit -->
         <div class="ad-container">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-7322143430416257"
-                 data-ad-slot="auto"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
     </article>
 
     <footer class="footer">
         <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+        <p style="margin-top:6px; font-size:0.85em;"><a href="/about.html" style="color:inherit;opacity:0.7;text-decoration:none;">About</a> &middot; <a href="/privacy.html" style="color:inherit;opacity:0.7;text-decoration:none;">Privacy Policy</a></p>
     </footer>
 
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Article",
+        "@type": "LearningResource",
         "headline": "AP Calculus BC: Parametric, Polar & Vectors - Chapter 9",
         "description": "AP Calculus BC parametric equations, polar coordinates, and vector-valued functions. Arc length, polar area, and derivatives with worked examples.",
         "author": {
@@ -1265,8 +1269,8 @@
             "@type": "Organization",
             "name": "MathHub Global"
         },
-        "datePublished": "2026-02-23",
-        "dateModified": "2026-02-23",
+        "datePublished": "2026-01-23",
+        "dateModified": "2026-01-23",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://mathhub.io/blog/ap-calculus-parametric-polar-textbook.html"
@@ -1285,7 +1289,7 @@
     (function() {
         var elt = document.getElementById('cycloid-graph');
         if (!elt) return;
-        var calc = Desmos.GraphingCalculator(elt, {expressions: true, settingsMenu: false, zoomButtons: true});
+        var calc = Desmos.GraphingCalculator(elt, {expressions: false, settingsMenu: false, zoomButtons: true});
 
         // Radius slider
         calc.setExpression({id: 'r', latex: 'r_0 = 2', sliderBounds: {min: '0.5', max: '5', step: '0.1'}});

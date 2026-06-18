@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IB EE 주제 추천: 태양광 패널 효율의 수학적 모델링 | MathHub</title>
+    <meta name="description" content="IB Extended Essay 수학 주제 추천: 태양광 패널 효율 모델링. 태양 적위각, 시간각, 입사각, 적분을 활용한 일일 발전량 최적화를 EE에서 탐구합니다.">
+    <meta name="keywords" content="IB EE 주제, 태양광 패널, 태양 에너지, 적위각, 시간각, 입사각, 적분, Extended Essay, IB 수학 EE, 재생에너지 수학">
+    <meta name="author" content="MathHub Korea">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/kr/blog/ee-topic-solar-panel.html">
+    <link rel="alternate" hreflang="en" href="https://mathhub.io/ib/blog/ee-topic-solar-panel-optimization.html" />
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/blog/ee-topic-solar-panel.html" />
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/kr/blog/ee-topic-solar-panel.html">
+    <meta property="og:title" content="IB EE 주제 추천: 태양광 패널 효율의 수학적 모델링">
+    <meta property="og:description" content="태양 적위각, 시간각, 입사각으로 태양광 발전량을 모델링하는 IB 수학 EE 가이드.">
+    <meta property="og:site_name" content="MathHub Korea">
+    <meta property="og:locale" content="ko_KR">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="IB EE 주제: 태양광 패널 효율의 수학적 모델링">
+    <meta name="twitter:description" content="적위각, 시간각, 입사각, 적분 — 태양광 패널 효율 EE 가이드.">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] } };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans KR', Arial, sans-serif; line-height: 1.85; color: #333; background: #f5f7fa; }
+        nav.global-nav { background:#1e3a5f; display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:52px; }
+        nav.global-nav a { color:rgba(255,255,255,.85); text-decoration:none; font-size:.9em; }
+        nav.global-nav .nav-brand { font-weight:700; font-size:1.1em; color:white; }
+        nav.global-nav .nav-links { display:flex; gap:18px; align-items:center; }
+        nav.global-nav .nav-links a.active { color:white; font-weight:700; }
+        .header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 50px 20px; text-align: center; }
+        .header h1 { font-size: 2em; margin-bottom: 10px; line-height: 1.35; }
+        .category-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 16px; border-radius: 20px; font-size: 0.85em; margin-bottom: 14px; }
+        .date { opacity: 0.85; font-size: 0.9em; margin-top: 8px; }
+        .container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); border-radius: 10px; }
+        .back-link { display: inline-block; margin-bottom: 28px; color: #667eea; text-decoration: none; font-weight: 600; font-size: 0.9em; }
+        .back-link:hover { text-decoration: underline; }
+        h2 { color: #2c3e50; margin-top: 40px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid #667eea; font-size: 1.4em; }
+        h3 { color: #334155; margin-top: 28px; margin-bottom: 12px; font-size: 1.1em; }
+        p { margin-bottom: 14px; text-align: justify; }
+        ul, ol { margin-left: 28px; margin-bottom: 14px; }
+        li { margin-bottom: 7px; }
+        strong { color: #1e293b; }
+        .formula { background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 15px 0; overflow-x: auto; }
+        .info-box { background: #f0ebff; border-left: 4px solid #667eea; padding: 18px 20px; margin: 22px 0; border-radius: 4px; }
+        .tip-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 18px 20px; margin: 22px 0; border-radius: 4px; }
+        .example-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 20px; margin: 25px 0; border-radius: 4px; }
+        .consultation-cta { background: #f5f3ff; border-left: 4px solid #667eea; padding: 20px; border-radius: 8px; margin: 36px 0 0; }
+        .consultation-cta a { color: #667eea; font-weight: 700; text-decoration: none; }
+        .consultation-cta a:hover { text-decoration: underline; }
+        .footer { text-align: center; padding: 30px 20px; color: #666; margin-top: 50px; }
+        @media (max-width: 768px) { .container { padding: 30px 20px; margin: 20px; } .header h1 { font-size: 1.6em; } }
+    </style>
+</head>
+<body>
+<nav class="global-nav">
+    <a href="/" class="nav-brand">MathHub</a>
+    <div class="nav-links">
+        <a href="/kr/" class="active">KR</a>
+        <a href="/us/">US</a>
+        <a href="/uk/">UK</a>
+        <a href="/ca/">CA</a>
+        <a href="/ib/">IB</a>
+    </div>
+</nav>
+
+<div class="header">
+    <div class="category-badge">IB EE 주제 추천 &mdash; 수학</div>
+    <h1>태양광 패널 효율의 수학적 모델링</h1>
+    <div class="date">2026년 3월 16일</div>
+</div>
+
+<div class="container">
+    <a href="/kr/blog/" class="back-link">&larr; 블로그 목록으로</a>
+
+    <h2>1. 왜 태양광 패널이 좋은 EE 주제인가</h2>
+
+    <p>기후 위기 시대에 재생에너지는 전 세계적 관심사이며, 태양광 발전은 그 핵심입니다. 태양광 패널의 효율을 수학적으로 모델링하는 것은 삼각함수, 벡터, 적분이라는 IB 핵심 수학 개념을 실질적인 공학 문제에 적용하는 작업입니다.</p>
+
+    <p>이 주제의 매력은 지역성(locality)에 있습니다. 서울(위도 37.5°N)에서의 최적 패널 각도와 시드니(위도 33.9°S)에서의 최적 각도는 다릅니다. 학생이 자신의 거주 지역을 기준으로 연구하면 개인적 참여가 자연스럽게 드러나며, 연구 결과가 실용적 가치를 가집니다.</p>
+
+    <p>연구 질문 예시: "서울(위도 37.5°N)에서 고정형 태양광 패널의 경사각이 계절별 일일 총 발전량에 미치는 영향을 수학적으로 모델링하고, 연간 발전량을 최대화하는 최적 경사각을 결정하라."</p>
+
+    <h2>2. 태양의 위치 — 천구 좌표계</h2>
+
+    <p>태양광 패널 효율을 이해하려면 먼저 하루 동안 태양이 하늘에서 어떤 경로를 따라 움직이는지를 수학적으로 기술해야 합니다. 이를 위해 두 가지 각도가 필요합니다: 태양 고도(solar altitude) $\alpha_s$와 태양 방위(solar azimuth) $\gamma_s$.</p>
+
+    <h3>2.1 태양 적위각</h3>
+
+    <p>태양 적위각(solar declination) $\delta$는 지구의 자전축 기울기(23.44°) 때문에 계절에 따라 변합니다. 연중 일수 $d$(1월 1일 = 1)에 대해:</p>
+
+    <div class="formula">
+        $$\delta = 23.44° \cdot \sin\left(\frac{360°}{365}(d - 81)\right)$$
+    </div>
+
+    <p>여름 지점(6월 21일경, $d \approx 172$)에 $\delta \approx +23.44°$, 겨울 지점(12월 21일경, $d \approx 356$)에 $\delta \approx -23.44°$입니다. 이 변화가 계절에 따른 낮 길이와 태양 고도의 차이를 만들어냅니다.</p>
+
+    <h3>2.2 시간각</h3>
+
+    <p>시간각(hour angle) $\omega$는 태양이 남중(정오)에서 얼마나 벗어났는지를 나타냅니다. 태양은 시간당 약 15°씩 이동하므로:</p>
+
+    <div class="formula">
+        $$\omega = 15° \times (t_{\text{solar}} - 12)$$
+    </div>
+
+    <p>여기서 $t_{\text{solar}}$은 태양시(시간 단위)입니다. 정오에 $\omega = 0°$, 오전 6시에 $\omega = -90°$, 오후 6시에 $\omega = +90°$입니다.</p>
+
+    <h3>2.3 태양 고도</h3>
+
+    <p>위도 $\phi$인 지점에서 태양 고도 $\alpha_s$는:</p>
+
+    <div class="formula">
+        $$\sin(\alpha_s) = \sin(\phi)\sin(\delta) + \cos(\phi)\cos(\delta)\cos(\omega)$$
+    </div>
+
+    <p>이 공식은 구면삼각법(spherical trigonometry)에서 유도되며, EE의 이론적 배경에서 유도 과정을 보여주면 기준 B(지식과 이해)에서 높은 점수를 받을 수 있습니다.</p>
+
+    <h2>3. 패널 표면에 입사하는 태양 에너지</h2>
+
+    <p>태양광 패널의 발전량은 패널 표면에 도달하는 태양 복사 에너지에 비례합니다. 핵심은 패널 표면의 법선 벡터와 태양광선 벡터 사이의 각도, 즉 입사각(angle of incidence) $\theta$입니다.</p>
+
+    <p>남향으로 경사각 $\beta$로 설치된 패널에 대한 입사각은:</p>
+
+    <div class="formula">
+        $$\cos(\theta) = \sin(\alpha_s)\cos(\beta) + \cos(\alpha_s)\sin(\beta)\cos(\gamma_s)$$
+    </div>
+
+    <p>패널에 도달하는 단위면적당 에너지 플럭스(irradiance)는:</p>
+
+    <div class="formula">
+        $$G_{\text{panel}} = G_{\text{direct}} \cdot \cos(\theta)$$
+    </div>
+
+    <p>여기서 $G_{\text{direct}}$는 직달일사(direct normal irradiance)입니다. $\cos(\theta) < 0$이면 태양이 패널 뒤에 있으므로 발전량은 0입니다.</p>
+
+    <h2>4. 일일 총 발전량 — 적분</h2>
+
+    <p>하루 동안의 총 발전량은 일출부터 일몰까지 순간 발전량을 적분한 것입니다:</p>
+
+    <div class="formula">
+        $$E_{\text{day}} = A \cdot \eta \int_{t_{\text{rise}}}^{t_{\text{set}}} G_{\text{panel}}(t) \, dt$$
+    </div>
+
+    <p>여기서 $A$는 패널 면적, $\eta$는 패널 변환 효율(보통 15~22%)입니다. 이 적분은 해석적으로 풀기 어려우므로 수치 적분(사다리꼴 법칙, 심프슨 법칙)을 사용합니다.</p>
+
+    <div class="example-box">
+        <strong>실험 설계:</strong><br>
+        위치: 서울(37.5°N, 127°E)<br>
+        날짜: 춘분(3/20), 하지(6/21), 추분(9/22), 동지(12/21)<br>
+        경사각: $\beta = 0°, 10°, 20°, 30°, 37.5°, 45°, 60°$<br>
+        측정: 각 조합에서 $E_{\text{day}}$ 계산 → 최적 $\beta$ 결정
+    </div>
+
+    <h2>5. EE에서 탐구할 수 있는 방향</h2>
+
+    <p><strong>계절별 최적 경사각:</strong> 여름에는 태양이 높이 뜨므로 패널을 거의 수평에 가깝게(작은 $\beta$), 겨울에는 태양이 낮게 뜨므로 패널을 가파르게(큰 $\beta$) 설치하는 것이 효율적입니다. 각 계절의 최적 $\beta$를 계산하고, "연간 총 발전량을 최대화하는 고정 $\beta$"를 찾는 최적화 문제를 풀어보세요.</p>
+
+    <p><strong>위도에 따른 최적 각도:</strong> 서울(37.5°), 제주(33.5°), 부산(35.2°) 등 한국 내 여러 도시에 대해 최적 경사각을 비교합니다. 흔히 "최적 경사각 = 위도"라는 경험적 규칙이 수학적 모델과 얼마나 일치하는지 검증하는 것도 흥미로운 분석입니다.</p>
+
+    <p><strong>추적형 vs 고정형 비교:</strong> 태양을 추적하여 항상 $\theta = 0°$를 유지하는 1축 또는 2축 추적형 시스템의 발전량을 고정형과 비교합니다. 추적형의 에너지 증가율(20~40%)을 수학적으로 계산하고, 추가 비용 대비 경제성을 논의하면 비판적 분석의 깊이가 더해집니다.</p>
+
+    <p><strong>구름과 대기 효과:</strong> 실제 태양광 발전에서는 대기의 산란, 구름, 대기질(air mass) 등이 영향을 미칩니다. 대기질 계수 $AM = 1/\sin(\alpha_s)$를 도입하여 더 현실적인 모델을 구축할 수 있습니다. 모델의 한계를 인식하고 논의하는 것이 기준 C에서 중요합니다.</p>
+
+    <div class="tip-box">
+        <strong>A등급 전략:</strong> 수학적 모델의 예측값을 실제 발전 데이터(한국에너지공단 등)와 비교하세요. 이론과 실제의 차이를 정량적으로 분석하고, 그 원인(날씨, 먼지, 패널 온도 효과 등)을 논의하면 기준 C에서 높은 점수를 받을 수 있습니다.
+    </div>
+
+    <h2>6. 필요한 수학적 도구 요약</h2>
+
+    <ul>
+        <li><strong>삼각함수:</strong> 태양 위치 계산, 입사각 계산의 기본</li>
+        <li><strong>벡터 내적:</strong> 태양광선 벡터와 패널 법선 벡터의 내적 → $\cos\theta$</li>
+        <li><strong>적분:</strong> 일일 총 에너지 계산, 수치 적분 기법</li>
+        <li><strong>최적화:</strong> $\beta$에 대한 $E_{\text{day}}$ 또는 $E_{\text{year}}$의 최대화</li>
+        <li><strong>구면삼각법:</strong> 태양 고도/방위 공식의 유도(심화)</li>
+    </ul>
+
+    <p>이 주제는 IB 수학 AA HL에서 배우는 삼각함수, 미적분, 벡터를 종합적으로 활용하는 동시에, 기후변화 대응이라는 글로벌 이슈에 수학이 기여하는 방식을 보여주는 주제입니다.</p>
+
+    <div class="consultation-cta">
+        <strong>Extended Essay 작성에 도움이 필요하신가요?</strong>
+        <p>주제 선정부터 리서치, 작성까지 경험 많은 IB 튜터가 안내해 드립니다.</p>
+        <a href="/contact.html">무료 상담 신청 &rarr;</a>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+    <p style="margin-top:6px; font-size:0.85em;">
+        <a href="/about.html" style="color:inherit;opacity:0.7;text-decoration:none;">About</a> &middot;
+        <a href="/privacy.html" style="color:inherit;opacity:0.7;text-decoration:none;">Privacy Policy</a>
+    </p>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "IB EE 주제 추천: 태양광 패널 효율의 수학적 모델링",
+    "description": "태양 적위각, 시간각, 입사각, 적분을 활용한 태양광 패널 효율 모델링 IB EE 가이드.",
+    "author": { "@type": "Organization", "name": "MathHub Korea" },
+    "publisher": { "@type": "Organization", "name": "MathHub Global", "url": "https://mathhub.io/" },
+    "url": "https://mathhub.io/kr/blog/ee-topic-solar-panel.html",
+    "datePublished": "2026-03-16",
+    "dateModified": "2026-03-16",
+    "inLanguage": "ko"
+}
+</script>
+
+</body>
+</html>

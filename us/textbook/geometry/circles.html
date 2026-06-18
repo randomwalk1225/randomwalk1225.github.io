@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Geometry: Circles: Arcs, Chords, and Angles - Chapter 10 | MathHub</title>
+    <meta name="description" content="Geometry Chapter 10: Circles — Arcs, Chords, and Angles. Learn central angles, inscribed angles, chord-chord relationships, tangent lines, and the key arc theorems.">
+    <meta name="keywords" content="geometry, circles, central angles, inscribed angles, arc length, chords, secants, tangent lines, circle theorems, high school geometry chapter 10">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/geometry/circles.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/geometry/circles.html">
+    <meta property="og:title" content="Geometry: Circles: Arcs, Chords, and Angles - Chapter 10">
+    <meta property="og:description" content="Learn central angles, inscribed angles, arc length, chord-chord power theorem, and tangent-radius relationships.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "Geometry: Circles: Arcs, Chords, and Angles - Chapter 10",
+        "description": "Geometry Chapter 10 covering circle basics, central angles, inscribed angles, chord and secant relationships, and tangent lines with real Desmos diagrams.",
+        "url": "https://mathhub.io/us/textbook/geometry/circles.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "High School",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Circles" },
+            { "@type": "Thing", "name": "Arc Length" },
+            { "@type": "Thing", "name": "Inscribed Angles" },
+            { "@type": "Thing", "name": "Geometry" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <link rel="stylesheet" href="../../../assets/css/textbook-ux.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #4c1d95; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #4c1d95; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #8b5cf6; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives { background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 24px 0 32px; border-radius: 0 10px 10px 0; }
+        .learning-objectives h4 { color: #4c1d95; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #3b0764; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box { background: #f5f3ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #4c1d95; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+
+        .definition-box { background: #f0f7ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+
+        .theorem-box { background: #fdf2f8; border-left: 4px solid #ec4899; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #9d174d; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box { background: #f5f3ff; border: 1.5px dashed #c4b5fd; padding: 16px 20px; margin: -4px 0 24px; border-radius: 0 0 8px 8px; }
+        .try-it-box .try-it-label { display: inline-block; background: #8b5cf6; color: white; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px; }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary { cursor: pointer; color: #4c1d95; font-weight: 600; font-size: 0.9em; user-select: none; }
+        .try-it-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7; }
+
+        .geo-tip { background: #fefce8; border-left: 4px solid #eab308; padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .geo-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .geo-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .geo-tip strong { color: #92400e; }
+
+        .desmos-wrap { margin: 24px auto; background: #faf8ff; border-radius: 12px; padding: 4px; border: 1px solid #e9d5ff; text-align: center; }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label { text-align: center; font-size: 0.82em; color: #64748b; margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em; }
+
+        .practice-section { margin: 48px 0 0; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { color: #4c1d95; margin-bottom: 20px; }
+        .practice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        @media (max-width: 600px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; }
+        .practice-card .p-num { display: inline-block; background: #4c1d95; color: white; font-weight: 700; font-size: 0.78em; padding: 2px 9px; border-radius: 4px; margin-bottom: 8px; }
+        .practice-card p { color: #334155; font-size: 0.92em; line-height: 1.7; margin: 0 0 10px; }
+        .practice-card details summary { cursor: pointer; color: #4c1d95; font-weight: 600; font-size: 0.88em; user-select: none; }
+        .practice-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 8px; color: #334155; font-size: 0.9em; line-height: 1.7; border: 1px solid #e2e8f0; }
+
+        .chapter-nav { display: flex; justify-content: space-between; margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid #e2e8f0; flex-wrap: wrap; gap: 12px; }
+        .chapter-nav a { color: #8b5cf6; text-decoration: none; font-weight: 600; font-size: 0.95em; padding: 8px 16px; border: 1.5px solid #8b5cf6; border-radius: 8px; transition: background .15s; }
+        .chapter-nav a:hover { background: #f5f3ff; }
+
+        /* ── Section Summary ── */
+        .section-summary { background: #f8fafc; border: 2px solid #e2e8f0; padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px; }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .summary-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin: 16px 0; }
+        .key-term-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<div style="background:#4c1d95; padding:12px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+    <a href="/" style="color:#ddd6fe; text-decoration:none; font-weight:700; font-size:1.1em;">MathHub</a>
+    <span style="color:#a78bfa;">›</span>
+    <a href="/us" style="color:#c4b5fd; text-decoration:none; font-size:.9em;">US</a>
+    <span style="color:#a78bfa;">›</span>
+    <a href="/us/textbook/geometry" style="color:#c4b5fd; text-decoration:none; font-size:.9em;">Geometry</a>
+    <span style="color:#a78bfa;">›</span>
+    <span style="color:white; font-size:.9em;">Chapter 10</span>
+</div>
+
+<article class="blog-article">
+    <div class="breadcrumb">
+        <a href="/">MathHub</a> › <a href="/us">US</a> › <a href="/us/textbook/geometry">Geometry</a> › Chapter 10
+    </div>
+
+    <h1>Chapter 10: Circles — Arcs, Chords, and Angles</h1>
+    <div class="blog-meta">High School Geometry · Unit 5: Circles · 3 interactive diagrams · 8 practice problems</div>
+
+    <div class="learning-objectives">
+        <h4>Learning Objectives</h4>
+        <ul>
+            <li>Define circle parts: radius, diameter, chord, arc, central angle, and inscribed angle</li>
+            <li>Apply the Central Angle and Arc Measure relationship to compute arc lengths</li>
+            <li>Use the Inscribed Angle Theorem and its corollaries to find unknown angles</li>
+            <li>Apply the Chord-Chord Power Theorem and the chord-chord angle formula</li>
+            <li>Use the Tangent-Radius perpendicularity theorem and equal tangent segment lengths</li>
+            <li>Solve problems involving secant-secant and tangent-secant angle measures</li>
+        </ul>
+    </div>
+
+    <!-- 10.1 -->
+    <h2>10.1 Circle Basics and Central Angles</h2>
+
+    <div class="definition-box">
+        <h4>Definition: Circle and Key Parts</h4>
+        <p>A <strong>circle</strong> is the set of all points in a plane equidistant from a fixed point called the <strong>center</strong>. The common distance is the <strong>radius</strong> $r$.</p>
+        <ul>
+            <li><strong>Diameter:</strong> $d = 2r$ — a chord through the center</li>
+            <li><strong>Circumference:</strong> $C = 2\pi r = \pi d$</li>
+            <li><strong>Arc:</strong> a connected portion of the circle. A <strong>minor arc</strong> is less than a semicircle; a <strong>major arc</strong> is greater than a semicircle.</li>
+            <li><strong>Central angle:</strong> an angle whose vertex is the center of the circle</li>
+        </ul>
+    </div>
+
+    <p>The <strong>arc measure</strong> (in degrees) equals the measure of its central angle. Arc length converts that degree measure to an actual distance along the circle:</p>
+
+    $$\text{Arc Length} = \frac{\theta}{360^\circ} \cdot 2\pi r$$
+
+    <div class="theorem-box">
+        <h4>Theorem: Central Angle and Arc Measure</h4>
+        <p>The measure of a central angle equals the measure of its intercepted arc.</p>
+        <p>$$m\angle AOB = m\overset{\frown}{AB}$$</p>
+        <p>where $O$ is the center and $A$, $B$ are points on the circle.</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 10.1 — Arc Length from a Central Angle</h4>
+        <p>A circle has radius $r = 8$. The central angle $\angle AOB = 75°$. Find the arc length of $\overset{\frown}{AB}$.</p>
+        <p>$$\text{Arc Length} = \frac{75}{360} \cdot 2\pi(8) = \frac{75}{360} \cdot 16\pi \approx \frac{75}{360} \cdot 50.27 \approx \mathbf{10.47}$$</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 10.2 — Central Angle from Arc Measure</h4>
+        <p>Arc $RS = 140°$. Find the central angle $\angle ROS$.</p>
+        <p>By the Central Angle and Arc Measure Theorem: $\angle ROS = m\overset{\frown}{RS} = \mathbf{140°}$.</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>A circle has radius $r = 10$ and an arc with measure $60°$. Find the arc length.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                Arc Length $= \dfrac{60}{360} \cdot 2\pi(10) = \dfrac{1}{6} \cdot 20\pi = \dfrac{20\pi}{6} = \dfrac{10\pi}{3} \approx \mathbf{10.47}$ units.
+            </div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Circle with center, radius, and 75° central angle — the arc from A to B is highlighted.</p>
+        <div id="graph-central-angle" style="width:100%; max-width:630px; height:430px; margin:0 auto;"></div>
+        <p class="fig-label">Figure 10.1 — Central Angle and Arc on a Circle</p>
+    </div>
+
+    <!-- 10.2 -->
+    <h2>10.2 Inscribed Angles and Intercepted Arcs</h2>
+
+    <p>An <strong>inscribed angle</strong> has its vertex <em>on</em> the circle, with both sides as chords of the circle. This differs from a central angle, which sits at the center.</p>
+
+    <div class="theorem-box">
+        <h4>Inscribed Angle Theorem and Corollaries</h4>
+        <ul>
+            <li><strong>Inscribed Angle Theorem:</strong> The measure of an inscribed angle is half the measure of its intercepted arc.
+                $$m\angle BAC = \frac{1}{2} m\overset{\frown}{BC}$$
+            </li>
+            <li><strong>Corollary 1:</strong> Inscribed angles that intercept the same arc are congruent.</li>
+            <li><strong>Corollary 2:</strong> An angle inscribed in a semicircle is a right angle (90°).</li>
+            <li><strong>Corollary 3:</strong> Opposite angles of an inscribed quadrilateral are supplementary (sum to 180°).</li>
+        </ul>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 10.3 — Inscribed Angle from Arc Measure</h4>
+        <p>Arc $BC = 100°$. Point $A$ is on the circle (not on arc $BC$). Find inscribed angle $\angle BAC$.</p>
+        <p>$$\angle BAC = \frac{1}{2}(100°) = \mathbf{50°}$$</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 10.4 — Inscribed Quadrilateral</h4>
+        <p>Quadrilateral $ABCD$ is inscribed in a circle. $\angle A = 75°$. Find $\angle C$.</p>
+        <p>Opposite angles of an inscribed quadrilateral are supplementary:</p>
+        <p>$$\angle C = 180° - \angle A = 180° - 75° = \mathbf{105°}$$</p>
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>Two inscribed angles $\angle PQR$ and $\angle PSR$ both intercept arc $PR = 84°$. Find both angle measures.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                By the Inscribed Angle Theorem: $\angle PQR = \frac{1}{2}(84°) = 42°$ and $\angle PSR = \frac{1}{2}(84°) = 42°$.
+                By Corollary 1, they are equal since they intercept the same arc. Both $= \mathbf{42°}$.
+            </div>
+        </details>
+    </div>
+
+    <div class="geo-tip">
+        <div class="geo-tip-icon">★</div>
+        <p><strong>Key Distinction:</strong> A central angle <em>equals</em> its arc. An inscribed angle <em>is half</em> its arc. When the inscribed angle subtends a diameter, the arc is 180° and the angle is 90° — always a right angle.</p>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Circle with inscribed angle at A and central angle at O — both subtend arc BC. Notice the central angle is twice the inscribed angle.</p>
+        <div id="graph-inscribed-angle" style="width:100%; max-width:630px; height:430px; margin:0 auto;"></div>
+        <p class="fig-label">Figure 10.2 — Inscribed Angle vs. Central Angle over the Same Arc</p>
+    </div>
+
+    <!-- 10.3 -->
+    <h2>10.3 Chord and Secant Relationships</h2>
+
+    <p>A <strong>chord</strong> is a segment whose two endpoints lie on the circle. When two chords intersect inside the circle, they create angle and length relationships.</p>
+
+    <div class="theorem-box">
+        <h4>Chord Intersection Power Theorem</h4>
+        <p>If two chords $\overline{AB}$ and $\overline{CD}$ intersect at point $P$ inside a circle, then:</p>
+        $$PA \cdot PB = PC \cdot PD$$
+        <p>The products of the two segment lengths are always equal.</p>
+    </div>
+
+    <p><strong>Chord-Chord Angle:</strong> When two chords intersect at point $P$ inside the circle, the angle formed equals half the sum of the intercepted arcs:</p>
+    $$\angle P = \frac{1}{2}(m\overset{\frown}{AC} + m\overset{\frown}{BD})$$
+
+    <p><strong>Secant-Secant (from external point):</strong> The angle formed by two secants drawn from an external point equals half the positive difference of the intercepted arcs:</p>
+    $$\angle P = \frac{1}{2}|m\overset{\frown}{\text{far}} - m\overset{\frown}{\text{near}}|$$
+
+    <div class="example-box">
+        <h4>Example 10.5 — Chord-Chord Power Theorem</h4>
+        <p>Chords $\overline{AB}$ and $\overline{CD}$ intersect at $P$ inside a circle. $PA = 3$, $PB = 8$, $PC = 4$. Find $PD$.</p>
+        <p>By the Power Theorem:</p>
+        $$PA \cdot PB = PC \cdot PD \implies 3 \cdot 8 = 4 \cdot PD \implies PD = \frac{24}{4} = \mathbf{6}$$
+    </div>
+
+    <div class="example-box">
+        <h4>Example 10.6 — Chord-Chord Angle</h4>
+        <p>Two chords intersect inside a circle. The intercepted arcs are $80°$ and $120°$. Find the chord-chord angle.</p>
+        $$\angle P = \frac{1}{2}(80° + 120°) = \frac{1}{2}(200°) = \mathbf{100°}$$
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>Chords $\overline{EF}$ and $\overline{GH}$ intersect at $K$ inside a circle. $EK = 5$, $KF = 6$, $GK = 3$. Find $KH$.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                $EK \cdot KF = GK \cdot KH \implies 5 \cdot 6 = 3 \cdot KH \implies KH = \dfrac{30}{3} = \mathbf{10}$.
+            </div>
+        </details>
+    </div>
+
+    <!-- 10.4 -->
+    <h2>10.4 Tangent Lines and Tangent-Chord Angles</h2>
+
+    <p>A <strong>tangent line</strong> touches the circle at exactly one point, called the <strong>point of tangency</strong>. The tangent is always perpendicular to the radius drawn to that point.</p>
+
+    <div class="theorem-box">
+        <h4>Tangent-Radius Perpendicularity and Tangent Segment Lengths</h4>
+        <ul>
+            <li><strong>Tangent-Radius:</strong> A tangent line is perpendicular to the radius at the point of tangency. If $t$ is tangent to circle $O$ at $T$, then $OT \perp t$.</li>
+            <li><strong>Tangent-Chord Angle:</strong> The measure of an angle formed by a tangent and a chord equals half the intercepted arc.
+                $$\angle = \frac{1}{2} m\overset{\frown}{\text{intercepted arc}}$$
+            </li>
+            <li><strong>Equal Tangent Segments:</strong> Two tangent segments drawn from the same external point are congruent.
+                $$PA = PB \text{ if } PA \text{ and } PB \text{ are tangents from } P$$
+            </li>
+            <li><strong>Pythagorean Relationship:</strong> For tangent $t$ from external point $P$ at distance $d$ from center:
+                $$t^2 + r^2 = d^2$$
+            </li>
+        </ul>
+    </div>
+
+    <div class="example-box">
+        <h4>Example 10.7 — Tangent Length from External Point</h4>
+        <p>External point $P$ is $13$ cm from the center $O$. The radius $r = 5$ cm. Find the length of the tangent from $P$ to the circle.</p>
+        $$t^2 + r^2 = d^2 \implies t^2 + 5^2 = 13^2 \implies t^2 + 25 = 169 \implies t^2 = 144 \implies t = \mathbf{12 \text{ cm}}$$
+    </div>
+
+    <div class="example-box">
+        <h4>Example 10.8 — Tangent-Chord Angle</h4>
+        <p>A tangent and a chord form an angle of $65°$ at the point of tangency. Find the measure of the intercepted arc.</p>
+        <p>Tangent-Chord Angle $= \frac{1}{2}$ intercepted arc, so:</p>
+        $$\text{Intercepted Arc} = 2 \times 65° = \mathbf{130°}$$
+    </div>
+
+    <div class="try-it-box">
+        <span class="try-it-label">TRY IT</span>
+        <p>Two tangents from external point $P$ touch a circle at $A$ and $B$. $PA = 4x - 3$ and $PB = 2x + 7$. Find $PA$.</p>
+        <details>
+            <summary>Show Answer</summary>
+            <div class="try-it-answer">
+                Equal tangent segments from the same external point: $PA = PB$, so $4x - 3 = 2x + 7 \implies 2x = 10 \implies x = 5$.
+                $PA = 4(5) - 3 = \mathbf{17}$.
+            </div>
+        </details>
+    </div>
+
+    <div class="desmos-wrap">
+        <p class="desmos-caption">Circle with external point P, tangent line touching at T, dashed radius OT (perpendicular), and dashed hypotenuse OP.</p>
+        <div id="graph-tangent" style="width:100%; max-width:630px; height:380px; margin:0 auto;"></div>
+        <p class="fig-label">Figure 10.3 — Tangent Line, Radius, and the Right Triangle Relationship</p>
+    </div>
+
+    <!-- Practice -->
+    <div class="practice-section">
+        <h2>Practice Problems</h2>
+        <div class="practice-grid">
+            <div class="practice-card">
+                <span class="p-num">1</span>
+                <p>A circle has radius $r = 6$. Find the arc length of an arc with central angle $120°$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Arc Length $= \dfrac{120}{360} \cdot 2\pi(6) = \dfrac{1}{3} \cdot 12\pi = 4\pi \approx \mathbf{12.57}$ units.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">2</span>
+                <p>Arc $PQ = 200°$. Find the central angle $\angle POQ$ and the inscribed angle $\angle PRQ$ where $R$ is on the major arc.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Central angle $\angle POQ = 200°$ (major arc). For inscribed angle intercepting arc $PQ = 200°$: $\angle PRQ = \frac{1}{2}(200°) = \mathbf{100°}$. If $R$ is on the minor arc, the intercepted arc is the major arc $PQ = 200°$ — same result.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">3</span>
+                <p>Inscribed quadrilateral $ABCD$ has $\angle A = 82°$ and $\angle B = 67°$. Find $\angle C$ and $\angle D$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Opposite angles supplement each other: $\angle C = 180° - 82° = \mathbf{98°}$ and $\angle D = 180° - 67° = \mathbf{113°}$.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">4</span>
+                <p>Two chords intersect at $P$. $PA = 6$, $PB = 4$, $PC = 3$. Find $PD$ using the Power Theorem.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$PA \cdot PB = PC \cdot PD \implies 6 \cdot 4 = 3 \cdot PD \implies PD = \dfrac{24}{3} = \mathbf{8}$.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">5</span>
+                <p>Two chords intersect inside a circle, creating arcs of $50°$ and $90°$ on opposite sides. Find the chord-chord angle.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Chord-Chord Angle $= \frac{1}{2}(50° + 90°) = \frac{1}{2}(140°) = \mathbf{70°}$.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">6</span>
+                <p>External point $P$ is $17$ cm from the center. Radius $= 8$ cm. Find the tangent length from $P$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">$t^2 + 8^2 = 17^2 \implies t^2 = 289 - 64 = 225 \implies t = \mathbf{15}$ cm.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">7</span>
+                <p>A tangent-chord angle measures $48°$. Find both arcs created by the chord (the intercepted arc and the other arc).</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">Tangent-Chord Angle $= \frac{1}{2} \cdot \text{intercepted arc} \implies$ intercepted arc $= 96°$. The chord divides the circle into two arcs; the other arc $= 360° - 96° = \mathbf{264°}$.</div>
+                </details>
+            </div>
+            <div class="practice-card">
+                <span class="p-num">8 — AP Challenge</span>
+                <p>In a circle, chord $\overline{AB}$ has central angle $100°$. Inscribed angle $\angle ACB$ (with $C$ on the major arc) subtends arc $AB$. A tangent at $A$ forms angle $\theta$ with chord $\overline{AB}$. Find all: $m\overset{\frown}{AB}$, $\angle ACB$, and $\theta$.</p>
+                <details><summary>Show Solution</summary>
+                <div class="practice-answer">
+                    $m\overset{\frown}{AB}$ (minor) $= 100°$ (equals central angle).<br>
+                    $\angle ACB = \frac{1}{2}(100°) = \mathbf{50°}$ (inscribed angle theorem, $C$ on major arc intercepts minor arc).<br>
+                    Tangent-Chord angle at $A$: $\theta = \frac{1}{2}(100°) = \mathbf{50°}$ (tangent-chord angle = half intercepted arc).<br>
+                    Note: $\angle ACB = \theta = 50°$ — an elegant result of circle geometry.
+                </div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+            <h4>Key Formulas</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Arc Length</strong>
+                    <p>$L = \dfrac{\theta}{360°} \cdot 2\pi r$ where $\theta$ is the central angle in degrees. In radians: $L = r\theta$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Sector Area</strong>
+                    <p>$A = \dfrac{\theta}{360°} \cdot \pi r^2$ — the "pie slice" area corresponding to central angle $\theta$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Inscribed Angle Theorem</strong>
+                    <p>An inscribed angle $= \frac{1}{2}$ its intercepted arc. Inscribed angles intercepting the same arc are congruent.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Tangent-Radius</strong>
+                    <p>A tangent line is perpendicular to the radius at the point of tangency. $OT \perp$ tangent at $T$.</p>
+                </div>
+            </div>
+            <h4>Angle-Arc Relationships</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Central Angle</strong>
+                    <p>Central angle $=$ intercepted arc (in degrees). The arc measure equals the central angle that subtends it.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Inscribed Angle</strong>
+                    <p>Inscribed angle $= \frac{1}{2}$ intercepted arc. An angle inscribed in a semicircle is always $90°$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Two Chords Inside</strong>
+                    <p>Angle $= \frac{1}{2}(\text{arc}_1 + \text{arc}_2)$. The angle formed by two chords inside a circle averages the two arcs.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Two Secants/Tangents Outside</strong>
+                    <p>Angle $= \frac{1}{2}(\text{larger arc} - \text{smaller arc})$. The angle formed outside is half the difference of the arcs.</p>
+                </div>
+            </div>
+        </div>
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item"><strong>Chord</strong><span>A segment with both endpoints on the circle. The longest chord passes through the center (diameter).</span></div>
+                <div class="key-term-item"><strong>Tangent</strong><span>A line that touches the circle at exactly one point (the point of tangency). Perpendicular to the radius there.</span></div>
+                <div class="key-term-item"><strong>Secant</strong><span>A line that intersects a circle at two points.</span></div>
+                <div class="key-term-item"><strong>Inscribed Angle</strong><span>An angle with its vertex on the circle and sides that are chords. Equals half the intercepted arc.</span></div>
+                <div class="key-term-item"><strong>Arc Length</strong><span>The distance along the circle between two points: $L = \frac{\theta}{360°} \cdot 2\pi r$.</span></div>
+                <div class="key-term-item"><strong>Sector</strong><span>A "pie slice" region bounded by two radii and an arc. Area $= \frac{\theta}{360°}\cdot\pi r^2$.</span></div>
+            </div>
+        </div>
+
+    <div class="chapter-nav">
+        <a href="/us/textbook/geometry/quadrilaterals.html">← Chapter 9: Quadrilaterals</a>
+        <a href="/us/textbook/geometry/area-polygons.html">Chapter 11: Area of Polygons and Circles →</a>
+    </div>
+</article>
+
+<script>
+(function() {
+    // Figure 10.1 — Circle with central angle 75°
+    var elt1 = document.getElementById('graph-central-angle');
+    var calc1 = Desmos.GraphingCalculator(elt1, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: false, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc1.setMathBounds({ left: -5.5, right: 5.5, bottom: -5.5, top: 5.5 });
+
+    // Circle x^2 + y^2 = 16 (r=4)
+    calc1.setExpression({ id: 'circle', type: 'expression',
+        latex: 'x^2+y^2=16',
+        color: '#8b5cf6', lineWidth: 3 });
+
+    // Center point
+    calc1.setExpression({ id: 'center', type: 'expression',
+        latex: '(0,0)', color: '#4c1d95', pointSize: 12 });
+
+    // Point A at (4, 0)
+    calc1.setExpression({ id: 'ptA', type: 'expression',
+        latex: '(4,0)', color: '#4c1d95', pointSize: 14 });
+
+    // Point B at (4cos75°, 4sin75°) ≈ (1.035, 3.864)
+    calc1.setExpression({ id: 'ptB', type: 'expression',
+        latex: '(1.035,3.864)', color: '#4c1d95', pointSize: 14 });
+
+    // Radius OA
+    calc1.setExpression({ id: 'radOA', type: 'expression',
+        latex: '\\operatorname{polygon}((0,0),(4,0))',
+        color: '#6d28d9', lineWidth: 2.5 });
+
+    // Radius OB
+    calc1.setExpression({ id: 'radOB', type: 'expression',
+        latex: '\\operatorname{polygon}((0,0),(1.035,3.864))',
+        color: '#6d28d9', lineWidth: 2.5 });
+
+    // Arc from A to B (parametric, 0 to 75 degrees)
+    calc1.setExpression({ id: 'arc', type: 'expression',
+        latex: '(4\\cos(t), 4\\sin(t))',
+        parametricDomain: { min: '0', max: '75\\cdot\\pi/180' },
+        color: '#ec4899', lineWidth: 4,
+        lineStyle: Desmos.Styles.DASHED });
+
+    // Central angle label arc (small arc near center)
+    calc1.setExpression({ id: 'anglabel', type: 'expression',
+        latex: '(1.2\\cos(t), 1.2\\sin(t))',
+        parametricDomain: { min: '0', max: '75\\cdot\\pi/180' },
+        color: '#4c1d95', lineWidth: 2 });
+})();
+
+(function() {
+    // Figure 10.2 — Circle with inscribed angle at A and central angle at O
+    var elt2 = document.getElementById('graph-inscribed-angle');
+    var calc2 = Desmos.GraphingCalculator(elt2, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: false, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc2.setMathBounds({ left: -5.5, right: 5.5, bottom: -5.5, top: 5.5 });
+
+    // Circle x^2+y^2=16 (r=4)
+    calc2.setExpression({ id: 'circle2', type: 'expression',
+        latex: 'x^2+y^2=16',
+        color: '#8b5cf6', lineWidth: 3 });
+
+    // Center
+    calc2.setExpression({ id: 'center2', type: 'expression',
+        latex: '(0,0)', color: '#4c1d95', pointSize: 10 });
+
+    // Points on circle:
+    // A = (-4, 0) — vertex of inscribed angle
+    // B = (4cos30°, 4sin30°) = (3.464, 2)
+    // C = (4cos150°, 4sin150°) = (-3.464, 2)
+    calc2.setExpression({ id: 'ptA2', type: 'expression',
+        latex: '(-4,0)', color: '#4c1d95', pointSize: 14 });
+    calc2.setExpression({ id: 'ptB2', type: 'expression',
+        latex: '(3.464,2)', color: '#4c1d95', pointSize: 14 });
+    calc2.setExpression({ id: 'ptC2', type: 'expression',
+        latex: '(-3.464,2)', color: '#4c1d95', pointSize: 14 });
+
+    // Chord BC
+    calc2.setExpression({ id: 'chordBC', type: 'expression',
+        latex: '\\operatorname{polygon}((3.464,2),(-3.464,2))',
+        color: '#334155', lineWidth: 2.5 });
+
+    // Inscribed angle at A: lines A->B and A->C (green)
+    calc2.setExpression({ id: 'inscrAB', type: 'expression',
+        latex: '\\operatorname{polygon}((-4,0),(3.464,2))',
+        color: '#059669', lineWidth: 2.5 });
+    calc2.setExpression({ id: 'inscrAC', type: 'expression',
+        latex: '\\operatorname{polygon}((-4,0),(-3.464,2))',
+        color: '#059669', lineWidth: 2.5 });
+
+    // Central angle radii O->B and O->C (orange)
+    calc2.setExpression({ id: 'cenOB', type: 'expression',
+        latex: '\\operatorname{polygon}((0,0),(3.464,2))',
+        color: '#d97706', lineWidth: 2.5 });
+    calc2.setExpression({ id: 'cenOC', type: 'expression',
+        latex: '\\operatorname{polygon}((0,0),(-3.464,2))',
+        color: '#d97706', lineWidth: 2.5 });
+
+    // Arc BC (the intercepted arc) — from 30° to 150°
+    calc2.setExpression({ id: 'arcBC2', type: 'expression',
+        latex: '(4\\cos(t), 4\\sin(t))',
+        parametricDomain: { min: '30\\cdot\\pi/180', max: '150\\cdot\\pi/180' },
+        color: '#ec4899', lineWidth: 4,
+        lineStyle: Desmos.Styles.DASHED });
+})();
+
+(function() {
+    // Figure 10.3 — Circle with tangent from external point P
+    var elt3 = document.getElementById('graph-tangent');
+    var calc3 = Desmos.GraphingCalculator(elt3, {
+        expressions: false, settingsMenu: false, zoomButtons: false,
+        lockViewport: false, border: false, showGrid: false, showXAxis: false, showYAxis: false
+    });
+    calc3.setMathBounds({ left: -4, right: 6, bottom: -4, top: 4 });
+
+    // Circle x^2+y^2=9 (r=3)
+    calc3.setExpression({ id: 'circle3', type: 'expression',
+        latex: 'x^2+y^2=9',
+        color: '#8b5cf6', lineWidth: 3 });
+
+    // Center O at (0,0)
+    calc3.setExpression({ id: 'center3', type: 'expression',
+        latex: '(0,0)', color: '#4c1d95', pointSize: 12 });
+
+    // External point P = (5, 0)
+    calc3.setExpression({ id: 'ptP', type: 'expression',
+        latex: '(5,0)', color: '#4c1d95', pointSize: 14 });
+
+    // Tangent point T = (9/5, 12/5) = (1.8, 2.4)
+    calc3.setExpression({ id: 'ptT', type: 'expression',
+        latex: '(1.8,2.4)', color: '#ec4899', pointSize: 14 });
+
+    // Tangent line: P to T and extended slightly beyond T
+    calc3.setExpression({ id: 'tangentLine', type: 'expression',
+        latex: '\\operatorname{polygon}((5,0),(1.8,2.4))',
+        color: '#6d28d9', lineWidth: 2.5 });
+
+    // Radius O to T (dashed — perpendicular to tangent)
+    calc3.setExpression({ id: 'radOT', type: 'expression',
+        latex: '\\operatorname{polygon}((0,0),(1.8,2.4))',
+        color: '#8b5cf6', lineWidth: 2.5,
+        lineStyle: Desmos.Styles.DASHED });
+
+    // Hypotenuse O to P (dashed)
+    calc3.setExpression({ id: 'hypOP', type: 'expression',
+        latex: '\\operatorname{polygon}((0,0),(5,0))',
+        color: '#64748b', lineWidth: 2,
+        lineStyle: Desmos.Styles.DASHED });
+})();
+</script>
+
+    <script src="../../../assets/js/textbook-ux.js"></script>
+</body>
+</html>

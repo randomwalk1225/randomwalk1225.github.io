@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Statistics: Numerical Summaries of Distributions - Chapter 2 | MathHub</title>
+    <meta name="description" content="AP Statistics Chapter 2: Numerical summaries of distributions. Learn mean, median, standard deviation, IQR, z-scores, and the empirical rule with interactive examples.">
+    <meta name="keywords" content="AP Statistics, mean, median, standard deviation, IQR, z-score, empirical rule, numerical summaries, AP Stats Chapter 2, measures of center, measures of spread">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/ap-statistics/numerical-summaries.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/ap-statistics/numerical-summaries.html">
+    <meta property="og:title" content="AP Statistics: Numerical Summaries of Distributions - Chapter 2">
+    <meta property="og:description" content="Learn measures of center (mean, median) and spread (IQR, standard deviation) for AP Statistics, with z-scores and the empirical rule.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Statistics: Numerical Summaries - Chapter 2">
+    <meta name="twitter:description" content="AP Statistics Chapter 2: mean, median, standard deviation, IQR, z-scores, and the 68-95-99.7 rule.">
+
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "AP Statistics: Numerical Summaries of Distributions - Chapter 2",
+        "description": "AP Statistics Chapter 2 covering measures of center, measures of spread, z-scores, and the empirical rule.",
+        "url": "https://mathhub.io/us/textbook/ap-statistics/numerical-summaries.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "AP",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Statistics" },
+            { "@type": "Thing", "name": "Numerical Summaries" },
+            { "@type": "Thing", "name": "AP Statistics" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <link rel="stylesheet" href="../../../assets/css/textbook-ux.css">
+    <style>
+        .blog-article {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 16px;
+        }
+        .blog-article h1 { font-size: 2.2em; color: #064e3b; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #064e3b; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #10b981; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives {
+            background: #ecfdf5;
+            border-left: 4px solid #10b981;
+            padding: 20px 24px; margin: 24px 0 32px;
+            border-radius: 0 10px 10px 0;
+        }
+        .learning-objectives h4 { color: #065f46; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #064e3b; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box {
+            background: #f0fdf4; border-left: 4px solid #10b981;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .example-box h4 { color: #065f46; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box {
+            background: #f0f7ff; border-left: 4px solid #3b82f6;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .definition-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box {
+            background: #faf5ff; border-left: 4px solid #8b5cf6;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p { color: #334155; line-height: 1.8; }
+
+        .try-it-box {
+            background: #f0fdf4;
+            border: 1.5px dashed #86efac;
+            padding: 16px 20px; margin: -4px 0 24px;
+            border-radius: 0 0 8px 8px;
+        }
+        .try-it-box .try-it-label {
+            display: inline-block; background: #10b981; color: white;
+            font-size: 0.75em; font-weight: 700; padding: 2px 10px;
+            border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px;
+        }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary {
+            cursor: pointer; color: #065f46; font-weight: 600;
+            font-size: 0.9em; user-select: none;
+        }
+        .try-it-answer {
+            padding: 10px 14px; background: white; border-radius: 6px;
+            margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7;
+        }
+
+        .ap-tip {
+            background: #fefce8; border-left: 4px solid #eab308;
+            padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0;
+            display: flex; gap: 12px; align-items: flex-start;
+        }
+        .ap-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #92400e; }
+
+        .desmos-wrap {
+            margin: 24px auto; background: #f8fafc; border-radius: 12px;
+            padding: 4px; border: 1px solid #e2e8f0; text-align: center;
+        }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label {
+            text-align: center; font-size: 0.82em; color: #64748b;
+            margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em;
+        }
+
+        .data-table {
+            width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.95em;
+        }
+        .data-table th {
+            background: #065f46; color: white; padding: 10px 14px;
+            text-align: left; font-weight: 600;
+        }
+        .data-table td { padding: 9px 14px; border-bottom: 1px solid #e2e8f0; color: #334155; }
+        .data-table tr:nth-child(even) { background: #f8fafc; }
+
+        .formula-box {
+            background: #1e293b; color: #e2e8f0; border-radius: 8px;
+            padding: 16px 20px; margin: 16px 0; font-family: monospace;
+            font-size: 1.05em; text-align: center;
+        }
+
+        /* Practice */
+        .practice-section { margin-top: 50px; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { border-top: none; padding-top: 0; margin-top: 0; }
+        .practice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 640px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card {
+            background: #f8fafc; border-radius: 10px; padding: 20px;
+            border: 1px solid #e2e8f0;
+        }
+        .practice-card .p-num {
+            display: inline-block; background: #10b981; color: white;
+            border-radius: 50%; width: 26px; height: 26px; text-align: center;
+            line-height: 26px; font-size: 0.85em; font-weight: 700; margin-bottom: 10px;
+        }
+        .practice-card p { margin: 0 0 12px; color: #334155; font-size: 0.95em; line-height: 1.7; }
+        .practice-card details summary {
+            cursor: pointer; color: #10b981; font-size: 0.88em; font-weight: 600; user-select: none;
+        }
+        .practice-answer {
+            margin-top: 8px; padding: 10px 14px; background: white; border-radius: 6px;
+            font-size: 0.9em; color: #334155; line-height: 1.7;
+        }
+
+        /* Chapter nav */
+        .chapter-nav {
+            display: flex; justify-content: space-between; gap: 16px;
+            margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0;
+        }
+        .chapter-nav a {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: #10b981; text-decoration: none; font-weight: 600; font-size: 0.95em;
+        }
+        .chapter-nav a:hover { text-decoration: underline; }
+
+        /* ── Section Summary ── */
+        .section-summary {
+            background: #f8fafc; border: 2px solid #e2e8f0;
+            padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px;
+        }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .summary-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin: 16px 0; }
+        .key-term-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <div class="blog-article">
+        <div class="breadcrumb">
+            <a href="/us/">US Math</a> &rsaquo;
+            <a href="/us/textbook/ap-statistics/">AP Statistics</a> &rsaquo;
+            Chapter 2: Numerical Summaries
+        </div>
+
+        <h1>Chapter 2: Numerical Summaries of Distributions</h1>
+        <div class="blog-meta">AP Statistics &middot; MathHub &middot; 2026</div>
+
+        <div class="learning-objectives">
+            <h4>Learning Objectives</h4>
+            <ul>
+                <li>Calculate and interpret the mean and median as measures of center</li>
+                <li>Determine when to use mean vs. median based on distribution shape</li>
+                <li>Calculate range, IQR, and standard deviation as measures of spread</li>
+                <li>Understand the effect of outliers and skewness on summary statistics</li>
+                <li>Compute and interpret z-scores (standardized values)</li>
+                <li>Apply the 68-95-99.7 rule (Empirical Rule) to Normal distributions</li>
+            </ul>
+        </div>
+
+        <h2>2.1 Measures of Center</h2>
+
+        <p>A <strong>measure of center</strong> describes a typical or representative value in a distribution. The two most common are the <strong>mean</strong> and the <strong>median</strong>.</p>
+
+        <div class="definition-box">
+            <h4>Mean and Median</h4>
+            <p><strong>Mean</strong> ($\bar{x}$): The arithmetic average. Add all values and divide by $n$.</p>
+            <p>$$\bar{x} = \frac{x_1 + x_2 + \cdots + x_n}{n} = \frac{\sum x_i}{n}$$</p>
+            <p><strong>Median</strong> ($M$): The middle value when data are ordered. If $n$ is even, average the two middle values.</p>
+        </div>
+
+        <h3>Which to Use: Mean or Median?</h3>
+        <p>The choice depends on the shape of the distribution and the presence of outliers:</p>
+        <ul>
+            <li><strong>Symmetric, no outliers</strong> → Mean and median are close; either works. Mean is preferred.</li>
+            <li><strong>Skewed or with outliers</strong> → Median is more resistant. Use median.</li>
+        </ul>
+
+        <div class="ap-tip">
+            <span class="ap-tip-icon">★</span>
+            <p><strong>AP Exam Tip:</strong> Outliers and skewness <em>pull the mean toward the tail</em> but leave the median relatively unchanged. In right-skewed distributions, mean &gt; median. In left-skewed distributions, mean &lt; median.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2.1 — Mean vs. Median with an Outlier</h4>
+            <p>Seven students' test scores: 72, 75, 78, 80, 82, 85, 43.</p>
+            <p><strong>Step 1 — Order the data:</strong> 43, 72, 75, 78, 80, 82, 85</p>
+            <p><strong>Step 2 — Median:</strong> Middle value (4th of 7) = <strong>78</strong></p>
+            <p><strong>Step 3 — Mean:</strong> $\bar{x} = \frac{43+72+75+78+80+82+85}{7} = \frac{515}{7} \approx \mathbf{73.6}$</p>
+            <p>The outlier 43 dragged the mean down to 73.6, far below six of the seven scores. The median 78 better represents a typical score.</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Daily high temperatures (°F) for a week: 68, 71, 70, 73, 69, 95, 72. Find the mean and median. Which better describes a typical day?</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <strong>Ordered:</strong> 68, 69, 70, 71, 72, 73, 95<br>
+                    <strong>Median:</strong> 71°F (4th value)<br>
+                    <strong>Mean:</strong> (68+69+70+71+72+73+95)/7 = 518/7 ≈ 74.0°F<br>
+                    The outlier 95°F inflates the mean. The <strong>median 71°F</strong> better represents a typical day.
+                </div>
+            </details>
+        </div>
+
+        <h2>2.2 Measures of Spread</h2>
+
+        <p>A <strong>measure of spread</strong> describes how variable the data are. More spread means more variability. We study three: range, IQR, and standard deviation.</p>
+
+        <h3>Range and Interquartile Range (IQR)</h3>
+
+        <div class="definition-box">
+            <h4>Range and IQR</h4>
+            <p><strong>Range</strong> = Maximum − Minimum. Simple but not resistant to outliers.</p>
+            <p><strong>Quartiles:</strong> $Q_1$ = median of lower half; $Q_3$ = median of upper half.</p>
+            <p><strong>IQR</strong> = $Q_3 - Q_1$. The spread of the middle 50% of data. <em>Resistant to outliers.</em></p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2.2 — Finding Q₁, Q₃, and IQR</h4>
+            <p>Exam scores: 55, 62, 70, 74, 78, 82, 85, 88, 91, 96</p>
+            <p><strong>n = 10</strong>, so the median = average of 5th and 6th values = (78+82)/2 = 80</p>
+            <p><strong>Lower half:</strong> 55, 62, 70, 74, 78 → $Q_1$ = 70</p>
+            <p><strong>Upper half:</strong> 82, 85, 88, 91, 96 → $Q_3$ = 88</p>
+            <p><strong>IQR</strong> = 88 − 70 = <strong>18</strong></p>
+            <p><strong>Outlier check:</strong> Any value below $Q_1 - 1.5 \cdot \text{IQR} = 70 - 27 = 43$ or above $Q_3 + 1.5 \cdot \text{IQR} = 88 + 27 = 115$ is an outlier. Score of 55 is not an outlier.</p>
+        </div>
+
+        <h3>Standard Deviation</h3>
+
+        <div class="definition-box">
+            <h4>Standard Deviation and Variance</h4>
+            <p>The <strong>sample standard deviation</strong> $s_x$ measures the typical distance from each data value to the mean.</p>
+            <p>$$s_x = \sqrt{\frac{\sum (x_i - \bar{x})^2}{n-1}}$$</p>
+            <p>The <strong>variance</strong> is $s_x^2$. Divide by $n-1$ (not $n$) for an unbiased estimate of the population variance.</p>
+        </div>
+
+        <p>Key properties of standard deviation:</p>
+        <ul>
+            <li>$s_x \geq 0$; equals 0 only when all values are identical</li>
+            <li><strong>Not resistant</strong> — outliers dramatically inflate $s_x$</li>
+            <li>Same units as the data (unlike variance, which is units²)</li>
+            <li>Use with mean when distribution is symmetric and has no outliers</li>
+        </ul>
+
+        <div class="example-box">
+            <h4>Example 2.3 — Computing Standard Deviation</h4>
+            <p>Data: 3, 7, 7, 6, 5. Find $s_x$.</p>
+            <p><strong>Step 1 — Mean:</strong> $\bar{x} = (3+7+7+6+5)/5 = 28/5 = 5.6$</p>
+            <p><strong>Step 2 — Deviations squared:</strong></p>
+            <table class="data-table">
+                <tr><th>$x_i$</th><th>$x_i - \bar{x}$</th><th>$(x_i - \bar{x})^2$</th></tr>
+                <tr><td>3</td><td>−2.6</td><td>6.76</td></tr>
+                <tr><td>7</td><td>1.4</td><td>1.96</td></tr>
+                <tr><td>7</td><td>1.4</td><td>1.96</td></tr>
+                <tr><td>6</td><td>0.4</td><td>0.16</td></tr>
+                <tr><td>5</td><td>−0.6</td><td>0.36</td></tr>
+                <tr><td><strong>Sum</strong></td><td></td><td><strong>11.20</strong></td></tr>
+            </table>
+            <p><strong>Step 3:</strong> $s_x = \sqrt{11.20/(5-1)} = \sqrt{2.80} \approx \mathbf{1.67}$</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Data: 2, 4, 4, 4, 5, 5, 7, 9. Find the IQR and determine whether any outliers exist.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <strong>n=8:</strong> Median = (4+5)/2 = 4.5<br>
+                    <strong>Lower half:</strong> 2, 4, 4, 4 → Q₁ = (4+4)/2 = 4<br>
+                    <strong>Upper half:</strong> 5, 5, 7, 9 → Q₃ = (5+7)/2 = 6<br>
+                    <strong>IQR</strong> = 6 − 4 = <strong>2</strong><br>
+                    <strong>Outlier fences:</strong> lower = 4 − 3 = 1; upper = 6 + 3 = 9<br>
+                    No values outside [1, 9]. <strong>No outliers.</strong>
+                </div>
+            </details>
+        </div>
+
+        <h2>2.3 Choosing Summary Statistics</h2>
+
+        <table class="data-table">
+            <tr><th>Situation</th><th>Center</th><th>Spread</th></tr>
+            <tr><td>Symmetric, no outliers</td><td>Mean ($\bar{x}$)</td><td>Standard deviation ($s_x$)</td></tr>
+            <tr><td>Skewed or outliers present</td><td>Median ($M$)</td><td>IQR</td></tr>
+        </table>
+
+        <p>This pairing matters: always report mean with $s_x$ and median with IQR. Mixing them (e.g., median with $s_x$) is penalized on the AP exam.</p>
+
+        <div class="ap-tip">
+            <span class="ap-tip-icon">★</span>
+            <p><strong>AP Exam Tip:</strong> When comparing distributions, always address <em>shape, center, spread, and outliers</em> (SOCS) and use <strong>comparative language in context</strong>: "The IQR for Group A (18 pts) is larger than for Group B (12 pts), indicating Group A has more variability in scores."</p>
+        </div>
+
+        <h2>2.4 Z-Scores (Standardized Values)</h2>
+
+        <div class="definition-box">
+            <h4>Z-Score</h4>
+            <p>A <strong>z-score</strong> measures how many standard deviations a value $x$ is from the mean:</p>
+            <p>$$z = \frac{x - \bar{x}}{s_x}$$</p>
+            <p>A positive z-score means the value is above the mean; negative means below. Z-scores have no units.</p>
+        </div>
+
+        <p>Z-scores allow comparison across different scales. A student scoring 82 on Test A ($\bar{x}=75, s=8$) and 76 on Test B ($\bar{x}=70, s=4$) performed better on Test B ($z_A = 0.875$, $z_B = 1.5$).</p>
+
+        <div class="example-box">
+            <h4>Example 2.4 — Interpreting Z-Scores</h4>
+            <p>AP Statistics scores: $\bar{x} = 3.1$, $s_x = 0.9$. A student scored 5. Find and interpret the z-score.</p>
+            <p>$$z = \frac{5 - 3.1}{0.9} = \frac{1.9}{0.9} \approx \mathbf{2.11}$$</p>
+            <p><strong>Interpretation:</strong> The student's score of 5 is about 2.11 standard deviations <em>above</em> the mean AP Statistics score.</p>
+        </div>
+
+        <!-- Desmos: Mean and SD illustration -->
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">Interactive: Explore how mean and standard deviation shape a Normal distribution</p>
+            <div id="graph-mean-sd" style="width:100%;height:320px;"></div>
+            <p class="fig-label">Figure 2.1 — Normal Distribution with Adjustable Mean and Standard Deviation</p>
+        </div>
+
+        <h2>2.5 The Empirical Rule (68-95-99.7 Rule)</h2>
+
+        <p>For data that follow a <strong>Normal distribution</strong>, the Empirical Rule gives the percentage of values within 1, 2, and 3 standard deviations of the mean:</p>
+
+        <div class="theorem-box">
+            <h4>Empirical Rule (for Normal Distributions Only)</h4>
+            <p>
+                $\approx \mathbf{68\%}$ of values fall within $\bar{x} \pm 1s_x$<br>
+                $\approx \mathbf{95\%}$ of values fall within $\bar{x} \pm 2s_x$<br>
+                $\approx \mathbf{99.7\%}$ of values fall within $\bar{x} \pm 3s_x$
+            </p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2.5 — Applying the Empirical Rule</h4>
+            <p>Adult male heights are approximately Normal with $\bar{x} = 70$ in and $s_x = 3$ in.</p>
+            <p><strong>(a)</strong> What percent of men are between 67 and 73 inches?</p>
+            <p>67 = 70 − 3 = $\bar{x} − s_x$ and 73 = $\bar{x} + s_x$ → approximately <strong>68%</strong></p>
+            <p><strong>(b)</strong> What percent are taller than 76 inches?</p>
+            <p>76 = 70 + 2(3) = $\bar{x} + 2s_x$. 5% are outside $\bar{x} \pm 2s_x$; half (2.5%) are above 76 inches. → approximately <strong>2.5%</strong></p>
+            <p><strong>(c)</strong> Find the z-score for a man who is 74 inches tall.</p>
+            <p>$$z = \frac{74-70}{3} = \frac{4}{3} \approx 1.33$$</p>
+        </div>
+
+        <!-- Desmos: Empirical Rule -->
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">Interactive: 68-95-99.7 Rule — shaded regions show the empirical rule regions</p>
+            <div id="graph-empirical" style="width:100%;height:300px;"></div>
+            <p class="fig-label">Figure 2.2 — The Empirical Rule for Normal Distributions</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>SAT Math scores are approximately Normal with $\mu = 530$ and $\sigma = 115$. (a) What percent of students score between 415 and 645? (b) What is the z-score for a student who scored 760?</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <strong>(a)</strong> 415 = 530 − 115 = μ − σ; 645 = 530 + 115 = μ + σ. By the Empirical Rule: <strong>≈68%</strong><br>
+                    <strong>(b)</strong> z = (760 − 530)/115 = 230/115 = <strong>2.0</strong>. This score is 2 standard deviations above the mean.
+                </div>
+            </details>
+        </div>
+
+        <!-- Desmos: Z-score explorer -->
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">Interactive: Z-score visualizer — see where a value falls relative to the distribution</p>
+            <div id="graph-zscore" style="width:100%;height:300px;"></div>
+            <p class="fig-label">Figure 2.3 — Z-Score Position on the Normal Curve</p>
+        </div>
+
+        <!-- Practice Problems -->
+        <div class="practice-section">
+            <h2>Practice Problems</h2>
+            <div class="practice-grid">
+
+                <div class="practice-card">
+                    <span class="p-num">1</span>
+                    <p>Find the mean and median of: 4, 8, 6, 5, 3, 2, 8, 9, 3, 7. Which is larger? What does this suggest about the distribution's shape?</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Ordered: 2, 3, 3, 4, 5, 6, 7, 8, 8, 9<br>
+                            <strong>Median</strong> = (5+6)/2 = 5.5<br>
+                            <strong>Mean</strong> = 55/10 = 5.5<br>
+                            Mean = Median → approximately <strong>symmetric</strong> distribution.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">2</span>
+                    <p>Home prices in a neighborhood: $280K, $305K, $290K, $315K, $1,200K. Which measure of center better represents a typical home price? Explain.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Ordered: 280, 290, 305, 315, 1200 (thousands)<br>
+                            <strong>Median</strong> = $305K<br>
+                            <strong>Mean</strong> = 2390/5 = $478K<br>
+                            The $1,200K outlier inflates the mean far above four of five prices. The <strong>median ($305K)</strong> better represents a typical home price.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">3</span>
+                    <p>Data: 12, 15, 18, 20, 22, 25, 28. Find (a) Q₁, (b) Q₃, (c) IQR, (d) any outliers using the 1.5×IQR rule.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            <strong>Median</strong> = 20 (4th of 7)<br>
+                            Lower half: 12, 15, 18 → <strong>Q₁ = 15</strong><br>
+                            Upper half: 22, 25, 28 → <strong>Q₃ = 25</strong><br>
+                            <strong>IQR</strong> = 10<br>
+                            Fences: 15−15=0, 25+15=40. All values in [0,40]. <strong>No outliers.</strong>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">4</span>
+                    <p>A distribution has $\bar{x}=50$ and $s_x=10$. Find the z-scores for values 35, 50, and 68. Interpret each.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            z(35) = (35−50)/10 = <strong>−1.5</strong> (1.5 SDs below mean)<br>
+                            z(50) = (50−50)/10 = <strong>0</strong> (at the mean)<br>
+                            z(68) = (68−50)/10 = <strong>1.8</strong> (1.8 SDs above mean)
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">5</span>
+                    <p>IQ scores are Normal with μ=100 and σ=15. Using the Empirical Rule: (a) What percent score between 70 and 130? (b) What percent score above 145?</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            <strong>(a)</strong> 70=100−2(15) and 130=100+2(15) = μ±2σ → <strong>≈95%</strong><br>
+                            <strong>(b)</strong> 145=100+3(15)=μ+3σ. Only 0.3% outside μ±3σ; half (0.15%) above 145 → <strong>≈0.15%</strong>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">6</span>
+                    <p>Class A scores: mean=78, s=12. Class B scores: mean=78, s=4. Both classes have the same mean. What does the difference in standard deviation tell you?</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Class A has much more variability (s=12 vs s=4). Scores in Class A are more spread out around the mean of 78 — some students scored very high or very low. Class B scores are tightly clustered near 78, indicating more consistency.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">7</span>
+                    <p><strong>(AP Free Response Style)</strong> Two running groups recorded their weekly mileage. Group A: mean=42, median=38, s=18. Group B: mean=35, median=36, s=6. Compare the distributions of weekly mileage for the two groups.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            <strong>Shape:</strong> Group A's mean (42) &gt; median (38) suggests right skew, likely from a few high-mileage runners. Group B's mean ≈ median suggests approximate symmetry.<br>
+                            <strong>Center:</strong> Group A has higher typical mileage (median 38 mi) than Group B (median 36 mi).<br>
+                            <strong>Spread:</strong> Group A has far more variability (s=18) than Group B (s=6), meaning mileage is much more consistent in Group B.<br>
+                            <strong>Outliers:</strong> Group A's right skew suggests possible high-mileage outliers pulling the mean up.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">8</span>
+                    <p>A student scored 88 on a test where $\bar{x}=80$ and $s=6$. On a second test, she scored 74 where $\bar{x}=65$ and $s=9$. On which test did she perform better relative to her class?</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            <strong>Test 1:</strong> z = (88−80)/6 = 8/6 ≈ 1.33<br>
+                            <strong>Test 2:</strong> z = (74−65)/9 = 9/9 = 1.00<br>
+                            She performed better on <strong>Test 1</strong> (z=1.33 vs z=1.00), scoring relatively higher above her class mean.
+                        </div>
+                    </details>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+            <h4>Measures of Center</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Mean</strong>
+                    <p>$\bar{x} = \dfrac{\sum x_i}{n}$ — the arithmetic average. Sensitive to outliers and skewness. Use when distribution is roughly symmetric.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Median</strong>
+                    <p>The middle value when data is sorted. Resistant to outliers. Use when distribution is skewed or has outliers. For skewed data: median is preferred.</p>
+                </div>
+            </div>
+            <h4>Measures of Spread</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Standard Deviation</strong>
+                    <p>$s = \sqrt{\dfrac{\sum(x_i - \bar{x})^2}{n-1}}$ — typical distance from the mean. Use with mean for symmetric distributions.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>IQR (Interquartile Range)</strong>
+                    <p>$\text{IQR} = Q_3 - Q_1$ — spread of the middle 50% of data. Resistant to outliers. Use with median.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Range</strong>
+                    <p>$\text{Range} = \max - \min$ — simplest spread measure. Not resistant to outliers.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Outlier Rule (1.5×IQR)</strong>
+                    <p>A value is an outlier if it falls below $Q_1 - 1.5\times\text{IQR}$ or above $Q_3 + 1.5\times\text{IQR}$.</p>
+                </div>
+            </div>
+            <h4>Choosing Summary Statistics</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Symmetric, no outliers</strong> → Mean and standard deviation</li>
+                <li><strong>Skewed or outliers present</strong> → Median and IQR</li>
+                <li><strong>Five-number summary</strong> → Min, Q1, Median, Q3, Max (always useful)</li>
+                <li><strong>Context matters</strong> — explain what spread/center means for the situation</li>
+            </ol>
+        </div>
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item"><strong>Mean ($\bar{x}$)</strong><span>Average of all values. Not resistant — pulled toward outliers and skewness.</span></div>
+                <div class="key-term-item"><strong>Median</strong><span>Middle value in sorted data. Resistant to outliers. Preferred for skewed distributions.</span></div>
+                <div class="key-term-item"><strong>Standard Deviation</strong><span>Typical deviation from the mean; measures spread for symmetric distributions.</span></div>
+                <div class="key-term-item"><strong>IQR</strong><span>$Q_3 - Q_1$ — spread of the middle half of data. Resistant to outliers.</span></div>
+                <div class="key-term-item"><strong>Outlier</strong><span>A value more than 1.5×IQR below $Q_1$ or above $Q_3$.</span></div>
+                <div class="key-term-item"><strong>Five-Number Summary</strong><span>Min, Q1, Median, Q3, Max — used to construct boxplots and describe distributions.</span></div>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <a href="/us/textbook/ap-statistics/data-exploration.html">&#8592; Chapter 1: Exploring Data</a>
+            <a href="/us/textbook/ap-statistics/">All Chapters</a>
+        </div>
+    </div>
+
+    <script>
+    // Figure 2.1 — Normal distribution with adjustable mean and SD
+    (function() {
+        var elt = document.getElementById('graph-mean-sd');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            border: false,
+            showGrid: true,
+            showXAxis: true,
+            showYAxis: false
+        });
+        calc.setMathBounds({ left: -5, right: 5, bottom: -0.05, top: 0.55 });
+        calc.setExpressions([
+            { id: 'mu', latex: '\\mu=0', sliderBounds: { min: -2, max: 2, step: 0.5 } },
+            { id: 'sigma', latex: '\\sigma=1', sliderBounds: { min: 0.5, max: 2, step: 0.25 } },
+            { id: 'normal', latex: 'y=\\frac{1}{\\sigma\\sqrt{2\\pi}}e^{-\\frac{(x-\\mu)^2}{2\\sigma^2}}', color: '#10b981', lineWidth: 3 },
+            { id: 'mean_line', latex: 'x=\\mu', color: '#ef4444', lineStyle: Desmos.Styles.DASHED, lineWidth: 2 },
+        ]);
+    })();
+
+    // Figure 2.2 — Empirical Rule
+    (function() {
+        var elt = document.getElementById('graph-empirical');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            border: false,
+            showGrid: false,
+            showXAxis: true,
+            showYAxis: false
+        });
+        calc.setMathBounds({ left: -4, right: 4, bottom: -0.04, top: 0.48 });
+        calc.setExpressions([
+            // 99.7% region (±3σ)
+            { id: 'r3', latex: 'y=\\frac{1}{\\sqrt{2\\pi}}e^{-x^2/2}\\left\\{-3\\le x\\le 3\\right\\}', color: '#bbf7d0', lineWidth: 0, fillOpacity: 0.5 },
+            // 95% region (±2σ)
+            { id: 'r2', latex: 'y=\\frac{1}{\\sqrt{2\\pi}}e^{-x^2/2}\\left\\{-2\\le x\\le 2\\right\\}', color: '#6ee7b7', lineWidth: 0, fillOpacity: 0.6 },
+            // 68% region (±1σ)
+            { id: 'r1', latex: 'y=\\frac{1}{\\sqrt{2\\pi}}e^{-x^2/2}\\left\\{-1\\le x\\le 1\\right\\}', color: '#10b981', lineWidth: 0, fillOpacity: 0.7 },
+            // Normal curve
+            { id: 'curve', latex: 'y=\\frac{1}{\\sqrt{2\\pi}}e^{-x^2/2}', color: '#064e3b', lineWidth: 2.5 },
+            // Labels (points with labels)
+            { id: 'l1', latex: '(-0.5, 0.22)', label: '68%', showLabel: true, pointOpacity: 0, color: '#064e3b' },
+            { id: 'l2', latex: '(-1.5, 0.12)', label: '95%', showLabel: true, pointOpacity: 0, color: '#047857' },
+            { id: 'l3', latex: '(-2.5, 0.04)', label: '99.7%', showLabel: true, pointOpacity: 0, color: '#6ee7b7' },
+        ]);
+    })();
+
+    // Figure 2.3 — Z-score explorer
+    (function() {
+        var elt = document.getElementById('graph-zscore');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false,
+            settingsMenu: false,
+            zoomButtons: false,
+            lockViewport: true,
+            border: false,
+            showGrid: false,
+            showXAxis: true,
+            showYAxis: false
+        });
+        calc.setMathBounds({ left: -4.5, right: 4.5, bottom: -0.04, top: 0.48 });
+        calc.setExpressions([
+            { id: 'z', latex: 'z=1.5', sliderBounds: { min: -3, max: 3, step: 0.1 } },
+            { id: 'shade', latex: 'y=\\frac{1}{\\sqrt{2\\pi}}e^{-x^2/2}\\left\\{x\\le z\\right\\}', color: '#10b981', fillOpacity: 0.4 },
+            { id: 'curve', latex: 'y=\\frac{1}{\\sqrt{2\\pi}}e^{-x^2/2}', color: '#064e3b', lineWidth: 2.5 },
+            { id: 'vline', latex: 'x=z', color: '#ef4444', lineWidth: 2.5, lineStyle: Desmos.Styles.DASHED },
+            { id: 'zlabel', latex: '(z, 0)', label: 'z = ${z}', showLabel: true, color: '#ef4444' },
+        ]);
+    })();
+    </script>
+    <script src="../../../assets/js/textbook-ux.js"></script>
+</body>
+</html>

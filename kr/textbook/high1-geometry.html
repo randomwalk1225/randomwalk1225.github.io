@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공통수학 2 — 도형의 방정식 | MathHub Korea 고등 수학</title>
+    <meta name="description" content="고등학교 공통수학 2: 평면좌표, 직선의 방정식, 원의 방정식, 도형의 이동. 개념 설명과 예제 풀이. 2022 개정 교육과정.">
+    <meta name="keywords" content="공통수학2, 도형의 방정식, 직선의 방정식, 원의 방정식, 평면좌표, 고1 수학, 2022 개정 교육과정">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/kr/textbook/high1-geometry.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/kr/textbook/high1-geometry.html">
+    <meta property="og:title" content="공통수학 2 도형의 방정식 | MathHub Korea">
+    <meta property="og:description" content="평면좌표, 직선의 방정식, 원의 방정식 — 개념, 예제, 연습 문제.">
+    <meta property="og:site_name" content="MathHub Global">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"공통수학 2 — 도형의 방정식","description":"평면좌표, 직선의 방정식, 원의 방정식, 도형의 이동","author":{"@type":"Organization","name":"MathHub Global"},"publisher":{"@type":"Organization","name":"MathHub Global"},"datePublished":"2026-03-15","dateModified":"2026-03-15","educationalLevel":"High School","inLanguage":"ko","mainEntityOfPage":"https://mathhub.io/kr/textbook/high1-geometry.html"}</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-99124077');</script>
+    <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <style>
+        .textbook-article { max-width: 820px; margin: 0 auto; padding: 40px 20px 60px; }
+        .breadcrumb { font-size: .85em; color: #64748b; margin-bottom: 16px; }
+        .breadcrumb a { color: #4f46e5; text-decoration: none; }
+        h1 { font-size: 2em; color: #1e3a5f; margin-bottom: 8px; line-height: 1.3; }
+        .chapter-meta { color: #64748b; font-size: .9em; margin-bottom: 32px; padding-bottom: 18px; border-bottom: 1px solid #e2e8f0; }
+        h2 { font-size: 1.45em; color: #1e3a5f; margin: 40px 0 16px; padding-top: 8px; border-top: 2px solid #ede9fe; }
+        h3 { font-size: 1.15em; color: #334155; margin: 24px 0 10px; }
+        p { color: #334155; margin-bottom: 14px; line-height: 1.9; }
+        ul, ol { margin: 10px 0 18px 24px; color: #334155; }
+        li { margin-bottom: 8px; line-height: 1.8; }
+
+        .def-box { background: #ede9fe; border-left: 4px solid #7c3aed; padding: 18px 20px; margin: 18px 0; border-radius: 8px; }
+        .def-box h4 { color: #4c1d95; margin: 0 0 10px; font-size: 1.0em; }
+        .theorem-box { background: #fff3cd; border-left: 4px solid #f59e0b; padding: 18px 20px; margin: 18px 0; border-radius: 8px; }
+        .theorem-box h4 { color: #92400e; margin: 0 0 10px; font-size: 1.0em; }
+        .example-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 18px 20px; margin: 18px 0; border-radius: 8px; }
+        .example-box h4 { color: #0369a1; margin: 0 0 10px; font-size: 1.0em; }
+        .tip-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 18px 20px; margin: 18px 0; border-radius: 8px; }
+        .tip-box h4 { color: #166534; margin: 0 0 10px; font-size: 1.0em; }
+        .warning-box { background: #fff1f2; border-left: 4px solid #f43f5e; padding: 18px 20px; margin: 18px 0; border-radius: 8px; }
+        .warning-box h4 { color: #be123c; margin: 0 0 10px; font-size: 1.0em; }
+        .practice-box { background: #fdf4ff; border-left: 4px solid #a855f7; padding: 18px 20px; margin: 24px 0; border-radius: 8px; }
+        .practice-box h4 { color: #7e22ce; margin: 0 0 12px; font-size: 1.0em; }
+        .practice-box ol { margin: 8px 0 0 20px; }
+
+        .sol { margin-left: 20px; color: #1e293b; }
+        .sol p { margin: 4px 0; }
+
+        table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+        th { background: #1e3a5f; color: white; padding: 10px 14px; text-align: center; font-size: .9em; }
+        td { padding: 9px 14px; border-bottom: 1px solid #e2e8f0; color: #334155; font-size: .9em; }
+        tr:nth-child(even) td { background: #f8fafc; }
+
+        .chapter-nav { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 20px; border-top: 1px solid #e2e8f0; flex-wrap: wrap; gap: 10px; }
+        .chapter-nav a { color: #4f46e5; text-decoration: none; font-weight: 600; font-size: .92em; }
+        .chapter-nav a:hover { text-decoration: underline; }
+
+        .formula-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+        .formula-item { background: #f8fafc; border-radius: 8px; padding: 12px 14px; border: 1px solid #e2e8f0; }
+        .formula-item strong { display: block; font-size: .82em; color: #64748b; margin-bottom: 4px; }
+        @media(max-width:600px) { .formula-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav class="global-nav">
+        <a href="/" class="nav-brand">MathHub</a>
+        <div class="nav-links">
+            <a href="/kr/" class="active">KR</a>
+            <a href="/us/">US</a>
+            <a href="/uk/">UK</a>
+            <a href="/ca/">CA</a>
+            <a href="/ib/">IB</a>
+            <a href="/contact.html" class="nav-cta">무료 상담</a>
+        </div>
+    </nav>
+
+    <article class="textbook-article">
+        <div class="breadcrumb">
+            <a href="/kr/">한국</a> &rsaquo; <a href="/kr/textbook/">수학 교재</a> &rsaquo; 고등 공통수학 2
+        </div>
+
+        <h1>공통수학 2 — 도형의 방정식</h1>
+        <div class="chapter-meta">
+            고등학교 1학년 &nbsp;|&nbsp; 2022 개정 교육과정 &nbsp;|&nbsp; 평면좌표 · 직선의 방정식 · 원의 방정식 · 도형의 이동
+        </div>
+
+        <p>
+            <strong>도형의 방정식</strong>은 기하학적 도형을 대수적 방정식으로 표현하는 단원입니다. 평면 위의 점·직선·원을 수식으로 다루며, 이후 벡터·공간도형·미적분과 연결되는 필수 단원입니다. 수능에서도 매년 출제되는 고배점 단원입니다.
+        </p>
+
+        <!-- ====== PART 1: 평면좌표 ====== -->
+        <h2>1. 평면좌표</h2>
+
+        <div class="theorem-box">
+            <h4>기본 공식 모음</h4>
+            <div class="formula-grid">
+                <div class="formula-item">
+                    <strong>두 점 사이의 거리</strong>
+                    $AB = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$
+                </div>
+                <div class="formula-item">
+                    <strong>내분점</strong>
+                    $m:n$으로 내분: $\left(\dfrac{mx_2+nx_1}{m+n},\;\dfrac{my_2+ny_1}{m+n}\right)$
+                </div>
+                <div class="formula-item">
+                    <strong>중점</strong>
+                    $\left(\dfrac{x_1+x_2}{2},\;\dfrac{y_1+y_2}{2}\right)$
+                </div>
+                <div class="formula-item">
+                    <strong>외분점</strong>
+                    $m:n$으로 외분: $\left(\dfrac{mx_2-nx_1}{m-n},\;\dfrac{my_2-ny_1}{m-n}\right)$
+                </div>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>예제 1: 두 점 사이의 거리</h4>
+            <p>$A(1, -2)$, $B(4, 2)$에 대해 $\overline{AB}$를 구하여라.</p>
+            <div class="sol">
+                <p>$AB = \sqrt{(4-1)^2 + (2-(-2))^2} = \sqrt{9 + 16} = \sqrt{25} = \mathbf{5}$</p>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>예제 2: 내분점과 외분점</h4>
+            <p>$A(-1, 2)$, $B(5, 8)$에 대해 선분 $AB$를 $2:1$로 내분하는 점과 외분하는 점을 구하여라.</p>
+            <div class="sol">
+                <p><strong>내분점:</strong> $\left(\dfrac{2\cdot5+1\cdot(-1)}{3},\;\dfrac{2\cdot8+1\cdot2}{3}\right) = \left(\dfrac{9}{3},\;\dfrac{18}{3}\right) = (3, 6)$</p>
+                <p><strong>외분점:</strong> $\left(\dfrac{2\cdot5-1\cdot(-1)}{2-1},\;\dfrac{2\cdot8-1\cdot2}{2-1}\right) = (11, 14)$</p>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>예제 3: 삼각형의 무게중심</h4>
+            <p>$A(1, 3)$, $B(-2, 0)$, $C(5, 6)$으로 이루어진 삼각형의 무게중심을 구하여라.</p>
+            <div class="sol">
+                <p>무게중심 $= \left(\dfrac{x_A+x_B+x_C}{3},\;\dfrac{y_A+y_B+y_C}{3}\right) = \left(\dfrac{1-2+5}{3},\;\dfrac{3+0+6}{3}\right) = \mathbf{(4/3,\; 3)}$</p>
+            </div>
+        </div>
+
+        <!-- ====== PART 2: 직선의 방정식 ====== -->
+        <h2>2. 직선의 방정식</h2>
+
+        <div class="theorem-box">
+            <h4>직선의 방정식 형태</h4>
+            <table>
+                <tr><th>형태</th><th>식</th><th>특징</th></tr>
+                <tr><td>기울기-절편형</td><td>$y = mx + b$</td><td>기울기 $m$, $y$절편 $b$</td></tr>
+                <tr><td>점-기울기형</td><td>$y - y_1 = m(x - x_1)$</td><td>점 $(x_1, y_1)$을 지나고 기울기 $m$</td></tr>
+                <tr><td>두 점을 지나는 직선</td><td>$\dfrac{y-y_1}{y_2-y_1} = \dfrac{x-x_1}{x_2-x_1}$</td><td>두 점 $(x_1,y_1)$, $(x_2,y_2)$를 지남</td></tr>
+                <tr><td>일반형</td><td>$ax + by + c = 0$</td><td>수직인 직선 포함 가능</td></tr>
+                <tr><td>절편형</td><td>$\dfrac{x}{a} + \dfrac{y}{b} = 1$</td><td>$x$절편 $a$, $y$절편 $b$</td></tr>
+            </table>
+        </div>
+
+        <div class="example-box">
+            <h4>예제 4: 두 점을 지나는 직선</h4>
+            <p>두 점 $A(1, 2)$, $B(3, 6)$을 지나는 직선의 방정식을 구하여라.</p>
+            <div class="sol">
+                <p>기울기 $= \dfrac{6-2}{3-1} = 2$</p>
+                <p>점-기울기형: $y - 2 = 2(x-1)$ → $y = 2x$</p>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>예제 5: 평행과 수직 조건</h4>
+            <p>직선 $y = 3x + 1$에 평행한 직선과 수직인 직선의 기울기를 구하여라.</p>
+            <div class="sol">
+                <p><strong>평행:</strong> 기울기 동일 → $m = 3$</p>
+                <p><strong>수직:</strong> 기울기의 곱 $= -1$ → $m = -\dfrac{1}{3}$</p>
+            </div>
+        </div>
+
+        <div class="theorem-box">
+            <h4>점과 직선 사이의 거리</h4>
+            <p>점 $(x_0, y_0)$에서 직선 $ax + by + c = 0$까지의 거리:</p>
+            $$d = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}$$
+        </div>
+
+        <div class="example-box">
+            <h4>예제 6: 점과 직선 사이의 거리</h4>
+            <p>점 $(2, 1)$에서 직선 $3x - 4y + 5 = 0$까지의 거리를 구하여라.</p>
+            <div class="sol">
+                <p>$d = \dfrac{|3(2) - 4(1) + 5|}{\sqrt{9+16}} = \dfrac{|6-4+5|}{5} = \dfrac{7}{5}$</p>
+            </div>
+        </div>
+
+        <!-- ====== PART 3: 원의 방정식 ====== -->
+        <h2>3. 원의 방정식</h2>
+
+        <div class="theorem-box">
+            <h4>원의 방정식 기본형과 일반형</h4>
+            <p><strong>기본형:</strong> 중심 $(a, b)$, 반지름 $r$인 원:</p>
+            $$(x-a)^2 + (y-b)^2 = r^2$$
+            <p><strong>일반형:</strong></p>
+            $$x^2 + y^2 + Dx + Ey + F = 0 \quad \Leftrightarrow \quad \text{기본형으로 변환 가능}$$
+            <p>중심: $\left(-\dfrac{D}{2},\;-\dfrac{E}{2}\right)$, 반지름: $\sqrt{\dfrac{D^2+E^2}{4}-F}$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>예제 7: 원의 방정식 세우기</h4>
+            <p>중심이 $(2, -3)$이고 반지름이 5인 원의 방정식을 구하여라.</p>
+            <div class="sol">
+                <p>$(x-2)^2 + (y+3)^2 = 25$</p>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>예제 8: 일반형 → 기본형 변환</h4>
+            <p>$x^2 + y^2 - 4x + 6y - 3 = 0$을 기본형으로 변환하여 중심과 반지름을 구하여라.</p>
+            <div class="sol">
+                <p>$(x^2 - 4x + 4) + (y^2 + 6y + 9) = 3 + 4 + 9$</p>
+                <p>$(x-2)^2 + (y+3)^2 = 16$</p>
+                <p>중심: $(2, -3)$, 반지름: $4$</p>
+            </div>
+        </div>
+
+        <h3>3-1. 원과 직선의 위치 관계</h3>
+
+        <div class="def-box">
+            <h4>원과 직선의 위치 관계</h4>
+            <p>원의 중심에서 직선까지의 거리 $d$, 반지름 $r$일 때:</p>
+            <table>
+                <tr><th>조건</th><th>위치 관계</th><th>교점 수</th></tr>
+                <tr><td>$d &lt; r$</td><td>직선이 원과 두 점에서 교차</td><td>2개</td></tr>
+                <tr><td>$d = r$</td><td>직선이 원에 접함 (접선)</td><td>1개</td></tr>
+                <tr><td>$d &gt; r$</td><td>직선이 원과 만나지 않음</td><td>0개</td></tr>
+            </table>
+        </div>
+
+        <div class="example-box">
+            <h4>예제 9: 원과 직선의 교점 수 판별</h4>
+            <p>원 $(x-1)^2 + (y-2)^2 = 25$와 직선 $3x + 4y - 10 = 0$의 위치 관계를 조사하여라.</p>
+            <div class="sol">
+                <p>중심 $(1, 2)$에서 직선까지의 거리:</p>
+                <p>$d = \dfrac{|3(1)+4(2)-10|}{5} = \dfrac{|3+8-10|}{5} = \dfrac{1}{5}$</p>
+                <p>$d = \dfrac{1}{5} &lt; r = 5$ → <strong>두 점에서 교차</strong></p>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>예제 10: 접선의 방정식</h4>
+            <p>원 $x^2 + y^2 = 10$ 위의 점 $(1, 3)$에서의 접선의 방정식을 구하여라.</p>
+            <div class="sol">
+                <p>원 $x^2 + y^2 = r^2$ 위의 점 $(x_0, y_0)$에서의 접선: $x_0 x + y_0 y = r^2$</p>
+                <p>따라서: $1 \cdot x + 3 \cdot y = 10$</p>
+                <p><strong>$x + 3y = 10$</strong></p>
+            </div>
+        </div>
+
+        <!-- ====== PART 4: 도형의 이동 ====== -->
+        <h2>4. 도형의 이동</h2>
+
+        <div class="theorem-box">
+            <h4>평행이동</h4>
+            <p>점 $(x, y)$를 $x$축 방향으로 $m$, $y$축 방향으로 $n$만큼 평행이동:</p>
+            $$(x, y) \;\longrightarrow\; (x+m,\; y+n)$$
+            <p>도형의 방정식 $f(x, y) = 0$을 같은 방향으로 이동하면:</p>
+            $$f(x-m,\; y-n) = 0$$
+        </div>
+
+        <div class="theorem-box">
+            <h4>대칭이동</h4>
+            <table>
+                <tr><th>대칭축 / 대칭점</th><th>점 $(x, y)$의 이동</th></tr>
+                <tr><td>$x$축 대칭</td><td>$(x, -y)$</td></tr>
+                <tr><td>$y$축 대칭</td><td>$(-x, y)$</td></tr>
+                <tr><td>원점 대칭</td><td>$(-x, -y)$</td></tr>
+                <tr><td>직선 $y = x$ 대칭</td><td>$(y, x)$</td></tr>
+            </table>
+        </div>
+
+        <div class="example-box">
+            <h4>예제 11: 도형의 평행이동</h4>
+            <p>직선 $y = 2x + 1$을 $x$축 방향으로 $3$, $y$축 방향으로 $-2$만큼 평행이동한 직선의 방정식을 구하여라.</p>
+            <div class="sol">
+                <p>$x$ 대신 $x - 3$, $y$ 대신 $y + 2$를 대입:</p>
+                <p>$y + 2 = 2(x-3) + 1$</p>
+                <p>$y + 2 = 2x - 5$</p>
+                <p><strong>$y = 2x - 7$</strong></p>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <h4>예제 12: 원의 대칭이동</h4>
+            <p>원 $(x-2)^2 + (y+1)^2 = 9$를 $x$축에 대칭이동한 원의 방정식을 구하여라.</p>
+            <div class="sol">
+                <p>$x$축 대칭: $y$ 대신 $-y$를 대입</p>
+                <p>$(x-2)^2 + (-y+1)^2 = 9$</p>
+                <p><strong>$(x-2)^2 + (y-1)^2 = 9$</strong></p>
+                <p>중심: $(2, 1)$, 반지름: $3$ (중심의 $y$좌표만 부호 변환)</p>
+            </div>
+        </div>
+
+        <!-- Practice Problems -->
+        <div class="practice-box">
+            <h4>연습 문제</h4>
+            <ol>
+                <li>$A(3, -1)$, $B(-1, 5)$의 중점과 두 점 사이의 거리를 구하여라.</li>
+                <li>두 점 $(0, 3)$, $(4, 0)$을 지나는 직선의 방정식을 구하여라.</li>
+                <li>점 $(3, 4)$에서 직선 $4x - 3y + 1 = 0$까지의 거리를 구하여라.</li>
+                <li>$x^2 + y^2 - 6x + 2y + 6 = 0$을 기본형으로 변환하여 중심과 반지름을 구하여라.</li>
+                <li>원 $x^2 + y^2 = 25$ 위의 점 $(3, 4)$에서의 접선의 방정식을 구하여라.</li>
+            </ol>
+        </div>
+
+        <div class="tip-box">
+            <h4>시험 대비 핵심 정리</h4>
+            <ul>
+                <li><strong>두 점 거리</strong>: $\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$ — 반드시 암기</li>
+                <li><strong>점과 직선 거리</strong>: $\dfrac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}$ — 절댓값과 분모 혼동 주의</li>
+                <li><strong>원의 기본형 변환</strong>: 완전제곱식 이용 ($x^2 + bx = (x + b/2)^2 - (b/2)^2$)</li>
+                <li><strong>접선 공식</strong>: 원 위의 점 $(x_0, y_0)$에서 $x_0 x + y_0 y = r^2$</li>
+                <li><strong>평행이동</strong>: 방정식에서 $x \to x-m$, $y \to y-n$ (이동 방향과 반대 부호)</li>
+                <li><strong>내분점 공식</strong>: $m:n$으로 $\left(\dfrac{mx_2+nx_1}{m+n},\;\dfrac{my_2+ny_1}{m+n}\right)$</li>
+            </ul>
+        </div>
+
+        <!-- Chapter Navigation -->
+        <div class="chapter-nav">
+            <a href="/kr/textbook/high1-polynomial.html">← 이전: 공통수학 1 — 다항식과 방정식</a>
+            <a href="/kr/textbook/">교재 목차 →</a>
+        </div>
+
+    </article>
+
+    <footer style="background:#1e293b;color:#94a3b8;text-align:center;padding:28px 20px;font-size:.85em;">
+        <p style="margin:0 0 8px;">© 2026 MathHub Global · <a href="/privacy.html" style="color:#94a3b8;">Privacy</a> · <a href="/about.html" style="color:#94a3b8;">About</a></p>
+        <p style="margin:0;">2022 개정 교육과정 기반 무료 수학 교재 | <a href="/contact.html" style="color:#a5b4fc;">1:1 과외 상담 신청</a></p>
+    </footer>
+</body>
+</html>

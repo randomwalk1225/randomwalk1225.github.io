@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AP Calculus BC: Parametric, Polar &amp; Vectors - Chapter 10 | MathHub</title>
+    <meta name="description" content="AP Calculus BC Chapter 10: Parametric equations, polar coordinates, and vector-valued functions. Derivatives and integrals for each representation with worked examples and practice problems.">
+    <meta name="keywords" content="AP Calculus BC parametric equations, polar coordinates, vector-valued functions, arc length, area polar, AP Calculus BC">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/ap-calculus/parametric-polar.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/ap-calculus/parametric-polar.html">
+    <meta property="og:title" content="AP Calculus BC: Parametric, Polar &amp; Vectors - Chapter 10">
+    <meta property="og:description" content="Parametric equations, polar coordinates, and vector functions for AP Calculus BC with worked examples.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AP Calculus BC: Parametric, Polar &amp; Vectors - Chapter 10">
+    <meta name="twitter:description" content="Parametric, polar, and vector calculus for AP Calculus BC.">
+
+    <link rel="alternate" hreflang="ko" href="https://mathhub.io/kr/">
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "AP Calculus BC: Parametric, Polar & Vectors - Chapter 10",
+        "description": "AP Calculus BC Chapter 10 covering parametric equations, polar coordinates, area and arc length in polar, and vector-valued functions.",
+        "url": "https://mathhub.io/us/textbook/ap-calculus/parametric-polar.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "AP",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Parametric Equations" },
+            { "@type": "Thing", "name": "Polar Coordinates" },
+            { "@type": "Thing", "name": "AP Calculus BC" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <link rel="stylesheet" href="../../../assets/css/textbook-ux.css">
+    <style>
+        .blog-article { max-width: 960px; margin: 0 auto; padding: 40px 16px; }
+        .blog-article h1 { font-size: 2.2em; color: #1e3a5f; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #1e3a5f; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #2563eb; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .bc-badge { display: inline-block; background: #f5f3ff; color: #6d28d9; border: 1.5px solid #ddd6fe; padding: 3px 12px; border-radius: 20px; font-size: .82em; font-weight: 700; margin-bottom: 8px; }
+
+        .learning-objectives { background: #eff6ff; border-left: 4px solid #2563eb; padding: 20px 24px; margin: 24px 0 32px; border-radius: 0 10px 10px 0; }
+        .learning-objectives h4 { color: #1e40af; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #1e3a8a; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box { background: #eff6ff; border-left: 4px solid #2563eb; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .example-box h4 { color: #1e40af; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li, .example-box ol { color: #334155; line-height: 1.8; }
+        .definition-box { background: #f0fdf4; border-left: 4px solid #16a34a; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .definition-box h4 { color: #15803d; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box { background: #faf5ff; border-left: 4px solid #8b5cf6; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .theorem-box h4 { color: #6d28d9; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box { background: #eff6ff; border: 1.5px dashed #93c5fd; padding: 16px 20px; margin: -4px 0 24px; border-radius: 0 0 8px 8px; }
+        .try-it-box .try-it-label { display: inline-block; background: #2563eb; color: white; font-size: 0.75em; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px; }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary { cursor: pointer; color: #1e40af; font-weight: 600; font-size: 0.9em; user-select: none; }
+        .try-it-answer { padding: 10px 14px; background: white; border-radius: 6px; margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7; }
+
+        .ap-tip { background: #fefce8; border-left: 4px solid #eab308; padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .ap-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .ap-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .ap-tip strong { color: #92400e; }
+
+        .formula-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0 24px; }
+        @media (max-width: 640px) { .formula-grid { grid-template-columns: 1fr; } }
+        .formula-card { background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 16px 20px; }
+        .formula-card h5 { color: #1e3a5f; margin: 0 0 10px; font-size: 0.95em; font-weight: 700; }
+        .formula-card p { margin: 0; color: #334155; font-size: 0.9em; line-height: 1.8; }
+
+        .desmos-wrap { margin: 24px auto; background: #f8fafc; border-radius: 12px; padding: 4px; border: 1px solid #e2e8f0; text-align: center; }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label { text-align: center; font-size: 0.82em; color: #64748b; margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em; }
+
+        .practice-section { margin-top: 50px; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { border-top: none; padding-top: 0; margin-top: 0; }
+        .practice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 640px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card { background: #f8fafc; border-radius: 10px; padding: 20px; border: 1px solid #e2e8f0; }
+        .practice-card .p-num { display: inline-block; background: #2563eb; color: white; border-radius: 50%; width: 26px; height: 26px; text-align: center; line-height: 26px; font-size: 0.85em; font-weight: 700; margin-bottom: 10px; }
+        .practice-card p { margin: 0 0 12px; color: #334155; font-size: 0.95em; line-height: 1.7; }
+        .practice-card details summary { cursor: pointer; color: #2563eb; font-size: 0.88em; font-weight: 600; user-select: none; }
+        .practice-answer { margin-top: 8px; padding: 10px 14px; background: white; border-radius: 6px; font-size: 0.9em; color: #334155; line-height: 1.7; }
+
+        .chapter-nav { display: flex; justify-content: space-between; gap: 16px; margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0; }
+        .chapter-nav a { display: inline-flex; align-items: center; gap: 6px; color: #2563eb; text-decoration: none; font-weight: 600; font-size: 0.95em; }
+        .chapter-nav a:hover { text-decoration: underline; }
+
+        /* ── Section Summary ── */
+        .section-summary {
+            background: #f8fafc; border: 2px solid #e2e8f0;
+            padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px;
+        }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;
+        }
+        .summary-card {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 14px 18px;
+        }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 10px; margin: 16px 0;
+        }
+        .key-term-item {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 8px; padding: 12px 16px;
+        }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <div class="blog-article">
+        <div class="breadcrumb">
+            <a href="/us/">US</a> &rsaquo; <a href="/us/textbook/ap-calculus/">AP Calculus</a> &rsaquo; Chapter 10
+        </div>
+
+        <div class="bc-badge">AP Calculus BC</div>
+        <h1>Chapter 10: Parametric, Polar &amp; Vectors</h1>
+        <div class="blog-meta">AP Calculus BC &nbsp;|&nbsp; Unit 4: BC Topics</div>
+
+        <div class="learning-objectives">
+            <h4>Learning Objectives</h4>
+            <ul>
+                <li>Find $dy/dx$ and $d^2y/dx^2$ for parametric curves</li>
+                <li>Compute arc length of a parametric curve</li>
+                <li>Convert between polar and Cartesian coordinates</li>
+                <li>Find slopes and areas in polar coordinate form</li>
+                <li>Differentiate and integrate vector-valued functions; interpret velocity and acceleration</li>
+            </ul>
+        </div>
+
+        <h2>10.1 Parametric Equations</h2>
+
+        <p>A <strong>parametric curve</strong> describes position using a parameter $t$: $(x(t), y(t))$. This lets us represent curves that aren't functions of $x$ (like circles, spirals, and loops) and naturally model motion over time.</p>
+
+        <div class="definition-box">
+            <h4>Derivatives for Parametric Curves</h4>
+            <p>Given $x = x(t)$, $y = y(t)$ with $\dot{x} = dx/dt$ and $\dot{y} = dy/dt$:</p>
+            <p>$$\frac{dy}{dx} = \frac{dy/dt}{dx/dt} = \frac{\dot{y}}{\dot{x}}$$</p>
+            <p>$$\frac{d^2y}{dx^2} = \frac{\dfrac{d}{dt}\!\left[\dfrac{dy}{dx}\right]}{dx/dt}$$</p>
+            <p><strong>Arc length</strong> from $t = a$ to $t = b$:
+            $$L = \int_a^b \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2}\,dt$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.1 — Circle Parametrically</h4>
+            <p>$x = 3\cos t$, $y = 3\sin t$ for $t \in [0, 2\pi]$ traces a circle of radius 3.</p>
+            <p><strong>Slope:</strong> $\dfrac{dy}{dx} = \dfrac{3\cos t}{-3\sin t} = -\cot t$</p>
+            <p>At $t = \pi/4$: slope $= -\cot(\pi/4) = -1$. Point: $\left(\tfrac{3}{\sqrt{2}}, \tfrac{3}{\sqrt{2}}\right)$.</p>
+            <p><strong>Arc length</strong> (full circle): $L = \int_0^{2\pi}\sqrt{9\sin^2 t + 9\cos^2 t}\,dt = \int_0^{2\pi} 3\,dt = 6\pi$ ✓</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.2 — Horizontal and Vertical Tangents</h4>
+            <p>For the cycloid $x = t - \sin t$, $y = 1 - \cos t$:</p>
+            <p>$\dot{x} = 1 - \cos t$, $\dot{y} = \sin t$</p>
+            <p><strong>Horizontal tangents</strong> ($\dot{y} = 0$, $\dot{x} \neq 0$): $\sin t = 0 \Rightarrow t = \pi, 3\pi, \ldots$ (top of arch)</p>
+            <p><strong>Vertical tangents</strong> ($\dot{x} = 0$, $\dot{y} \neq 0$): $\cos t = 1 \Rightarrow t = 0, 2\pi, \ldots$ (cusps at ground)</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>For $x = t^2$, $y = t^3 - 3t$, find $\dfrac{dy}{dx}$ and determine where the curve has a horizontal tangent.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    $\dfrac{dy}{dx} = \dfrac{3t^2-3}{2t} = \dfrac{3(t^2-1)}{2t}$<br>
+                    Horizontal tangent: $3t^2-3=0 \Rightarrow t = \pm 1$<br>
+                    At $t=1$: $(1, -2)$. At $t=-1$: $(1, 2)$.
+                </div>
+            </details>
+        </div>
+
+        <div class="ap-tip">
+            <div class="ap-tip-icon">★</div>
+            <p><strong>AP Exam Tip:</strong> Parametric arc length is a common FRQ topic. Remember to square <em>both</em> derivatives before adding under the radical: $\sqrt{(dx/dt)^2 + (dy/dt)^2}$. The exam may ask for arc length over a specific interval — set up the integral and evaluate with a calculator.</p>
+        </div>
+
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">Parametric curves: a circle and a cycloid. Adjust the parameter $t$ (slider) to trace the curve and see the velocity vector $(\dot{x}, \dot{y})$ at each point.</p>
+            <div id="graph-param" style="width:100%; height:400px;"></div>
+            <p class="fig-label">Figure 10.1 — Parametric Curve: Circle $x=3\cos t$, $y=3\sin t$ with Tangent Vector</p>
+        </div>
+
+        <h2>10.2 Polar Coordinates</h2>
+
+        <p>Polar coordinates $(r, \theta)$ describe a point by its distance $r$ from the origin and angle $\theta$ from the positive $x$-axis. They're especially natural for curves with rotational symmetry.</p>
+
+        <div class="definition-box">
+            <h4>Polar ↔ Cartesian Conversion</h4>
+            <p>$x = r\cos\theta \qquad y = r\sin\theta \qquad r^2 = x^2 + y^2 \qquad \tan\theta = y/x$</p>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Key Formulas in Polar</h4>
+            <p><strong>Slope of polar curve</strong> $r = f(\theta)$:</p>
+            <p>$$\frac{dy}{dx} = \frac{r'\sin\theta + r\cos\theta}{r'\cos\theta - r\sin\theta} \quad \text{where } r' = \frac{dr}{d\theta}$$</p>
+            <p><strong>Area enclosed</strong> by $r = f(\theta)$ from $\alpha$ to $\beta$:</p>
+            <p>$$A = \frac{1}{2}\int_\alpha^\beta r^2\,d\theta$$</p>
+            <p><strong>Area between</strong> $r_{\text{outer}}$ and $r_{\text{inner}}$:</p>
+            <p>$$A = \frac{1}{2}\int_\alpha^\beta \left(r_{\text{outer}}^2 - r_{\text{inner}}^2\right)d\theta$$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.3 — Area of a Rose Petal</h4>
+            <p>Find the area of one petal of $r = \cos(2\theta)$.</p>
+            <p>The curve $r = \cos(2\theta)$ has 4 petals. One petal exists where $r \geq 0$ in $\left[-\dfrac{\pi}{4}, \dfrac{\pi}{4}\right]$.</p>
+            <p>$$A = \frac{1}{2}\int_{-\pi/4}^{\pi/4} \cos^2(2\theta)\,d\theta = \frac{1}{2}\int_{-\pi/4}^{\pi/4} \frac{1+\cos(4\theta)}{2}\,d\theta$$</p>
+            <p>$$= \frac{1}{4}\left[\theta + \frac{\sin(4\theta)}{4}\right]_{-\pi/4}^{\pi/4} = \frac{1}{4}\cdot\frac{\pi}{2} = \frac{\pi}{8}$$</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Find the area enclosed by the cardioid $r = 1 + \cos\theta$ (integrate over $[0, 2\pi]$).</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    $A = \dfrac{1}{2}\displaystyle\int_0^{2\pi}(1+\cos\theta)^2\,d\theta = \dfrac{1}{2}\int_0^{2\pi}(1 + 2\cos\theta + \cos^2\theta)\,d\theta$<br>
+                    $= \dfrac{1}{2}\int_0^{2\pi}\left(1 + 2\cos\theta + \dfrac{1+\cos 2\theta}{2}\right)d\theta$<br>
+                    $= \dfrac{1}{2}\left[2\pi + 0 + \pi\right] = \dfrac{3\pi}{2}$
+                </div>
+            </details>
+        </div>
+
+        <div class="desmos-wrap" style="max-width:630px;">
+            <p class="desmos-caption">Polar curves: the 4-petal rose $r=\cos(2\theta)$ and the cardioid $r=1+\cos(\theta)$. Toggle each curve using the sliders.</p>
+            <div id="graph-polar" style="width:100%; height:420px;"></div>
+            <p class="fig-label">Figure 10.2 — Polar Curves: Rose $r=\cos(2\theta)$ and Cardioid $r=1+\cos\theta$</p>
+        </div>
+
+        <h2>10.3 Vector-Valued Functions</h2>
+
+        <p>A <strong>vector-valued function</strong> $\vec{r}(t) = \langle x(t), y(t) \rangle$ describes the position of a moving object. Its derivative gives velocity; the magnitude of velocity gives speed.</p>
+
+        <div class="definition-box">
+            <h4>Velocity, Speed, and Acceleration</h4>
+            <p>Given position vector $\vec{r}(t) = \langle x(t), y(t) \rangle$:</p>
+            <div class="formula-grid">
+                <div class="formula-card">
+                    <h5>Velocity</h5>
+                    <p>$\vec{v}(t) = \vec{r}'(t) = \langle x'(t), y'(t) \rangle$</p>
+                </div>
+                <div class="formula-card">
+                    <h5>Speed</h5>
+                    <p>$|\vec{v}(t)| = \sqrt{[x'(t)]^2 + [y'(t)]^2}$</p>
+                </div>
+                <div class="formula-card">
+                    <h5>Acceleration</h5>
+                    <p>$\vec{a}(t) = \vec{v}'(t) = \vec{r}''(t)$</p>
+                </div>
+                <div class="formula-card">
+                    <h5>Displacement</h5>
+                    <p>$\Delta\vec{r} = \displaystyle\int_a^b \vec{v}(t)\,dt = \langle \int x'dt,\, \int y'dt \rangle$</p>
+                </div>
+            </div>
+            <p><strong>Total distance traveled</strong> from $t=a$ to $t=b$: $\displaystyle\int_a^b |\vec{v}(t)|\,dt$</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 10.4 — Projectile Motion</h4>
+            <p>A ball is launched with velocity $\vec{v}(0) = \langle 20, 40 \rangle$ ft/s from position $(0, 0)$. With gravity $g = 32$ ft/s², find position at $t = 2$ s.</p>
+            <p><strong>Acceleration:</strong> $\vec{a} = \langle 0, -32 \rangle$</p>
+            <p><strong>Velocity:</strong> $\vec{v}(t) = \int\vec{a}\,dt + \vec{v}(0) = \langle 20, 40-32t \rangle$</p>
+            <p><strong>Position:</strong> $\vec{r}(t) = \int\vec{v}\,dt + \vec{r}(0) = \langle 20t, 40t - 16t^2 \rangle$</p>
+            <p>At $t=2$: $\vec{r}(2) = \langle 40, 80-64 \rangle = \langle 40, 16 \rangle$ ft.</p>
+            <p><strong>Max height:</strong> when $y'(t) = 40-32t=0 \Rightarrow t=1.25$ s. $y_{\max} = 40(1.25) - 16(1.25)^2 = 25$ ft.</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>A particle has velocity $\vec{v}(t) = \langle 3t^2, 2t \rangle$ and starts at $(1, 2)$. Find its position at $t = 2$ and the total distance traveled on $[0,2]$.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    Position: $\vec{r}(t) = \langle 1 + t^3, 2 + t^2 \rangle$<br>
+                    At $t=2$: $(1+8, 2+4) = (9, 6)$<br>
+                    Speed: $|\vec{v}| = \sqrt{9t^4 + 4t^2} = t\sqrt{9t^2+4}$<br>
+                    Distance $= \displaystyle\int_0^2 t\sqrt{9t^2+4}\,dt$. Let $u = 9t^2+4$, $du=18t\,dt$:<br>
+                    $= \dfrac{1}{18}\displaystyle\int_4^{40}\sqrt{u}\,du = \dfrac{1}{18}\cdot\dfrac{2}{3}[u^{3/2}]_4^{40} = \dfrac{1}{27}(40^{3/2} - 8) \approx 9.07$
+                </div>
+            </details>
+        </div>
+
+        <div class="ap-tip">
+            <div class="ap-tip-icon">★</div>
+            <p><strong>AP Exam Tip:</strong> Vector FRQ problems often ask for: position at a given time (integrate velocity + use IC), total distance (integrate speed $|\vec{v}|$), or the time when the particle is at rest ($\vec{v} = \vec{0}$). Keep velocity and position as separate vectors — don't confuse $x(t)$ and $y(t)$ components.</p>
+        </div>
+
+        <div class="desmos-wrap" style="max-width:700px;">
+            <p class="desmos-caption">Projectile motion as a vector-valued function. The red vector shows velocity at each point. Adjust $t$ with the slider to trace the path.</p>
+            <div id="graph-vector" style="width:100%; height:380px;"></div>
+            <p class="fig-label">Figure 10.3 — Vector-Valued Function: Projectile $\vec{r}(t) = \langle 20t,\, 40t-16t^2 \rangle$</p>
+        </div>
+
+        <!-- Practice Problems -->
+        <div class="practice-section">
+            <h2>Practice Problems</h2>
+            <div class="practice-grid">
+
+                <div class="practice-card">
+                    <span class="p-num">1</span>
+                    <p>Find $\dfrac{dy}{dx}$ and $\dfrac{d^2y}{dx^2}$ for $x = t^2 + 1$, $y = t^3 - t$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $\dfrac{dy}{dx} = \dfrac{3t^2-1}{2t}$<br>
+                            $\dfrac{d}{dt}\!\left[\dfrac{3t^2-1}{2t}\right] = \dfrac{6t(2t)-(3t^2-1)(2)}{4t^2} = \dfrac{3t^2+1}{4t^2}$<br>
+                            $\dfrac{d^2y}{dx^2} = \dfrac{(3t^2+1)/4t^2}{2t} = \dfrac{3t^2+1}{8t^3}$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">2</span>
+                    <p>Find the arc length of the curve $x = e^t\cos t$, $y = e^t\sin t$ for $0 \leq t \leq \pi$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $\dot{x} = e^t(\cos t - \sin t)$, $\dot{y} = e^t(\sin t + \cos t)$<br>
+                            $\dot{x}^2 + \dot{y}^2 = e^{2t}[(\cos t-\sin t)^2 + (\sin t+\cos t)^2] = e^{2t}(2) = 2e^{2t}$<br>
+                            $L = \displaystyle\int_0^\pi \sqrt{2e^{2t}}\,dt = \sqrt{2}\int_0^\pi e^t\,dt = \sqrt{2}(e^\pi - 1)$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">3</span>
+                    <p>Convert the polar equation $r = 4\sin\theta$ to Cartesian form. What curve is this?</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Multiply both sides by $r$: $r^2 = 4r\sin\theta$<br>
+                            $x^2 + y^2 = 4y$<br>
+                            $x^2 + (y-2)^2 = 4$<br>
+                            This is a <strong>circle</strong> centered at $(0, 2)$ with radius 2.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">4</span>
+                    <p>Find the area inside the circle $r = 3$ and outside the cardioid $r = 1 + \cos\theta$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Curves intersect when $3 = 1+\cos\theta \Rightarrow \cos\theta = 2$ — no solution! The cardioid is always inside the circle ($r_{max}$ of cardioid $= 2 < 3$).<br>
+                            Area of circle: $\pi(3)^2 = 9\pi$.<br>
+                            Area of cardioid: $\dfrac{3\pi}{2}$ (standard result).<br>
+                            Area between: $9\pi - \dfrac{3\pi}{2} = \dfrac{15\pi}{2}$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">5</span>
+                    <p>A particle moves with $\vec{v}(t) = \langle \cos t, 2t \rangle$ and $\vec{r}(0) = \langle 0, 0 \rangle$. Find position at $t = \pi$ and total distance on $[0, \pi]$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $\vec{r}(t) = \langle \sin t, t^2 \rangle$<br>
+                            At $t=\pi$: $\vec{r}(\pi) = \langle 0, \pi^2 \rangle \approx \langle 0, 9.87 \rangle$<br>
+                            Speed: $|\vec{v}| = \sqrt{\cos^2 t + 4t^2}$<br>
+                            Total distance $= \displaystyle\int_0^\pi \sqrt{\cos^2 t + 4t^2}\,dt$ (use calculator: $\approx 9.78$)
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">6</span>
+                    <p>Find the area of one petal of the rose $r = 3\sin(3\theta)$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $r = 3\sin(3\theta)$ has 3 petals. One petal: $\theta \in [0, \pi/3]$.<br>
+                            $A = \dfrac{1}{2}\displaystyle\int_0^{\pi/3} 9\sin^2(3\theta)\,d\theta = \dfrac{9}{2}\int_0^{\pi/3}\dfrac{1-\cos(6\theta)}{2}\,d\theta$<br>
+                            $= \dfrac{9}{4}\left[\theta - \dfrac{\sin(6\theta)}{6}\right]_0^{\pi/3} = \dfrac{9}{4}\cdot\dfrac{\pi}{3} = \dfrac{3\pi}{4}$
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">7</span>
+                    <p>Find the slope of the tangent to $r = 2 + \sin\theta$ at $\theta = \pi/2$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            $r = 2+\sin\theta$, $r' = \cos\theta$<br>
+                            At $\theta = \pi/2$: $r = 3$, $r' = 0$<br>
+                            Slope $= \dfrac{r'\sin\theta + r\cos\theta}{r'\cos\theta - r\sin\theta} = \dfrac{0\cdot1 + 3\cdot0}{0\cdot0 - 3\cdot1} = \dfrac{0}{-3} = 0$<br>
+                            Horizontal tangent at the top of the curve.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">8</span>
+                    <p><strong>(AP Style)</strong> A particle moves in the $xy$-plane with $x'(t) = t^2 - 3$ and $y'(t) = 2t - 4$, with $x(0) = 1$, $y(0) = 2$. At what times is the particle at rest? Find position at those times.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            At rest when both $x'=0$ and $y'=0$:<br>
+                            $t^2 - 3 = 0 \Rightarrow t = \sqrt{3}$ (taking $t \geq 0$)<br>
+                            $2t - 4 = 0 \Rightarrow t = 2$<br>
+                            These never coincide → the particle is never fully at rest.<br><br>
+                            At $t=\sqrt{3}$: $x = 1 + \displaystyle\int_0^{\sqrt{3}}(t^2-3)dt = 1 + [t^3/3-3t]_0^{\sqrt{3}} = 1 + (1-3\sqrt{3}/1) = 1-2\sqrt{3} \approx -2.46$<br>
+                            $y(\sqrt{3}) = 2 + [\,t^2-4t\,]_0^{\sqrt{3}} = 2 + (3-4\sqrt{3}) = 5-4\sqrt{3} \approx -1.93$
+                        </div>
+                    </details>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECTION SUMMARY -->
+        <!-- ============================================================ -->
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+
+            <h4>Parametric Equations</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Slope of Parametric Curve</strong>
+                    <p>$\dfrac{dy}{dx} = \dfrac{dy/dt}{dx/dt}$ — divide the $y$-derivative by the $x$-derivative with respect to parameter $t$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Second Derivative</strong>
+                    <p>$\dfrac{d^2y}{dx^2} = \dfrac{d}{dt}\!\left[\dfrac{dy}{dx}\right] \div \dfrac{dx}{dt}$ — used for concavity of parametric curves.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Arc Length (Parametric)</strong>
+                    <p>$L = \displaystyle\int_\alpha^\beta \sqrt{\left(\dfrac{dx}{dt}\right)^2 + \left(\dfrac{dy}{dt}\right)^2}\,dt$</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Speed</strong>
+                    <p>$|\mathbf{v}(t)| = \sqrt{(x'(t))^2 + (y'(t))^2}$ — the magnitude of the velocity vector at time $t$.</p>
+                </div>
+            </div>
+
+            <h4>Polar Coordinates</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Polar ↔ Cartesian</strong>
+                    <p>$x = r\cos\theta$, $y = r\sin\theta$, $r^2 = x^2 + y^2$, $\tan\theta = y/x$</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Slope of Polar Curve</strong>
+                    <p>$\dfrac{dy}{dx} = \dfrac{r'\sin\theta + r\cos\theta}{r'\cos\theta - r\sin\theta}$ where $r' = dr/d\theta$</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Polar Area</strong>
+                    <p>$A = \dfrac{1}{2}\displaystyle\int_\alpha^\beta r^2\,d\theta$</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Area Between Polar Curves</strong>
+                    <p>$A = \dfrac{1}{2}\displaystyle\int_\alpha^\beta (r_{\text{outer}}^2 - r_{\text{inner}}^2)\,d\theta$</p>
+                </div>
+            </div>
+
+            <h4>Vectors</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Dot Product</strong>
+                    <p>$\mathbf{a} \cdot \mathbf{b} = a_1 b_1 + a_2 b_2 = |\mathbf{a}||\mathbf{b}|\cos\theta$. Vectors are perpendicular when $\mathbf{a}\cdot\mathbf{b}=0$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Position / Velocity / Acceleration</strong>
+                    <p>$\mathbf{r}(t) \xrightarrow{d/dt} \mathbf{v}(t) \xrightarrow{d/dt} \mathbf{a}(t)$. Integrate backwards to find position from velocity.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- KEY TERMS -->
+        <!-- ============================================================ -->
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item">
+                    <strong>Parametric Equations</strong>
+                    <span>A curve defined by $x = f(t)$, $y = g(t)$ where $t$ is a parameter. Traces the curve as $t$ varies.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Polar Coordinates</strong>
+                    <span>$(r, \theta)$ — describes a point by distance from origin ($r$) and angle from positive $x$-axis ($\theta$).</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Polar Area Formula</strong>
+                    <span>$A = \frac{1}{2}\int r^2\,d\theta$ — area swept out by the radius vector as $\theta$ goes from $\alpha$ to $\beta$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Vector</strong>
+                    <span>A quantity with both magnitude and direction. In 2D: $\mathbf{v} = \langle v_1, v_2 \rangle$.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Dot Product</strong>
+                    <span>$\mathbf{a}\cdot\mathbf{b} = a_1 b_1 + a_2 b_2$ — a scalar that measures the angle between two vectors.</span>
+                </div>
+                <div class="key-term-item">
+                    <strong>Speed</strong>
+                    <span>The magnitude of the velocity vector: $|\mathbf{v}(t)| = \sqrt{(dx/dt)^2 + (dy/dt)^2}$.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <a href="/us/textbook/ap-calculus/differential-equations.html">&#8592; Chapter 9: Differential Equations</a>
+            <a href="/us/textbook/ap-calculus/sequences-series.html">Chapter 11: Sequences &amp; Series &#8250;</a>
+        </div>
+    </div>
+
+    <script>
+    // Figure 10.1 — Parametric circle with tangent vector
+    (function() {
+        var elt = document.getElementById('graph-param');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false
+        });
+        calc.setMathBounds({ left: -5, right: 5, bottom: -4, top: 4 });
+        calc.setExpressions([
+            { id: 't0', latex: 't_0 = 0.8', sliderBounds: { min: 0, max: 6.28, step: 0.05 } },
+            { id: 'circle', latex: '(3\\cos(t), 3\\sin(t))', color: '#1e3a5f', lineWidth: 2.5 },
+            { id: 'pt', latex: '(3\\cos(t_0), 3\\sin(t_0))', color: '#e11d48', pointSize: 12, label: 'position', showLabel: true },
+            // Tangent direction at t0: dx/dt = -3sin(t), dy/dt = 3cos(t)
+            { id: 'vx', latex: 'v_x = -3\\sin(t_0)' },
+            { id: 'vy', latex: 'v_y = 3\\cos(t_0)' },
+            { id: 'tangent', latex: '\\left((1-s)\\cdot3\\cos(t_0)+s\\cdot(3\\cos(t_0)+v_x),\\ (1-s)\\cdot3\\sin(t_0)+s\\cdot(3\\sin(t_0)+v_y)\\right)', color: '#16a34a', lineWidth: 2.5 }
+        ]);
+    })();
+
+    // Figure 10.2 — Polar curves
+    (function() {
+        var elt = document.getElementById('graph-polar');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false
+        });
+        calc.setMathBounds({ left: -2.5, right: 2.5, bottom: -2, top: 2.5 });
+        calc.setExpressions([
+            { id: 'rose', latex: 'r = \\cos(2\\theta)', color: '#1e3a5f', lineWidth: 2.5, label: 'r = cos(2θ) — rose', showLabel: true },
+            { id: 'cardioid', latex: 'r = 1 + \\cos(\\theta)', color: '#e11d48', lineWidth: 2, lineStyle: Desmos.Styles.DASHED, label: 'r = 1+cos(θ) — cardioid', showLabel: true }
+        ]);
+    })();
+
+    // Figure 10.3 — Projectile (vector-valued function)
+    (function() {
+        var elt = document.getElementById('graph-vector');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: false, border: false
+        });
+        calc.setMathBounds({ left: -2, right: 50, bottom: -2, top: 30 });
+        calc.setExpressions([
+            { id: 't0', latex: 't_0 = 0.5', sliderBounds: { min: 0, max: 2.5, step: 0.05 } },
+            { id: 'path', latex: '(20t, 40t - 16t^2)\\{0 \\le t \\le 2.5\\}', color: '#1e3a5f', lineWidth: 2.5 },
+            { id: 'pt', latex: '(20t_0, 40t_0 - 16t_0^2)', color: '#e11d48', pointSize: 12, label: 'position', showLabel: true },
+            // Velocity vector at t0
+            { id: 'vvec', latex: '\\left((1-s)\\cdot20t_0 + s\\cdot(20t_0+20),\\ (1-s)\\cdot(40t_0-16t_0^2)+s\\cdot(40t_0-16t_0^2+(40-32t_0))\\right)', color: '#16a34a', lineWidth: 3 },
+            { id: 'ground', latex: 'y = 0\\{0 \\le x \\le 50\\}', color: '#475569', lineWidth: 2 }
+        ]);
+    })();
+    </script>
+    <script src="../../../assets/js/textbook-ux.js"></script>
+</body>
+</html>

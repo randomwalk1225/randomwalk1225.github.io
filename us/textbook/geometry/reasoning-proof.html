@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Geometry: Reasoning and Proof - Chapter 2 | MathHub</title>
+    <meta name="description" content="Geometry Chapter 2: Reasoning and Proof. Learn inductive vs deductive reasoning, conditional statements, biconditionals, and how to write two-column and paragraph proofs.">
+    <meta name="keywords" content="geometry, reasoning and proof, inductive reasoning, deductive reasoning, conditional statements, biconditional, two-column proof, paragraph proof, geometry chapter 2">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathhub.io/us/textbook/geometry/reasoning-proof.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mathhub.io/us/textbook/geometry/reasoning-proof.html">
+    <meta property="og:title" content="Geometry: Reasoning and Proof - Chapter 2">
+    <meta property="og:description" content="Learn inductive and deductive reasoning, conditional statements, and two-column proofs for high school Geometry.">
+    <meta property="og:site_name" content="MathHub Global">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Geometry: Reasoning and Proof - Chapter 2">
+    <meta name="twitter:description" content="Geometry Chapter 2: inductive reasoning, conditional statements, and writing proofs.">
+
+    <link rel="alternate" hreflang="en-US" href="https://mathhub.io/us/">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "headline": "Geometry: Reasoning and Proof - Chapter 2",
+        "description": "High school Geometry Chapter 2 covering inductive and deductive reasoning, conditional statements, and two-column proofs.",
+        "url": "https://mathhub.io/us/textbook/geometry/reasoning-proof.html",
+        "datePublished": "2026-03-14",
+        "dateModified": "2026-03-14",
+        "publisher": { "@type": "Organization", "name": "MathHub Global" },
+        "author": { "@type": "Organization", "name": "MathHub Global" },
+        "educationalLevel": "High School",
+        "learningResourceType": "Textbook Chapter",
+        "about": [
+            { "@type": "Thing", "name": "Geometry" },
+            { "@type": "Thing", "name": "Mathematical Proof" },
+            { "@type": "Thing", "name": "Deductive Reasoning" }
+        ]
+    }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99124077"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-99124077');
+    </script>
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <link rel="stylesheet" href="../../../assets/css/textbook-ux.css">
+    <style>
+        .blog-article {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 16px;
+        }
+        .blog-article h1 { font-size: 2.2em; color: #4c1d95; margin-bottom: 12px; line-height: 1.3; }
+        .blog-meta { color: #64748b; font-size: 0.9em; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .blog-article h2 { font-size: 1.5em; color: #4c1d95; margin: 40px 0 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+        .blog-article h3 { font-size: 1.2em; color: #334155; margin: 28px 0 10px; }
+        .blog-article p { color: #334155; margin-bottom: 16px; line-height: 1.8; }
+        .blog-article ul, .blog-article ol { margin: 12px 0 20px 24px; color: #334155; }
+        .blog-article li { margin-bottom: 8px; line-height: 1.7; }
+        .breadcrumb { font-size: 0.85em; color: #94a3b8; margin-bottom: 16px; }
+        .breadcrumb a { color: #7c3aed; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .learning-objectives {
+            background: #f5f3ff;
+            border-left: 4px solid #7c3aed;
+            padding: 20px 24px; margin: 24px 0 32px;
+            border-radius: 0 10px 10px 0;
+        }
+        .learning-objectives h4 { color: #4c1d95; margin: 0 0 12px; font-size: 1em; font-weight: 700; }
+        .learning-objectives ul { margin: 0 0 0 20px; }
+        .learning-objectives li { color: #3b0764; line-height: 1.7; margin-bottom: 6px; font-size: 0.95em; }
+
+        .example-box {
+            background: #f5f3ff; border-left: 4px solid #7c3aed;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .example-box h4 { color: #4c1d95; margin: 0 0 12px; font-size: 1.05em; }
+        .example-box p, .example-box li { color: #334155; line-height: 1.8; }
+        .definition-box {
+            background: #f0f7ff; border-left: 4px solid #3b82f6;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .definition-box h4 { color: #1d4ed8; margin: 0 0 12px; font-size: 1.05em; }
+        .definition-box p, .definition-box ol, .definition-box li { color: #334155; line-height: 1.8; }
+        .theorem-box {
+            background: #fff7ed; border-left: 4px solid #f97316;
+            padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0;
+        }
+        .theorem-box h4 { color: #c2410c; margin: 0 0 12px; font-size: 1.05em; }
+        .theorem-box p, .theorem-box ul, .theorem-box li { color: #334155; line-height: 1.8; }
+
+        .try-it-box {
+            background: #f5f3ff;
+            border: 1.5px dashed #c4b5fd;
+            padding: 16px 20px; margin: -4px 0 24px;
+            border-radius: 0 0 8px 8px;
+        }
+        .try-it-box .try-it-label {
+            display: inline-block; background: #7c3aed; color: white;
+            font-size: 0.75em; font-weight: 700; padding: 2px 10px;
+            border-radius: 4px; margin-bottom: 8px; letter-spacing: .5px;
+        }
+        .try-it-box p { margin: 0; color: #334155; font-size: 0.95em; }
+        .try-it-box details { margin-top: 10px; }
+        .try-it-box details summary {
+            cursor: pointer; color: #4c1d95; font-weight: 600;
+            font-size: 0.9em; user-select: none;
+        }
+        .try-it-answer {
+            padding: 10px 14px; background: white; border-radius: 6px;
+            margin-top: 6px; color: #334155; font-size: 0.92em; line-height: 1.7;
+        }
+
+        .geom-tip {
+            background: #fefce8; border-left: 4px solid #eab308;
+            padding: 14px 20px; margin: 16px 0; border-radius: 0 8px 8px 0;
+            display: flex; gap: 12px; align-items: flex-start;
+        }
+        .geom-tip-icon { font-size: 1.2em; flex-shrink: 0; margin-top: 1px; }
+        .geom-tip p { margin: 0; color: #334155; font-size: 0.92em; line-height: 1.7; }
+        .geom-tip strong { color: #92400e; }
+
+        .desmos-wrap {
+            margin: 24px auto; background: #f8fafc; border-radius: 12px;
+            padding: 4px; border: 1px solid #e2e8f0; text-align: center;
+        }
+        .desmos-caption { color: #475569; font-size: 0.9em; margin: 8px 4px 4px; font-style: italic; }
+        .fig-label {
+            text-align: center; font-size: 0.82em; color: #64748b;
+            margin: 6px 0 4px; font-weight: 600; letter-spacing: 0.03em;
+        }
+
+        /* Proof table */
+        .proof-table {
+            width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.95em;
+        }
+        .proof-table th {
+            background: #4c1d95; color: white; padding: 10px 16px;
+            text-align: left; font-weight: 600;
+        }
+        .proof-table td { padding: 10px 16px; border: 1px solid #e2e8f0; color: #334155; vertical-align: top; }
+        .proof-table tr:nth-child(even) { background: #faf5ff; }
+        .step-num { font-weight: 700; color: #7c3aed; }
+
+        /* Truth table */
+        .truth-table {
+            border-collapse: collapse; margin: 16px auto 24px; font-size: 0.95em;
+        }
+        .truth-table th {
+            background: #1e293b; color: white; padding: 8px 18px;
+            text-align: center; font-weight: 600;
+        }
+        .truth-table td { padding: 8px 18px; border: 1px solid #e2e8f0; text-align: center; color: #334155; }
+        .truth-table tr:nth-child(even) { background: #f8fafc; }
+        .true { color: #16a34a; font-weight: 700; }
+        .false { color: #dc2626; font-weight: 700; }
+
+        /* Practice */
+        .practice-section { margin-top: 50px; padding-top: 24px; border-top: 2px solid #e2e8f0; }
+        .practice-section h2 { border-top: none; padding-top: 0; margin-top: 0; }
+        .practice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 640px) { .practice-grid { grid-template-columns: 1fr; } }
+        .practice-card {
+            background: #f8fafc; border-radius: 10px; padding: 20px;
+            border: 1px solid #e2e8f0;
+        }
+        .practice-card .p-num {
+            display: inline-block; background: #7c3aed; color: white;
+            border-radius: 50%; width: 26px; height: 26px; text-align: center;
+            line-height: 26px; font-size: 0.85em; font-weight: 700; margin-bottom: 10px;
+        }
+        .practice-card p { margin: 0 0 12px; color: #334155; font-size: 0.95em; line-height: 1.7; }
+        .practice-card details summary {
+            cursor: pointer; color: #7c3aed; font-size: 0.88em; font-weight: 600; user-select: none;
+        }
+        .practice-answer {
+            margin-top: 8px; padding: 10px 14px; background: white; border-radius: 6px;
+            font-size: 0.9em; color: #334155; line-height: 1.7;
+        }
+
+        /* Chapter nav */
+        .chapter-nav {
+            display: flex; justify-content: space-between; gap: 16px;
+            margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0;
+        }
+        .chapter-nav a {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: #7c3aed; text-decoration: none; font-weight: 600; font-size: 0.95em;
+        }
+        .chapter-nav a:hover { text-decoration: underline; }
+
+        /* Given/Prove box */
+        .given-prove {
+            background: #faf5ff; border: 1px solid #c4b5fd;
+            border-radius: 8px; padding: 16px 20px; margin: 16px 0;
+        }
+        .given-prove p { margin: 4px 0; color: #334155; }
+        .given-prove strong { color: #4c1d95; }
+
+        /* ── Section Summary ── */
+        .section-summary { background: #f8fafc; border: 2px solid #e2e8f0; padding: 28px 32px; margin: 44px 0 28px; border-radius: 12px; }
+        .section-summary h3 { color: #1e3a5f; margin: 0 0 20px; font-size: 1.2em; }
+        .section-summary h4 { color: #475569; margin: 20px 0 10px; font-size: 0.95em; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+        .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .summary-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; }
+        .summary-card strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .summary-card p { margin: 0; color: #334155; font-size: 0.88em; line-height: 1.6; }
+        .key-terms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin: 16px 0; }
+        .key-term-item { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; }
+        .key-term-item strong { color: #1e3a5f; display: block; margin-bottom: 4px; font-size: 0.9em; }
+        .key-term-item span { color: #64748b; font-size: 0.85em; line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <div class="blog-article">
+        <div class="breadcrumb">
+            <a href="/us/">US Math</a> &rsaquo;
+            <a href="/us/textbook/geometry/">Geometry</a> &rsaquo;
+            Chapter 2: Reasoning and Proof
+        </div>
+
+        <h1>Chapter 2: Reasoning and Proof</h1>
+        <div class="blog-meta">High School Geometry &middot; MathHub &middot; 2026</div>
+
+        <div class="learning-objectives">
+            <h4>Learning Objectives</h4>
+            <ul>
+                <li>Distinguish between inductive and deductive reasoning</li>
+                <li>Identify counterexamples to disprove conjectures</li>
+                <li>Write the hypothesis and conclusion of a conditional statement</li>
+                <li>Form the converse, inverse, and contrapositive of a conditional</li>
+                <li>Understand when a biconditional statement is valid</li>
+                <li>Write two-column proofs using properties and postulates</li>
+                <li>Apply algebraic properties of equality in geometric proofs</li>
+                <li><a href="#section-summary">Chapter Summary</a></li>
+                <li><a href="#key-terms">Key Terms</a></li>
+            </ul>
+        </div>
+
+        <h2>2.1 Inductive Reasoning</h2>
+
+        <p><strong>Inductive reasoning</strong> uses patterns in specific cases to form a general conclusion called a <strong>conjecture</strong>. It is the basis of mathematical discovery — but inductive reasoning can lead to false conclusions.</p>
+
+        <div class="definition-box">
+            <h4>Inductive Reasoning and Conjectures</h4>
+            <p><strong>Inductive reasoning:</strong> Observing a pattern and drawing a general conclusion.</p>
+            <p><strong>Conjecture:</strong> A conclusion based on observed patterns. Not yet proven — it may be false.</p>
+            <p><strong>Counterexample:</strong> A single specific case that proves a conjecture false. One counterexample is enough to disprove any conjecture.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2.1 — Forming and Disproving a Conjecture</h4>
+            <p><strong>Pattern:</strong> 1, 4, 9, 16, 25, … (perfect squares)</p>
+            <p><strong>Conjecture:</strong> "The difference between consecutive perfect squares is always odd."</p>
+            <p>4−1=3 ✓, 9−4=5 ✓, 16−9=7 ✓, 25−16=9 ✓ → Pattern holds so far.</p>
+            <p><strong>Is the conjecture true?</strong> In general, $(n+1)^2 - n^2 = 2n+1$, which is always odd. This conjecture happens to be true — but inductive reasoning alone doesn't prove it; we need deductive reasoning.</p>
+            <p><strong>A false conjecture example:</strong> "The expression $n^2 - n + 41$ is always prime." It works for $n=1$ through $n=40$, but at $n=41$: $41^2 - 41 + 41 = 41^2 = 1681$, which is not prime. <strong>Counterexample found.</strong></p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>A student conjectures: "The product of any two odd numbers is odd." Find three examples that support this, then determine if it's actually true or find a counterexample.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <strong>Examples:</strong> 3×5=15 (odd), 7×9=63 (odd), 11×3=33 (odd)<br>
+                    <strong>Truth:</strong> An odd number has the form (2a+1). Product: (2a+1)(2b+1) = 4ab+2a+2b+1 = 2(2ab+a+b)+1, which is always odd. <strong>Conjecture is TRUE</strong> — but we needed deductive reasoning to confirm it.
+                </div>
+            </details>
+        </div>
+
+        <h2>2.2 Conditional Statements</h2>
+
+        <p>A <strong>conditional statement</strong> (also called an if-then statement) has the form: <strong>If p, then q</strong>, written $p \to q$. The part after "if" is the <strong>hypothesis (p)</strong>; the part after "then" is the <strong>conclusion (q)</strong>.</p>
+
+        <div class="definition-box">
+            <h4>Related Conditionals</h4>
+            <ul>
+                <li><strong>Conditional:</strong> If $p$, then $q$. &nbsp; ($p \to q$)</li>
+                <li><strong>Converse:</strong> If $q$, then $p$. &nbsp; ($q \to p$) — swap hypothesis and conclusion</li>
+                <li><strong>Inverse:</strong> If not $p$, then not $q$. &nbsp; ($\neg p \to \neg q$) — negate both</li>
+                <li><strong>Contrapositive:</strong> If not $q$, then not $p$. &nbsp; ($\neg q \to \neg p$) — swap AND negate</li>
+            </ul>
+            <p><strong>Key fact:</strong> A conditional and its contrapositive always have the same truth value. The converse and inverse always have the same truth value (but may differ from the original).</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2.2 — Writing All Four Related Conditionals</h4>
+            <p><strong>Original:</strong> "If it is raining, then the ground is wet." (True)</p>
+            <table style="width:100%; border-collapse:collapse; margin-top:10px; font-size:0.93em;">
+                <tr style="background:#4c1d95; color:white;"><th style="padding:8px 12px; text-align:left;">Statement</th><th style="padding:8px 12px; text-align:left;">Form</th><th style="padding:8px 12px;">Truth</th></tr>
+                <tr style="background:#faf5ff;"><td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;">If raining, then wet</td><td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;">$p \to q$</td><td style="padding:8px 12px; text-align:center; border-bottom:1px solid #e2e8f0; color:#16a34a; font-weight:700;">True</td></tr>
+                <tr><td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;">If wet, then raining (Converse)</td><td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;">$q \to p$</td><td style="padding:8px 12px; text-align:center; border-bottom:1px solid #e2e8f0; color:#dc2626; font-weight:700;">False*</td></tr>
+                <tr style="background:#faf5ff;"><td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;">If not raining, then not wet (Inverse)</td><td style="padding:8px 12px; border-bottom:1px solid #e2e8f0;">$\neg p \to \neg q$</td><td style="padding:8px 12px; text-align:center; border-bottom:1px solid #e2e8f0; color:#dc2626; font-weight:700;">False*</td></tr>
+                <tr><td style="padding:8px 12px;">If not wet, then not raining (Contrapositive)</td><td style="padding:8px 12px;">$\neg q \to \neg p$</td><td style="padding:8px 12px; text-align:center; color:#16a34a; font-weight:700;">True</td></tr>
+            </table>
+            <p style="margin-top:10px; font-size:0.88em; color:#64748b;">*A sprinkler could wet the ground without rain — counterexample disproves the converse.</p>
+        </div>
+
+        <h3>Biconditional Statements</h3>
+
+        <p>A <strong>biconditional statement</strong> combines a conditional and its converse: "<strong>p if and only if q</strong>" (written $p \leftrightarrow q$). It is true only when both $p$ and $q$ have the same truth value.</p>
+
+        <p>A biconditional is valid (true) when both the conditional <em>and</em> its converse are true. Definitions in geometry are always biconditionals.</p>
+
+        <div class="example-box">
+            <h4>Example 2.3 — Biconditional Statements</h4>
+            <p>"An angle is a right angle <strong>if and only if</strong> its measure is 90°."</p>
+            <p>This is valid because: (1) If an angle is right, its measure is 90° ✓, and (2) If its measure is 90°, it is a right angle ✓.</p>
+            <p><strong>Invalid biconditional attempt:</strong> "A figure is a square if and only if it has four sides." The converse fails — a rectangle has four sides but is not necessarily a square. So this biconditional is <em>false</em>.</p>
+        </div>
+
+        <!-- Desmos: Venn diagram for conditional logic -->
+        <div class="desmos-wrap" style="max-width:600px;">
+            <p class="desmos-caption">Conditional p→q illustrated: when p is true, q must also be true</p>
+            <div id="graph-venn" style="width:100%;height:300px;"></div>
+            <p class="fig-label">Figure 2.1 — Venn Diagram: Conditional Statement p → q</p>
+        </div>
+
+        <h2>2.3 Deductive Reasoning</h2>
+
+        <p><strong>Deductive reasoning</strong> uses accepted facts, definitions, postulates, and theorems to reach conclusions that <em>must</em> be true. It is the foundation of mathematical proof.</p>
+
+        <div class="definition-box">
+            <h4>Laws of Deductive Reasoning</h4>
+            <p><strong>Law of Detachment:</strong> If $p \to q$ is true and $p$ is true, then $q$ must be true.</p>
+            <p><em>Example:</em> "If it rains, the game is cancelled." It is raining. Therefore, the game is cancelled.</p>
+            <br>
+            <p><strong>Law of Syllogism:</strong> If $p \to q$ and $q \to r$ are both true, then $p \to r$ is true.</p>
+            <p><em>Example:</em> "If I study, I pass. If I pass, I graduate." Therefore: "If I study, I graduate."</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2.4 — Law of Syllogism</h4>
+            <p>Statement 1: If a number is divisible by 6, then it is divisible by 3.</p>
+            <p>Statement 2: If a number is divisible by 3, then the sum of its digits is divisible by 3.</p>
+            <p><strong>Conclusion (Law of Syllogism):</strong> If a number is divisible by 6, then the sum of its digits is divisible by 3.</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Given: (1) If $\angle A$ and $\angle B$ are supplementary, then $m\angle A + m\angle B = 180°$. (2) $\angle A$ and $\angle B$ are supplementary. What can you conclude? What law did you use?</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <strong>Conclusion:</strong> $m\angle A + m\angle B = 180°$<br>
+                    <strong>Law used:</strong> Law of Detachment (the hypothesis of statement 1 is given as true in statement 2, so the conclusion follows).
+                </div>
+            </details>
+        </div>
+
+        <h2>2.4 Properties of Equality and Congruence</h2>
+
+        <p>Proofs in geometry use properties of equality (for measures) and congruence (for geometric figures). These are the tools that justify each step.</p>
+
+        <div class="theorem-box">
+            <h4>Algebraic Properties of Equality</h4>
+            <ul>
+                <li><strong>Reflexive:</strong> $a = a$</li>
+                <li><strong>Symmetric:</strong> If $a = b$, then $b = a$</li>
+                <li><strong>Transitive:</strong> If $a = b$ and $b = c$, then $a = c$</li>
+                <li><strong>Addition:</strong> If $a = b$, then $a + c = b + c$</li>
+                <li><strong>Subtraction:</strong> If $a = b$, then $a - c = b - c$</li>
+                <li><strong>Multiplication:</strong> If $a = b$, then $ac = bc$</li>
+                <li><strong>Division:</strong> If $a = b$ and $c \neq 0$, then $a/c = b/c$</li>
+                <li><strong>Substitution:</strong> If $a = b$, then $a$ may replace $b$ in any expression</li>
+                <li><strong>Distributive:</strong> $a(b + c) = ab + ac$</li>
+            </ul>
+        </div>
+
+        <div class="theorem-box">
+            <h4>Properties of Congruence</h4>
+            <ul>
+                <li><strong>Reflexive:</strong> $\overline{AB} \cong \overline{AB}$; $\angle A \cong \angle A$</li>
+                <li><strong>Symmetric:</strong> If $\overline{AB} \cong \overline{CD}$, then $\overline{CD} \cong \overline{AB}$</li>
+                <li><strong>Transitive:</strong> If $\overline{AB} \cong \overline{CD}$ and $\overline{CD} \cong \overline{EF}$, then $\overline{AB} \cong \overline{EF}$</li>
+            </ul>
+        </div>
+
+        <h2>2.5 Writing Two-Column Proofs</h2>
+
+        <p>A <strong>two-column proof</strong> organizes statements and reasons in two columns. Each statement must be justified by a definition, property, postulate, or theorem.</p>
+
+        <div class="geom-tip">
+            <span class="geom-tip-icon">★</span>
+            <p><strong>Proof Strategy:</strong> Start by writing "Given" as your first statement. Identify what you need to prove. Work through the chain of logic — each new statement should follow from what you've established, ending with the "Prove" statement as your last line.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2.5 — Two-Column Algebraic Proof</h4>
+            <div class="given-prove">
+                <p><strong>Given:</strong> $2(x + 3) = 14$</p>
+                <p><strong>Prove:</strong> $x = 4$</p>
+            </div>
+            <table class="proof-table">
+                <tr><th>Statements</th><th>Reasons</th></tr>
+                <tr><td><span class="step-num">1.</span> $2(x + 3) = 14$</td><td>Given</td></tr>
+                <tr><td><span class="step-num">2.</span> $2x + 6 = 14$</td><td>Distributive Property</td></tr>
+                <tr><td><span class="step-num">3.</span> $2x = 8$</td><td>Subtraction Property of Equality</td></tr>
+                <tr><td><span class="step-num">4.</span> $x = 4$</td><td>Division Property of Equality</td></tr>
+            </table>
+        </div>
+
+        <div class="example-box">
+            <h4>Example 2.6 — Two-Column Geometric Proof</h4>
+            <div class="given-prove">
+                <p><strong>Given:</strong> $\overline{AC}$ with $B$ between $A$ and $C$; $AB = CD$; $B$, $C$, $D$ are collinear with $C$ between $B$ and $D$</p>
+                <p><strong>Prove:</strong> $AC = BD$</p>
+            </div>
+            <table class="proof-table">
+                <tr><th>Statements</th><th>Reasons</th></tr>
+                <tr><td><span class="step-num">1.</span> $B$ is between $A$ and $C$; $C$ is between $B$ and $D$</td><td>Given</td></tr>
+                <tr><td><span class="step-num">2.</span> $AC = AB + BC$</td><td>Segment Addition Postulate</td></tr>
+                <tr><td><span class="step-num">3.</span> $BD = BC + CD$</td><td>Segment Addition Postulate</td></tr>
+                <tr><td><span class="step-num">4.</span> $AB = CD$</td><td>Given</td></tr>
+                <tr><td><span class="step-num">5.</span> $AC = BC + CD$</td><td>Substitution (steps 2 and 4)</td></tr>
+                <tr><td><span class="step-num">6.</span> $AC = BD$</td><td>Transitive Property of Equality (steps 3 and 5)</td></tr>
+            </table>
+        </div>
+
+        <!-- Desmos: Segment proof illustration -->
+        <div class="desmos-wrap" style="max-width:650px;">
+            <p class="desmos-caption">Segment Addition Postulate: B between A and C means AB + BC = AC</p>
+            <div id="graph-segment" style="width:100%;height:240px;"></div>
+            <p class="fig-label">Figure 2.2 — Segment Addition Postulate Visualization</p>
+        </div>
+
+        <div class="try-it-box">
+            <span class="try-it-label">TRY IT</span>
+            <p>Given: $m\angle 1 + m\angle 2 = 90°$ and $m\angle 2 = 35°$. Prove: $m\angle 1 = 55°$ using a two-column proof.</p>
+            <details>
+                <summary>Show Answer</summary>
+                <div class="try-it-answer">
+                    <table style="width:100%; border-collapse:collapse; font-size:0.92em;">
+                        <tr style="background:#4c1d95; color:white;"><th style="padding:6px 10px; text-align:left;">Statements</th><th style="padding:6px 10px; text-align:left;">Reasons</th></tr>
+                        <tr><td style="padding:6px 10px; border-bottom:1px solid #e2e8f0;">1. m∠1 + m∠2 = 90°</td><td style="padding:6px 10px; border-bottom:1px solid #e2e8f0;">Given</td></tr>
+                        <tr style="background:#faf5ff;"><td style="padding:6px 10px; border-bottom:1px solid #e2e8f0;">2. m∠2 = 35°</td><td style="padding:6px 10px; border-bottom:1px solid #e2e8f0;">Given</td></tr>
+                        <tr><td style="padding:6px 10px; border-bottom:1px solid #e2e8f0;">3. m∠1 + 35° = 90°</td><td style="padding:6px 10px; border-bottom:1px solid #e2e8f0;">Substitution (steps 1, 2)</td></tr>
+                        <tr style="background:#faf5ff;"><td style="padding:6px 10px;">4. m∠1 = 55°</td><td style="padding:6px 10px;">Subtraction Property of Equality</td></tr>
+                    </table>
+                </div>
+            </details>
+        </div>
+
+        <!-- Desmos: Angle proof illustration -->
+        <div class="desmos-wrap" style="max-width:500px;">
+            <p class="desmos-caption">Complementary angles: when two angles sum to 90°</p>
+            <div id="graph-angles" style="width:100%;height:300px;"></div>
+            <p class="fig-label">Figure 2.3 — Complementary Angles and Angle Addition</p>
+        </div>
+
+        <!-- Practice Problems -->
+        <div class="practice-section">
+            <h2>Practice Problems</h2>
+            <div class="practice-grid">
+
+                <div class="practice-card">
+                    <span class="p-num">1</span>
+                    <p>Find a counterexample to disprove: "If $n$ is a whole number, then $n^2 > n$."</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Try $n = 1$: $1^2 = 1$, not greater than 1. Also $n=0$: $0^2=0$, not greater than 0.<br>
+                            <strong>Counterexample: $n = 1$</strong> (or $n = 0$). The conjecture is false.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">2</span>
+                    <p>Write the converse, inverse, and contrapositive of: "If a polygon is a square, then it has four sides." Determine the truth value of each.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            <strong>Conditional:</strong> Square → 4 sides. <span style="color:#16a34a">True</span><br>
+                            <strong>Converse:</strong> If 4 sides, then square. <span style="color:#dc2626">False</span> (rectangle is a counterexample)<br>
+                            <strong>Inverse:</strong> If not square, then not 4 sides. <span style="color:#dc2626">False</span><br>
+                            <strong>Contrapositive:</strong> If not 4 sides, then not square. <span style="color:#16a34a">True</span>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">3</span>
+                    <p>Use the Law of Syllogism to write a new conditional: (1) "If it is Friday, then we have pizza." (2) "If we have pizza, then everyone is happy."</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            <strong>Conclusion:</strong> "If it is Friday, then everyone is happy." (Law of Syllogism — chain the middle link "we have pizza" away.)
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">4</span>
+                    <p>Is the following a valid biconditional? "A triangle is equilateral if and only if all three angles are 60°." Explain.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            <strong>Conditional:</strong> Equilateral triangle → all angles 60°. <span style="color:#16a34a">True</span><br>
+                            <strong>Converse:</strong> All angles 60° → equilateral. <span style="color:#16a34a">True</span> (equal angles force equal sides by the Isosceles Triangle Theorem)<br>
+                            Both directions are true, so this <strong>is a valid biconditional</strong>.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">5</span>
+                    <p>Complete the proof. Given: $3x - 7 = 20$. Prove: $x = 9$. Fill in the missing reasons.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            Step 1: $3x - 7 = 20$ — <strong>Given</strong><br>
+                            Step 2: $3x = 27$ — <strong>Addition Property of Equality</strong><br>
+                            Step 3: $x = 9$ — <strong>Division Property of Equality</strong>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">6</span>
+                    <p>Given that $\angle 1 \cong \angle 3$ and $\angle 3 \cong \angle 5$, what can you conclude? What property justifies your conclusion?</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            <strong>Conclusion:</strong> $\angle 1 \cong \angle 5$<br>
+                            <strong>Reason:</strong> Transitive Property of Congruence.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">7</span>
+                    <p>Write a two-column proof. Given: $\angle ABC$ is a right angle. $\angle ABD + \angle DBC = \angle ABC$. $\angle ABD = 40°$. Prove: $\angle DBC = 50°$.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            1. ∠ABC is right → m∠ABC = 90° (Def. of right angle)<br>
+                            2. m∠ABD + m∠DBC = m∠ABC (Angle Addition Postulate)<br>
+                            3. m∠ABD + m∠DBC = 90° (Substitution, steps 1, 2)<br>
+                            4. m∠ABD = 40° (Given)<br>
+                            5. 40° + m∠DBC = 90° (Substitution, steps 3, 4)<br>
+                            6. m∠DBC = 50° (Subtraction Property of Equality)
+                        </div>
+                    </details>
+                </div>
+
+                <div class="practice-card">
+                    <span class="p-num">8</span>
+                    <p>Look at the pattern: 2, 5, 10, 17, 26, … Make a conjecture about the next two terms and describe the pattern.</p>
+                    <details>
+                        <summary>Show Solution</summary>
+                        <div class="practice-answer">
+                            <strong>Differences:</strong> 3, 5, 7, 9, … (odd numbers increasing by 2)<br>
+                            <strong>Next terms:</strong> 26 + 11 = <strong>37</strong>; 37 + 13 = <strong>50</strong><br>
+                            <strong>Conjecture:</strong> The $n$th term is $n^2 + 1$ (so 1²+1=2, 2²+1=5, 3²+1=10, ✓).
+                        </div>
+                    </details>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="section-summary" id="section-summary">
+            <h3>&#128203; Chapter Summary</h3>
+            <h4>Types of Reasoning</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Inductive Reasoning</strong>
+                    <p>Drawing a general conclusion from specific examples. Results in a <em>conjecture</em>. Not guaranteed to be true — one counterexample disproves it.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Deductive Reasoning</strong>
+                    <p>Using accepted facts (postulates, theorems) to prove new conclusions. The basis of geometric proof. If premises are true, the conclusion must be true.</p>
+                </div>
+            </div>
+            <h4>Conditional Statements</h4>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <strong>Conditional</strong>
+                    <p>"If $p$, then $q$" — written $p \Rightarrow q$. The hypothesis is $p$; conclusion is $q$.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Converse</strong>
+                    <p>"If $q$, then $p$" — $q \Rightarrow p$. Not necessarily true even when the original is true.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Inverse</strong>
+                    <p>"If not $p$, then not $q$" — $\neg p \Rightarrow \neg q$. Same truth value as the converse.</p>
+                </div>
+                <div class="summary-card">
+                    <strong>Contrapositive</strong>
+                    <p>"If not $q$, then not $p$" — $\neg q \Rightarrow \neg p$. Always has the same truth value as the original conditional.</p>
+                </div>
+            </div>
+            <h4>Proof Tips</h4>
+            <ol style="color:#334155;line-height:1.9;margin-left:20px;">
+                <li><strong>Mark the diagram</strong> — label given information and what you know</li>
+                <li><strong>Start from given</strong> — list all given statements first</li>
+                <li><strong>Work toward the goal</strong> — each step must follow from previous ones</li>
+                <li><strong>Cite a reason for every step</strong> — postulate, theorem, definition, or given</li>
+            </ol>
+        </div>
+        <div id="key-terms" style="margin-bottom: 36px;">
+            <h3 style="color:#1e3a5f; font-size:1.15em; margin-bottom:16px;">&#128216; Key Terms</h3>
+            <div class="key-terms-grid">
+                <div class="key-term-item"><strong>Conjecture</strong><span>An unproven statement based on observations. Requires a proof to become a theorem.</span></div>
+                <div class="key-term-item"><strong>Counterexample</strong><span>A single example that disproves a conjecture or conditional statement.</span></div>
+                <div class="key-term-item"><strong>Biconditional</strong><span>"$p$ if and only if $q$" — both the conditional and its converse are true.</span></div>
+                <div class="key-term-item"><strong>Postulate</strong><span>A statement accepted as true without proof. The starting assumptions of geometry.</span></div>
+                <div class="key-term-item"><strong>Theorem</strong><span>A statement that has been proven using postulates, definitions, and previously proven theorems.</span></div>
+                <div class="key-term-item"><strong>Two-Column Proof</strong><span>A structured proof format with statements in the left column and reasons in the right column.</span></div>
+            </div>
+        </div>
+
+        <div class="chapter-nav">
+            <a href="/us/textbook/geometry/foundations.html">&#8592; Chapter 1: Points, Lines, and Planes</a>
+            <a href="/us/textbook/geometry/">All Chapters</a>
+        </div>
+    </div>
+
+    <script>
+    // Figure 2.1 — Venn diagram: p implies q
+    (function() {
+        var elt = document.getElementById('graph-venn');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: true, border: false, showGrid: false, showXAxis: false, showYAxis: false
+        });
+        calc.setMathBounds({ left: -5, right: 5, bottom: -3, top: 3 });
+        calc.setExpressions([
+            // Outer circle (q region)
+            { id: 'cq', latex: 'x^2+y^2=9', color: '#3b82f6', lineWidth: 2.5 },
+            // Inner circle (p region, inside q)
+            { id: 'cp', latex: '(x+0.5)^2+y^2=4', color: '#7c3aed', lineWidth: 2.5 },
+            // Labels
+            { id: 'lp', latex: '(-0.5, 0)', label: 'p (hypothesis)', showLabel: true, pointOpacity: 0, color: '#4c1d95' },
+            { id: 'lq', latex: '(2.2, 2)', label: 'q (conclusion)', showLabel: true, pointOpacity: 0, color: '#1d4ed8' },
+            { id: 'arrow', latex: '\\left(-0.5+1.5t, 0\\right)', color: '#ef4444', lineWidth: 2 },
+        ]);
+    })();
+
+    // Figure 2.2 — Segment Addition Postulate
+    (function() {
+        var elt = document.getElementById('graph-segment');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: true, border: false, showGrid: false, showXAxis: false, showYAxis: false
+        });
+        calc.setMathBounds({ left: -0.5, right: 10.5, bottom: -1.5, top: 1.5 });
+        calc.setExpressions([
+            // Segment A to C
+            { id: 'seg', latex: 'y=0\\left\\{0\\le x\\le 10\\right\\}', color: '#1e293b', lineWidth: 3 },
+            // Points
+            { id: 'pA', latex: '(0,0)', label: 'A', showLabel: true, color: '#4c1d95', pointSize: 12 },
+            { id: 'pB', latex: '(4,0)', label: 'B', showLabel: true, color: '#7c3aed', pointSize: 12 },
+            { id: 'pC', latex: '(10,0)', label: 'C', showLabel: true, color: '#4c1d95', pointSize: 12 },
+            // AB label
+            { id: 'ab', latex: '(2, 0.6)', label: 'AB', showLabel: true, pointOpacity: 0, color: '#dc2626' },
+            // BC label
+            { id: 'bc', latex: '(7, 0.6)', label: 'BC', showLabel: true, pointOpacity: 0, color: '#2563eb' },
+            // AC label
+            { id: 'ac', latex: '(5, -0.8)', label: 'AC = AB + BC', showLabel: true, pointOpacity: 0, color: '#059669' },
+            // Brace lines
+            { id: 'brace1', latex: 'y=0.35\\left\\{0\\le x\\le 4\\right\\}', color: '#dc2626', lineWidth: 2, lineStyle: Desmos.Styles.DASHED },
+            { id: 'brace2', latex: 'y=0.35\\left\\{4\\le x\\le 10\\right\\}', color: '#2563eb', lineWidth: 2, lineStyle: Desmos.Styles.DASHED },
+        ]);
+    })();
+
+    // Figure 2.3 — Complementary angles
+    (function() {
+        var elt = document.getElementById('graph-angles');
+        var calc = Desmos.GraphingCalculator(elt, {
+            expressions: false, settingsMenu: false, zoomButtons: false,
+            lockViewport: true, border: false, showGrid: false, showXAxis: false, showYAxis: false
+        });
+        calc.setMathBounds({ left: -1.5, right: 3.5, bottom: -0.5, top: 3.5 });
+        calc.setExpressions([
+            // Horizontal ray
+            { id: 'r1', latex: 'y=0\\left\\{0\\le x\\le 3\\right\\}', color: '#1e293b', lineWidth: 2.5 },
+            // Vertical ray
+            { id: 'r2', latex: 'x=0\\left\\{0\\le y\\le 3\\right\\}', color: '#1e293b', lineWidth: 2.5 },
+            // Diagonal ray at 55° from horizontal
+            { id: 'r3', latex: 'y=\\tan\\left(\\frac{55\\pi}{180}\\right)x\\left\\{0\\le x\\le 2.5\\right\\}', color: '#7c3aed', lineWidth: 2.5 },
+            // Arc for angle 1 (35°)
+            { id: 'arc1', latex: '\\left(0.8\\cos t, 0.8\\sin t\\right)\\left\\{0\\le t\\le\\frac{55\\pi}{180}\\right\\}', color: '#dc2626', lineWidth: 2 },
+            // Arc for angle 2 (55°)
+            { id: 'arc2', latex: '\\left(0.5\\cos t, 0.5\\sin t\\right)\\left\\{\\frac{55\\pi}{180}\\le t\\le\\frac{\\pi}{2}\\right\\}', color: '#2563eb', lineWidth: 2 },
+            // Labels
+            { id: 'la1', latex: '(1.1, 0.45)', label: '∠1 = 55°', showLabel: true, pointOpacity: 0, color: '#dc2626' },
+            { id: 'la2', latex: '(0.2, 1.1)', label: '∠2 = 35°', showLabel: true, pointOpacity: 0, color: '#2563eb' },
+            { id: 'sum', latex: '(1.5, 2.8)', label: '∠1 + ∠2 = 90°', showLabel: true, pointOpacity: 0, color: '#059669' },
+            // Right angle marker
+            { id: 'rm', latex: '(0.18, 0.18)', color: '#1e293b', pointOpacity: 0, label: '□', showLabel: true },
+        ]);
+    })();
+    </script>
+    <script src="../../../assets/js/textbook-ux.js"></script>
+</body>
+</html>

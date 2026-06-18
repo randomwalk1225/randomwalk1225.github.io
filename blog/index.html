@@ -2,22 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>MathHub Blog - SAT, A-Level &amp; IGCSE Study Guides | MathHub Global</title>
-    <meta name="description" content="Study guides, exam tips, and revision strategies for SAT, A-Level, and IGCSE mathematics. Expert advice to help you achieve your target score.">
-    <meta name="keywords" content="SAT math tips, A-Level maths revision, IGCSE maths guide, Digital SAT, exam preparation, study strategies">
+    <title>MathHub Blog - Math Study Tips & Exam Strategies | MathHub Global</title>
+    <meta name="description" content="Math education blog: SAT tips, A-Level revision, AP exam strategies, CSAT analysis, and more across Korea, USA, UK & Canada.">
+    <meta name="keywords" content="math blog, SAT tips, A-Level revision, AP Calculus, CSAT, IGCSE, exam strategies, study guides">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://mathhub.io/blog/">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mathhub.io/blog/">
-    <meta property="og:title" content="MathHub Blog - SAT, A-Level & IGCSE Study Guides">
-    <meta property="og:description" content="Study guides and exam tips for SAT, A-Level, and IGCSE maths.">
+    <meta property="og:title" content="MathHub Blog - Math Study Tips & Exam Strategies">
+    <meta property="og:description" content="Study tips, exam strategies, and math insights from Korea, USA, UK & Canada.">
     <meta property="og:site_name" content="MathHub Global">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="MathHub Blog - Study Guides & Exam Tips">
-    <meta name="twitter:description" content="Study guides for SAT, A-Level, and IGCSE mathematics.">
+    <meta name="twitter:title" content="MathHub Blog - Study Tips & Exam Strategies">
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322143430416257"
@@ -34,75 +34,56 @@
 
     <link rel="stylesheet" href="../assets/css/common.css">
     <style>
+        body { background: #0f0f1a; color: #fff; }
+
         .blog-hero {
-            background: #1a1a2e;
-            color: white;
-            padding: 60px 20px;
+            padding: 80px 20px 60px;
             text-align: center;
         }
-        .blog-hero h1 { font-size: 2.5em; margin-bottom: 10px; }
-        .blog-hero p { opacity: 0.85; font-size: 1.15em; max-width: 600px; margin: 0 auto; }
+        .blog-hero h1 { font-size: 2.8em; margin-bottom: 12px; border: none; padding: 0; color: #fff; }
+        .blog-hero p { color: rgba(255,255,255,0.6); font-size: 1.1em; max-width: 500px; margin: 0 auto; }
 
-        .blog-grid {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
+        .region-grid {
             display: grid;
-            gap: 24px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
         }
-        .blog-card {
-            background: white;
-            border-radius: 12px;
-            padding: 28px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        .region-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px;
+            padding: 32px 20px;
+            text-align: center;
             text-decoration: none;
-            color: inherit;
-            display: block;
-            transition: transform 0.2s, box-shadow 0.2s;
+            color: #fff;
+            transition: all 0.3s;
         }
-        .blog-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        .region-card:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(102,126,234,0.5);
+            transform: translateY(-4px);
         }
-        .blog-card .card-tag {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 4px;
-            font-size: 0.75em;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        .tag-us { background: #dbeafe; color: #1d4ed8; }
-        .tag-uk { background: #dcfce7; color: #16a34a; }
-        .blog-card h2 {
-            font-size: 1.35em;
-            color: #1e3a5f;
-            margin: 0 0 8px;
-            border: none;
-            padding: 0;
-        }
-        .blog-card .card-desc {
-            color: #64748b;
-            font-size: 0.95em;
-            line-height: 1.6;
-            margin: 0;
-        }
-        .blog-card .card-meta {
-            color: #94a3b8;
+        .region-flag { font-size: 2.4em; margin-bottom: 12px; }
+        .region-card h2 { font-size: 1.2em; margin-bottom: 6px; border: none; padding: 0; color: #fff; }
+        .region-count { color: rgba(255,255,255,0.4); font-size: 0.85em; }
+        .region-desc {
+            color: rgba(255,255,255,0.55);
             font-size: 0.8em;
-            margin-top: 12px;
+            margin-top: 10px;
+            line-height: 1.5;
         }
 
-        .blog-section-title {
-            max-width: 900px;
-            margin: 40px auto 0;
-            padding: 0 20px;
-            font-size: 1.3em;
-            color: #1e3a5f;
-        }
+        .site-footer { background: #0f0f1a; margin-top: 0; }
 
         @media (max-width: 768px) {
-            .blog-hero h1 { font-size: 1.8em; }
+            .blog-hero h1 { font-size: 2em; }
+            .region-grid { grid-template-columns: 1fr 1fr; max-width: 420px; }
+        }
+        @media (max-width: 480px) {
+            .region-grid { grid-template-columns: 1fr; max-width: 300px; }
         }
     </style>
 </head>
@@ -115,329 +96,96 @@
             <a href="/uk/">UK</a>
             <a href="/ca/">CA</a>
             <a href="/ib/">IB</a>
-            <a href="https://web-production-d0d3e.up.railway.app/" target="_blank" class="nav-cta">Question Bank</a>
         </div>
     </nav>
 
     <div class="blog-hero">
         <h1>MathHub Blog</h1>
-        <p>Study guides, exam tips, and revision strategies for SAT, A-Level &amp; IGCSE</p>
+        <p>Choose your region for study tips, exam strategies, and math insights</p>
     </div>
 
-    <h2 class="blog-section-title">AP Calculus Textbook</h2>
-    <div class="blog-grid">
-        <a href="/blog/ap-calculus-limits-textbook.html" class="blog-card">
-            <span class="card-tag tag-us">AP Calculus</span>
-            <h2>Ch 1: Limits and Continuity</h2>
-            <p class="card-desc">Limit evaluation, one-sided limits, Squeeze Theorem, continuity, and the Intermediate Value Theorem.</p>
-            <div class="card-meta">Textbook Chapter &middot; AB &amp; BC</div>
+    <div class="region-grid">
+        <a href="/kr/blog/" class="region-card">
+            <div class="region-flag">&#x1F1F0;&#x1F1F7;</div>
+            <h2>Korea</h2>
+            <div class="region-count">32 posts</div>
+            <div class="region-desc">&#xC218;&#xB2A5; &#xC804;&#xB7B5;, &#xC218;&#xD559; &#xAC1C;&#xB150;, &#xBB38;&#xC81C; &#xD480;&#xC774;</div>
         </a>
-        <a href="/blog/ap-calculus-derivatives-textbook.html" class="blog-card">
-            <span class="card-tag tag-us">AP Calculus</span>
-            <h2>Ch 2: Differentiation Rules</h2>
-            <p class="card-desc">Power rule, product &amp; quotient rules, derivatives of trigonometric, exponential, and logarithmic functions.</p>
-            <div class="card-meta">Textbook Chapter &middot; AB &amp; BC</div>
+        <a href="/us/blog/" class="region-card">
+            <div class="region-flag">&#x1F1FA;&#x1F1F8;</div>
+            <h2>USA</h2>
+            <div class="region-count">7 posts</div>
+            <div class="region-desc">SAT, AP Calculus, AMC prep &amp; exam tips</div>
         </a>
-        <a href="/blog/ap-calculus-chain-rule-textbook.html" class="blog-card">
-            <span class="card-tag tag-us">AP Calculus</span>
-            <h2>Ch 3: Chain Rule &amp; Implicit Differentiation</h2>
-            <p class="card-desc">Chain rule, implicit differentiation, inverse function derivatives, and higher-order derivatives.</p>
-            <div class="card-meta">Textbook Chapter &middot; AB &amp; BC</div>
+        <a href="/uk/blog/" class="region-card">
+            <div class="region-flag">&#x1F1EC;&#x1F1E7;</div>
+            <h2>UK</h2>
+            <div class="region-count">5 posts</div>
+            <div class="region-desc">A-Level revision, TMUA &amp; MAT admissions</div>
         </a>
-        <a href="/blog/ap-calculus-applications-derivatives-textbook.html" class="blog-card">
-            <span class="card-tag tag-us">AP Calculus</span>
-            <h2>Ch 4: Applications of Derivatives</h2>
-            <p class="card-desc">Related rates, optimization, linear approximation, extreme values, and the Mean Value Theorem.</p>
-            <div class="card-meta">Textbook Chapter &middot; AB &amp; BC</div>
+        <a href="/ca/blog/" class="region-card">
+            <div class="region-flag">&#x1F1E8;&#x1F1E6;</div>
+            <h2>Canada</h2>
+            <div class="region-count">3 posts</div>
+            <div class="region-desc">CEMC competitions &amp; C&eacute;gep calculus</div>
         </a>
-        <a href="/blog/ap-calculus-curve-sketching-textbook.html" class="blog-card">
-            <span class="card-tag tag-us">AP Calculus</span>
-            <h2>Ch 5: Curve Sketching &amp; L'H&ocirc;pital's Rule</h2>
-            <p class="card-desc">Critical points, first/second derivative tests, concavity, inflection points, L'H&ocirc;pital's Rule, optimization.</p>
-            <div class="card-meta">Textbook Chapter &middot; Interactive</div>
-        </a>
-        <a href="/blog/ap-calculus-integration-textbook.html" class="blog-card">
-            <span class="card-tag tag-us">AP Calculus</span>
-            <h2>Ch 6: Integration &amp; Fundamental Theorem</h2>
-            <p class="card-desc">Antiderivatives, Riemann sums, FTC Parts 1 &amp; 2, and u-substitution.</p>
-            <div class="card-meta">Textbook Chapter &middot; AB &amp; BC</div>
-        </a>
-        <a href="/blog/ap-calculus-techniques-integration-textbook.html" class="blog-card">
-            <span class="card-tag tag-us">AP Calculus</span>
-            <h2>Ch 7: Techniques of Integration</h2>
-            <p class="card-desc">Integration by parts, partial fractions, and improper integrals.</p>
-            <div class="card-meta">Textbook Chapter &middot; AB &amp; BC</div>
-        </a>
-        <a href="/blog/ap-calculus-applications-integration-textbook.html" class="blog-card">
-            <span class="card-tag tag-us">AP Calculus</span>
-            <h2>Ch 8: Applications of Integration</h2>
-            <p class="card-desc">Area between curves, volumes of revolution, cross sections, arc length, and average value.</p>
-            <div class="card-meta">Textbook Chapter &middot; AB &amp; BC</div>
-        </a>
-        <a href="/blog/ap-calculus-differential-equations-textbook.html" class="blog-card">
-            <span class="card-tag tag-us">AP Calculus</span>
-            <h2>Ch 9: Differential Equations</h2>
-            <p class="card-desc">Slope fields, Euler's method, separation of variables, exponential and logistic growth.</p>
-            <div class="card-meta">Textbook Chapter &middot; AB &amp; BC</div>
-        </a>
-        <a href="/blog/ap-calculus-parametric-polar-textbook.html" class="blog-card">
-            <span class="card-tag tag-us">AP Calculus</span>
-            <h2>Ch 10: Parametric, Polar &amp; Vectors</h2>
-            <p class="card-desc">Parametric equations, polar coordinates, polar area, and vector-valued functions.</p>
-            <div class="card-meta">Textbook Chapter &middot; BC Only</div>
-        </a>
-        <a href="/blog/ap-calculus-series-textbook.html" class="blog-card">
-            <span class="card-tag tag-us">AP Calculus</span>
-            <h2>Ch 11: Infinite Series &amp; Taylor Series</h2>
-            <p class="card-desc">Convergence tests, power series, Taylor and Maclaurin series, Lagrange error bound.</p>
-            <div class="card-meta">Textbook Chapter &middot; BC Only</div>
+        <a href="/ib/blog/" class="region-card">
+            <div class="region-flag">&#x1F30D;</div>
+            <h2>IB</h2>
+            <div class="region-count">5 posts</div>
+            <div class="region-desc">AA/AI guides, IA tips &amp; exam strategy</div>
         </a>
     </div>
 
-    <h2 class="blog-section-title">Precalculus Textbook</h2>
-    <div class="blog-grid">
-        <a href="/blog/precalculus-functions-textbook.html" class="blog-card">
-            <span class="card-tag tag-us">Precalculus</span>
-            <h2>Ch 1: Functions &amp; Their Graphs</h2>
-            <p class="card-desc">Function notation, domain &amp; range, transformations, compositions, and inverse functions with interactive Desmos graphs.</p>
-            <div class="card-meta">Textbook Chapter &middot; Interactive</div>
-        </a>
-        <a href="/blog/precalculus-polynomial-textbook.html" class="blog-card">
-            <span class="card-tag tag-us">Precalculus</span>
-            <h2>Ch 2: Polynomial Functions</h2>
-            <p class="card-desc">End behavior, zeros and multiplicity, Rational Root Theorem, synthetic division, and graphing with interactive Desmos.</p>
-            <div class="card-meta">Textbook Chapter &middot; Interactive</div>
-        </a>
-        <a href="/blog/precalculus-rational-textbook.html" class="blog-card">
-            <span class="card-tag tag-us">Precalculus</span>
-            <h2>Ch 3: Rational Functions</h2>
-            <p class="card-desc">Vertical and horizontal asymptotes, holes, oblique asymptotes, and graphing rational functions with Desmos.</p>
-            <div class="card-meta">Textbook Chapter &middot; Interactive</div>
-        </a>
-        <a href="/blog/precalculus-exponential-log-textbook.html" class="blog-card">
-            <span class="card-tag tag-us">Precalculus</span>
-            <h2>Ch 4: Exponential &amp; Logarithmic Functions</h2>
-            <p class="card-desc">Exponential growth/decay, logarithmic properties, solving equations, and applications with interactive graphs.</p>
-            <div class="card-meta">Textbook Chapter &middot; Interactive</div>
-        </a>
-        <a href="/blog/precalculus-trigonometry-textbook.html" class="blog-card">
-            <span class="card-tag tag-us">Precalculus</span>
-            <h2>Ch 5: Trigonometric Functions</h2>
-            <p class="card-desc">Unit circle, graphs of sine, cosine, tangent, amplitude, period, phase shift with interactive Desmos sliders.</p>
-            <div class="card-meta">Textbook Chapter &middot; Interactive</div>
-        </a>
-        <a href="/blog/precalculus-trig-identities-textbook.html" class="blog-card">
-            <span class="card-tag tag-us">Precalculus</span>
-            <h2>Ch 6: Trig Identities &amp; Equations</h2>
-            <p class="card-desc">Pythagorean, sum/difference, double-angle, half-angle formulas. Verifying identities and solving trig equations.</p>
-            <div class="card-meta">Textbook Chapter</div>
-        </a>
-        <a href="/blog/precalculus-vectors-textbook.html" class="blog-card">
-            <span class="card-tag tag-us">Precalculus</span>
-            <h2>Ch 7: Vectors &amp; Polar Coordinates</h2>
-            <p class="card-desc">Vector operations, dot product, polar coordinates, polar graphs (roses, limaçons) with interactive Desmos.</p>
-            <div class="card-meta">Textbook Chapter &middot; Interactive</div>
-        </a>
-        <a href="/blog/precalculus-conic-sections-textbook.html" class="blog-card">
-            <span class="card-tag tag-us">Precalculus</span>
-            <h2>Ch 8: Conic Sections</h2>
-            <p class="card-desc">Parabolas, ellipses, hyperbolas, eccentricity, rotation of axes, and applications with interactive Desmos explorer.</p>
-            <div class="card-meta">Textbook Chapter &middot; Interactive</div>
-        </a>
-        <a href="/blog/precalculus-sequences-series-textbook.html" class="blog-card">
-            <span class="card-tag tag-us">Precalculus</span>
-            <h2>Ch 9: Sequences &amp; Series</h2>
-            <p class="card-desc">Arithmetic and geometric sequences, infinite series, sigma notation, mathematical induction, and Binomial Theorem.</p>
-            <div class="card-meta">Textbook Chapter</div>
-        </a>
-        <a href="/blog/precalculus-intro-calculus-textbook.html" class="blog-card">
-            <span class="card-tag tag-us">Precalculus</span>
-            <h2>Ch 10: Introduction to Calculus</h2>
-            <p class="card-desc">Limits, tangent lines, rates of change, derivative concept preview, and Riemann sum intuition with Desmos.</p>
-            <div class="card-meta">Textbook Chapter &middot; Interactive</div>
-        </a>
-    </div>
-
-    <h2 class="blog-section-title">US Exams</h2>
-    <div class="blog-grid">
-        <a href="/blog/sat-math-tips.html" class="blog-card">
-            <span class="card-tag tag-us">SAT</span>
-            <h2>15 SAT Math Tips and Strategies to Boost Your Score</h2>
-            <p class="card-desc">Proven tips for time management, calculator usage, must-know formulas, and test-day strategies for the Digital SAT.</p>
-            <div class="card-meta">8 min read &middot; Updated Feb 2026</div>
-        </a>
-
-        <a href="/blog/digital-sat-guide.html" class="blog-card">
-            <span class="card-tag tag-us">SAT</span>
-            <h2>Digital SAT Complete Guide: Format, Scoring &amp; How to Prepare</h2>
-            <p class="card-desc">Everything about the Digital SAT including format changes, adaptive testing, Desmos calculator, and preparation strategies.</p>
-            <div class="card-meta">10 min read &middot; Updated Feb 2026</div>
-        </a>
-    </div>
-
-    <h2 class="blog-section-title">UK Exams</h2>
-    <div class="blog-grid">
-        <a href="/blog/a-level-maths-past-papers-guide.html" class="blog-card">
-            <span class="card-tag tag-uk">A-Level</span>
-            <h2>A-Level Maths Past Papers: How to Use Them Effectively</h2>
-            <p class="card-desc">4-phase revision strategy for CIE 9709, Edexcel, OCR, and AQA. Includes tips by exam board and common mistakes to avoid.</p>
-            <div class="card-meta">9 min read &middot; Updated Feb 2026</div>
-        </a>
-
-        <a href="/blog/igcse-maths-revision-guide.html" class="blog-card">
-            <span class="card-tag tag-uk">IGCSE</span>
-            <h2>IGCSE Maths Revision Guide: Tips, Topics &amp; Past Paper Strategy</h2>
-            <p class="card-desc">Complete revision guide for Cambridge 0580 and Edexcel 4MA1. Key topics, revision timeline, and past paper techniques.</p>
-            <div class="card-meta">8 min read &middot; Updated Feb 2026</div>
-        </a>
-    </div>
-
-    <div class="footer" style="max-width: 900px; margin: 40px auto; text-align: center; padding: 20px; color: #94a3b8; font-size: 0.85em;">
-        <p>&copy; 2025 MathHub Global. All rights reserved.</p>
-    </div>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/blog/">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Countries</h4>
+                <ul>
+                    <li><a href="/kr/">Korea</a></li>
+                    <li><a href="/us/">USA</a></li>
+                    <li><a href="/uk/">UK</a></li>
+                    <li><a href="/ca/">Canada</a></li>
+                    <li><a href="/ib/">IB</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                    <li><a href="/terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MathHub Global. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="../assets/js/common.js"></script>
 
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Blog",
+        "@type": "CollectionPage",
         "name": "MathHub Blog",
-        "description": "Study guides, exam tips, and revision strategies for SAT, A-Level, and IGCSE mathematics.",
+        "description": "Math education blog hub — study tips and exam strategies across 5 regions.",
         "url": "https://mathhub.io/blog/",
         "publisher": {
             "@type": "Organization",
             "name": "MathHub Global",
             "url": "https://mathhub.io/"
         },
-        "inLanguage": "en",
-        "blogPost": [
-            {
-                "@type": "BlogPosting",
-                "headline": "15 SAT Math Tips and Strategies to Boost Your Score",
-                "url": "https://mathhub.io/blog/sat-math-tips.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "Digital SAT Complete Guide: Format, Scoring & How to Prepare",
-                "url": "https://mathhub.io/blog/digital-sat-guide.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "A-Level Maths Past Papers: How to Use Them Effectively",
-                "url": "https://mathhub.io/blog/a-level-maths-past-papers-guide.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "IGCSE Maths Revision Guide: Tips, Topics & Past Paper Strategy",
-                "url": "https://mathhub.io/blog/igcse-maths-revision-guide.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "AP Calculus Chapter 1: Limits and Continuity",
-                "url": "https://mathhub.io/blog/ap-calculus-limits-textbook.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "AP Calculus Chapter 2: Differentiation Rules",
-                "url": "https://mathhub.io/blog/ap-calculus-derivatives-textbook.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "AP Calculus Chapter 3: Chain Rule & Implicit Differentiation",
-                "url": "https://mathhub.io/blog/ap-calculus-chain-rule-textbook.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "AP Calculus Chapter 4: Applications of Derivatives",
-                "url": "https://mathhub.io/blog/ap-calculus-applications-derivatives-textbook.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "AP Calculus Chapter 5: Curve Sketching & L'Hôpital's Rule",
-                "url": "https://mathhub.io/blog/ap-calculus-curve-sketching-textbook.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "AP Calculus Chapter 6: Integration & Fundamental Theorem",
-                "url": "https://mathhub.io/blog/ap-calculus-integration-textbook.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "AP Calculus Chapter 7: Techniques of Integration",
-                "url": "https://mathhub.io/blog/ap-calculus-techniques-integration-textbook.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "AP Calculus Chapter 8: Applications of Integration",
-                "url": "https://mathhub.io/blog/ap-calculus-applications-integration-textbook.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "AP Calculus Chapter 9: Differential Equations",
-                "url": "https://mathhub.io/blog/ap-calculus-differential-equations-textbook.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "AP Calculus Chapter 10: Parametric, Polar & Vectors",
-                "url": "https://mathhub.io/blog/ap-calculus-parametric-polar-textbook.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "AP Calculus Chapter 11: Infinite Series & Taylor Series",
-                "url": "https://mathhub.io/blog/ap-calculus-series-textbook.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "Precalculus Chapter 1: Functions & Their Graphs",
-                "url": "https://mathhub.io/blog/precalculus-functions-textbook.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "Precalculus Chapter 2: Polynomial Functions",
-                "url": "https://mathhub.io/blog/precalculus-polynomial-textbook.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "Precalculus Chapter 3: Rational Functions",
-                "url": "https://mathhub.io/blog/precalculus-rational-textbook.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "Precalculus Chapter 4: Exponential & Logarithmic Functions",
-                "url": "https://mathhub.io/blog/precalculus-exponential-log-textbook.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "Precalculus Chapter 5: Trigonometric Functions",
-                "url": "https://mathhub.io/blog/precalculus-trigonometry-textbook.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "Precalculus Chapter 6: Trigonometric Identities & Equations",
-                "url": "https://mathhub.io/blog/precalculus-trig-identities-textbook.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "Precalculus Chapter 7: Vectors & Polar Coordinates",
-                "url": "https://mathhub.io/blog/precalculus-vectors-textbook.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "Precalculus Chapter 8: Conic Sections",
-                "url": "https://mathhub.io/blog/precalculus-conic-sections-textbook.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "Precalculus Chapter 9: Sequences & Series",
-                "url": "https://mathhub.io/blog/precalculus-sequences-series-textbook.html"
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "Precalculus Chapter 10: Introduction to Calculus",
-                "url": "https://mathhub.io/blog/precalculus-intro-calculus-textbook.html"
-            }
-        ]
+        "inLanguage": "en"
     }
     </script>
 </body>
