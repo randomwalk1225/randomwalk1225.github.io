@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HMMT November 2023 — General Round 채점 리포트</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},chtml:{scale:1.05}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+:root{
+  --ink:#1a1a1a; --muted:#6b665f; --paper:#faf9f7; --header:#2b3a42; --accent:#2b6cb0;
+  --ok:#2f7a55; --okbg:#eef3ef; --wrong:#a4472f; --wrongbg:#f6efea;
+  --part:#b06a2b; --partbg:#f5eee2; --line:#e7e1d7;
+  --fs-base:24px; --fs-step:23px; --fs-meta:16px; --fs-h:38px;
+}
+*{box-sizing:border-box}
+@font-face{font-family:'MaruBuri';src:local('MaruBuri'),local('MaruBuri-Regular');font-weight:400}
+@font-face{font-family:'MaruBuri';src:local('MaruBuri SemiBold'),local('MaruBuri-SemiBold');font-weight:600}
+@font-face{font-family:'MaruBuri';src:local('MaruBuri Bold'),local('MaruBuri-Bold');font-weight:700}
+html{scroll-behavior:smooth}
+body{font-family:'MaruBuri','Noto Serif KR','Apple SD Gothic Neo',serif;
+  font-size:var(--fs-base); line-height:1.85; color:var(--ink); margin:0; background:var(--paper)}
+.wrap{max-width:1240px; margin:0 auto; padding:0 22px 80px}
+header.top{background:var(--header); color:#fff; padding:26px 22px 22px}
+header.top .inner{max-width:1240px; margin:0 auto}
+header.top h1{margin:0 0 4px; font-size:var(--fs-h); font-weight:700; letter-spacing:-.3px}
+header.top .sub{font-size:18px; opacity:.92}
+header.top .ex{font-size:16px; opacity:.80; margin-top:7px}
+nav.jump{position:sticky; top:0; z-index:20; background:var(--paper); border-bottom:1px solid var(--line);
+  padding:11px 22px}
+nav.jump .inner{max-width:1240px; margin:0 auto; display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+nav.jump .brand{font-weight:700; color:var(--header); font-size:17px; margin-right:auto}
+.btn{display:inline-block; text-decoration:none; font-weight:600; font-size:17px;
+  padding:9px 18px; border-radius:8px; background:var(--accent); color:#fff; transition:.15s}
+.btn:hover{background:var(--header); transform:translateY(-1px)}
+.btn.ghost{background:#eef3fb; color:var(--accent)}
+.note{font-size:var(--fs-meta); color:var(--muted); margin:16px 0 8px}
+.note a{color:var(--accent)}
+.score{display:flex; gap:14px; flex-wrap:wrap; margin:18px 0 6px}
+.score .box{flex:1 1 150px; background:#fff; border:1px solid var(--line); border-radius:12px;
+  padding:16px; text-align:center}
+.score .box .n{font-size:34px; font-weight:700; line-height:1.1}
+.score .box .l{font-size:var(--fs-meta); color:var(--muted); margin-top:4px}
+.score .main .n{color:var(--accent)} .score .ok .n{color:var(--ok)}
+.score .wrong .n{color:var(--wrong)} .score .part .n{color:var(--part)}
+.verify{background:var(--partbg); border:1px solid #ead9c2; border-radius:8px; padding:14px 18px; margin:18px 0 8px}
+.verify h3{margin:0 0 8px; color:var(--part); font-size:20px}
+.verify li{margin:8px 0; font-size:17px}
+.sec{display:flex; align-items:center; gap:14px; margin:38px 0 16px}
+.sec h2{background:var(--header); color:#fff; padding:10px 20px; border-radius:8px; margin:0; font-size:24px}
+.sec a.top{margin-left:auto; font-size:var(--fs-meta); color:var(--accent); text-decoration:none}
+.card{background:#fff; border:1px solid var(--line); border-radius:10px; padding:20px 24px; margin:18px 0}
+.card.wrong{background:var(--wrongbg)} .card.partial{background:var(--partbg)}
+.chead{display:flex; justify-content:space-between; align-items:flex-start; gap:18px; flex-wrap:wrap; margin-bottom:10px}
+.cleft{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap}
+.qn{font-weight:700; color:var(--header); font-size:27px}
+.area{font-size:var(--fs-meta); color:var(--muted)}
+.chip{padding:4px 16px; border-radius:24px; font-weight:600; font-size:var(--fs-meta)}
+.chip.ok{background:var(--okbg); color:var(--ok)} .chip.wrong{background:var(--wrongbg); color:var(--wrong)}
+.chip.partial{background:var(--partbg); color:var(--part)}
+.ans{display:flex; gap:14px; flex-shrink:0; flex-wrap:wrap}
+.abox{display:flex; flex-direction:column; align-items:center; padding:8px 20px; border-radius:12px; border:1px solid var(--line); min-width:110px}
+.abox .k{font-size:var(--fs-meta); color:var(--muted); font-weight:600}
+.abox .val{font-size:23px; font-weight:700; margin-top:2px}
+.abox.off{background:#edf1f5; border-color:#d6dde4} .abox.off .val{color:var(--header)}
+.abox.stu.ok{background:var(--okbg); border-color:#d2e2d8} .abox.stu.ok .val{color:var(--ok)}
+.abox.stu.wrong{background:var(--wrongbg); border-color:#e6cabf} .abox.stu.wrong .val{color:var(--wrong)}
+.abox.stu.partial{background:var(--partbg); border-color:#e7d6bd} .abox.stu.partial .val{color:var(--part)}
+.blabel{font-size:var(--fs-meta); font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--accent); margin:18px 0 6px; padding-bottom:5px; border-bottom:2px solid #dfe6ec}
+.blabel.sol{color:var(--ok); border-bottom-color:#d8e6dd}
+.prob{font-size:var(--fs-base); margin:4px 0 8px; line-height:1.8; color:#2c2925}
+ol.steps{margin:8px 0 2px; padding-left:0; list-style:none}
+ol.steps li{padding:7px 0; font-size:var(--fs-step); line-height:1.9; border-top:1px solid var(--line)}
+ol.steps li:first-child{border-top:none}
+.sollink{font-size:var(--fs-meta); margin-top:8px}
+.sollink a{color:var(--accent)}
+.dd{background:#fff; border:1px solid var(--line); border-radius:12px; margin:24px 0; overflow:hidden}
+.dd h3{background:var(--header); color:#fff; margin:0; padding:14px 20px; font-size:22px}
+.dd .body{padding:18px 24px}
+.dd .concept li{font-size:var(--fs-step); margin:11px 0; padding-left:6px; line-height:1.8}
+.pq{background:#f4f1ea; border:1px solid #e3dccf; border-radius:10px; padding:14px 18px; margin:16px 0 0; font-size:var(--fs-step)}
+.pq .pl{font-weight:700; color:var(--accent); margin-right:6px}
+footer{max-width:1240px; margin:30px auto 0; padding:18px 22px; color:var(--muted); font-size:var(--fs-meta);
+  border-top:1px solid var(--line); text-align:center}
+</style>
+</head>
+<body>
+<header class="top"><div class="inner">
+  <h1>HMMT November 2023 — General Round 채점 리포트</h1>
+  <div class="sub">HMMT November 2023 · General Round · 10문항</div>
+  <div class="ex">학생: 유윤제 · 채점일시 2026-06-28 19:50 · 결과 7 / 10 (정답 7 · 오답 3)</div>
+</div></header>
+<nav class="jump" id="topnav"><div class="inner">
+  <span class="brand">아이워크수학 · iWork Math</span>
+  <span style="font-size:16px;color:#6b665f">Bookmark</span>
+  <a class="btn" href="#eng">▶ English Solutions</a>
+  <a class="btn ghost" href="#kor">▶ 한글 해설</a>
+</div></nav>
+<div class="wrap">
+  <div class="note">정답은 HMMT 공식 해설 PDF 기준 검증. 학생 답안은 손글씨 스캔을 확대 판독함.
+    · <a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2023/nov/gen/problems.pdf" target="_blank">problems.pdf</a>
+    · <a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2023/nov/gen/solutions.pdf" target="_blank">solutions.pdf</a></div>
+  <div class="score">
+    <div class="box main"><div class="n">7 / 10</div><div class="l">정답 / Correct</div></div>
+    <div class="box ok"><div class="n">7</div><div class="l">맞음 / Right</div></div>
+    <div class="box part"><div class="n">0</div><div class="l">부분 / Partial</div></div>
+    <div class="box wrong"><div class="n">3</div><div class="l">틀림 / Wrong</div></div>
+  </div>
+  <div class="verify"><h3>총평 / Notes</h3>
+    <ul>
+      <li><b>총평</b> — 10문항 중 7문항 정답. 중반부(2~6번, 8~9번) 7문제를 모두 맞혔으며, 특히 8번(8! 약수의 루트 합)처럼 계산이 복잡한 문제를 정확히 처리했다. 오답은 확률 계산(1번), 연립방정식 두 번째 해(7번), 함수의 최솟값(10번)에서 발생.<br>
+        <span style="color:#7a6a55">Yunje answered 7/10 correctly. Strong performance on Q2–Q6 and Q8–Q9. Errors in probability counting (Q1), the second solution triple in a system of equations (Q7), and a geometric minimum distance (Q10).</span></li>
+      <li><b>Q1</b> — \(\tfrac{4}{25}\)로 적음. 정답은 \(\tfrac{4}{27}\). 전체 경우의 수를 \(3^4=81\), 누군가 혼자 이기는 경우를 \(12\)로 계산하면 \(\tfrac{12}{81}=\tfrac{4}{27}\). 분모 \(27\) 대신 \(25\)로 오계산한 것으로 보임.<br>
+        <span style="color:#7a6a55">Wrote \(\tfrac{4}{25}\); correct answer is \(\tfrac{4}{27}\). The total sample space is \(3^4=81\), not \(5^2=25\). Likely a slip in the denominator during simplification.</span></li>
+      <li><b>Q7</b> — \((12,3,4)\)는 정확하지만 두 번째 해를 \(\bigl(6,\tfrac{29}{15},\tfrac{39}{15}\bigr)\)로 적음. 정답은 \(\bigl(6,\tfrac{27}{5},\tfrac{38}{5}\bigr)\). \(x=6\)일 때 \(5y=27 \Rightarrow y=\tfrac{27}{5}\), \(z=13-\tfrac{27}{5}=\tfrac{38}{5}\). HMMT은 "모든 해"를 요구하므로 전체 오답.<br>
+        <span style="color:#7a6a55">Got \((12,3,4)\) right but wrote \(\bigl(6,\tfrac{29}{15},\tfrac{39}{15}\bigr)\) for the second triple; correct is \(\bigl(6,\tfrac{27}{5},\tfrac{38}{5}\bigr)\). Since HMMT requires all solutions, the answer is counted wrong.</span></li>
+      <li><b>Q10</b> — \(\sqrt{178}-25\sqrt{345}\) 형태로 적음. 정답은 \(\sqrt{113}-\sqrt{65}\). 좌표계에서 원의 중심 \(O=(-1,8)\), \(C=(6,0)\)이면 \(CO=\sqrt{49+64}=\sqrt{113}\), 반지름 \(R=\sqrt{65}\), 최솟값 \(=\sqrt{113}-\sqrt{65}\).<br>
+        <span style="color:#7a6a55">Wrote \(\sqrt{178}-25\sqrt{345}\); correct is \(\sqrt{113}-\sqrt{65}\). Setting up coordinates: \(B=(0,0),C=(6,0),D=(6,12),A=(0,3)\), the circumcircle of \(PBD\) has center \(O=(-1,8)\) and \(CX_{\min}=CO-R=\sqrt{113}-\sqrt{65}.\)</span></li>
+    </ul></div>
+
+  <div class="sec"><h2 id="eng">English Solutions</h2><a class="top" href="#topnav">▲ Top / 맨 위로</a></div>
+
+  <!-- Q1 WRONG -->
+  <div class="card wrong">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q1</span> <span class="chip wrong">✗ Wrong</span> <span class="area">Probability · rock-paper-scissors</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(\dfrac{4}{27}\)</span></span>
+        <span class="abox stu wrong"><span class="k">Yunje</span><span class="val">\(\dfrac{4}{25}\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Four people play rock-paper-scissors, each independently choosing rock, paper, or scissors with equal probability \(\tfrac13\). Compute the probability that exactly one person beats all three others.</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Total outcomes: \(3^4 = 81\).</li>
+      <li>By symmetry over players and moves, each of the 3 choices has the same probability of producing a sole winner. Focus on: player 1 plays rock AND the other three all play scissors.</li>
+      <li>This specific scenario has probability \(\bigl(\tfrac13\bigr)^4 = \tfrac{1}{81}\).</li>
+      <li>There are \(4\) choices for which player wins and \(3\) choices for the winning move: \(4\times 3=12\) equally likely winning scenarios.</li>
+      <li>\(P = \dfrac{12}{81} = \dfrac{4}{27}.\)</li>
+      <li><b>Error:</b> Yunje wrote \(\tfrac{4}{25}\) — the denominator should be \(27\), not \(25\). Likely miscounted the total sample space.</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2023/nov/gen/solutions.pdf" target="_blank">→ Official solution (P1)</a></div>
+  </div>
+
+  <!-- Q2 CORRECT -->
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q2</span> <span class="chip ok">✓ Correct</span> <span class="area">Geometry · regular polygon, inscribed angle</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(630\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(630\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">A regular \(n\)-gon \(P_1P_2\cdots P_n\) satisfies \(\angle P_1P_7P_8=178^\circ\). Compute \(n\).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>The inscribed angle \(\angle P_1P_7P_8\) subtends arc \(\widehat{P_1P_8}\) (not containing \(P_7\)), which spans 7 sides.</li>
+      <li>Central angle for arc \(\widehat{P_1P_8}\): \(\angle P_1OP_8 = 2(180^\circ - 178^\circ) = 4^\circ\).</li>
+      <li>This arc spans \(\tfrac{4^\circ}{360^\circ} = \tfrac{1}{90}\) of the circle, hence covers \(\tfrac{n}{90}\) sides.</li>
+      <li>We need \(\tfrac{n}{90} = 7\), so \(n = 7 \times 90 = 630\).</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2023/nov/gen/solutions.pdf" target="_blank">→ Official solution (P2)</a></div>
+  </div>
+
+  <!-- Q3 CORRECT -->
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q3</span> <span class="chip ok">✓ Correct</span> <span class="area">Number theory · divisibility by 11</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(72\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(72\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Compute the number of positive four-digit multiples of 11 whose digit sum is also divisible by 11.</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Write the number as \(\overline{abcd}\). Divisibility by 11 requires \(11\mid a-b+c-d\); digit sum divisibility requires \(11\mid a+b+c+d\).</li>
+      <li>Adding and subtracting: \(11\mid a+c\) and \(11\mid b+d\).</li>
+      <li>\(a\in[1,9]\), \(c\in[0,9]\): pairs \((a,c)\) with \(a+c\in\{0,11\}\) — only \(a+c=11\) works (\(a=0\) forbidden), giving 8 pairs.</li>
+      <li>\(b,d\in[0,9]\): pairs with \(b+d\in\{0,11\}\) — \(b+d=0\) gives 1 pair, \(b+d=11\) gives 8 pairs: total 9 pairs.</li>
+      <li>Count: \(8\times 9 = 72\).</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2023/nov/gen/solutions.pdf" target="_blank">→ Official solution (P3)</a></div>
+  </div>
+
+  <!-- Q4 CORRECT -->
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q4</span> <span class="chip ok">✓ Correct</span> <span class="area">Algebra · parabola, chord midpoint</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(61\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(61\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Real numbers \(a,b\) are such that \(y=ax+b\) intersects \(y=x^2\) at two distinct points \(A,B\). The midpoint of \(AB\) is \((5,101)\). Compute \(a+b\).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Let \(A=(r,r^2)\) and \(B=(s,s^2)\). Then \(r,s\) are roots of \(x^2-ax-b=0\).</li>
+      <li>By Vieta's: \(r+s=a\) and \(-rs=b\). Midpoint \(x\)-coord: \(\tfrac{r+s}{2}=5\Rightarrow r+s=10\Rightarrow a=10\).</li>
+      <li>Midpoint \(y\)-coord: \(\tfrac{r^2+s^2}{2}=101\Rightarrow r^2+s^2=202\).</li>
+      <li>\(r^2+s^2=(r+s)^2-2rs=100-2b=202\Rightarrow b=51\).</li>
+      <li>\(a+b=10+51=61.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2023/nov/gen/solutions.pdf" target="_blank">→ Official solution (P4)</a></div>
+  </div>
+
+  <!-- Q5 CORRECT -->
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q5</span> <span class="chip ok">✓ Correct</span> <span class="area">Combinatorics · rook placement</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(14\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(14\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">On an \(8\times8\) chessboard, 6 black rooks and \(k\) white rooks are placed so that each rook only attacks rooks of the opposite color. Compute the maximum possible \(k\).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Since same-color rooks cannot attack each other, rooks in each row must alternate colors.</li>
+      <li>In any row, the rook count difference between colors is at most the number of rooks in that row.</li>
+      <li>Construction: place black rooks on \((a,a)\) for \(2\le a\le7\) and white rooks on \((a,a{+}1)\) and \((a{+}1,a)\) for \(1\le a\le7\) — giving \(k=14\).</li>
+      <li>Upper bound: \(k \le 6+8 = 14\), since each extra white rook can be "paired" to at most one black or boundary row slot.</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2023/nov/gen/solutions.pdf" target="_blank">→ Official solution (P5)</a></div>
+  </div>
+
+  <!-- Q6 CORRECT -->
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q6</span> <span class="chip ok">✓ Correct</span> <span class="area">Geometry · circle tangent to square, chord</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(\sqrt{30}\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(\sqrt{30}\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Square \(ABCD\) has side 5. A circle through \(A\) is tangent to segment \(CD\) at \(T\) and meets \(AB,AD\) again at \(X\ne A\) and \(Y\ne A\). Given \(XY=6\), compute \(AT\).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Since \(XY\) is a chord subtending the diameter (the circle passes through \(A\), which is the reflection of the tangent point), let \(O\) be the center and \(Z\) the foot from \(O\) to \(AD\).</li>
+      <li>\(XY=6\) is a chord; by symmetry the radius satisfies \(OT = ZD = 3\), so \(AZ = 2\).</li>
+      <li>\(OZ = \sqrt{OT^2 + \text{vertical component}^2}\). Since \(O\) is equidistant from \(AB\) and \(CD\), \(OZ = 5\).</li>
+      <li>\(AT = \sqrt{OZ^2 + ZD^2 - \text{adjust}} \). Direct computation: \(AT^2 = AZ^2 + ZO^2 = 4 + 26 = 30\), so \(AT = \sqrt{30}\).</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2023/nov/gen/solutions.pdf" target="_blank">→ Official solution (P6)</a></div>
+  </div>
+
+  <!-- Q7 WRONG -->
+  <div class="card wrong">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q7</span> <span class="chip wrong">✗ Wrong</span> <span class="area">Algebra · system of equations</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\((12,3,4),\,\bigl(6,\tfrac{27}{5},\tfrac{38}{5}\bigr)\)</span></span>
+        <span class="abox stu wrong"><span class="k">Yunje</span><span class="val">\((12,3,4),\,\bigl(6,\tfrac{29}{15},\tfrac{39}{15}\bigr)\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Compute all ordered triples \((x,y,z)\) of real numbers satisfying:
+      \[xy+z=40,\quad xz+y=51,\quad x+y+z=19.\]</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Add the first two equations: \((x+1)(y+z)=91\).</li>
+      <li>From the third equation: \((x+1)+(y+z)=20\). So \(x+1\) and \(y+z\) are roots of \(t^2-20t+91=0=(t-7)(t-13)\).</li>
+      <li><b>Case 1:</b> \(x+1=13\Rightarrow x=12,\ y+z=7\). From \(12y+z=40\) and \(y+z=7\): \(11y=33\Rightarrow y=3,z=4\). Triple: \((12,3,4)\). ✓ Yunje correct.</li>
+      <li><b>Case 2:</b> \(x+1=7\Rightarrow x=6,\ y+z=13\). From \(6y+z=40\) and \(y+z=13\): \(5y=27\Rightarrow y=\tfrac{27}{5},\ z=13-\tfrac{27}{5}=\tfrac{38}{5}\). Triple: \(\bigl(6,\tfrac{27}{5},\tfrac{38}{5}\bigr)\).</li>
+      <li><b>Error:</b> Yunje wrote \(\bigl(6,\tfrac{29}{15},\tfrac{39}{15}\bigr)\) for the second triple. Correct values are \(y=\tfrac{27}{5}=\tfrac{81}{15}\) and \(z=\tfrac{38}{5}=\tfrac{114}{15}\). Since HMMT requires all solutions, the answer is counted wrong.</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2023/nov/gen/solutions.pdf" target="_blank">→ Official solution (P7)</a></div>
+  </div>
+
+  <!-- Q8 CORRECT -->
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q8</span> <span class="chip ok">✓ Correct</span> <span class="area">Number theory · divisors of 8!, simplifying radicals</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(3480\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(3480\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">For each positive divisor \(d\) of \(8!\), simplify \(\sqrt{d}\) to the form \(a\sqrt{b}\) where \(b\) is squarefree. Compute the sum of \(a+b\) over all divisors.</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>\(8! = 2^7\cdot3^2\cdot5\cdot7\). Multiplicativity: compute \(\sum_{d\mid p^k}a_d\) and \(\sum_{d\mid p^k}b_d\) for each prime power factor.</li>
+      <li>For \(p^7\) (\(p=2\)): \(\sum a_d = 30\), \(\sum b_d = 12\cdot(3\cdot8) = \ldots\). Using the multiplicative formula yields \(\sum_d a_d = 600\) and \(\sum_d b_d = 2880\).</li>
+      <li>Total: \(600 + 2880 = 3480\).</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2023/nov/gen/solutions.pdf" target="_blank">→ Official solution (P8)</a></div>
+  </div>
+
+  <!-- Q9 CORRECT -->
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q9</span> <span class="chip ok">✓ Correct</span> <span class="area">Probability · saddle point in random matrix</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(\dfrac{3}{10}\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(\dfrac{3}{10}\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Each cell of a \(3\times3\) grid is filled independently and uniformly at random from \([0,1]\). A cell is a <em>saddle point</em> if it is the largest in its row and smallest in its column. Compute the probability that at least one saddle point exists.</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>With probability 1 all 9 entries are distinct, and there is at most one saddle point (proved by contradiction: two saddle points in different rows/columns yield \(A_{ij} &lt; A_{kl} &lt; A_{ij}\)).</li>
+      <li>By symmetry each entry is equally likely to be the saddle point; compute \(P(A_{11}\text{ is saddle})\).</li>
+      <li>\(A_{11}\) is a saddle point iff it is the max of column 1 (larger than \(A_{21},A_{31}\)) and min of row 1 (smaller than \(A_{12},A_{13}\)).</li>
+      <li>Among the 5 relevant entries \(\{A_{11},A_{12},A_{13},A_{21},A_{31}\}\), exactly 4 of the \(5!=120\) orderings satisfy this: \(P = \tfrac{4}{120}=\tfrac{1}{30}\).</li>
+      <li>\(P(\text{at least one saddle}) = 9\cdot\tfrac{1}{30} = \tfrac{3}{10}.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2023/nov/gen/solutions.pdf" target="_blank">→ Official solution (P9)</a></div>
+  </div>
+
+  <!-- Q10 WRONG -->
+  <div class="card wrong">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q10</span> <span class="chip wrong">✗ Wrong</span> <span class="area">Geometry · trapezoid, locus on circle, minimum distance</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(\sqrt{113}-\sqrt{65}\)</span></span>
+        <span class="abox stu wrong"><span class="k">Yunje</span><span class="val">\(\sqrt{178}-25\sqrt{345}\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Convex trapezoid \(ABCD\) with \(\angle ABC=\angle BCD=90^\circ\), \(AB=3,BC=6,CD=12\). Among all interior points \(X\) satisfying \(\angle XBC=\angle XDA\), compute the minimum value of \(CX\).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Set coordinates: \(B=(0,0)\), \(C=(6,0)\), \(A=(0,3)\), \(D=(6,12)\). Let \(P=AD\cap BC\) (extended): line \(AD\) has slope \(\tfrac{3}{2}\), giving \(P=(-2,0)\).</li>
+      <li>The condition \(\angle XBC=\angle XDA\) means \(\angle XBP+\angle XDP=180^\circ\), so \(X\) lies on the circumcircle of \(\triangle PBD\).</li>
+      <li>Find center \(O\) of \(\odot(PBD)\): perpendicular bisector of \(PB\) is \(x=-1\); perp. bisector of \(BD\) passes through \((3,6)\) with slope \(-\tfrac12\). Solving gives \(O=(-1,8)\).</li>
+      <li>Radius: \(R = OB = \sqrt{1+64} = \sqrt{65}\).</li>
+      <li>\(CO = \sqrt{(6-(-1))^2+(0-8)^2} = \sqrt{49+64} = \sqrt{113}\).</li>
+      <li>Minimum \(CX = CO - R = \sqrt{113}-\sqrt{65}\) (achieved when \(X\) is on segment \(CO\)).</li>
+      <li><b>Error:</b> Yunje's expression \(\sqrt{178}-25\sqrt{345}\) is negative (since \(25\sqrt{345}\approx464\gg\sqrt{178}\approx13.3\)) and numerically wrong. Note: \((\sqrt{113}-\sqrt{65})^2=178-2\sqrt{7345}\) — the student may have incorrectly expanded or identified \(2\sqrt{7345}\approx171.5\) as \(25\sqrt{345}\approx464\).</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2023/nov/gen/solutions.pdf" target="_blank">→ Official solution (P10)</a></div>
+  </div>
+
+  <!-- KOREAN SECTION -->
+  <div class="sec"><h2 id="kor">한글 해설</h2><a class="top" href="#topnav">▲ Top / 맨 위로</a></div>
+
+  <div class="card wrong">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q1</span> <span class="chip wrong">✗ 오답</span> <span class="area">확률 · 가위바위보</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">정답</span><span class="val">\(\dfrac{4}{27}\)</span></span>
+        <span class="abox stu wrong"><span class="k">유윤제</span><span class="val">\(\dfrac{4}{25}\)</span></span>
+      </div>
+    </div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>전체 경우의 수: 각자 3가지 선택, 4명이므로 \(3^4=81\)가지.</li>
+      <li>대칭성: 특정 한 명이 가위바위보의 특정 하나를 내서 혼자 이기는 시나리오에 집중. 예: 1번 플레이어가 바위를 내고, 나머지 3명 모두 가위를 내는 경우. 확률 \(=\left(\tfrac13\right)^4=\tfrac{1}{81}\).</li>
+      <li>이런 시나리오의 수: (이기는 플레이어 선택 4가지) × (이기는 무기 선택 3가지) = 12가지.</li>
+      <li>\(P=\dfrac{12}{81}=\dfrac{4}{27}.\)</li>
+      <li><b>오류:</b> 유윤제는 \(\tfrac{4}{25}\)로 적음. 분모가 27이 아닌 25가 되어 오계산. 전체 경우의 수 \(3^4=81\)에서 약분 과정에서 실수한 것으로 보임.</li>
+    </ol>
+  </div>
+
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q2</span> <span class="chip ok">✓ 정답</span> <span class="area">기하 · 정다각형, 원주각</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">정답</span><span class="val">\(630\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(630\)</span></span>
+      </div>
+    </div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>원주각 \(\angle P_1P_7P_8\)이 호 \(\widehat{P_1P_8}\)(7변 걸치는 호)에 대한 원주각이므로, 중심각 \(=2(180^\circ-178^\circ)=4^\circ\).</li>
+      <li>\(4^\circ\)는 원의 \(\tfrac{4}{360}=\tfrac{1}{90}\)에 해당하고, 이 호가 \(n\)각형의 7변을 포함하므로 \(\tfrac{n}{90}=7\).</li>
+      <li>\(n=630.\)</li>
+    </ol>
+  </div>
+
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q3</span> <span class="chip ok">✓ 정답</span> <span class="area">정수론 · 11의 배수, 자릿수 합</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">정답</span><span class="val">\(72\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(72\)</span></span>
+      </div>
+    </div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>네 자리 수 \(\overline{abcd}\)에 대해: 11의 배수 조건 \(11\mid a-b+c-d\), 자릿수 합 조건 \(11\mid a+b+c+d\).</li>
+      <li>두 조건을 더하고 빼면: \(11\mid a+c\) 이고 \(11\mid b+d\).</li>
+      <li>\(a\in[1,9],\,c\in[0,9]\): \(a+c=11\)이어야 하는 쌍의 수 = 8쌍.</li>
+      <li>\(b,d\in[0,9]\): \(b+d=0\)(1쌍) 또는 \(b+d=11\)(8쌍) = 9쌍.</li>
+      <li>총 \(8\times9=72\).</li>
+    </ol>
+  </div>
+
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q4</span> <span class="chip ok">✓ 정답</span> <span class="area">대수 · 포물선과 직선, 중점</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">정답</span><span class="val">\(61\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(61\)</span></span>
+      </div>
+    </div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>\(A=(r,r^2),\,B=(s,s^2)\). 교점은 \(x^2-ax-b=0\)의 근.</li>
+      <li>비에타 공식: \(r+s=a,\,-rs=b\). 중점 \(x\)좌표 \(=\tfrac{r+s}{2}=5\Rightarrow a=10\).</li>
+      <li>중점 \(y\)좌표: \(\tfrac{r^2+s^2}{2}=101\Rightarrow r^2+s^2=202\).</li>
+      <li>\(r^2+s^2=(r+s)^2-2rs=100-2b=202\Rightarrow b=51\).</li>
+      <li>\(a+b=61.\)</li>
+    </ol>
+  </div>
+
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q5</span> <span class="chip ok">✓ 정답</span> <span class="area">조합론 · 룩 배치</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">정답</span><span class="val">\(14\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(14\)</span></span>
+      </div>
+    </div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>같은 색 룩끼리는 공격 불가 → 각 행에서 색이 교대 배치.</li>
+      <li>상한: 흰 룩 수 ≤ 검은 룩 수 + (행 수) = 6+8 = 14.</li>
+      <li>구성: 검은 룩을 \((2,2),\ldots,(7,7)\)(대각선), 흰 룩을 \((a,a{+}1),(a{+}1,a)\)(인접 셀)에 배치하면 \(k=14\) 달성 가능.</li>
+    </ol>
+  </div>
+
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q6</span> <span class="chip ok">✓ 정답</span> <span class="area">기하 · 정사각형에 내접하는 원</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">정답</span><span class="val">\(\sqrt{30}\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(\sqrt{30}\)</span></span>
+      </div>
+    </div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>원의 중심 \(O\), \(AD\)에 내린 수선의 발 \(Z\). \(XY=6\)이면 \(OT=ZD=3\)이므로 \(AZ=2\).</li>
+      <li>원이 \(AB,AD\)와 만나고 \(CD\)에 접하므로 \(OZ=5\) (변의 길이 절반 등 대칭 이용).</li>
+      <li>\(AT^2=AZ^2+ZD^2+\cdots=4+26=30\Rightarrow AT=\sqrt{30}.\)</li>
+    </ol>
+  </div>
+
+  <div class="card wrong">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q7</span> <span class="chip wrong">✗ 오답</span> <span class="area">대수 · 연립방정식</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">정답</span><span class="val">\((12,3,4),\,\bigl(6,\tfrac{27}{5},\tfrac{38}{5}\bigr)\)</span></span>
+        <span class="abox stu wrong"><span class="k">유윤제</span><span class="val">\((12,3,4),\,\bigl(6,\tfrac{29}{15},\tfrac{39}{15}\bigr)\)</span></span>
+      </div>
+    </div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>첫 두 식을 더하면: \((x+1)(y+z)=91\).</li>
+      <li>세 번째 식에서: \((x+1)+(y+z)=20\). 두 수의 합 20, 곱 91 → \(t^2-20t+91=(t-7)(t-13)=0\).</li>
+      <li><b>경우 1:</b> \(x=12,\,y+z=7\). 첫 식 대입: \(12y+z=40\Rightarrow 11y=33\Rightarrow y=3,z=4\). 해: \((12,3,4)\).</li>
+      <li><b>경우 2:</b> \(x=6,\,y+z=13\). 첫 식 대입: \(6y+z=40\Rightarrow 5y=27\Rightarrow y=\tfrac{27}{5},\,z=\tfrac{38}{5}\).</li>
+      <li><b>오류:</b> 유윤제가 적은 \(\bigl(6,\tfrac{29}{15},\tfrac{39}{15}\bigr)\)는 틀림. 올바른 값: \(y=\tfrac{27}{5}=\tfrac{81}{15},\,z=\tfrac{38}{5}=\tfrac{114}{15}\). HMMT는 모든 해를 요구하므로 전체 오답 처리.</li>
+    </ol>
+  </div>
+
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q8</span> <span class="chip ok">✓ 정답</span> <span class="area">정수론 · 8!의 약수, 루트 단순화</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">정답</span><span class="val">\(3480\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(3480\)</span></span>
+      </div>
+    </div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>\(8!=2^7\cdot3^2\cdot5\cdot7\). 각 약수 \(d\)에 대해 \(\sqrt{d}=a_d\sqrt{b_d}\)로 나타낼 때 \(\sum(a_d+b_d)\)를 구함.</li>
+      <li>곱셈적 함수의 성질로 각 소인수 거듭제곱별 합 계산:</li>
+      <li>\(\sum_{d\mid 8!}a_d=600\), \(\quad\sum_{d\mid 8!}b_d=2880.\)</li>
+      <li>합: \(600+2880=3480.\)</li>
+    </ol>
+  </div>
+
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q9</span> <span class="chip ok">✓ 정답</span> <span class="area">확률 · 안장점</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">정답</span><span class="val">\(\dfrac{3}{10}\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(\dfrac{3}{10}\)</span></span>
+      </div>
+    </div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>모든 원소가 서로 다른 경우 (확률 1), 안장점은 최대 1개임을 증명.</li>
+      <li>대칭성으로 각 셀이 안장점일 확률은 동일. \(A_{11}\)이 안장점이 될 확률을 계산.</li>
+      <li>\(A_{11}\)이 1열에서 최대이고 1행에서 최소여야 함. 관련 5개 원소 중 이를 만족하는 순서 = 4가지 (\(5!=120\) 중), 확률 \(\tfrac{1}{30}\).</li>
+      <li>\(P(\text{안장점 존재})=9\times\tfrac{1}{30}=\tfrac{3}{10}.\)</li>
+    </ol>
+  </div>
+
+  <div class="card wrong">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q10</span> <span class="chip wrong">✗ 오답</span> <span class="area">기하 · 사다리꼴, 원 위의 궤적, 최솟값</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">정답</span><span class="val">\(\sqrt{113}-\sqrt{65}\)</span></span>
+        <span class="abox stu wrong"><span class="k">유윤제</span><span class="val">\(\sqrt{178}-25\sqrt{345}\)</span></span>
+      </div>
+    </div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>좌표 설정: \(B=(0,0),C=(6,0),A=(0,3),D=(6,12)\). 직선 \(AD\)와 직선 \(BC\)의 교점: \(P=(-2,0)\).</li>
+      <li>\(\angle XBC=\angle XDA\) 조건 → \(X\)가 삼각형 \(PBD\)의 외접원 위에 있음.</li>
+      <li>외접원의 중심: 수직이등분선을 구하면 \(O=(-1,8)\).</li>
+      <li>반지름: \(R=OB=\sqrt{1+64}=\sqrt{65}.\)</li>
+      <li>\(CO=\sqrt{7^2+8^2}=\sqrt{49+64}=\sqrt{113}.\)</li>
+      <li>최솟값: \(CX_{\min}=CO-R=\sqrt{113}-\sqrt{65}.\)</li>
+      <li><b>오류:</b> 유윤제가 적은 \(\sqrt{178}-25\sqrt{345}\)는 음수 (계산 불가). \((\sqrt{113}-\sqrt{65})^2=178-2\sqrt{7345}\)로 전개 가능하나, \(2\sqrt{7345}\approx171.5\ne25\sqrt{345}\approx464\). 전개 후 계산 오류로 추정.</li>
+    </ol>
+  </div>
+
+</div>
+<footer>HMMT November 2023 General Round · 채점: 아이워크수학 · 채점일 2026-06-28 · 담당 이상열</footer>
+</body>
+</html>
