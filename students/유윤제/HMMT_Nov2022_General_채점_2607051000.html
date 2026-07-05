@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HMMT November 2022 — General Round 채점 리포트</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},chtml:{scale:1.05}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+:root{
+  --ink:#1a1a1a; --muted:#6b665f; --paper:#faf9f7; --header:#2b3a42; --accent:#2b6cb0;
+  --ok:#2f7a55; --okbg:#eef3ef; --wrong:#a4472f; --wrongbg:#f6efea;
+  --part:#b06a2b; --partbg:#f5eee2; --blank:#5a6472; --blankbg:#eef0f3; --line:#e7e1d7;
+  --fs-base:24px; --fs-step:23px; --fs-meta:16px; --fs-h:38px;
+}
+*{box-sizing:border-box}
+@font-face{font-family:'MaruBuri';src:local('MaruBuri'),local('MaruBuri-Regular');font-weight:400}
+@font-face{font-family:'MaruBuri';src:local('MaruBuri SemiBold'),local('MaruBuri-SemiBold');font-weight:600}
+@font-face{font-family:'MaruBuri';src:local('MaruBuri Bold'),local('MaruBuri-Bold');font-weight:700}
+html{scroll-behavior:smooth}
+body{font-family:'MaruBuri','Noto Serif KR','Apple SD Gothic Neo',serif;
+  font-size:var(--fs-base); line-height:1.85; color:var(--ink); margin:0; background:var(--paper)}
+.wrap{max-width:1240px; margin:0 auto; padding:0 22px 80px}
+header.top{background:var(--header); color:#fff; padding:26px 22px 22px}
+header.top .inner{max-width:1240px; margin:0 auto}
+header.top h1{margin:0 0 4px; font-size:var(--fs-h); font-weight:700; letter-spacing:-.3px}
+header.top .sub{font-size:18px; opacity:.92}
+header.top .ex{font-size:16px; opacity:.80; margin-top:7px}
+nav.jump{position:sticky; top:0; z-index:20; background:var(--paper); border-bottom:1px solid var(--line);
+  padding:11px 22px}
+nav.jump .inner{max-width:1240px; margin:0 auto; display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+nav.jump .brand{font-weight:700; color:var(--header); font-size:17px; margin-right:auto}
+.btn{display:inline-block; text-decoration:none; font-weight:600; font-size:17px;
+  padding:9px 18px; border-radius:8px; background:var(--accent); color:#fff; transition:.15s}
+.btn:hover{background:var(--header); transform:translateY(-1px)}
+.btn.ghost{background:#eef3fb; color:var(--accent)}
+.note{font-size:var(--fs-meta); color:var(--muted); margin:16px 0 8px}
+.note a{color:var(--accent)}
+.score{display:flex; gap:14px; flex-wrap:wrap; margin:18px 0 6px}
+.score .box{flex:1 1 150px; background:#fff; border:1px solid var(--line); border-radius:12px;
+  padding:16px; text-align:center}
+.score .box .n{font-size:34px; font-weight:700; line-height:1.1}
+.score .box .l{font-size:var(--fs-meta); color:var(--muted); margin-top:4px}
+.score .main .n{color:var(--accent)} .score .ok .n{color:var(--ok)}
+.score .wrong .n{color:var(--wrong)} .score .part .n{color:var(--part)}
+.score .blank .n{color:var(--blank)}
+.verify{background:var(--partbg); border:1px solid #ead9c2; border-radius:8px; padding:14px 18px; margin:18px 0 8px}
+.verify h3{margin:0 0 8px; color:var(--part); font-size:20px}
+.verify li{margin:8px 0; font-size:17px}
+.sec{display:flex; align-items:center; gap:14px; margin:38px 0 16px}
+.sec h2{background:var(--header); color:#fff; padding:10px 20px; border-radius:8px; margin:0; font-size:24px}
+.sec a.top{margin-left:auto; font-size:var(--fs-meta); color:var(--accent); text-decoration:none}
+.card{background:#fff; border:1px solid var(--line); border-radius:10px; padding:20px 24px; margin:18px 0}
+.card.wrong{background:var(--wrongbg)} .card.partial{background:var(--partbg)} .card.blank{background:var(--blankbg)}
+.chead{display:flex; justify-content:space-between; align-items:flex-start; gap:18px; flex-wrap:wrap; margin-bottom:10px}
+.cleft{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap}
+.qn{font-weight:700; color:var(--header); font-size:27px}
+.area{font-size:var(--fs-meta); color:var(--muted)}
+.chip{padding:4px 16px; border-radius:24px; font-weight:600; font-size:var(--fs-meta)}
+.chip.ok{background:var(--okbg); color:var(--ok)} .chip.wrong{background:var(--wrongbg); color:var(--wrong)}
+.chip.partial{background:var(--partbg); color:var(--part)} .chip.blank{background:var(--blankbg); color:var(--blank)}
+.ans{display:flex; gap:14px; flex-shrink:0; flex-wrap:wrap}
+.abox{display:flex; flex-direction:column; align-items:center; padding:8px 20px; border-radius:12px; border:1px solid var(--line); min-width:110px}
+.abox .k{font-size:var(--fs-meta); color:var(--muted); font-weight:600}
+.abox .val{font-size:23px; font-weight:700; margin-top:2px}
+.abox.off{background:#edf1f5; border-color:#d6dde4} .abox.off .val{color:var(--header)}
+.abox.stu.ok{background:var(--okbg); border-color:#d2e2d8} .abox.stu.ok .val{color:var(--ok)}
+.abox.stu.wrong{background:var(--wrongbg); border-color:#e6cabf} .abox.stu.wrong .val{color:var(--wrong)}
+.abox.stu.partial{background:var(--partbg); border-color:#e7d6bd} .abox.stu.partial .val{color:var(--part)}
+.abox.stu.blank{background:var(--blankbg); border-color:#d4dae2} .abox.stu.blank .val{color:var(--blank)}
+.blabel{font-size:var(--fs-meta); font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--accent); margin:18px 0 6px; padding-bottom:5px; border-bottom:2px solid #dfe6ec}
+.blabel.sol{color:var(--ok); border-bottom-color:#d8e6dd}
+.prob{font-size:var(--fs-base); margin:4px 0 8px; line-height:1.8; color:#2c2925}
+ol.steps{margin:8px 0 2px; padding-left:0; list-style:none}
+ol.steps li{padding:7px 0; font-size:var(--fs-step); line-height:1.9; border-top:1px solid var(--line)}
+ol.steps li:first-child{border-top:none}
+.sollink{font-size:var(--fs-meta); margin-top:8px}
+.sollink a{color:var(--accent)}
+.dd{background:#fff; border:1px solid var(--line); border-radius:12px; margin:24px 0; overflow:hidden}
+.dd h3{background:var(--header); color:#fff; margin:0; padding:14px 20px; font-size:22px}
+.dd .body{padding:18px 24px}
+.dd .concept li{font-size:var(--fs-step); margin:11px 0; padding-left:6px; line-height:1.8}
+.pq{background:#f4f1ea; border:1px solid #e3dccf; border-radius:10px; padding:14px 18px; margin:16px 0 0; font-size:var(--fs-step)}
+.pq .pl{font-weight:700; color:var(--accent); margin-right:6px}
+details.pt{border:1px solid #e3dccf; border-top:none; border-radius:0 0 10px 10px; margin:0 0 6px}
+details.pt summary{cursor:pointer; padding:10px 16px; font-weight:600; color:var(--ok); font-size:17px; list-style:none}
+details.pt summary::-webkit-details-marker{display:none}
+details.pt summary::before{content:"▶ "; font-size:11px} details.pt[open] summary::before{content:"▼ "}
+details.pt ol.steps{padding:2px 16px 12px}
+footer{max-width:1240px; margin:30px auto 0; padding:18px 22px; color:var(--muted); font-size:var(--fs-meta);
+  border-top:1px solid var(--line); text-align:center}
+</style>
+</head>
+<body>
+<header class="top"><div class="inner">
+  <h1>HMMT November 2022 — General Round 채점 리포트</h1>
+  <div class="sub">HMMT November 2022 · General Round · 10문항</div>
+  <div class="ex">학생: 유윤제 · 채점일시 2026-07-05 10:00 · 결과 9 / 10 (미응답 1)</div>
+</div></header>
+<nav class="jump" id="topnav"><div class="inner">
+  <span class="brand">아이워크수학 · iWork Math</span>
+  <span style="font-size:16px;color:#6b665f">Bookmark</span>
+  <a class="btn" href="#eng">▶ English Solutions</a>
+  <a class="btn ghost" href="#kor">▶ 한글 해설</a>
+</div></nav>
+<div class="wrap">
+  <div class="note">정답은 HMMT 공식 해설 PDF 기준 검증. 학생 답안은 손글씨 스캔을 확대 판독함. 문제별 해설 링크는 공식 아카이브 solutions.pdf 로 연결됩니다.
+    · <a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2022/nov/gen/problems.pdf" target="_blank">problems.pdf</a>
+    · <a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2022/nov/gen/solutions.pdf" target="_blank">solutions.pdf</a></div>
+  <div class="score">
+    <div class="box main"><div class="n">9 / 10</div><div class="l">정답 / Correct</div></div>
+    <div class="box ok"><div class="n">9</div><div class="l">맞음 / Right</div></div>
+    <div class="box wrong"><div class="n">0</div><div class="l">틀림 / Wrong</div></div>
+    <div class="box blank"><div class="n">1</div><div class="l">미응답 / Blank</div></div>
+  </div>
+  <div class="verify"><h3>총평 / Notes</h3>
+    <ul>
+      <li><b>총평</b> — 시도한 \(9\)문제(1~9번)를 전부 정확히 맞혔다. 특히 8번(배가 그래프 위 부분집합 재귀 \(678\))과 9번(quixotic 정수 — lcm·조화합의 \(45\) 나눗셈, 열 번째 \(573\))처럼 계산량과 사고 깊이가 큰 정수론까지 흔들림 없이 도달함 — 매우 우수.<br><span style='color:#7a6a55'>Yunje solved all 9 attempted problems (Q1–Q9) correctly, staying accurate even on the heavy number-theory items — Q8 (recursion on the doubling tree, \(678\)) and Q9 (quixotic integers, tenth is \(573\)). A strong, clean performance.</span></li>
+      <li><b>Q10</b> — 미응답. 정답은 \(4495\). \(x\)와 \(x^4\)의 '앞 세 자리' 쌍을 \(100\text{–}999\) 격자 위의 단조 '택시 경로'로 보고, 경로 위의 격자점을 세는 고난도 문제 — 아래 심화 해설 참고. 남은 시간에 도전해 볼 것.<br><span style='color:#7a6a55'>Left blank; the answer is \(4495\). Model the pair (first three digits of \(x\), of \(x^4\)) as a monotone taxicab path on the \(100\text{–}999\) grid and count lattice points on it — see the deep dive below. Worth a try next time.</span></li>
+    </ul></div>
+  <div class="sec"><h2 id="eng">English Solutions</h2><a class="top" href="#topnav">▲ Top / 맨 위로</a></div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q1</span> <span class="chip ok">✓ Correct</span> <span class="area">Rates · clocks</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(12\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(12\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Emily's broken clock runs backwards at five times the speed of a regular clock. It currently shows the wrong time. In the next \(24\) hours, how many times will it display the correct time? (Analog, continuous, ignores AM/PM.)</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Emily's hands run backward at \(5\times\) speed; against a normal clock the gap grows by \(6\) seconds every real second (her \(-5\) plus the normal \(+1\)).</li>
+      <li>The two displays match whenever this gap is a multiple of \(12\) hours.</li>
+      <li>A \(12\)-hour gap accumulates in \(12\text{h}/6=2\) hours, so a match occurs every \(2\) hours.</li>
+      <li>\(\therefore\) in \(24\) hours it shows the correct time \(24/2=12\) times.</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2022/nov/gen/solutions.pdf" target="_blank">→ Official solution (P1)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q2</span> <span class="chip ok">✓ Correct</span> <span class="area">Combinatorics · arrangements</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(8\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(8\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">How many ways are there to arrange \(1,2,3,4,5,6\) on the vertices of a regular hexagon so that exactly \(3\) of the numbers are larger than both neighbors? Rotations and reflections are the same.</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>The \(3\) numbers larger than both neighbors can't be adjacent, so (by rotation) they take the alternate slots \(a,c,e\).</li>
+      <li>\(6\) and \(5\) can't be smaller than both neighbors, so fix \(a=6,\ c=5\) (rotation & reflection).</li>
+      <li>Insert \(1,2,3,4\) into \(b,d,e,f\) with \(e\) largest of \(d,e,f\): \(4\) choices for \(b\) (which fixes \(e\)), \(2\) orderings of \(d,f\).</li>
+      <li>\(\therefore 4\cdot2=8.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2022/nov/gen/solutions.pdf" target="_blank">→ Official solution (P2)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q3</span> <span class="chip ok">✓ Correct</span> <span class="area">Geometry · circles in a rectangle</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(112-25\pi\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(112-25\pi\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Rectangle \(ABCD\) has \(AB=8,\ AD=20\). Two circles of radius \(5\) have centers inside it: one tangent to \(AB\) and \(AD\), the other passing through both \(C\) and \(D\). Find the area inside the rectangle and outside both circles.</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Circle \(O_1\) is tangent to \(AB,AD\); circle \(O_2\) passes through \(C,D\). Let \(M\) be the midpoint of \(CD\): \(\triangle O_2MC,\triangle O_2MD\) are \(3\text{-}4\text{-}5\), so \(O_2M=3\).</li>
+      <li>Let \(C',D'\) be the other intersections of \(O_2\) with \(BC,AD\); then \(CC'=2\,O_2M=6\), so \(BC'=AD'=20-6=14\).</li>
+      <li>Every part of \(ABCD\) outside \(O_2\) lies inside \(ABC'D'\). Inside \(ABC'D'\), the area of \(O_2\) equals the missing area of \(O_1\) outside it — together exactly one circle, \(25\pi\).</li>
+      <li>\(\therefore 8\cdot14-25\pi=112-25\pi.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2022/nov/gen/solutions.pdf" target="_blank">→ Official solution (P3)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q4</span> <span class="chip ok">✓ Correct</span> <span class="area">Algebra · geometric series</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(\tfrac{3}{40}\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(\tfrac{3}{40}\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Let \(x&lt;0.1\) be positive. The <i>foury</i> series is \(4+4x+4x^2+\cdots\) and the <i>fourier</i> series is \(4+44x+444x^2+\cdots\). If the fourier sum is four times the foury sum, compute \(x\).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Let \(S,R\) be the foury and fourier sums. The fourier coefficients satisfy \(a_n=10a_{n-1}+4\), so \((1-10x)R=4+4x+4x^2+\cdots=S.\)</li>
+      <li>The condition says \(R=4S\); substitute \(S=(1-10x)R\): \(R=4(1-10x)R.\)</li>
+      <li>Hence \(1=4(1-10x)\Rightarrow 1-10x=\tfrac14.\)</li>
+      <li>\(\therefore x=\dfrac{3}{40}.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2022/nov/gen/solutions.pdf" target="_blank">→ Official solution (P4)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q5</span> <span class="chip ok">✓ Correct</span> <span class="area">Combinatorics · path counting</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(257\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(257\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">\(20\) rooms \(1,\dots,20\) sit clockwise in a circle. A move goes clockwise \(i\to i+1\pmod{20}\) or across the center \(i\to i+10\pmod{20}\). Count the ways to go from room \(10\) to room \(20\) without visiting a room twice.</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>One route is the direct step \(10\to20\). Otherwise pair the rooms \(A_0=(10,20),\ A_i=(i,i+10)\).</li>
+      <li>Every move stays within a pair or goes from \(A_i\) to \(A_{i+1}\pmod{10}\), so the path must pass \(A_0,A_1,\dots,A_9\) in order before returning to room \(20\).</li>
+      <li>In each of \(A_1,\dots,A_8\) you independently cross within the pair \(0\) or \(1\) time (\(2^8\)); the \(A_9\) crossing is then forced.</li>
+      <li>\(\therefore 1+2^8=257.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2022/nov/gen/solutions.pdf" target="_blank">→ Official solution (P5)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q6</span> <span class="chip ok">✓ Correct</span> <span class="area">Geometry · circumcircle</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\((2+\sqrt3)\pi\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\((2+\sqrt3)\pi\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">In a plane, an equilateral triangle \(ABC\), square \(BCDE\), and regular dodecagon \(DEFGHIJKLMNO\) each have side \(1\) and don't overlap. Find the area of the circumcircle of \(\triangle AFN\).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>\(\angle ACD=\angle ACB+\angle BCD=60^\circ+90^\circ=150^\circ\), which equals a dodecagon interior angle, so \(\angle FED=\angle DON=150^\circ.\)</li>
+      <li>With \(EF=FD=DO=ON=1\) (as \(AC=CD=1\)), \(\triangle ACD\cong\triangle DON\cong\triangle FED\) — all isosceles — giving \(AD=DF=FN\). So \(D\) is the circumcenter of \(\triangle AFN\).</li>
+      <li>Law of cosines: \(AD^2=1+1-2\cos150^\circ=2+\sqrt3.\)</li>
+      <li>\(\therefore\) circumcircle area \(=AD^2\,\pi=(2+\sqrt3)\pi.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2022/nov/gen/solutions.pdf" target="_blank">→ Official solution (P6)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q7</span> <span class="chip ok">✓ Correct</span> <span class="area">Geometry · chords in a circle</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(7\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(7\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">In circle \(\omega\), two perpendicular chords meet at \(P\), with midpoints \(M_1,M_2\) where \(PM_1=15,\ PM_2=20\). Line \(M_1M_2\) meets \(\omega\) at \(A,B\) with \(M_1\) between \(A\) and \(M_2\). Compute the largest possible value of \(BM_2-AM_1\).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Let \(O\) be the center and \(M\) the midpoint of \(AB\) (the foot of \(O\) on line \(M_1M_2\)). Then \(OM_1PM_2\) is a rectangle, so \(OM_1=20,\ OM_2=15,\ M_1M_2=25.\)</li>
+      <li>Project \(O\) onto \(M_1M_2\): \(MM_1=\dfrac{OM_1^2}{M_1M_2}=\dfrac{400}{25}=16,\quad MM_2=\dfrac{OM_2^2}{M_1M_2}=\dfrac{225}{25}=9.\)</li>
+      <li>Since \(M\) is the midpoint of \(AB\), \(BM_2-AM_1=(BM-MM_2)-(AM-MM_1)=MM_1-MM_2.\)</li>
+      <li>\(\therefore 16-9=7.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2022/nov/gen/solutions.pdf" target="_blank">→ Official solution (P7)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q8</span> <span class="chip ok">✓ Correct</span> <span class="area">Combinatorics · doubling graph</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(678\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(678\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Compute the number of sets \(S\) such that every element is a nonnegative integer less than \(16\), and if \(x\in S\) then \((2x\bmod16)\in S\).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Under \(x\mapsto 2x\bmod16\), \(0\) is fixed and the nonzero residues form a balanced binary tree of depth \(3\) (parent \(=\) the value that doubles to a node). A nonempty valid \(S\) is downward-closed toward the root and must contain \(0\).</li>
+      <li>Count subsets in which every chosen node also contains its parent: \(f(n)=f(n-1)^2+1\) for a depth-\(n\) tree, with \(f(0)=2.\)</li>
+      <li>\(f(1)=5,\ f(2)=26,\ f(3)=677.\)</li>
+      <li>\(\therefore f(3)+1=677+1=678\) (the \(+1\) is the empty set).</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2022/nov/gen/solutions.pdf" target="_blank">→ Official solution (P8)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q9</span> <span class="chip ok">✓ Correct</span> <span class="area">Number theory · lcm &amp; harmonic sum</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(573\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(573\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">A positive integer \(n\) is <i>quixotic</i> if \(\operatorname{lcm}(1,2,\dots,n)\cdot\left(\tfrac11+\tfrac12+\cdots+\tfrac1n\right)\) is divisible by \(45\). Compute the tenth smallest quixotic integer.</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Let \(E=\operatorname{lcm}(1,\dots,n)\left(1+\tfrac12+\cdots+\tfrac1n\right)\). Quixotic means \(45\mid E\), i.e. \(E\equiv0\pmod5\) and \(E\equiv0\pmod9.\)</li>
+      <li>\(E\equiv0\pmod5\iff n\in[\,4\cdot5^k,\ 5^{k+1})\) for some \(k\ge0.\)</li>
+      <li>\(E\equiv0\pmod9\iff n\in[\,7\cdot3^{k-1},\ 8\cdot3^{k-1})\) for some \(k\ge1.\)</li>
+      <li>Intersecting and listing gives \(21,22,23,567,568,569,570,571,572,573\); the tenth is \(573.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2022/nov/gen/solutions.pdf" target="_blank">→ Official solution (P9)</a></div>
+  </div>
+  <div class="card blank">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q10</span> <span class="chip blank">— Blank</span> <span class="area">Analysis · leading digits</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(4495\)</span></span>
+        <span class="abox stu blank"><span class="k">Yunje</span><span class="val">\(\text{—}\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Compute the number of distinct pairs \((\text{first three digits of }x,\ \text{first three digits of }x^4)\) over all integers \(x&gt;10^{10}\). (For example \((100,100)\) occurs at \(x=10^{10}\).)</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Plot each pair \((\text{first 3 digits of }x,\ \text{first 3 digits of }x^4)\) on a grid; as \(x\) grows both coordinates only increase (with \(999\!\to\!100\) wraparound), tracing a monotone taxicab path.</li>
+      <li>While \(x\)'s leading triple runs \(100\to999\) (a factor \(\approx10\)), \(x^4\) grows \(\approx10^4\), so its leading triple wraps \(4\) times — at \(x\)-triples \(177,316,562\) (leading digits of powers of \(\sqrt[4]{10}\)).</li>
+      <li>So the locus is four taxicab segments \((a_i,100)\to(a_{i+1},999)\); stacked, the total taxidistance is \(2\cdot899+3\cdot900=4498.\)</li>
+      <li>Subtract the \(4\) diagonal 'holes' (fourth powers \(2^4,3^4,4^4,5^4\) in \((1,1000)\) where both digits jump at once) and add \(1\) for the start: \(4498-4+1=4495.\)</li>
+      <li><b>Yunje left this blank</b> — see the deep dive below.</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2022/nov/gen/solutions.pdf" target="_blank">→ Official solution (P10)</a></div>
+  </div>
+  <div class="dd">
+    <h3>Deep Dive — Problem 10: leading digits, monotone taxicab paths, lattice-point counting</h3>
+    <div class="body">
+      <ol class="steps concept">
+      <li><b>Turn it into points:</b> for each \(x\), plot \((\text{first 3 digits of }x,\ \text{first 3 digits of }x^4)\) on the \(100\text{–}999\) grid. Nudging \(x\) up, both coordinates are <b>non-decreasing</b> (with a \(999\!\to\!100\) wrap). So the locus is a <b>monotone taxicab path</b> (only right/up moves).</li>
+      <li><b>Wraps = a logarithm:</b> while \(x\)'s leading triple runs \(100\to999\) (\(\approx\!\times10\)), \(x^4\) grows \(\times10^4\), so its leading triple wraps exactly \(4\) times — at the \(x\)-triples \(177,316,562\) (leading digits of powers of \(\sqrt[4]{10}\)), the values \(a_1,a_2,a_3\).</li>
+      <li><b>Count points on the path:</b> lattice points on a monotone taxicab path \(=\)(horizontal)\(+\)(vertical)\(+1\). Stacking the four segments \((a_i,100)\to(a_{i+1},999)\) gives total taxidistance \(2\cdot899+3\cdot900=4498.\)</li>
+      <li><b>Corrections (holes & start):</b> where \(x\) and \(x^4\) jump <b>simultaneously</b> (the fourth powers \(2^4,3^4,4^4,5^4\) inside \((1,1000)\)) a point is skipped by the diagonal step → \(-4\), then \(+1\) for the starting point. \(\therefore 4498-4+1=\mathbf{4495}.\)</li>
+      </ol>
+      <div class="pq"><span class="pl">Practice 1.</span> Count the <b>lattice points</b> a monotone taxicab path from \((0,0)\) to \((m,n)\) passes through (right/up moves only).</div>
+      <details class="pt"><summary>Show solution</summary><ol class="steps">
+        <li>Each move raises the coordinate sum by exactly \(1\), and \((0,0)\to(m,n)\) takes \(m+n\) moves.</li>
+        <li>With \(m+n\) moves, the number of visited points is one more.</li>
+        <li>\(\therefore m+n+1\) — the same "\(+1\)" that turns taxidistance into a point count in Problem 10.</li>
+      </ol></details>
+      <div class="pq"><span class="pl">Practice 2.</span> How many times does \(x^4\)'s first three digits wrap \(999\to100\) while \(x\)'s leading triple runs once from \(100\) to \(999\)? (\(\log_{10}9.99\approx0.9996\))</div>
+      <details class="pt"><summary>Show solution</summary><ol class="steps">
+        <li>Running \(x\)'s triple \(100\to999\) scales \(x\) by \(\approx\dfrac{999}{100}\), so \(x^4\) by \(\left(\dfrac{999}{100}\right)^4.\)</li>
+        <li>\(\log_{10}\left(\dfrac{999}{100}\right)^4=4\log_{10}9.99\approx4\cdot0.9996\approx4.\)</li>
+        <li>The power of \(10\) in \(x^4\) rises by \(4\) \(\Rightarrow\) the leading triple wraps \(\mathbf{4}\) times.</li>
+      </ol></details>
+    </div>
+  </div>
+  <div class="sec"><h2 id="kor">한글 해설</h2><a class="top" href="#topnav">▲ Top / 맨 위로</a></div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q1</span> <span class="chip ok">✓ 정답</span> <span class="area">비율 · 시계</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(12\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(12\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">Emily의 고장난 시계는 정상 시계의 \(5\)배 속도로 거꾸로 간다. 지금은 틀린 시각을 보이고 있다. 앞으로 \(24\)시간 동안 정확한 시각을 몇 번 표시하는가? (아날로그·연속, AM/PM 무시.)</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>Emily 시계는 \(5\)배 속도로 거꾸로 감 → 정상 시계와의 차이가 매초 \(6\)초씩 벌어짐(그녀 \(-5\) + 정상 \(+1\)).</li>
+      <li>두 시각이 같아지는 건 이 차이가 \(12\)시간의 배수일 때.</li>
+      <li>\(12\)시간 차이는 \(12\text{h}/6=2\)시간마다 쌓임 → \(2\)시간마다 일치.</li>
+      <li>\(\therefore\) \(24\)시간 동안 \(24/2=12\)번 정확한 시각을 표시.</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2022/nov/gen/solutions.pdf" target="_blank">→ 공식 해설 (문제 1)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q2</span> <span class="chip ok">✓ 정답</span> <span class="area">조합 · 배열</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(8\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(8\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">정육각형의 꼭짓점에 \(1,2,3,4,5,6\)을 배열하되 정확히 \(3\)개의 수가 양옆 이웃보다 모두 크도록 하는 방법의 수는? 회전·반사는 같은 것으로 본다.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>두 이웃보다 모두 큰 \(3\)개의 수는 서로 이웃할 수 없음 → (회전으로) 번갈아 놓인 \(a,c,e\)에 배치.</li>
+      <li>\(6,5\)는 두 이웃보다 모두 작을 수 없음 → \(a=6,\ c=5\)로 고정(회전·반사).</li>
+      <li>\(1,2,3,4\)를 \(b,d,e,f\)에, \(e\)가 \(d,e,f\) 중 최대가 되도록: \(b\) 선택 \(4\)가지(→\(e\) 결정), \(d,f\) 순서 \(2\)가지.</li>
+      <li>\(\therefore 4\cdot2=8.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2022/nov/gen/solutions.pdf" target="_blank">→ 공식 해설 (문제 2)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q3</span> <span class="chip ok">✓ 정답</span> <span class="area">기하 · 직사각형 속 원</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(112-25\pi\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(112-25\pi\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">직사각형 \(ABCD\), \(AB=8,\ AD=20\). 반지름 \(5\)인 두 원의 중심이 내부에 있다: 하나는 \(AB,AD\)에 접하고, 다른 하나는 \(C,D\)를 모두 지난다. 직사각형 안이면서 두 원 밖인 넓이를 구하라.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>원 \(O_1\)은 \(AB,AD\)에 접, 원 \(O_2\)는 \(C,D\)를 지남. \(CD\)의 중점 \(M\): \(\triangle O_2MC,\triangle O_2MD\)는 \(3\text{-}4\text{-}5\) → \(O_2M=3\).</li>
+      <li>\(O_2\)와 \(BC,AD\)의 (또 다른) 교점을 \(C',D'\): \(CC'=2\,O_2M=6\) → \(BC'=AD'=20-6=14\).</li>
+      <li>\(ABCD\)에서 \(O_2\) 밖의 모든 넓이는 \(ABC'D'\) 안에 있음. \(ABC'D'\) 안에서 \(O_2\)가 덮는 넓이 = \(O_1\)이 그 밖으로 빠진 넓이 → 합쳐 정확히 원 하나, \(25\pi\).</li>
+      <li>\(\therefore 8\cdot14-25\pi=112-25\pi.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2022/nov/gen/solutions.pdf" target="_blank">→ 공식 해설 (문제 3)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q4</span> <span class="chip ok">✓ 정답</span> <span class="area">대수 · 등비급수</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(\tfrac{3}{40}\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(\tfrac{3}{40}\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">\(x&lt;0.1\)인 양수. <i>foury</i> 급수는 \(4+4x+4x^2+\cdots\), <i>fourier</i> 급수는 \(4+44x+444x^2+\cdots\). fourier 합이 foury 합의 \(4\)배일 때 \(x\)를 구하라.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>foury 합 \(S\), fourier 합 \(R\). fourier 계수는 \(a_n=10a_{n-1}+4\) → \((1-10x)R=4+4x+4x^2+\cdots=S.\)</li>
+      <li>조건은 \(R=4S\); \(S=(1-10x)R\) 대입 → \(R=4(1-10x)R.\)</li>
+      <li>따라서 \(1=4(1-10x)\Rightarrow 1-10x=\tfrac14.\)</li>
+      <li>\(\therefore x=\dfrac{3}{40}.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2022/nov/gen/solutions.pdf" target="_blank">→ 공식 해설 (문제 4)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q5</span> <span class="chip ok">✓ 정답</span> <span class="area">조합 · 경로 세기</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(257\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(257\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">방 \(1,\dots,20\)이 시계방향 원형으로 배치. 이동은 시계방향 \(i\to i+1\pmod{20}\) 또는 중앙 가로질러 \(i\to i+10\pmod{20}\). 같은 방을 두 번 방문하지 않고 방 \(10\)에서 방 \(20\)으로 가는 방법의 수는?</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>직접 \(10\to20\)이 한 경로. 그 외엔 방을 쌍으로 묶음 \(A_0=(10,20),\ A_i=(i,i+10)\).</li>
+      <li>모든 이동은 같은 쌍 안이거나 \(A_i\to A_{i+1}\pmod{10}\) → 경로는 \(A_0,A_1,\dots,A_9\)를 순서대로 지난 뒤 \(20\)번 방으로 복귀.</li>
+      <li>\(A_1,\dots,A_8\) 각각에서 쌍 안 이동을 \(0\) 또는 \(1\)번 독립 선택(\(2^8\)); \(A_9\) 이동은 그에 따라 결정됨.</li>
+      <li>\(\therefore 1+2^8=257.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2022/nov/gen/solutions.pdf" target="_blank">→ 공식 해설 (문제 5)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q6</span> <span class="chip ok">✓ 정답</span> <span class="area">기하 · 외접원</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\((2+\sqrt3)\pi\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\((2+\sqrt3)\pi\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">평면에서 정삼각형 \(ABC\), 정사각형 \(BCDE\), 정십이각형 \(DEFGHIJKLMNO\)가 각각 한 변 \(1\)이고 겹치지 않는다. \(\triangle AFN\)의 외접원 넓이를 구하라.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>\(\angle ACD=\angle ACB+\angle BCD=60^\circ+90^\circ=150^\circ\), 이는 정십이각형의 내각과 같음 → \(\angle FED=\angle DON=150^\circ.\)</li>
+      <li>\(EF=FD=DO=ON=1\) (\(AC=CD=1\)처럼) → \(\triangle ACD\cong\triangle DON\cong\triangle FED\) (모두 이등변) → \(AD=DF=FN\). 즉 \(D\)가 \(\triangle AFN\)의 외심.</li>
+      <li>코사인법칙: \(AD^2=1+1-2\cos150^\circ=2+\sqrt3.\)</li>
+      <li>\(\therefore\) 외접원 넓이 \(=AD^2\,\pi=(2+\sqrt3)\pi.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2022/nov/gen/solutions.pdf" target="_blank">→ 공식 해설 (문제 6)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q7</span> <span class="chip ok">✓ 정답</span> <span class="area">기하 · 원의 현</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(7\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(7\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">원 \(\omega\)에서 두 수직인 현이 \(P\)에서 만나고 그 중점은 \(M_1,M_2\), \(PM_1=15,\ PM_2=20\). 직선 \(M_1M_2\)가 \(\omega\)와 \(A,B\)에서 만나며 \(M_1\)은 \(A\)와 \(M_2\) 사이. \(BM_2-AM_1\)의 최댓값을 구하라.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>중심 \(O\), \(AB\)의 중점 \(M\)(=\(O\)에서 직선 \(M_1M_2\)에 내린 수선의 발). \(OM_1PM_2\)는 직사각형 → \(OM_1=20,\ OM_2=15,\ M_1M_2=25.\)</li>
+      <li>\(O\)를 \(M_1M_2\)에 정사영: \(MM_1=\dfrac{OM_1^2}{M_1M_2}=\dfrac{400}{25}=16,\quad MM_2=\dfrac{OM_2^2}{M_1M_2}=\dfrac{225}{25}=9.\)</li>
+      <li>\(M\)이 \(AB\)의 중점이므로 \(BM_2-AM_1=(BM-MM_2)-(AM-MM_1)=MM_1-MM_2.\)</li>
+      <li>\(\therefore 16-9=7.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2022/nov/gen/solutions.pdf" target="_blank">→ 공식 해설 (문제 7)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q8</span> <span class="chip ok">✓ 정답</span> <span class="area">조합 · 배가 그래프</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(678\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(678\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">모든 원소가 \(16\) 미만의 음이 아닌 정수이고, \(x\in S\)이면 \((2x\bmod16)\in S\)인 집합 \(S\)의 개수를 구하라.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>\(x\mapsto 2x\bmod16\)에서 \(0\)은 고정, 나머지 비영 원소는 깊이 \(3\)의 완전이진트리를 이룸(부모 \(=\) 그 노드로 배가되는 값). 비어있지 않은 유효 \(S\)는 뿌리 쪽으로 닫혀 있고 \(0\)을 반드시 포함.</li>
+      <li>선택된 노드가 항상 부모도 포함하는 부분집합 수: 깊이 \(n\) 트리에서 \(f(n)=f(n-1)^2+1,\ f(0)=2.\)</li>
+      <li>\(f(1)=5,\ f(2)=26,\ f(3)=677.\)</li>
+      <li>\(\therefore f(3)+1=677+1=678\) (\(+1\)은 공집합).</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2022/nov/gen/solutions.pdf" target="_blank">→ 공식 해설 (문제 8)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q9</span> <span class="chip ok">✓ 정답</span> <span class="area">정수론 · lcm·조화합</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(573\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(573\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">양의 정수 \(n\)이 <i>quixotic</i>이라 함은 \(\operatorname{lcm}(1,2,\dots,n)\cdot\left(\tfrac11+\tfrac12+\cdots+\tfrac1n\right)\)이 \(45\)로 나누어떨어지는 것. 열 번째로 작은 quixotic 정수를 구하라.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>\(E=\operatorname{lcm}(1,\dots,n)\left(1+\tfrac12+\cdots+\tfrac1n\right)\). quixotic \(\iff 45\mid E\) 즉 \(E\equiv0\pmod5\) 이고 \(E\equiv0\pmod9.\)</li>
+      <li>\(E\equiv0\pmod5\iff n\in[\,4\cdot5^k,\ 5^{k+1})\) (어떤 \(k\ge0\)).</li>
+      <li>\(E\equiv0\pmod9\iff n\in[\,7\cdot3^{k-1},\ 8\cdot3^{k-1})\) (어떤 \(k\ge1\)).</li>
+      <li>두 조건의 교집합을 나열하면 \(21,22,23,567,568,569,570,571,572,573\); 열 번째는 \(573.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2022/nov/gen/solutions.pdf" target="_blank">→ 공식 해설 (문제 9)</a></div>
+  </div>
+  <div class="card blank">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q10</span> <span class="chip blank">— 미응답</span> <span class="area">해석 · 최고 자릿수</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(4495\)</span></span>
+        <span class="abox stu blank"><span class="k">유윤제</span><span class="val">\(\text{—}\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">모든 정수 \(x&gt;10^{10}\)에 대해 \((x\text{의 앞 세 자리},\ x^4\text{의 앞 세 자리})\) 꼴의 서로 다른 쌍의 개수를 구하라. (예: \(x=10^{10}\)일 때 \((100,100)\).)</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>각 쌍 \((x\text{의 앞 3자리},\ x^4\text{의 앞 3자리})\)를 격자에 찍으면, \(x\)가 커질수록 두 좌표 모두(\(999\!\to\!100\) 되돌기 포함) 단조 증가 → 단조 택시(계단) 경로.</li>
+      <li>\(x\)의 앞자리가 \(100\to999\)(\(\approx\!\times10\)) 도는 동안 \(x^4\)은 \(\approx\!\times10^4\) → 앞자리가 \(4\)번 되돎 — 되돌기 지점은 \(\sqrt[4]{10}\) 거듭제곱의 앞자리 \(177,316,562.\)</li>
+      <li>따라서 자취는 네 택시 구간 \((a_i,100)\to(a_{i+1},999)\); 이어붙이면 총 택시거리 \(2\cdot899+3\cdot900=4498.\)</li>
+      <li>\(x,x^4\)이 동시에 한 칸씩 뛰는 '구멍' \(4\)곳(\((1,1000)\) 안의 네제곱수 \(2^4,3^4,4^4,5^4\))을 빼고 시작점 \(+1\): \(4498-4+1=4495.\)</li>
+      <li><b>유윤제는 미응답</b> — 아래 심화 해설 참고.</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2022/nov/gen/solutions.pdf" target="_blank">→ 공식 해설 (문제 10)</a></div>
+  </div>
+  <div class="dd">
+    <h3>심화 — 10번: 최고 자릿수 · 단조 택시 경로 · 격자점 세기</h3>
+    <div class="body">
+      <ol class="steps concept">
+      <li><b>점으로 옮겨 보기:</b> 각 \(x\)마다 쌍 \((x\text{의 앞 3자리},\ x^4\text{의 앞 3자리})\)을 \(100\text{–}999\) 격자 위의 점으로 본다. \(x\)를 아주 조금씩 키우면 두 좌표는 <b>감소하지 않는다</b>(\(999\)에서 \(100\)으로 되돌기 포함). 즉 자취는 오른쪽·위로만 가는 <b>단조 택시(계단) 경로</b>.</li>
+      <li><b>되돌기 횟수 = 로그:</b> \(x\)의 앞자리가 \(100\to999\)(약 \(\times10\)) 도는 동안 \(x^4\)은 \(\times10^4\) → 앞자리가 정확히 \(4\)번 되돎. 되돌기 지점은 \(\sqrt[4]{10}\)의 거듭제곱들의 앞자리 \(177,\ 316,\ 562\) (\(=a_1,a_2,a_3\)).</li>
+      <li><b>경로 위 점 세기:</b> 단조 택시 경로 위의 격자점 수 \(=\)(가로 이동)\(+\)(세로 이동)\(+1\). 네 구간 \((a_i,100)\to(a_{i+1},999)\)을 이어붙이면 총 택시거리 \(2\cdot899+3\cdot900=4498.\)</li>
+      <li><b>보정(구멍·시작점):</b> \(x,x^4\)이 <b>동시에</b> 한 칸씩 뛰는 지점(=구간 \((1,1000)\) 안의 네제곱수 \(2^4,3^4,4^4,5^4\))에서는 대각선 점프라 점이 하나씩 빠짐 → \(-4\), 시작점 \(+1\). \(\therefore 4498-4+1=\mathbf{4495}.\)</li>
+      </ol>
+      <div class="pq"><span class="pl">연습문제 1.</span> 격자에서 \((0,0)\)에서 \((m,n)\)까지 오른쪽·위로만 가는 단조 택시 경로가 지나는 <b>격자점의 개수</b>를 구하라.</div>
+      <details class="pt"><summary>해설 보기</summary><ol class="steps">
+        <li>한 걸음마다 좌표합이 정확히 \(1\) 증가하고, \((0,0)\to(m,n)\)은 총 \(m+n\)걸음.</li>
+        <li>걸음이 \(m+n\)이면 방문 점은 그보다 하나 많음.</li>
+        <li>\(\therefore m+n+1\) — 10번에서 총 택시거리에 \(+1\)을 더한 것과 같은 원리.</li>
+      </ol></details>
+      <div class="pq"><span class="pl">연습문제 2.</span> \(x\)의 앞자리가 \(100\to999\)로 한 바퀴 도는 동안 \(x^4\)의 앞 세 자리가 \(999\to100\)으로 <b>되도는 횟수</b>를 구하라. (\(\log_{10}9.99\approx0.9996\))</div>
+      <details class="pt"><summary>해설 보기</summary><ol class="steps">
+        <li>\(x\)가 앞자리 \(100\to999\)이면 대략 \(\times\dfrac{999}{100}\), 즉 \(x^4\)은 \(\times\left(\dfrac{999}{100}\right)^4.\)</li>
+        <li>\(\log_{10}\left(\dfrac{999}{100}\right)^4=4\log_{10}9.99\approx4\cdot0.9996\approx4.\)</li>
+        <li>\(x^4\)의 \(10\)의 지수가 \(4\) 증가 → 앞 세 자리 되돌기 \(\mathbf{4}\)회.</li>
+      </ol></details>
+    </div>
+  </div>
+</div>
+<footer>아이워크수학 · iWork Math · 제작·편집 원장 이상열 · HMMT-2211-GEN · 생성 2026-07-05 10:00 · 파일 HMMT_Nov2022_General_채점_2607051000.html · 무단복제 금지</footer>
+</body>
+</html>
