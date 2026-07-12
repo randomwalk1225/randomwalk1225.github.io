@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HMMT November 2021 — General Round 채점 리포트</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},chtml:{scale:1.05}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+:root{
+  --ink:#1a1a1a; --muted:#6b665f; --paper:#faf9f7; --header:#2b3a42; --accent:#2b6cb0;
+  --ok:#2f7a55; --okbg:#eef3ef; --wrong:#a4472f; --wrongbg:#f6efea;
+  --part:#b06a2b; --partbg:#f5eee2; --blank:#5a6472; --blankbg:#eef0f3; --line:#e7e1d7;
+  --fs-base:24px; --fs-step:23px; --fs-meta:16px; --fs-h:38px;
+}
+*{box-sizing:border-box}
+@font-face{font-family:'MaruBuri';src:local('MaruBuri'),local('MaruBuri-Regular');font-weight:400}
+@font-face{font-family:'MaruBuri';src:local('MaruBuri SemiBold'),local('MaruBuri-SemiBold');font-weight:600}
+@font-face{font-family:'MaruBuri';src:local('MaruBuri Bold'),local('MaruBuri-Bold');font-weight:700}
+html{scroll-behavior:smooth}
+body{font-family:'MaruBuri','Noto Serif KR','Apple SD Gothic Neo',serif;
+  font-size:var(--fs-base); line-height:1.85; color:var(--ink); margin:0; background:var(--paper)}
+.wrap{max-width:1240px; margin:0 auto; padding:0 22px 80px}
+header.top{background:var(--header); color:#fff; padding:26px 22px 22px}
+header.top .inner{max-width:1240px; margin:0 auto}
+header.top h1{margin:0 0 4px; font-size:var(--fs-h); font-weight:700; letter-spacing:-.3px}
+header.top .sub{font-size:18px; opacity:.92}
+header.top .ex{font-size:16px; opacity:.80; margin-top:7px}
+nav.jump{position:sticky; top:0; z-index:20; background:var(--paper); border-bottom:1px solid var(--line);
+  padding:11px 22px}
+nav.jump .inner{max-width:1240px; margin:0 auto; display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+nav.jump .brand{font-weight:700; color:var(--header); font-size:17px; margin-right:auto}
+.btn{display:inline-block; text-decoration:none; font-weight:600; font-size:17px;
+  padding:9px 18px; border-radius:8px; background:var(--accent); color:#fff; transition:.15s}
+.btn:hover{background:var(--header); transform:translateY(-1px)}
+.btn.ghost{background:#eef3fb; color:var(--accent)}
+.note{font-size:var(--fs-meta); color:var(--muted); margin:16px 0 8px}
+.note a{color:var(--accent)}
+.score{display:flex; gap:14px; flex-wrap:wrap; margin:18px 0 6px}
+.score .box{flex:1 1 150px; background:#fff; border:1px solid var(--line); border-radius:12px;
+  padding:16px; text-align:center}
+.score .box .n{font-size:34px; font-weight:700; line-height:1.1}
+.score .box .l{font-size:var(--fs-meta); color:var(--muted); margin-top:4px}
+.score .main .n{color:var(--accent)} .score .ok .n{color:var(--ok)}
+.score .wrong .n{color:var(--wrong)} .score .part .n{color:var(--part)}
+.score .blank .n{color:var(--blank)}
+.verify{background:var(--partbg); border:1px solid #ead9c2; border-radius:8px; padding:14px 18px; margin:18px 0 8px}
+.verify h3{margin:0 0 8px; color:var(--part); font-size:20px}
+.verify li{margin:8px 0; font-size:17px}
+.sec{display:flex; align-items:center; gap:14px; margin:38px 0 16px}
+.sec h2{background:var(--header); color:#fff; padding:10px 20px; border-radius:8px; margin:0; font-size:24px}
+.sec a.top{margin-left:auto; font-size:var(--fs-meta); color:var(--accent); text-decoration:none}
+.card{background:#fff; border:1px solid var(--line); border-radius:10px; padding:20px 24px; margin:18px 0}
+.card.wrong{background:var(--wrongbg)} .card.partial{background:var(--partbg)} .card.blank{background:var(--blankbg)}
+.chead{display:flex; justify-content:space-between; align-items:flex-start; gap:18px; flex-wrap:wrap; margin-bottom:10px}
+.cleft{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap}
+.qn{font-weight:700; color:var(--header); font-size:27px}
+.area{font-size:var(--fs-meta); color:var(--muted)}
+.chip{padding:4px 16px; border-radius:24px; font-weight:600; font-size:var(--fs-meta)}
+.chip.ok{background:var(--okbg); color:var(--ok)} .chip.wrong{background:var(--wrongbg); color:var(--wrong)}
+.chip.partial{background:var(--partbg); color:var(--part)} .chip.blank{background:var(--blankbg); color:var(--blank)}
+.ans{display:flex; gap:14px; flex-shrink:0; flex-wrap:wrap}
+.abox{display:flex; flex-direction:column; align-items:center; padding:8px 20px; border-radius:12px; border:1px solid var(--line); min-width:110px}
+.abox .k{font-size:var(--fs-meta); color:var(--muted); font-weight:600}
+.abox .val{font-size:23px; font-weight:700; margin-top:2px}
+.abox.off{background:#edf1f5; border-color:#d6dde4} .abox.off .val{color:var(--header)}
+.abox.stu.ok{background:var(--okbg); border-color:#d2e2d8} .abox.stu.ok .val{color:var(--ok)}
+.abox.stu.wrong{background:var(--wrongbg); border-color:#e6cabf} .abox.stu.wrong .val{color:var(--wrong)}
+.abox.stu.partial{background:var(--partbg); border-color:#e7d6bd} .abox.stu.partial .val{color:var(--part)}
+.abox.stu.blank{background:var(--blankbg); border-color:#d4dae2} .abox.stu.blank .val{color:var(--blank)}
+.blabel{font-size:var(--fs-meta); font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--accent); margin:18px 0 6px; padding-bottom:5px; border-bottom:2px solid #dfe6ec}
+.blabel.sol{color:var(--ok); border-bottom-color:#d8e6dd}
+.prob{font-size:var(--fs-base); margin:4px 0 8px; line-height:1.8; color:#2c2925}
+ol.steps{margin:8px 0 2px; padding-left:0; list-style:none}
+ol.steps li{padding:7px 0; font-size:var(--fs-step); line-height:1.9; border-top:1px solid var(--line)}
+ol.steps li:first-child{border-top:none}
+.sollink{font-size:var(--fs-meta); margin-top:8px}
+.sollink a{color:var(--accent)}
+.dd{background:#fff; border:1px solid var(--line); border-radius:12px; margin:24px 0; overflow:hidden}
+.dd h3{background:var(--header); color:#fff; margin:0; padding:14px 20px; font-size:22px}
+.dd .body{padding:18px 24px}
+.dd .concept li{font-size:var(--fs-step); margin:11px 0; padding-left:6px; line-height:1.8}
+.pq{background:#f4f1ea; border:1px solid #e3dccf; border-radius:10px; padding:14px 18px; margin:16px 0 0; font-size:var(--fs-step)}
+.pq .pl{font-weight:700; color:var(--accent); margin-right:6px}
+details.pt{border:1px solid #e3dccf; border-top:none; border-radius:0 0 10px 10px; margin:0 0 6px}
+details.pt summary{cursor:pointer; padding:10px 16px; font-weight:600; color:var(--ok); font-size:17px; list-style:none}
+details.pt summary::-webkit-details-marker{display:none}
+details.pt summary::before{content:"▶ "; font-size:11px} details.pt[open] summary::before{content:"▼ "}
+details.pt ol.steps{padding:2px 16px 12px}
+footer{max-width:1240px; margin:30px auto 0; padding:18px 22px; color:var(--muted); font-size:var(--fs-meta);
+  border-top:1px solid var(--line); text-align:center}
+</style>
+</head>
+<body>
+<header class="top"><div class="inner">
+  <h1>HMMT November 2021 — General Round 채점 리포트</h1>
+  <div class="sub">HMMT November 2021 · General Round · 10문항</div>
+  <div class="ex">학생: 유윤제 · 채점일시 2026-07-12 10:04 · 결과 6 / 10 정답 (부분정답 1 · 오답 3)</div>
+</div></header>
+<nav class="jump" id="topnav"><div class="inner">
+  <span class="brand">아이워크수학 · iWork Math</span>
+  <span style="font-size:16px;color:#6b665f">Bookmark</span>
+  <a class="btn" href="#eng">▶ English Solutions</a>
+  <a class="btn ghost" href="#kor">▶ 한글 해설</a>
+</div></nav>
+<div class="wrap">
+  <div class="note">정답은 HMMT 공식 해설 PDF 기준 검증. 학생 답안은 손글씨 스캔을 확대 판독함. 문제별 해설 링크는 공식 아카이브 solutions.pdf 로 연결됩니다.
+    · <a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2021/nov/gen/problems.pdf" target="_blank">problems.pdf</a>
+    · <a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2021/nov/gen/solutions.pdf" target="_blank">solutions.pdf</a></div>
+  <div class="score">
+    <div class="box main"><div class="n">6 / 10</div><div class="l">정답 / Correct</div></div>
+    <div class="box ok"><div class="n">6</div><div class="l">맞음 / Right</div></div>
+    <div class="box part"><div class="n">1</div><div class="l">부분정답 / Partial</div></div>
+    <div class="box wrong"><div class="n">3</div><div class="l">틀림 / Wrong</div></div>
+  </div>
+  <div class="verify"><h3>총평 / Notes</h3>
+    <ul>
+      <li><b>총평</b> — \(10\)문항 중 \(6\)문항을 정확히 맞혔고(1·3·4·6·8·10), 5번은 확률 \(1/15\)까지 정확히 구했으나 문제가 요구한 \(100m+n\) 변환을 놓쳐 <b>부분 정답</b>이다. 특히 8번(비(非)자기교차 경로 세기 \(8744\))과 10번(대칭 연립방정식의 최댓값 \(5272\))처럼 계산량·발상이 모두 무거운 문제를 정확히 해결한 것은 상위권 실력을 보여준다. 반면 2번·7번·9번은 개선 여지가 있다.<br><span style='color:#7a6a55'>Yunje got 6 of 10 exactly right (Q1, 3, 4, 6, 8, 10). On Q5 he found the probability \(1/15\) correctly but stopped before the requested \(100m+n\) — scored <b>partial</b>. Nailing the heaviest items — Q8 (counting non-self-crossing routes, \(8744\)) and Q10 (max of a symmetric system, \(5272\)) — shows real top-tier strength. Q2, Q7, and Q9 are the areas to sharpen.</span></li>
+      <li><b>Q2</b> — 지수식 \(8\,a^a b^b=27\,a^b b^a\)는 \((a/b)^{a-b}=27/8=(3/2)^3\)으로 정리된다 → \(a=9,\ b=6\), 따라서 \(a^2+b^2=117\). 학생 답 \(13\)(\(=2^2+3^2\))은 지수 자리의 \(a,b\)를 밑 그대로 대입하지 않은 오해로 보인다.<br><span style='color:#7a6a55'>The exponential equation collapses to \((a/b)^{a-b}=27/8=(3/2)^3\Rightarrow a=9,b=6\), so \(a^2+b^2=117\). The answer \(13=2^2+3^2\) suggests treating the exponents loosely — here the exponents ARE the bases.</span></li>
+      <li><b>Q5</b> — 확률 \(1/15\)는 완벽히 맞았다. 다만 이 문제는 \(\gcd(m,n)=1\)로 쓴 \(m/n\)에 대해 <b>\(100m+n\)</b>을 답으로 요구한다 → \(100\cdot1+15=115\). '답 형식(packaging)' 최종 확인 습관을 들이자.<br><span style='color:#7a6a55'>The probability \(1/15\) is exactly right. But the problem asks for \(100m+n\) with \(m/n\) in lowest terms \(\Rightarrow 100\cdot1+15=115\). Build the habit of a final check on the requested answer format.</span></li>
+      <li><b>Q7</b> — \(x&gt;0\)에서 \(f\)가 <b>involution</b>(\(f\circ f=\text{id}\))임을 포착하면 \(f^{10}(x)=1\)이 \(f(x)=f(1)\)로 붕괴한다. 그러면 이차식 한 개만 풀면 되고, 근의 합은 Vieta로 \((1-\sqrt3)/2\) → 답 \(932\). 아래 <b>심화 해설</b> 참고. 학생 답 \(1011\).<br><span style='color:#7a6a55'>Spotting that \(f\) is an <b>involution</b> (\(f\circ f=\text{id}\)) for \(x&gt;0\) collapses \(f^{10}(x)=1\) to \(f(x)=f(1)\); one quadratic remains and Vieta gives root-sum \((1-\sqrt3)/2\Rightarrow 932\). See the deep dive below. Student wrote \(1011\).</span></li>
+      <li><b>Q9</b> — \(AC=BD,\ BD=CE\)이면 \(ABCD,\ BCDE\)가 각각 등변사다리꼴 → \(CX=3,\ CY=2,\ XY=4\). 삼각형 \(CXY\)에 헤론을 쓰면 넓이 \(\tfrac34\sqrt{15}\), 전체 \([ABCDE]=18[CXY]=\tfrac{27}{2}\sqrt{15}\) → 답 \(2852\). 학생 답 \(9057\).<br><span style='color:#7a6a55'>From \(AC=BD\) and \(BD=CE\), both \(ABCD\) and \(BCDE\) are isosceles trapezoids \(\Rightarrow CX=3,CY=2,XY=4\). Heron on \(\triangle CXY\) gives \(\tfrac34\sqrt{15}\), and \([ABCDE]=18[CXY]=\tfrac{27}{2}\sqrt{15}\Rightarrow 2852\). Student wrote \(9057\).</span></li>
+    </ul></div>
+  <div class="sec"><h2 id="eng">English Solutions</h2><a class="top" href="#topnav">▲ Top / 맨 위로</a></div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q1</span> <span class="chip ok">✓ Correct</span> <span class="area">Combinatorics · dominoes</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(4\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(4\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">A domino has a left end and a right end, each of a certain color. Alice has four dominos, colored red-red, red-blue, blue-red, and blue-blue. Find the number of ways to arrange them in a row end-to-end so that adjacent ends have the same color. The dominos cannot be rotated.</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Each domino is a directed color pair; matching adjacent ends means the right color of one equals the left color of the next — an Euler-path count on the two-vertex \(\{R,B\}\) multigraph.</li>
+      <li>WLOG the first domino's left end is \(R\). If it is \(RR\): forced \(RR,RB,BB,BR\) — one way. If it is \(RB\): forced \(RB,BB,BR,RR\) — one way.</li>
+      <li>So \(2\) arrangements start with a red left end; by the \(R\leftrightarrow B\) symmetry, \(2\) start with blue.</li>
+      <li>\(\therefore 2+2=4.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2021/nov/gen/solutions.pdf" target="_blank">→ Official solution (P1)</a></div>
+  </div>
+  <div class="card wrong">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q2</span> <span class="chip wrong">✗ Wrong</span> <span class="area">Number theory · exponents</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(117\)</span></span>
+        <span class="abox stu wrong"><span class="k">Yunje</span><span class="val">\(13\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Suppose \(a\) and \(b\) are positive integers for which \(8a^a b^b=27a^b b^a\). Find \(a^2+b^2\).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Rearrange \(8a^a b^b=27a^b b^a\) to \(\dfrac{a^a b^b}{a^b b^a}=\dfrac{27}{8}\), i.e. \(\left(\dfrac{a}{b}\right)^{a-b}=\dfrac{27}{8}=\left(\dfrac32\right)^3.\)</li>
+      <li>With \(a,b\) positive integers, match base and exponent: \(\dfrac{a}{b}=\dfrac32,\ a-b=3\Rightarrow a=9,\ b=6\) (the swap \(a=6,b=9\) gives the same pair). The \(27/8=(27/8)^1\) branches give no integers.</li>
+      <li>So \(\{a,b\}=\{9,6\}.\)</li>
+      <li>\(\therefore a^2+b^2=81+36=117.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2021/nov/gen/solutions.pdf" target="_blank">→ Official solution (P2)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q3</span> <span class="chip ok">✓ Correct</span> <span class="area">Geometry · circle in a square</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(807\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(807\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Let \(ABCD\) be a unit square. A circle with radius \(\tfrac{32}{49}\) passes through \(D\) and is tangent to side \(AB\) at \(E\). Then \(DE=\tfrac{m}{n}\) with \(\gcd(m,n)=1\). Find \(100m+n\).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Unit square \(ABCD\); circle center \(O\), radius \(r=\tfrac{32}{49}\), through \(D\) and tangent to \(AB\) at \(E\) (so \(OE\perp AB\)). Let \(F=OE\cap CD,\ x=DF.\)</li>
+      <li>\(D\) on the circle: \(DF^2+OF^2=DO^2\Rightarrow x^2+(1-r)^2=r^2\Rightarrow x^2=2r-1.\)</li>
+      <li>\(DE^2=DF^2+EF^2=x^2+1^2=1+(2r-1)=2r=\dfrac{64}{49}\Rightarrow DE=\dfrac{8}{7}.\)</li>
+      <li>\(\therefore m/n=8/7,\ 100m+n=807.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2021/nov/gen/solutions.pdf" target="_blank">→ Official solution (P3)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q4</span> <span class="chip ok">✓ Correct</span> <span class="area">Number theory · digit sums</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(11\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(11\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">The sum of the digits of the time \(19\) minutes ago is two less than the sum of the digits of the time right now. Find the sum of the digits of the time in \(19\) minutes. (Standard \(12\)-hour clock \(hh{:}mm\).)</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>On a \(12\)-hour clock, adding \(19\) minutes changes the digit sum by \(\equiv+1\pmod 9\) unless the hour rolls over — so 'two less' forces a rollover.</li>
+      <li>That pins \(h=12\ (\to 1)\) with minutes \(m&gt;40\); the exact relation \(4+s(m)=s(m-41)\) gives \(m=50\), so now \(=1{:}09.\)</li>
+      <li>In \(19\) minutes the time is \(1{:}28.\)</li>
+      <li>\(\therefore 1+2+8=11.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2021/nov/gen/solutions.pdf" target="_blank">→ Official solution (P4)</a></div>
+  </div>
+  <div class="card partial">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q5</span> <span class="chip partial">◐ Partial</span> <span class="area">Probability · random chords</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(115\)</span></span>
+        <span class="abox stu partial"><span class="k">Yunje</span><span class="val">\(1/15\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">A chord is drawn on a circle by choosing two points uniformly at random on its circumference; this is done three times total. The circle is cut along the three chords. The probability that one of the pieces is a triangle is \(\tfrac{m}{n}\) with \(\gcd(m,n)=1\). Find \(100m+n\).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Pick \(6\) random points, then a random pairing into \(3\) chords. The three chords form a triangle iff each point is paired with its <b>opposite</b> among the six (so all three chords pairwise cross).</li>
+      <li>Exactly one of the pairings achieves this. The number of ways to pair \(6\) points into \(3\) unordered pairs is \(\dfrac{6!}{2^3\,3!}=15.\)</li>
+      <li>So the probability is \(\dfrac{1}{15}\Rightarrow m=1,\ n=15.\)</li>
+      <li><b>The problem asks for \(100m+n\)</b>: \(100\cdot1+15=115.\) Yunje found \(1/15\) but did not convert — <b>partial credit</b>.</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2021/nov/gen/solutions.pdf" target="_blank">→ Official solution (P5)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q6</span> <span class="chip ok">✓ Correct</span> <span class="area">Probability · expected value</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(1003\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(1003\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Mario has a deck of seven pairs of matching number cards and two pairs of matching Jokers (\(18\) cards). He draws from the top one by one until he holds a matching pair of Jokers. The expected number of complete pairs he then holds (including the Jokers) is \(\tfrac{m}{n}\), \(\gcd(m,n)=1\). Find \(100m+n\).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Order the \(9\) pairs by the moment each is first completed — a uniform ordering. The count of complete pairs held equals the position of the first Joker-pair in this order.</li>
+      <li>Equivalently, arrange \(7\) \(N\)'s and \(2\) \(J\)'s at random and find the expected position of the first \(J\).</li>
+      <li>Each \(N\) is before both \(J\)'s with probability \(\tfrac13\Rightarrow\) expected \(N\)'s before the first \(J\) is \(\tfrac73\); expected position \(=\tfrac73+1=\tfrac{10}{3}.\)</li>
+      <li>\(\therefore m/n=10/3,\ 100m+n=1003.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2021/nov/gen/solutions.pdf" target="_blank">→ Official solution (P6)</a></div>
+  </div>
+  <div class="card wrong">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q7</span> <span class="chip wrong">✗ Wrong</span> <span class="area">Algebra · iterated function</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(932\)</span></span>
+        <span class="abox stu wrong"><span class="k">Yunje</span><span class="val">\(1011\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Define \(f:\mathbb{R}\to\mathbb{R}\) by \(f(x)=\dfrac{1}{x^2+\sqrt{x^4+2x}}\) if \(x\notin(-\sqrt[3]{2},0]\), and \(f(x)=0\) otherwise. The sum of all real \(x\) with \(f^{10}(x)=1\) is \(\tfrac{a+b\sqrt c}{d}\) (\(d&gt;0\), \(c\) square-free, \(\gcd(a,b,d)=1\)). Find \(1000a+100b+10c+d\).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>For \(x&gt;0\), the definition forces \(x\,f(x)^2+x^2 f(x)=\tfrac12\), a relation symmetric in \(x\leftrightarrow f(x)\). Hence \(f\) is an <b>involution</b>: \(f(f(x))=x.\)</li>
+      <li>So \(f^{10}(x)=1\Rightarrow f(x)=f^{11}(x)=f\!\big(f^{10}(x)\big)=f(1)\); the tower of \(10\) collapses to \(f(x)=f(1).\)</li>
+      <li>That equation is the quadratic \(2(1+\sqrt3)x^2+2x-(1+\sqrt3)^2=0\), with roots \(x=1\) and \(x=-\tfrac{1+\sqrt3}{2}.\)</li>
+      <li>Sum \(=1-\tfrac{1+\sqrt3}{2}=\tfrac{1-\sqrt3}{2}\Rightarrow a=1,b=-1,c=3,d=2,\ 1000a+100b+10c+d=932.\) See the deep dive below.</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2021/nov/gen/solutions.pdf" target="_blank">→ Official solution (P7)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q8</span> <span class="chip ok">✓ Correct</span> <span class="area">Combinatorics · non-crossing routes</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(8744\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(8744\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Eight points \(P_1,\dots,P_8\) lie clockwise on a circle. A route is a sequence of at least two points such that following them by straight segments never revisits a point or crosses the path. Find the number of routes.</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Fix a set of \(k\) points and require the route to use all of them without self-crossing: choose the start, then each new step must extend to a neighbor of the current visited arc \(\Rightarrow k\cdot 2^{k-2}\) routes.</li>
+      <li>Sum over every subset of size \(k\ge2\): \(\displaystyle\sum_{k=2}^{8}\binom{8}{k}\,k\,2^{k-2}.\)</li>
+      <li>\(=\binom88(8\cdot2^6)+\binom87(7\cdot2^5)+\cdots+\binom82(2\cdot2^0)=8744.\)</li>
+      <li>\(\therefore 8744.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2021/nov/gen/solutions.pdf" target="_blank">→ Official solution (P8)</a></div>
+  </div>
+  <div class="card wrong">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q9</span> <span class="chip wrong">✗ Wrong</span> <span class="area">Geometry · cyclic pentagon</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(2852\)</span></span>
+        <span class="abox stu wrong"><span class="k">Yunje</span><span class="val">\(9057\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">\(ABCDE\) is a cyclic convex pentagon with \(AC=BD=CE\). \(AC,BD\) meet at \(X\); \(BD,CE\) meet at \(Y\). If \(AX=6,\ XY=4,\ YE=7\), the area of \(ABCDE\) is \(\tfrac{a\sqrt b}{c}\) (\(c&gt;0\), \(b\) square-free, \(\gcd(a,c)=1\)). Find \(100a+10b+c\).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>\(AC=BD\Rightarrow ABCD\) is an isosceles trapezoid; \(BD=CE\Rightarrow BCDE\) is too. These give \(CY=DY=DX-XY=AX-XY=2\) and \(BX=CX=3.\)</li>
+      <li>Triangle \(CXY\) has sides \(3,2,4\); Heron gives \([CXY]=\tfrac34\sqrt{15}.\)</li>
+      <li>Ratios along the diagonals: \([ABC]=[CDE]=\tfrac94[CXY]\) and \([ACE]=\tfrac{27}{2}[CXY]\), so \([ABCDE]=\big(\tfrac94+\tfrac94+\tfrac{27}{2}\big)[CXY]=18[CXY].\)</li>
+      <li>\([ABCDE]=18\cdot\tfrac34\sqrt{15}=\tfrac{27}{2}\sqrt{15}\Rightarrow a=27,b=15,c=2,\ 100a+10b+c=2852.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2021/nov/gen/solutions.pdf" target="_blank">→ Official solution (P9)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q10</span> <span class="chip ok">✓ Correct</span> <span class="area">Algebra · symmetric system</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">Official</span><span class="val">\(5272\)</span></span>
+        <span class="abox stu ok"><span class="k">Yunje</span><span class="val">\(5272\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">Problem</div>
+    <div class="prob">Real numbers \(x,y,z\) satisfy \(x+xy+xyz=1,\ y+yz+xyz=2,\ z+xz+xyz=4\). The largest possible value of \(xyz\) is \(\tfrac{a+b\sqrt c}{d}\) (\(d&gt;0\), \(c\) square-free, \(\gcd(a,b,d)=1\)). Find \(1000a+100b+10c+d\).</div>
+    <div class="blabel sol">Solution</div>
+    <ol class="steps">
+      <li>Let \(p=xyz\) and \(q=(x+1)(y+1)(z+1)\). Factoring the three equations as \(x(1+y),\,y(1+z),\,z(1+x)\) and multiplying: \(pq=(1-p)(2-p)(4-p).\)</li>
+      <li>Adding the three equations gives \(q-p=8-3p\Rightarrow q=8-2p.\)</li>
+      <li>Substitute: \(p(8-2p)=(1-p)(2-p)(4-p)\Rightarrow(4-p)(p^2-5p+2)=0\Rightarrow p=4\ \text{or}\ \dfrac{5\pm\sqrt{17}}{2}.\)</li>
+      <li>Largest is \(p=\dfrac{5+\sqrt{17}}{2}\Rightarrow a=5,b=1,c=17,d=2,\ 1000a+100b+10c+d=5272.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2021/nov/gen/solutions.pdf" target="_blank">→ Official solution (P10)</a></div>
+  </div>
+  <div class="dd">
+    <h3>Deep Dive — Problem 7: iterated functions, involutions, a collapsing tower</h3>
+    <div class="body">
+      <ol class="steps concept">
+      <li><b>Why the tower looks scary:</b> \(f^{10}(x)=1\) stacks \(f\) ten deep — hopeless head-on. The move is to find structure in <b>\(f\) itself</b>.</li>
+      <li><b>Spot the involution:</b> for \(x&gt;0\), the definition rearranges to \(x\,f(x)^2+x^2 f(x)=\tfrac12\), a relation <b>unchanged</b> when you swap \(x\leftrightarrow f(x)\). So \(f\) is its own inverse — an <b>involution</b>: \(f(f(x))=x.\)</li>
+      <li><b>The tower collapses:</b> with \(f\circ f=\text{id}\), \(f^{11}(x)=f(x)\). Since \(f^{10}(x)=1\), \(f(x)=f^{11}(x)=f\!\big(f^{10}(x)\big)=f(1)\). The whole problem shrinks to <b>\(f(x)=f(1)\)</b>.</li>
+      <li><b>Solve once:</b> \(f(x)=f(1)\) is the quadratic \(2(1+\sqrt3)x^2+2x-(1+\sqrt3)^2=0\); one root is \(x=1\), and Vieta gives root-sum \(-\dfrac{2}{2(1+\sqrt3)}=-\dfrac{1}{1+\sqrt3}=\dfrac{1-\sqrt3}{2}.\) \(\therefore\) answer \(\mathbf{932}.\)</li>
+      </ol>
+      <div class="pq"><span class="pl">Practice 1.</span> A function \(g\) satisfies \(g(g(x))=x\) for all real \(x\), and \(g(3)=5\). Compute \(g^{100}(3)\) and \(g^{101}(3)\).</div>
+      <details class="pt"><summary>Show solution</summary><ol class="steps">
+        <li>\(g(g(x))=x\) means an even number of iterations is the identity: \(g^{2k}(x)=x.\)</li>
+        <li>An odd number equals one application: \(g^{2k+1}(x)=g(x).\)</li>
+        <li>\(\therefore g^{100}(3)=3,\quad g^{101}(3)=g(3)=5.\)</li>
+      </ol></details>
+      <div class="pq"><span class="pl">Practice 2.</span> Without finding the roots individually, compute the <b>sum of the two roots</b> of \(2(1+\sqrt3)x^2+2x-(1+\sqrt3)^2=0\).</div>
+      <details class="pt"><summary>Show solution</summary><ol class="steps">
+        <li>Vieta: sum \(=-\dfrac{2}{2(1+\sqrt3)}=-\dfrac{1}{1+\sqrt3}.\)</li>
+        <li>Rationalize: \(-\dfrac{1}{1+\sqrt3}\cdot\dfrac{\sqrt3-1}{\sqrt3-1}=-\dfrac{\sqrt3-1}{2}\) (since \((1+\sqrt3)(\sqrt3-1)=2\)).</li>
+        <li>\(\therefore \dfrac{1-\sqrt3}{2}\) — the answer without ever isolating a root.</li>
+      </ol></details>
+    </div>
+  </div>
+  <div class="sec"><h2 id="kor">한글 해설</h2><a class="top" href="#topnav">▲ Top / 맨 위로</a></div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q1</span> <span class="chip ok">✓ 정답</span> <span class="area">조합 · 도미노</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(4\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(4\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">도미노는 왼쪽 끝과 오른쪽 끝이 각각 색을 가진다. Alice는 red-red, red-blue, blue-red, blue-blue의 네 도미노를 가진다. 이웃한 끝의 색이 같도록 한 줄로 이어 놓는 방법의 수를 구하라. 도미노는 회전할 수 없다.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>각 도미노는 방향이 있는 색쌍. 이웃한 끝의 색이 같아야 함 = 앞 도미노의 오른쪽 색 \(=\) 뒤 도미노의 왼쪽 색 → 두 꼭짓점 \(\{R,B\}\) 멀티그래프의 오일러 경로 세기.</li>
+      <li>WLOG 첫 도미노의 왼쪽 끝이 \(R\). \(RR\)이면 \(RR,RB,BB,BR\)로 강제 — \(1\)가지. \(RB\)이면 \(RB,BB,BR,RR\)로 강제 — \(1\)가지.</li>
+      <li>즉 왼쪽 끝이 빨강인 배열이 \(2\)가지; \(R\leftrightarrow B\) 대칭으로 파랑도 \(2\)가지.</li>
+      <li>\(\therefore 2+2=4.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2021/nov/gen/solutions.pdf" target="_blank">→ 공식 해설 (문제 1)</a></div>
+  </div>
+  <div class="card wrong">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q2</span> <span class="chip wrong">✗ 오답</span> <span class="area">정수론 · 지수</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(117\)</span></span>
+        <span class="abox stu wrong"><span class="k">유윤제</span><span class="val">\(13\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">양의 정수 \(a,b\)가 \(8a^a b^b=27a^b b^a\)를 만족한다. \(a^2+b^2\)을 구하라.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>\(8a^a b^b=27a^b b^a\)를 \(\dfrac{a^a b^b}{a^b b^a}=\dfrac{27}{8}\)로 정리 → \(\left(\dfrac{a}{b}\right)^{a-b}=\dfrac{27}{8}=\left(\dfrac32\right)^3.\)</li>
+      <li>\(a,b\)가 양의 정수이므로 밑과 지수를 맞추면 \(\dfrac{a}{b}=\dfrac32,\ a-b=3\Rightarrow a=9,\ b=6\) (\(a=6,b=9\)은 같은 쌍). \((27/8)^1\) 분기는 정수해 없음.</li>
+      <li>즉 \(\{a,b\}=\{9,6\}.\)</li>
+      <li>\(\therefore a^2+b^2=81+36=117.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2021/nov/gen/solutions.pdf" target="_blank">→ 공식 해설 (문제 2)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q3</span> <span class="chip ok">✓ 정답</span> <span class="area">기하 · 정사각형 속 원</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(807\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(807\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">\(ABCD\)를 단위정사각형이라 하자. 반지름 \(\tfrac{32}{49}\)인 원이 \(D\)를 지나고 변 \(AB\)에 \(E\)에서 접한다. \(DE=\tfrac{m}{n}\ (\gcd(m,n)=1)\)일 때 \(100m+n\)을 구하라.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>단위정사각형 \(ABCD\); 원의 중심 \(O\), 반지름 \(r=\tfrac{32}{49}\), \(D\)를 지나고 \(AB\)에 \(E\)에서 접함(\(OE\perp AB\)). \(F=OE\cap CD,\ x=DF.\)</li>
+      <li>\(D\)가 원 위: \(DF^2+OF^2=DO^2\Rightarrow x^2+(1-r)^2=r^2\Rightarrow x^2=2r-1.\)</li>
+      <li>\(DE^2=DF^2+EF^2=x^2+1^2=1+(2r-1)=2r=\dfrac{64}{49}\Rightarrow DE=\dfrac{8}{7}.\)</li>
+      <li>\(\therefore m/n=8/7,\ 100m+n=807.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2021/nov/gen/solutions.pdf" target="_blank">→ 공식 해설 (문제 3)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q4</span> <span class="chip ok">✓ 정답</span> <span class="area">정수론 · 자릿수 합</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(11\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(11\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">\(19\)분 전 시각의 자릿수 합이 현재 시각의 자릿수 합보다 \(2\) 작다. \(19\)분 후 시각의 자릿수 합을 구하라. (표준 \(12\)시간제 \(hh{:}mm\).)</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>\(12\)시간 시계에서 \(19\)분을 더하면 시(時)가 넘어가지 않는 한 자릿수 합이 \(\equiv+1\pmod 9\) → '\(2\) 작다'는 조건은 시가 넘어가야 성립.</li>
+      <li>이는 \(h=12\ (\to 1)\), 분 \(m&gt;40\)을 강제; 정밀식 \(4+s(m)=s(m-41)\)에서 \(m=50\) → 지금은 \(1{:}09.\)</li>
+      <li>\(19\)분 후는 \(1{:}28.\)</li>
+      <li>\(\therefore 1+2+8=11.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2021/nov/gen/solutions.pdf" target="_blank">→ 공식 해설 (문제 4)</a></div>
+  </div>
+  <div class="card partial">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q5</span> <span class="chip partial">◐ 부분 정답</span> <span class="area">확률 · 무작위 현</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(115\)</span></span>
+        <span class="abox stu partial"><span class="k">유윤제</span><span class="val">\(1/15\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">원 둘레에서 두 점을 균등하게 무작위로 골라 현을 그리는 일을 총 세 번 한다. 원을 세 현을 따라 자른다. 조각 중 하나가 삼각형일 확률이 \(\tfrac{m}{n}\ (\gcd(m,n)=1)\)일 때 \(100m+n\)을 구하라.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>\(6\)개 점을 무작위로 찍고 \(3\)개 현으로 무작위 짝짓기. 세 현이 삼각형을 이룰 필요충분조건은 각 점이 여섯 점 중 <b>맞은편</b> 점과 짝지어지는 것(세 현이 서로 교차).</li>
+      <li>이를 만족하는 짝짓기는 정확히 \(1\)가지. \(6\)점을 \(3\)개의 (순서 없는) 쌍으로 나누는 방법은 \(\dfrac{6!}{2^3\,3!}=15.\)</li>
+      <li>따라서 확률은 \(\dfrac{1}{15}\Rightarrow m=1,\ n=15.\)</li>
+      <li><b>문제는 \(100m+n\)을 요구</b>: \(100\cdot1+15=115.\) 유윤제는 \(1/15\)까지 맞혔으나 변환 누락 — <b>부분 정답</b>.</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2021/nov/gen/solutions.pdf" target="_blank">→ 공식 해설 (문제 5)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q6</span> <span class="chip ok">✓ 정답</span> <span class="area">확률 · 기댓값</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(1003\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(1003\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">Mario는 일곱 쌍의 숫자 카드와 두 쌍의 조커(총 \(18\)장)를 가진다. 위에서 한 장씩 뽑아 조커 한 쌍이 손에 들어올 때까지 뽑는다. 그때 손에 든 완성된 쌍의 수(조커 포함)의 기댓값이 \(\tfrac{m}{n}\ (\gcd(m,n)=1)\)일 때 \(100m+n\)을 구하라.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>\(9\)개 쌍을 '처음 완성되는 순간' 순으로 배열 — 균등한 순서. 손에 든 완성 쌍 수 \(=\) 이 순서에서 조커쌍이 처음 나오는 위치.</li>
+      <li>동치로, \(7\)개의 \(N\)과 \(2\)개의 \(J\)를 무작위 배열하고 첫 \(J\)의 기대 위치를 구함.</li>
+      <li>각 \(N\)이 두 \(J\)보다 앞설 확률 \(\tfrac13\Rightarrow\) 첫 \(J\) 앞의 \(N\) 기댓값 \(\tfrac73\); 기대 위치 \(=\tfrac73+1=\tfrac{10}{3}.\)</li>
+      <li>\(\therefore m/n=10/3,\ 100m+n=1003.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2021/nov/gen/solutions.pdf" target="_blank">→ 공식 해설 (문제 6)</a></div>
+  </div>
+  <div class="card wrong">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q7</span> <span class="chip wrong">✗ 오답</span> <span class="area">대수 · 반복 함수</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(932\)</span></span>
+        <span class="abox stu wrong"><span class="k">유윤제</span><span class="val">\(1011\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">\(f:\mathbb{R}\to\mathbb{R}\)를 \(x\notin(-\sqrt[3]{2},0]\)이면 \(f(x)=\dfrac{1}{x^2+\sqrt{x^4+2x}}\), 그 외엔 \(f(x)=0\)으로 정의한다. \(f^{10}(x)=1\)인 모든 실수 \(x\)의 합은 \(\tfrac{a+b\sqrt c}{d}\ (d&gt;0,\ c\ \text{square-free},\ \gcd(a,b,d)=1)\). \(1000a+100b+10c+d\)를 구하라.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>\(x&gt;0\)에서 정의로부터 \(x\,f(x)^2+x^2 f(x)=\tfrac12\)이 나오고, 이 식은 \(x\leftrightarrow f(x)\)에 대해 대칭 → \(f\)는 <b>involution</b>: \(f(f(x))=x.\)</li>
+      <li>따라서 \(f^{10}(x)=1\Rightarrow f(x)=f^{11}(x)=f\!\big(f^{10}(x)\big)=f(1)\); \(10\)번 반복이 \(f(x)=f(1)\) 하나로 붕괴.</li>
+      <li>이 식은 이차식 \(2(1+\sqrt3)x^2+2x-(1+\sqrt3)^2=0\), 근은 \(x=1\)과 \(x=-\tfrac{1+\sqrt3}{2}.\)</li>
+      <li>합 \(=1-\tfrac{1+\sqrt3}{2}=\tfrac{1-\sqrt3}{2}\Rightarrow a=1,b=-1,c=3,d=2,\ 1000a+100b+10c+d=932.\) 아래 심화 해설 참고.</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2021/nov/gen/solutions.pdf" target="_blank">→ 공식 해설 (문제 7)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q8</span> <span class="chip ok">✓ 정답</span> <span class="area">조합 · 비교차 경로</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(8744\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(8744\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">여덟 점 \(P_1,\dots,P_8\)이 원 위에 시계방향으로 놓여 있다. 경로란 두 개 이상의 점의 나열로, 직선 선분으로 이어 방문할 때 점을 두 번 방문하지 않고 경로가 자기 자신과 교차하지 않는 것이다. 경로의 개수를 구하라.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>\(k\)개 점 집합을 고정하고 그 전부를 자기교차 없이 쓰는 경로: 시작점을 고른 뒤, 매 단계는 지금까지 방문한 호(arc)의 이웃으로만 확장 \(\Rightarrow k\cdot 2^{k-2}\)가지.</li>
+      <li>크기 \(k\ge2\)인 모든 부분집합에 대해 합: \(\displaystyle\sum_{k=2}^{8}\binom{8}{k}\,k\,2^{k-2}.\)</li>
+      <li>\(=\binom88(8\cdot2^6)+\binom87(7\cdot2^5)+\cdots+\binom82(2\cdot2^0)=8744.\)</li>
+      <li>\(\therefore 8744.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2021/nov/gen/solutions.pdf" target="_blank">→ 공식 해설 (문제 8)</a></div>
+  </div>
+  <div class="card wrong">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q9</span> <span class="chip wrong">✗ 오답</span> <span class="area">기하 · 원에 내접한 오각형</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(2852\)</span></span>
+        <span class="abox stu wrong"><span class="k">유윤제</span><span class="val">\(9057\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">\(ABCDE\)는 원에 내접한 볼록오각형으로 \(AC=BD=CE\). \(AC,BD\)는 \(X\)에서, \(BD,CE\)는 \(Y\)에서 만난다. \(AX=6,\ XY=4,\ YE=7\)일 때 넓이는 \(\tfrac{a\sqrt b}{c}\ (c&gt;0,\ b\ \text{square-free},\ \gcd(a,c)=1)\). \(100a+10b+c\)를 구하라.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>\(AC=BD\Rightarrow ABCD\)는 등변사다리꼴; \(BD=CE\Rightarrow BCDE\)도 등변사다리꼴. 이로부터 \(CY=DY=DX-XY=AX-XY=2,\ BX=CX=3.\)</li>
+      <li>삼각형 \(CXY\)의 세 변은 \(3,2,4\); 헤론 공식으로 \([CXY]=\tfrac34\sqrt{15}.\)</li>
+      <li>대각선 위 비율: \([ABC]=[CDE]=\tfrac94[CXY],\ [ACE]=\tfrac{27}{2}[CXY]\) → \([ABCDE]=\big(\tfrac94+\tfrac94+\tfrac{27}{2}\big)[CXY]=18[CXY].\)</li>
+      <li>\([ABCDE]=18\cdot\tfrac34\sqrt{15}=\tfrac{27}{2}\sqrt{15}\Rightarrow a=27,b=15,c=2,\ 100a+10b+c=2852.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2021/nov/gen/solutions.pdf" target="_blank">→ 공식 해설 (문제 9)</a></div>
+  </div>
+  <div class="card ok">
+    <div class="chead">
+      <div class="cleft"><span class="qn">Q10</span> <span class="chip ok">✓ 정답</span> <span class="area">대수 · 대칭 연립방정식</span></div>
+      <div class="ans">
+        <span class="abox off"><span class="k">공식 정답</span><span class="val">\(5272\)</span></span>
+        <span class="abox stu ok"><span class="k">유윤제</span><span class="val">\(5272\)</span></span>
+      </div>
+    </div>
+    <div class="blabel">문제</div>
+    <div class="prob">실수 \(x,y,z\)가 \(x+xy+xyz=1,\ y+yz+xyz=2,\ z+xz+xyz=4\)를 만족한다. \(xyz\)의 최댓값은 \(\tfrac{a+b\sqrt c}{d}\ (d&gt;0,\ c\ \text{square-free},\ \gcd(a,b,d)=1)\). \(1000a+100b+10c+d\)를 구하라.</div>
+    <div class="blabel sol">풀이</div>
+    <ol class="steps">
+      <li>\(p=xyz,\ q=(x+1)(y+1)(z+1)\). 세 식을 \(x(1+y),\,y(1+z),\,z(1+x)\)로 인수분해해 곱하면 \(pq=(1-p)(2-p)(4-p).\)</li>
+      <li>세 식을 더하면 \(q-p=8-3p\Rightarrow q=8-2p.\)</li>
+      <li>대입: \(p(8-2p)=(1-p)(2-p)(4-p)\Rightarrow(4-p)(p^2-5p+2)=0\Rightarrow p=4\ \text{또는}\ \dfrac{5\pm\sqrt{17}}{2}.\)</li>
+      <li>최댓값은 \(p=\dfrac{5+\sqrt{17}}{2}\Rightarrow a=5,b=1,c=17,d=2,\ 1000a+100b+10c+d=5272.\)</li>
+    </ol>
+    <div class="sollink"><a href="https://hmmt-archive.s3.amazonaws.com/tournaments/2021/nov/gen/solutions.pdf" target="_blank">→ 공식 해설 (문제 10)</a></div>
+  </div>
+  <div class="dd">
+    <h3>심화 — 7번: 반복 함수 · involution · 붕괴하는 반복탑</h3>
+    <div class="body">
+      <ol class="steps concept">
+      <li><b>반복탑이 무섭게 보이는 이유:</b> \(f^{10}(x)=1\)은 \(f\)를 열 번 겹쳐야 해서 직접 풀기 벅차다. 핵심은 <b>\(f\) 자체의 구조</b>를 찾는 것.</li>
+      <li><b>involution 발견:</b> \(x&gt;0\)에서 정의를 정리하면 \(x\,f(x)^2+x^2 f(x)=\tfrac12\)이 나온다. 이 식은 \(x\)와 \(f(x)\)를 맞바꿔도 <b>똑같다</b> → \(f\)는 자기 자신이 역함수인 <b>involution</b>: \(f(f(x))=x.\)</li>
+      <li><b>탑이 붕괴:</b> \(f\circ f=\text{id}\)이면 \(f^{11}(x)=f(x)\). 그런데 \(f^{10}(x)=1\)이므로 \(f(x)=f^{11}(x)=f\!\big(f^{10}(x)\big)=f(1)\). 즉 문제가 <b>\(f(x)=f(1)\)</b> 하나로 줄어든다.</li>
+      <li><b>한 번만 풀기:</b> \(f(x)=f(1)\)은 이차식 \(2(1+\sqrt3)x^2+2x-(1+\sqrt3)^2=0.\) 한 근이 \(x=1\)(자명), Vieta로 근의 합 \(=-\dfrac{2}{2(1+\sqrt3)}=-\dfrac{1}{1+\sqrt3}=\dfrac{1-\sqrt3}{2}.\) \(\therefore\) 답 \(\mathbf{932}.\)</li>
+      </ol>
+      <div class="pq"><span class="pl">연습문제 1.</span> 함수 \(g\)가 모든 실수에서 \(g(g(x))=x\)를 만족하고 \(g(3)=5\)이다. \(g^{100}(3)\)과 \(g^{101}(3)\)을 구하라.</div>
+      <details class="pt"><summary>해설 보기</summary><ol class="steps">
+        <li>\(g(g(x))=x\)이면 짝수 번 반복은 항등: \(g^{2k}(x)=x.\)</li>
+        <li>홀수 번 반복은 \(g\) 한 번과 같음: \(g^{2k+1}(x)=g(x).\)</li>
+        <li>\(\therefore g^{100}(3)=3,\quad g^{101}(3)=g(3)=5.\)</li>
+      </ol></details>
+      <div class="pq"><span class="pl">연습문제 2.</span> 근을 각각 구하지 말고, \(2(1+\sqrt3)x^2+2x-(1+\sqrt3)^2=0\)의 <b>두 근의 합</b>을 구하라.</div>
+      <details class="pt"><summary>해설 보기</summary><ol class="steps">
+        <li>Vieta: 근의 합 \(=-\dfrac{2}{2(1+\sqrt3)}=-\dfrac{1}{1+\sqrt3}.\)</li>
+        <li>유리화: \(-\dfrac{1}{1+\sqrt3}\cdot\dfrac{\sqrt3-1}{\sqrt3-1}=-\dfrac{\sqrt3-1}{2}\) (분모 \((1+\sqrt3)(\sqrt3-1)=2\)).</li>
+        <li>\(\therefore \dfrac{1-\sqrt3}{2}\) — 근을 직접 구하지 않고도 답이 나온다.</li>
+      </ol></details>
+    </div>
+  </div>
+</div>
+<footer>아이워크수학 · iWork Math · 제작·편집 원장 이상열 · HMMT-2111-GEN · 생성 2026-07-12 10:04 · 파일 HMMT_Nov2021_General_채점_2607121004.html · 무단복제 금지</footer>
+</body>
+</html>
