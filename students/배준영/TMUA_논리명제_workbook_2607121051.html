@@ -1,0 +1,890 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>배준영 TMUA 논리 명제 Workbook</title>
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    displayMath: [['\\[','\\]']],
+    processEscapes: true
+  },
+  options: {
+    skipHtmlTags: ['script','noscript','style','textarea','pre','code']
+  }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+<style>
+  :root{
+    --ink:#111;
+    --muted:#555;
+    --line:#b9b9b9;
+    --light:#efefef;
+    --accent:#1f3f67;
+  }
+
+  *{box-sizing:border-box}
+
+  html{scroll-behavior:smooth}
+
+  body{
+    margin:0;
+    background:#fff;
+    color:var(--ink);
+    font-family:"Noto Sans KR","Apple SD Gothic Neo","Segoe UI",Arial,sans-serif;
+    line-height:1.72;
+  }
+
+  main{
+    width:min(210mm, calc(100% - 28px));
+    margin:0 auto;
+    padding:16mm 17mm 20mm;
+  }
+
+  h1{
+    margin:0;
+    font-size:28px;
+    line-height:1.25;
+    letter-spacing:-0.03em;
+  }
+
+  h2{
+    margin:2.2em 0 0.8em;
+    padding-bottom:0.28em;
+    border-bottom:1.5px solid var(--ink);
+    font-size:22px;
+    line-height:1.35;
+  }
+
+  h3{
+    margin:1.6em 0 0.5em;
+    font-size:17px;
+    line-height:1.4;
+  }
+
+  h4{
+    margin:1.2em 0 0.4em;
+    font-size:15px;
+  }
+
+  p{margin:0.55em 0}
+
+  .subtitle{
+    margin-top:6px;
+    color:var(--muted);
+    font-size:14px;
+  }
+
+  .meta{
+    margin:22px 0 18px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:10px 0;
+    font-size:14px;
+  }
+
+  .meta span{
+    display:inline-block;
+    margin-right:28px;
+  }
+
+  .bookmarks{
+    margin:18px 0 30px;
+    padding:10px 0;
+    border-bottom:1px solid var(--line);
+  }
+
+  .bookmarks a{
+    display:inline-block;
+    margin-right:18px;
+    color:var(--accent);
+    text-decoration:none;
+    font-weight:700;
+  }
+
+  .bookmarks a:hover{
+    text-decoration:underline;
+  }
+
+  .section-note{
+    margin:10px 0 18px;
+    color:var(--muted);
+    font-size:14px;
+  }
+
+  .formula{
+    margin:12px 0;
+    padding:10px 12px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:#fafafa;
+    overflow-x:auto;
+  }
+
+  .question{
+    margin:22px 0 26px;
+    padding-top:8px;
+    border-top:1px solid var(--line);
+  }
+
+  .question-title{
+    font-weight:700;
+    margin-bottom:8px;
+  }
+
+  .answer-space{
+    height:92px;
+    margin:12px 0 6px;
+    background:
+      repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 29px,
+        #d8d8d8 30px
+      );
+  }
+
+  .answer-space.tall{
+    height:145px;
+  }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:14px 0 20px;
+    font-size:14px;
+  }
+
+  th,td{
+    border:1px solid var(--line);
+    padding:8px 10px;
+    vertical-align:top;
+  }
+
+  th{
+    background:#f4f4f4;
+    text-align:left;
+  }
+
+  .answer-key{
+    margin-top:28px;
+  }
+
+  .solution{
+    margin:20px 0 28px;
+    padding-top:10px;
+    border-top:1px solid var(--line);
+  }
+
+  .solution-number{
+    font-weight:700;
+    margin-bottom:6px;
+  }
+
+  .teacher-note{
+    margin-top:12px;
+    padding:12px 14px;
+    background:#f4f6f9;
+  }
+
+  .teacher-note strong{
+    color:var(--accent);
+  }
+
+  .page-break{
+    page-break-before:always;
+  }
+
+  .language-start{
+    scroll-margin-top:20px;
+  }
+
+  .z-note{margin-top:32px;padding-top:14px;border-top:1px solid var(--line)}
+
+  .footer{
+    margin-top:36px;
+    padding-top:10px;
+    border-top:1px solid var(--line);
+    color:var(--muted);
+    font-size:12px;
+  }
+
+  .print-bar{
+    margin:14px 0 0;
+  }
+
+  .print-btn{
+    padding:8px 14px;
+    border:1px solid var(--line);
+    background:#fff;
+    color:var(--ink);
+    font-family:inherit;
+    font-size:14px;
+    cursor:pointer;
+  }
+
+  .print-btn:hover{
+    background:var(--light);
+  }
+
+  @media print{
+    .print-bar{display:none;}
+
+    main{
+      width:auto;
+      margin:0;
+      padding:14mm 15mm 18mm;
+    }
+
+    .bookmarks{
+      display:none;
+    }
+
+    h2,h3,.question,.solution,table{
+      break-inside:avoid;
+    }
+
+    .page-break{
+      page-break-before:always;
+    }
+  }
+</style>
+</head>
+
+<body>
+<main>
+
+  <h1>TMUA Logic and Quantifiers Workbook</h1>
+  <p class="subtitle">양화사(‘모든’·‘어떤’)가 들어간 문장의 부정과 정의의 해석</p>
+
+  <div class="meta">
+    <span><strong>학생:</strong> 민사고 배준영</span>
+    <span><strong>질문일:</strong> 2026-07-12</span>
+    <span><strong>문항:</strong> TMUA 2018 Paper 2 Q12, TMUA 2017 Paper 2 Q17</span>
+  </div>
+
+  <div class="print-bar">
+    <button class="print-btn" type="button" onclick="window.print()">PDF로 인쇄 / 저장</button>
+  </div>
+
+  <nav class="bookmarks" aria-label="문서 바로가기">
+    <a href="#ko-version">한글 버전</a>
+    <a href="#ko-answer-key">한글 정답 및 해설</a>
+    <a href="#en-version">English Version</a>
+    <a href="#en-answer-key">English Answers and Explanations</a>
+  </nav>
+
+  <section id="ko-version" class="language-start">
+    <h2>한글 버전</h2>
+
+    <h3>1. 핵심 개념</h3>
+
+    <h4>개념 1. 양화사(‘모든’ ∀, ‘어떤’ ∃)가 들어간 문장의 부정</h4>
+    <div class="formula">
+      \[
+      \neg(\forall x\,P(x))\equiv \exists x\,\neg P(x)
+      \]
+      \[
+      \neg(\exists x\,P(x))\equiv \forall x\,\neg P(x)
+      \]
+    </div>
+    <p>“모든 \(x\)가 성질 \(P\)를 가진다”의 부정은 “성질 \(P\)를 가지지 않는 \(x\)가 적어도 하나 존재한다”이다.</p>
+
+    <h4>개념 2. ‘모든’과 ‘어떤’의 순서는 바꿀 수 없다</h4>
+    <div class="formula">
+      \[
+      \forall x\exists y\,P(x,y)
+      \qquad\text{와}\qquad
+      \exists y\forall x\,P(x,y)
+      \]
+    </div>
+    <p>첫 번째 명제에서는 각 \(x\)마다 서로 다른 \(y\)를 선택할 수 있다. 두 번째 명제에서는 하나의 고정된 \(y\)가 모든 \(x\)에 대해 작동해야 한다.</p>
+
+    <h4>개념 3. 정의 전체의 부정</h4>
+    <p>정의가 여러 개의 양화사로 이루어져 있다면 가장 바깥 양화사부터 차례대로 뒤집고, 마지막 조건도 부정한다.</p>
+
+    <h3>2. 예제 1 — TMUA 2018 Paper 2 Question 12</h3>
+
+    <p><strong>원래 명제</strong></p>
+    <p>모든 양의 정수 \(N\)에 대하여, 어떤 양의 정수 \(K\)가 존재하여 모든 양의 정수 \(m\)에 대해 \(N(Km+1)-1\)은 소수가 아니다.</p>
+
+    <div class="formula">
+      \[
+      \forall N\in\mathbb{Z}^{+}\;
+      \exists K\in\mathbb{Z}^{+}\;
+      \forall m\in\mathbb{Z}^{+},\quad
+      N(Km+1)-1\text{ is not prime.}
+      \]
+    </div>
+
+    <p><strong>부정</strong></p>
+    <div class="formula">
+      \[
+      \exists N\in\mathbb{Z}^{+}\;
+      \forall K\in\mathbb{Z}^{+}\;
+      \exists m\in\mathbb{Z}^{+},\quad
+      N(Km+1)-1\text{ is prime.}
+      \]
+    </div>
+    <p>따라서 정답은 <strong>F</strong>이다.</p>
+
+    <h3>3. 예제 2 — TMUA 2017 Paper 2 Question 17</h3>
+
+    <p>집합 \(S\)가 stapled라는 뜻은 다음과 같다.</p>
+    <p>모든 \(a\in S\)에 대하여, \(a\)의 어떤 소인수 \(p\)가 존재하고, 그 \(p\)가 \(S\) 안의 다른 원소 하나 이상을 나눈다.</p>
+
+    <div class="formula">
+      \[
+      \forall a\in S\;
+      \exists p\mid a\;
+      \exists b\in S\setminus\{a\},\quad p\mid b.
+      \]
+    </div>
+
+    <p>따라서 not stapled는 다음과 같다.</p>
+
+    <div class="formula">
+      \[
+      \exists a\in S\;
+      \forall p\mid a\;
+      \forall b\in S\setminus\{a\},\quad p\nmid b.
+      \]
+    </div>
+
+    <p>즉, 어떤 원소 \(a\)가 하나 존재하여 그 원소의 모든 소인수가 다른 원소와 전혀 공유되지 않는다. 따라서 정답은 <strong>F</strong>이다.</p>
+
+    <h2>연습문제 10제</h2>
+    <p class="section-note">각 문제는 풀이 과정을 쓰고, 양화사(‘모든’, ‘어떤’)의 순서가 어떻게 바뀌는지 먼저 기호로 나타낸다.</p>
+
+    <div class="question">
+      <div class="question-title">문제 1</div>
+      <p>다음 명제의 부정을 기호로 쓰시오.</p>
+      <div class="formula">
+        \[
+        \forall x\in\mathbb R\;\exists y\in\mathbb R,\quad x+y=0.
+        \]
+      </div>
+      <div class="answer-space"></div>
+    </div>
+
+    <div class="question">
+      <div class="question-title">문제 2</div>
+      <p>다음 명제의 부정을 쓰시오.</p>
+      <div class="formula">
+        \[
+        \exists n\in\mathbb{Z}^{+}\;\forall m\in\mathbb{Z}^{+},\quad n+m&gt;10.
+        \]
+      </div>
+      <div class="answer-space"></div>
+    </div>
+
+    <div class="question">
+      <div class="question-title">문제 3</div>
+      <p>\(\neg(\forall a\exists b\,P(a,b))\)와 동치인 것을 고르시오.</p>
+      <p>A. \(\forall a\forall b\,\neg P(a,b)\)</p>
+      <p>B. \(\exists a\forall b\,\neg P(a,b)\)</p>
+      <p>C. \(\exists a\exists b\,\neg P(a,b)\)</p>
+      <p>D. \(\forall a\exists b\,\neg P(a,b)\)</p>
+      <div class="answer-space"></div>
+    </div>
+
+    <div class="question">
+      <div class="question-title">문제 4</div>
+      <p>다음 명제의 부정을 쓰시오.</p>
+      <div class="formula">
+        \[
+        \forall x\in\mathbb R\;\exists y\in\mathbb R\;\forall z\in\mathbb R,
+        \quad x+y+z\ge 0.
+        \]
+      </div>
+      <div class="answer-space tall"></div>
+    </div>
+
+    <div class="question">
+      <div class="question-title">문제 5</div>
+      <p>\(A=\{6,10,15\}\)가 stapled인지 판정하고 각 원소에 대해 근거를 쓰시오.</p>
+      <div class="answer-space tall"></div>
+    </div>
+
+    <div class="question">
+      <div class="question-title">문제 6</div>
+      <p>\(B=\{6,10,35\}\)가 stapled인지 판정하고, 그렇지 않다면 실패 원소를 찾으시오.</p>
+      <div class="answer-space tall"></div>
+    </div>
+
+    <div class="question">
+      <div class="question-title">문제 7</div>
+      <p>\(C=\{14,21,25\}\)가 stapled인지 판정하시오.</p>
+      <div class="answer-space"></div>
+    </div>
+
+    <div class="question">
+      <div class="question-title">문제 8</div>
+      <p>\(D=\{12,18,25,35\}\)가 stapled인지 판정하고, 각 원소가 어떤 소인수를 다른 원소와 공유하는지 쓰시오.</p>
+      <div class="answer-space tall"></div>
+    </div>
+
+    <div class="question">
+      <div class="question-title">문제 9</div>
+      <p>다음 두 명제가 왜 서로 다른지 설명하시오.</p>
+      <div class="formula">
+        \[
+        \forall x\exists y\;(x+y=0)
+        \qquad\text{and}\qquad
+        \exists y\forall x\;(x+y=0).
+        \]
+      </div>
+      <div class="answer-space tall"></div>
+    </div>
+
+    <div class="question">
+      <div class="question-title">문제 10</div>
+      <p>다음 문장을 기호로 나타낸 뒤 그 부정을 쓰시오.</p>
+      <p>“모든 학생에게는 적어도 한 과목에서 그 학생보다 높은 점수를 받은 다른 학생이 존재한다.”</p>
+      <div class="answer-space tall"></div>
+    </div>
+
+    <section id="ko-answer-key" class="answer-key language-start">
+      <h2>한글 정답 및 자세한 해설</h2>
+
+      <div class="solution">
+        <div class="solution-number">문제 1 해설</div>
+        <div class="formula">
+          \[
+          \neg\left(\forall x\in\mathbb R\;\exists y\in\mathbb R,\;x+y=0\right)
+          \]
+          \[
+          \equiv
+          \exists x\in\mathbb R\;\forall y\in\mathbb R,\;x+y\ne 0.
+          \]
+        </div>
+        <p>전칭양화사 \(\forall\)(‘모든’)는 존재양화사 \(\exists\)(‘어떤 …이 존재한다’)로 바뀌고, 존재양화사 \(\exists\)는 전칭양화사 \(\forall\)로 바뀐다. 마지막 조건 \(x+y=0\)은 \(x+y\ne0\)으로 부정된다.</p>
+      </div>
+
+      <div class="solution">
+        <div class="solution-number">문제 2 해설</div>
+        <div class="formula">
+          \[
+          \neg\left(\exists n\in\mathbb{Z}^{+}\;\forall m\in\mathbb{Z}^{+},\;n+m&gt;10\right)
+          \]
+          \[
+          \equiv
+          \forall n\in\mathbb{Z}^{+}\;\exists m\in\mathbb{Z}^{+},\;n+m\le10.
+          \]
+        </div>
+        <p>“어떤 \(n\)이 존재한다”의 부정은 “모든 \(n\)에 대하여”이고, “모든 \(m\)”의 부정은 “어떤 \(m\)이 존재한다”이다. 부등식 \(>10\)의 부정은 \(\le10\)이다.</p>
+      </div>
+
+      <div class="solution">
+        <div class="solution-number">문제 3 해설</div>
+        <p><strong>정답: B</strong></p>
+        <div class="formula">
+          \[
+          \neg(\forall a\exists b\,P(a,b))
+          \equiv
+          \exists a\forall b\,\neg P(a,b).
+          \]
+        </div>
+        <p>양화사는 순서대로 하나씩 뒤집는다. \(\forall a\)는 \(\exists a\)로, \(\exists b\)는 \(\forall b\)로 바뀌며, 마지막 명제 \(P(a,b)\)는 \(\neg P(a,b)\)가 된다.</p>
+      </div>
+
+      <div class="solution">
+        <div class="solution-number">문제 4 해설</div>
+        <div class="formula">
+          \[
+          \exists x\in\mathbb R\;\forall y\in\mathbb R\;\exists z\in\mathbb R,
+          \quad x+y+z&lt;0.
+          \]
+        </div>
+        <p>세 개의 양화사가 \(\forall\to\exists\), \(\exists\to\forall\), \(\forall\to\exists\) 순서로 바뀐다. \(x+y+z\ge0\)의 부정은 \(x+y+z&lt;0\)이다.</p>
+      </div>
+
+      <div class="solution">
+        <div class="solution-number">문제 5 해설</div>
+        <p><strong>\(A=\{6,10,15\}\)는 stapled이다.</strong></p>
+        <table>
+          <tr><th>원소</th><th>소인수</th><th>다른 원소와 공유되는 소인수</th></tr>
+          <tr><td>6</td><td>2, 3</td><td>2는 10과 공유, 3은 15와 공유</td></tr>
+          <tr><td>10</td><td>2, 5</td><td>2는 6과 공유, 5는 15와 공유</td></tr>
+          <tr><td>15</td><td>3, 5</td><td>3은 6과 공유, 5는 10과 공유</td></tr>
+        </table>
+        <p>모든 원소가 적어도 하나의 소인수를 다른 원소와 공유하므로 정의를 만족한다.</p>
+      </div>
+
+      <div class="solution">
+        <div class="solution-number">문제 6 해설</div>
+        <p><strong>\(B=\{6,10,35\}\)는 stapled가 아니다.</strong></p>
+        <p>6은 10과 소인수 2를 공유한다. 10은 6과 소인수 2를 공유한다. 그러나 35의 소인수는 5와 7인데, 6과 10 중 어느 것도 5 또는 7로 나누어지지 않는다. 따라서 실패 원소는 \(35\)이다.</p>
+      </div>
+
+      <div class="solution">
+        <div class="solution-number">문제 7 해설</div>
+        <p><strong>\(C=\{14,21,25\}\)는 stapled가 아니다.</strong></p>
+        <p>14와 21은 소인수 7을 공유한다. 그러나 25의 유일한 소인수는 5이고, 14와 21은 모두 5로 나누어지지 않는다. 따라서 25가 실패 원소이다.</p>
+      </div>
+
+      <div class="solution">
+        <div class="solution-number">문제 8 해설</div>
+        <p><strong>\(D=\{12,18,25,35\}\)는 stapled이다.</strong></p>
+        <table>
+          <tr><th>원소</th><th>공유되는 소인수</th><th>공유 상대</th></tr>
+          <tr><td>12</td><td>2 또는 3</td><td>18</td></tr>
+          <tr><td>18</td><td>2 또는 3</td><td>12</td></tr>
+          <tr><td>25</td><td>5</td><td>35</td></tr>
+          <tr><td>35</td><td>5</td><td>25</td></tr>
+        </table>
+        <p>모든 원소가 적어도 하나의 소인수를 다른 원소와 공유한다.</p>
+      </div>
+
+      <div class="solution">
+        <div class="solution-number">문제 9 해설</div>
+        <p>첫 번째 명제는 참이다.</p>
+        <div class="formula">
+          \[
+          \forall x\exists y\;(x+y=0)
+          \]
+        </div>
+        <p>각 \(x\)가 주어질 때 \(y=-x\)를 선택하면 된다. 여기서는 \(x\)에 따라 \(y\)가 달라져도 된다.</p>
+        <p>두 번째 명제는 거짓이다.</p>
+        <div class="formula">
+          \[
+          \exists y\forall x\;(x+y=0)
+          \]
+        </div>
+        <p>하나의 고정된 \(y\)가 모든 \(x\)에 대해 \(x+y=0\)을 만족해야 한다. 그러나 서로 다른 두 값 \(x=0\), \(x=1\)에 대해 동시에 만족하는 하나의 \(y\)는 존재하지 않는다.</p>
+      </div>
+
+      <div class="solution">
+        <div class="solution-number">문제 10 해설</div>
+        <p>학생의 집합을 \(S\), 과목의 집합을 \(C\), 학생 \(s\)의 과목 \(c\) 점수를 \(M(s,c)\)라 하자.</p>
+        <p>원래 문장은 다음과 같이 쓸 수 있다.</p>
+        <div class="formula">
+          \[
+          \forall s\in S\;\exists t\in S\setminus\{s\}\;\exists c\in C,
+          \quad M(t,c)>M(s,c).
+          \]
+        </div>
+        <p>부정은 다음과 같다.</p>
+        <div class="formula">
+          \[
+          \exists s\in S\;\forall t\in S\setminus\{s\}\;\forall c\in C,
+          \quad M(t,c)\le M(s,c).
+          \]
+        </div>
+        <p>즉, 어떤 학생 한 명이 존재하여 다른 모든 학생이 모든 과목에서 그 학생보다 높은 점수를 받지 못한다는 뜻이다.</p>
+      </div>
+    </section>
+  </section>
+
+  
+<section class="z-note">
+  <h3>기호 공부: \(\mathbb{Z}^{+}\)는 무엇인가?</h3>
+  <p>\(\mathbb{Z}\)는 정수 전체의 집합을 뜻한다.</p>
+  <div class="formula">
+    \[
+    \mathbb{Z}=\{\ldots,-3,-2,-1,0,1,2,3,\ldots\}
+    \]
+  </div>
+  <p>여기서 위첨자 \(+\)를 붙인 \(\mathbb{Z}^{+}\)는 양의 정수의 집합을 뜻한다.</p>
+  <div class="formula">
+    \[
+    \mathbb{Z}^{+}=\{1,2,3,\ldots\}
+    \]
+  </div>
+  <p>즉, \(0\)은 포함하지 않는다. 문헌에 따라 \(\mathbb{Z}_{+}\)가 \(0\)을 포함하는 경우도 있으므로, 이 문서에서는 의미가 분명하도록 \(\mathbb{Z}^{+}=\{1,2,3,\ldots\}\)로 사용한다.</p>
+</section>
+
+<section id="en-version" class="language-start page-break">
+    <h2>English Version</h2>
+
+    <h3>1. Core Concepts</h3>
+
+    <h4>Concept 1. Negating universal and existential statements</h4>
+    <div class="formula">
+      \[
+      \neg(\forall x\,P(x))\equiv \exists x\,\neg P(x)
+      \]
+      \[
+      \neg(\exists x\,P(x))\equiv \forall x\,\neg P(x)
+      \]
+    </div>
+    <p>The negation of “every \(x\) has property \(P\)” is “there exists at least one \(x\) that does not have property \(P\).”</p>
+
+    <h4>Concept 2. The order of the quantifiers matters</h4>
+    <div class="formula">
+      \[
+      \forall x\exists y\,P(x,y)
+      \qquad\text{and}\qquad
+      \exists y\forall x\,P(x,y)
+      \]
+    </div>
+    <p>In the first statement, the value of \(y\) may depend on \(x\). In the second statement, one fixed value of \(y\) must work for every \(x\).</p>
+
+    <h4>Concept 3. Negating a definition</h4>
+    <p>When a definition contains several quantifiers, reverse them one by one from the outside in, and then negate the final condition.</p>
+
+    <h3>2. Example 1 — TMUA 2018 Paper 2 Question 12</h3>
+
+    <div class="formula">
+      \[
+      \forall N\in\mathbb{Z}^{+}\;
+      \exists K\in\mathbb{Z}^{+}\;
+      \forall m\in\mathbb{Z}^{+},\quad
+      N(Km+1)-1\text{ is not prime.}
+      \]
+    </div>
+
+    <p>Its negation is</p>
+
+    <div class="formula">
+      \[
+      \exists N\in\mathbb{Z}^{+}\;
+      \forall K\in\mathbb{Z}^{+}\;
+      \exists m\in\mathbb{Z}^{+},\quad
+      N(Km+1)-1\text{ is prime.}
+      \]
+    </div>
+
+    <p>Therefore the correct answer is <strong>F</strong>.</p>
+
+    <h3>3. Example 2 — TMUA 2017 Paper 2 Question 17</h3>
+
+    <p>A set \(S\) is stapled if</p>
+
+    <div class="formula">
+      \[
+      \forall a\in S\;
+      \exists p\mid a\;
+      \exists b\in S\setminus\{a\},\quad p\mid b.
+      \]
+    </div>
+
+    <p>Therefore, \(S\) is not stapled if</p>
+
+    <div class="formula">
+      \[
+      \exists a\in S\;
+      \forall p\mid a\;
+      \forall b\in S\setminus\{a\},\quad p\nmid b.
+      \]
+    </div>
+
+    <p>So there is one element whose prime factors divide no other element in the set. The correct answer is <strong>F</strong>.</p>
+
+    <h2>Exercises</h2>
+
+    <div class="question">
+      <div class="question-title">Exercise 1</div>
+      <p>Negate the following statement.</p>
+      <div class="formula">
+        \[
+        \forall x\in\mathbb R\;\exists y\in\mathbb R,\quad x+y=0.
+        \]
+      </div>
+      <div class="answer-space"></div>
+    </div>
+
+    <div class="question">
+      <div class="question-title">Exercise 2</div>
+      <p>Negate the following statement.</p>
+      <div class="formula">
+        \[
+        \exists n\in\mathbb{Z}^{+}\;\forall m\in\mathbb{Z}^{+},\quad n+m&gt;10.
+        \]
+      </div>
+      <div class="answer-space"></div>
+    </div>
+
+    <div class="question">
+      <div class="question-title">Exercise 3</div>
+      <p>Which statement is equivalent to \(\neg(\forall a\exists b\,P(a,b))\)?</p>
+      <p>A. \(\forall a\forall b\,\neg P(a,b)\)</p>
+      <p>B. \(\exists a\forall b\,\neg P(a,b)\)</p>
+      <p>C. \(\exists a\exists b\,\neg P(a,b)\)</p>
+      <p>D. \(\forall a\exists b\,\neg P(a,b)\)</p>
+      <div class="answer-space"></div>
+    </div>
+
+    <div class="question">
+      <div class="question-title">Exercise 4</div>
+      <p>Negate the following statement.</p>
+      <div class="formula">
+        \[
+        \forall x\in\mathbb R\;\exists y\in\mathbb R\;\forall z\in\mathbb R,
+        \quad x+y+z\ge 0.
+        \]
+      </div>
+      <div class="answer-space tall"></div>
+    </div>
+
+    <div class="question">
+      <div class="question-title">Exercise 5</div>
+      <p>Determine whether \(A=\{6,10,15\}\) is stapled. Justify your answer for every element.</p>
+      <div class="answer-space tall"></div>
+    </div>
+
+    <div class="question">
+      <div class="question-title">Exercise 6</div>
+      <p>Determine whether \(B=\{6,10,35\}\) is stapled. If not, identify a witness element.</p>
+      <div class="answer-space tall"></div>
+    </div>
+
+    <div class="question">
+      <div class="question-title">Exercise 7</div>
+      <p>Determine whether \(C=\{14,21,25\}\) is stapled.</p>
+      <div class="answer-space"></div>
+    </div>
+
+    <div class="question">
+      <div class="question-title">Exercise 8</div>
+      <p>Determine whether \(D=\{12,18,25,35\}\) is stapled. State which prime factor each element shares with another element.</p>
+      <div class="answer-space tall"></div>
+    </div>
+
+    <div class="question">
+      <div class="question-title">Exercise 9</div>
+      <p>Explain why the following statements are different.</p>
+      <div class="formula">
+        \[
+        \forall x\exists y\;(x+y=0)
+        \qquad\text{and}\qquad
+        \exists y\forall x\;(x+y=0).
+        \]
+      </div>
+      <div class="answer-space tall"></div>
+    </div>
+
+    <div class="question">
+      <div class="question-title">Exercise 10</div>
+      <p>Write the following statement symbolically and then negate it.</p>
+      <p>“For every student, there is another student who scored higher in at least one subject.”</p>
+      <div class="answer-space tall"></div>
+    </div>
+
+    <section id="en-answer-key" class="answer-key language-start">
+      <h2>English Answers and Detailed Explanations</h2>
+
+      <div class="solution">
+        <div class="solution-number">Exercise 1</div>
+        <div class="formula">
+          \[
+          \exists x\in\mathbb R\;\forall y\in\mathbb R,\quad x+y\ne0.
+          \]
+        </div>
+        <p>The universal quantifier becomes existential, the existential quantifier becomes universal, and the equation \(x+y=0\) becomes \(x+y\ne0\).</p>
+      </div>
+
+      <div class="solution">
+        <div class="solution-number">Exercise 2</div>
+        <div class="formula">
+          \[
+          \forall n\in\mathbb{Z}^{+}\;\exists m\in\mathbb{Z}^{+},\quad n+m\le10.
+          \]
+        </div>
+        <p>The phrase “there exists \(n\)” becomes “for every \(n\),” while “for every \(m\)” becomes “there exists \(m\).” The negation of \(>10\) is \(\le10\).</p>
+      </div>
+
+      <div class="solution">
+        <div class="solution-number">Exercise 3</div>
+        <p><strong>Answer: B</strong></p>
+        <div class="formula">
+          \[
+          \neg(\forall a\exists b\,P(a,b))
+          \equiv
+          \exists a\forall b\,\neg P(a,b).
+          \]
+        </div>
+      </div>
+
+      <div class="solution">
+        <div class="solution-number">Exercise 4</div>
+        <div class="formula">
+          \[
+          \exists x\in\mathbb R\;\forall y\in\mathbb R\;\exists z\in\mathbb R,
+          \quad x+y+z&lt;0.
+          \]
+        </div>
+        <p>Each quantifier is reversed in order, and the negation of \(x+y+z\ge0\) is \(x+y+z&lt;0\).</p>
+      </div>
+
+      <div class="solution">
+        <div class="solution-number">Exercise 5</div>
+        <p><strong>\(A=\{6,10,15\}\) is stapled.</strong></p>
+        <p>The number 6 shares 2 with 10 or 3 with 15. The number 10 shares 2 with 6 or 5 with 15. The number 15 shares 3 with 6 or 5 with 10.</p>
+      </div>
+
+      <div class="solution">
+        <div class="solution-number">Exercise 6</div>
+        <p><strong>\(B=\{6,10,35\}\) is not stapled.</strong></p>
+        <p>The witness element is 35. Its prime factors are 5 and 7, and neither of them divides 6 or 10.</p>
+      </div>
+
+      <div class="solution">
+        <div class="solution-number">Exercise 7</div>
+        <p><strong>\(C=\{14,21,25\}\) is not stapled.</strong></p>
+        <p>The numbers 14 and 21 share the prime factor 7. However, 25 has only the prime factor 5, and 5 divides neither 14 nor 21.</p>
+      </div>
+
+      <div class="solution">
+        <div class="solution-number">Exercise 8</div>
+        <p><strong>\(D=\{12,18,25,35\}\) is stapled.</strong></p>
+        <p>The numbers 12 and 18 share 2 or 3. The numbers 25 and 35 share 5. Hence every element shares at least one prime factor with another element.</p>
+      </div>
+
+      <div class="solution">
+        <div class="solution-number">Exercise 9</div>
+        <p>The first statement is true because for each \(x\), we may choose \(y=-x\). The value of \(y\) may depend on \(x\).</p>
+        <p>The second statement is false because one fixed value of \(y\) would have to satisfy \(x+y=0\) for every real \(x\), which is impossible.</p>
+      </div>
+
+      <div class="solution">
+        <div class="solution-number">Exercise 10</div>
+        <p>Let \(S\) be the set of students, \(C\) the set of subjects, and let \(M(s,c)\) denote the score of student \(s\) in subject \(c\).</p>
+        <div class="formula">
+          \[
+          \forall s\in S\;\exists t\in S\setminus\{s\}\;\exists c\in C,
+          \quad M(t,c)>M(s,c).
+          \]
+        </div>
+        <p>The negation is</p>
+        <div class="formula">
+          \[
+          \exists s\in S\;\forall t\in S\setminus\{s\}\;\forall c\in C,
+          \quad M(t,c)\le M(s,c).
+          \]
+        </div>
+        <p>This means that there is at least one student such that no other student scores higher in any subject.</p>
+      </div>
+    </section>
+  </section>
+
+  
+<section class="z-note">
+  <h3>Notation Note: What does \(\mathbb{Z}^{+}\) mean?</h3>
+  <p>\(\mathbb{Z}\) denotes the set of all integers.</p>
+  <div class="formula">
+    \[
+    \mathbb{Z}=\{\ldots,-3,-2,-1,0,1,2,3,\ldots\}
+    \]
+  </div>
+  <p>The superscript \(+\) indicates the positive integers.</p>
+  <div class="formula">
+    \[
+    \mathbb{Z}^{+}=\{1,2,3,\ldots\}
+    \]
+  </div>
+  <p>Thus, \(0\) is not included. Some sources use \(\mathbb{Z}_{+}\) differently, so this document uses \(\mathbb{Z}^{+}\) to avoid ambiguity.</p>
+</section>
+
+<div class="footer">
+    TMUA 논리 명제 학습 자료 · 2026-07-12
+  </div>
+
+</main>
+</body>
+</html>
